@@ -2,112 +2,110 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.upnp/README.md
-title: ioBroker.upnp
-hash: 4sdZO6IOGBcPd76d69n1/OCVpuBx87HVNQMT8DnOjvo=
+title: TR: ioBroker.upnp
+hash: HJxTPvVhDbLKVrCZXT6q+fgUyDw1V6xjVS/RgGT+afE=
 ---
-![Логотип](../../../en/adapterref/iobroker.upnp/admin/upnp-discovery.png)
+![TR: Logo](../../../en/adapterref/iobroker.upnp/admin/upnp-discovery.png)
 
-![Количество установок](http://iobroker.live/badges/upnp-stable.svg)
-![Логотип](http://img.shields.io/npm/v/iobroker.upnp.svg)
-![Изображение](https://travis-ci.org/Jey-Cee/ioBroker.upnp.svg?branch=master)
+![TR: Number of Installations](http://iobroker.live/badges/upnp-stable.svg)
+![TR: Logo](http://img.shields.io/npm/v/iobroker.upnp.svg)
+![TR: Image](https://travis-ci.org/Jey-Cee/ioBroker.upnp.svg?branch=master)
 
-# IoBroker.upnp
-*** Требуется узел 10.x +! ***
+TR: # ioBroker.upnp
+TR: 1. [Deutsch](#german_description)
+TR: 	 * [Was ist UPnP?](#was-ist-upnp)
+TR: 	 * [Funktionsbeschreibung](#funktionsbeschreibung)
+TR: 	 * [Objektstruktur](#objektstruktur)
+TR: 	 * [Allgemeine Objekte](#allgemeine-objekte)
+TR: 	 * [Upnp Objekte](#upnp-objekte)
+TR: 	 * [Steuerung](#steuerung)
+TR: 	 * [Geräte/Dienst Spezifische Besonderheiten](#gerätedienst-spezifische-besonderheiten)
 
-1. [Deutsch] (# german_description)
-* [Was ist UPnP?] (# Was-ist-upnp)
-* [Funktionsbeschreibung] (# funktionsbeschreibung)
-* [Objektstruktur] (# objektstruktur)
-* [Allgemeine Objekte] (# allgemeine-objekte)
-* [Upnp Objekte] (# upnp-objekte)
-* [Steuerung] (# steuerung)
-* [Geräte / Dienst Spezifische Besonderheiten] (# gerätedienst-spezifische-besonderheiten)
+TR: 2. [English](#english_description)
+TR: 	* [What is UPnP?](#what-is-upnp)
+TR: 	* [Functional description](#functional-description)
+TR: 	* [Object structure](#object-structure)
+TR: 	* [General Objects](#general-objects)
+TR: 	* [Upnp Objects](#object-structure)
+TR: 	* [Control](#control)
+TR: 	* [Devices/Service Specific Features](#devicesservice-specific-features)
 
-2. [английский] (# english_description)
-* [Что такое UPnP?] (# What-is-upnp)
-* [Функциональное описание] (# функциональное-описание)
-* [Структура объекта] (# объект-структура)
-* [Общие объекты] (# общие объекты)
-* [Upnp Objects] (# объект-структура)
-* [Control] (# control)
-* [Устройства / особенности службы] (# устройств, специфичных для службы)
+TR: 3. [Changelog](#changelog)
 
-3. [Список изменений] (# список изменений)
+TR: ## German Description
+TR: ### Verwendungszweck
+TR: Dient der Kommunikation und Interaktion mit allen UPnP-Fähigen Geräten.
 
-## Немецкое описание
-### Verwendungszweck
-Dient der Kommunikation und Interaktion mit allen UPnP-Fähigen Geräten.
+TR: #### Was ist UPnP?
+TR: UPnP = Universal Plug and Play. Ist der versuch eine Standardisierung der Kommunikation zwischen Geräten im Netzwerk herzustellen.
+Dazu gibt es sogenannte „Schemas“, diese werden in form einer xml Datei dargestellt. Sie enthalten alle Information über das Gerät oder die Software und deren Dienste die sie bereit stellen. Damit diese Dienste auch Nutzbar sind, wird auch eine Beschreibung zu jedem Dienst mitgeliefert. Diese Beschreibung folgt dem für den Dienst festgelegten Schema, dadurch können schnell Informationen und Befehle ausgetauscht werden ohne das es nötig ist zu wissen um welches Modell oder von welchem Hersteller das Gerät oder die Software ist.  In der Vergangenheit wurde diese Standardisierung vor allem für Mediengeräte und Software genutzt. Seit einiger Zeit gibt es Bestrebungen auch die Kommunikation des „IoT – Internet of Things“ mit dieser Standardisierung zu vereinheitlichen.
+Dazu wurde 2016 die „Open connectivity Foundation“ gegründet, diese übernimmt die Aufgaben des UPnP-Forums, welches die Zertifizierung von UPnP-Fähigen Geräten durchgeführt und Standards erstellt hat.
 
-#### Был ли UPnP?
-UPnP = универсальный Plug and Play. Ist der versuch eine Standardisierung der Kommunikation zwischen Geräten im Netzwerk herzustellen.
-Dazu gibt es sogenannte «Schemas», diese werden in form einer xml Datei dargestellt. Sie enthalten all Information über das Gerät oder die Software und deren Dienste die sie bereit stellen. Damit diese Dienste auch Nutzbar sind, wird auch eine Beschreibung zu jedem Dienst mitgeliefert. Diese Beschreibung folgt dem für den Dienst festgelegten Schema, dadurch können schnell Informationen und Befehle ausgetauscht werden ohne das es nötig ist zu wissen um Welches Modell oder von welchem Hersteller das Gerät oder die Software ist. In der Vergangenheit wurde diese Standardisierung vor allem für Mediengeräte und Software genutzt. Seit einiger Zeit gibt es Bestrebungen auch die Kommunikation des «IoT - Internet of Things» mit dieser Standardisierung zu vereinheitlichen.
-Dazu wurde 2016 die «Open Connectivity Foundation» gegründet, diese übernimmt die Aufgaben des UPnP-Forums, welches die Zertifizierung von UPnP-Fähigen Geräten durchgeführt und Standards erstellt hat.
+TR: #### Funktionsbeschreibung
+TR: Der Adapter führt beim ersten Start einen Broadcast durch und Wertet die Antworten aus. Die Antworten enthalten den Link zu den xml Dateien der Dienste. Anhand der xml Dateien werden die Objekte in ioBroker erzeugt und mit allen verfügbaren Informationen befüllt.
 
-#### Funktionsbeschreibung
-Der Adapter führt beim ersten Start einen Broadcast durch und Wertet die Antworten aus. Die Antworten enthalten den Link zu den xml Dateien der Dienste. Anhand der xml Dateien werden die Objekte in ioBroker erzeugt und mit allen verfügbaren Informationen befüllt.
+TR: Zeitverzögert wird ein Dienst gestartet der auf Nachrichten von Geräten/Diensten wartet die sich an- oder abmelden. Neu erkannte Geräte/Dienste werden automatisch zu den vorhandenen hinzugefügt. Ein zweiter Dienst meldet sich bei jedem verfügbaren Gerät an und Abonniert Statusmeldungen, damit bekommt ioBroker jede Änderung (die gesendet wird) des Gerätes/Dienstes automatisch mitgeteilt.
 
-Zeitverzögert wird ein Dienst gestartet der auf Nachrichten von Geräten / Diensten wartet die sich anoder abmelden. Neu erkannte Geräte / Dienste werden automatisch zu den vorhandenen hinzugefügt. Ein zweiter Dienst meldet sich bei jedem verfügbaren Gerät an und Abonniert Statusmeldungen, damit bekommt ioBroker jede Änderung (die gesendet wird) des Gerätes / Dienstes automatisch mitgeteilt.
+TR: #### Objektstruktur
+TR: Jedes Gerät oder Software die auf den Broadcast reagiert wird als eigenständiges Objekt angelegt. Unterhalb dieses Objekts befinden sich alle bereitgestellten Dienste mit ihren Möglichkeiten. Die Möglichkeiten werden in 3 Kategorien (Rolle/role) eingeteilt: indicator.state, action und argument.
 
-#### Objektstruktur
-Jedes Gerät или Software Die auf den Broadcast реагирует на собственные запросы Objekt angelegt. Unterhalb dieses Objekts befinden sich alle bereitgestellten Dienste mit ihren Möglichkeiten. Die Möglichkeiten werden in 3 Kategorien (Rolle / role) eingeteilt: indicator.state, action und argument.
+TR: **state –** ist eine Variable die den Aktuellen zustand eines Objekts/Datenpunkts im Gerät/Dienst darstellt. Jeder indicator.state hat einen bestimmten Type wie number, string, boolean,…. Darüber hinaus ist auch genau festgelegt welchen Wert oder Wertebereich der inidcator.state haben kann, diese Angaben sind im „native“ eines Objekts hinterlegt.
+Bisher implementierte native’s:
 
-** состояние - ** ist eine Variable die den Aktuellen zustand eines Objekts / Datenpunkts im Gerät / Dienst darstellt. Jeder indicator.state hat einen bestimmten Введите число, строка, логическое значение,…. Darüber hinaus ist auch genau festgelegt welchen Wert oder Wertebereich der inidcator.state haben kann, diese Angaben sind im «native» eines Objekts hinterlegt.
-Bisher Implementierte native’s:
+TR: -	sendEvents		= Bedeutung bis jetzt Unbekannt.
+TR: -	allowedValues		= Strings die Akzeptiert werden.
+TR: -	minimum			= Gibt den niedrigsten Zahlen wert an der Akzeptiert wird.
+TR: -	maximum			= Gibt den höchsten Zahlen wert an der Akzeptiert wird.
+TR: -	step			=  Gibt an in welchen Schritten ein Wert verändert werden kann.
 
-- sendEvents = Bedeutung bis jetzt Unbekannt.
-- allowedValues = Strings die Akzeptiert werden.
-- минимум = Gibt den niedrigsten Zahlen wert an der Akzeptiert wird.
-- максимум = Gibt den höchsten Zahlen wert an der Akzeptiert wird.
-- step = Gibt an in welchen Schritten ein Wert verändert werden kann.
+TR: **button –** "request" ist ein Befehl der an das Gerät/den Dienst geschickt werden kann und von diesem Aktzeptiert wird. Dieses Objekt hat im Regelfall ein Unterobjekt, das argument.
 
-** кнопка - ** «запрос» - это Befehl der an das Gerät / den Dienst geschickt werden kann und von diesem Aktzeptiert wird. Dieses Objekt hat im Regelfall ein Unterobjekt, das argument.
+TR: **argument –** ist ein Unterobjekt von einer Aktion-Channel. Der Type ist „gemischt“ da er nicht vorgegeben wird. In den native’s des Objekts finden sich verschiedene Informationen, sie können von argument zu argument anders sein.
+Bisher bekannte native‘s:
 
-** аргумент - ** ist ein Unterobjekt von einer Aktion-Channel. Der Type ist «gemischt» da er nicht vorgegeben wird. In den native’s des Objekts finden sich verschiedene Informationen, sie können von argument zu argument anders sein.
-Бишер беканнте уроженец:
+TR: -	direction 		=  	Gibt die Richtung an in der der Informationsfluss statt findet.
 
-- direction = Gibt die Richtung an in der der Informationsfluss statt findet.
+TR: „In“ bedeutet es wird kein Wert zurück geliefert.
+„Out“ bedeutet es wird ein Wert zurück geliefert.
 
-«In» bedeutet es wird kein Wert zurück geliefert.
-«Out» bedeutet es wird ein Wert zurück geliefert.
+TR: -	relatedStateVariable	= 	Gibt den indicator.state an der für den Austausch der Daten
 
-- relatedStateVariable = Индикатор гибкости. состояние an der für den Austausch der Daten
+TR: 					Zuständig ist.
 
-Zuständig ist.
+TR: -	argumentNumber		= 	Gibt an das wievielte Argument der Action es ist.
 
-- аргументNumber = Gibt an das wievielte Argument der Action es ist.
+TR: ### Allgemeine Objekte
+TR: Die folgenden Objekte finden sich für jedes Gerät/jeden Dienst und werden zur Verwaltung benötigt. Sie sind nicht Bestandteil des UPnP Standards oder der Geräte-/Dienstbeschreibung des jeweiligen Gerätes.
 
-### Allgemeine Objekte
-Die folgenden Objekte finden sich für jedes Gerät / jeden Dienst und werden zur Verwaltung benötigt. Sie sind nicht Bestandteil des UPnP Standards oder der Geräte- / Dienstbeschreibung des jeweiligen Gerätes.
+TR: **Alive –** wird vom Gerät/Dienst auf „true“ gesetzt und vom Adapter nach x Sekunden auf „null“ gesetzt, wenn das Gerät/Dienst diesen nicht wieder auf „true“ setzt. Die Ablauf zeit ist abhängig davon welche maximal Lebensdauer vom Gerät für das Alive signal mitgeteilt wurde. Wenn ein Gerät sich abmeldet wird der Status auf „false gesetzt. Es ist möglich dieses Objekt von Hand oder per Skript auf „true“ zu setzen, das sollte jedoch nur gemacht werden wenn man sicher ist dass das Gerät/Dienst erreichbar ist. Wenn Alive manuell auf „true“ gesetzt wurde sollte es auch manuell auf „false“ gesetzt werden wenn nicht mehr nötig, da andernfalls Fehler auftreten können.
 
-** Живой - ** wird vom Gerät / Dienst auf «true» gesetzt und vom Adapter nach x Sekunden auf «null» gesetzt, wenn das Gerät / Dienst diesen nicht wieder auf «true» setzt. Die Ablauf zeit ist abhängig davon welche maximal Lebensdauer vom Gerät für das Alive signal mitgeteilt wurde. Wenn ein Gerät sich abmeldet wird der Status auf „false gesetzt. Es ist möglich dieses Objekt von Hand oder per Skript auf «true» zu setzen, das sollte jedoch nur gemacht werden wenn man sicher ist dass das Gerät / Dienst erreichbar ist. Венн Живой мануэл на «истинном» месте, где царит соллте, эс аух, мануэль на «ложном», венн живой мануэль, да андернфолс, Фелер ауфтретен, коннен.
+TR: **Sid –** Dient als identifikation der Subscription. Diese sid wird jedesmal vom host erzeugt wenn eine Subscription von einem client angefordert wird. Die sid läuft nach einer vom host definierten Zeit ab, daher wird sie immer wieder Aktualisiert. Sie gilt nur für einen bestimmten Dienst.
 
-** Sid - ** Идентификация Dient als по подписке. Diese sid wird jedesmal vom host erzeugt wenn eine Подписка на einem client angefordert wird. Die sid läuft nach einer vom host Definierten Zeit ab, daher wird sie immer wieder Aktualisiert. Sie gilt nur für einen bestimmten Dienst.
+TR: **request –** sendet einen SOAP request mit den gegebenen Optionen
 
-** запрос - ** отправить запрос SOAP mit den gegebenen Optionen
+TR: ### UPnP Objekte
+TR: Die hier auf gelisteten Objekte finden sich im UPnP Standard und/oder den Geräte-/Dinestbeschreibungen. Es handelt sich hier nicht um eine Vollständige liste aller Objekte, diese Auswahl an Objekten stellt lediglich häufig vorkommende Objekte dar.
 
-### UPnP Objekte
-Die hier auf gelisteten Objekte finden sich im UPnP Standard und / oder den Geräte- / Dinestbeschreibungen. Es handelt sich hier nicht um eine Vollständige listealler Objekte, diese Auswahl an Objekten stellt lediglich häufig vorkommende Objekte dar.
+TR: **(A_ARG_TYPE_)InstanceID –** Die InstanceID ist am Häufigsten zu finden und wird zwingend benötigt da sie die Instanz eines Dienstes angibt der angesprochen werden soll. In den meisten fällen ist die InstanceID = 0. Diese ID wird bei jeder Event message von einem Dienst und jedem Befehl der an einen Dienst gesendet wird, mit übergeben.
 
-** (A_ARG_TYPE_) InstanceID - ** Die InstanceID ist am Häufigsten zu finden und wird zwingend benötigt da sie die Instanz eines Dienstes angibt der angesprochen werden soll. In den meisten fällen ist die InstanceID = 0. Diese ID wird bei jeder Сообщение о событии от einem Dienst und jedem Befehl der an einen Dienst gesendet wird, mit übergeben.
+TR: **(A_ARG_TYPE_)Channel(*) –** Das Channel Objekt findet sich im Zusammenhang mit Audio/Video Diensten. Ein Channel muss zum Beispiel angegeben werden wenn die Lautstärke verändert werden soll. Mögliche Werte können Beispielsweise „Master“, „LF“ oder „RF“ sein. In diesem Beispiel steht „Master“ für die Allgemeine Lautstärke, „LF“ für links vorne und „RF“ für rechts vorne. Wenn jetzt die Lautstärke nur rechts vorne verändert werden soll, gibt man „RF“ bei Channel an.
 
-** (A_ARG_TYPE_) Channel (*) - ** Das Channel Objekt findet sich im Zusammenhang mit Audio / Video Diensten. Ein Channel muss zum Beispiel angegeben werden wenn die Lautstärke verändert werden soll. Mögliche Werte können Beispielsweise «Master», «LF» или «RF» sein. В diesem Beispiel steht «Master» für die Allgemeine Lautstärke, «LF» für links vorne und «RF» für rechts vorne. Wenn jetzt die Lautstärke nur rechts vorne verändert werden soll, gibt man «RF» bei Channel an.
+TR: **(Set/Get)Volume(*) –** Das Volume Objekt findet sich im Zusammenhang mit Audio/Video Diensten. Je nachdem wo es vorkommt wird es zum Anzeigen der Lautstärke genutzt oder zum einstellen der Lautstärke. Dieses Objekt hat immer einen Mindestwert und einen Maximalwert den man angeben kann, in den meisten fällen liegt der Wertebereich zwischen 0 und 100. Die Schrittweite liegt normal bei 1, das bedeutet es können nur glatte Zahlen angegeben werden.
 
-** (Установить / получить) Volume (*) - ** Das Volume Objekt findet sich im Zusammenhang mit Audio / Video Diensten. Je nachdem wo es vorkommt wird es zum Anzeigen der Lautstärke genutzt oder zum einstellen der Lautstärke. Dieses Objekt hat immer einen Mindestwert und einen Maximalwert den man angeben kann, in den meisten fällen liegt der Wertebereich zwischen 0 и 100. Die Schrittweite liegt normal bei 1, das bedeutet es können nur glatte Zahlen angeben.
+TR: ### Steuerung
+TR: **button –** "request" Eine Action stellt einen Befehl dar, der an das Gerät/den Dienst geschickt werden kann. Zu jeder Action gehören auch Argumente, die Zwingend angegeben werden müssen. Action’s erkennt man an ihrer Rolle/role, dort steht „action“. Beschreibt man die Action mit „send“ wird der Befehl an das Gerät/den Dienst gesendet.
 
-### Steuerung
-** кнопка - ** "запрос" Eine Action stellt einen Befehl dar, der an das Gerät / den Dienst geschickt werden kann. Zu jeder Action gehören auch Argumente, die Zwingend angegeben werden müssen. Герой экшена и егорер Ролл / роль, dort steht «действие». Beschreibt man die Action mit «send» wird der Befehl an das Gerät / den Dienst gesendet.
+TR: **state.argument.x –** Muss zwingend bei einer Action angegeben werden, wenn unter Rolle "state.argument.in" ist. Mögliche Werte die angegeben werden können/müssen findet man in der „Related State Variable“. Der name dieser „Related State Variable“ ist im Objekt unter „native“ -> „relatedStateVariable“ hinterlegt.  Die Argumente müssen in einer bestimmten Reihenfolge angegeben werden, hierzu gibt es „native“ -> Argument_No. Ein Argument erkennt man an seiner Rolle/role, dort steht „argument“.  Manche strings müssen mit einem „““ in den Datenpunkt geschrieben werden. Es kann nicht pauschal beantwortet werden wann das der Fall ist, aber bei komplexen strings wie zum Beispiel URL’s kann das der Fall sein. Hier hilft nur ausprobieren. Will man ein " in einem Argument übergeben muss man "&quot;" verwenden.
 
-** state.argument.x - ** Muss zwingend bei einer Action angebeben werden, wenn unter Rolle "state.argument.in" ист. Mögliche Werte die angegeben werden können / müssen findet man in der «Связанная переменная состояния». От имени dieser «Связанная переменная состояния» является объектом для «родной» -> «Связанная переменная состояния» внутри. Die Argumente müssen in einer bestimmten Reihenfolge angegeben werden, hierzu gibt es «native» -> Argument_No. Ein Argument erkennt man an seiner Rolle / role, dort steht «аргумент». Manche strings müssen mit einem «» в ден Datenpunkt geschrieben werden. Es kann nicht pauschal beantwortet werden wann das der Fall ist, aber bei komplexen strings wie zum Beispiel URL’s kann das der Fall sein. Hier hilft nur ausprobieren. Will man ein "in einem Argument übergeben muss man" "" verwenden.
+TR: **(Related State) Variable –** Es handelt sich um Variablen die für den Datenaustausch genutzt werden. In den Native‘s der Variablen finden sich verschiedene Informationen:
 
-** (Связанное состояние) Переменная - ** Es handelt sich um Variablen die für den Datenaustausch genutzt werden. In den Native’s der Variablen finden sich verschiedene Informationen:
+TR: -	allowedValues = gibt Auskunft über die möglichen Inhalte der Variable oder was als Argument mit einer Action gesendet werden kann.
+TR: -	minimum = der niedrigste Wert den die Variable enthalten kann oder als Argument mit einer Action gesendet werden kann.
+TR: -	maximum= der höchste Wert den die Variable enthalten kann oder als Argument mit einer Action gesendet werden kann.
+TR: -	step = gibt an in welchen Schritten ein Wert angegeben wird.
+TR: -	sendEvents = ? Mögliche Werte sind „yes“ oder „no“. Es ist aber völlig unklar was das zu bedeuten hat. Die Annahme dass die Werte für diese Variable nur dann von einem Gerät/Dienst automatisch gesendet werden wenn „yes“ bei sendEvents steht hat sich nicht bestätigt.
 
-- allowedValues = gibt Auskunft über die möglichen Inhalte der Variable order was as as Argument mit einer Action gesendet werden kann.
-- minimum = der niedrigste Wert den die Variable enthalten kann oder als Argument mit einer Action gesendet werden kann.
-- maximum = der höchste Wert den die Variable enthalten kann oder als Argument mit einer Action gesendet werden kann.
-- step = gibt an in welchen Schritten ein Wert angegeben wird.
-- sendEvents =? Mögliche Werte sind «да» или «нет». Es ist aber völlig unklar was das zu bedeuten hat. Die Annahme dass die Werte für diese Variable nur dann von einem Gerät / Dienst automatisch gesendet werden wenn «yes» bei sendEvents steht hat sich nicht bestätigt.
-
-Beispiel, wie man die Werte pollen kann:
+TR: Beispiel, wie man die Werte pollen kann:
 
 ```
 // get every 10 seconds the values from device
@@ -117,82 +115,82 @@ schedule("*/10 * * * * *",  function () {
 });
 ```
 
-Es gibt auch die Möglichkeit bei dem "request" Objekt das Polling im Admin einzustellen. Dafür Klickt man auf das Schraubenschlüssel Symbol bei dem Objekt.
+TR: Es gibt auch die Möglichkeit bei dem "request" Objekt das Polling im Admin einzustellen. Dafür Klickt man auf das Schraubenschlüssel Symbol bei dem Objekt.
 
-### Geräte / Dienst Spezifische Besonderheiten
-** Sonos: ** Für QPlay ist es nicht möglich eine Subscription zu erstellen. Möglicherweise ist hierfür eine Autentifikation notwendig
+TR: ### Geräte/Dienst Spezifische Besonderheiten
+TR: **Sonos:** Für QPlay ist es nicht möglich eine Subscription zu erstellen. Möglicherweise ist hierfür eine Autentifikation notwendig
 
-** Phillips Hue Bridge 2: ** Внедрение стандартов UPnP в Hue Bridge 2 ist Fehlerhaft, weshalb die Hue Bridge 2 zwar gefunden wird jedoch nicht via UPnP ansprechbar ist.
+TR: **Phillips Hue Bridge 2:** Die implementierung des UPnP Standards in der Hue Bridge 2 ist Fehlerhaft, weshalb die Hue Bridge 2 zwar gefunden wird jedoch nicht via UPnP ansprechbar ist.
 
-** Yamaha: ** Verwendet eine auf dem UPnP Standard basierende API, die jedoch ein eigenes Datenformat verwendet. Derzeit wird das vom UPnP Adapter nicht unterstützt.
+TR: **Yamaha:** Verwendet eine auf dem UPnP Standard basierende API, die jedoch ein eigenes Datenformat verwendet. Derzeit wird das vom UPnP Adapter nicht unterstützt.
 
-** Sony: ** Verwendet eine ScalarWebApi genannte Schnittstelle die über UPnP ansprechbar ist jedoch ein eigenes Daten Format verwendet. Derzeit wird das vom UPnP Adapter nicht unterstützt.
+TR: **Sony:** Verwendet eine ScalarWebApi genannte Schnittstelle die über UPnP ansprechbar ist jedoch ein eigenes Daten Format verwendet. Derzeit wird das vom UPnP Adapter nicht unterstützt.
 
-** Amazon Kindle: ** Stellt einen UPnP Dienst bereit, jedoch wird keine UPnP-Dienstbeschreibung geliefert und kann daher nicht genutzt werden.
+TR: **Amazon Kindle:** Stellt einen UPnP Dienst bereit, jedoch wird keine UPnP-Dienstbeschreibung geliefert und kann daher nicht genutzt werden.
 
-## Описание на английском языке
-*** Перевод https://www.deepl.com/translator***
+TR: ## English Description
+TR: ***Translation by https://www.deepl.com/translator***
 
-### Использование по назначению
-Служит для связи и взаимодействия со всеми устройствами с поддержкой UPnP.
+TR: ### Intended use
+TR: Serves for communication and interaction with all UPnP-capable devices.
 
-#### Что такое UPnP?
-UPnP = универсальный Plug and Play. Попытка стандартизировать связь между устройствами в сети. Для этого существуют так называемые «схемы», которые отображаются в виде файла xml. Они содержат всю информацию об устройстве или программном обеспечении и услугах, которые они предоставляют. Чтобы гарантировать, что эти услуги также можно использовать, предоставляется описание каждой услуги. Это описание следует схеме, определенной для услуги, позволяя быстро обмениваться информацией и командами, не зная, какой модели или производителя является устройство или программное обеспечение. В прошлом эта стандартизация в основном использовалась для мультимедийных устройств и программного обеспечения. В течение некоторого времени также были предприняты попытки стандартизировать коммуникацию «IoT - Интернет вещей» с этой стандартизацией. С этой целью в 2016 году была основана «Open Connectivity Foundation», которая берет на себя задачи форума UPnP, который проводит сертификацию устройств с поддержкой UPnP и создает стандарты.
+TR: #### What is UPnP?
+TR: UPnP = Universal Plug and Play. The attempt to standardize communication between devices on the network. For this purpose there are so-called "schemas", which are displayed in the form of an xml file. They contain all information about the device or the software and its services that they provide. To ensure that these services can also be used, a description of each service is provided. This description follows the scheme defined for the service, allowing information and commands to be quickly exchanged without knowing which model or manufacturer the device or software is. In the past, this standardization was mainly used for media devices and software. For some time now, efforts have also been made to standardize the communication of the "IoT - Internet of Things" with this standardization. For this purpose, the "Open connectivity Foundation" was founded in 2016, which takes over the tasks of the UPnP forum, which has carried out the certification of UPnP-capable devices and created standards.
 
-#### Функциональное описание
-Адаптер передает и оценивает ответы при первом запуске. Ответы содержат ссылку на xml файлы сервисов. Файлы xml используются для создания объектов в ioBroker и заполнения их всей доступной информацией.
+TR: #### Functional description
+TR: The adapter broadcasts and evaluates the responses at the first start. The answers contain the link to the xml files of the services. The xml files are used to create the objects in ioBroker and fill them with all available information.
 
-С задержкой по времени запускается служба, ожидающая сообщений от устройств / служб, которые входят в систему или выходят из нее. Новые обнаруженные устройства / услуги автоматически добавляются к существующим. Вторая служба регистрируется на каждом доступном устройстве и подписывается на сообщения о состоянии, так что ioBroker автоматически уведомляется о любых изменениях (отправленных) в устройство / службу.
+TR: Time delayed a service is started which waits for messages from devices/services which log on or off. Newly detected devices/services are automatically added to the existing ones. A second service logs in to each available device and subscribes to status messages, so that ioBroker is automatically notified of any changes (sent) to the device/service.
 
-#### Структура объекта
-Каждое устройство или программное обеспечение, которое реагирует на трансляцию, создается как отдельный объект. Ниже этого объекта вы найдете все доступные сервисы с их возможностями. Возможности разделены на 3 категории (роль / роль): индикатор. состояние, действие и аргумент.
+TR: #### Object structure
+TR: Each device or software that reacts to the broadcast is created as a separate object. Below this object you will find all available services with their capabilities. The possibilities are divided into 3 categories (role/role): indicator. state, action and argument.
 
-** состояние - ** - это переменная, представляющая текущее состояние объекта / точки данных в устройстве / службе. Каждый indicator.state имеет определенный тип, такой как число, строка, логическое значение, ..... Кроме того, также указывается, какое именно значение или диапазон значений инициатор. состояние может иметь, эти детали хранятся в «родном» объекте. Ранее реализованные нативные:
+TR: **state -** is a variable representing the current state of an object/data point in the device/service. Each indicator.state has a certain type like number, string, boolean,..... In addition, it is also specified exactly what value or range of values the inidcator. state can have, these details are stored in the "native" of an object. Previously implemented native' s:
 
-- sendEvents = Значение до сих пор неизвестно.
-- allowedValues = допустимые строки.
-- минимум = дает наименьшее значение, при котором принимается значение.
-- maximum = дает наибольшее значение, при котором выполняется приемка.
-- step = Определяет, в каких шагах значение может быть изменено.
+TR: - 	sendEvents 		= Meaning until now Unknown.
+TR: - 	allowedValues 	= strings that are accepted.
+TR: - 	minimum 		= Gives the lowest value at which the value is accepted.
+TR: - 	maximum 		= Gives the highest value at which the acceptance is made.
+TR: - 	step 			= Specifies in which steps a value can be changed.
 
-** кнопка - ** «reuqest» - это команда, которая может быть отправлена и принята устройством / службой. У этого объекта обычно есть подобъект, аргумент.
+TR: **button -** "reuqest" is a command that can be sent to and accepted by the device/service. This object usually has a subobject, the argument.
 
-** аргумент - ** - подобъект действия. Тип "смешанный", так как не указан. Собственные данные объекта содержат разную информацию, они могут отличаться от аргумента к аргументу. Ранее известные аборигены:
+TR: **argument -** is a sub-object of an action. The type is "mixed" as it is not specified. The native's of the object contain different information, they can be different from argument to argument. Previously known native' s:
 
-- direction = Указывает направление, в котором происходит информационный поток. In означает, что значение не возвращается. Out означает, что значение возвращается.
-- relatedStateVariable = Возвращает индикатор. государство, за которое отвечает обмен данными.
-- argumentNumber = Возвращает количество аргументов действия.
+TR: - 	direction 		= Indicates the direction in which the information flow takes place. In "means that no value is returned. 					Out "means that a value is returned.
+TR: - 	relatedStateVariable 	= Returns the indicator. state at which the exchange of data is responsible for.
+TR: - 	argumentNumber 		= Returns the number of arguments of the action it is.
 
-### Общие объекты
-Следующие объекты найдены для каждого устройства / службы и необходимы для администрирования. Они не являются частью стандарта UPnP или устройства / руководства по эксплуатации соответствующего устройства.
+TR: ### General objects
+TR: The following objects are found for each device/service and are required for administration. They are not part of the UPnP standard or the device/instruction manual of the respective device.
 
-** Активен - ** устанавливается в значение «true» устройством / службой и устанавливается в значение «NULL» адаптером через x секунд, если устройство / служба не устанавливает его снова в значение «true». Время истечения зависит от максимального срока службы живого сигнала, выдаваемого устройством. Когда устройство выходит из системы, устанавливается статус «false». Можно вручную или скриптом установить для этого объекта значение «true», но это следует делать только в том случае, если вы уверены, что устройство / служба достижимы. Если для Alive было вручную установлено значение «true», его также следует установить вручную на «false», если в этом нет необходимости, иначе могут возникнуть ошибки.
+TR: **Alive -** set to "true" by the device/service and set to "null" by the adapter after x seconds if the device/service does not set it to "true" again. The expiration time depends on the maximum lifetime of the Alive signal given by the device. When a device logs off, the status is set to "false". It is possible to set this object to "true" by hand or script, but this should only be done if you are sure that the device/service is reachable. If Alive has been set manually to "true", it should also be set manually to "false" if not necessary anymore, otherwise errors may occur.
 
-** Sid - ** служит идентификатором подписки. Эта страница создается хостом каждый раз, когда у клиента запрашивается подписка. Sid запускается через время, определенное хостом, поэтому он обновляется снова и снова. Это действительно только для определенной услуги.
+TR: **Sid -** Serves as an identification of the subscription. This page is created by the host each time a subscription is requested from a client. The sid runs after a time defined by the host, so it is updated again and again. It is only valid for a particular service.
 
-### Объекты UPnP
-Перечисленные здесь объекты можно найти в стандарте UPnP и / или в описаниях устройств / dinest. Это не полный список всех объектов, этот набор объектов представляет только часто встречающиеся объекты.
+TR: ### UPnP Objects
+TR: The objects listed here can be found in the UPnP standard and/or the device/dinest-descriptions. This is not a complete list of all objects, this selection of objects represents only frequently occurring objects.
 
-** (A_ARG_TYPE_) InstanceID - ** instanceID является наиболее распространенным и требуется, поскольку он определяет экземпляр службы, к которой нужно обратиться. В большинстве случаев instanceID = 0. Этот идентификатор передается службой с каждым сообщением о событии и каждой командой, отправляемой службе.
+TR: **(A_ARG_TYPE_)InstanceID -** The instanceID is the most common and is required because it specifies the instance of a service to be addressed. In most cases, the instanceID is = 0. This ID is passed with every event message by a service and every command that is sent to a service.
 
-** (A_ARG_TYPE_) Канал (*) - ** Объект канала связан с аудио / видео услугами. Например, если вы хотите изменить громкость, необходимо указать канал. Возможные значения могут быть, например, «Master», «LF» или «RF». В этом примере «Master» обозначает общую громкость, «LF» - левый фронт, а «RF» - правый фронт. Если вы хотите изменить громкость только на правой передней панели, вы должны указать «RF» в Channel.
+TR: **(A_ARG_TYPE_)Channel (*) -** The channel object is associated with audio/video services. For example, a channel must be specified if you want to change the volume. Possible values can be, for example,"Master","LF" or "RF". In this example,"Master" stands for the general volume,"LF" for the left front and "RF" for the right front. If you want to change the volume only on the right front panel, you have to specify "RF" in Channel.
 
-** (Set / Get) Volume (*) - ** Объект Volume связан с аудио / видео сервисами. В зависимости от того, где это происходит, он используется для отображения громкости или для регулировки громкости. Этот объект всегда имеет минимальное и максимальное значения, которые можно указать, в большинстве случаев диапазон значений находится между 0 и 100. Размер шага обычно равен 1, что означает, что можно вводить только четные числа.
+TR: **(Set/Get)Volume (*) -** The Volume object is associated with audio/video services. Depending on where it occurs, it is used to display the volume or to adjust the volume. This object always has a minimum and a maximum value that can be specified, in most cases the range of values is between 0 and 100. The step size is normally 1, which means that only even numbers can be entered.
 
-### Контроль
-** кнопка - ** действие «запрос» - это команда, которую можно отправить на устройство / службу. Каждое действие также включает аргументы, которые должны быть указаны как обязательные. Действие можно распознать по его роли / роли, в которой написано «действие». Если описать действие словом «отправить», то команда отправляется на устройство / службу.
+TR: ### Control
+TR: **button -** "request" action is a command that can be sent to the device/service. Each action also includes arguments that must be specified as mandatory. Action's can be recognized by its role/role, which says "action". If you describe the action with "send" the command is sent to the device/the service.
 
-** state.argument.x - ** Обязательный для действия, если роль - "state.argument.in". Возможные значения, которые могут / должны быть указаны, можно найти в «Связанной переменной состояния». Имя этой «связанной переменной состояния» хранится в объекте в разделе «native» -> «relatedStateVariable». Аргументы нужно указывать в определенном порядке, для этого есть «native» -> Argument_No. Аргумент можно распознать по его роли / роли, где написано «аргумент». Некоторые строки должны быть записаны с "" "" в точке данных. На этот вопрос невозможно ответить однозначно, но со сложными строками, такими как URL-адреса, это может иметь место. Помогает только попробовать. Если вы хотите передать "в аргументе", вы должны использовать "" ".
+TR: **state.argument.x -** Mandatory for an action, if role is "state.argument.in". Possible values that can/must be specified can be found in the "Related State Variable". The name of this "Related State Variable" is stored in the object under "native" -> "relatedStateVariable". The arguments must be given in a certain order, for this there is "native" -> Argument_No. An argument can be recognized by its role/role, where it says "argument". Some strings have to be written with a """" in the data point. It is not possible to answer this question in a flat-rate way, but with complex strings like URL's this can be the case. It only helps to try it out. If you want to pass a " in an argument you have to use """.
 
-** (Связанное состояние) Переменная - ** Это переменные, используемые для обмена данными. В Native переменной есть некоторая информация:
+TR: **(Related State) Variable -** These are variables used for data exchange. In the Native's of the variable, there is some information:
 
-- allowedValues = дает информацию о возможном содержимом переменной или о том, что может быть отправлено в качестве аргумента с действием.
-- минимум = наименьшее значение, которое может содержать переменная или которое может быть отправлено в качестве аргумента с действием.
-- maximum = максимальное значение, которое может содержать переменная или которое может быть отправлено в качестве аргумента с действием.
-- step = указывает, в каких шагах указывается значение.
-- sendEvents =? Возможные значения: «да» или «нет». Но что это значит, совершенно неясно. Предположение о том, что значения для этой переменной автоматически отправляются устройством / службой, только если в sendEvents установлено «да», не подтверждено.
+TR: -	allowedValues = gives information about the possible contents of the variable or what can be sent as an argument with an action.
+TR: -	minimum = the lowest value that the variable can contain or be sent as an argument with an action.
+TR: -	maximum = the highest value that the variable can contain or be sent as an argument with an action.
+TR: -	step = indicates in which steps a value is specified.
+TR: -	sendEvents = ? Possible values are "yes" or "no". But it is completely unclear what that means. The assumption that the values for this variable are only sent automatically by a device/service if "yes" is set at sendEvents has not been confirmed.
 
-Пример опроса значений:
+TR: Example how to poll the values:
 
 ```
 // get every 10 seconds the values from device
@@ -202,24 +200,29 @@ schedule("*/10 * * * * *",  function () {
 });
 ```
 
-Вы можете включить опрос в админке через конфигурацию объектов.
+TR: You can enable polling in admin via objects configuration.
 
-### Особенности устройств / услуг
-** Sonos: ** Невозможно создать подписку на QPlay. Это может потребовать аутентификации.
+TR: ### Devices/Service Specific Features
+TR: **Sonos:** It is not possible to create a subscription for QPlay. This may require authentication.
 
-** Phillips Hue Bridge 2: ** Реализация стандарта UPnP в Hue Bridge 2 неверна, поэтому Hue Bridge 2 обнаружен, но недоступен через UPnP.
+TR: **Phillips Hue Bridge 2:** The implementation of the UPnP standard in Hue Bridge 2 is faulty, which is why the Hue Bridge 2 is found but not accessible via UPnP.
 
-** Yamaha: ** использует API, основанный на стандарте UPnP, но с использованием собственного формата данных. В настоящее время это не поддерживается адаптером UPnP.
+TR: **Yamaha:** Uses an API based on the UPnP standard, but using its own data format. Currently, this is not supported by the UPnP adapter.
 
-** Sony: ** использует интерфейс ScalarWebApi, называемый адресуемым UPnP, но с использованием собственного формата данных. В настоящее время это не поддерживается адаптером UPnP.
+TR: **Sony:** Uses a ScalarWebApi interface called UPnP addressable but using its own data format. Currently, this is not supported by the UPnP adapter.
 
-** Amazon Kindle: ** Предоставляет службу UPnP, но описание службы UPnP не предоставляется и поэтому не может использоваться.
+TR: **Amazon Kindle:** Provides an UPnP service, but no UPnP service description is provided and therefore cannot be used.
+
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) added support for Admin5
 
 ### 1.0.17 (2021-02-21)
 * (jey-cee) fix warning messages with js-controller 3.2.x [Github issue #63](https://github.com/iobroker-community-adapters/ioBroker.upnp/issues/63)
-
 
 ### 1.0.16 (2020-04-27)
 * (jey-cee) fixes for js-controller 3
@@ -278,27 +281,23 @@ Breaking change: naming was changed and command to poll has another name - "requ
 * (jey-cee) bugfix: iobroker stops while updating a lot of objects
 * (jey-cee) added handling for initial messages from devices
 
-## Changelog
 ### 0.2.3
 * (jey-cee) fixed Dead message handler
 * (jey-cee) added Subscription to service (only event message handling)
 * (jey-cee) when adapter stops Alive state is set to false and sid(subscription id) is cleared
 
-## Changelog
 ### 0.2.2
 * (jey-cee) added listener for Alive/Dead messages from devices
 * (jey-cee) if new devices joining the network they will added automatically
 * (jey-cee) replace whitespace chars in device id's on creation, because objects and sub-object with whitespace chars wasn't usable
 
-
 ### 0.2.1
 * (jey-cee) bug fixing: corrected creation of native's and smaller Bugs
 
-
-#### 0.2.0
+### 0.2.0
 * (jey-cee) getting all xml data from UPnP devices
 
-#### 0.1.0
+### 0.1.0
 * (jey-cee) initial release
 
 ## License

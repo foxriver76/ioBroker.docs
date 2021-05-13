@@ -2,91 +2,95 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tuya/README.md
-title: ioBroker.tuya
-hash: w5Wvp8cqmi7jYdq4nzNU5aCU6AKPwoCacnh/D6CUl1M=
+title: TR: ioBroker.tuya
+hash: YMrzpnbTUt/3afAiGyNrfmH41Ah98LziOJHXWkCoMTY=
 ---
-![商标](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
+![TR: Logo](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
-![安装数量](http://iobroker.live/badges/tuya-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.tuya.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.tuya.svg)
-![特拉维斯](http://img.shields.io/travis/Apollon77/ioBroker.tuya/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.tuya?branch=master&svg=true)
-![NPM](https://nodei.co/npm/iobroker.tuya.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/tuya-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.tuya.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.tuya.svg)
 
-＃ioBroker.tuya
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: # ioBroker.tuya
+TR: ![TR: Test and Release](https://github.com/Apollon77/iobroker.tuya/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/tuya/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-ioBroker适配器可连接到数个廉价的Wifi设备，这些设备关心连接到Tuya Cloud并主要使用Smartlife App / Alexa-Skill。该适配器支持读取实时状态更新并控制与相应手机应用程序同步的那些设备。
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-涂鸦手机是深圳氙气的ESP8266MOD WiFi智能设备。
+TR: ioBroker adapter to connect to several small and cheap Wifi devices that care connected to the Tuya Cloud and mostly use the Smartlife App/Alexa-Skill. The adapter supports reading real time status updates and controlling of those devices once synced with the respective mobile phone app.
 
-除了可与Smart Live App一起使用的设备外，还应该可以使用Jinvoo Smart App，Xenon Smart应用程序，eFamilyCloud，io.e（Luminea等）应用程序。如果成功，请报告。 <img src="https://https://raw.githubusercontent.com/Apollon77/ioBroker.tuya/master/admin/warning.png" width="50" height="50"> **该适配器仅适用于Tuya和兼容的应用程序，只要它们的版本为&lt;3.14（!!）**
+TR: Tuya devices are ESP8266MOD WiFi smart devices from Shenzhen Xenon.
 
-事实证明，该适配器可与“始终在wifi中”的所有设备很好地配合使用。不支持仅在发生事件时才联机，发送数据并再次脱机的设备。这意味着**电池供电的设备通常不起作用！**
+TR: Beside devices usable with the Smart Live App the use of the Jinvoo Smart App, Xenon Smart app, eFamilyCloud, io.e (Luminea or such) app should also be possible. Please report back if successfull.
+<img src="https://https://raw.githubusercontent.com/Apollon77/ioBroker.tuya/master/admin/warning.png" width="50" height="50"> **The Adapter only works with Tuya and compatible apps as long as their version is <3.14 (!!)**
 
-一个适配器实例可以处理一个路由UDP包的网络中的所有设备。
+TR: The adapter is proofed to work very well with all devices that are "always in wifi". Devices that only come online when there is an event, send their data and go offline again are not supported. This means that **battery powered devices usually DO NOT work!**
 
-##兼容的移动应用程序和版本
-Tuya Smart和Smartlife App的当前版本与适配器的工作方式“不再兼容” **，因为Tuya加密了适配器可能嗅探到的所有流量。目前，仍然可以使用某些较旧版本的Apps ...
+TR: One adapter instance can handle all devices in one network that routes UDP packages.
 
-* Smartlife App <3.14，最佳3.12.6 ！！
-* Tuya Smart App <3.14，最佳3.12.x
-* STL智能家居应用1.1.1（最新日期为2019年9月）
-* Ucomen家庭应用程序（??）
+TR: ## Compatible Mobile Apps and versions
+TR: The currently versions of the Tuya Smart and also Smartlife App are **no longer compatible** with the way the adapter works because Tuya encrypted all traffic that the adapter could sniff. For now still some older versions of the Apps work ...
 
-＃＃ 重要的提示
-如果未通过其UDP包正确检测到设备，则可以通过编辑设备对象来手动设置IP。参见https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636
+TR: * Smartlife App <3.14, best 3.12.6!!
+TR: * Tuya Smart App <3.14, best 3.12.x
+TR: * STL Smart Home App 1.1.1 (last dated Sept 2019)
+TR: * Ucomen Home App (??)
 
-##适配器如何工作
-###基本功能
-适配器监视本地网络中是否有Tuya（旧固件，因此仅未加密）设备的UDP数据包。需要将运行适配器的ioBroker主机放置在与设备相同的网段中，并且路由器需要UDP多播支持！
+TR: ## Important note
+TR: If the devices are not correctly detected via their UDP packages you can set the IP manually by editing the device object. see https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636
 
-将所有检测到的设备添加到适配器，并且作为基本功能，适配器在定义的轮询间隔内请求数据。如果不与相应的移动应用程序同步（请参见下文），则无法实现其他功能，例如实时更新或控制。
+TR: ## How the adapter works
+TR: ### Basic functionality
+TR: The adapter monitors the local network for UDP packets of Tuya (old firmware, so unencrypted only) devices. It is needed that the ioBroker host where the adapter runs on is placed in the same network segment as the devices and UDP multicasting needs to be supported by the router!
 
-进行设备同步之前，不会显示较新的加密设备（请参阅下一个...）
+TR: All detected devices are added to the adapter and as basis functionality the adapter requests data in the defined polling interval. Without a sync with the respective mobile app (see below) NO further functionality like real time updates or controlling is possible.
 
-###设备同步后的高级功能
-为了获得适配器的全部功能，并通过新的加密固件支持设备，适配器需要知道加密密钥。
+TR: Newer encrypted devices will NOT show up before you do a device sync (see next ...)
 
-接收此加密密钥的最简单方法是从使用过的移动应用程序中获取它们。为此，适配器提供代理以捕获应用程序与tuya服务器的通信并获取所需的信息。
+TR: ### Advanced functionality after device sync
+TR: To get the full functionality of the adapter and also support devices with the new encrypted Firmware an encryption key needs to be known by the adapter.
 
-**对于iOS用户的重要说明：**此处描述的代理方法不再起作用。一旦有了Smart Life App版本3.10或更高版本，代理将不再可见来自App的通信。但它仍适用于所有Android App版本，因此最好的方法是Androis模拟器，如https://forum.iobroker.net/topic/23431/aufruf-tuya-adapter-tests-verschl%C3%BCsselte- ger％C3％A4te / 19
+TR: The easiest way to receive this encryption key is to get them from the used mobile app. To do this the adapter provides a proxy to catch the communication of the app with the tuya servers and grab the needed information.
 
-为此，首先需要在移动设备上添加自定义的根证书。
-在适配器实例配置中单击“启动代理”时，将为您的系统创建证书，并在下载位置显示QR码。理想情况下，使用移动设备扫描QR码，并按照该过程添加并信任此根证书。
-如果无法找到QR码位置（使用Docker等可能会发生），则在浏览器中打开“代理Web信息端口”，然后单击导航中的“ Root-CA”，您也可以下载CA文件。
+TR: **Important Note for iOS Users:** The Proxy approach described here is not working anymore. As soon as you have Smart Life App version 3.10 or higher the communication from App is no longer visible to the proxy. But it still works with all Android App versions, so the best approach is an Androis Emulator as roughly described at https://forum.iobroker.net/topic/23431/aufruf-tuya-adapter-tests-verschl%C3%BCsselte-ger%C3%A4te/19
 
-现在，请确保关闭/杀死相应的Tuya智能应用程序。
-之后，将代理端口和ioBroker主机添加为手机上WLAN连接的“手动”代理。
+TR: To do this first of all you need to add a custom Root-Certificate on your mobile device.
+When you click "Start Proxy" in the adapter instance configuration the certificate is created for your system and shows a QR-Code to the download location. Ideally scan the QR Code with your mobile device and follow the process to add and trust this Root-Certificate.
+If the QR code location is not reachable (may happen when use Docker or such) then open the "Proxy Web Info Port" in your browser and click on "Root-CA" in the navigation and you can download the CA File too.
 
-现在打开相应的Tuya Smart App和/或重新加载。
+TR: Now make sure to close/kill the respective Tuya smart app.
+After that add the Proxy-Port and the ioBroker host as "Manual" Proxy for your WLAN connection on your mobile phone.
 
-如果收到了相关的数据包，则管理员配置将显示一条成功消息，然后在10秒钟后关闭代理。现在，您可以从手机中删除代理，也可以不信任证书。
+TR: Now open the respective Tuya Smart App and/or reload.
 
-在此之后，应立即使用更有意义的名称来更新对象，并从那时起自动接收实时更新，并且应该能够进行通信。
+TR: The Admin configuration will show a success message if the relevant data packet was received and will then turn the proxy off 10 seconds later. You can now remove the proxy from your phone and also untrust the certificate.
 
-仅在开始时或将新设备添加到您的应用后才需要同步。
+TR: Directly after this the objects should be updated with more meaningful names and receive live updates from then on automatically and should be able to communicate.
 
-某些移动OS的某些映像可以在[代理页面](PROXY.md)中找到。
+TR: The sync is only needed initially or after you added new devices to your App.
 
-##不适用于电池供电的设备
-此适配器通常不支持电池供电的设备！原因是它们并非一直在线以节省电量。每当他们收到信号时，就上网，将更新发送到Tuya云服务器，然后再次脱机。它们不会发出任何UDP程序包或在线时间足够长，以便适配器可以连接到它们。
-一旦有人找到直接从Tuya云中获取数据的方法，这种情况可能会改变。
+TR: Some images for some mobile OS can be found at the [TR: Proxy-Page](PROXY.md).
 
-##学分
-没有@ codetheweb，@ kueblc和@ NorthernMan54（https://github.com/codetheweb/tuyapi）和https://github.com/clach04/python-tuya的出色工作，就不可能实现适配器的工作还有很多。
+TR: ## Not for Battery powered devices
+TR: Battery powered devices are normally NOT supported by this adapter! The reason is that they are not online all the time to save power. Whenever they get a signal, thay go online, send the update to the the Tuya cloud servers and go offline again. They do not emit any UDP packages or are online long enough so that the adapter could connect to them.
+A soon as someone finds a way to directly fetch data from the Tuya cloud this may change.
 
-＃＃ 去做
-*增强测试：状态检查和setState的
-*增强文档
+TR: ## Credits
+TR: The work of the adapter would not had been possible without the great work of @codetheweb, @kueblc and @NorthernMan54 (https://github.com/codetheweb/tuyapi) and https://github.com/clach04/python-tuya and many more.
 
-##如何报告问题和功能请求
-请为此使用GitHub问题。
+TR: ## Todo
+TR: * enhance testing: state checks and setState's
+TR: * enhance documentation
 
-最好是将适配器设置为“调试日志”模式（“实例”->“专家模式”->“列日志级别”）。然后，请从磁盘中获取日志文件（ioBroker安装目录中的子目录“ log”，而不是Admin，因为Admin删了几行）。如果您不喜欢在GitHub问题中提供它，也可以通过电子邮件（iobroker@fischer-ka.de）将其发送给我。请添加对相关GitHub问题的引用，并描述我什么时候在日志中看到的内容。
+TR: ## How to report issues and feature requests
+TR: Please use GitHub issues for this.
+
+TR: Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+
+### 3.6.2 (2021-05-10)
+* (Apollon77) type "bitmap" is a number
+* (Apollon77) More schema information added
 
 ### 3.6.1 (2021-04-11)
 * (Apollon77) More schema information added
@@ -293,7 +297,7 @@ Tuya Smart和Smartlife App的当前版本与适配器的工作方式“不再兼
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

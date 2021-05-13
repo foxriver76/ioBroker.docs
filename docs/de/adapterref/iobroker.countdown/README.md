@@ -2,143 +2,150 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.countdown/README.md
-title: ioBroker.countdown
-hash: p4FkV853prgZOjvgYnZt9Y3LcUThtRiYzI5PqsyxU44=
+title: TR: ioBroker.countdown
+hash: UR3SrC6/ISooSboGsloFdNGal7zBM/aIsqWdrp/Le3c=
 ---
-![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
-![Greenkeeper-Abzeichen](https://badges.greenkeeper.io/jack-blackson/ioBroker.countdown.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.countdown.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.countdown.svg)
-![Anzahl der Installationen](http://iobroker.live/badges/countdown-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
+![TR: Greenkeeper badge](https://snyk.io/test/github/jack-blackson/ioBroker.countdown/badge.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.countdown.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.countdown.svg)
+![TR: Number of Installations](http://iobroker.live/badges/countdown-stable.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
 
-# IoBroker.countdown
-[![Build Status Travis] (https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown)
+TR: # ioBroker.countdown
+[![TR: Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown)
 
-Countdown-Adapter für ioBroker ---------------------------------------------- --------------------------------
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-Das Ziel des Adapters ist es, Ihnen die Möglichkeit zu geben, Countdowns für zukünftige Ereignisse mit Jahren, Monaten, Tagen, Stunden und Minuten durchzuführen. Sie erhalten jeden dieser Werte separat und zwei Zeichenfolgen mit einer kurzen und einer langen Version des Datums.
+TR: Countdown Adapter for ioBroker ------------------------------------------------------------------------------
 
-## Countdowns anzeigen
-Der Adapter liefert Ihnen automatisch eine JSON-Tabelle. Sie müssen es nur mit der erweiterten json-Tabelle verwenden. Bitte kreuzen Sie dort "No Header" an. Es ist möglich, entweder den Kurztext oder den Langtext anzuzeigen.
-![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_json.png)
+TR: The goal of the adapter is to provide you a possibility to run countdowns for future events, with years, months, days, hours and minutes. It will provide you each of those valies seperately, and also two strings with a short and long version of the date.
 
-## So erstellen Sie Countdowns
-Es gibt zwei Möglichkeiten, Countdowns einzurichten:
+TR: ## Displaying countdowns
+TR: The adapter prowides you automatically a json table. You just need to use it with the json table widged. Please tick "No Header" there. It is possible to either display the short text or the long text.
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_json.png)
 
-* Sie können einen Countdown in den Adaptereinstellungen auf der Registerkarte "Countdown erstellen" erstellen.
-* Sie können einen manuellen Status im Gerät "Setup" erstellen. Der Name des Objekts ist der Alarmname und der Wert ist das Datum. Das Datum muss im Format "TT.MM.JJJJ HH: mm: ss" vorliegen.
-* Mit sendto können Sie einen Alarm erstellen. Dort können Sie entweder die Komponenten (mindestens Jahr Monat Datum) oder eine Datumszeichenfolge senden. Für die Datumszeichenfolge können Sie das Format im Setup des Adapters anpassen.
+TR: ## How to create countdowns
+TR: There are two ways to set up countdowns:
 
-![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky.png)
+TR: * You can create a countdown in the adapter settings, in the tab "Create Countdown".
+TR: * You can create a manual state in the device "setup". The name of the object is the alarm name, and the value will be the date. The date neets to be in the format "DD.MM.YYYY HH:mm:ss".
+TR: * You can create an alarm with sendto. There, you can either send the components (minimum is Year Month Date) or a date string. For the date string, you can adjust the format in the setup of the adapter.
 
-* Sie können Tage, Monate und Jahre mit sendto zum heutigen Datum hinzufügen. Senden Sie daher bitte die Komponente "Name" und entweder "addminutes", "addhours", "adddays", "addmonths" oder "addyears" als int-Wert.
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky.png)
 
-![Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky_add.png)
+TR: * You can add days, months and years with sendto to todays date. Therefore, please send the component "name" and either "addminutes", "addhours", "adddays", "addmonths" or "addyears" as int value.
 
-## So löschen Sie Countdowns
-Sie können einen Countdown mit dem Sendto löschen. Senden Sie daher nur den Namen mit sendto an den Adapter, und der Countdown wird automatisch gelöscht.
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky_add.png)
 
-## Countdown wiederholen
-Wenn Sie möchten, dass sich ein Countdown in einem definierten Zeitraum wiederholt (z. B. können Sie nicht jedes Jahr einen Countdown für Ihren Hochzeitstag durchführen), können Sie dies auch mit diesem Adapter tun. Füllen Sie daher entweder das Feld "Wiederholungszeitraum" in den Einstellungen des Adapters aus oder fügen Sie den Zeitraum nach dem Datum hinzu, wenn Sie einen Countdown mit dem Typ "Datum" erstellen. Ein sendTo würde so aussehen für einen Countdown, der am 1. April 2020 endet und jedes Jahr wiederholt wird:
+TR: ## How to delete countdowns
+TR: You  can delete a countdown with the sendto. Therefore, send just the name with sendto to the adapter, and the countdown will be deleted automatically.
 
-sendTo ("countdown.0", "send", {"name": 'Hochzeitstag', "Datum": '01 .04.2020 00: 01 + 1Y '});
+TR: ## Repeating countdown
+TR: If you want a countdown to repeat in a defined period (e.g. you cant a countdown for your wedding day every year) you can also do this with this adapter. Therefore either fill the field "Repeat period" in the settings of the adapter, or add the period after the date when you create a countdown with the type "date". A sendTo would look like that for a countdown which should end on the 1st of April 2020 and repeat every year:
 
-Parameter hier sind:
+TR: sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01+1Y' });
 
-* Y: Jahre
-* M: Monate
-* D: Tage
-* H: Stunden
-* m: Minuten
+TR: Parameters here are:
 
-## Verfügbare Ausgänge
-| Datentyp | Beschreibung |
+TR: * Y: Years
+TR: * M: Months
+TR: * D: Days
+TR: * H: Hours
+TR: * m: Minutes
+
+TR: ## Available outputs
+| TR: |Data type|Description|
 |:---:|:---:|
-| Minuten | Minuten bis zum Ende des Countdowns (nicht insgesamt!) |
-| Stunden | Stunden bis zum Ende des Countdowns (nicht insgesamt!) |
-| Tage | Tage bis zum Ende des Countdowns (nicht insgesamt!) |
-| Monate | Monate bis zum Ende des Countdowns (nicht insgesamt!) |
-| Jahre | Jahre bis zum Ende des Countdowns (nicht insgesamt!) |
-| Name | Countdown-Name |
-| endDate | Enddatum des Countdowns - formatiert wie im definierten Setup |
-| inWordsShort | Kombinierter Wert von Minuten, Stunden, ... - z. 1Y 5M 4D |
-| inWordsLong | Kombinierter Wert von Minuten, Stunden, ... - z. 1 Jahr 5 Monate 4 Tage |
-| totalHours | Total Anzahl der Stunden bis zum Enddatum |
-| totalDays | Total Anzahl der Tage bis zum Enddatum |
-| totalWeeks | Total Anzahl der Wochen bis zum Enddatum |
-| erreicht | Boolesches Feld, das definiert, ob das Enddatum erreicht wurde oder nicht |
-| repeatEvery | Countdown wird um diesen Zeitraum nach Erreichen des Enddatums | wiederholt |
+| TR: |minutes|Minutes until countdown end (not total!)|
+| TR: |hours|Hours until countdown end (not total!)|
+| TR: |days|Days until countdown end (not total!)|
+| TR: |months|Months until countdown end (not total!)|
+| TR: |years|Years until countdown end (not total!)|
+| TR: |name|Countdown name|
+| TR: |endDate|End date of count down - formated as in the setup defined|
+| TR: |inWordsShort|Combined value of minutes, hours,... - e.g. 1Y 5M 4D|
+| TR: |inWordsLong|Combined value of minutes, hours,... - e.g. 1 Year 5 Months 4 Days|
+| TR: |totalHours|Total No. of hours until the end date|
+| TR: |totalDays|Total No. of days until the end date|
+| TR: |totalWeeks|Total No. of weeks until the end date|
+| TR: |reached|Boolean field defining if the end date was reached or not|
+| TR: |repeatEvery|Countdown is repeted by this period after reaching the enddate|
 
-## Funktionen zum Hinzufügen
-* Möglichkeit, ein Skript als Parameter hinzuzufügen und zu starten, wenn der Countdown endet
-* Möglichkeit, Plus und Minus in Addminutes und den anderen Add-Funktionen zu verwenden
+TR: ## Features to add
+TR: * Possibility to add a script as a parameter and start it when countdown ends
+TR: * Possibility to use plus and minus in addminutes and the other add functions
 
-## 1.1.0 (2020-04-02)
-* (jack-blackson) Bugfix Read-Me-Link
-* (Jack-Blackson) Bugfix RepeatCycle
+TR: ## 1.2.0 (2021-05-09)
+TR: * (jack-blackson) Updated packages, added Sentry
+TR: * (jack-blackson) Fixes for JS-controller 3.3
+TR: * (jack-blackson) Fix that countdowns are created immediatly
 
-## 1.0.9 (2020-03-31)
-* (jack-blackson) Bugfix-Protokollmeldungen
+TR: ## 1.1.0 (2020-04-02)
+TR: * (jack-blackson) bugfix Read-Me link
+TR: * (jack-blackson) bugfix repeatCycle
 
-## 1.0.8 (2020-03-31)
-* (Jack-Blackson) Wiederholen Sie den Countdown in einem definierten Zeitraum (z. B. jedes Jahr).
+TR: ## 1.0.9 (2020-03-31)
+TR: * (jack-blackson) Bugfix log messages
 
-## 1.0.7 (2020-03-30)
-* (jack-blackson) Neuer Datumstyp für Einstellungen hinzugefügt: JJJJ-MM-TT
-* (jack-blackson) Countdown direkt in den Adaptereinstellungen hinzufügen
+TR: ## 1.0.8 (2020-03-31)
+TR: * (jack-blackson) Repeat countdown in defined period (e.g. every year)
 
-## 1.0.6 (2020-03-20)
-* (DutchmanNL) Adaptertyp behoben
+TR: ## 1.0.7 (2020-03-30)
+TR: * (jack-blackson) Added new date-type for settings: YYYY-MM-DD
+TR: * (jack-blackson) Add countdown directly in adapter settings
 
-## 1.0.5 (2020-02-05)
-* (jack-blackson) Bugfix für Alarm um Mitternacht -> danke an @Lueghi
+TR: ## 1.0.6 (2020-03-20)
+TR: * (DutchmanNL) Fixed adapter type
 
-## 1.0.4 (2019-08-25)
-* (jack-blackson) Neu geordnete Release-Infos
+TR: ## 1.0.5 (2020-02-05)
+TR: * (jack-blackson) Bugfix for alarm at midnight -> thanks to @Lueghi
 
-## 1.0.3 (2019-08-10)
-* (Jack-Blackson) Änderungen für den Kompaktmodus
-* (Jack-Blackson) Verschiedene Bugfixes
-* (jack-blackson) Es ist jetzt möglich, mehrere Instanzen des Adapaters zu haben
+TR: ## 1.0.4 (2019-08-25)
+TR: * (jack-blackson) Reordered release infos
 
-## 1.0.2 (2019-07-22)
-* (Jack-Blackson) Release-Version
+TR: ## 1.0.3 (2019-08-10)
+TR: * (jack-blackson) Changes for Compact Mode
+TR: * (jack-blackson) Various bugfixes
+TR: * (jack-blackson) Having multiple instances of the adapater are now possible
 
-## 0.7.0 (2019-07-07)
-* (Jack-Blackson) Bugfixes
-* (Jack-Blackson) Addminutes und Addhours sind jetzt ebenfalls möglich
-* (jack-blackson) Datenpunkt im Setup kann jetzt bearbeitet werden
-* (Jack-Blackson) hinzugefügt Gesamt-Nr. von Wochen
+TR: ## 1.0.2 (2019-07-22)
+TR: * (jack-blackson) Release version
 
-## 0.6.0 (06.07.2019)
-* (Jack-Blackson) einstellbares Datumsformat für Ein- und Ausgabe
-* (jack-blackson) Countdowns mit sendto löschen
-* (Jack-Blackson) Fähigkeit, Countdowns in "Tagen / Monaten / Wochen ab jetzt) hinzuzufügen
+TR: ## 0.7.0 (2019-07-07)
+TR: * (jack-blackson) Bugfixes
+TR: * (jack-blackson) addminutes and addhours are now also possible
+TR: * (jack-blackson) datapoint in setup is now editable
+TR: * (jack-blackson) added total no. of weeks
 
-## 0.5.0 (2019-07-04)
-* (Jack-Blackson) Passen Sie die Daten in der Tabelle an
-* (Jack-Blackson) Bugfix Datumsimport
+TR: ## 0.6.0 (2019-07-06)
+TR: * (jack-blackson) adjustable date format for input and output
+TR: * (jack-blackson) delete countdowns with sendto
+TR: * (jack-blackson) ability to add countdowns by "days/months/weeks from now)
 
-### 0.4.0 (04.06.2019)
-* (Jack-Blackson) Restrukturierung - Die Erstellung von Alarmen mit Sendto oder manuell mit Datenpunkt ist jetzt möglich
+TR: ## 0.5.0 (2019-07-04)
+TR: * (jack-blackson) adjust the data in the table
+TR: * (jack-blackson) bugfix date import
 
-### 0.3.0 (2019-05-24)
-* (Jack-Blackson) hat die Gesamtzahl der Tage und Stunden hinzugefügt
+TR: ### 0.4.0 (2019-06-04)
+TR: * (jack-blackson) restructuring - creation of alarms with sendto or manually with datapoint is now possible
 
-### 0.2.0 (21.05.2019)
-* (Jack-Blackson) angepasste Pakete
+TR: ### 0.3.0 (2019-05-24)
+TR: * (jack-blackson) added total No. of days and hours
 
-### 0.1.0 (29.04.2019)
-* (Jack-Blackson) Erstversion
+TR: ### 0.2.0 (2019-05-21)
+TR: * (jack-blackson) adjusted packages
+
+TR: ### 0.1.0 (2019-04-29)
+TR: * (jack-blackson) initial version
 
 ## Changelog
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

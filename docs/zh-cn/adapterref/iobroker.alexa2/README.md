@@ -2,294 +2,306 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.alexa2/README.md
-title: ioBroker.alexa2
-hash: YS664LlJFQCGEbRyCmgg8011yvMup+1T6IICYbs+tSQ=
+title: TR: ioBroker.alexa2
+hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 ---
-![商标](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
+![TR: Logo](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
 
-![安装数量](http://iobroker.live/badges/alexa2-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.alexa2.svg)
-![建置状态](https://ci.appveyor.com/api/projects/status/c92hrxu79mvs1qxo?svg=true)
-![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![TR: Number of Installations](http://iobroker.live/badges/alexa2-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.alexa2.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.alexa2.svg)
 
-＃ioBroker.alexa2
-**此适配器使用服务[哨兵](https://sentry.io)向开发人员自动向我报告异常和代码错误以及新设备架构。**更多详细信息，请参见下文！
+TR: # ioBroker.alexa2
+TR: ![TR: Test and Release](https://github.com/Apollon77/iobroker.alexa2/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/alexa2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-此适配器使您可以远程控制Alexa（Amazon Echo）设备。
+TR: **This adapter uses the service [TR: Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
-非常感谢soef提供该适配器的版本1，并感谢Hauke和ruhr70提供了来自ioBroker-Forum的脚本中的想法（尤其是媒体进度更新）！还要感谢meicker对所有这些文档的支持以及ioBroker论坛的许多用户的测试支持！
+TR: This adapter allows you to remote control your Alexa (Amazon Echo) devices.
 
-##状态及其含义：
-在适配器名称空间（例如alexa2.0）中，创建了一些通道
+TR: Big thanks go to soef for the version 1 of the adapter and to Hauke and ruhr70 for ideas in their scripts from ioBroker-Forum (especially the media progress updates)! Also big thanks to to meicker for support in documenting all of this and numerous users from ioBroker Forum for their testing support!
 
-### Alexa2.0
-|州名|意思|
+TR: ## States and their meanings:
+TR: In the adapter namespace (e.g. alexa2.0) some channels are created
+
+TR: ### alexa2.0
+| TR: | State name | meaning |
 | - | - |
-|回声设备。每个Echo设备的状态，请参见下文|
-|历史记录。* |有关命令历史记录的信息，请参见下文|
-|智能家居设备。* |每个智能家居设备的状态，以及一般情况，请参见下文|
-|信息* |有关适配器状态的常规信息|
-| requestResult | TuneIn和智能家居设备请求的错误信息|
+| TR: | echo-devices.* | States per Echo device, see below |
+| TR: | history.* | Infos for command history, see below |
+| TR: | smart-home-devices.* | States per smart home device and in general, see below |
+| TR: | info.*| General information about the adapter status |
+| TR: | requestResult | Error info for TuneIn and smart-home device requests |
 
-### Alexa2.0.Contacts.ContactId。*
-可用于向其发送文本消息的所有Alexa联系人，包括他本人。自己的联系人在其姓名后得到一个特殊的“（（自我）”）。
+TR: ### alexa2.0.Contacts.ContactId.*
+TR: All Alexa-Contacts that can be used to send Text Messages to, including himself. The own contact gets a special "(Self)" after his name.
 
-|州名|意思|
+| TR: | State name | meaning |
 | - | - |
-| #clearOwnMessages |仅存在于自己的联系人中，触发器将删除所有发送给自己的消息（还包括通过App或设备发送给自己的消息！） |
-| textMessage |将此文本作为消息发送给用户。此用户的所有设备上均带有“黄色环”。 |
+| TR: | #clearOwnMessages | Only exists in own contact and a trigger deletes all messages that are send to himself (also includes messages to himself via App or devices!) |
+| TR: | textMessage | Sends this text as message to the user. It is shown on all devices of this user with a "yellow ring" |
 
-### Alexa2.0.Echo-Devices.Serialnumber。*
-在“回声设备”下，列出了每个亚马逊回声设备及其序列号。并非每个设备都显示所有状态。每个设备都有其自己的状态，如下所述：
+TR: ### alexa2.0.Echo-Devices.Serialnumber.*
+TR: Under "echo-devices" every amazon echo device is listed with it's serial number. Not every device shows all the states. Every device has it's own states as described below:
 
-### Alexa2.0.Echo-Devices.Serialnumber.Alarm。*
-每个设备的警报（Wecker）设置（如果有）。
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Alarm.*
+TR: Alarm (Wecker) settings for each device, if available.
 
-|州名|意思|值|
+| TR: | State name | meaning | value |
 | - | - | - |
-|启用|显示警报状态并允许对其进行更改：使用true激活警报-使用false禁用警报|禁用警报。正确/错误|
-|时间|警报时间。覆盖现有警报的时间以为此警报设置新时间。如果您已有警报，可以在此处通过简单地以hh：mm：ss格式覆盖时间来更改时间，而无需设置|秒。时间输入|
-|触发如果达到并触发警报，则为true。时钟必须与Amazon和iobroker同步，一旦达到闹钟时间，便可以使用此时钟来触发其他操作|正确/错误|
-|新品|该设备发出新警报的时间。如果在此处输入值，将创建一个新警报。时间输入（hh：mm：ss，不需要秒） |
+| TR: | enabled | Shows status of alarm and allows to change it: Activate alarm with true - Deactivate alarm with false | true / false |
+| TR: | time | Time for alarm. Overwrite the time for existing alarm to set a new time for this alarm. In case you have an existing alarm you can change the time here by simply overwrite the time in format hh:mm:ss, seconds are not needed to set | Time Input |
+| TR: | triggered | true if alarm is reached and triggered. Clock must be in sync with Amazon and iobroker, Use this to trigger other action as soon as the alarm time is reached | true / false |
+| TR: | new | time for new alarm for this device. If you put a value here a new alarm will be created | Time Input (hh:mm:ss, seconds are not needed) |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Bluetooth。*
-在这里，您可以找到具有MAC地址的所有已连接或已知的蓝牙设备。每个设备的状态：
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Bluetooth.*
+TR: Here you find all connected or known bluetooth device(s) with MAC address(es). The states of each device:
 
-|州名|意思|
+| TR: | State name | meaning |
 | - | - |
-|已连接|显示当前的连接状态，并允许连接（设置为true）或断开连接（设置为false） |
-|不成对|使该设备与echo设备取消配对的按钮。 |
+| TR: | connected | Shows current connection status and allow connection (set to true) or disconnection (set to false) |
+| TR: | unpair | Button to unpair this device from the echo device |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Commands。*
-使用命令，您可以在Alexa设备上触发一些操作。如果您在多房间设备上使用它们，那么它们将独立执行，并且*将不会*在单个设备上同步运行！
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Commands.*
+TR: With Commands you can trigger some actions on your Alexa-Device. If you use these on a multiroom device then they are executed independently and *will not* run in sync on the single devices!
 
-|州名|意思|值|
+| TR: | State name | meaning | value |
 | - | - | - |
-| doNotDisturb |打开/关闭请勿打扰此设备|是/否|
-|简报|在100秒内进行简报-新闻等。纽扣 |
-|早安|来自Alexa的早上好... |纽扣 |
-|功能|来自Alexa的有趣事实...（目前仅美国）|纽扣 |
-|笑话来自Alexa的笑话... |纽扣 |
-|清理|像播放聆听模式的开始/结束一样播放“锣”音... |纽扣 |
-|策展人|来自Alexa所选区域的随机句子... |文本（允许使用：“再见”，“确认”，“早安”，“赞美”，“生日”，“晚安”，“ iamhome”）|
-| singasong | Alexa唱了一首歌... |纽扣 |
-|讲| Alexa说您在此处输入的内容... |文字输入|
-|音量|调整Alexa的语音音量，该音量会在语音通话之前设置好，然后再重新设置| 0-100 |
-|讲故事| Alexa讲故事|纽扣 |
-|交通|交通新闻|纽扣 |
-|天气天气新闻纽扣 |
-| deviceStop |停止设备上的所有操作|纽扣 |
-|通知|发送文本通知给设备的客户|文字|
-|公告|播放公告（例如讲话，但在文本前加上Bing）|文字|
-| ssml |说出SSML XML字符串|文字|
-| textcommand |发送文字指令到Alexa，目前仅在美国！ |文字|
+| TR: | doNotDisturb | Switch on/off Do not Disturb for this device| true/false |
+| TR: | flashbriefing | Briefing in 100 seconds - news etc.pp| Button |
+| TR: | goodmorning | Good morning from Alexa ...| Button |
+| TR: | funfact | Fun fact from Alexa ... (Only USA at the moment)| Button |
+| TR: | joke | Joke from Alexa ...| Button |
+| TR: | cleanup | Plays a "gong" tone like for start/end of listening mode ...| Button |
+| TR: | curatedtts | Random sentence from the choosen area from Alexa ...| Text (allowed: "goodbye", "confirmations", "goodmorning", "compliments", "birthday", "goodnight", "iamhome") |
+| TR: | singasong | Alexa sings a song ...| Button |
+| TR: | speak | Alexa says what you type in here ...| Text Input |
+| TR: | speakvolume | Adjust the speak volume of Alexa, this volume is set before the speak and reset afterwards| 0-100 |
+| TR: | tellstory | Alexa tells a story | Button |
+| TR: | traffic | Traffic news | Button |
+| TR: | weather | Weather news | Button |
+| TR: | deviceStop | Stop all actions on device | Button |
+| TR: | notification | Send text notifcation to customer of the device | Text |
+| TR: | announcement | Play announcement (like speak but with Bing before text) | Text |
+| TR: | ssml | Speak SSML XML string | Text |
+| TR: | textcommand | Send a Text command to Alexa, only USA at the moment! | Text |
 
-详细信息发言和公告：在此处输入您想让Alexa说的内容。您还可以通过在文本前输入一个百分比来调整Alexa的音量。
-例如：10; Alexa说Alexa的音量为10％，而100; Alexa的音量为100％。
-通常，每个语音命令只能发送250个字符。通过使用分号，只要用分号分隔250个字符，就可以编写任意数量的文字。
-然后，Alexa将稍稍休息一下，然后彼此说出文字。您还可以通过编写#Volume;＃Block1;＃Block2，a.s.o将音量与255个以上的块一起使用，此处设置的音量将用于定义的语音音量。
+TR: Detailed information Speak and Announcement: Type in here what you want Alexa to say. You can also adjust the volume of Alexa by giving a percentage before your text.
+Example: 10;Alexa is saying Alexa with 10% volume, while 100;Alexa is 100% volume.
+Normally you only can send 250 characters per speak command. By using the semicolon it is possible to write as much as you want, as long as you separate 250 characters with a semicolon.
+Alexa will then speak the text after each other with a small break. You also can use the volume together with more 255 blocks by writing #Volume;#Block1;#Block2, a.s.o A volume set here will be used over a defined speak-volume.
 
-从https://developer.amazon.com/zh-CN/docs/alexa/custom-skills/ask-soundlibrary.html的作品中也可以听到部分声音。在语音或ssml中指定为`<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>`。有关详细信息和讨论，请访问https://forum.iobroker.net/topic/27509/ssml-audio
+TR: Partially also sounds from https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html work. Specify in speak or ssml as `<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>`. Details and discussion please at https://forum.iobroker.net/topic/27509/ssml-audio
 
-### Alexa2.0.Echo-Devices.Serialnumber.Info。*
-有关Alexa设备的信息
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Info.*
+TR: Information about the Alexa device
 
-|州名|意思|值|
+| TR: | State name | meaning | value |
 | - | - | - |
-|能力| alexa设备提供的功能|信息|
-| deviceType |亚马逊提供的设备类型|信息|
-| deviceTypeString |设备类型为字符串信息|
-| isMultiroomDevice |是多房间设备-多房间是虚拟设备组|信息，对/错|
-| isMultiroomMember |是Multiroom成员-如果为true，则该设备属于Multiroom设备组|信息，对/错|
-|多人家长|如果此设备是多房间设备组的一部分，则此状态将显示父组设备|。信息|
-|名称| Alexa设备的名称|信息|
-|序列号| Alexa设备的序列号|
+| TR: | capabilities | capabilities if the alexa device | Information |
+| TR: | deviceType | device type from Amazon | Information  |
+| TR: | deviceTypeString | Device Type as string | Information |
+| TR: | isMultiroomDevice | Is multiroom device - Multiroom is a virtual device group | Information, true / false |
+| TR: | isMultiroomMember | Is Multiroom member - If true the device is part of a multiroom device group  | Information, true / false |
+| TR: | MultiroomParents | If this device is part of a multiroom device group this state shows the parent group device | Information |
+| TR: | name | Name of Alexa Device | Information |
+| TR: | SerialNumber | Serial number of Alexa device |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Music-Provider。*
-直接告诉Alexa播放音乐或受支持的音乐提供商的播放列表。实际支持的是：“我的图书馆”，“ Amazon音乐”，“调入”。您还可以在短语中加入一个多房间设备组名称，以便在该组中播放（例如“ SWR3 auf Erdgeschoss”）
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Music-Provider.*
+TR: Directly tell Alexa to play Music or a playlist from supported music providers. Actually supported are: My Library, Amazon Music, Tune In. You can also include a multiroom device group name in the phrase to play it on this group (e.g. "SWR3 auf Erdgeschoss")
 
-|州名|意思|值|
+| TR: | State name | meaning | value |
 | - | - | - |
-|亚马逊音乐|玩Amazon Music的短语文字输入|
-|亚马逊音乐播放列表|播放列表可与Amazon Music一起播放|文字输入|
-|我的图书馆|玩“我的书架”的短语文字输入|
-|我的图书馆播放列表|可与“我的媒体库”一起播放的播放列表|文字输入|
-|调入|播放“ Tune In”的短语文字输入|
-|播放列表中的音调|播放列表可与Tune In一起播放|文字输入|
+| TR: | Amazon-Music | Phrase to play with Amazon Music | Text input |
+| TR: | Amazon-Music-Playlist | Playlist to play with Amazon Music | Text input |
+| TR: | My-Library | Phrase to play with My Library | Text input |
+| TR: | My-Library-Playlist | Playlist to play with My Library | Text input |
+| TR: | Tune-In | Phrase to play with Tune In | Text input |
+| TR: | Tune-In-Playlist | Playlist to play with Tune In | Text input |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Player。*
-控制设备播放并查看当前状态和媒体信息的状态
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Player.*
+TR: States to control the Playback of the device and to see the current status and media information
 
-|州名|意思|值|
+| TR: | State name | meaning | value |
 | - | - | - |
-| TuneIn-Station |输入要在该设备上播放此电台的电台名称的文本字段。也可以输入站号（s123456 ...），显示/播客ID（p1234567 ...）或主题ID（t123456789 ...）|文字输入|
-| ContentType |文本字段以放置所需的内容以在此设备上播放|信息|
-| controlForward |触发播放器“前进”命令的按钮（30秒）|纽扣 |
-|控制下一个|按钮触发播放器的“下一个”命令纽扣 |
-| controlPause |按钮触发播放器“暂停”命令纽扣 |
-| controlPlay |按钮触发播放器“播放”命令纽扣 |
-| controlPrevious |按钮触发播放器“上一个”命令纽扣 |
-| controlRepeat |按钮触发播放器“重复”命令正确/错误|
-| controlRewind |触发播放器“倒带”命令的按钮（30秒）|纽扣 |
-| controlShuffle |切换为播放器启用或禁用随机播放模式|正确/错误|
-| currentAlbum |当前正在播放专辑信息|
-| currentArtist |当前正在演奏的艺术家|信息|
-| currentState |如果播放-> true，否则为false |正确/错误|
-| currentTitle |当前正在播放的标题|信息|
-| imageURL |相册图像的URL |信息|
-| mainArtURL |当前主要艺术作品的网址|信息|
-| mediaLength |当前标题的长度|信息|
-| mediaLengthStr |有效媒体长度为（HH：）MM：SS |信息|
-| mainProgress |主动媒体经过时间|信息|
-| mainProgressPercent |有效媒体耗用时间（百分比）|信息|
-| mediaProgressStr |活动媒体进度为（HH：）MM：SS |信息|
-| miniArtUrl |艺术品网址（迷你）|信息|
-|静音| “ MUTE”的状态|信息，对/错，音量= 0被认为是静音|
-| providerID |当前音乐提供商的ID |信息|
-| providerName |当前音乐提供商的名称|信息|
-| radioStationId | TuneIn广播电台的ID |信息|
-|服务|当前音乐服务的名称|信息|
-|数量播放音量。您可以输入0-100％|输入量|
+| TR: | TuneIn-Station | text field to put in a Station name to play this station on this device. Also it is possible to type in the station number (s123456...), a show/podcast id (p1234567...) or a topic id (t123456789...) | Text input |
+| TR: | ContentType | text field to put in desired content to play on this device | Information |
+| TR: | controlForward | Button to trigger player "forward" command (30s) | Button |
+| TR: | controlNext | Button to trigger player "next" command | Button |
+| TR: | controlPause | Button to trigger player "pause" command | Button |
+| TR: | controlPlay | Button to trigger player "play" command | Button |
+| TR: | controlPrevious | Button to trigger player "previous" command | Button |
+| TR: | controlRepeat | Button to trigger player "repeat" command | true / false |
+| TR: | controlRewind | Button to trigger player "rewind" command (30s) | Button |
+| TR: | controlShuffle | Switch to enable or disable Shuffle mode for player | true / false |
+| TR: | currentAlbum | Current album actually playing | Information |
+| TR: | currentArtist | Current artist actually playing | Information |
+| TR: | currentState | If playing -> true , else false| true / false |
+| TR: | currentTitle | Current title actually playing | Information |
+| TR: | imageURL | URL to the image of the album | Information |
+| TR: | mainArtURL | URL to current main art | Information |
+| TR: | mediaLength | Length of the current title | Information |
+| TR: | mediaLengthStr |  active media length as (HH:)MM:SS | Information |
+| TR: | mainProgress | active media elapsed time | Information |
+| TR: | mainProgressPercent | active media elapsed time in percent | Information |
+| TR: | mediaProgressStr |  active media progress as (HH:)MM:SS | Information |
+| TR: | miniArtUrl | URL to the art (mini) | Information |
+| TR: | muted | state of 'MUTE' | Information, true / false, volume = 0 is considered as muted |
+| TR: | providerID | ID of the current music provider | Information |
+| TR: | providerName | Name of the current music provider | Information |
+| TR: | radioStationId | ID of the TuneIn radio station | Information |
+| TR: | service | name of the current music service | Information |
+| TR: | volume | Volume of playback. You can enter a value between 0-100% | INPUT Volume |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Reminder。*
-每个设备的提醒（Erinnerungen）设置（如果有）。
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Reminder.*
+TR: Reminder (Erinnerungen) settings for each device, if available.
 
-|州名|意思|值|
+| TR: | State name | meaning | value |
 | - | - | - |
-|启用|显示提醒状态并允许对其进行更改：使用true激活提醒-使用false禁用提醒，禁用后将在一段时间后自动删除。正确/错误|
-|时间|提醒时间。覆盖现有提醒的时间以设置新时间|时间输入|如果您已有提醒，则可以在此处更改时间，只需以hh：mm：ss格式覆盖时间即可，无需设置秒。 |
-|触发如果达到并触发了提醒，则为true。时钟必须与Amazon和iobroker保持同步，达到提醒时间后，请使用此时钟来触发其他操作|正确/错误|
+| TR: | enabled | Shows status of reminder and allows to change it: Activate reminder with true - Deactivate reminder with false, will be deleted some time after it automatically when disabled | true / false |
+| TR: | time| Time for reminder. Overwrite the time for existing reminder to set a new time | Time Input | In case you have an existing reminder you can change the time here by simply overwrite the time in format hh:mm:ss, seconds are not needed to set |
+| TR: | triggered | true if reminder is reached and triggered. Clock must be in sync with Amazon and iobroker, Use this to trigger other action as soon as the reminder time is reached | true / false |
 
-|新品|以以下格式添加新的提醒<br>时间（hh：mm），文字<br>|文字输入<br>12:00，提醒我
+TR: | new | Add a new reminder in the format <br> time(hh:mm),text<br> | Text Input <br>12:00,Remind me
 
-### Alexa2.0.Echo-Devices.Serialnumber.Routines。*
-在Alexa App中设置的例程概述。自行创建的例程具有序列号，Amazon显示为“ preconfigured：...”（预配置：...），每个例程可以通过按钮触发一次，以运行一次。
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Routines.*
+TR: Overview of routines set up in Alexa App. Self created routines have a serial number, Amazon shows as 'preconfigured:...' Each routine can be triggered with a button to run once.
 
-|州名|意思|值|
-| - | - | - |
-
-|例程的序列号或内部名称|例程名称|按钮
-
-### Alexa2.0.Echo-Devices.Serialnumber.Timer。*
-您可以在每台Alexa设备上运行一个或多个计时器。由于计时器具有非常动态的性质，因此不会再创建像“警报”或“提醒”这样的其他对象，但是存在一种获取触发信息的方法。
-
-|州名|意思|值|
+| TR: | State name | meaning | value |
 | - | - | - |
 
-|触发计时器被触发|信息
+TR: | Serial or internal name of routine | name of routine | Button
 
-### Alexa2.0.Echo-Devices.Serialnumber.online
-此Alexa设备是否在线且已连接到Amazon云？
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Timer.*
+TR: You can have one or more timer running on each Alexa device. Because of the very dynamic nature of timers there will be no further objects created like with Alarm or Reminders, but a way to get a triggered info exists.
 
-|州名|意思|值|
+| TR: | State name | meaning | value |
 | - | - | - |
 
-|在线|设备在线吗？ |真假
+TR: | triggered | A timer got triggered | Information
 
-### Alexa2.0。历史
-|州名|意思|值|
-| - | - | - |
-| #trigger |按钮以获取新的历史记录（更多的当前时间，然后是creationTime中的时间戳），仅在不使用推送连接时才需要纽扣 |
-| cardContent |如Alexa-App / Echo Show |中所示，更多信息。信息|
-| cardJson |如JSON格式所示，其他信息如Alexa-App / Echo中所示。信息|
-| creationTime |此历史记录条目的日期，仅当此时间戳记|信息|
-| domainApplicationId |其他信息，例如Skill-ID或类似信息，可选|信息|
-| domainApplicationName |其他信息，例如技能名称等，可选|信息|
-| json |最后命令数据的Json能够处理所有信息，例如用自己的JavaScript | JSON |
-|名称|上次请求的设备的名称|信息|
-| serialNumber |得到最后一个请求的设备的序列号|信息|
-|状态|对Alexa的最后命令状态|成功/故障/ DISCARDED_NON_DEVICE_DIRECTED_INTENT;当说出唤醒字来激活设备时，或者当设备将输入丢弃为“不适合我”时，将生成最后一个。 |
-|总结设备收到的文本/摘要/操作|信息|
+TR: ### alexa2.0.Echo-Devices.Serialnumber.online
+TR: Is this Alexa device online and connected to the Amazon cloud ?
 
-### Alexa.0。智能家居设备
-包括Alexa从您的技能中了解的所有智能家居设备。所有已知设备的状态如下：
-
-|州名|意思|值|
+| TR: | State name | meaning | value |
 | - | - | - |
 
-| deleteAll |与Alexa应用程序中的按钮相同，从Alexa删除所有智能家居设备。纽扣discoverDevices |查找新的智能家居设备，与Alexa App中的按钮相同|纽扣queryAll |查询所有设备，仅当至少一台设备能够检索信息时才可见|按钮
+TR: | online | Is the device online ? | True / False
 
-### Alexa.0.Smart-Home-Devices.SerialNumber。*
-|州名|意思|值|
+TR: ### alexa2.0.History
+| TR: | State name | meaning | value |
+| - | - | - |
+| TR: | #trigger | Button to get new History (more current then timestamp in creationTime), only needed when not using the push connection | Button |
+| TR: | cardContent | Additional information as shown in Alexa-App/Echo Show | Information |
+| TR: | cardJson | Additional information as shown in Alexa-App/Echo Show in JSON format | Information |
+| TR: | creationTime | date of this history entry, new history entries are only considered when later as this timestamp | Information |
+| TR: | domainApplicationId | Additional information like Skill-ID or such, optional | Information |
+| TR: | domainApplicationName | Additional information like Skill name or such, optional | Information |
+| TR: | json | Json of last command data to be able to process all infos e.g. in own JavaScripts| JSON |
+| TR: | name | Name of the device that got the last request | Information |
+| TR: | serialNumber | serialnumber of the device that got the last request | Information |
+| TR: | status | Status of last command to Alexa | SUCCESS / FAULT / DISCARDED_NON_DEVICE_DIRECTED_INTENT; last one is generated when activating the device by saying the wake word, or when the device discarded input as "not for me" |
+| TR: | summary | text/summary/action received by the device | Information |
+
+TR: ### alexa.0.Smart-Home-Devices
+TR: Includes all smart home devices Alexa knows from your skills. States as follows, for all known devices:
+
+| TR: | State name | meaning | value |
 | - | - | - |
 
-| #delete |从Alexa删除智能家居设备|纽扣#enabled |智能家居设备是否处于活动状态？ |信息
+TR: | deleteAll | deletes all smart home devices from Alexa, same as the button in the Alexa App | Button | discoverDevices | finds new smart home devices, same as the button in the Alexa App | Button | queryAll | queries all devices, only visible when at least one device is able to retrieve information | Button
 
-| #query |查询此设备的数据，仅在智能家居设备/技能支持检索信息时可见|纽扣 |
-|活跃当场景可以被激活/关闭时显示正确/错误|
-| powerState |开启/关闭电源|多变，对/错|
-| ... |根据智能家居设备的类型，还有更多可能的状态。信息或可变的:-) |
-
-**->彩色/灯光设备的特殊状态**
-
-|州名|意思|值|
+TR: ### alexa.0.Smart-Home-Devices.SerialNumber.*
+| TR: | State name | meaning | value |
 | - | - | - |
-|亮度| HUE灯的亮度|可变0-100％|
-|颜色亮度|色彩清晰度的亮度（以及色相和饱和度，HSV）|信息，0-1％|
-|色相|颜色的色相值（以及亮度和饱和度，HSV）|信息，0-360°|
-|颜色饱和度|颜色的饱和度（以及亮度和色相，HSV）|信息0-1 |
-| colorRGB |实际颜色的RGB代码是根据color- *值构建的|信息，＃rrggbb |
-| colorName |由Alexa定义的颜色名称-固定值|可变以设置颜色，0-144 |
-| colorTemperarureInKelvin |开尔文色温|信息，1000-10000K |
-| colorTemperatureName | Alexa定义的色温名称-固定值|可变设置，0-18 |
 
-使用#brightness，您可以调整灯光的亮度，＃colorName是选择一种预定义的颜色（0-144）。对于HUE环境光，您可以在#colorTemperatureName中的19值0-18之间进行选择。使用#powerState可以打开和关闭所有指示灯。
+TR: | #delete | delete smart home device from Alexa | Button | #enabled | Is the smart home device active ? | Information
 
-### Alexa2.0.Info。*
-|州名|意思|值|
+| TR: | #query | query data for this device, only visible when the smart home device/skill supports to retrieve information | Button |
+| TR: | active | shown for scenes when they can be activated/deactivated | true / false |
+| TR: | powerState | Switch power on / off | changeable, true / false |
+| TR: | ... | Many more possible states depending on the type the the smart home device | Information or changeable :-) |
+
+TR: **-> Special states for color/light devices**
+
+| TR: | State name | meaning | value |
 | - | - | - |
-|连接|如果与Alexa的连接正常|信息->正确/错误|
-| Cookie | Alexa cookie，与几个也要访问Alexa API的外部脚本一起使用|信息|
-| csrf | Alexa CSRF，与几个也要访问Alexa API的外部脚本一起使用|信息|
+| TR: | brightness | brightness of the HUE light | changeable 0-100% |
+| TR: | color-Brightness | brightness for color definition (together with hue and saturation, HSV) | Information, 0-1% |
+| TR: | color-hue | hue value of the color (together with brightness and saturation, HSV) | Information, 0-360° |
+| TR: | color-saturation | saturation of the color (together with brightness and hue, HSV) | Information, 0-1 |
+| TR: | colorRGB | RGB code of actual color build out of color-* values | Information, #rrggbb |
+| TR: | colorName | Name of the color as defined by Alexa - fixed values | changeable to set color, 0-144 |
+| TR: | colorTemperarureInKelvin | Color temperature in Kelvin | Information, 1000-10000K |
+| TR: | colorTemperatureName | Color temperature name as defined by Alexa - fixed values | changeable to set, 0-18 |
 
-##缺少功能
-*如何更新音量，随机播放或重复播放和doNotDisturb的初始状态？还是不需要？
-*添加字段以显示播放信息，例如JS版本
-*如果cookie / csrf无效，则自动停用
+TR: With #brightness you can adjust the brightness of your light, #colorName is to pick one predefined color (0-144). For HUE Ambient light you can choose between 19 Values fom 0-18 in #colorTemperatureName. All light can switched on and off with #powerState.
 
-＃＃ 安装
-像往常一样，使用稳定的存储库，最新的存储库或使用GitHub的ioBroker“安装”选项
+TR: ### alexa2.0.Info.*
+| TR: | State name | meaning | value |
+| - | - | - |
+| TR: | connection | If connection to Alexa is OK | Information -> true / false |
+| TR: | cookie | Alexa cookie, use with several external scripts that also want to access Alexa APIs | Information |
+| TR: | csrf | Alexa CSRF, use with several external scripts that also want to access Alexa APIs | Information |
 
-＃＃ 故障排除
-###通过电子邮件/密码确定Cookie的问题
-有时，当他们在登录时检测到意外流量时，亚马逊会进行怪异的检查。
-这可能会导致需要输入验证码才能登录的问题。
-通常，此验证码需要回答一次，此后无需使用验证码即可登录。
+TR: ## Missing features
+TR: * how to update initial status for volume, shuffle or repeat and doNotDisturb?! Or unneeded?
+TR: * add fields to show playing-info like JS version
+TR: * self deactivation if cookie/csrf invalid
 
-当您需要回答这样的验证码时，请尝试执行以下操作：
+TR: ## Installation
+TR: As usual using stable repository, latest repository or use the ioBroker "Install" options from GitHub
 
-*使用常见的浏览器（例如Chrome）
-*禁用Javascript！
-*清除可能存在于Amazon的所有cookie或使用浏览器的Proivate / Incognito模式
-*致电https://alexa.amazon.de
-*您应该获得一个登录表单（通常显示在较旧的移动浏览器中）
-*使用您在其中注册了Echo / Alexa的Amazon凭证登录那里
-*您可能需要登录两次或解决验证码
-*最后，您应该看到“ https://alexa.amazon.de/spa/index.html”作为URL，但没有任何实际内容（因为JS仍被禁用），但这完全可以！！！
-*现在尝试再次获取cookie
-*如果仍然无法正常运行，请再次执行该操作，然后从浏览器中检查User-Agent和accept-Language并在下一次尝试中使用适配器中的用户-Agent和accept-Language
+TR: ## Troubleshooting
+TR: ### Problems with Cookie determination via E-Mail/Password
+TR: Sometimes Amazon has weired checks in place when they detect unexpected traffic on Login.
+This can result in the problem that a captcha needs to be answered in order to login.
+Mostly this captcha needs to be answered once and after this the login works without Captcha.
 
-另外，Accept-Language-Header（默认为“ de-DE”）需要与您的语言/浏览器语言/登录的亚马逊页面的语言匹配。
+TR: When you need to answer such a captcha then try to do the following:
 
-您也可以尝试使用User-Agent并使用一种与您使用的系统类型更多匹配项的代理。
-例如，当ioBroker在Linux系统上运行时，使用User-Agent的示例使用“ Mozilla / 5.0（X11; Linux x86_64）AppleWebKit / 537.36（KHTML，例如Gecko）Chrome / 51.0.2704.103 Safari / 537.36”可以更好地工作。
+TR: * Use a common Browser (e.g. Chrome)
+TR: * disable Javascript!
+TR: * clear all cookies that may exist for Amazon or use Proivate/Incognito mode of the browser
+TR: * call https://alexa.amazon.de
+TR: * you should get a login form (normally displayed for older mobile browsers)
+TR: * login there with your Amazon credentials where the Echo/Alexa is registered in
+TR: * you may need to login twice or solve a Captcha
+TR: * At the end you should see "https://alexa.amazon.de/spa/index.html" as URL but without any real content (because JS is still disabled), BUT THIS IS COMPLETELY OK!!!!
+TR: * now try to get cookie again
+TR: * if it still not works do it again and check the User-Agent and accept-Language from your browser and use those in adapter on next try
 
-您可以在适配器配置中覆盖所有这些参数。
+TR: Additionally the Accept-Language-Header (defaults to "de-DE") needs to match with your language/the browser language/the language of the amazon page you login.
 
-###如何自行确定Cookie？
-如果无法自动确定Cookie，或者您不信任适配器提供电子邮件/密码，那么您可以自己确定Cookie。网络上有一些信息，具体说明了如何进行。这里有一些链接：
+TR: You can also try to play around with the User-Agent and use one which more matches to the system type you use.
+As example using "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36" as User-Agent was reported as working better when ioBroker runs on a linux system.
 
-* https://www.gehrig.info/alexa/Alexa.html
-*或使用https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html中的shellscript在外壳上获取它...
+TR: You can override all those parameters in the adapter configuration.
 
-但是请注意：Cookie会在若干时间后超时，然后适配器将停止工作并自行禁用。然后，您需要手动获取一个新的cookie！
+TR: ### How to determine Cookie by my own?
+TR: If the automatic Cookie determination don't work or you do not trust the Adapter to give the Email/Password then you can determine the cookie by your own. There are several infos on the web how to do it. Here some links:
 
-##什么是Sentry.io，什么报告给该公司的服务器？
-Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。确切地说，这是在此适配器中实现的。
+TR: * https://www.gehrig.info/alexa/Alexa.html
+TR: * or use the shellscript from https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html to get it on shell ...
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还包括您的安装ID（这是唯一的ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+TR: But be aware: The Cookie will time out after several time and then the adapter will stop working and disable itself. You then need to manually get a new cookie!
+
+TR: ## What is Sentry.io and what is reported to the servers of that company?
+TR: Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
+
+TR: When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+### 3.9.0 (2021-05-11)
+* (Apollon77) Add some new devices
+* (Apollon77) Always recognize "alexa" as wakeword to handle commands via the apps correctly
+
+### 3.8.4 (2021-05-11)
+* (Apollon77) Optimize Cookie refresh handling
+* (Apollon77) Fix warnings from js-controller 3.3 and optimize
+
+### 3.8.2 (2021-04-19)
+* (Apollon77) Adjust automatic Cookie Refresh interval from 7 to 4 days
 
 ### 3.8.1 (2021-02-09)
 * (Apollon77) Initialize volume for all devices on start
@@ -608,7 +620,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2020 Ingo Fischer <iobroker@fischer-ka.de>
+Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

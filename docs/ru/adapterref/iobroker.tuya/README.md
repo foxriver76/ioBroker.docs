@@ -2,91 +2,95 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.tuya/README.md
-title: ioBroker.tuya
-hash: w5Wvp8cqmi7jYdq4nzNU5aCU6AKPwoCacnh/D6CUl1M=
+title: TR: ioBroker.tuya
+hash: YMrzpnbTUt/3afAiGyNrfmH41Ah98LziOJHXWkCoMTY=
 ---
-![Логотип](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
+![TR: Logo](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
-![Количество установок](http://iobroker.live/badges/tuya-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.tuya.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.tuya.svg)
-![Трэвис-Си](http://img.shields.io/travis/Apollon77/ioBroker.tuya/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/Apollon77/ioBroker.tuya?branch=master&svg=true)
-![НПМ](https://nodei.co/npm/iobroker.tuya.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/tuya-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.tuya.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.tuya.svg)
 
-# IoBroker.tuya
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: # ioBroker.tuya
+TR: ![TR: Test and Release](https://github.com/Apollon77/iobroker.tuya/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/tuya/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Адаптер ioBroker для подключения к нескольким небольшим и дешевым устройствам Wi-Fi, которые подключены к Tuya Cloud и в основном используют приложение Smartlife / Alexa-Skill. Адаптер поддерживает чтение обновлений статуса в реальном времени и управление этими устройствами после синхронизации с соответствующим приложением мобильного телефона.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-Устройства Tuya - это умные устройства ESP8266MOD WiFi от Shenzhen Xenon.
+TR: ioBroker adapter to connect to several small and cheap Wifi devices that care connected to the Tuya Cloud and mostly use the Smartlife App/Alexa-Skill. The adapter supports reading real time status updates and controlling of those devices once synced with the respective mobile phone app.
 
-Помимо устройств, которые можно использовать с приложением Smart Live, также должно быть возможно использование приложения Jinvoo Smart, приложения Xenon Smart, eFamilyCloud, io.e (Luminea или другого). Пожалуйста, сообщите в случае успеха. <img src="https://https://raw.githubusercontent.com/Apollon77/ioBroker.tuya/master/admin/warning.png" width="50" height="50"> **Адаптер работает только с Tuya и совместимыми приложениями, если их версия &lt;3.14 (!!)**
+TR: Tuya devices are ESP8266MOD WiFi smart devices from Shenzhen Xenon.
 
-Доказано, что адаптер отлично работает со всеми устройствами, которые «всегда подключены к Wi-Fi». Устройства, которые подключаются к сети только при возникновении события, отправляют свои данные и снова переходят в автономный режим, не поддерживаются. Это означает, что **устройства с батарейным питанием обычно НЕ работают!**
+TR: Beside devices usable with the Smart Live App the use of the Jinvoo Smart App, Xenon Smart app, eFamilyCloud, io.e (Luminea or such) app should also be possible. Please report back if successfull.
+<img src="https://https://raw.githubusercontent.com/Apollon77/ioBroker.tuya/master/admin/warning.png" width="50" height="50"> **The Adapter only works with Tuya and compatible apps as long as their version is <3.14 (!!)**
 
-Один экземпляр адаптера может обрабатывать все устройства в одной сети, которая маршрутизирует пакеты UDP.
+TR: The adapter is proofed to work very well with all devices that are "always in wifi". Devices that only come online when there is an event, send their data and go offline again are not supported. This means that **battery powered devices usually DO NOT work!**
 
-## Совместимые мобильные приложения и версии
-Текущие версии Tuya Smart, а также приложения Smartlife **больше не совместимы** с тем, как работает адаптер, потому что Tuya зашифровал весь трафик, который адаптер мог перехватить. На данный момент все еще работают некоторые старые версии приложений ...
+TR: One adapter instance can handle all devices in one network that routes UDP packages.
 
-* Приложение Smartlife <3.14, лучшее 3.12.6 !!
-* Tuya Smart App <3.14, лучшее 3.12.x
-* Приложение STL Smart Home 1.1.1 (последнее от сентября 2019 г.)
-* Домашнее приложение Ucomen (??)
+TR: ## Compatible Mobile Apps and versions
+TR: The currently versions of the Tuya Smart and also Smartlife App are **no longer compatible** with the way the adapter works because Tuya encrypted all traffic that the adapter could sniff. For now still some older versions of the Apps work ...
 
-## Важная заметка
-Если устройства неправильно обнаруживаются через их пакеты UDP, вы можете установить IP вручную, отредактировав объект устройства. см. https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636
+TR: * Smartlife App <3.14, best 3.12.6!!
+TR: * Tuya Smart App <3.14, best 3.12.x
+TR: * STL Smart Home App 1.1.1 (last dated Sept 2019)
+TR: * Ucomen Home App (??)
 
-## Как работает адаптер
-### Базовая функциональность
-Адаптер отслеживает в локальной сети UDP-пакеты устройств Tuya (старая прошивка, поэтому только незашифрованные). Необходимо, чтобы хост ioBroker, на котором работает адаптер, находился в том же сегменте сети, что и устройства, и маршрутизатор должен поддерживать многоадресную рассылку UDP!
+TR: ## Important note
+TR: If the devices are not correctly detected via their UDP packages you can set the IP manually by editing the device object. see https://github.com/Apollon77/ioBroker.tuya/issues/221#issuecomment-702392636
 
-Все обнаруженные устройства добавляются к адаптеру, и в качестве основной функциональности адаптер запрашивает данные в заданном интервале опроса. Без синхронизации с соответствующим мобильным приложением (см. Ниже) НИКАКИЕ дополнительные функции, такие как обновления в реальном времени или управление, невозможны.
+TR: ## How the adapter works
+TR: ### Basic functionality
+TR: The adapter monitors the local network for UDP packets of Tuya (old firmware, so unencrypted only) devices. It is needed that the ioBroker host where the adapter runs on is placed in the same network segment as the devices and UDP multicasting needs to be supported by the router!
 
-Новые зашифрованные устройства НЕ будут отображаться до того, как вы выполните синхронизацию устройства (см. Далее ...)
+TR: All detected devices are added to the adapter and as basis functionality the adapter requests data in the defined polling interval. Without a sync with the respective mobile app (see below) NO further functionality like real time updates or controlling is possible.
 
-### Расширенные функции после синхронизации устройства
-Чтобы получить полную функциональность адаптера, а также поддерживать устройства с новой зашифрованной прошивкой, адаптер должен знать ключ шифрования.
+TR: Newer encrypted devices will NOT show up before you do a device sync (see next ...)
 
-Самый простой способ получить этот ключ шифрования - получить его из используемого мобильного приложения. Для этого адаптер предоставляет прокси-сервер, который перехватывает связь приложения с серверами tuya и получает необходимую информацию.
+TR: ### Advanced functionality after device sync
+TR: To get the full functionality of the adapter and also support devices with the new encrypted Firmware an encryption key needs to be known by the adapter.
 
-** Важное примечание для пользователей iOS: ** Описанный здесь подход с использованием прокси больше не работает. Как только у вас установлено приложение Smart Life версии 3.10 или выше, прокси-сервер не видит сообщения из приложения. Но он по-прежнему работает со всеми версиями приложений Android, поэтому лучшим подходом является эмулятор Androis, как примерно описано на https://forum.iobroker.net/topic/23431/aufruf-tuya-adapter-tests-verschl%C3%BCsselte- ger% C3% A4te / 19
+TR: The easiest way to receive this encryption key is to get them from the used mobile app. To do this the adapter provides a proxy to catch the communication of the app with the tuya servers and grab the needed information.
 
-Для этого в первую очередь необходимо добавить на мобильное устройство собственный Root-сертификат.
-Когда вы нажимаете «Запустить прокси» в конфигурации экземпляра адаптера, сертификат создается для вашей системы и показывает QR-код для места загрузки. В идеале отсканируйте QR-код своим мобильным устройством и следуйте инструкциям, чтобы добавить этот корневой сертификат и доверять ему.
-Если местоположение QR-кода недоступно (может случиться при использовании Docker или подобного), откройте «Proxy Web Info Port» в своем браузере и нажмите «Root-CA» в навигации, и вы также можете загрузить файл CA.
+TR: **Important Note for iOS Users:** The Proxy approach described here is not working anymore. As soon as you have Smart Life App version 3.10 or higher the communication from App is no longer visible to the proxy. But it still works with all Android App versions, so the best approach is an Androis Emulator as roughly described at https://forum.iobroker.net/topic/23431/aufruf-tuya-adapter-tests-verschl%C3%BCsselte-ger%C3%A4te/19
 
-Теперь не забудьте закрыть / убить соответствующее смарт-приложение Tuya.
-После этого добавьте прокси-порт и хост ioBroker в качестве «ручного» прокси для вашего WLAN-соединения на вашем мобильном телефоне.
+TR: To do this first of all you need to add a custom Root-Certificate on your mobile device.
+When you click "Start Proxy" in the adapter instance configuration the certificate is created for your system and shows a QR-Code to the download location. Ideally scan the QR Code with your mobile device and follow the process to add and trust this Root-Certificate.
+If the QR code location is not reachable (may happen when use Docker or such) then open the "Proxy Web Info Port" in your browser and click on "Root-CA" in the navigation and you can download the CA File too.
 
-Теперь откройте соответствующее приложение Tuya Smart и / или перезагрузите.
+TR: Now make sure to close/kill the respective Tuya smart app.
+After that add the Proxy-Port and the ioBroker host as "Manual" Proxy for your WLAN connection on your mobile phone.
 
-Конфигурация администратора покажет сообщение об успешном завершении, если соответствующий пакет данных был получен, а затем через 10 секунд отключит прокси. Теперь вы можете удалить прокси со своего телефона, а также не доверять сертификату.
+TR: Now open the respective Tuya Smart App and/or reload.
 
-Сразу после этого объекты должны быть обновлены с более значимыми именами и с этого момента автоматически получать обновления в реальном времени и должны иметь возможность общаться.
+TR: The Admin configuration will show a success message if the relevant data packet was received and will then turn the proxy off 10 seconds later. You can now remove the proxy from your phone and also untrust the certificate.
 
-Синхронизация требуется только на начальном этапе или после того, как вы добавили новые устройства в свое приложение.
+TR: Directly after this the objects should be updated with more meaningful names and receive live updates from then on automatically and should be able to communicate.
 
-Некоторые образы для некоторых мобильных ОС можно найти в [Прокси-страница](PROXY.md).
+TR: The sync is only needed initially or after you added new devices to your App.
 
-## Не для устройств с батарейным питанием
-Устройства с батарейным питанием обычно НЕ поддерживаются этим адаптером! Причина в том, что они не всегда в сети для экономии энергии. Как только они получают сигнал, они выходят в сеть, отправляют обновление на облачные серверы Tuya и снова отключаются. Они не отправляют никаких пакетов UDP или находятся в сети достаточно долго, чтобы адаптер мог подключиться к ним.
-Как только кто-то найдет способ напрямую получать данные из облака Tuya, это может измениться.
+TR: Some images for some mobile OS can be found at the [TR: Proxy-Page](PROXY.md).
 
-## Кредиты
-Работа адаптера была бы невозможна без отличной работы @codetheweb, @kueblc и @ NorthernMan54 (https://github.com/codetheweb/tuyapi) и https://github.com/clach04/python-tuya. и многое другое.
+TR: ## Not for Battery powered devices
+TR: Battery powered devices are normally NOT supported by this adapter! The reason is that they are not online all the time to save power. Whenever they get a signal, thay go online, send the update to the the Tuya cloud servers and go offline again. They do not emit any UDP packages or are online long enough so that the adapter could connect to them.
+A soon as someone finds a way to directly fetch data from the Tuya cloud this may change.
 
-## Делать
-* улучшение тестирования: проверки состояния и setState's
-* улучшить документацию
+TR: ## Credits
+TR: The work of the adapter would not had been possible without the great work of @codetheweb, @kueblc and @NorthernMan54 (https://github.com/codetheweb/tuyapi) and https://github.com/clach04/python-tuya and many more.
 
-## Как сообщить о проблемах и запросах функций
-Пожалуйста, используйте для этого проблемы GitHub.
+TR: ## Todo
+TR: * enhance testing: state checks and setState's
+TR: * enhance documentation
 
-Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог "log" в установочном каталоге ioBroker, а не из Admin, потому что Admin сокращает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
+TR: ## How to report issues and feature requests
+TR: Please use GitHub issues for this.
+
+TR: Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+
+### 3.6.2 (2021-05-10)
+* (Apollon77) type "bitmap" is a number
+* (Apollon77) More schema information added
 
 ### 3.6.1 (2021-04-11)
 * (Apollon77) More schema information added
@@ -293,7 +297,7 @@ hash: w5Wvp8cqmi7jYdq4nzNU5aCU6AKPwoCacnh/D6CUl1M=
 
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2018-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

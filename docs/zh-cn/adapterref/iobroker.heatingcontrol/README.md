@@ -2,194 +2,206 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.heatingcontrol/README.md
-title: ioBroker.HeatingControl
-hash: QSvQPDMUstUgUng8PB4U+05xrwrmuxU06lsfjKX97FU=
+title: TR: ioBroker.HeatingControl
+hash: X5MlFyDe+6L/X4kED2NEJY8VmMEEOG0s2mJgcylMH/M=
 ---
-![标识](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
+![TR: Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
-![安装数量](http://iobroker.live/badges/heatingcontrol-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.heatingcontrol.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.heatingcontrol.svg)
-![测验](https://travis-ci.org/rg-engineering/ioBroker.heatingcontrol.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/heatingcontrol-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.heatingcontrol.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.heatingcontrol.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.heatingcontrol/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)
 
-＃ioBroker.HeatingControl
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: # ioBroker.HeatingControl
+![TR: GitHub Actions](https://github.com/rg-engineering/ioBroker.heatingcontrol/workflows/Test%20and%20Release/badge.svg)
 
-**如果您愿意，请考虑捐赠：**
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-[![贝宝（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+TR: **If you like it, please consider a donation:**
 
-##用于控制加热系统的适配器。
-特征：
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-*根据时间表控制所有恒温器的设定温度水平
-*为白天和黑夜配置多个供暖时段
-*支持所有类型的恒温器（前提条件：它必须在ioBroker中可用）
-* Homematic设备自动检测
-*支持多个配置文件
-*如果恒温器和执行器之间没有直接连接，则可以直接从适配器中切换执行器
-*当前，当达到设定温度时，执行器直接关闭。只要设定点温度低于实际温度，执行器就会打开。 （要做的事情：实施改进的控制）
-*每个房间支持无限数量的恒温器，执行器和传感器
-*每个房间自动检测恒温器，执行器和传感器。为此使用功能（例如“加热”）。
-*如果房间中装有恒温器，但不应对其进行控制，则可以在管理界面中排除房间
-*传感器用于降低目标温度（例如，如果窗户打开）；可选配SensorDelay
-*与Feiertag-Adapter或任何其他接口，以检测公众假期。公众假期可以是正常的一天，也可以是星期天。 （管理员设置）
-*手动控制温度超过一定时间
-*预定的加热时间
-*从恒温器接管更改（可选）
-*支持来自[Pittini]（https://github.com/Pittini/iobroker-heatingcontrol-vis）的可视化。谢谢！
+TR: ## Adapter for controlling your heating system.
+TR: Features:
 
-[常问问题](doc/FAQ.md)
+TR: * Control the setpoint temperature levels of all thermostats per schedules
+TR: * Configure multiple heating periods for each day and night
+TR: * Supports all kind of thermostats (precondition: it must be available in ioBroker)
+TR: * Homematic device autodetection
+TR: * supports multiple profiles
+TR: * If there is no direct connection between the thermostat and the actuator, the actuator can be switched directly out of the adapter
+TR: * Currently, the actuator is switched off directly when the setpoint temperature is reached. As soon as the setpoint temperature is below the actual temperature, the actuator will be switched on. (To do: implement improved control)
+TR: * unlimited number of thermostats, actuators and sonsors per room are supported
+TR: * Thermostat, actuator and sensor are automatically detected per room. The function (eg "heating") is used for this.
+TR: * Rooms can be excluded within the admin interface, if a room contains a thermostat but should not be controlled
+TR: * sensor is used to reduce target temperature (e.g. if a window is open); optionally with SensorDelay
+TR: * interface to Feiertag-Adapter or any others to detect public holiday. Public holiday can be a normal day or like sundays. (admin setting)
+TR: * manual temperature override for a certain time
+TR: * predefined heating period
+TR: * take over changes from thermostat (optional)
+TR: * visualization from [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) is supported. Thank you!
 
-＃＃ 安装
-##设置
-＃＃＃ 主要的
-*功能=每个房间用于检测恒温器，执行器和传感器的功能。这是系统枚举之一
-*时区=用于cron调整cron作业
-* Feiertag的路径-适配器=如果您拥有使用Feiertag-Adapter自动检测今天的公众假期的权限，请在此处设置路径（例如feiertage.0）
-*当管理员打开时删除所有设备=应该被禁用。仅在需要删除所有房间，执行器和传感器设置时才启用它。当适配器管理员打开时，将执行设备搜索
-*使用的传感器=如果您有窗户传感器，并且要在窗户打开时降低目标温度，则启用该选项
-*使用的执行器=如果要直接从适配器控制执行器。万一温控器和执行器之间没有直接连接，以防万一。
-*如果没有加热时间=仅对执行器有效，请使用执行器。定义在没有加热时间的情况下如何设置执行器
-*如果没有恒温器，则使用执行器=仅对执行器有效。如果您的房间没有恒温器，但带有加热执行器，则可以永久打开或关闭它们
+[TR: FAQ](doc/FAQ.md)
 
-＃＃＃ 轮廓
-*配置文件类型=支持三种不同的配置文件类型（周一至周日或周一至周五和周六/周日或每天）
-*配置文件数量=如果您需要更多，则在配置文件上增加该值。然后，您可以选择要使用的配置文件。
-*周期数=定义您需要多少个不同温度的每日区域。设置的越多，将创建更多的数据点。最好使用较低的值（例如5）
-*““公众假期如星期天=如果您想在公众假期如星期天设置目标温度，请启用该选项。否则，公众假期设置与正常天相同
-* HeatPeriod =加热周期的开始和结束日期。用于设置“ HeatingPeriodActive”
+TR: ## Installation
+TR: ## Settings
+TR: ### main
+TR: * Function = Function to be used to detect thermostats, actuators and sensors per room. It's one of the sytem enums
+TR: * timezone = to be used for cron to adjust cron jobs
+TR: * Path to Feiertag - Adapter = if you wnat to use Feiertag-Adapter to dectect automatically public holiday for today then set the path here (e.g. feiertage.0)
+TR: * delete all devices when admin opens = should be disabled. Enable it only when you need to delete all room, actuator and sensor settings. A device search will be executed when adapter admin opens
+TR: * sensor used = if you have window sensors and you want to decrease target temperature when window is open then enable that option
+TR: * actuators used = if you want to control actuators directly from adapter. Just in case there is no direct connection between thermostat and actuator.
+TR: * use actuators if no heating period = only valid with actuators. Defines how actuators are set when no heating period is active
+TR: * use actuators if no thermostat available = only valid with actuators. If you have rooms without thermostat but with heating actuator you can switche them on or off permanantly
 
-＃＃＃ 设备
-*所有房间的清单。您可以在此处禁用房间。
-*按下右侧的编辑按钮以打开该房间的恒温器，执行器和传感器的设置窗口
+TR: ### profile
+TR: * Profile Type = three different profile types (Monday - Sunday, or Monday - Friday and Suturday/Sunday or every day) are supported
+TR: * number of profiles = if you need more then on profile increase that value. You can then select which profile will be used.
+TR: * number of periods = define how many daily sections with different temperature you need. As more you set as more datapoints will be created. Better to use a low value (e.g. 5)
+TR: * "public holiday like sunday = if you want to set target temperatures on public holiday like sunday enable that option. Otherwise public holiday settings are the same as on normal days
+TR: * HeatingPeriod = start and end date of heating period. Used to set "HeatingPeriodActive"
 
-###编辑室
-*在这里您可以验证并设置恒温器，执行器和传感器的对象ID
-*您可以手动添加新的恒温器，执行器或传感器。只需按+按钮。然后，您会得到一个空行，需要填写。编辑按钮将打开系统上可用设备的列表
-*温控器：
+TR: ### devices
+TR: * a list of all rooms. You can disable a room here.
+TR: * press edit button on right hand side to open settings window for thermostats, actuators and sensors for that room
 
-**应设置名称，目标温度OID和当前温度OID。
+TR: ### Edit Room
+TR: * here you can verifay and set object ID's for thermostats, actuators and sensors
+TR: * you can add manually new thermostats, actuators or sensors. Just press + button. Then you get an empty line which needs to filled up. The Edit-Button opens a list of available devices on the system
+TR: * thermostats:
 
-*执行器
+TR: ** name, temperature target OID and current temperature OID should be set.
 
-**应该设置状态的名称和OID
+TR: * actuators
 
-*传感器
+TR: ** name and OID for state should be set
 
-**应设置当前状态的名称和OID
+TR: * sensors
 
-＃＃ 数据点
-| DP名称|描述|
+TR: ** name and OID for current state should be set
+
+TR: ## datapoints
+| TR: | DP name             | description                                                                                         |
 |---------------------|-----------------------------------------------------------------------------------------------------|
-| ActivePeriodActive |如果关闭，则将不使用配置文件。 |
-| CurrentProfile |选择当前配置文件（基于1，表示配置文件1使用heatingcontrol.0.Profiles.0下的数据点）|
-| LastProgramRun |显示适配器运行的最后一次时间。 |
+| TR: | HeatingPeriodActive | if off, the profiles will not be used                                                               |
+| TR: | CurrentProfile      | select current profile (1 based, means profile 1 use datapoints under heatingcontrol.0.Profiles.0 ) |
+| TR: | LastProgramRun      | shows last time when adapter run                                                                    |
 
-###温度降低/升高
-| DP名称|描述|相对降低的目标温度|绝对降低的目标温度|
+TR: ### temperature decrease / increase
+| TR: | DP name           | description                                                | target temperature for relative decrease                                       | target temperature for absolute decrease                      |
 |-------------------|------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------|
-|宾客出席|升高温度，因为客人想要变暖|通过Profiles.0.room.GuestIncrease增加当前剖面温度。将目标设置为Profiles.0.room.absolute.GuestIncrease |
-| PartyNow |降低温度，因为温度变高'|通过Profiles.0.room.PartyDecrease降低当前温度曲线温度|将目标设置为Profiles.0.room.absolute.PartyDecrease |
-|现在|我们在场，如果我们不在场，降低温度|通过Profiles.0.room.AbsentDecrease降低当前温度曲线|将目标设置为Profiles.0.room.absolute.AbsentDecrease |
-|假期缺席|我们缺席，所以周末也减少通过Profiles.0.room.VacationAbsentDecrease降低当前温度曲线温度|将目标设置为Profiles.0.room.absolute.VacationAbsentDecrease |
+| TR: | GuestsPresent     | increase temperature because guests wants it warmer        | increase current profile temperature by Profiles.0.room.GuestIncrease          | set target to Profiles.0.room.absolute.GuestIncrease          |
+| TR: | PartyNow          | decrease temperature because it's becoming hot'            | decrease current profile temperature by Profiles.0.room.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          |
+| TR: | Present           | we are present, if we are not present decrease temperature | decrease current profile temperature by Profiles.0.room.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         |
+| TR: | VacationAbsent    | we are absent, so decrease also on weekend                 | decrease current profile temperature by Profiles.0.room.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease |
 
-*在两种情况下，仅使用一次降脂（在适配器的早期版本中，可以使用一次以上的脱脂剂）
-*在绝对脱脂配方中，仅使用不等于0°C的目标值。如果您不需要降低某个房间的温度，则将降低值保持在0°C
+TR: * in both szenarious only one lowering is used (in previous version of adapter more then one degreases could be used)
+TR: * in absolute degrease szenario only target values not equal 0°C are used. If you do not need any lowering for a certain room then keep decrease-values at 0°C
 
-###没有加热时间
-有三种选择
+TR: ### no heating period
+TR: there are three options
 
-*固定每个房间的温度
+TR: * fix Temperature per room
 
-如果选择此选项，则将为每个房间在对象树中显示一个新的数据点。您可以在此处设置固定目标温度，该目标温度在不激活加热时间时设置。
+TR: if this option is selected, a new datapoint in object tree appears for every room. Here you can set a fix target temperature which is set when heating period is not active.
 
-*修复所有房间的温度
+TR: * fix Temperature for all rooms
 
-使用此选项，您可以在不激活供暖时段的情况下为每个房间使用一个目标温度
+TR: with this option you can use one target temperature for every room when heating period is not active
 
-* 没有
+TR: * nothing
 
-如果没有激活加热时间，则使用此选项不会将任何东西发送到恒温器。当加热期仍处于活动状态时，目标温度从最后一个标签开始保持。
-在这种情况下，如果您使用适配器中的执行器，则可以定义执行器的设置方式（关闭，打开或保持原样）
+TR: with this option nothing will be sent to thermostat if no heating period is active. Target temperature remain from last taget when heating period still was active.
+In that case and if you use actuators from the adapter then you have the possibilty to define how actuators should be set (off, on, or leave it as it is)
 
-＃＃ 其他
-* HolidayPresent /今天公开假期
+TR: ## others
+TR: * HolidayPresent / PublicHolidyToday
 
-如果您在管理员中启用了“像星期天一样的假日礼物”或“像星期天一样的公共假日”，则当适配器被告知今天是公共假日或您在家度假时，将使用星期日的个人资料。
+TR: If you enable "Holiday present like sunday" or "public holiday like sunday" in admin, the profile for sunday is used when adapter is informed that today is a public holiday or you are at home in holiday.
 
-###窗口打开
-如果“使用传感器”处于活动状态并且配置了一个房间的传感器，则
+TR: ### window open
+TR: if "use sensors" is active and sensor(s) for a room is / are configured then
 
-*通过Profiles.0.room.WindowOpenDec（如果配置了相对降低）打开窗口（真）时降低当前轮廓温度
-*如果配置了绝对减小，则在打开窗口（真）时将目标设置为Profiles.0.room.absolute.WindowOpenDecrease
+TR: * decrease current profile temperature when window is open (true) by Profiles.0.room.WindowOpenDecrease if relative decrease is configured
+TR: * set target to Profiles.0.room.absolute.WindowOpenDecrease when window is open (true) if  absolute decrease is configured
 
-可选地，可以使用延迟。如果仅在短时间内打开窗户，则传感器延迟可以避免在很短的时间内减小并恢复正常。
+TR: optionally a delay can be used. If window is opened only for a short time sensor delay can avoid from reduce and back to normal in very short times.
 
-##医疗支持
-您可以使用日历或任何其他数据点来更改适配器中的数据点。
-只需在admin中配置来自ical或其他数据点的事件即可。支持的是
+TR: ## ical support
+TR: you can use your calendar or any other datapoint to change datapoints in adapter.
+Just configure events from ical or other datapoints in admin. Supported are
 
-|数据点|说明| ------------------------------------- | ---------- -------------------------------------------------- ---------------- | heatingcontrol.0。当前| |将其设置为true（如果是布尔型）或设置为一个比限制高的数字（如果是数字）| heatingcontrol.0.HolidayPresent |当您在假期在家中时，将其设置为true | heatingcontrol.0.VacationAbsent |当您在假期不在家时，将其设置为true | heatingcontrol.0.GuestsPresent | |将其设置为true（如果是布尔值）或将其设置为一个更高的值（如果是数字，则为limit）| heatingcontrol.0.PartyNow |将其设置为true（对于布尔值）或大于限制的数字（对于数字）
+TR: | datapoint                           | description |-------------------------------------|---------------------------------------------------------------------------- |heatingcontrol.0.Present             | set it to true (in case of boolean) or to a number higher then limit (in case of number) |heatingcontrol.0.HolidayPresent      | set it to true when you at home in your holiday |heatingcontrol.0.VacationAbsent      | set it to true when you not at home in your holiday |heatingcontrol.0.GuestsPresent       | set it to true (in case of boolean) or to a number higher then limit (in case of number) |heatingcontrol.0.PartyNow            | set it to true (in case of boolean) or to a number higher then limit (in case of number)
 
-提示：使用数字数据点，您可以算出房子里有多少人，然后再决定例如我们有足够的聚会准备...
+TR: hint: with number datapoints you could count how many people are in the house and then decide, e.g. we have enough for a party...
 
-##使用恒温器的更改
-许多用户要求一个选项来将恒温器的更改接管适配器。现在实现了四个选项：
+TR: ## use changes from thermostat
+TR: Many user asked for an option to take over changes from thermostat into adapter. Now a four options are implemented:
 
-|选项|说明| -------------------------- | --------------------- -------------------------------------------------- ---------------- |没有温控器的变化将被忽略|作为替代|温控器的变化被视为优先；覆盖时间必须在heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime中预先设置。 |如果未设置替代时间，则不执行替代|作为新的配置文件设置|恒温器的变化被视为当前温度曲线期间的目标温度|直到下一个轮廓点|从恒温器的变化视为目标温度，直到下一个轮廓点为止。这是手动模式，因此仅使用窗口传感器。其他所有| |增加/减少被忽略。每个房间中都有一个数据点，可以在到达下一个配置文件点之前禁用手动模式。
+TR: | option                   | description |--------------------------|--------------------------------------------------------------------------------------- | no                       | changes from thermostat are ignored | as override              | changes from thermostat are taken as override; override time must be set in advance in heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime |                          | if override time is not set, than override is not executed | as new profile setting   | changes from thermostat are taken as target temperature for current profile period | until next profile point | changes from thermostat are taken as target temperature until next profile point. This is a manual mode, so only Window sensors are used. All other |                          | increases / decreases are ignored. There is a datapoint in every room to disable manual mode before reaching next profile point.
 
-##更改温度时扩展覆盖
-替代的标准行为是，当您更改温度时，替代时间不会更改。例如，如果您在25°C下启动覆盖20分钟，而在15分钟后更改为28°C，则仅在最后5分钟内使用28°C。使用该选项，只要您更改倍率温度，就可以重新启动倍率。
-例如，在高于28°C的温度下将使用20分钟，这将导致15分钟（25°C）和20分钟（28°C）
+TR: ## extend override when temperature is changed
+TR: The standard behavior for override is, when you change temperature the override time is not changed. E.g if you start override for 20 minutes with 25°C and you change to 28°C after 15 minutes then 28°C is only used for the last 5 minutes. With that option you restart override whenever you change override temperature.
+In example above 28°C would then be used for 20 minutes which leads to 15 minutes 25°C and 20 minutes 28°C
 
-##覆盖模式
-所有房间的管理模式有两种。
+TR: ## override mode
+TR: There are two mode adjustable in admin for all rooms.
 
-*计时器控制
+TR: * timer controlled
 
-这是众所周知的函数，它使用温度和持续时间。给定温度用于持续时间，然后温度目标将在自动模式下重新设置为值
+TR: this is the wellknown function, which uses a temperature and a duration. The given temperature is used for the duration and then temperature target will set back to value in auto mode
 
-*直到下一个轮廓点
+TR: * until next profile point
 
-这是一个新功能。在这里，我们可以使用温度倍率直到下一个轮廓点。持续时间将被忽略，但不能为零！
+TR: this is a new function. Here we can use a temperature override until next profile point. The duration will be ignored but must be non-zero!
 
-##温控器处理“窗口打开”
-一些恒温器可以自行处理“窗口打开”。在那些情况下，会配置车窗传感器和恒温器之间的直接连接，并且在打开车窗时恒温器会降低其目标温度。
-结合选项“使用恒温器的更改” /“直到下一个配置文件点”，将导致此状态变为意外的手动状态。在这种情况下，将使用降低的温度直到下一个轮廓点。
-但是adpater可以处理此行为。您必须启用选项“ Thermostat处理'Window is Open'”，并且还可以在适配器中配置窗口传感器。
-窗口打开后，适配器等待最大时间。恒温器设定的新目标温度为3秒。如果在那段时间内收到新的目标温度，它将用作降低的绝对温度。状态将变为“自动打开窗口”。窗口一旦关闭，状态就会恢复为自动，并且恒温器会将原始目标温度设置为**注意**，在这种情况下，请勿使用传感器打开延迟。如果使用它，则从恒温器接收到目标温度后，将出现“打开窗口”事件。最终以手动状态结束。
+TR: ## Thermostat handles "window is open"
+TR: Some thermostats can handle "window is open" by itself. In those cases a direct connection between window sensor and thermostat is configured and thermostat reduces target temperature by itslef when a window is opened.
+In combination with option "use of changes from thermostat"  / "until next profil point" will lead this to an unexpected manual state. In this situation the reduced temperature  would be used until next profil point.
+But the adpater can handle this behavior. You must enable option "Thermostat handles 'Window is Open'" and you can configure window sensors also in adapter.
+When window is opened the adapter waits for max. 3 seconds for new target temperature from thermostat. If it receives a new target temperature in that time it will be used as a reduced absolut temperature. Status will then be "auto window open". As soon as the window is closed the status goes back to auto and thermostat sets back the original target temperature **Attention** do not use Sensor Open Delay in that case. If you use it, the Window open event appears after target temperature received from thermostat. This ends up in manual state.
 
-##复制期限和复制配置文件
-``heatingcontrol.0.Profiles.1.CopyProfile heatingcontrol.0.Profiles.1.Room.CopyProfile``
+TR: ## Copy period and copy profile
+TR: `` heatingcontrol.0.Profiles.1.CopyProfile heatingcontrol.0.Profiles.1.Room.CopyProfile ``
 
-和
+TR: and
 
-``heatingcontrol.0.Profiles.1.Küche.Fri.CopyPeriods``
+TR: `` heatingcontrol.0.Profiles.1.Küche.Fri.CopyPeriods ``
 
-CopyProfile将按下按钮的配置文件的全部内容复制到下一个配置文件。在上面的示例中，该按钮位于配置文件1中。该按钮将所有内容从配置文件1复制到配置文件2。
-如果您只想复制一个房间，请使用某个房间的按钮。
+TR: CopyProfile copies the entire content of the profile where the button is pressed to the next profile. In the above example, the button is in profile 1. The button copies everything from profile 1 to profile 2.
+If you want to copy only one room, use the button in a certain room.
 
-CopyPeriods每天或每个房间的周一至周五可用。这会将句点复制到下一部分。在上面的示例中，CopyPeriods将所有时间段从厨房房间的星期五复制到厨房房间的星期六。
-所以你可以在“每天分别”配置文件中，复制从星期一到星期日的时间段...
+TR: The CopyPeriods are available per day or Mon-Fri per room. This copies the periods to the next section. In the above example, the CopyPeriods copies all periods from Friday in the kitchen room to the periods on Saturday in the kitchen room.
+So you can e.g. in the profile "every day separately", copy the periods from Monday to Sunday ...
 
-##问题和功能请求
-*如果您遇到此适配器的任何错误或有功能要求，请在[github]（https://github.com/rg-engineering/ioBroker.heatingcontrol/issues ）。感谢您提供任何反馈意见，这将有助于改进此适配器。
+TR: ## Issues and Feature Requests
+TR: * If you are faced with any bugs or have feature requests for this adapter, please create an issue within the GitHub issue section of the adapter at [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). Any feedback is appreciated and will help to improve this adapter.
 
-＃＃ 已知的问题
-###带有Homematic IPFußbodenheizungsaktorHmIP-FAL230-C10的适配器– 10fach，230 V
-似乎HmIP-FAL230-C10无法与该适配器一起直接用作致动器。如果您将HmIP-FAL230-C10与Homematic温控器一起使用，它应该可以工作。
-另请参阅[论坛](https://forum.iobroker.net/topic/22579/test-adapter-heatingcontrol-v1-0-x/1553)
+TR: ## known issues
+TR: ### Adapter with Homematic IP Fußbodenheizungsaktor HmIP-FAL230-C10 – 10fach, 230 V
+TR: It seems that HmIP-FAL230-C10 can not be used directly as an actuator in combination with that adapter. If you use HmIP-FAL230-C10 together with Homematic thermostats it should work.
+see also [TR: Forum](https://forum.iobroker.net/topic/22579/test-adapter-heatingcontrol-v1-0-x/1553)
 
-### HM温控器的开窗功能
-HM温控器具有两个版本的开窗功能。一方面用作温度下降检测，另一方面与窗户触点连接。
-当窗口打开时，此功能使适配器切换到手动模式。理想情况下，应禁用此功能，以免干扰适配器的功能。
-如果恒温器使用了来自窗户传感器的信息，则应启用“恒温器处理窗户打开”选项。
+TR: ### Window-open function of HM thermostats
+TR: HM thermostats have an open window function in two variants. On the one hand as temperature drop detection and on the other hand in connection with a window contact.
+This function causes the adapter to switch to manual mode when the window is opened. Ideally, this function should be deactivated so as not to interfere with the functionality of the adapter.
+If thermostat use information from window sensor then "thermostat handles window open" option should be enabled.
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。所有这些都帮助我提供了基本上不会崩溃的无错误适配器。
+TR: When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.  All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+### 2.4.0 (2021-05-15)
+* (René) make it ready for js-controller 3.3
+
+### 2.3.2 (2021-04-18)
+* (ericsboro) vis translation to russian
+* (René) see issue #231: bug fix detect heating period
+
+### 2.3.1 (2021-04-05)
+* (René) some optimisations for vis translation
 
 ### 2.3.0 (2021-03-20)
 * (René) see issue #187: show remaining override timeConverter

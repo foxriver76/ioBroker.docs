@@ -2,143 +2,150 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.countdown/README.md
-title: ioBroker.countdown
-hash: p4FkV853prgZOjvgYnZt9Y3LcUThtRiYzI5PqsyxU44=
+title: TR: ioBroker.countdown
+hash: UR3SrC6/ISooSboGsloFdNGal7zBM/aIsqWdrp/Le3c=
 ---
-![логотип](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
-![Значок Greenkeeper](https://badges.greenkeeper.io/jack-blackson/ioBroker.countdown.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.countdown.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.countdown.svg)
-![Количество установок](http://iobroker.live/badges/countdown-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
+![TR: Greenkeeper badge](https://snyk.io/test/github/jack-blackson/ioBroker.countdown/badge.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.countdown.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.countdown.svg)
+![TR: Number of Installations](http://iobroker.live/badges/countdown-stable.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
 
-# IoBroker.countdown
-[![Статус сборки Трэвис] (https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown)
+TR: # ioBroker.countdown
+[![TR: Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown)
 
-Адаптер обратного отсчета для ioBroker ---------------------------------------------- --------------------------------
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-Цель адаптера - предоставить вам возможность запустить обратный отсчет для будущих событий, с годами, месяцами, днями, часами и минутами. Он предоставит вам каждую из этих групп отдельно, а также две строки с короткой и длинной версией даты.
+TR: Countdown Adapter for ioBroker ------------------------------------------------------------------------------
 
-## Отображение обратного отсчета
-Адаптер автоматически предоставит вам таблицу json. Вам просто нужно использовать его с таблицей json. Пожалуйста, отметьте "Нет заголовка" там. Можно отображать краткий или длинный текст.
-![логотип](../../../en/adapterref/iobroker.countdown/admin/countdown_json.png)
+TR: The goal of the adapter is to provide you a possibility to run countdowns for future events, with years, months, days, hours and minutes. It will provide you each of those valies seperately, and also two strings with a short and long version of the date.
 
-## Как создать обратный отсчет
-Существует два способа настройки обратного отсчета:
+TR: ## Displaying countdowns
+TR: The adapter prowides you automatically a json table. You just need to use it with the json table widged. Please tick "No Header" there. It is possible to either display the short text or the long text.
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_json.png)
 
-* Вы можете создать обратный отсчет в настройках адаптера, на вкладке «Создать обратный отсчет».
-* Вы можете создать ручное состояние в устройстве «Настройка». Имя объекта - это имя тревоги, а значением будет дата. Дата должна быть в формате "ДД.ММ.ГГГГ ЧЧ: мм: сс".
-* Вы можете создать будильник с sendto. Там вы можете отправить компоненты (минимум - год, месяц, дата) или строку даты. Для строки даты вы можете настроить формат в настройках адаптера.
+TR: ## How to create countdowns
+TR: There are two ways to set up countdowns:
 
-![логотип](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky.png)
+TR: * You can create a countdown in the adapter settings, in the tab "Create Countdown".
+TR: * You can create a manual state in the device "setup". The name of the object is the alarm name, and the value will be the date. The date neets to be in the format "DD.MM.YYYY HH:mm:ss".
+TR: * You can create an alarm with sendto. There, you can either send the components (minimum is Year Month Date) or a date string. For the date string, you can adjust the format in the setup of the adapter.
 
-* Вы можете добавить дни, месяцы и годы с sendto к сегодняшней дате. Поэтому, пожалуйста, отправьте компонент "name" и либо "addminutes", "addhours", "adddays", "addmonths", либо "addyears" в качестве значения int.
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky.png)
 
-![логотип](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky_add.png)
+TR: * You can add days, months and years with sendto to todays date. Therefore, please send the component "name" and either "addminutes", "addhours", "adddays", "addmonths" or "addyears" as int value.
 
-## Как удалить обратный отсчет
-Вы можете удалить обратный отсчет с помощью sendto. Поэтому отправьте только имя с sendto на адаптер, и обратный отсчет будет удален автоматически.
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky_add.png)
 
-## Повторяющийся отсчет
-Если вы хотите, чтобы обратный отсчет повторялся в определенный период (например, вы не можете рассчитывать обратный отсчет на день свадьбы каждый год), вы также можете сделать это с помощью этого адаптера. Поэтому либо заполните поле «Период повторения» в настройках адаптера, либо добавьте период после даты при создании обратного отсчета с типом «дата». SendTo будет выглядеть так для обратного отсчета, который должен закончиться 1 апреля 2020 года и повторяться каждый год:
+TR: ## How to delete countdowns
+TR: You  can delete a countdown with the sendto. Therefore, send just the name with sendto to the adapter, and the countdown will be deleted automatically.
 
-sendTo («countdown.0», «send», {«name»: «Wedding Day», «date»: '01 .04.2020 00: 01 + 1Y '});
+TR: ## Repeating countdown
+TR: If you want a countdown to repeat in a defined period (e.g. you cant a countdown for your wedding day every year) you can also do this with this adapter. Therefore either fill the field "Repeat period" in the settings of the adapter, or add the period after the date when you create a countdown with the type "date". A sendTo would look like that for a countdown which should end on the 1st of April 2020 and repeat every year:
 
-Параметры здесь:
+TR: sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01+1Y' });
 
-* Y: Годы
-* М: Месяцы
-* D: Дни
-* Ч: часы
-* м: минуты
+TR: Parameters here are:
 
-## Доступные результаты
-| Тип данных | Описание |
+TR: * Y: Years
+TR: * M: Months
+TR: * D: Days
+TR: * H: Hours
+TR: * m: Minutes
+
+TR: ## Available outputs
+| TR: |Data type|Description|
 |:---:|:---:|
-| минут | Минут до конца обратного отсчета (не всего!) |
-| часов | Часов до конца обратного отсчета (не всего!) |
-| дней | Дней до конца обратного отсчета (не всего!) |
-| месяцы | Месяцы до конца обратного отсчета (не всего!) |
-| лет | лет до конца обратного отсчета (не всего!) |
-| имя | Обратный отсчет имени |
-| endDate | Дата окончания обратного отсчета - форматируется как определено в настройке |
-| inWordsShort | Совокупное значение минут, часов, ... - например, 1Y 5M 4D |
-| inWordsLong | Совокупное значение минут, часов, ... - например, 1 год 5 месяцев 4 дня |
-| totalHours | Общее количество часов до даты окончания |
-| totalDays | Общее количество дней до даты окончания |
-| totalWeeks | Общее количество недель до даты окончания |
-| достигается | Булево поле, определяющее, была ли достигнута дата окончания или нет |
-| repeatEvery | Обратный отсчет повторяется к этому периоду после достижения конечной даты |
+| TR: |minutes|Minutes until countdown end (not total!)|
+| TR: |hours|Hours until countdown end (not total!)|
+| TR: |days|Days until countdown end (not total!)|
+| TR: |months|Months until countdown end (not total!)|
+| TR: |years|Years until countdown end (not total!)|
+| TR: |name|Countdown name|
+| TR: |endDate|End date of count down - formated as in the setup defined|
+| TR: |inWordsShort|Combined value of minutes, hours,... - e.g. 1Y 5M 4D|
+| TR: |inWordsLong|Combined value of minutes, hours,... - e.g. 1 Year 5 Months 4 Days|
+| TR: |totalHours|Total No. of hours until the end date|
+| TR: |totalDays|Total No. of days until the end date|
+| TR: |totalWeeks|Total No. of weeks until the end date|
+| TR: |reached|Boolean field defining if the end date was reached or not|
+| TR: |repeatEvery|Countdown is repeted by this period after reaching the enddate|
 
-## Особенности для добавления
-* Возможность добавить скрипт в качестве параметра и запустить его по окончании обратного отсчета.
-* Возможность использовать плюс и минус в addminutes и другие функции добавления
+TR: ## Features to add
+TR: * Possibility to add a script as a parameter and start it when countdown ends
+TR: * Possibility to use plus and minus in addminutes and the other add functions
 
-## 1.1.0 (2020-04-02)
-* (Джек-Блэксон) Исправление Ссылка Read-Me
-* (Джек-Блэксон) исправление повтора цикла
+TR: ## 1.2.0 (2021-05-09)
+TR: * (jack-blackson) Updated packages, added Sentry
+TR: * (jack-blackson) Fixes for JS-controller 3.3
+TR: * (jack-blackson) Fix that countdowns are created immediatly
 
-## 1.0.9 (2020-03-31)
-* (jack-blackson) Исправление сообщений журнала
+TR: ## 1.1.0 (2020-04-02)
+TR: * (jack-blackson) bugfix Read-Me link
+TR: * (jack-blackson) bugfix repeatCycle
 
-## 1.0.8 (2020-03-31)
-* (Джек-Блэксон) Повторять обратный отсчет в определенный период (например, каждый год)
+TR: ## 1.0.9 (2020-03-31)
+TR: * (jack-blackson) Bugfix log messages
 
-## 1.0.7 (2020-03-30)
-* (jack-blackson) Добавлен новый тип даты для настроек: ГГГГ-ММ-ДД
-* (jack-blackson) Добавить обратный отсчет прямо в настройках адаптера
+TR: ## 1.0.8 (2020-03-31)
+TR: * (jack-blackson) Repeat countdown in defined period (e.g. every year)
 
-## 1.0.6 (2020-03-20)
-* (DutchmanNL) Фиксированный тип адаптера
+TR: ## 1.0.7 (2020-03-30)
+TR: * (jack-blackson) Added new date-type for settings: YYYY-MM-DD
+TR: * (jack-blackson) Add countdown directly in adapter settings
 
-## 1.0.5 (2020-02-05)
-* (Джек-Блэксон) Исправление тревоги в полночь -> благодаря @Lueghi
+TR: ## 1.0.6 (2020-03-20)
+TR: * (DutchmanNL) Fixed adapter type
 
-## 1.0.4 (2019-08-25)
-* (Джек-Блэксон) Информация о переупорядоченном выпуске
+TR: ## 1.0.5 (2020-02-05)
+TR: * (jack-blackson) Bugfix for alarm at midnight -> thanks to @Lueghi
 
-## 1.0.3 (2019-08-10)
-* (Джек-Блэксон) Изменения в компактном режиме
-* (Джек-Блэксон) Различные исправления
-* (Джек-Блэксон) Теперь возможно использование нескольких экземпляров адаптера.
+TR: ## 1.0.4 (2019-08-25)
+TR: * (jack-blackson) Reordered release infos
 
-## 1.0.2 (2019-07-22)
-* (Джек-Блэксон) Релиз-версия
+TR: ## 1.0.3 (2019-08-10)
+TR: * (jack-blackson) Changes for Compact Mode
+TR: * (jack-blackson) Various bugfixes
+TR: * (jack-blackson) Having multiple instances of the adapater are now possible
 
-## 0.7.0 (2019-07-07)
-* (Джек-Блэксон) Исправления
-* (Джек-Блэксон) addminutes и addhours теперь также возможны
-* (jack-blackson) точка данных в настройках теперь редактируема
-* (Джек-Блэксон) добавлено всего нет. недель
+TR: ## 1.0.2 (2019-07-22)
+TR: * (jack-blackson) Release version
 
-## 0.6.0 (2019-07-06)
-* (jack-blackson) настраиваемый формат даты для ввода и вывода
-* (Джек-Блэксон) удалить отсчет с помощью sendto
-* (Джек-Блэксон) возможность добавлять отсчеты по дням / месяцам / неделям с этого момента
+TR: ## 0.7.0 (2019-07-07)
+TR: * (jack-blackson) Bugfixes
+TR: * (jack-blackson) addminutes and addhours are now also possible
+TR: * (jack-blackson) datapoint in setup is now editable
+TR: * (jack-blackson) added total no. of weeks
 
-## 0.5.0 (2019-07-04)
-* (Джек-Блэксон) скорректировать данные в таблице
-* (Джек-Блэксон) исправление даты импорта
+TR: ## 0.6.0 (2019-07-06)
+TR: * (jack-blackson) adjustable date format for input and output
+TR: * (jack-blackson) delete countdowns with sendto
+TR: * (jack-blackson) ability to add countdowns by "days/months/weeks from now)
 
-### 0.4.0 (2019-06-04)
-* (jack-blackson) реструктуризация - теперь возможно создание аварий с sendto или вручную с datapoint
+TR: ## 0.5.0 (2019-07-04)
+TR: * (jack-blackson) adjust the data in the table
+TR: * (jack-blackson) bugfix date import
 
-### 0.3.0 (2019-05-24)
-* (Джек-Блэксон) добавлено общее количество дней и часов
+TR: ### 0.4.0 (2019-06-04)
+TR: * (jack-blackson) restructuring - creation of alarms with sendto or manually with datapoint is now possible
 
-### 0.2.0 (2019-05-21)
-* (Джек-Блэксон) настроенные пакеты
+TR: ### 0.3.0 (2019-05-24)
+TR: * (jack-blackson) added total No. of days and hours
 
-### 0.1.0 (2019-04-29)
-* (Джек-Блэксон) начальная версия
+TR: ### 0.2.0 (2019-05-21)
+TR: * (jack-blackson) adjusted packages
+
+TR: ### 0.1.0 (2019-04-29)
+TR: * (jack-blackson) initial version
 
 ## Changelog
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,294 +2,306 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.alexa2/README.md
-title: ioBroker.alexa2
-hash: YS664LlJFQCGEbRyCmgg8011yvMup+1T6IICYbs+tSQ=
+title: TR: ioBroker.alexa2
+hash: hIgfNRM8mI+AD4Vh929r4j7dHFzbcmZU/Q3a1cuctuw=
 ---
-![Logo](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
+![TR: Logo](../../../en/adapterref/iobroker.alexa2/admin/alexa.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/alexa2-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.alexa2.svg)
-![Build-Status](https://ci.appveyor.com/api/projects/status/c92hrxu79mvs1qxo?svg=true)
-![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![TR: Number of Installations](http://iobroker.live/badges/alexa2-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.alexa2.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.alexa2.svg)
 
-# IoBroker.alexa2
-** Dieser Adapter verwendet den Dienst [Sentry.io](https://sentry.io), um Ausnahmen und Codefehler sowie neue Geräteschemata automatisch an mich als Entwickler zu melden. ** Weitere Details siehe unten!
+TR: # ioBroker.alexa2
+TR: ![TR: Test and Release](https://github.com/Apollon77/iobroker.alexa2/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/alexa2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Mit diesem Adapter können Sie Ihre Alexa-Geräte (Amazon Echo) fernsteuern.
+TR: **This adapter uses the service [TR: Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
-Ein großes Dankeschön geht an soef für die Version 1 des Adapters und an Hauke und ruhr70 für die Ideen in ihren Skripten vom ioBroker-Forum (insbesondere die Aktualisierungen des Medienfortschritts)! Ein großes Dankeschön auch an meicker für die Unterstützung bei der Dokumentation all dessen und an zahlreiche Benutzer des ioBroker-Forums für ihre Testunterstützung!
+TR: This adapter allows you to remote control your Alexa (Amazon Echo) devices.
 
-## Staaten und ihre Bedeutungen:
-Im Adapter-Namespace (z. B. alexa2.0) werden einige Kanäle erstellt
+TR: Big thanks go to soef for the version 1 of the adapter and to Hauke and ruhr70 for ideas in their scripts from ioBroker-Forum (especially the media progress updates)! Also big thanks to to meicker for support in documenting all of this and numerous users from ioBroker Forum for their testing support!
 
-### Alexa2.0
-| Staatsname | Bedeutung |
+TR: ## States and their meanings:
+TR: In the adapter namespace (e.g. alexa2.0) some channels are created
+
+TR: ### alexa2.0
+| TR: | State name | meaning |
 | - | - |
-| Echogeräte. * | Zustände pro Echo-Gerät, siehe unten |
-| Geschichte. * | Infos zum Befehlsverlauf siehe unten |
-| Smart-Home-Geräte. * | Zustände pro Smart-Home-Gerät und allgemein siehe unten |
-| info. * | Allgemeine Informationen zum Adapterstatus |
-| requestResult | Fehlerinformationen für TuneIn- und Smart-Home-Geräteanforderungen |
+| TR: | echo-devices.* | States per Echo device, see below |
+| TR: | history.* | Infos for command history, see below |
+| TR: | smart-home-devices.* | States per smart home device and in general, see below |
+| TR: | info.*| General information about the adapter status |
+| TR: | requestResult | Error info for TuneIn and smart-home device requests |
 
-### Alexa2.0.Contacts.ContactId. *
-Alle Alexa-Kontakte, an die Textnachrichten gesendet werden können, einschließlich sich selbst. Der eigene Kontakt erhält nach seinem Namen ein spezielles "(Selbst)".
+TR: ### alexa2.0.Contacts.ContactId.*
+TR: All Alexa-Contacts that can be used to send Text Messages to, including himself. The own contact gets a special "(Self)" after his name.
 
-| Staatsname | Bedeutung |
+| TR: | State name | meaning |
 | - | - |
-| #clearOwnMessages | Existiert nur im eigenen Kontakt und ein Trigger löscht alle Nachrichten, die an sich selbst gesendet werden (schließt auch Nachrichten an sich selbst über App oder Geräte ein!) |
-| textMessage | Sendet diesen Text als Nachricht an den Benutzer. Es wird auf allen Geräten dieses Benutzers mit einem "gelben Ring" | angezeigt |
+| TR: | #clearOwnMessages | Only exists in own contact and a trigger deletes all messages that are send to himself (also includes messages to himself via App or devices!) |
+| TR: | textMessage | Sends this text as message to the user. It is shown on all devices of this user with a "yellow ring" |
 
-### Alexa2.0.Echo-Devices.Serialnumber. *
-Unter "Echo-Geräte" wird jedes Amazon-Echo-Gerät mit seiner Seriennummer aufgelistet. Nicht jedes Gerät zeigt alle Zustände an. Jedes Gerät hat seine eigenen Zustände, wie unten beschrieben:
+TR: ### alexa2.0.Echo-Devices.Serialnumber.*
+TR: Under "echo-devices" every amazon echo device is listed with it's serial number. Not every device shows all the states. Every device has it's own states as described below:
 
-### Alexa2.0.Echo-Devices.Serialnumber.Alarm. *
-Alarmeinstellungen (Wecker) für jedes Gerät, falls verfügbar.
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Alarm.*
+TR: Alarm (Wecker) settings for each device, if available.
 
-| Staatsname | Bedeutung | Wert |
+| TR: | State name | meaning | value |
 | - | - | - |
-| aktiviert | Zeigt den Status des Alarms an und ermöglicht das Ändern: Alarm mit true aktivieren - Alarm mit false deaktivieren | wahr / falsch |
-| Zeit | Zeit für Alarm. Überschreiben Sie die Zeit für den vorhandenen Alarm, um eine neue Zeit für diesen Alarm festzulegen. Falls ein Alarm vorhanden ist, können Sie die Zeit hier ändern, indem Sie einfach die Zeit im Format hh: mm: ss überschreiben. Für die Einstellung von | werden keine Sekunden benötigt Zeiteingabe |
-| ausgelöst | true, wenn der Alarm erreicht und ausgelöst wird. Die Uhr muss mit Amazon und iobroker synchron sein. Verwenden Sie diese Option, um eine andere Aktion auszulösen, sobald die Alarmzeit erreicht ist wahr / falsch |
-| neu | Zeit für neuen Alarm für dieses Gerät. Wenn Sie hier einen Wert eingeben, wird ein neuer Alarm erstellt Zeiteingabe (hh: mm: ss, Sekunden werden nicht benötigt) |
+| TR: | enabled | Shows status of alarm and allows to change it: Activate alarm with true - Deactivate alarm with false | true / false |
+| TR: | time | Time for alarm. Overwrite the time for existing alarm to set a new time for this alarm. In case you have an existing alarm you can change the time here by simply overwrite the time in format hh:mm:ss, seconds are not needed to set | Time Input |
+| TR: | triggered | true if alarm is reached and triggered. Clock must be in sync with Amazon and iobroker, Use this to trigger other action as soon as the alarm time is reached | true / false |
+| TR: | new | time for new alarm for this device. If you put a value here a new alarm will be created | Time Input (hh:mm:ss, seconds are not needed) |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Bluetooth. *
-Hier finden Sie alle verbundenen oder bekannten Bluetooth-Geräte mit MAC-Adresse (n). Die Zustände jedes Geräts:
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Bluetooth.*
+TR: Here you find all connected or known bluetooth device(s) with MAC address(es). The states of each device:
 
-| Staatsname | Bedeutung |
+| TR: | State name | meaning |
 | - | - |
-| verbunden | Zeigt den aktuellen Verbindungsstatus an und erlaubt die Verbindung (auf true gesetzt) oder die Trennung (auf false gesetzt) |
-| entkoppeln | Schaltfläche zum Trennen dieses Geräts vom Echogerät |
+| TR: | connected | Shows current connection status and allow connection (set to true) or disconnection (set to false) |
+| TR: | unpair | Button to unpair this device from the echo device |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Commands. *
-Mit Befehlen können Sie einige Aktionen auf Ihrem Alexa-Gerät auslösen. Wenn Sie diese auf einem Multiroom-Gerät verwenden, werden sie unabhängig ausgeführt und *werden* auf den einzelnen Geräten nicht synchron ausgeführt!
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Commands.*
+TR: With Commands you can trigger some actions on your Alexa-Device. If you use these on a multiroom device then they are executed independently and *will not* run in sync on the single devices!
 
-| Staatsname | Bedeutung | Wert |
+| TR: | State name | meaning | value |
 | - | - | - |
-| doNotDisturb | Ein- / Ausschalten Nicht stören für dieses Gerät | wahr / falsch |
-| Flashbriefing | Briefing in 100 Sekunden - Nachrichten etc.pp | Taste |
-| guten morgen | Guten Morgen von Alexa ... | Taste |
-| funfact | Lustige Tatsache von Alexa ... (im Moment nur USA) | Taste |
-| Witz | Witz von Alexa ... | Taste |
-| Aufräumen | Spielt einen "Gong" -Ton wie für Start / Ende des Hörmodus ... | Taste |
-| kuratiert | Zufälliger Satz aus dem ausgewählten Bereich von Alexa ... | Text (erlaubt: "Auf Wiedersehen", "Bestätigungen", "Guten Morgen", "Komplimente", "Geburtstag", "Gute Nacht", "iamhome") |
-| singasong | Alexa singt ein Lied ... | Taste |
-| sprechen | Alexa sagt, was Sie hier eingeben ... | Texteingabe |
-| Sprachvolumen | Stellen Sie die Sprechlautstärke von Alexa ein. Diese Lautstärke wird vor dem Sprechen eingestellt und anschließend zurückgesetzt 0-100 |
-| Geschichte | Alexa erzählt eine Geschichte Taste |
-| Verkehr | Verkehrsnachrichten | Taste |
-| Wetter | Wetternachrichten | Taste |
-| deviceStop | Beenden Sie alle Aktionen auf dem Gerät Taste |
-| Benachrichtigung | Senden Sie eine Textbenachrichtigung an den Kunden des Geräts Text |
-| Ankündigung | Ansage abspielen (wie sprechen, aber mit Bing vor dem Text) | Text |
-| ssml | Sprechen Sie die SSML-XML-Zeichenfolge | Text |
-| Textbefehl | Senden Sie einen Textbefehl an Alexa, derzeit nur an die USA! | Text |
+| TR: | doNotDisturb | Switch on/off Do not Disturb for this device| true/false |
+| TR: | flashbriefing | Briefing in 100 seconds - news etc.pp| Button |
+| TR: | goodmorning | Good morning from Alexa ...| Button |
+| TR: | funfact | Fun fact from Alexa ... (Only USA at the moment)| Button |
+| TR: | joke | Joke from Alexa ...| Button |
+| TR: | cleanup | Plays a "gong" tone like for start/end of listening mode ...| Button |
+| TR: | curatedtts | Random sentence from the choosen area from Alexa ...| Text (allowed: "goodbye", "confirmations", "goodmorning", "compliments", "birthday", "goodnight", "iamhome") |
+| TR: | singasong | Alexa sings a song ...| Button |
+| TR: | speak | Alexa says what you type in here ...| Text Input |
+| TR: | speakvolume | Adjust the speak volume of Alexa, this volume is set before the speak and reset afterwards| 0-100 |
+| TR: | tellstory | Alexa tells a story | Button |
+| TR: | traffic | Traffic news | Button |
+| TR: | weather | Weather news | Button |
+| TR: | deviceStop | Stop all actions on device | Button |
+| TR: | notification | Send text notifcation to customer of the device | Text |
+| TR: | announcement | Play announcement (like speak but with Bing before text) | Text |
+| TR: | ssml | Speak SSML XML string | Text |
+| TR: | textcommand | Send a Text command to Alexa, only USA at the moment! | Text |
 
-Detaillierte Informationen Sprechen und Ankündigung: Geben Sie hier ein, was Alexa sagen soll. Sie können die Lautstärke von Alexa auch anpassen, indem Sie vor Ihrem Text einen Prozentsatz angeben.
-Beispiel: 10; Alexa sagt Alexa mit 10% Volumen, während 100; Alexa 100% Volumen ist.
-Normalerweise können Sie nur 250 Zeichen pro Sprachbefehl senden. Mit dem Semikolon können Sie so viel schreiben, wie Sie möchten, solange Sie 250 Zeichen durch ein Semikolon trennen.
-Alexa wird dann den Text mit einer kleinen Pause nacheinander sprechen. Sie können das Volume auch zusammen mit mehr als 255 Blöcken verwenden, indem Sie #Volume; # Block1; # Block2, a.s.o schreiben. Ein hier festgelegtes Volume wird über einem definierten Speak-Volume verwendet.
+TR: Detailed information Speak and Announcement: Type in here what you want Alexa to say. You can also adjust the volume of Alexa by giving a percentage before your text.
+Example: 10;Alexa is saying Alexa with 10% volume, while 100;Alexa is 100% volume.
+Normally you only can send 250 characters per speak command. By using the semicolon it is possible to write as much as you want, as long as you separate 250 characters with a semicolon.
+Alexa will then speak the text after each other with a small break. You also can use the volume together with more 255 blocks by writing #Volume;#Block1;#Block2, a.s.o A volume set here will be used over a defined speak-volume.
 
-Teilweise klingt auch von https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html Arbeit. Geben Sie in speak oder ssml `<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>` an. Details und Diskussion bitte unter https://forum.iobroker.net/topic/27509/ssml-audio
+TR: Partially also sounds from https://developer.amazon.com/en-US/docs/alexa/custom-skills/ask-soundlibrary.html work. Specify in speak or ssml as `<audio src="soundbank://soundlibrary/animals/amzn_sfx_bear_groan_roar_01"/>`. Details and discussion please at https://forum.iobroker.net/topic/27509/ssml-audio
 
-### Alexa2.0.Echo-Devices.Serialnumber.Info. *
-Informationen zum Alexa-Gerät
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Info.*
+TR: Information about the Alexa device
 
-| Staatsname | Bedeutung | Wert |
+| TR: | State name | meaning | value |
 | - | - | - |
-| Fähigkeiten | Fähigkeiten, wenn das alexa Gerät | Informationen |
-| deviceType | Gerätetyp von Amazon | Informationen |
-| deviceTypeString | Gerätetyp als Zeichenfolge | Informationen |
-| isMultiroomDevice | Ist Multiroom-Gerät - Multiroom ist eine virtuelle Gerätegruppe | Information, wahr / falsch |
-| isMultiroomMember | Ist Multiroom-Mitglied - Wenn true, ist das Gerät Teil einer Multiroom-Gerätegruppe | Information, wahr / falsch |
-| MultiroomParents | Wenn dieses Gerät Teil einer Multiroom-Gerätegruppe ist, zeigt dieser Status das übergeordnete Gruppengerät | an Informationen |
-| Name | Name des Alexa-Geräts | Informationen |
-| Seriennummer | Seriennummer des Alexa-Geräts |
+| TR: | capabilities | capabilities if the alexa device | Information |
+| TR: | deviceType | device type from Amazon | Information  |
+| TR: | deviceTypeString | Device Type as string | Information |
+| TR: | isMultiroomDevice | Is multiroom device - Multiroom is a virtual device group | Information, true / false |
+| TR: | isMultiroomMember | Is Multiroom member - If true the device is part of a multiroom device group  | Information, true / false |
+| TR: | MultiroomParents | If this device is part of a multiroom device group this state shows the parent group device | Information |
+| TR: | name | Name of Alexa Device | Information |
+| TR: | SerialNumber | Serial number of Alexa device |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Music-Provider. *
-Weisen Sie Alexa direkt an, Musik oder eine Wiedergabeliste von unterstützten Musikanbietern abzuspielen. Derzeit unterstützt werden: Meine Bibliothek, Amazon Music, Tune In. Sie können auch einen Multiroom-Gerätegruppennamen in die Phrase aufnehmen, um ihn in dieser Gruppe abzuspielen (z. B. "SWR3 auf Erdgeschoss").
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Music-Provider.*
+TR: Directly tell Alexa to play Music or a playlist from supported music providers. Actually supported are: My Library, Amazon Music, Tune In. You can also include a multiroom device group name in the phrase to play it on this group (e.g. "SWR3 auf Erdgeschoss")
 
-| Staatsname | Bedeutung | Wert |
+| TR: | State name | meaning | value |
 | - | - | - |
-| Amazon-Musik | Phrase zum Spielen mit Amazon Music | Texteingabe |
-| Amazon-Musik-Playlist | Wiedergabeliste zum Spielen mit Amazon Music | Texteingabe |
-| Meine Bibliothek | Phrase zum Spielen mit My Library | Texteingabe |
-| Meine-Bibliothek-Wiedergabeliste | Wiedergabeliste zum Spielen mit Meine Bibliothek | Texteingabe |
-| Einschalten | Phrase zum Spielen mit Tune In | Texteingabe |
-| Wiedergabeliste einschalten | Wiedergabeliste zum Spielen mit Tune In | Texteingabe |
+| TR: | Amazon-Music | Phrase to play with Amazon Music | Text input |
+| TR: | Amazon-Music-Playlist | Playlist to play with Amazon Music | Text input |
+| TR: | My-Library | Phrase to play with My Library | Text input |
+| TR: | My-Library-Playlist | Playlist to play with My Library | Text input |
+| TR: | Tune-In | Phrase to play with Tune In | Text input |
+| TR: | Tune-In-Playlist | Playlist to play with Tune In | Text input |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Player. *
-Gibt an, dass die Wiedergabe des Geräts gesteuert und der aktuelle Status und die Medieninformationen angezeigt werden sollen
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Player.*
+TR: States to control the Playback of the device and to see the current status and media information
 
-| Staatsname | Bedeutung | Wert |
+| TR: | State name | meaning | value |
 | - | - | - |
-| TuneIn-Station | Textfeld zum Eingeben eines Sendernamens zum Abspielen dieser Station auf diesem Gerät. Es ist auch möglich, die Sendernummer (s123456 ...), eine Show- / Podcast-ID (p1234567 ...) oder eine Themen-ID (t123456789 ...) | einzugeben Texteingabe |
-| ContentType | Textfeld zum Einfügen des gewünschten Inhalts zur Wiedergabe auf diesem Gerät | Informationen |
-| controlForward | Taste zum Auslösen des Vorwärtsbefehls des Spielers (30s) | Taste |
-| controlNext | Taste zum Auslösen des Befehls "Weiter" des Spielers | Taste |
-| controlPause | Taste zum Auslösen des Befehls "Pause" des Spielers | Taste |
-| controlPlay | Taste zum Auslösen des Befehls "Abspielen" des Spielers | Taste |
-| controlPrevious | Taste zum Auslösen des Befehls "Vorheriger" des Spielers | Taste |
-| controlRepeat | Taste zum Auslösen des Befehls "Wiederholen" des Spielers | wahr / falsch |
-| controlRewind | Taste zum Auslösen des Befehls "Zurückspulen" des Spielers (30s) | Taste |
-| controlShuffle | Umschalten, um den Zufallsmodus für den Spieler zu aktivieren oder zu deaktivieren wahr / falsch |
-| currentAlbum | Aktuelles Album läuft gerade | Informationen |
-| currentArtist | Aktueller Künstler spielt tatsächlich | Informationen |
-| currentState | Beim Spielen -> wahr, sonst falsch | wahr / falsch |
-| currentTitle | Aktueller Titel, der gerade abgespielt wird | Informationen |
-| imageURL | URL zum Bild des Albums | Informationen |
-| mainArtURL | URL zum aktuellen Hauptbild | Informationen |
-| mediaLength | Länge des aktuellen Titels | Informationen |
-| mediaLengthStr | aktive Medienlänge als (HH :) MM: SS | Informationen |
-| mainProgress | verstrichene Zeit des aktiven Mediums | Informationen |
-| mainProgressPercent | verstrichene aktive Medien in Prozent | Informationen |
-| mediaProgressStr | aktiver Medienfortschritt als (HH :) MM: SS | Informationen |
-| miniArtUrl | URL zur Kunst (mini) | Informationen |
-| stumm geschaltet | Zustand von 'MUTE' | Information, wahr / falsch, Volumen = 0 wird als stummgeschaltet betrachtet |
-| providerID | ID des aktuellen Musikanbieters | Informationen |
-| Anbietername | Name des aktuellen Musikanbieters | Informationen |
-| radioStationId | ID des TuneIn-Radiosenders | Informationen |
-| Service | Name des aktuellen Musikdienstes | Informationen |
-| Volumen | Lautstärke der Wiedergabe. Sie können einen Wert zwischen 0-100% | eingeben INPUT Volume |
+| TR: | TuneIn-Station | text field to put in a Station name to play this station on this device. Also it is possible to type in the station number (s123456...), a show/podcast id (p1234567...) or a topic id (t123456789...) | Text input |
+| TR: | ContentType | text field to put in desired content to play on this device | Information |
+| TR: | controlForward | Button to trigger player "forward" command (30s) | Button |
+| TR: | controlNext | Button to trigger player "next" command | Button |
+| TR: | controlPause | Button to trigger player "pause" command | Button |
+| TR: | controlPlay | Button to trigger player "play" command | Button |
+| TR: | controlPrevious | Button to trigger player "previous" command | Button |
+| TR: | controlRepeat | Button to trigger player "repeat" command | true / false |
+| TR: | controlRewind | Button to trigger player "rewind" command (30s) | Button |
+| TR: | controlShuffle | Switch to enable or disable Shuffle mode for player | true / false |
+| TR: | currentAlbum | Current album actually playing | Information |
+| TR: | currentArtist | Current artist actually playing | Information |
+| TR: | currentState | If playing -> true , else false| true / false |
+| TR: | currentTitle | Current title actually playing | Information |
+| TR: | imageURL | URL to the image of the album | Information |
+| TR: | mainArtURL | URL to current main art | Information |
+| TR: | mediaLength | Length of the current title | Information |
+| TR: | mediaLengthStr |  active media length as (HH:)MM:SS | Information |
+| TR: | mainProgress | active media elapsed time | Information |
+| TR: | mainProgressPercent | active media elapsed time in percent | Information |
+| TR: | mediaProgressStr |  active media progress as (HH:)MM:SS | Information |
+| TR: | miniArtUrl | URL to the art (mini) | Information |
+| TR: | muted | state of 'MUTE' | Information, true / false, volume = 0 is considered as muted |
+| TR: | providerID | ID of the current music provider | Information |
+| TR: | providerName | Name of the current music provider | Information |
+| TR: | radioStationId | ID of the TuneIn radio station | Information |
+| TR: | service | name of the current music service | Information |
+| TR: | volume | Volume of playback. You can enter a value between 0-100% | INPUT Volume |
 
-### Alexa2.0.Echo-Devices.Serialnumber.Reminder. *
-Erinnerungseinstellungen für jedes Gerät, falls verfügbar.
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Reminder.*
+TR: Reminder (Erinnerungen) settings for each device, if available.
 
-| Staatsname | Bedeutung | Wert |
+| TR: | State name | meaning | value |
 | - | - | - |
-| aktiviert | Zeigt den Status der Erinnerung an und ermöglicht das Ändern: Erinnerung mit true aktivieren - Erinnerung mit false deaktivieren, wird einige Zeit später automatisch gelöscht, wenn deaktiviert | wahr / falsch |
-| Zeit | Zeit zur Erinnerung. Überschreiben Sie die Zeit für die vorhandene Erinnerung, um eine neue Zeit festzulegen Zeiteingabe | Wenn Sie bereits eine Erinnerung haben, können Sie die Zeit hier ändern, indem Sie einfach die Zeit im Format hh: mm: ss überschreiben. Zum Einstellen von | werden keine Sekunden benötigt |
-| ausgelöst | true, wenn die Erinnerung erreicht und ausgelöst wird. Die Uhr muss mit Amazon und iobroker synchron sein. Verwenden Sie diese Option, um eine andere Aktion auszulösen, sobald die Erinnerungszeit erreicht ist wahr / falsch |
+| TR: | enabled | Shows status of reminder and allows to change it: Activate reminder with true - Deactivate reminder with false, will be deleted some time after it automatically when disabled | true / false |
+| TR: | time| Time for reminder. Overwrite the time for existing reminder to set a new time | Time Input | In case you have an existing reminder you can change the time here by simply overwrite the time in format hh:mm:ss, seconds are not needed to set |
+| TR: | triggered | true if reminder is reached and triggered. Clock must be in sync with Amazon and iobroker, Use this to trigger other action as soon as the reminder time is reached | true / false |
 
-| neu | Fügen Sie eine neue Erinnerung im Format hinzu<br> Zeit (hh: mm), Text<br> | Text Eingabe<br> 12: 00, Erinnere mich
+TR: | new | Add a new reminder in the format <br> time(hh:mm),text<br> | Text Input <br>12:00,Remind me
 
-### Alexa2.0.Echo-Devices.Serialnumber.Routines. *
-Übersicht über die in der Alexa App eingerichteten Routinen. Selbst erstellte Routinen haben eine Seriennummer, die Amazon als "vorkonfiguriert: ..." anzeigt. Jede Routine kann mit einer Schaltfläche ausgelöst werden, die einmal ausgeführt werden soll.
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Routines.*
+TR: Overview of routines set up in Alexa App. Self created routines have a serial number, Amazon shows as 'preconfigured:...' Each routine can be triggered with a button to run once.
 
-| Staatsname | Bedeutung | Wert |
-| - | - | - |
-
-| Serien- oder interner Name der Routine Name der Routine | Taste
-
-### Alexa2.0.Echo-Devices.Serialnumber.Timer. *
-Auf jedem Alexa-Gerät können ein oder mehrere Timer ausgeführt werden. Aufgrund der sehr dynamischen Natur von Timern werden keine weiteren Objekte wie mit Alarm oder Erinnerungen erstellt, aber es gibt eine Möglichkeit, ausgelöste Informationen zu erhalten.
-
-| Staatsname | Bedeutung | Wert |
+| TR: | State name | meaning | value |
 | - | - | - |
 
-| ausgelöst | Ein Timer wurde ausgelöst | Information
+TR: | Serial or internal name of routine | name of routine | Button
 
-### Alexa2.0.Echo-Devices.Serialnumber.online
-Ist dieses Alexa-Gerät online und mit der Amazon Cloud verbunden?
+TR: ### alexa2.0.Echo-Devices.Serialnumber.Timer.*
+TR: You can have one or more timer running on each Alexa device. Because of the very dynamic nature of timers there will be no further objects created like with Alarm or Reminders, but a way to get a triggered info exists.
 
-| Staatsname | Bedeutung | Wert |
+| TR: | State name | meaning | value |
 | - | - | - |
 
-| online | Ist das Gerät online? | Wahr falsch
+TR: | triggered | A timer got triggered | Information
 
-### Alexa2.0.Geschichte
-| Staatsname | Bedeutung | Wert |
-| - | - | - |
-| #trigger | Schaltfläche zum Abrufen eines neuen Verlaufs (aktueller als der Zeitstempel in CreationTime), der nur benötigt wird, wenn die Push-Verbindung | nicht verwendet wird Taste |
-| cardContent | Zusätzliche Informationen wie in Alexa-App / Echo Show | gezeigt Informationen |
-| cardJson | Zusätzliche Informationen wie in Alexa-App / Echo Show im JSON-Format | angezeigt Informationen |
-| Erstellungszeit | Datum dieses Verlaufseintrags, neue Verlaufseinträge werden nur berücksichtigt, wenn sie später als dieser Zeitstempel gelten Informationen |
-| domainApplicationId | Zusätzliche Informationen wie Skill-ID oder ähnliches, optional | Informationen |
-| domainApplicationName | Zusätzliche Informationen wie Fertigkeitsname oder ähnliches, optional | Informationen |
-| json | Json der letzten Befehlsdaten, um alle Infos verarbeiten zu können, z. in eigenen JavaScripts | JSON |
-| Name | Name des Geräts, das die letzte Anfrage erhalten hat | Informationen |
-| Seriennummer | Seriennummer des Geräts, das die letzte Anforderung erhalten hat | Informationen |
-| Status | Status des letzten Befehls an Alexa | SUCCESS / FAULT / DISCARDED_NON_DEVICE_DIRECTED_INTENT; Der letzte wird generiert, wenn das Gerät durch Sprechen des Weckworts aktiviert wird oder wenn das Gerät die Eingabe als "nicht für mich" verworfen hat |
-| Zusammenfassung | vom Gerät empfangener Text / Zusammenfassung / Aktion | Informationen |
+TR: ### alexa2.0.Echo-Devices.Serialnumber.online
+TR: Is this Alexa device online and connected to the Amazon cloud ?
 
-### Alexa.0.Smart-Home-Geräte
-Beinhaltet alle Smart-Home-Geräte, die Alexa aus Ihren Fähigkeiten kennt. Gibt für alle bekannten Geräte Folgendes an:
-
-| Staatsname | Bedeutung | Wert |
+| TR: | State name | meaning | value |
 | - | - | - |
 
-| deleteAll | löscht alle Smart-Home-Geräte aus Alexa, genau wie die Schaltfläche in der Alexa-App | Taste | DiscoverDevices | findet neue Smart-Home-Geräte, genau wie die Schaltfläche in der Alexa App | Taste | queryAll | fragt alle Geräte ab, die nur sichtbar sind, wenn mindestens ein Gerät Informationen abrufen kann | Taste
+TR: | online | Is the device online ? | True / False
 
-### Alexa.0.Smart-Home-Devices.SerialNumber. *
-| Staatsname | Bedeutung | Wert |
+TR: ### alexa2.0.History
+| TR: | State name | meaning | value |
+| - | - | - |
+| TR: | #trigger | Button to get new History (more current then timestamp in creationTime), only needed when not using the push connection | Button |
+| TR: | cardContent | Additional information as shown in Alexa-App/Echo Show | Information |
+| TR: | cardJson | Additional information as shown in Alexa-App/Echo Show in JSON format | Information |
+| TR: | creationTime | date of this history entry, new history entries are only considered when later as this timestamp | Information |
+| TR: | domainApplicationId | Additional information like Skill-ID or such, optional | Information |
+| TR: | domainApplicationName | Additional information like Skill name or such, optional | Information |
+| TR: | json | Json of last command data to be able to process all infos e.g. in own JavaScripts| JSON |
+| TR: | name | Name of the device that got the last request | Information |
+| TR: | serialNumber | serialnumber of the device that got the last request | Information |
+| TR: | status | Status of last command to Alexa | SUCCESS / FAULT / DISCARDED_NON_DEVICE_DIRECTED_INTENT; last one is generated when activating the device by saying the wake word, or when the device discarded input as "not for me" |
+| TR: | summary | text/summary/action received by the device | Information |
+
+TR: ### alexa.0.Smart-Home-Devices
+TR: Includes all smart home devices Alexa knows from your skills. States as follows, for all known devices:
+
+| TR: | State name | meaning | value |
 | - | - | - |
 
-| #delete | Löschen Sie das Smart Home-Gerät von Alexa | Taste | #enabled | Ist das Smart Home-Gerät aktiv? | Information
+TR: | deleteAll | deletes all smart home devices from Alexa, same as the button in the Alexa App | Button | discoverDevices | finds new smart home devices, same as the button in the Alexa App | Button | queryAll | queries all devices, only visible when at least one device is able to retrieve information | Button
 
-| #query | Daten für dieses Gerät abfragen, nur sichtbar, wenn das Smart-Home-Gerät / die Smart-Home-Fähigkeit das Abrufen von Informationen unterstützt Taste |
-| aktiv | wird für Szenen angezeigt, in denen sie aktiviert / deaktiviert werden können | wahr / falsch |
-| powerState | Ein- / Ausschalten | veränderbar, wahr / falsch |
-| ... | Viele weitere mögliche Zustände je nach Typ des Smart-Home-Geräts | Information oder veränderbar :-) |
-
-** -> Sonderzustände für Farb- / Lichtgeräte **
-
-| Staatsname | Bedeutung | Wert |
+TR: ### alexa.0.Smart-Home-Devices.SerialNumber.*
+| TR: | State name | meaning | value |
 | - | - | - |
-| Helligkeit | Helligkeit des HUE-Lichts | veränderbar 0-100% |
-| Farbhelligkeit | Helligkeit für die Farbdefinition (zusammen mit Farbton und Sättigung, HSV) | Information, 0-1% |
-| Farbton | Farbtonwert der Farbe (zusammen mit Helligkeit und Sättigung, HSV) | Information, 0-360 ° |
-| Farbsättigung | Farbsättigung (zusammen mit Helligkeit und Farbton, HSV) | Information, 0-1 |
-| colorRGB | RGB-Code der tatsächlichen Farbe, aufgebaut aus Farb- * Werten | Information, #rrggbb |
-| colorName | Name der Farbe wie von Alexa definiert - feste Werte | änderbar, um Farbe einzustellen, 0-144 |
-| colorTemperarureInKelvin | Farbtemperatur in Kelvin | Information, 1000-10000K |
-| colorTemperatureName | Farbtemperaturname wie von Alexa definiert - feste Werte | änderbar auf setzen, 0-18 |
 
-Mit #helligkeit können Sie die Helligkeit Ihres Lichts anpassen. Mit #colorName können Sie eine vordefinierte Farbe auswählen (0-144). Für HUE Ambient Light können Sie in #colorTemperatureName zwischen 19 Werten von 0-18 wählen. Alle Lichter können mit #powerState ein- und ausgeschaltet werden.
+TR: | #delete | delete smart home device from Alexa | Button | #enabled | Is the smart home device active ? | Information
 
-### Alexa2.0.Info. *
-| Staatsname | Bedeutung | Wert |
+| TR: | #query | query data for this device, only visible when the smart home device/skill supports to retrieve information | Button |
+| TR: | active | shown for scenes when they can be activated/deactivated | true / false |
+| TR: | powerState | Switch power on / off | changeable, true / false |
+| TR: | ... | Many more possible states depending on the type the the smart home device | Information or changeable :-) |
+
+TR: **-> Special states for color/light devices**
+
+| TR: | State name | meaning | value |
 | - | - | - |
-| Verbindung | Wenn die Verbindung zu Alexa in Ordnung ist | Information -> wahr / falsch |
-| Keks | Alexa-Cookie, Verwendung mit mehreren externen Skripten, die auch auf Alexa-APIs zugreifen möchten Informationen |
-| csrf | Alexa CSRF, Verwendung mit mehreren externen Skripten, die auch auf Alexa APIs zugreifen möchten Informationen |
+| TR: | brightness | brightness of the HUE light | changeable 0-100% |
+| TR: | color-Brightness | brightness for color definition (together with hue and saturation, HSV) | Information, 0-1% |
+| TR: | color-hue | hue value of the color (together with brightness and saturation, HSV) | Information, 0-360° |
+| TR: | color-saturation | saturation of the color (together with brightness and hue, HSV) | Information, 0-1 |
+| TR: | colorRGB | RGB code of actual color build out of color-* values | Information, #rrggbb |
+| TR: | colorName | Name of the color as defined by Alexa - fixed values | changeable to set color, 0-144 |
+| TR: | colorTemperarureInKelvin | Color temperature in Kelvin | Information, 1000-10000K |
+| TR: | colorTemperatureName | Color temperature name as defined by Alexa - fixed values | changeable to set, 0-18 |
 
-## Fehlende Funktionen
-* Wie aktualisiere ich den Anfangsstatus für Volume, Shuffle oder Repeat und doNotDisturb?! Oder nicht benötigt?
-* Fügen Sie Felder hinzu, um Spielinformationen wie die JS-Version anzuzeigen
-* Selbstdeaktivierung, wenn Cookie / CSRF ungültig ist
+TR: With #brightness you can adjust the brightness of your light, #colorName is to pick one predefined color (0-144). For HUE Ambient light you can choose between 19 Values fom 0-18 in #colorTemperatureName. All light can switched on and off with #powerState.
 
-## Installation
-Verwenden Sie wie gewohnt ein stabiles Repository, das neueste Repository oder verwenden Sie die ioBroker-Optionen "Installieren" von GitHub
+TR: ### alexa2.0.Info.*
+| TR: | State name | meaning | value |
+| - | - | - |
+| TR: | connection | If connection to Alexa is OK | Information -> true / false |
+| TR: | cookie | Alexa cookie, use with several external scripts that also want to access Alexa APIs | Information |
+| TR: | csrf | Alexa CSRF, use with several external scripts that also want to access Alexa APIs | Information |
 
-## Fehlerbehebung
-### Probleme mit der Cookie-Ermittlung per E-Mail / Passwort
-Manchmal hat Amazon Überprüfungen durchgeführt, wenn bei der Anmeldung unerwarteter Datenverkehr festgestellt wird.
-Dies kann zu dem Problem führen, dass ein Captcha beantwortet werden muss, um sich anzumelden.
-Meistens muss dieses Captcha einmal beantwortet werden und danach funktioniert die Anmeldung ohne Captcha.
+TR: ## Missing features
+TR: * how to update initial status for volume, shuffle or repeat and doNotDisturb?! Or unneeded?
+TR: * add fields to show playing-info like JS version
+TR: * self deactivation if cookie/csrf invalid
 
-Wenn Sie ein solches Captcha beantworten müssen, versuchen Sie Folgendes:
+TR: ## Installation
+TR: As usual using stable repository, latest repository or use the ioBroker "Install" options from GitHub
 
-* Verwenden Sie einen gemeinsamen Browser (z. B. Chrome).
-* Javascript ausschalten!
-* Löschen Sie alle Cookies, die möglicherweise für Amazon existieren, oder verwenden Sie den Proivate / Incognito-Modus des Browsers
-* Rufen Sie https://alexa.amazon.de an
-* Sie sollten ein Anmeldeformular erhalten (normalerweise für ältere mobile Browser angezeigt).
-* Melden Sie sich dort mit Ihren Amazon-Anmeldeinformationen an, in denen das Echo / Alexa registriert ist
-* Möglicherweise müssen Sie sich zweimal anmelden oder ein Captcha lösen
-* Am Ende sollte "https://alexa.amazon.de/spa/index.html" als URL angezeigt werden, jedoch ohne echten Inhalt (da JS immer noch deaktiviert ist), ABER DAS IST VOLLSTÄNDIG OK !!!!
-* Versuchen Sie jetzt erneut, einen Cookie zu erhalten
-* Wenn es immer noch nicht funktioniert, wiederholen Sie den Vorgang und überprüfen Sie den User-Agent und die Accept-Language in Ihrem Browser. Verwenden Sie diese beim nächsten Versuch im Adapter
+TR: ## Troubleshooting
+TR: ### Problems with Cookie determination via E-Mail/Password
+TR: Sometimes Amazon has weired checks in place when they detect unexpected traffic on Login.
+This can result in the problem that a captcha needs to be answered in order to login.
+Mostly this captcha needs to be answered once and after this the login works without Captcha.
 
-Zusätzlich muss der Accept-Language-Header (standardmäßig "de-DE") mit Ihrer Sprache / der Browsersprache / der Sprache der Amazon-Seite übereinstimmen, auf der Sie sich anmelden.
+TR: When you need to answer such a captcha then try to do the following:
 
-Sie können auch versuchen, mit dem User-Agent herumzuspielen und einen zu verwenden, der dem von Ihnen verwendeten Systemtyp besser entspricht.
-Als Beispiel für die Verwendung von "Mozilla / 5.0 (X11; Linux x86_64) AppleWebKit / 537.36 (KHTML, wie Gecko) Chrome / 51.0.2704.103 Safari / 537.36" als User-Agent wurde berichtet, dass es besser funktioniert, wenn ioBroker auf einem Linux-System ausgeführt wird.
+TR: * Use a common Browser (e.g. Chrome)
+TR: * disable Javascript!
+TR: * clear all cookies that may exist for Amazon or use Proivate/Incognito mode of the browser
+TR: * call https://alexa.amazon.de
+TR: * you should get a login form (normally displayed for older mobile browsers)
+TR: * login there with your Amazon credentials where the Echo/Alexa is registered in
+TR: * you may need to login twice or solve a Captcha
+TR: * At the end you should see "https://alexa.amazon.de/spa/index.html" as URL but without any real content (because JS is still disabled), BUT THIS IS COMPLETELY OK!!!!
+TR: * now try to get cookie again
+TR: * if it still not works do it again and check the User-Agent and accept-Language from your browser and use those in adapter on next try
 
-Sie können alle diese Parameter in der Adapterkonfiguration überschreiben.
+TR: Additionally the Accept-Language-Header (defaults to "de-DE") needs to match with your language/the browser language/the language of the amazon page you login.
 
-### Wie bestimme ich Cookies selbst?
-Wenn die automatische Cookie-Ermittlung nicht funktioniert oder Sie dem Adapter nicht vertrauen, dass er die E-Mail / das Passwort angibt, können Sie das Cookie selbst bestimmen. Es gibt verschiedene Infos im Web, wie es geht. Hier einige Links:
+TR: You can also try to play around with the User-Agent and use one which more matches to the system type you use.
+As example using "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36" as User-Agent was reported as working better when ioBroker runs on a linux system.
 
-* https://www.gehrig.info/alexa/Alexa.html
-* oder verwenden Sie das Shellscript von https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html, um es auf Shell zu bekommen ...
+TR: You can override all those parameters in the adapter configuration.
 
-Beachten Sie jedoch, dass das Cookie nach einiger Zeit eine Zeitüberschreitung aufweist und der Adapter dann nicht mehr funktioniert und sich selbst deaktiviert. Sie müssen dann manuell einen neuen Cookie erhalten!
+TR: ### How to determine Cookie by my own?
+TR: If the automatic Cookie determination don't work or you do not trust the Adapter to give the Email/Password then you can determine the cookie by your own. There are several infos on the web how to do it. Here some links:
 
-## Was ist Sentry.io und was wird den Servern dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter implementiert.
+TR: * https://www.gehrig.info/alexa/Alexa.html
+TR: * or use the shellscript from https://blog.loetzimmer.de/2017/10/amazon-alexa-hort-auf-die-shell-echo.html to get it on shell ...
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+TR: But be aware: The Cookie will time out after several time and then the adapter will stop working and disable itself. You then need to manually get a new cookie!
+
+TR: ## What is Sentry.io and what is reported to the servers of that company?
+TR: Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
+
+TR: When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+### 3.9.0 (2021-05-11)
+* (Apollon77) Add some new devices
+* (Apollon77) Always recognize "alexa" as wakeword to handle commands via the apps correctly
+
+### 3.8.4 (2021-05-11)
+* (Apollon77) Optimize Cookie refresh handling
+* (Apollon77) Fix warnings from js-controller 3.3 and optimize
+
+### 3.8.2 (2021-04-19)
+* (Apollon77) Adjust automatic Cookie Refresh interval from 7 to 4 days
 
 ### 3.8.1 (2021-02-09)
 * (Apollon77) Initialize volume for all devices on start
@@ -608,7 +620,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2020 Ingo Fischer <iobroker@fischer-ka.de>
+Copyright (c) 2017-2018 soef <soef@gmx.net>, 2018-2021 Ingo Fischer <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

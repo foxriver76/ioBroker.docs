@@ -2,194 +2,206 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heatingcontrol/README.md
-title: ioBroker.HeatingControl
-hash: QSvQPDMUstUgUng8PB4U+05xrwrmuxU06lsfjKX97FU=
+title: TR: ioBroker.HeatingControl
+hash: X5MlFyDe+6L/X4kED2NEJY8VmMEEOG0s2mJgcylMH/M=
 ---
-![Логотип](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
+![TR: Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
-![Количество установок](http://iobroker.live/badges/heatingcontrol-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.heatingcontrol.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.heatingcontrol.svg)
-![Тесты](https://travis-ci.org/rg-engineering/ioBroker.heatingcontrol.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/heatingcontrol-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.heatingcontrol.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.heatingcontrol.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.heatingcontrol/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.heatingcontrol.png?downloads=true)
 
-# IoBroker.HeatingControl
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: # ioBroker.HeatingControl
+![TR: GitHub Actions](https://github.com/rg-engineering/ioBroker.heatingcontrol/workflows/Test%20and%20Release/badge.svg)
 
-** Если вам это нравится, рассмотрите возможность пожертвования: **
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+TR: **If you like it, please consider a donation:**
 
-## Адаптер для управления вашей системой отопления.
-Функции:
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-* Контроль заданных уровней температуры всех термостатов по расписанию
-* Настройте несколько периодов нагрева для каждого дня и ночи
-* Поддерживает все виды термостатов (предварительное условие: он должен быть доступен в ioBroker)
-* Автоопределение устройства Homematic
-* поддерживает несколько профилей
-* Если нет прямого соединения между термостатом и исполнительным механизмом, исполнительный элемент может быть отключен непосредственно от адаптера.
-* В настоящее время привод отключается сразу при достижении заданной температуры. Как только заданная температура становится ниже фактической температуры, привод включается. (Что нужно сделать: реализовать улучшенный контроль)
-* поддерживается неограниченное количество термостатов, приводов и дополнительных устройств на комнату
-* Термостат, привод и датчик автоматически обнаруживаются в каждой комнате. Для этого используется функция (например, «нагрев»).
-* Комнаты могут быть исключены в интерфейсе администратора, если в комнате есть термостат, но управлять им нельзя.
-* датчик используется для снижения целевой температуры (например, если окно открыто); опционально с SensorDelay
-* интерфейс к Feiertag-Adapter или любым другим для определения праздников. Государственный праздник может быть обычным днем или воскресеньем. (настройка администратора)
-* ручное изменение температуры на определенное время
-* предустановленный период отопления
-* принять изменения от термостата (опция)
-* поддерживается визуализация от [Pittini] (https://github.com/Pittini/iobroker-heatingcontrol-vis). Спасибо!
+TR: ## Adapter for controlling your heating system.
+TR: Features:
 
-[Часто задаваемые вопросы](doc/FAQ.md)
+TR: * Control the setpoint temperature levels of all thermostats per schedules
+TR: * Configure multiple heating periods for each day and night
+TR: * Supports all kind of thermostats (precondition: it must be available in ioBroker)
+TR: * Homematic device autodetection
+TR: * supports multiple profiles
+TR: * If there is no direct connection between the thermostat and the actuator, the actuator can be switched directly out of the adapter
+TR: * Currently, the actuator is switched off directly when the setpoint temperature is reached. As soon as the setpoint temperature is below the actual temperature, the actuator will be switched on. (To do: implement improved control)
+TR: * unlimited number of thermostats, actuators and sonsors per room are supported
+TR: * Thermostat, actuator and sensor are automatically detected per room. The function (eg "heating") is used for this.
+TR: * Rooms can be excluded within the admin interface, if a room contains a thermostat but should not be controlled
+TR: * sensor is used to reduce target temperature (e.g. if a window is open); optionally with SensorDelay
+TR: * interface to Feiertag-Adapter or any others to detect public holiday. Public holiday can be a normal day or like sundays. (admin setting)
+TR: * manual temperature override for a certain time
+TR: * predefined heating period
+TR: * take over changes from thermostat (optional)
+TR: * visualization from [Pittini](https://github.com/Pittini/iobroker-heatingcontrol-vis) is supported. Thank you!
 
-## Установка
-## Настройки
-### Главный
-* Функция = Функция, которая будет использоваться для обнаружения термостатов, исполнительных механизмов и датчиков в каждой комнате. Это одно из перечислений системы
-* timezone = будет использоваться cron для настройки заданий cron
-* Путь к Feiertag - Adapter = если вы хотите использовать Feiertag-Adapter для автоматического определения государственных праздников на сегодня, укажите путь здесь (например, feiertage.0)
-* удалить все устройства при открытии администратора = должно быть отключено. Включайте его только тогда, когда вам нужно удалить все настройки помещения, привода и датчика. Поиск устройства будет выполнен, когда откроется администратор адаптера.
-* датчик используется = если у вас есть датчики окна, и вы хотите снизить целевую температуру, когда окно открыто, включите эту опцию
-* используемые исполнительные механизмы = если вы хотите управлять исполнительными механизмами напрямую от адаптера. На всякий случай нет прямой связи между термостатом и исполнительным механизмом.
-* используйте исполнительные механизмы, если период нагрева отсутствует = действительно только с исполнительными механизмами. Определяет, как настраиваются исполнительные механизмы, когда период нагрева не активен.
-* используйте приводы, если нет термостата = действительно только с приводами. Если у вас есть комнаты без термостата, но с исполнительным механизмом отопления, вы можете постоянно включать и выключать их.
+[TR: FAQ](doc/FAQ.md)
 
-### Профиль
-* Тип профиля = поддерживаются три разных типа профиля (понедельник - воскресенье или понедельник - пятница и суббота / воскресенье или каждый день)
-* количество профилей = если вам нужно больше, чем в профиле, увеличьте это значение. Затем вы можете выбрать, какой профиль будет использоваться.
-* количество периодов = определите, сколько дневных секций с разной температурой вам нужно. Чем больше вы установите, тем больше точек данных будет создано. Лучше использовать низкое значение (например, 5)
-* "государственный праздник, например воскресенье = если вы хотите установить целевую температуру в праздничный день, например воскресенье, включите эту опцию. В противном случае настройки государственных праздников такие же, как и в обычные дни.
-* HeatingPeriod = дата начала и окончания отопительного периода. Используется для установки «HeatingPeriodActive»
+TR: ## Installation
+TR: ## Settings
+TR: ### main
+TR: * Function = Function to be used to detect thermostats, actuators and sensors per room. It's one of the sytem enums
+TR: * timezone = to be used for cron to adjust cron jobs
+TR: * Path to Feiertag - Adapter = if you wnat to use Feiertag-Adapter to dectect automatically public holiday for today then set the path here (e.g. feiertage.0)
+TR: * delete all devices when admin opens = should be disabled. Enable it only when you need to delete all room, actuator and sensor settings. A device search will be executed when adapter admin opens
+TR: * sensor used = if you have window sensors and you want to decrease target temperature when window is open then enable that option
+TR: * actuators used = if you want to control actuators directly from adapter. Just in case there is no direct connection between thermostat and actuator.
+TR: * use actuators if no heating period = only valid with actuators. Defines how actuators are set when no heating period is active
+TR: * use actuators if no thermostat available = only valid with actuators. If you have rooms without thermostat but with heating actuator you can switche them on or off permanantly
 
-### Устройства
-* список всех номеров. Вы можете отключить комнату здесь.
-* нажмите кнопку редактирования справа, чтобы открыть окно настроек термостатов, исполнительных механизмов и датчиков для этой комнаты
+TR: ### profile
+TR: * Profile Type = three different profile types (Monday - Sunday, or Monday - Friday and Suturday/Sunday or every day) are supported
+TR: * number of profiles = if you need more then on profile increase that value. You can then select which profile will be used.
+TR: * number of periods = define how many daily sections with different temperature you need. As more you set as more datapoints will be created. Better to use a low value (e.g. 5)
+TR: * "public holiday like sunday = if you want to set target temperatures on public holiday like sunday enable that option. Otherwise public holiday settings are the same as on normal days
+TR: * HeatingPeriod = start and end date of heating period. Used to set "HeatingPeriodActive"
 
-### Редактировать комнату
-* здесь вы можете проверить и установить ID объекта для термостатов, исполнительных механизмов и датчиков
-* вы можете вручную добавить новые термостаты, исполнительные механизмы или датчики. Просто нажмите кнопку +. Затем вы получаете пустую строку, которую необходимо заполнить. Кнопка Edit открывает список доступных устройств в системе.
-* термостаты:
+TR: ### devices
+TR: * a list of all rooms. You can disable a room here.
+TR: * press edit button on right hand side to open settings window for thermostats, actuators and sensors for that room
 
-** необходимо указать имя, целевой OID температуры и OID текущей температуры.
+TR: ### Edit Room
+TR: * here you can verifay and set object ID's for thermostats, actuators and sensors
+TR: * you can add manually new thermostats, actuators or sensors. Just press + button. Then you get an empty line which needs to filled up. The Edit-Button opens a list of available devices on the system
+TR: * thermostats:
 
-* приводы
+TR: ** name, temperature target OID and current temperature OID should be set.
 
-** необходимо указать имя и OID для состояния
+TR: * actuators
 
-* датчики
+TR: ** name and OID for state should be set
 
-** необходимо указать имя и OID для текущего состояния
+TR: * sensors
 
-## Точки данных
-| Имя DP | описание |
+TR: ** name and OID for current state should be set
+
+TR: ## datapoints
+| TR: | DP name             | description                                                                                         |
 |---------------------|-----------------------------------------------------------------------------------------------------|
-| HeatingPeriodActive | если выключено, профили использоваться не будут |
-| CurrentProfile | выбрать текущий профиль (на основе 1, означает, что в профиле 1 используются точки данных в разделе heatingcontrol.0.Profiles.0) |
-| LastProgramRun | показывает время последнего запуска адаптера |
+| TR: | HeatingPeriodActive | if off, the profiles will not be used                                                               |
+| TR: | CurrentProfile      | select current profile (1 based, means profile 1 use datapoints under heatingcontrol.0.Profiles.0 ) |
+| TR: | LastProgramRun      | shows last time when adapter run                                                                    |
 
-### Понижение / повышение температуры
-| Имя DP | описание | целевая температура для относительного снижения | целевая температура для абсолютного снижения |
+TR: ### temperature decrease / increase
+| TR: | DP name           | description                                                | target temperature for relative decrease                                       | target temperature for absolute decrease                      |
 |-------------------|------------------------------------------------------------|--------------------------------------------------------------------------------|---------------------------------------------------------------|
-| ГостиПрисутствуют | повысить температуру, потому что гости хотят потеплее | увеличить текущую температуру профиля с помощью Profiles.0.room.GuestIncrease | установите цель на Profiles.0.room.absolute.GuestIncrease |
-| PartyNow | понизить температуру, потому что становится жарко »| уменьшить текущую температуру профиля с помощью Profiles.0.room.PartyDecrease | установите цель на Profiles.0.room.absolute.PartyDecrease |
-| Настоящее | присутствуем, если нет понизьте температуру | уменьшить текущую температуру профиля с помощью Profiles.0.room.AbsentDecrease | установите цель на Profiles.0.room.absolute.AbsentDecrease |
-| VacationAbsent | нас нет, поэтому уменьшаемся и по выходным | уменьшить текущую температуру профиля с помощью Profiles.0.room.VacationAbsentDecrease | установите цель на Profiles.0.room.absolute.VacationAbsentDecrease |
+| TR: | GuestsPresent     | increase temperature because guests wants it warmer        | increase current profile temperature by Profiles.0.room.GuestIncrease          | set target to Profiles.0.room.absolute.GuestIncrease          |
+| TR: | PartyNow          | decrease temperature because it's becoming hot'            | decrease current profile temperature by Profiles.0.room.PartyDecrease          | set target to Profiles.0.room.absolute.PartyDecrease          |
+| TR: | Present           | we are present, if we are not present decrease temperature | decrease current profile temperature by Profiles.0.room.AbsentDecrease         | set target to Profiles.0.room.absolute.AbsentDecrease         |
+| TR: | VacationAbsent    | we are absent, so decrease also on weekend                 | decrease current profile temperature by Profiles.0.room.VacationAbsentDecrease | set target to Profiles.0.room.absolute.VacationAbsentDecrease |
 
-* в обоих вариантах используется только одно опускание (в предыдущей версии адаптера можно было использовать более одного обезжиривания)
-* в сценарии абсолютного обезжиривания используются только целевые значения, отличные от 0 °C. Если вам не нужно понижение температуры для определенной комнаты, сохраните значения понижения на уровне 0 ° C.
+TR: * in both szenarious only one lowering is used (in previous version of adapter more then one degreases could be used)
+TR: * in absolute degrease szenario only target values not equal 0°C are used. If you do not need any lowering for a certain room then keep decrease-values at 0°C
 
-### Без отопительного периода
-есть три варианта
+TR: ### no heating period
+TR: there are three options
 
-* исправить температуру в комнате
+TR: * fix Temperature per room
 
-Если этот параметр выбран, для каждой комнаты появляется новая точка данных в дереве объектов. Здесь вы можете установить фиксированную целевую температуру, которая устанавливается, когда период нагрева не активен.
+TR: if this option is selected, a new datapoint in object tree appears for every room. Here you can set a fix target temperature which is set when heating period is not active.
 
-* исправить температуру для всех комнат
+TR: * fix Temperature for all rooms
 
-с помощью этой опции вы можете использовать одну заданную температуру для каждой комнаты, когда период отопления не активен.
+TR: with this option you can use one target temperature for every room when heating period is not active
 
-* ничего
+TR: * nothing
 
-с этой опцией ничего не будет отправлено на термостат, если период нагрева не активен. Целевая температура остается от последнего тега, когда период нагрева еще был активен.
-В этом случае и если вы используете приводы от адаптера, у вас есть возможность определить, как приводы должны быть установлены (выключить, включить или оставить как есть)
+TR: with this option nothing will be sent to thermostat if no heating period is active. Target temperature remain from last taget when heating period still was active.
+In that case and if you use actuators from the adapter then you have the possibilty to define how actuators should be set (off, on, or leave it as it is)
 
-## Другие
-* HolidayPresent / PublicHolidyToday
+TR: ## others
+TR: * HolidayPresent / PublicHolidyToday
 
-Если вы включите «Праздник, например, воскресенье» или «Праздник, например, воскресенье» в админке, профиль для воскресенья будет использоваться, когда адаптеру сообщается, что сегодня государственный праздник или вы находитесь дома в отпуске.
+TR: If you enable "Holiday present like sunday" or "public holiday like sunday" in admin, the profile for sunday is used when adapter is informed that today is a public holiday or you are at home in holiday.
 
-### Окно открыто
-если "использовать датчики" активен и датчик (и) для комнаты настроен / настроены, то
+TR: ### window open
+TR: if "use sensors" is active and sensor(s) for a room is / are configured then
 
-* уменьшить текущую температуру профиля при открытом окне (true) с помощью Profiles.0.room.WindowOpenDecrease, если настроено относительное уменьшение
-* установите цель в Profiles.0.room.absolute.WindowOpenDecrease, когда окно открыто (true), если настроено абсолютное уменьшение
+TR: * decrease current profile temperature when window is open (true) by Profiles.0.room.WindowOpenDecrease if relative decrease is configured
+TR: * set target to Profiles.0.room.absolute.WindowOpenDecrease when window is open (true) if  absolute decrease is configured
 
-опционально может использоваться задержка. Если окно открывается только на короткое время, датчик задержки может избежать уменьшения и возврата к нормальному состоянию за очень короткое время.
+TR: optionally a delay can be used. If window is opened only for a short time sensor delay can avoid from reduce and back to normal in very short times.
 
-## Ical поддержка
-вы можете использовать свой календарь или любую другую точку данных для изменения точек данных в адаптере.
-Просто настройте события из ical или других точек данных в админке. Поддерживаются
+TR: ## ical support
+TR: you can use your calendar or any other datapoint to change datapoints in adapter.
+Just configure events from ical or other datapoints in admin. Supported are
 
-| датапоинт | описание | ------------------------------------- | ---------- -------------------------------------------------- ---------------- | heatingcontrol.0.Present | установите для него значение true (в случае логического значения) или число, превышающее предел (в случае числа) | heatingcontrol.0.HolidayPresent | установите значение true, когда вы дома во время отпуска | heatingcontrol.0.VacationAbsent | установите значение true, когда вы не дома во время отпуска | heatingcontrol.0.GestsPresent | установите для него значение true (в случае логического значения) или число больше, чем limit (в случае числа) | heatingcontrol.0.PartyNow | установите для него значение true (в случае логического) или число выше предела (в случае числа)
+TR: | datapoint                           | description |-------------------------------------|---------------------------------------------------------------------------- |heatingcontrol.0.Present             | set it to true (in case of boolean) or to a number higher then limit (in case of number) |heatingcontrol.0.HolidayPresent      | set it to true when you at home in your holiday |heatingcontrol.0.VacationAbsent      | set it to true when you not at home in your holiday |heatingcontrol.0.GuestsPresent       | set it to true (in case of boolean) or to a number higher then limit (in case of number) |heatingcontrol.0.PartyNow            | set it to true (in case of boolean) or to a number higher then limit (in case of number)
 
-Подсказка: с числовыми точками данных вы можете подсчитать, сколько человек находится в доме, а затем решить, например у нас хватит на вечеринку ...
+TR: hint: with number datapoints you could count how many people are in the house and then decide, e.g. we have enough for a party...
 
-## Использовать изменения от термостата
-Многие пользователи просили предоставить возможность перенести изменения с термостата на адаптер. Теперь реализовано четыре варианта:
+TR: ## use changes from thermostat
+TR: Many user asked for an option to take over changes from thermostat into adapter. Now a four options are implemented:
 
-| вариант | описание | -------------------------- | --------------------- -------------------------------------------------- ---------------- | нет | изменения от термостата игнорируются | как переопределение | изменения с термостата принимаются за отмену; время отмены должно быть установлено заранее в heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime | | если время переопределения не установлено, то переопределение не выполняется | как настройка нового профиля | изменения от термостата принимаются за расчетную температуру для текущего периода профиля | до следующей точки профиля | изменения от термостата принимаются как заданная температура до следующей точки профиля. Это ручной режим, поэтому используются только датчики окна. Все остальные | | увеличение / уменьшение игнорируются. В каждой комнате есть точка данных для отключения ручного режима перед достижением следующей точки профиля.
+TR: | option                   | description |--------------------------|--------------------------------------------------------------------------------------- | no                       | changes from thermostat are ignored | as override              | changes from thermostat are taken as override; override time must be set in advance in heatingcontrol.0.Rooms.RoomName.TemperaturOverrideTime |                          | if override time is not set, than override is not executed | as new profile setting   | changes from thermostat are taken as target temperature for current profile period | until next profile point | changes from thermostat are taken as target temperature until next profile point. This is a manual mode, so only Window sensors are used. All other |                          | increases / decreases are ignored. There is a datapoint in every room to disable manual mode before reaching next profile point.
 
-## Продлить отмену при изменении температуры
-Стандартным поведением для коррекции является то, что при изменении температуры время коррекции не изменяется. Например, если вы запускаете коррекцию на 20 минут с 25 °C, а через 15 минут вы меняете на 28 ° C, то 28 ° C используется только в течение последних 5 минут. С помощью этой опции вы перезапускаете переопределение всякий раз, когда меняете температуру переопределения.
-В примере выше 28 ° C будет использоваться в течение 20 минут, что приводит к 15 минутам 25 ° C и 20 минутам 28 ° C.
+TR: ## extend override when temperature is changed
+TR: The standard behavior for override is, when you change temperature the override time is not changed. E.g if you start override for 20 minutes with 25°C and you change to 28°C after 15 minutes then 28°C is only used for the last 5 minutes. With that option you restart override whenever you change override temperature.
+In example above 28°C would then be used for 20 minutes which leads to 15 minutes 25°C and 20 minutes 28°C
 
-## Режим переопределения
-В админке есть два режима для всех комнат.
+TR: ## override mode
+TR: There are two mode adjustable in admin for all rooms.
 
-* с таймером
+TR: * timer controlled
 
-это хорошо известная функция, которая использует температуру и продолжительность. Заданная температура используется в течение всего времени, а затем заданная температура вернется к значению в автоматическом режиме
+TR: this is the wellknown function, which uses a temperature and a duration. The given temperature is used for the duration and then temperature target will set back to value in auto mode
 
-* до следующей точки профиля
+TR: * until next profile point
 
-это новая функция. Здесь мы можем использовать коррекцию температуры до следующей точки профиля. Продолжительность игнорируется, но не должна быть равна нулю!
+TR: this is a new function. Here we can use a temperature override until next profile point. The duration will be ignored but must be non-zero!
 
-## Термостат обрабатывает "окно открыто"
-Некоторые термостаты могут справиться с открытием окна самостоятельно. В этих случаях настраивается прямое соединение между датчиком окна и термостатом, и термостат снижает заданную температуру только при открытии окна.
-В сочетании с опцией «использование изменений от термостата» / «до следующей точки профиля» это приведет к неожиданному ручному состоянию. В этой ситуации будет использоваться пониженная температура до следующей точки профиля.
-Но адпаттер может справиться с таким поведением. Вы должны включить опцию «Термостат управляет« Окно открыто »», и вы можете настроить датчики окна также в адаптере.
-Когда окно открыто, адаптер ожидает макс. 3 секунды для новой целевой температуры от термостата. Если за это время будет получена новая целевая температура, она будет использоваться как пониженная абсолютная температура. Статус будет «автоматическое открытое окно». Как только окно закрывается, статус возвращается к автоматическому, и термостат устанавливает исходную заданную температуру. **Внимание** не используйте в этом случае задержку открытия сенсора. Если вы его используете, событие «Окно открыто» появляется после получения заданной температуры от термостата. Это заканчивается в ручном режиме.
+TR: ## Thermostat handles "window is open"
+TR: Some thermostats can handle "window is open" by itself. In those cases a direct connection between window sensor and thermostat is configured and thermostat reduces target temperature by itslef when a window is opened.
+In combination with option "use of changes from thermostat"  / "until next profil point" will lead this to an unexpected manual state. In this situation the reduced temperature  would be used until next profil point.
+But the adpater can handle this behavior. You must enable option "Thermostat handles 'Window is Open'" and you can configure window sensors also in adapter.
+When window is opened the adapter waits for max. 3 seconds for new target temperature from thermostat. If it receives a new target temperature in that time it will be used as a reduced absolut temperature. Status will then be "auto window open". As soon as the window is closed the status goes back to auto and thermostat sets back the original target temperature **Attention** do not use Sensor Open Delay in that case. If you use it, the Window open event appears after target temperature received from thermostat. This ends up in manual state.
 
-## Копировать период и копировать профиль
-`` Управление отоплением.0.Профили.1.КопироватьПрофиль.Контроль отопления.0.Профили.1.Комната.КопироватьПрофиль ''
+TR: ## Copy period and copy profile
+TR: `` heatingcontrol.0.Profiles.1.CopyProfile heatingcontrol.0.Profiles.1.Room.CopyProfile ``
 
-и
+TR: and
 
-`` Управление отоплением.0.Профили.1.Küche.Fri.CopyPeriods ''
+TR: `` heatingcontrol.0.Profiles.1.Küche.Fri.CopyPeriods ``
 
-CopyProfile копирует все содержимое профиля, в котором нажата кнопка, в следующий профиль. В приведенном выше примере кнопка находится в профиле 1. Кнопка копирует все из профиля 1 в профиль 2.
-Если вы хотите скопировать только одну комнату, используйте кнопку в определенной комнате.
+TR: CopyProfile copies the entire content of the profile where the button is pressed to the next profile. In the above example, the button is in profile 1. The button copies everything from profile 1 to profile 2.
+If you want to copy only one room, use the button in a certain room.
 
-CopyPeriods доступны на день или с понедельника по пятницу на номер. Это копирует точки в следующий раздел. В приведенном выше примере CopyPeriods копирует все периоды с пятницы на кухне в периоды субботы на кухне.
-Таким образом, вы можете, например, в профиле «каждый день отдельно» скопируйте периоды с понедельника по воскресенье ...
+TR: The CopyPeriods are available per day or Mon-Fri per room. This copies the periods to the next section. In the above example, the CopyPeriods copies all periods from Friday in the kitchen room to the periods on Saturday in the kitchen room.
+So you can e.g. in the profile "every day separately", copy the periods from Monday to Sunday ...
 
-## Проблемы и запросы функций
-* Если вы столкнулись с какими-либо ошибками или у вас есть запросы функций для этого адаптера, создайте проблему в разделе проблем GitHub адаптера на [github] (https://github.com/rg-engineering/ioBroker.heatingcontrol/issues ). Любые отзывы приветствуются и помогут улучшить этот адаптер.
+TR: ## Issues and Feature Requests
+TR: * If you are faced with any bugs or have feature requests for this adapter, please create an issue within the GitHub issue section of the adapter at [github](https://github.com/rg-engineering/ioBroker.heatingcontrol/issues). Any feedback is appreciated and will help to improve this adapter.
 
-## Известные вопросы
-### Адаптер с Homematic IP Fußbodenheizungsaktor HmIP-FAL230-C10 - 10фач, 230 В
-Похоже, что HmIP-FAL230-C10 нельзя использовать напрямую в качестве исполнительного механизма в сочетании с этим адаптером. Если вы используете HmIP-FAL230-C10 вместе с термостатами Homematic, он должен работать.
-см. также [Форум](https://forum.iobroker.net/topic/22579/test-adapter-heatingcontrol-v1-0-x/1553)
+TR: ## known issues
+TR: ### Adapter with Homematic IP Fußbodenheizungsaktor HmIP-FAL230-C10 – 10fach, 230 V
+TR: It seems that HmIP-FAL230-C10 can not be used directly as an actuator in combination with that adapter. If you use HmIP-FAL230-C10 together with Homematic thermostats it should work.
+see also [TR: Forum](https://forum.iobroker.net/topic/22579/test-adapter-heatingcontrol-v1-0-x/1553)
 
-### Функция открытия окна термостатов HM
-Термостаты HM имеют функцию открытого окна в двух вариантах. С одной стороны, как обнаружение падения температуры, а с другой стороны, в связи с оконным контактом.
-Эта функция заставляет адаптер переключаться в ручной режим при открытии окна. В идеале эту функцию следует отключить, чтобы не мешать работе адаптера.
-Если термостат использует информацию от датчика окна, то должна быть включена опция «термостат обрабатывает окно открытым».
+TR: ### Window-open function of HM thermostats
+TR: HM thermostats have an open window function in two variants. On the one hand as temperature drop detection and on the other hand in connection with a window contact.
+This function causes the adapter to switch to manual mode when the window is opened. Ideally, this function should be deactivated so as not to interfere with the functionality of the adapter.
+If thermostat use information from window sensor then "thermostat handles window open" option should be enabled.
 
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется в Sentry. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
+TR: When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry.  All of this helps me to provide error free adapters that basically never crashs.
 
 ## Changelog
+
+### 2.4.0 (2021-05-15)
+* (René) make it ready for js-controller 3.3
+
+### 2.3.2 (2021-04-18)
+* (ericsboro) vis translation to russian
+* (René) see issue #231: bug fix detect heating period
+
+### 2.3.1 (2021-04-05)
+* (René) some optimisations for vis translation
 
 ### 2.3.0 (2021-03-20)
 * (René) see issue #187: show remaining override timeConverter

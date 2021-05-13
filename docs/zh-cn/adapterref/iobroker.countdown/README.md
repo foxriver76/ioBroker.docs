@@ -2,143 +2,150 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.countdown/README.md
-title: ioBroker.countdown
-hash: p4FkV853prgZOjvgYnZt9Y3LcUThtRiYzI5PqsyxU44=
+title: TR: ioBroker.countdown
+hash: UR3SrC6/ISooSboGsloFdNGal7zBM/aIsqWdrp/Le3c=
 ---
-![商标](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
-![环保管理员徽章](https://badges.greenkeeper.io/jack-blackson/ioBroker.countdown.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.countdown.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.countdown.svg)
-![安装数量](http://iobroker.live/badges/countdown-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
+![TR: Greenkeeper badge](https://snyk.io/test/github/jack-blackson/ioBroker.countdown/badge.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.countdown.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.countdown.svg)
+![TR: Number of Installations](http://iobroker.live/badges/countdown-stable.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
 
-＃ioBroker.countdown
-[![构建状态Travis]（https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master）](https://travis-ci.com/jack-blackson/ioBroker.countdown)
+TR: # ioBroker.countdown
+[![TR: Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown)
 
-ioBroker倒计时适配器---------------------------------------------- --------------------------------
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-适配器的目标是使您可以为以后的事件（包括年，月，日，小时和分钟）运行倒计时。它将分别为您提供所有这些价位，以及两个带有日期的长短版本的字符串。
+TR: Countdown Adapter for ioBroker ------------------------------------------------------------------------------
 
-##显示倒计时
-适配器会自动为您扩展一个json表。您只需要将其与json表一起使用即可。请在此处勾选“无标题”。可以显示短文本或长文本。
-![商标](../../../en/adapterref/iobroker.countdown/admin/countdown_json.png)
+TR: The goal of the adapter is to provide you a possibility to run countdowns for future events, with years, months, days, hours and minutes. It will provide you each of those valies seperately, and also two strings with a short and long version of the date.
 
-##如何建立倒数
-设置倒计时有两种方法：
+TR: ## Displaying countdowns
+TR: The adapter prowides you automatically a json table. You just need to use it with the json table widged. Please tick "No Header" there. It is possible to either display the short text or the long text.
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_json.png)
 
-*您可以在适配器设置的“创建倒数”选项卡中创建倒数。
-*您可以在设备“设置”中创建手动状态。对象的名称是警报名称，值将是日期。日期必须采用“ DD.MM.YYYY HH：mm：ss”格式。
-*您可以使用sendto创建警报。在那里，您可以发送组件（最少是年月日）或日期字符串。对于日期字符串，您可以在适配器的设置中调整格式。
+TR: ## How to create countdowns
+TR: There are two ways to set up countdowns:
 
-![商标](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky.png)
+TR: * You can create a countdown in the adapter settings, in the tab "Create Countdown".
+TR: * You can create a manual state in the device "setup". The name of the object is the alarm name, and the value will be the date. The date neets to be in the format "DD.MM.YYYY HH:mm:ss".
+TR: * You can create an alarm with sendto. There, you can either send the components (minimum is Year Month Date) or a date string. For the date string, you can adjust the format in the setup of the adapter.
 
-*您可以将日期，月份和年份与sendto添加到今天的日期。因此，请发送组件“名称”以及“ addminutes”，“ addhours”，“ adddays”，“ addmonths”或“ addyears”作为int值。
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky.png)
 
-![商标](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky_add.png)
+TR: * You can add days, months and years with sendto to todays date. Therefore, please send the component "name" and either "addminutes", "addhours", "adddays", "addmonths" or "addyears" as int value.
 
-##如何删除倒计时
-您可以使用sendto删除倒数计时。因此，仅将带有sendto的名称发送到适配器，倒计时将自动删除。
+![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown_blocky_add.png)
 
-##重复倒数
-如果您希望倒计时在指定的时间段内重复进行（例如，您无法在每年的婚礼当天倒数），也可以使用此适配器进行。因此，或者在适配器的设置中填写“重复周期”字段，或者在创建类型为“日期”的倒计时时在日期之后添加周期。 sendTo类似于倒计时，应该在2020年4月1日结束并每年重复一次：
+TR: ## How to delete countdowns
+TR: You  can delete a countdown with the sendto. Therefore, send just the name with sendto to the adapter, and the countdown will be deleted automatically.
 
-sendTo（“ countdown.0”，“ send”，{“ name”：'Wedding Day'，“ date”：'01 .04.2020 00：01 + 1Y'}）;
+TR: ## Repeating countdown
+TR: If you want a countdown to repeat in a defined period (e.g. you cant a countdown for your wedding day every year) you can also do this with this adapter. Therefore either fill the field "Repeat period" in the settings of the adapter, or add the period after the date when you create a countdown with the type "date". A sendTo would look like that for a countdown which should end on the 1st of April 2020 and repeat every year:
 
-这里的参数是：
+TR: sendTo("countdown.0", "send", { "name": 'Wedding Day', "date": '01.04.2020 00:01+1Y' });
 
-* Y：年
-* M：月
-* D：天
-* H：小时
-* m：分钟
+TR: Parameters here are:
 
-##可用输出
-|数据类型|描述|
+TR: * Y: Years
+TR: * M: Months
+TR: * D: Days
+TR: * H: Hours
+TR: * m: Minutes
+
+TR: ## Available outputs
+| TR: |Data type|Description|
 |:---:|:---:|
-|分钟|分钟，直到倒计时结束（不总计！）|
-|小时|数到倒计时结束为止的小时数（不是总计！）|
-|天|直到倒计时结束的天数（不总计！）|
-|个月|直到倒计时结束的月数（不总计！）|
-|年|倒计时结束为止的年数（总计！）|
-|名称|倒数名称|
-| endDate |倒计时的结束日期-格式如定义的设置|
-| inWordsShort |分钟，小时，...的组合值-例如1年5M 4D |
-| inWordsLong |分钟，小时，...的组合值-例如1年5个月4天|
-| totalHours |截至结束日期的总小时数|
-| totalDays |到结束日期的总天数|
-| totalWeeks |到结束日期为止的总周数|
-| reached |布尔值字段，定义是否达到结束日期|
-| repeatEvery |在到达结束日期后的这段时间内重复倒计时|
+| TR: |minutes|Minutes until countdown end (not total!)|
+| TR: |hours|Hours until countdown end (not total!)|
+| TR: |days|Days until countdown end (not total!)|
+| TR: |months|Months until countdown end (not total!)|
+| TR: |years|Years until countdown end (not total!)|
+| TR: |name|Countdown name|
+| TR: |endDate|End date of count down - formated as in the setup defined|
+| TR: |inWordsShort|Combined value of minutes, hours,... - e.g. 1Y 5M 4D|
+| TR: |inWordsLong|Combined value of minutes, hours,... - e.g. 1 Year 5 Months 4 Days|
+| TR: |totalHours|Total No. of hours until the end date|
+| TR: |totalDays|Total No. of days until the end date|
+| TR: |totalWeeks|Total No. of weeks until the end date|
+| TR: |reached|Boolean field defining if the end date was reached or not|
+| TR: |repeatEvery|Countdown is repeted by this period after reaching the enddate|
 
-##要添加的功能
-*可以添加脚本作为参数并在倒计时结束时启动它
-*可以在分钟中使用加号和减号，以及其他添加功能
+TR: ## Features to add
+TR: * Possibility to add a script as a parameter and start it when countdown ends
+TR: * Possibility to use plus and minus in addminutes and the other add functions
 
-## 1.1.0（2020-04-02）
-*（jack-blackson）错误修正自述链接
-*（杰克·布莱克森）错误修正重复循环
+TR: ## 1.2.0 (2021-05-09)
+TR: * (jack-blackson) Updated packages, added Sentry
+TR: * (jack-blackson) Fixes for JS-controller 3.3
+TR: * (jack-blackson) Fix that countdowns are created immediatly
 
-## 1.0.9（2020-03-31）
-*（jack-blackson）错误修正日志消息
+TR: ## 1.1.0 (2020-04-02)
+TR: * (jack-blackson) bugfix Read-Me link
+TR: * (jack-blackson) bugfix repeatCycle
 
-## 1.0.8（2020-03-31）
-*（jack-blackson）在定义的时间段内（例如每年）重复倒数计时
+TR: ## 1.0.9 (2020-03-31)
+TR: * (jack-blackson) Bugfix log messages
 
-## 1.0.7（2020-03-30）
-*（jack-blackson）为设置添加了新的日期类型：YYYY-MM-DD
-*（jack-blackson）直接在适配器设置中添加倒数计时
+TR: ## 1.0.8 (2020-03-31)
+TR: * (jack-blackson) Repeat countdown in defined period (e.g. every year)
 
-## 1.0.6（2020-03-20）
-*（DutchmanNL）固定适配器类型
+TR: ## 1.0.7 (2020-03-30)
+TR: * (jack-blackson) Added new date-type for settings: YYYY-MM-DD
+TR: * (jack-blackson) Add countdown directly in adapter settings
 
-## 1.0.5（2020-02-05）
-*（jack-blackson）修正了午夜警报->感谢@Lueghi
+TR: ## 1.0.6 (2020-03-20)
+TR: * (DutchmanNL) Fixed adapter type
 
-## 1.0.4（2019-08-25）
-*（jack-blackson）重新排序了发布信息
+TR: ## 1.0.5 (2020-02-05)
+TR: * (jack-blackson) Bugfix for alarm at midnight -> thanks to @Lueghi
 
-## 1.0.3（2019-08-10）
-*（jack-blackson）更改为紧凑模式
-*（jack-blackson）各种错误修正
-*（jack-blackson）现在可以具有多个adapater实例
+TR: ## 1.0.4 (2019-08-25)
+TR: * (jack-blackson) Reordered release infos
 
-## 1.0.2（2019-07-22）
-*（jack-blackson）发行版本
+TR: ## 1.0.3 (2019-08-10)
+TR: * (jack-blackson) Changes for Compact Mode
+TR: * (jack-blackson) Various bugfixes
+TR: * (jack-blackson) Having multiple instances of the adapater are now possible
 
-## 0.7.0（2019-07-07）
-*（杰克·布莱克森）错误修正
-*（jack-blackson）现在也可以添加分钟和添加小时
-*设置中的（jack-blackson）数据点现在可编辑
-*（jack-blackson）添加了总数。数周
+TR: ## 1.0.2 (2019-07-22)
+TR: * (jack-blackson) Release version
 
-## 0.6.0（2019-07-06）
-*（jack-blackson）可调日期格式，用于输入和输出
-*（jack-blackson）使用sendto删除倒数计时
-*（jack-blackson）可以按“从现在开始的天/月/周”添加倒计时
+TR: ## 0.7.0 (2019-07-07)
+TR: * (jack-blackson) Bugfixes
+TR: * (jack-blackson) addminutes and addhours are now also possible
+TR: * (jack-blackson) datapoint in setup is now editable
+TR: * (jack-blackson) added total no. of weeks
 
-## 0.5.0（2019-07-04）
-*（jack-blackson）调整表格中的数据
-*（杰克·布莱克森）错误修正日期导入
+TR: ## 0.6.0 (2019-07-06)
+TR: * (jack-blackson) adjustable date format for input and output
+TR: * (jack-blackson) delete countdowns with sendto
+TR: * (jack-blackson) ability to add countdowns by "days/months/weeks from now)
 
-### 0.4.0（2019-06-04）
-*（jack-blackson）重组-现在可以使用sendto或使用datapoint手动创建警报
+TR: ## 0.5.0 (2019-07-04)
+TR: * (jack-blackson) adjust the data in the table
+TR: * (jack-blackson) bugfix date import
 
-### 0.3.0（2019-05-24）
-*（jack-blackson）增加的总天数和小时数
+TR: ### 0.4.0 (2019-06-04)
+TR: * (jack-blackson) restructuring - creation of alarms with sendto or manually with datapoint is now possible
 
-### 0.2.0（2019-05-21）
-*（杰克·布莱克森）调整后的套餐
+TR: ### 0.3.0 (2019-05-24)
+TR: * (jack-blackson) added total No. of days and hours
 
-### 0.1.0（2019-04-29）
-*（杰克·布莱克森）初始版本
+TR: ### 0.2.0 (2019-05-21)
+TR: * (jack-blackson) adjusted packages
+
+TR: ### 0.1.0 (2019-04-29)
+TR: * (jack-blackson) initial version
 
 ## Changelog
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019-2020 jack-blackson <blacksonj7@gmail.com>
+Copyright (c) 2019-2021 jack-blackson <blacksonj7@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
