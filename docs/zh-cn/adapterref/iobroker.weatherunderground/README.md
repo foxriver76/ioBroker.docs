@@ -2,79 +2,87 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.weatherunderground/README.md
-title: ioBroker.weatherunderground
-hash: KQBKAuXaHZmK2XRbNAt/ff0+mkMYDLf0Ao3vFnFby04=
+title: TR: ioBroker.weatherunderground
+hash: tzGdNig2Zr1fpKhzP9WLQqNVGjUWPlk3j/vm+9/NodI=
 ---
-![商标](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
+![TR: Logo](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
-![安装数量](http://iobroker.live/badges/weatherunderground-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
-![NPM](https://nodei.co/npm/iobroker.weatherunderground.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/weatherunderground-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
 
-＃ioBroker.weatherunderground
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: # ioBroker.weatherunderground
+TR: ![TR: Test and Release](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-ioBroker适配器可从[地下天气](http://www.wunderground.com/)加载您所在位置的24小时天气预报。
-适配器将加载所有15分钟（默认）的每日和每小时预测数据。
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-##注意
-您可以在提供官方“ PWS所有者” API密钥的情况下使用此适配器，也可以将API密钥留空以使用从WU网页中提取的密钥。
+TR: ioBroker Adapter to load 24h weather forecast for your location from [TR: Weather Underground](http://www.wunderground.com/).
+The adapter loads all 15min (default) daily and hourly forecast data.
 
-##图标集
-使用“旧版API”时，有一些不同的图标集可用，请参见下文。对于使用新API的美国，图片名称已更改（请参阅https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit），并且现在是基于编号的...可以从例如下载。 https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ，可以用作自定义设置（请参见下文）。
+TR: ## Notes
+TR: You can use this adapter with providing an official "PWS owner" API-key or leave API key empty to use keys extracted out of the WU webpage.
 
-在“适配器设置”中，将“自定义图标库URL”更改为Weatherunderground上可用的图标集之一：（来源：https：//www.wunderground.com/weather/api/d/docs？d = resources / icon-sets ）
+TR: ## Icon Sets
+TR: There are some different Icon Sets available when using "Legacy API", see below. For the usabe with the new API the image names have changed (see https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit) and are now number based ... they can be downloaded from e.g. https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ and could be used as custom set (see below).
 
-|图标集|网址|例子 |
+TR: In Adapter settings change "Custom Icon-Base-URL" to one of the available Icon Set on Weatherunderground: (source: https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets )
+
+| TR: |    Icon Set   |     		URL	 	   |       Example	 	|
 | ------------- | -------------------------------- | --------------------- 	|
-| 1 | https://icons.wxug.com/i/c/a/ | ![替代文字](https://icons.wxug.com/i/c/a/partlycloudy.gif)|
-| 3 | https://icons.wxug.com/i/c/c/ | ![替代文字](https://icons.wxug.com/i/c/c/partlycloudy.gif)|
-| 4 | https://icons.wxug.com/i/c/d/ | ![替代文字](https://icons.wxug.com/i/c/d/partlycloudy.gif)|
-| 5 | https://icons.wxug.com/i/c/e/ | ![替代文字](https://icons.wxug.com/i/c/e/partlycloudy.gif)|
-| 6 | https://icons.wxug.com/i/c/f/ | ![替代文字](https://icons.wxug.com/i/c/f/partlycloudy.gif)|
-| 7 | https://icons.wxug.com/i/c/g/ | ![替代文字](https://icons.wxug.com/i/c/g/partlycloudy.gif)|
-| 8 | https://icons.wxug.com/i/c/h/ | | ![替代文字](https://icons.wxug.com/i/c/h/partlycloudy.gif)|
-| 9 | https://icons.wxug.com/i/c/i/ | ![替代文字](https://icons.wxug.com/i/c/i/partlycloudy.gif)|
-| 10 | https://icons.wxug.com/i/c/j/ | ![替代文字](https://icons.wxug.com/i/c/j/partlycloudy.gif)|
-| 11 | https://icons.wxug.com/i/c/k/ | ![替代文字](https://icons.wxug.com/i/c/k/partlycloudy.gif)|
-| 11 | https://icons.wxug.com/i/c/k/ | ！[替代文字]（https://icons.wxug.com/i/c/k/partlycloudy.gif）|
+| TR: |	1	|  https://icons.wxug.com/i/c/a/   |		![TR: alt text](https://icons.wxug.com/i/c/a/partlycloudy.gif) 	|
+| TR: |	3	|  https://icons.wxug.com/i/c/c/   |		![TR: alt text](https://icons.wxug.com/i/c/c/partlycloudy.gif)	|
+| TR: |	4	|  https://icons.wxug.com/i/c/d/   |		![TR: alt text](https://icons.wxug.com/i/c/d/partlycloudy.gif)	|
+| TR: |	5	|  https://icons.wxug.com/i/c/e/   |		![TR: alt text](https://icons.wxug.com/i/c/e/partlycloudy.gif)	|
+| TR: |	6	|  https://icons.wxug.com/i/c/f/   |		![TR: alt text](https://icons.wxug.com/i/c/f/partlycloudy.gif)	|
+| TR: |	7	|  https://icons.wxug.com/i/c/g/   |		![TR: alt text](https://icons.wxug.com/i/c/g/partlycloudy.gif)	|
+| TR: |	8	|  https://icons.wxug.com/i/c/h/   |		![TR: alt text](https://icons.wxug.com/i/c/h/partlycloudy.gif)	|
+| TR: |	9	|  https://icons.wxug.com/i/c/i/   |		![TR: alt text](https://icons.wxug.com/i/c/i/partlycloudy.gif)	|
+| TR: |	10	|  https://icons.wxug.com/i/c/j/   |		![TR: alt text](https://icons.wxug.com/i/c/j/partlycloudy.gif)	|
+| TR: |	11	|  https://icons.wxug.com/i/c/k/   |		![TR: alt text](https://icons.wxug.com/i/c/k/partlycloudy.gif)	|
+| TR: |	11	|  https://icons.wxug.com/i/c/k/   |		![alt text](https://icons.wxug.com/i/c/k/partlycloudy.gif)	|
 
-或者，您也可以使用自己的“自定义”图标，为此，必须在Base-URL目录中提供以下gif文件：
+TR: Or you can aso use your own "custom" icons, for this purpose the following gif-files must be provided within an Base-URL directory  :
 
-|一天的图标|晚上的图标|
+| TR: |	Icon for Day		|	Icon for night		|
 | -----------------------------	| ----------------------------- |
-| chanceflurries.gif | nt_chanceflurries.gif |
-| chancerain.gif | nt_chancerain.gif |
-| chancesleet.gif | nt_chancesleet.gif |
-| chancesleet.gif | nt_chancesleet.gif |
-| chancesnow.gif | nt_chancesnow.gif |
-| chancetstorms.gif | nt_chancetstorms.gif |
-| chancetstorms.gif | nt_chancetstorms.gif |
-| clear.gif | nt_clear.gif |
-| cloud.gif | nt_cloudy.gif |
-| flurries.gif | nt_flurries.gif |
-| fog.gif | nt_fog.gif |
-| hazy.gif | nt_hazy.gif |
-| mostcloudy.gif | nt_mostlycloudy.gif |
-| mostsunny.gif | nt_mostlysunny.gif |
-| partlycloudy.gif | nt_partlycloudy.gif |
-| partlysunny.gif | nt_partlysunny.gif |
-| sleet.gif | nt_sleet.gif |
-| rain.gif | nt_rain.gif |
-| sleet.gif | nt_sleet.gif |
-| partlycloudy.gif | nt_partlycloudy.gif |
-| sunny.gif | nt_sunny.gif |
-| tstorms.gif | nt_tstorms.gif |
-| cloud.gif | nt_cloudy.gif |
+| TR: |	chanceflurries.gif	|	nt_chanceflurries.gif	|
+| TR: |	chancerain.gif		|	nt_chancerain.gif	|
+| TR: |	chancesleet.gif		|	nt_chancesleet.gif	|
+| TR: |	chancesleet.gif		|	nt_chancesleet.gif	|
+| TR: |	chancesnow.gif		|	nt_chancesnow.gif	|
+| TR: |	chancetstorms.gif	|	nt_chancetstorms.gif	|
+| TR: |	chancetstorms.gif	|	nt_chancetstorms.gif	|
+| TR: |	clear.gif		|	nt_clear.gif		|
+| TR: |	cloudy.gif		|	nt_cloudy.gif		|
+| TR: |	flurries.gif		|	nt_flurries.gif		|
+| TR: |	fog.gif			|	nt_fog.gif		|
+| TR: |	hazy.gif		|	nt_hazy.gif		|
+| TR: |	mostlycloudy.gif	|	nt_mostlycloudy.gif	|
+| TR: |	mostlysunny.gif		|	nt_mostlysunny.gif	|
+| TR: |	partlycloudy.gif	|	nt_partlycloudy.gif	|
+| TR: |	partlysunny.gif		|	nt_partlysunny.gif	|
+| TR: |	sleet.gif		|	nt_sleet.gif		|
+| TR: |	rain.gif		|	nt_rain.gif		|
+| TR: |	sleet.gif		|	nt_sleet.gif		|
+| TR: |	partlycloudy.gif	|	nt_partlycloudy.gif	|
+| TR: |	sunny.gif		|	nt_sunny.gif		|
+| TR: |	tstorms.gif		|	nt_tstorms.gif		|
+| TR: |	cloudy.gif 		|	nt_cloudy.gif 		|
 
-ioBroker论坛中的##（德语）
-http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef89fcad1c3
+TR: ## in ioBroker Forum (German)
+TR: http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef89fcad1c3
 
-＃＃ 去做
-编码仍然存在问题。带“äüöß”的地址将显示错误。
+TR: ## ToDo
+TR: There is a still a problem with encoding. The addresses with "äüöß" will be shown wrong.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize for js-controller 3.3
+
+### 3.3.0 (2021-01-22)
+* (Apollon77) Optimize for js-controller 3.2
+* (Apollon77) js-controller 2.0 is now required at least
 
 ### 3.2.5 (2020-12-27)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-WEATHERUNDERGROUND-1, IOBROKER-WEATHERUNDERGROUND-2)
@@ -213,7 +221,7 @@ initial release with all basics to load WU-forecast data
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2021 dschaedl <daniel.schaedler@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

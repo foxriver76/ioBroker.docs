@@ -2,122 +2,124 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
-title: ioBroker.ebus
-hash: 8aotru73N3/+THRhHXAzo4uriEoughYC2hblYdLXlUY=
+title: TR: ioBroker.ebus
+hash: MFk/Bv62pf+xKrCvXgg4OCQhaAz9GoW7WtIQ2vuasA8=
 ---
-![Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
+![TR: Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/ebus-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.ebus.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.ebus.svg)
-![Tests](https://travis-ci.org/rg-engineering/ioBroker.ebus.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/ebus-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.ebus.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.ebus.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
 
-# IoBroker.ebus
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+TR: # ioBroker.ebus
+![TR: GitHub Actions](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)
 
-** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-[![paypal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+TR: **If you like it, please consider a donation:**
 
-Dieser Adapter liest
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-- Daten von ebusd mit HTML
+TR: This adapter reads
 
-In diesem Fall muss ebusd ausgeführt werden und Daten an z. Explorer über http:// IP: port / data (http://192.168.0.123:8889/data) Aktuelle Version von ebusd inkl. Konfigurationsdateien können von https://github.com/john30/ebusd kopiert werden. Alle Felder mit Daten, Lastup und aus dem globalen Abschnitt werden analysiert. Alle anderen werden im Moment ignoriert.
+TR: - data from ebusd using html
 
-Es besteht die Möglichkeit, Daten abzufragen, die nicht direkt von ebusd abgefragt werden. Der Befehl 'read -f' wird verwendet, um das Lesen über den E-Bus zu erzwingen.
+TR: In this case ebusd must run and must be able to send data to e.g. explorer via http://IP:port/data (http://192.168.0.123:8889/data) Current version of ebusd incl. configuration files can be copied from https://github.com/john30/ebusd All fields with data, lastup and from global section are parsed. All others are ignored at the moment.
 
-Ein weiteres Merkmal besteht darin, einen beliebigen Befehl an ebusd zu senden und eine Antwort zu erhalten, um mit z. Skripte.
+TR: There is a possibillity to poll data which are not polled by ebusd directly. Command 'read -f' is used to force reading over ebus.
 
-aktuell unterstützte ebusd-version: 3.3
+TR: Another feature is to send any command to ebusd and receive answer to work with e.g. scripts.
 
-## Bekannte Probleme
-* Bitte erstellen Sie Probleme unter [github] (https://github.com/rg-engineering/ioBroker.ebus/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
+TR: current supported ebusd-version: 3.3
 
-## 2.2.5 (2021-03-21)
-* (René) Abhängigkeiten aktualisiert
+TR: ## known issues
+TR: * please create issues at [github](https://github.com/rg-engineering/ioBroker.ebus/issues) if you find bugs or whish new features
 
-#2.2.2.4 (2021-02-17)
-* (René) siehe Problem Nr. 42: Nicht erfasster Referenzfehler: oView ist im gelösten Widget nicht definiert
+TR: ## 2.2.5 (2021-03-21)
+TR: * (René) dependencies updated
 
-## 2.2.3 (2020-10-24)
-* (René) Verlauf DP erstellen, falls nicht verfügbar
+TR: ## 2.2.4 (2021-02-17)
+TR: * (René) see issue #42: Uncaught ReferenceError: oView is not defined in widget solved
 
-## 2.2.0 (2020-09-06)
-* (René) DP nur bei Bedarf ändern, um die Systemlast zu reduzieren
-* (René) Abhängigkeiten aktualisieren
+TR: ## 2.2.3 (2020-10-24)
+TR: * (René) create history DP if not available
 
-## 2.1.1 (2020-06-27)
-* (René) Problem Nr. 26: Fehlerbehebung: "cmd nicht gefunden" ist nur eine Debug-Meldung anstelle eines Fehlers
+TR: ## 2.2.0 (2020-09-06)
+TR: * (René) change DP only if necessary to reduce system load
+TR: * (René) update dependencies
 
-## 2.1.0 (2020-06-17)
-* (René) Refactoring: 'async / await' verwendet
+TR: ## 2.1.1 (2020-06-27)
+TR: * (René) issue #26: bug fix: "cmd not found" is only debug message instead of error
 
-## 2.0.0 (2020-04-26)
-* (René) "Anfrage" ersetzt durch "gebogen"
+TR: ## 2.1.0 (2020-06-17)
+TR: * (René) refactoring:  'async/await' used
 
-## 1.0.0 (2019-12-15)
-* (René) Update auf meinen eigenen Flot 3.0
+TR: ## 2.0.0 (2020-04-26)
+TR: * (René) "request" replaced by "bent"
 
-## 0.8.2 (2019-11-10)
-* (René) einige weitere Fehlermeldungen im Datenpunkt "Fehler"
+TR: ## 1.0.0 (2019-12-15)
+TR: * (René) update to my own flot 3.0
 
-## 0.8.1 (2019-10-31)
-* (René) Update Flot auf Version 3.0
+TR: ## 0.8.2 (2019-11-10)
+TR: * (René) some more error messages in datapoint "error"
 
-### 0.8.0 (24.02.2019)
-* (René) hcmode2 Wert 5 = EVU Sperrzeit
+TR: ## 0.8.1 (2019-10-31)
+TR: * (René) update flot to version 3.0
 
-### 0.7.0 (28.01.2019)
-* (René) füge ein anpassbares Timeout hinzu
+TR: ### 0.8.0 (2019-02-24)
+TR: * (René) hcmode2 value 5 = EVU Sperrzeit
 
-### 0.6.0 (06.01.2019)
-* (René) Unterstützung des Kompaktmodus
+TR: ### 0.7.0 (2019-01-28)
+TR: * (René) add adjustable timeout
 
-### 0.5.5 (2018-11-04)
-* (René) Code bereinigen
+TR: ### 0.6.0 (2019-01-06)
+TR: * (René) support of compact mode
 
-### 0.5.4
-* (René) Arduino-Unterstützung entfernt
+TR: ### 0.5.5 (2018-11-04)
+TR: * (René) code clean up
 
-### 0.5.3
-* (René) Fehlerinformationen hinzufügen
+TR: ### 0.5.4
+TR: * (René) arduino support removed
 
-### 0.5.2
-* (René) Fehlerbehebung: In vis 1.x werden einige Werte nicht gespeichert
+TR: ### 0.5.3
+TR: * (René) add error information
 
-### 0.5.1
-* (René) Fehlerbehebung: Wenn nichts abgefragt werden muss, überspringen Sie die Telnet-Verbindung
+TR: ### 0.5.2
+TR: * (René) bug fix: in vis 1.x some values are not stored
 
-### 0.5.0
-* (René) Datum über TCP in ebusd schreiben
+TR: ### 0.5.1
+TR: * (René) bug fix: if nothing to poll then skip telnet connection
 
-### 0.4.2
-* (René) Fehlerbehebung für Admin V3
+TR: ### 0.5.0
+TR: * (René) write date over TCP to ebusd
 
-### 0.4.1
-* (René) Logo geändert
+TR: ### 0.4.2
+TR: * (René) bug fix for admin V3
 
-### 0.4.0
-* (René) liest Daten von ebusd
+TR: ### 0.4.1
+TR: * (René) logo changed
 
-### 0.3.0
-* (René) Unterstützung von ebusd
-* (René) admin3-Unterstützung
+TR: ### 0.4.0
+TR: * (René) reading data from ebusd
 
-### 0.2.0
-* (René) Geschichte als JSON für vis hinzufügen
-* (René) Flot-basiertes Widget hinzufügen, um Temperatur-, Status- und Leistungsdiagramm anzuzeigen
+TR: ### 0.3.0
+TR: * (René) support of ebusd
+TR: * (René) admin3 support
 
-### 0.1.0
-* (René) geplanter Adapter anstelle von Deamon
+TR: ### 0.2.0
+TR: * (René) add history as JSON for vis
+TR: * (René) add flot based widget to display temperatur, status and power graph
 
-### 0.0.3
-* (René) UTF8-Codierung
+TR: ### 0.1.0
+TR: * (René) scheduled adapter instead of deamon
 
-### 0.0.2
-* (René) Erstveröffentlichung
+TR: ### 0.0.3
+TR: * (René) UTF8 coding
+
+TR: ### 0.0.2
+TR: * (René) initial release
 
 ## Changelog
 

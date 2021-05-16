@@ -2,37 +2,39 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-weather/README.md
-title: ioBroker.vis天气
-hash: 9kdqDhi+btPZ0neZoDFdB8A77uv3pxdmCKw5C04ENzk=
+title: TR: ioBroker.vis-weather
+hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
 ---
-![标识](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
+![TR: Logo](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
-![安装数量](http://iobroker.live/badges/vis-weather-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.vis-weather.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
-![测验](https://travis-ci.org/rg-engineering/ioBroker.vis-weather.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/vis-weather-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
 
-＃ioBroker.vis-天气
-**如果您愿意，请考虑捐赠：**
+TR: # ioBroker.vis-weather
+![TR: GitHub Actions](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
 
-[![贝宝（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+TR: **If you like it, please consider a donation:**
 
-该可视组件显示来自DasWetter.com或weatherunderground的天气预报数据。您还需要运行DasWetter-Adpater或weatherunderground-Adapter ...
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-在地下天气中，您需要启用接下来的36小时的预测。
-在DasWetter.com中，您需要启用四个预测数据结构之一。您可以选择要显示的那个。
+TR: This vis-widget shows weather forecast data from DasWetter.com or weatherunderground You need DasWetter-Adpater or weatherunderground-Adapter running as well...
 
-##注释/ Wiki
-###定义预报时间
-默认情况下，预测图显示40小时（DaSWetter）或36小时（地下）。如果您只想显示例如预测10小时，只需在vis-edit中删除oid_groups下不必要的OID。
+TR: In weatherunderground you need forecast of next 36 hours enabled.
+In DasWetter.com you need one of four forecast data structures enabled. You can select the one you want to display.
 
-使用DasWetter时不会自动创建### OID
-通常，当您选择实例或数据结构时，会自动创建OID。当您收到“没有可用的OID”时，请检查是否在DasWetter中使用“ NextDaysDetailed”。
-您可能需要启用“ NextDaysDetailed”。
+TR: ## Notes / wiki
+TR: ### Define Forecast hours
+TR: By default the forecast diagram shows 40 hours (DasWetter) or 36 hours (wunderground). If you prefer to only show e.g. 10 hours forecast, simply delete the unnecessary OIDs under oid_groups in vis-edit.
 
-＃＃ 已知的问题
-*如果发现错误或有新功能，请在[github]（https://github.com/rg-engineering/ioBroker.vis-weather/issues）上创建问题
+TR: ### OID's are not created automatically when using DasWetter
+TR: Normally OID's will be created automatically when you select instance or data structure. When you get "no OID's available" then check whether you use "NextDaysDetailed" in DasWetter.
+You might need to enable "NextDaysDetailed".
+
+TR: ## known issues
+TR: * please create issues at [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues) if you find bugs or whish new features
 
 ## Changelog
 

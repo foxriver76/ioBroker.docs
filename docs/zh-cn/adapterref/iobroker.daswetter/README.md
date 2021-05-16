@@ -2,67 +2,77 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.daswetter/README.md
-title: ioBroker.DasWetter。
-hash: kfEgeJieyITeTDJH7RePBpBzCH0jn96NceNQjCQ46x8=
+title: TR: ioBroker.DasWetter.
+hash: T0xUoiSI74CQfozKb+M++No+TerMO4EyKbH3kVB3PV0=
 ---
-![商标](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
+![TR: Logo](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
-![安装数量](http://iobroker.live/badges/daswetter-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.daswetter.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
-![测验](https://travis-ci.org/rg-engineering/ioBroker.daswetter.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/daswetter-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.daswetter.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
 
-＃ioBroker.DasWetter。
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: # ioBroker.DasWetter.
+![TR: GitHub Actions](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
 
-**如果您愿意，请考虑捐赠：**
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-[![paypal]（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+TR: **If you like it, please consider a donation:**
 
-该适配器从DasWetter.com读取天气预报数据。
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-您需要在DasWetter.com上拥有一个帐户。在https://www.daswetter.com/api/#/login上注册该帐户在某些情况下是免费的。
+TR: This adapter reads weather forecast data from DasWetter.com.
 
-在您的帐户中，您将找到四个不同数据模型的三个URL：
+TR: You need an account on DasWetter.com. Register at https://www.daswetter.com/api/#/login The account is for free under certain conditions.
 
-*未来7天的天气预报以及当天的一般信息：高低，风（符号和描述），日符号和天气情况
-*每5天每3个小时的详细信息：每日的常规信息如下：高峰，低谷，风，阵风，降水，相对湿度，
+TR: In your account you will find three URL for four different data models:
 
-海平面气压，雪线，日出和日落，与月亮有关的日期，当地时间
+TR: * Forecast for the next 7 days and general information of the day: high and low, wind (symbol and description), Day symbol and weather conditions
+TR: * detailed information for 5 days and every 3 hours: The general daily information is the following: peak, lows, wind, gusts, Precipitation, relative humidity,
 
-*每小时预览详细数据（仅前2天，然后每3小时）
-*每3个小时进行5天的预测（JSON格式）
+TR: sea level air pressure, snow line, Sunrise and sunset, dates related to the moon, local time
 
-所有这四个模型均已实现，至少应使用其中一个。
-在设置中，必须使用类似http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx的URL。只需复制您帐户中的完整URL。
+TR: * Preview with detailed data every hour (only for the first 2 days, then every 3 hours)
+TR: * Prediction for 5 days and every 3 hours (in JSON format)
 
-##提示
-vis中使用的###图标
-*访问图标，例如“ http：// ip：8082 / adapter / daswetter / icons / tiempo-weather / galeria1 / 1.png”。
-*在galerie6中，原始图标为svg格式。 Vis应用程序可能无法可视化。因此可以使用转换后的png。只需使用选项“使用png”
-*在galerie5中，原始图标为svg和png格式。除了颜色和白色版本
+TR: All four models are implemented and one should be used at least.
+In settings URL like http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx  must be used. Just copy the complete URL from your account.
 
-NextHours_Day1中的###“当前”：
-* DasWetter.com不提供实际的当前天气值
-*但有时提供当前小时的预测会有所帮助
-*因此我们添加了“当前”，这只是相关的预测小时值的副本
-*请确保您每小时至少调用一次适配器，以确保正确更新“ current”
-*另请参见github功能请求[issue24]（https://github.com/rg-engineering/ioBroker.daswetter/issues/24）
+TR: ## Hints
+TR: ### icons used in vis
+TR: * Access icons like `http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png`.
+TR: * in galerie6 original icons are in svg format. Vis app might have problems to visualize it. So converted png are available. Just use option "use png"
+TR: * in galerie5 original icons are in svg and png format. Beside also color and white versions are available
 
-###路径4
-*目前，DasWetter.com发送的数据与其自己的规范不同。
+TR: ### "current" in NextHours_Day1:
+TR: * DasWetter.com does not deliver real current weather values
+TR: * but sometimes it's helpfull to have the forecast of current hour available
+TR: * so we added "current" which is just a copy of related forecast hour values
+TR: * please make sure you call the adapter at least one time per hour to make sure "current" is updated well
+TR: * see also github feature request [issue24](https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
 
-现在，我们实现了“自动修复”功能，可以将结构更改为已记录的形状。
+TR: ### path 4
+TR: * at the moment DasWetter.com sends data which are different to their own specification.
 
-＃＃ 已知的问题
-*如果发现错误或有新功能，请在[github]（https://github.com/rg-engineering/ioBroker.daswetter/issues）上创建问题
+TR: Now we have implemented a "auto-repair" which changes to structure to documented shape.
+
+TR: ## known issues
+TR: * please create issues at [github](https://github.com/rg-engineering/ioBroker.daswetter/issues) if you find bugs or whish new features
 
 ## Changelog
 
+### 3.0.7 (2021-05-03)
+* (René) issue #91: remove warnings with js-controller 3.3.
+
+### 3.0.5 (2021-03-21)
+* (René) dependencies updated
+
+### 3.0.4 (2020-10-16)
+* (René) see issue #76: parse rain values as float instead integer 
+
 ### 3.0.3 (2020-09-19)
 * (René) see issue #66: parse numbers added 
-
 
 ### 3.0.1 (2020-05-01)
 * (René) breaking change: old data structure is not supported anymore
@@ -140,7 +150,7 @@ for compatibility: in configuration old data structure can be enabled
 needs also 2.x of vis-weather-widget
 
 ## License
-Copyright (C) <2017 - 2020>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

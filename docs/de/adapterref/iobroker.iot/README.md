@@ -2,75 +2,75 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.iot/README.md
-title: ioBroker IoT Adapter
-hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
+title: TR: ioBroker IoT Adapter
+hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
 ---
-![Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
+![TR: Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/iot-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.iot.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.iot.svg)
-![NPM](https://nodei.co/npm/iobroker.iot.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/iot-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.iot.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.iot.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.iot.png?downloads=true)
 
-# IoBroker IoT Adapter
-Dieser Adapter ist NUR für die Kommunikation mit Amazon Alexa, Google Home und Nightscout vorgesehen.
-Es ist nicht für den Remotezugriff auf Ihre ioBroker-Instanz vorgesehen. Verwenden Sie dazu den ioBroker.cloud-Adapter.
+TR: # ioBroker IoT Adapter
+TR: This adapter is ONLY for communication with Amazon Alexa, Google Home and Nightscout.
+It is not for remote access to your ioBroker instance. Use ioBroker.cloud adapter for that.
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Die Einstellungen
-Um einen Cloud-Adapter zu verwenden, müssen Sie sich zuerst in der ioBroker-Cloud registrieren. [https://iobroker.pro](https://iobroker.pro).
+TR: ## Settings
+TR: To use cloud adapter you should first to register on the ioBroker cloud [TR: https://iobroker.pro](https://iobroker.pro).
 
-[Verweis auf die Einstellungen des Google API-Typs](https://developers.google.com/actions/smarthome/guides/)
+[TR: Reference to google API type settings](https://developers.google.com/actions/smarthome/guides/)
 
-![Intro](../../../en/adapterref/iobroker.iot/img/intro.png)
+![TR: Intro](../../../en/adapterref/iobroker.iot/img/intro.png)
 
-### Sprache
-Wenn Sie "Standard" -Sprache auswählen, werden die Smart-Namen von Geräten und Aufzählungen nicht übersetzt. Wenn eine Sprache angegeben ist, werden alle bekannten Namen in diese Sprache übersetzt.
-Zu Demonstrationszwecken wird schnell zwischen vielen Sprachen gewechselt.
+TR: ### Language
+TR: If you select "default" language the smart names of devices and of enumerations will not be translated. If some language specified all known names will be translated into this language.
+It is done to switch fast between many languages for demonstration purposes.
 
-### Platziere die Funktion zuerst in den Namen
-Ändern Sie die Reihenfolge der Funktionen und Rollen in selbst generierten Namen:
+TR: ### Place function in names first
+TR: Change the order of function and roles in self generated names:
 
-- falls falsch: "Raumfunktion", z. "Wohnzimmer Dimmer"
-- falls zutreffend: "Veranstaltungsraum", z. "Dimmer Wohnzimmer"
+TR: - if false: "Room function", e.g. "Living room dimmer"
+TR: - if true: "Function room", e.g. "Dimmer living room"
 
-### Wörter verketten mit
-Sie können das Wort definieren, das zwischen Funktion und Raum platziert wird. Z.B. "in" und von "Dimmer Wohnzimmer" wird "Dimmer im Wohnzimmer" sein.
+TR: ### Concatenate words with
+TR: You can define the word which will be placed between function and room. E.g. "in" and from "Dimmer living room" will be "Dimmer in living room".
 
-Dies wird jedoch nicht empfohlen, da die Erkennungs-Engine ein weiteres Wort analysieren muss und dies zu Missverständnissen führen kann.
+TR: But is not suggested doing so, because recognition engine must analyse one more word and it can lead to misunderstandings.
 
-### AUS-Pegel für Schalter
-Einige Gruppen bestehen aus gemischten Geräten: Dimmer und Schalter. Es ist erlaubt, sie mit "EIN" - und "AUS" -Befehlen und mit Prozenten zu steuern.
-Wenn der Befehl `Set to 30%` und `OFF level is 30%` lautet, werden die Schalter eingeschaltet. Mit dem Befehl "Auf 25% einstellen" werden alle Schalter ausgeschaltet.
+TR: ### OFF level for switches
+TR: Some groups consist of mixed devices: dimmers and switches. It is allowed to control them with "ON" and "OFF" commands and with percents.
+If command is `Set to 30%` and the `OFF level is 30%` so the switches will be turned on. By command "Set to 25%" all switches will be turned OFF.
 
-Wenn der Befehl "AUS" ist, speichert der Adapter den aktuellen Dimmerpegel, wenn der tatsächliche Wert über oder gleich "30%" liegt.
-Später, wenn der neue "EIN" -Befehl kommt, schaltet der Adapter den Dimmer nicht auf 100%, sondern auf den Pegel im Speicher.
+TR: Additionally, if the command is "OFF", so the adapter will remember the current dimmer level if the actual value is over or equal to the "30%".
+Later when the new "ON" command will come the adapter will switch the dimmer not to 100% but to the level in memory.
 
-Beispiel:
+TR: Example:
 
-- Angenommen, der *AUS-Wert* beträgt 30%.
-- Das virtuelle Gerät "Light" verfügt über zwei physische Geräte: *switch* und *dimmer*
-- Befehl: "Licht auf 40% einstellen". Der Adapter speichert diesen Wert für *Dimmer* stellt ihn auf "Dimmer" und schaltet den *Schalter* ein.
-- Befehl: "Licht ausschalten". Der Adapter stellt den *Dimmer* auf 0% und schaltet den *Schalter* aus.
-- Befehl: "Licht einschalten". *Dimmer* => 40%, *Schalter* => ON.
-- Befehl: "Licht auf 20% einstellen". *Dimmer* => 20%, *Schalter* => AUS. Der Wert für den Dimmer wird nicht gespeichert, da er unter *AUS* liegt.
-- Befehl: "Licht einschalten". *Dimmer* => 40%, *Schalter* => ON.
+TR: - Assume, that *OFF level* is 30%.
+TR: - Virtual device "Light" has two physical devices: *switch* and *dimmer*.
+TR: - Command: "set the light to 40%". The adapter will remember this value for *dimmer*, will set it for "dimmer" and will turn the *switch* ON.
+TR: - Command: "turn the light off". The adapter will set the *dimmer* to 0% and will turn off the *switch*.
+TR: - Command: "turn on the light". *dimmer* => 40%, *switch* => ON.
+TR: - Command: "set the light to 20%". *dimmer* => 20%, *switch* => OFF. The value for dimmer will not be remembered, because it is bellow *OFF level*.
+TR: - Command: "turn on the light". *dimmer* => 40%, *switch* => ON.
 
-### Von ON
-Sie können das Verhalten des ON-Befehls für den Nummernstatus auswählen. Der spezifische Wert kann ausgewählt werden oder der letzte Wert ungleich Null wird verwendet.
+TR: ### by ON
+TR: You can select the behaviour of ON command will come for the number state. The specific value can be selected or last non zero value will be used.
 
-### Antwort schreiben an
-Für jeden Befehl wird die Textantwort generiert. Hier können Sie die Objekt-ID definieren, in die dieser Text geschrieben werden muss. Z.B. *sayit.0.tts.text*
+TR: ### Write response to
+TR: For every command the text response will be generated. You can define here the Object ID , where this text must be written to. E.g. *sayit.0.tts.text*.
 
-### Farben
-Momentan unterstützt nur Englisch Alexa die Farbkontrolle.
-Der Kanal muss 4 Zustände mit folgenden Rollen haben:
+TR: ### Colors
+TR: Just now only english alexa supports the color control.
+The channel must have 4 states with following roles:
 
-- level.color.saturation (erforderlich für die Erkennung des Kanals),
-- level.color.hue,
-- level.dimmer,
-- Schalter (optional)
+TR: - level.color.saturation (required for detection of the channel),
+TR: - level.color.hue,
+TR: - level.dimmer,
+TR: - switch (optional)
 
 ```
 Alexa, set the "device name" to "color"
@@ -79,135 +79,135 @@ Alexa, set the bedroom light to red
 Alexa, change the kitchen to the color chocolate
 ```
 
-### Sperren
-Um die Sperren sperren zu können, muss der Status die Rolle "switch.lock" und "native.LOCK_VALUE" haben, um den Sperrstatus zu bestimmen. Wenn Sie einen separaten Wert zur Steuerung der Sperre benötigen, können Sie "native.CONTROL VALUE" verwenden.
+TR: ### Lock
+TR: To have the possibility to lock the locks, the state must have the role "switch.lock" and have "native.LOCK_VALUE" to determine the lock state. If you need a seperate Value to control the Lock you can use "native.CONTROL VALUE".
 
 ```
 Alexa, is "lock name" locked/unlocked
 Alexa, lock the "lock name"
 ```
 
-## Wie Namen generiert werden
-Der Adapter versucht, virtuelle Geräte für die Smart Home-Steuerung zu generieren (z. B. Amazon Alexa oder Google Home).
+TR: ## How names will be generated
+TR: The adapter tries to generate virtual devices for smart home control (e.g. Amazon Alexa or Google Home).
 
-Dafür gibt es zwei wichtige Aufzählungen: Räume und Funktionen.
+TR: The are two important enumerations for that: rooms and functions.
 
-Die Zimmer sind wie: Wohnzimmer, Bad, Schlafzimmer.
-Funktionen sind wie: Licht, Blind, Heizung.
+TR: Rooms are like: living room, bathroom, sleeping room.
+Functions are like: light, blind, heating.
 
-Folgende Bedingungen müssen erfüllt sein, um den Status in die automatisch generierte Liste aufzunehmen:
+TR: Following conditions must be met to get the state in the automatically generated list:
 
-- Der Status muss sich in einer "Funktions" -Aufzählung befinden.
-- Der Status muss eine Rolle haben ("Status", "Schalter" oder "Ebene. *", Z. B. Ebene.Dimmer), wenn er nicht direkt in "Funktionen" enthalten ist.
+TR: - the state must be in some "function" enumeration.
+TR: - the state must have role ("state", "switch" or "level.*", e.g. level.dimmer) if not directly included into "functions".
 
-Es kann sein, dass sich der Kanal in den "Funktionen" befindet, sich aber nicht selbst angibt.
+TR: It can be that the channel is in the "functions", but state itself not.
 
-- Der Status muss beschreibbar sein: common.write = true
-- Der Zustandsdimmer muss den Typ common.type als 'number' haben.
-- Die Zustandsheizung muss eine gemeinsame Einheit als '°C', '°F' oder '° K' und einen gemeinsamen Typ als 'Nummer' haben.
+TR: - the state must be writable: common.write = true
+TR: - the state dimmer must have common.type as 'number'
+TR: - the state heating must have common.unit as '°C', '°F' or '°K' and common.type as 'number'
 
-Befindet sich der Status nur in "Funktionen" und nicht in einem "Raum", wird der Name des Status verwendet.
+TR: If the state is only in "functions" and not in any "room", the name of state will be used.
 
-Die Statusnamen werden aus Funktion und Raum generiert. Z.B. Alle *Lichter* im *Wohnzimmer* werden im virtuellen Gerät *Wohnzimmerlicht* gesammelt.
-Der Benutzer kann diesen Namen nicht ändern, da er automatisch generiert wird.
-Wenn sich der Aufzählungsname ändert, wird auch dieser Name geändert. (z. B. die Funktion "Licht" wurde in "Lichter" geändert, sodass das *Wohnzimmerlicht* in *Wohnzimmerlichter* geändert wird.)
+TR: The state names will be generated from function and room. E.g. all *lights* in the *living room* will be collected in the virtual device *living room light*.
+The user cannot change this name, because it is generated automatically.
+But if the enumeration name changes, this name will be changed too. (e.g. function "light" changed to "lights", so the *living room light* will be changed to *living room lights*)
 
-Alle Regeln werden ignoriert, wenn der Status common.smartName hat. In diesem Fall wird nur der Smart Name verwendet.
+TR: All the rules will be ignored if the state has common.smartName. In this case just the smart name will be used.
 
-Wenn *common.smartName* **false** ist, wird der Status oder die Aufzählung nicht in die Listengenerierung einbezogen.
+TR: if *common.smartName* is **false**, the state or enumeration will not be included into the list generation.
 
-Im Konfigurationsdialog können Sie die einzelnen Status bequem entfernen und virtuellen Gruppen oder als einzelnes Gerät hinzufügen.
-![Aufbau](../../../en/adapterref/iobroker.iot/img/configuration.png)
+TR: The configuration dialog lets the comfortable remove and add the single states to virtual groups or as single device.
+![TR: Configuration](../../../en/adapterref/iobroker.iot/img/configuration.png)
 
-Wenn die Gruppe nur einen Status hat, kann sie umbenannt werden, da hierfür der SmartName des Status verwendet wird.
-Wenn die Gruppe mehr als einen Status hat, muss die Gruppe über die Namen der Aufzählung umbenannt werden.
+TR: If the group has only one state it can be renamed, as for this the state's smartName will be used.
+If the group has more than one state, the group must be renamed via the enumeration's names.
 
-Um eigene Gruppen zu erstellen, kann der Benutzer den Adapter "Szenen" installieren oder "Skript" im Javascript-Adapter erstellen.
+TR: To create own groups the user can install "scenes" adapter or create "script" in Javascript adapter.
 
-### Ersetzt
-Sie können Zeichenfolgen angeben, die automatisch in den Gerätenamen ersetzt werden können. Z.B. Wenn Sie Ersetzungen auf setzen: `.STATE,.LEVEL`, werden alle ".STATE" und ".LEVEL" aus den Namen gelöscht. Seien Sie vorsichtig mit Leerzeichen.
-Wenn Sie `.STATE, .LEVEL` einstellen, werden ".STATE" und ".LEVEL" ersetzt und nicht ".LEVEL".
+TR: ### Replaces
+TR: You can specify strings, that could be automatically replaced in the devices names. E. g. if you set replaces to: `.STATE,.LEVEL`, so all ".STATE" and ".LEVEL" will be deleted from names. Be careful with spaces.
+If you will set `.STATE, .LEVEL`, so ".STATE" and " .LEVEL" will be replaced and not ".LEVEL".
 
-## Hilfszustände
-- **smart.lastObjectID** Dieser Status wird festgelegt, wenn nur ein Gerät von Home Skill (Alexa, Google Home) gesteuert wurde.
-- **smart.lastFunction** Funktionsname (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
-- **smart.lastRoom** Raumname (falls vorhanden), für den der letzte Befehl ausgeführt wurde.
-- **smart.lastCommand** Zuletzt ausgeführter Befehl. Der Befehl kann sein: wahr (EIN), falsch (AUS), Zahl (%), -X (Abnahme bei x), + X (Zunahme bei X)
-- **smart.lastResponse** Textantwort auf Befehl. Es kann an eine text2speech (sayit) Engine gesendet werden.
+TR: ## Helper states
+TR: - **smart.lastObjectID**: This state will be set if only one device was controlled by home skill (alexa, google home).
+TR: - **smart.lastFunction**: Function name (if exists) for which last command was executed.
+TR: - **smart.lastRoom**:     Room name (if exists) for which last command was executed.
+TR: - **smart.lastCommand**:  Last executed command. Command can be: true(ON), false(OFF), number(%), -X(decrease at x), +X(increase at X)
+TR: - **smart.lastResponse**: Textual response on command. It can be sent to some text2speech (sayit) engine.
 
-## IFTTT
-[Anleitung](doc/ifttt.md)
+TR: ## IFTTT
+[TR: instructions](doc/ifttt.md)
 
-## Dienstleistungen
-Es besteht die Möglichkeit, Nachrichten an den Cloud-Adapter zu senden.
-Wenn Sie `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` und Wert als Nutzlast aufrufen.
+TR: ## Services
+TR: There is a possibility to send messages to cloud adapter.
+If you call `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` und value as payload.
 
-`curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
+TR: `curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
-oder
+TR: or
 
-`[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
+TR: `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-Wenn Sie in den Einstellungen im Feld "Weiße Liste für Dienste" den Namen *custom_test* festlegen und mit "custom_test" als Dienstnamen aufrufen, wird der Status **cloud.0.services.custom_test** auf *myString gesetzt*
+TR: If you set in the settings the field "White list for services" the name *custom_test*, and call with "custom_test" as the service name, the state **cloud.0.services.custom_test** will be set to *myString*.
 
-Sie können "*" in die weiße Liste schreiben und alle Dienste werden zugelassen.
+TR: You may write "*" in white list and all services will be allowed.
 
-Hier finden Sie Anweisungen zur Verwendung mit [Tasker](doc/tasker.md).
+TR: Here you can find instructions how to use it with [TR: tasker](doc/tasker.md).
 
-Der IFTTT-Dienst ist nur zulässig, wenn der IFTTT-Schlüssel festgelegt ist.
+TR: IFTTT service is allowed only if IFTTT key is set.
 
-Reservierte Namen sind `ifttt`, `text2command`, `simpleApi`, `swagger`. Diese müssen ohne das Präfix `custom_` verwendet werden.
+TR: Reserved names are `ifttt`, `text2command`, `simpleApi`, `swagger`. These must be used without the `custom_` prefix.
 
-### `text2command`
-Sie können "text2command" in eine weiße Liste schreiben. Sie können eine POST-Anfrage an `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` senden, um Daten in die Variable *text2command.X.text* zu schreiben.
+TR: ### `text2command`
+TR: You may write "text2command" in white list, you can send POST request to `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` to write data into *text2command.X.text* variable.
 
-Sie können auch die GET-Methode verwenden `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
+TR: You can use GET method too `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
-`X` können in den Einstellungen mit der Option "text2command instance" verwenden definiert werden.
+TR: `X` can be defined in settings by the "Use text2command instance" option.
 
-## Benutzerdefinierte Fertigkeit
-Die Antworten für benutzerdefinierte Fertigkeiten können auf zwei Arten verarbeitet werden:
+TR: ## Custom skill
+TR: The answers for custom skill can be processed in two ways:
 
-- `text2command`
-- "Javascript"
+TR: - `text2command`
+TR: - `javascript`
 
-### `text2command`
-Wenn im Konfigurationsdialog die Instanz `text2command` definiert ist, wird die Frage an die Instanz gesendet.
+TR: ### `text2command`
+TR: if `text2command` instance is defined in the configuration dialog, so the question will be sent to the instance.
 
-`text2command` müssen so konfiguriert sein, dass die erwartete Phrase analysiert und die Antwort zurückgegeben wird.
+TR: `text2command` must be configured that the expected phrase will be parsed and the answer will be given back.
 
-### `Javascript`
-Es besteht die Möglichkeit, die Frage direkt mit dem Skript zu bearbeiten. Es ist standardmäßig aktiviert, wenn keine *text2command* -Instanz ausgewählt ist.
+TR: ### `Javascript`
+TR: There is a possibility to process the question directly with script. It is activated by default if no *text2command* instance is selected.
 
-Wenn die Instanz `text2command` definiert ist, muss diese Instanz die Antwort liefern, und die Antwort von *script* wird ignoriert.
+TR: If `text2command` instance is defined, so this instance must provide the answer and the answer from *script* will be ignored.
 
-Der Adapter liefert die Details in zwei Zuständen mit unterschiedlicher Detailstufe
+TR: The adapter will provide the details in two states with different detail level
 
-* **smart.lastCommand** enthält den empfangenen Text einschließlich einer Information über den Abfragetyp (Absicht). Beispiel: "askDevice Status Rasenmäher"
-* ** smart.lastCommandObj *** enthält eine JSON-Zeichenfolge, die auf ein Objekt analysiert werden kann, das die folgenden Informationen enthält
- * **Wörter** enthält die empfangenen Wörter in einem Array
- * **intent** enthält den Abfragetyp. Mögliche Werte sind derzeit "askDevice", "controlDevice", "actionStart", "actionEnd", "askWhen", "askWhere", "askWho".
- * **Geräte-ID** enthält eine Geräte-ID, die angibt, an welches Gerät, an das die Anforderung gesendet wurde und das von Amazon übermittelt wird, eine leere Zeichenfolge ist, wenn sie nicht angegeben wird
- * **sessionId** enthält eine sessionId der Skill-Sitzung. Sollte identisch sein, wenn mehrere von Amazon gelieferte Befehle gesprochen wurden, ist die Zeichenfolge leer, wenn sie nicht angegeben wird
- * **Benutzer-ID** enthält eine Benutzer-ID des Gerätebesitzers (oder möglicherweise später des Benutzers, der mit der Fertigkeit interagiert hat), die von Amazon bereitgestellt wird, ist eine leere Zeichenfolge, wenn sie nicht angegeben wird
+TR: * **smart.lastCommand** contains the received text including an info on type of query (intent). Example: "askDevice Status Rasenmäher"
+TR: * **smart.lastCommandObj*** contains an JSON string that can be parsed to an object containing the following information
+TR:   * **words** contains the received words in an array
+TR:   * **intent** contains the type of query. Possible values currently are "askDevice", "controlDevice", "actionStart", "actionEnd", "askWhen", "askWhere", "askWho"
+TR:   * **deviceId** contains a deviceId identifying the device the request was sent to, delivered by Amazon, will be empty string if not provided
+TR:   * **sessionId** contains a sessionId of the Skill session, should be the same if multiple commands were spoken, delivered by Amazon, will be empty string if not provided
+TR:   * **userId** contains a userId from the device owner (or maybe later the user that was interacting with the skill), delivered by Amazon, will be empty string if not provided
 
- Weitere Informationen darüber, wie die Wörter erkannt werden und welche Art von Abfragen die Alexa Custom Skill unterscheidet, finden Sie unter https://forum.iobroker.net/viewtopic.php?f=37&t=17452.
+TR:  More details on how the words are detected and what type of queries the Alexa Custom Skill differentiates please check https://forum.iobroker.net/viewtopic.php?f=37&t=17452 .
 
-** Ergebnis über den Status smart.lastResponse zurückgeben **
+TR: **Return result via smart.lastResponse state**
 
-Die Antwort muss innerhalb von 200 ms im Status "smart.lastResponse" gesendet werden und kann eine einfache Textzeichenfolge oder ein JSON-Objekt sein.
-Wenn es sich um eine Textzeichenfolge handelt, wird dieser Text als Antwort auf die Fertigkeit gesendet.
-Wenn der Text ein JSON-Objekt ist, können die folgenden Schlüssel verwendet werden:
+TR: The response needs to be sent within 200ms in the state "smart.lastResponse" and can be a simple text string or a JSON object.
+If it is a text string then this text will be sent as response to the skill.
+if the text is a JSON object then the following keys can be used:
 
-* **responseText** muss den Text enthalten, um zu Amazon zurückzukehren
-* **shouldEndSession** ist ein Boolescher Wert und steuert, ob die Sitzung geschlossen wird, nachdem die Antwort gesprochen wurde, oder offen bleibt, um eine weitere Spracheingabe zu akzeptieren.
+TR: * **responseText** needs to contain the text to return to Amazon
+TR: * **shouldEndSession** is a boolean and controls if the session will be closed after the response was spoken or stays open to accept another voice input.
 
-** Ergebnis über die Nachricht an die iot-Instanz zurückgeben **
+TR: **Return result via the message to iot instance**
 
-Die iot-Instanz akzeptiert auch eine Nachricht mit dem Namen "alexaCustomResponse", die den Schlüssel "response" enthält, mit einem Objekt, das die Schlüssel **responseText** und **shouldEndSession** enthalten kann, wie oben beschrieben.
-Die iot-Instanz antwortet nicht auf die Nachricht!
+TR: The iot instance also accepts a message with the name "alexaCustomResponse" containing the key "response" with an object that can contain the keys **responseText** and **shouldEndSession** as described above.
+There will be no response from the iot instance to the message!
 
-** Beispiel eines Skripts, das Texte verwendet **
+TR: **Example of a script that uses texts**
 
 ```
 // important, that ack=true
@@ -217,7 +217,7 @@ on({id: 'iot.0.smart.lastCommand', ack: true, change: 'any'}, obj => {
 });
 ```
 
-** Beispiel eines Skripts, das JSON-Objekte verwendet **
+TR: **Example of a script that uses JSON objects**
 
 ```
 // important, that ack=true
@@ -237,10 +237,10 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
 });
 ```
 
-### Private Wolke
-Wenn Sie private Skill / Action / навык für die Kommunikation mit `Alexa/Google Home/Алиса` verwenden, haben Sie die Möglichkeit, die IoT-Instanz zu verwenden, um die Anforderungen daraus zu verarbeiten.
+TR: ### Private cloud
+TR: If you use private skill/action/навык for communication with `Alexa/Google Home/Алиса` so you have the possibility to use IoT instance to process the requests from it.
 
-Z.B. für `yandex alice`:
+TR: E.g. for `yandex alice`:
 
 ```
 const OBJECT_FROM_ALISA_SERVICE = {}; // object from alisa service or empty object
@@ -251,21 +251,27 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 });
 ```
 
-Folgende Typen werden unterstützt:
+TR: Following types are supported:
 
-- `alexa` - agiert mit Amazon Alexa oder Amazon Custom Skill
-- `ghome` - Handeln mit Google Actions über Google Home
-- `alisa` - mit Yandex Алиса handeln
-- `ifttt` - verhält sich wie IFTTT (eigentlich nicht erforderlich, aber zu Testzwecken)
+TR: - `alexa` - acting with Amazon Alexa or Amazon Custom Skill
+TR: - `ghome` - acting with Google Actions via Google Home
+TR: - `alisa` - acting with Yandex Алиса
+TR: - `ifttt` - acting like IFTTT (actually not required, but for tests purposes)
 
-## Yandex Алиса
-[Anleitung](doc/alisa.md)
+TR: ## Yandex Алиса
+[TR: instructions](doc/alisa.md)
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __WORK IN PROGRESS__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (foxriver76) we now write data received from custom services with acknowledge flag
+
+### 1.8.19 (2021-05-14)
+* (bluefox) Only added one debug output
+
 ### 1.8.16 (2021-03-13)
 * (bluefox) fixed the blind functionality in alisa
 

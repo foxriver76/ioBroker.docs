@@ -2,414 +2,424 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.smartgarden/README.md
-title: ioBroker.smartgarden
-hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
+title: TR: ioBroker.smartgarden
+hash: bbKCZ49g0LWG4EJYAGtuSSRM1C6FmTKx/qpQ3e+qTHY=
 ---
-![标识](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
+![TR: Logo](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
-![已安装](http://iobroker.live/badges/smartgarden-installed.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.smartgarden.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.smartgarden.svg)
-![建置状态](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden.svg?branch=master)
-![稳定的](http://iobroker.live/badges/smartgarden-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)
+![TR: Installed](http://iobroker.live/badges/smartgarden-installed.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.smartgarden.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.smartgarden.svg)
+![TR: Build Status](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden.svg?branch=master)
+![TR: Stable](http://iobroker.live/badges/smartgarden-stable.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)
 
-＃ioBroker.smartgarden
-**如果您愿意，请考虑捐赠：**
+TR: # ioBroker.smartgarden
+TR: **If you like it, please consider a donation:**
 
-[![贝宝（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8C7M7MH3KPYDC&source=url)
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8C7M7MH3KPYDC&source=url)
 
-##用于GARDENA智能系统的ioBroker smartgarden适配器
-使用官方[GARDENA智能系统API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general)和服务的GARDENA智能系统适配器。
+TR: ## ioBroker smartgarden adapter for GARDENA smart system
+TR: An adapter for GARDENA smart system using official [TR: GARDENA smart system API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) and service.
 
-该适配器允许开发可与官方GARDENA应用程序并行使用的应用程序（例如，使用VIS）。适配器及其附加功能不会影响GARDENA应用程序的任何基本功能，反之亦然。
+TR: The adapter allows the development of an application (e.g. with VIS) that can be used in parallel with the official GARDENA app. The adapter and its additional features do not affect any of the basic functions of the GARDENA app and vice versa.
 
-该适配器不是GARDENA应用程序的完整替代品，而是将GARDENA设备集成到带有ioBroker的智能家居中的附加功能。
-可以使用适配器执行最重要的操作。它还提供了实现您自己的想法的机会，而这是GARDENA应用程序无法实现的。
+TR: The adapter is not a complete replacement for the GARDENA app, but an addition to integrate the GARDENA devices into a smart home with ioBroker.
+The most important actions can be carried out with the adapter. It also offers the opportunity to implement your own ideas that are not possible with the GARDENA app.
 
-##支持的设备
-  -GARDENA智能SILENO机器人割草机
-  -GARDENA智能灌溉控制
-  -GARDENA智能压力泵
-  -GARDENA智能水控制
-  -GARDENA智能电源适配器
-  -GARDENA智能传感器
+TR: ## Supported devices
+TR:   - GARDENA smart SILENO robotic lawnmowers
+TR:   - GARDENA smart Irrigation Control
+TR:   - GARDENA smart Pressure Pump
+TR:   - GARDENA smart Water Control
+TR:   - GARDENA smart Power Adapter
+TR:   - GARDENA smart Sensor
 
-有关设备的更多信息，请参见[GARDENA德国网站](https://www.gardena.com/de/produkte/smart/smartsystem/)和[这里是英文](https://www.gardena.com/uk/products/smart/smart-system/)。
+TR: For more information about the devices see at [TR: GARDENA German website](https://www.gardena.com/de/produkte/smart/smartsystem/) and [TR: here in English](https://www.gardena.com/uk/products/smart/smart-system/).
 
-＃＃ 要求
-要使用此适配器，您需要做两件事：
+TR: ## Requirements
+TR: To use this adapter you need two things:
 
-1. GARDENA智能系统帐户
-1. GARDENA应用程序密钥
+TR: 1. an GARDENA smart system account
+TR: 1. an GARDENA application key
 
-要同时获得两者，请转至[https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/)。
+TR: To get both things please go to [TR: https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/).
 
-![Getting_application_key](../../../en/adapterref/iobroker.smartgarden/getting_application_key.jpg)
+![TR: getting_application_key](../../../en/adapterref/iobroker.smartgarden/getting_application_key.jpg)
 
-**笔记：**
+TR: **Note:**
 
-  -如果您已经拥有HusqvarnaAutomower®Connect或
+TR:   - If you already have a Husqvarna Automower® Connect or a
 
-GARDENA智能系统帐户，您可以使用该帐户登录，然后继续执行步骤2，创建应用程序以获取应用程序密钥。
-
-	---
-
-***几乎可以肯定您拥有一个帐户。*** *请使用与注册GARDENA设备的GARDENA应用程序相同的帐户。否则，您将无法访问您的设备。*
+TR: GARDENA smart system account, you can Sign In with that account and continue with Step 2, Create application to get the application key.
 
 	---
 
-  -确保已将应用程序（从第2步开始）连接到API的
-    -身份验证API ***和***
--GARDENA智能系统API。
+TR: ***And it's almost certain that you have an account.*** *Please use the same account as for the GARDENA app in which your GARDENA devices are registered. Otherwise you will not 	get access to your devices.*
 
-当然，您需要正在运行的ioBroker安装，并且您应至少拥有一个[GARDENA智能设备](#supported-devices)。
+	---
 
-＃＃ 目录
-  * [用于GARDENA智能系统的ioBroker smartgarden适配器]（＃iobroker-smartgarden-adapter-for-gardena-smart-system）
-  * [支持的设备]（＃supported-devices）
-  * [要求]（＃requirements）
-  * [目录]（＃table-of-contents）
-  * [安装]（＃installation）
-  * [设置适配器]（＃setup-adapter）
-  * [获得支持]（＃getting-support）
-  * [适配器的数据点]（＃data-points-of-adapter）
-     * [有关数据点的一般知识]（＃general-things-toknow-about-data-points）
-     * [For SERVICE_MOWER]（＃for-service_mower）
-     * [对于SERVICE_VALVE_SET]（＃for-service_valve_set）
-     * [对于SERVICE_VALVE]（＃for-service_valve）
-     * [对于SERVICE_POWER_SOCKET]（＃for-service_power_socket）
-     * [对于SERVICE_SENSOR]（＃for-service_sensor）
-     * [For SERVICE_COMMON]（＃for-service_common）
-  * [费率限制]（＃rate-limits）
-  * [割草时不允许灌溉]（＃割草时不允许灌溉）
-     * [出了什么问题？]（＃问题是什么）
-* [正在做什么？]（＃what-is-being-done）
-* [基本行为-警告]（＃基本行为----警告）
-  * [希望获得数据点]（＃希望获得数据点）
-  * [注意]（＃note）
-  * [变更日志]（＃changelog）
-     * [1.0.4]（＃104）
-     * [1.0.3]（＃103）
-     * [先前版本]（＃102）
-  * [学分]（＃学分）
-  * [许可证]（＃license）
+TR:   - Make sure that you've connected the application (from Step 2) to the API's
+TR:     - Authentication API ***and***
+TR: 	- GARDENA smart system API.
 
-＃＃ 安装
-适配器可用
+TR: And of course you need a running ioBroker installation and you should own at least one [TR: GARDENA smart device](#supported-devices).
 
--在npm：使用`npm install iobroker.smartgarden`安装
--在GitHub的https://github.com/jpgorganizer/ioBroker.smartgarden下。
+TR: ## Table of Contents
+TR:   * [ioBroker smartgarden adapter for GARDENA smart system](#iobroker-smartgarden-adapter-for-gardena-smart-system)
+TR:   * [Supported devices](#supported-devices)
+TR:   * [Requirements](#requirements)
+TR:   * [Table of Contents](#table-of-contents)
+TR:   * [Installation](#installation)
+TR:   * [Setup adapter](#setup-adapter)
+TR:   * [Getting support](#getting-support)
+TR:   * [Data points of the adapter](#data-points-of-the-adapter)
+TR:      * [General things to know about data points](#general-things-to-know-about-data-points)
+TR:      * [For SERVICE_MOWER](#for-service_mower)
+TR:      * [For SERVICE_VALVE_SET](#for-service_valve_set)
+TR:      * [For SERVICE_VALVE](#for-service_valve)
+TR:      * [For SERVICE_POWER_SOCKET](#for-service_power_socket)
+TR:      * [For SERVICE_SENSOR](#for-service_sensor)
+TR:      * [For SERVICE_COMMON](#for-service_common)
+TR:   * [Rate Limits](#rate-limits)
+TR:   * [Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing)
+TR:      * [What's the problem?](#whats-the-problem)
+TR: 	 * [What is being done?](#what-is-being-done)
+TR: 	 * [Basic behaviour -- WARNING](#basic-behaviour----warning)
+TR:   * [Wishes for data points](#Wishes-for-data-points)
+TR:   * [Note](#note)
+TR:   * [Changelog](#changelog)
+TR:      * [1.0.5](#105)
+TR:      * [1.0.4](#104)
+TR:      * [1.0.3](#103)
+TR:      * [previous versions](#102)
+TR:   * [Credits](#credits)
+TR:   * [License](#license)
 
-[这里](https://www.iobroker.net/docu/index-235.htm?page_id=5379&lang=de#3_Adapter_aus_eigener_URL_installieren)（德语）中提供了如何从GitHub安装的说明。
+TR: ## Installation
+TR: Adapter is available
 
-##安装适配器
-1.安装适配器
-2.创建适配器的实例
-3.检查并完成实例配置
+TR: - at npm: Install with `npm install iobroker.smartgarden`
+TR: - at GitHub under https://github.com/jpgorganizer/ioBroker.smartgarden.
 
-   **如果您更改这些设置的任何值，请重新启动适配器。**
+TR: An description how to install from GitHub is available [TR: here](https://www.iobroker.net/docu/index-235.htm?page_id=5379&lang=de#3_Adapter_aus_eigener_URL_installieren) (German language).
 
-3.1在主实例配置中编辑用户名，密码和应用程序密钥
+TR: ## Setup adapter
+TR: 1. Install the adapter
+TR: 2. Create an instance of the adapter
+TR: 3. Check and complete instance configuration
 
-      |参数描述 |
+TR:    **If you change any value of those settings please restart your adapter.**
+
+TR: 3.1 Edit username, password and application key in main instance configuration
+
+| TR:       | Parameter | Description |
       | - | - |
-      |用户名| GARDENA智能系统的用户名|
-      |密码对应的密码|
-      | API密钥| API密钥（应用程序密钥），例如在[要求](#requirements)下|
+| TR:       | user name | user name for GARDENA smart system |
+| TR:       | password | corresponding password |
+| TR:       | API Key |  API Key (application key), e.g. under [TR: Requirements](#requirements) |
 
-请注意，密码和应用程序密钥已编码并存储在适配器中，并且刚刚解码后可以通过GARDENA应用程序主机进行身份验证。
+TR: Please note that password and application key are encoded and stored within the adapter and become just decoded for authentication with the GARDENA application host.
 
-3.2验证其他设置的默认值，并在实例配置中打开/关闭选项。对于大多数用户而言，默认值是可以的。
+TR: 3.2 Verify default values of miscellaneous settings and switch on/off options in instance configuration. For most users the default values will be ok.
 
-      |参数描述 |
+| TR:       | Parameter | Description |
       | - | - |
-      |预定义状态|预先定义Gardena API的所有状态，而不管当前是否在传输它们；开启或关闭；如果已打开，则将创建GARDENA智能系统API的所有状态，无论它们当前是否由GARDENA服务进行传输；默认值：关闭; *（v0.4.0中的新功能）* |
-      |预测|将预测用于充电时间和割草机剩余时间；开启/关闭割草机的预测充电和割草时间；默认值：关闭; *（v0.5.0中的新功能）* |
-      |周期| MOWER历史记录周期数；您可以使用3（最小值）中的任何数字，但10（默认值）似乎是一个不错的选择；仅在上面的*'forecast'*处于启用状态时才相关； *（v0.5.0中的新功能）* |
-      |灌溉检查|检查割草时是否允许灌溉；开启/关闭；默认值：关闭; *（v0.6.0中的新功能）* |
+| TR:       | pre-define states | pre-define all states of Gardena API regardless they are currently transmitted; switch on or off; if switched on then all states of the GARDENA smart system API are created regardless if they are currently transmitted by GARDENA service or not; default: off; *(new in v0.4.0)*|
+| TR:       | forecast | use forecast for charging time and mower remaining time; switch forecast charging and mowing time of mower on/off; default: off; *(new in v0.5.0)*|
+| TR:       | cycles | number of MOWER history cycles; you can use any number from 3 (minimum), but 10 (default) seems to be a good value; only relevant if the above *'forecast'* is on; *(new in v0.5.0)*|
+| TR:       | irrigation check| use the check whether irrigation is allowed while mowing; switch on/off; default: off; *(new in v0.6.0)*|
 
-3.3验证系统设置的默认值，并在实例配置中打开/关闭选项。 **大多数用户无需在此选项卡上进行任何更改。**
+TR: 3.3 Verify default values of systems settings and switch on/off options in instance configuration. **Most users will not have to change anything on this tab.**
 
-      |参数描述 |
+| TR:       | Parameter | Description |
       | - | - |
-      |日志级别|日志级别：0 =无日志，1 =一些日志，2 =更多日志，3 =所有日志；默认值：0 |
-|监视速率限制|使用监视来控制Gardena智能系统API的速率限制；开启/关闭；默认值：关闭; *（v1.0.2中的新功能）* |
-      |连接重试间隔|出现错误时重试连接到Gardena Webservice的间隔（以秒为单位）；默认值：300，最小值：60; *（v1.0.3中的新功能）* |
-      | ping频率|将Ping发送到Gardena Webservice的频率（以秒为单位）；默认值：150，最小值：1，最大值：300 |
-      |认证因素|认证令牌有效性的因素；默认值：1.001 |
-      |验证网址|认证主机URL；默认值：[https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev)||
-      |基本网址| Webservice Base-URL；默认值：[https://api.smart.gardena.dev]（https://api.smart.gardena.dev）|
+| TR:       | Loglevel | Loglevel: 0 = no log, 1 = some logs, 2 = some more logs, 3 = all logs; default: 0|
+| TR:       | beautify log | make state ids shorter in log; switch on/off; default: on; *(new in v1.0.5)*|
+| TR: 	  | monitoring Rate Limits | use monitoring for the rate limits of Gardena smart system API; switch on/off; default: off; *(new in v1.0.2)*|
+| TR:       | connection retry interval | interval for retry to connect to Gardena Webservice in case of an error (in seconds); default: 300, minimum: 60; *(new in v1.0.3)*|
+| TR:       | ping frequence | Frequence for sending Ping's to Gardena Webservice (in seconds); default: 150, minimum: 1, maximum: 300|
+| TR:       | auth factor  | Factor for validity of authentication token; default: 1.001 |
+| TR:       | Auth-URL| Authentication host URL; default: [TR: https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev)|
+| TR:       | Base-URL| Webservice Base-URL; default: [https://api.smart.gardena.dev](https://api.smart.gardena.dev)|
 
-##获得支持
-要获得帮助，请仔细阅读此[README]（README.md）和[FAQ](FAQ.md)。
-如果您需要进一步的支持，请加入[ioBroker论坛主题](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system)。
+TR: ## Getting support
+TR: To get help read this [TR: README](README.md) and the [FAQ](FAQ.md) carefully.
+If you need further support please join the [TR: ioBroker forum thread](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system).
 
-##适配器的数据点
-该适配器旨在监视和控制GARDENA智能系统设备。
-为此，将有一个`LOCATION`和一个或多个`DEVICE`。
-对于每个`DEVICE`，
+TR: ## Data points of the adapter
+TR: The adapter is designed to monitor and control GARDENA smart system devices.
+For this there will be one `LOCATION` and one or many `DEVICE`'s.
+For each `DEVICE` there will be
 
-  -一个`SERVICE_COMMON_ <id>`和
-  -一个或多个`SERVICE_ <servicelink_type> _ <id>`。
+TR:   - one `SERVICE_COMMON_<id>` and
+TR:   - one or more `SERVICE_<servicelink_type>_<id>`.
 
-其中`<servicelink_type>`是设备的类型描述，例如MOWER或VALVE，而`<id>`是API使用的（编码的）GARDENA设备ID。
-请参阅[https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger)中有关ServiceLink的说明。
+TR: Where `<servicelink_type>` is a type description for the device, for example MOWER or VALVE and `<id>` is a (encoded) GARDENA device id used by the API.
+See description for ServiceLink at [TR: https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
 
-可以通过下表中的`SERVICE_<servicelink_type>`对每个设备进行控制/监视。 `SERVICE_COMMON`提供有关设备的常规信息。
+TR: Controlling/monitoring for each device is possible via the `SERVICE_<servicelink_type>` listed in the following table. The `SERVICE_COMMON` provides general information about the device.
 
-  |设备| SERVICE_ <servicelink_type> |
+| TR:   | device | SERVICE_<servicelink_type> |
   | - | - |
-  |智能SILENO机器人割草机| SERVICE_MOWER和SERVICE_COMMON |
-  |智能灌溉控制| SERVICE_VALVE_SET，SERVICE_VALVE和SERVICE_COMMON |
-  |智能压力泵| SERVICE_VALVE和SERVICE_COMMON |
-  |智能水控制| SERVICE_VALVE和SERVICE_COMMON |
-  |智能电源适配器| SERVICE_POWER_SOCKET和SERVICE_COMMON |
-  |智能传感器| SERVICE_SENSOR和SERVICE_COMMON |
+| TR:   | smart SILENO robotic lawnmower | SERVICE_MOWER and SERVICE_COMMON |
+| TR:   | smart Irrigation Control | SERVICE_VALVE_SET, SERVICE_VALVE and SERVICE_COMMON |
+| TR:   | smart Pressure Pump | SERVICE_VALVE and SERVICE_COMMON |
+| TR:   | smart Water Control | SERVICE_VALVE and SERVICE_COMMON |
+| TR:   | smart Power Adapter | SERVICE_POWER_SOCKET and SERVICE_COMMON |
+| TR:   | smart Sensor | SERVICE_SENSOR and SERVICE_COMMON |
 
-如果您需要有关数据点的更多信息，请查看[https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger)。
-在那里，您将找到每个数据点的描述。除了标记为适配器的数据点的标记，而不是GARDENA智能系统API的标记为标记的标记。
+TR: If you need more information about the data points please have a look at [TR: https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
+There you'll find a description for every data point; except for those which are marked as data points of the adapter and not of the GARDENA smart system API.
 
-选择功能部件时，适配器会为各种功能部件/选项创建自己的数据点。取消选择功能后，这些数据点不会自动删除。如果您不再需要这些数据点，则可以手动将其删除。
+TR: The adapter creates its own data points for various features / options when the feature is selected. These data points are not automatically deleted when the feature is deselected. If you no longer need these data points, they can be deleted manually.
 
-###关于数据点的一般知识
-适配器不会更改GARDENA智能系统API传输的任何值。
-唯一要做的事情（从1.0.0版开始）是检查* timestamps *和* numbers *的类型。
+TR: ### General things to know about data points
+TR: The adapter doesn't change any values transmitted by the GARDENA smart system API.
+The only thing that is done (from version 1.0.0) is to check the type of *timestamps* and *numbers*.
 
-|检查描述|
+| TR: | check for | description |
 | - | - |
-|时间戳|所有时间戳均以UTC给出；如果接收到的时间戳不是有效的时间戳，则改用`01 Jan 1970 00:00:00Z`（Unix时间为零）。因此，如果您看到此日期/时间，请报告。 |
-|数字|如果数字不是有效数字，则使用“ -1”代替。因此，如果您看到此号码，请报告。 |
+| TR: | timestamps | all timestamps are given in UTC; if a received timestamp is not a valid timestamp, `01 Jan 1970 00:00:00Z` (Unix time zero) is used instead. So if you see this date/time please report. |
+| TR: | numbers | if a number is not a valid number, `-1` is used instead.  So if you see this number please report. |
 
-智能网关接受命令后，控制设备的请求将成功。可以通过相应的状态更改来观察命令在设备本身上的成功执行。
-*示例：*发送命令以启动智能水控制装置的VALVE服务将导致设备处理该命令后更改该服务的`activity_value`数据点。
+TR: Requests to control a device will succeed as soon as the command was accepted by the smart Gateway. A successful execution of the command on the device itself can be observed by a respective state change.
+*Example:* sending a command to start the VALVE service of a smart Water Control will result in the `activity_value` data point of the service to be changed after the device processed the command.
 
-**注意：**当smartgarden适配器未连接到GARDENA智能系统API时，无法发送控制设备的请求。
+TR: **Notes:**
 
-###对于SERVICE_MOWER
-####控制
-要控制设备使用数据点
+TR:   - Requests to control a device cannot be sent while the smartgarden adapter is not
 
--`activity_control_i`
+TR:     connected to GARDENA smart system API.
 
-  *此数据点是由适配器生成的，由于GARDENA智能系统API的缘故，它不是必需的。*
+TR:   - Please check that you set the value for a command with `ack=false`. See [Chapter Commands and Statuses in Guide for adapter developers](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#commands-and-statuses)
 
-  更改此数据点以启动割草机。
+TR: ### For SERVICE_MOWER
+TR: #### Controlling
+TR: To control the device use data point
 
-  -要开始定义的时间，请将该值设置为计划的持续时间
+TR: - `activity_control_i`
 
-  秒（请使用60的倍数）
+TR:   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
 
-  -对于自动操作，设置字符串`START_DONT_OVERRIDE`
-  -取消当前操作并返回充电站使用
+TR:   Change this data point to start the mower.
 
-  字符串`PARK_UNTIL_NEXT_TASK`
+TR:   - To start for a defined time set the value to the planned duration in
 
-  -取消当前操作，返回充电站并忽略
+TR:   seconds (please use multiples of 60)
 
-  计划使用字符串`PARK_UNTIL_FURTHER_NOTICE`
+TR:   - for automatic operation set string `START_DONT_OVERRIDE`
+TR:   - to cancel the current operation and return to charging station use
 
-####监控
-所有其他数据点仅用于监视和提供信息。
+TR:   string `PARK_UNTIL_NEXT_TASK`
 
-特殊数据点：
+TR:   - to cancel the current operation, return to charging station and ignore
 
--`activity_mowing_i`
+TR:   schedule use string `PARK_UNTIL_FURTHER_NOTICE`
 
-  *此数据点是由适配器生成的，由于GARDENA智能系统API的缘故，它不是必需的。*
+TR:   **Note:** The mower only starts with a fully charged battery.
 
-  该数据点显示了割草机的两种不同状态：
+TR: #### Monitoring
+TR: All other data points are just for monitoring and information.
 
-  -`true`：割草或
-  -`false`：不割草。
+TR: Special data points:
 
-该数据点可用于进一步的操作，在这些操作中，重要的是要知道割草机是否安全地在草坪上。
+TR: - `activity_mowing_i`
 
-根据数据点`activity_value`的值来设置此数据点。
-有关详细信息，请参见下表。
+TR:   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
 
-  | `activity_value`| `activity_mowing_i`|
-  |`OK_CHARGING`割草机必须修剪，但充电水平不足，无法将其保留在充电站中。 |错误|
-  |`PARKED_TIMER`割草机已根据计时器停放，将在配置的时间再次启动。 |错误|
-  |`PARKED_PARK_SELECTED`割草机已停放，直至另行通知。 |错误|
-  |`PARKED_AUTOTIMER`由于草高不足，割草机跳过了割草工作。 |错误|
-  |`PAUSED`割草机处于等待状态且舱口关闭。 |错误|
-  |`OK_CUTTING`割草机正在自动模式下进行切割（计划）。 |真实|
-  |`OK_CUTTING_TIMER_OVERRIDDEN`割草机正在削减进度。 |真实|
-  |`OK_SEARCHING`割草机正在搜索充电站。 |真实|
-  |`OK_LEAVING`割草机正在离开充电站。 |真实|
-  |`NONE`没有活动发生，可能是由于错误。 |真实|
-  |`NONE`可能没有发生任何活动，可能是由于错误。 |真实|
-  |所有其他值|真实|
+TR:   This data point shows two different states for the mower:
 
--`batteryState_chargingTime_remain_i` *（在SERVICE_COMMON ...下）*和<br/>
+TR:   - `true`: mowing or
+TR:   - `false`: not mowing.
 
-`activity_mowingTime_remain_i`*（在SERVICE_MOWER ...下）*
+TR: This data point can be used for further actions where it is important to know whether the mower is safely on the lawn or not.
 
-  *两个数据点均由适配器生成，由于GARDENA智能系统API的缘故，因此不需要。
+TR: Depending on the value of data point `activity_value` this data point is set.
+Please see following table for details.
 
-这些数据点显示了割草机剩余的充电时间和割草时间（以秒为单位）的预测。
-仅在实例配置中选择功能时才创建它们。
+| TR:   | `activity_value` | `activity_mowing_i` |
+| TR:   |`OK_CHARGING` The mower has to be mowing but insufficient charge level keeps it in the charging station. | false |
+| TR:   |`PARKED_TIMER` The mower is parked according to timer, will start again at configured time. | false |
+| TR:   |`PARKED_PARK_SELECTED` The mower is parked until further notice. | false |
+| TR:   |`PARKED_AUTOTIMER` The mower skips mowing because of insufficient grass height. | false |
+| TR:   |`PAUSED` The mower is in a waiting state with hatch closed. | false |
+| TR:   |`OK_CUTTING` The mower is cutting in AUTO mode (schedule). | true |
+| TR:   |`OK_CUTTING_TIMER_OVERRIDDEN` The mower is cutting outside schedule. | true |
+| TR:   |`OK_SEARCHING` The mower is searching for the charging station. | true |
+| TR:   |`OK_LEAVING` The mower is leaving charging station. | true |
+| TR:   |`NONE` No activity is happening, perhaps due to an error. | true |
+| TR:   |`NONE` No activity is happening, perhaps due to an error. | true |
+| TR:   |all other values | true |
 
-为了预测值，将最近几个充电和修剪周期的历史记录保存在`info.saveMowingHistory`和`info.saveChargingHistory`两个状态中。
+TR: - `batteryState_chargingTime_remain_i` *(under SERVICE_COMMON...)* and <br/>
 
-可以在适配器实例配置中打开/关闭此功能，以及历史记录中保存的充电和修剪周期数。
+TR: `activity_mowingTime_remain_i` *(under SERVICE_MOWER...)*
 
-要使该功能投入运行，**请确保至少一个修剪和充电周期无误运行（例如，不要手动中断或传感器控制）。**最好至少完成三个无错运行。
-此函数尝试识别正常情况，并最初假定下一个过程是正常情况。如果这是错误的，则将这种错误的运行视为正常情况，然后将正常通过的运行视为故障情况。如果在运行过程中发生错误，请停止适配器，删除两个数据点，然后重新启动。
+TR:   *Both data points are generated by the adapter and are not required due to the GARDENA smart system API.*
 
-有关常规预测机制的更多信息，请参见[FORECAST.md](FORECAST.md)。
+TR: Those data points show an forecast for remaining charging and mowing time in seconds of the mower.
+They are only created when the function is selected in the instance configuration.
 
-  **笔记：**
+TR: To forecast a value an history of the last few charging and mowing cycles is saved in two states `info.saveMowingHistory` and `info.saveChargingHistory`.
 
-    1.预测值仅在至少完成一项时才可用
+TR: This feature can be switched on/off in adapter instance configuration along with the number of saved charging and mowing cycles in history.
 
-充电和修剪周期已保存在历史记录中。
+TR: To put this function into operation, **please make sure that at least one cycle of mowing and charging runs without errors (e.g. not interrupted manually or sensor control).** It is better if at least three runs are completed without errors.
+This function tries to recognize the normal case and initially assumes that the next process is a normal case. If this is faulty, then this faulty run is regarded as a normal case and the runs that then pass through normally as a fault case. If there is an error during the run, please stop the adapter, delete the two data points and start again.
 
-    2.历史记录保存在“ info”下，因此如果需要“ LOCATION”
+TR: For more information about general forecasting mechanisms see [TR: FORECAST.md](FORECAST.md).
 
-要删除，例如在以后的更新中，它不会丢失。
+TR:   **Notes:**
 
-    3.如果断开割草机与GARDENA智能系统的连接，
+TR:     1. Forecast values are only available if at least one complete
 
-再次重新连接它，历史记录将丢失，因为您的割草机在GARDENA智能系统中获得了新的ID。这意味着适配器无法将割草机识别为先前的割草机-可能是第二割草机。
-在这种情况下，建议删除这两个数据点并重新启动适配器，以使先前的（现在已很旧的）历史记录集不会被持续读取和写入。然后，适配器开始建立新的历史记录。
+TR: 	charging and mowing cycle is saved in history.
 
-4.此功能应适用于多台割草机，但实际上
+TR:     2. The history is saved under `info` so that if the `LOCATION` needs
 
-未测试*（我不能这样做，因为我只有一台割草机）*。
-如果割草机不止一台，请测试并报告错误，当然还要报告其是否按预期工作。在此先感谢您。
+TR: 	to be deleted, e.g. in the event of a future update, it is not lost.
 
--`lastErrorCode_value`
+TR:     3. If you disconnect your mower from the GARDENA smart system and
 
-请特别注意数据点`lastErrorCode_value`。
-可能的值的描述可以在https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger中找到，请参阅“ MowerService-lastErrorCode”
+TR: reconnect it again the history is lost, because your mower get's a new id within the GARDENA smart system. This means that the adapter cannot recognize the mower as the previous mower - may be it's a second one.
+In this case it is recommended to delete these two data points and to restart the adapter so that the previous (now old) history sets are not constantly read and written. The adapter then begins to build a new history.
 
-###对于SERVICE_VALVE_SET
-####控制
-要控制设备使用数据点
+TR: 	4. This function should work for more than one mower, but it is
 
--`stop_all_valves_i`
+TR: not tested *(I can't do that, because I've only one mower)*.
+If you have more than one mower please test and report errors and of course report if it works as intended. Thanks in advance for that.
 
-  *此数据点是由适配器生成的，由于GARDENA智能系统API的缘故，它不是必需的。*
+TR: - `lastErrorCode_value`
 
-  更改该数据点以停止所有阀门。
+TR: Please pay special attention to data point `lastErrorCode_value`.
+A description of possible values can be found at https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger, see "MowerService - lastErrorCode"
 
-  -要立即停止所有阀门，请使用字符串“ STOP_UNTIL_NEXT_TASK”
+TR: ### For SERVICE_VALVE_SET
+TR: #### Controlling
+TR: To control the device use data point
 
-**注意：**不要在您的应用程序中显示此数据点的值，因为该值大多是未定义的。此外，此数据点不能用作您自己的操作的触发器，因为在命令被触发后，它仅被设置为值* null *。
+TR: - `stop_all_valves_i`
 
-####监控
-所有其他数据点仅用于监视和提供信息。
+TR:   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
 
-###对于SERVICE_VALVE
-####控制
-要控制设备使用数据点
+TR:   Change this data point to stop all valves.
 
--`duration_value`
+TR:   - To stop all valves immediately use string `STOP_UNTIL_NEXT_TASK`
 
-  更改该数据点以启动阀门。
+TR: **Note:** Do not display the value of this data point in your application, as the value is mostly undefined. Furthermore, this data point cannot serve as a trigger for your own actions, because it is just set to value *null* after the command was triggered.
 
-  -要在定义的时间内启动，请将值设置为以秒为单位的值
+TR: #### Monitoring
+TR: All other data points are just for monitoring and information.
 
-  （请使用60的倍数）。
+TR: ### For SERVICE_VALVE
+TR: #### Controlling
+TR: To control the device use data point
 
-**注意：**允许的值有一些限制。
-如果发现其他限制，请报告。
+TR: - `duration_value`
 
-    |设备|极限 |
+TR:   Change this data point to start the valve.
+
+TR:   - To start for a defined time  set the value to the value in seconds
+
+TR:   (please use multiples of 60).
+
+TR: **Note:** There are some limitations for the allowed values.
+Please report if you see other limitations.
+
+| TR:     | device | limit |
     | - | - |
-    | GARDENA智能灌溉控制| 3540秒（59分钟）|
-    | GARDENA智能泵| 36000（10小时）|
-    | GARDENA智能水控制| 36000（10小时）|
+| TR:     |GARDENA smart Irrigation Control| 3540 seconds (59 minutes) |
+| TR:     |GARDENA smart Pump | 36000 (10 hours) |
+| TR:     |GARDENA smart Water Control | 36000 (10 hours) |
 
-  -要取消当前的浇水并继续使用时间表，请使用字符串
+TR:   - To cancel the current watering and continue with the schedule use string
 
-  `STOP_UNTIL_NEXT_TASK`
+TR:   `STOP_UNTIL_NEXT_TASK`
 
-  -要跳过自动操作直到指定的时间，当前处于活动状态
+TR:   - To skip automatic operation until specified time, the currently active
 
-操作可能会或可能不会被取消（取决于设备型号），使用字符串`PAUSE_<number_of_seconds>`，例如`PAUSE_86400`暂停24小时（请使用60的倍数）
+TR: operation might or might not be cancelled (depends on device model) use string `PAUSE_<number_of_seconds>`, e.g. `PAUSE_86400` to pause for 24 hours (please use multiples of 60)
 
-  -要恢复自动操作（如果已暂停），请使用字符串“ UNPAUSE”
+TR:   - To restore automatic operation if it was paused use string `UNPAUSE`
 
--`irrigationWhileMowing_allowed_i`和`irrigationWhileMowing_mowerDefinition_i`
+TR: - `irrigationWhileMowing_allowed_i` and `irrigationWhileMowing_mowerDefinition_i`
 
-  *此数据点是由适配器生成的，由于GARDENA智能系统API的缘故，因此不是必需的。*
+TR:   *This data points are generated by the adapter and are not required due to the GARDENA smart system API.*
 
-这些数据点可控制功能*割草时不允许灌溉*。
-仅在实例配置中选择功能时才创建它们。
-有关此功能的说明，请参见章节[修剪时不允许灌溉](#Irrigation-not-allowed-while-mowing)。
+TR: Those data points give control over the feature *Irrigation not allowed while mowing*.
+They are only created when the function is selected in the instance configuration.
+For description of this feature see chapter [TR: Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing).
 
-####监控
-所有其他数据点仅用于监视和提供信息。
+TR: #### Monitoring
+TR: All other data points are just for monitoring and information.
 
-特殊数据点：
+TR: Special data point:
 
--`duration_leftover_i`
+TR: - `duration_leftover_i`
 
-  *此数据点是由适配器生成的，由于GARDENA智能系统API的缘故，它不是必需的。*
+TR:   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
 
-该值描述了直到阀门关闭并停止浇水的分钟数。
+TR: The value describes the number of minutes till the valve is closed and watering stops.
 
-    -一个整数，一个（`1`）或更大。
-    -`null`（如果未定义）
+TR:     - An integer, one (`1`) or more.
+TR:     - `null` if undefined
 
-###对于SERVICE_POWER_SOCKET
-####控制
-要控制设备使用数据点
+TR: ### For SERVICE_POWER_SOCKET
+TR: #### Controlling
+TR: To control the device use data point
 
--`duration_value`
+TR: - `duration_value`
 
-  更改此数据点以启动电源插座。
+TR:   Change this data point to start the power socket.
 
-  -要在定义的时间内启动，请将值设置为以秒为单位的值
+TR:   - To start for a defined time  set the value to the value in seconds
 
-  （请使用60的倍数）
+TR:   (please use multiples of 60)
 
-  -要永久打开设备，请使用字符串“ START_OVERRIDE”。
-  -要停止设备，请使用“ STOP_UNTIL_NEXT_TASK”。
-  -跳过自动操作直到指定的时间。当前活动的操作
+TR:   - To switch on the device forever please use the string `START_OVERRIDE`.
+TR:   - To stop the device use `STOP_UNTIL_NEXT_TASK`.
+TR:   - To skip automatic operation until specified time. The currently active operation
 
-不会被取消。使用字符串`PAUSE_<number_of_seconds>`，例如`PAUSE_86400`暂停24小时（请使用60的倍数）
+TR: will NOT be cancelled. Use string `PAUSE_<number_of_seconds>`, e.g. `PAUSE_86400` to pause for 24 hours (please use multiples of 60)
 
-  -要恢复自动操作（如果已暂停），请使用字符串“ UNPAUSE”
+TR:   - To restore automatic operation if it was paused use string `UNPAUSE`
 
-####监控
-所有其他数据点仅用于监视和提供信息。
+TR: #### Monitoring
+TR: All other data points are just for monitoring and information.
 
-特殊数据点：
+TR: Special data point:
 
--`duration_leftover_i`
+TR: - `duration_leftover_i`
 
-  *此数据点是由适配器生成的，由于GARDENA智能系统API的缘故，它不是必需的。*
+TR:   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
 
-  该值描述关闭电源插座之前的分钟数。
+TR:   The value describes the number of minutes till the power socket is shut off.
 
-    -一个整数，一个（`1`）或更大。
-    -`null`（如果未定义）
+TR:     - An integer, one (`1`) or more.
+TR:     - `null` if undefined
 
-###对于SERVICE_SENSOR
-####控制
-没有可用的控制功能。
+TR: ### For SERVICE_SENSOR
+TR: #### Controlling
+TR: No control functions available.
 
-####监控
-所有数据点仅用于监视和提供信息。
+TR: #### Monitoring
+TR: All data points are just for monitoring and information.
 
-###对于SERVICE_COMMON
-`SERVICE_COMMON`提供有关设备的常规信息。
-必要时，说明会集成到其他SERVICE _...的说明中。
+TR: ### For SERVICE_COMMON
+TR: The `SERVICE_COMMON` provides general information about the device.
+Description is integrated into description of other SERVICE_... where necessary.
 
-##速率限制
-您应该注意一些限制。
-请参阅GARDENA智能系统API说明的[*自述*](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/readme)中的“费率限制”一章。
+TR: ## Rate Limits
+TR: There are some limits you shoud be aware of.
+Please see chapter *Rate Limits* in [TR: *README*](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/readme) of GARDENA smart system API description.
 
-为了帮助您查看是否达到了这些速率限制，您可以使用参数“监视速率限制”来打开实例配置中的监视。
+TR: To help you to see if you hit those rate limits you can switch on monitoring in instance configuration with parameter *monitoring Rate Limits*.
 
-如果启用了监视状态，则`info.RateLimitCounter`将随每个请求而实现。
-此状态将保存一个数据结构，其中包含每月，每天，每小时以及最近30天和31天的请求数。
+TR: If you've enabled monitoring state `info.RateLimitCounter` gets actualized with every request.
+This state saves a data structure with the number of requests per month, day, hour and for the last 30 and 31 days.
 
-该结构在[JSON格式](https://en.wikipedia.org/wiki/JSON)中，看起来像
+TR: The structure is in [TR: JSON](https://en.wikipedia.org/wiki/JSON) and looks like
 
 ```
 {
@@ -443,112 +453,125 @@ GARDENA智能系统帐户，您可以使用该帐户登录，然后继续执行�
 }
 ```
 
-**笔记：**
+TR: **Note:**
 
-  -那个小时是UTC的时间
-  -实际请求数可能会更高。特别是作为
+TR:   - That hour is hour of time in UTC
+TR:   - That the actual number of requests may be higher. Especially as
 
-  只要相应的期限未完全涵盖在监控范围之内。
+TR:   long as the respective period is not fully covered by the monitoring.
 
-  -这个结构变得很大，并且永远不会被删除
+TR:   - That this structure becomes very large and is never deleted by the
 
-适配器。因此，请不时手动将其删除，或者关闭监视功能-至少在速率限制没有任何问题的情况下。
+TR: adapter. So please delete it manually from time to time or switch off monitoring - at least if you don't have any issues with the rate limits.
 
-##割草时不允许灌溉
-＃＃＃ 有什么问题？
-如果您同时拥有割草机和带有弹出式喷头的灌溉系统，则在灌溉运行时割草机会碰到弹出式喷头，并且有损坏或造成自身损坏的危险。
+TR: ## Irrigation not allowed while mowing
+TR: ### What's the problem?
+TR: If you have both a mower and an irrigation system with pop-up sprinklers, there is a risk that your mower will run into a pop-up sprinkler while the irrigation is running and damage it or cause damage itself.
 
-为避免这种情况，割草机割草时应关闭灌溉系统或更好的单个阀门。
+TR: To prevent this, the irrigation system or better individual valves should be switched off when the mower is mowing.
 
-###正在做什么？
-使用此功能，可以在割草机在草坪上时停止灌溉。可以为每个阀分别定义。
+TR: ### What is being done?
+TR: With this function it is possible to stop irrigation when the mower is on the lawn. This can be defined separately for each valve.
 
-可以为每个阀门定义一个或多个割草机，在割草机割草时不允许打开阀门。
-基本上，割草机的优先级高于灌溉，即，如果发生割草机割草且阀门打开的冲突，则阀门将关闭，并设置相应的警告。
+TR: One or more mowers can be defined for each valve, for which the valve is not allowed to be open while the mower is mowing.
+Basically, the mower has priority over irrigation, i.e. if the conflict arises that the mower is mowing and a valve is open, the valve is closed and a corresponding warning is set.
 
-另外，可以定义无论割草机如何，阀门都决不能打开。例如。如果阀门或其背后的管道损坏，可以使用。
+TR: Additionally it is possible to define that a valve should never open regardless of a mower. E.g. can be used if a valve or the pipe behind it is damaged.
 
-可以在带有参数* irrigation check *的实例配置中打开或关闭整个检查。
+TR: The whole check can be switched on or off in instance configuration with parameter *irrigation check*.
 
-每个`SERVICE_VALVE`都有三个数据点。
-它们用于配置和报告警告。
+TR: There are three data points available for each `SERVICE_VALVE`.
+They are used for configuration and for reporting warnings.
 
-  |数据点|可写数据点描述|
+| TR:   | data point | writeable | Description of data points |
   | - | - | - |
-  |`irrigationWhileMowing_allowed_i`| |是|如果要检查在割草机在草坪上修剪时是否允许灌溉，则设置为`false`，否则|§SSSSS_2§§|
-  |`irrigationWhileMowing_warningCode_i`||没有如果阀门打开，则设置警告代码。可能的警告代码请参见下表。如果设置了多个警告，则代码与`+`（例如`STOPPED+UNKNOWN_MOWER`）串联在一起。 |
-  |`irrigationWhileMowing_warningCode_i` ||没有如果阀门打开，则设置警告代码。可能的警告代码请参见下表。如果设置了多个警告，则代码将以“ +”串联（例如“ STOPPED + UNKNOWN_MOWER”）。 |
+| TR:   |`irrigationWhileMowing_allowed_i` | yes |set to `false` if it should be checked if irrigation is allowed while the mower is mowing on the lawn, `true` otherwise |
+| TR:   |`irrigationWhileMowing_warningCode_i`| no | warning code is set if valve opens. Possible warning codes see next table. If more than one warning is set, codes are concatenated with `+` (e.g. `STOPPED+UNKNOWN_MOWER`).|
+| TR:   |`irrigationWhileMowing_warningCode_i`| no | warning code is set if valve opens. Possible warning codes see next table. If more than one warning is set, codes are concatenated with `+` (e.g. `STOPPED+UNKNOWN_MOWER`).|
 
-* ***割草机ID格式***
+TR: * ***mower id format***
 
-  `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
+TR:   `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
 
-您可以从ioBroker的对象选项卡中复制此割草机ID，请参见下图的红色箭头。
+TR: You can copy this mower id from the objects tab of ioBroker, see red arrow in the following picture.
 
-  ![割草机编号](../../../en/adapterref/iobroker.smartgarden/mowerid.jpg)
+  ![TR: mower id](../../../en/adapterref/iobroker.smartgarden/mowerid.jpg)
 
-* ***警告代码*** </br>
+TR: * ***warning codes*** </br>
 
-  |警告代码|描述|
+| TR:   | warning code| description|
   | - | - |
-  | `NO_WARNING`|无警告，阀门已打开|
-  | `STOPPED`|由于割草机在关闭，阀门自动关闭|
-  | `FORBIDDEN`|关闭了阀门，因为在数据点`irrigationWhileMowing_mowerDefinition_i`|中设置了特殊代码`IRRIGATION_FORBIDDEN`。 |
-  | “ FORBIDDEN”阀门关闭，因为在数据点“ irrigationWhileMowing_mowerDefinition_i”中设置了特殊代码“ IRRIGATION_FORBIDDEN”。 |
+| TR:   |  `NO_WARNING` |no warning, valve opened |
+| TR:   |  `STOPPED` |valve automatically closed because mower is mowing |
+| TR:   |  `FORBIDDEN` |valve closed because special code `IRRIGATION_FORBIDDEN` is set in data point `irrigationWhileMowing_mowerDefinition_i`|
+| TR:   |  `FORBIDDEN` |valve closed because special code `IRRIGATION_FORBIDDEN` is set in data point `irrigationWhileMowing_mowerDefinition_i`|
 
-每次在以下情况下运行此功能
+TR: This function is runnig every time when
 
--阀门打开或
--割草机开始割草
+TR: - a valve becomes opened or
+TR: - a mower starts mowing
 
-当您更改上面列出的数据点中的值时，它不会运行。
-这意味着：如果存在冲突情况，并且将`irrigationWhileMowing_allowed_i`从`true`更改为`false`，则冲突不会被识别，并且冲突将继续。相同的行为适用于`irrigationWhileMowing_mowerDefinition_i`的更改。
+TR: It doesn't run when you change the values in the data points listed above.
+That means: if there is a conflict situation and you change `irrigationWhileMowing_allowed_i` from `true` to `false`, the conflict is not recognized and the conflict will continue. The same behaviour applies to a change of `irrigationWhileMowing_mowerDefinition_i`.
 
-###基本行为-警告
-此功能无法防止割草机在割草时打开阀门。例如。这可以通过GARDENA应用程序手动完成，也可以通过时间表自动完成。
+TR: ### Basic behaviour -- WARNING
+TR: This feature cannot prevent a valve from opening while the mower is mowing. E.g. this can be done manually through the GARDENA app or automatically through a schedule.
 
-发生冲突时，此功能只能尽快关闭阀门。并且冲突也可能不会被识别。
-因此，有可能让水通过。
-**例如。不能防止弹出式喷头伸展并且割草机撞到弹出式喷头**，但这种情况发生的可能性已降至最低。
-**因此，由您的应用程序确定此冲突永远不会发生。**
+TR: This function can only close the valve as quickly as possible in the event of a conflict. And a conflict may not be recognized either.
+So it can happen that water is let through.
+**E.g. it cannot be prevented that the pop-up sprinklers extend and that the mower hits the pop-up sprinklers**, but the likelihood that this will happen has been minimized.
+**So it is up to your application to make sure that this conflict will never happen.**
 
-##数据点的愿望
-该适配器报告“每个值”作为通过GARDENA智能系统API提供的数据点。如果有人需要更多值，请联系GARDENA，并告知他们该值也将包含在API中。为此，请转到[GARDENA开发人员门户](https://developer.husqvarnagroup.cloud)页脚的“与我们联系并留下反馈” ***。
+TR: ## Wishes for data points
+TR: This adapter reports **every value** as a data point that is supplied via the GARDENA smart system API. If someone wants more values, please contact GARDENA and inform them that this value will also be included in the API. To do this, please go to ***Contact us & Leave feedback*** in the footer on the [TR: GARDENA Developer Portal](https://developer.husqvarnagroup.cloud).
 
-＃＃ 笔记
-这是一个私人项目。我与GARDENA或Husqvarna没有任何关系。
+TR: ## Note
+TR: This is a private project. I am not in any association with GARDENA or Husqvarna.
 
-##学分
-非常感谢GARDENA / Husqvarna提供此[公共API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general)，特别感谢您的支持团队提供了非常好的和非常快速的支持。
+TR: ## Credits
+TR: Many thanks to GARDENA/Husqvarna for providing this [TR: public API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) and special thanks to your support team for providing very good and very fast support.
 
-smartgarden徽标：http://www.freepik.com由Freepik设计
+TR: smartgarden logo: http://www.freepik.com Designed by Freepik
 
 ## Changelog
+### 1.0.5
+* (jpgorganizer) 2021-May-13
+  - necessary adjustments due to js-controller v3.3; e.g. [Issue 29](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/29)
+    - nearly all data points get deleted and created again with intended role/unit
+    - data types for following data points changed from `string` to `number`: 
+	  - for all devices: `rfLinkLevel_value` 
+      - for mower: `batteryLevel_value`, `operatingHours_value` 
+      - for sensor: `batteryLevel_value`, `soilHumidity_value`, `soilTemperature_value`, `lightIntensity_value`, `ambientTemperature_value`
+  - compatibility test with node.js v14 and node.js v16 and added to Travis CI test; 
+    compatibility test with the upcoming Admin 5 React UI;
+    e.g. [Issue 30](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/30)
+  - new parameter *beautify log* in instance configuration; makes state ids a little bit shorter in log if switched on
+
 ### 1.0.4
-* (jpgorganizer)
+* (jpgorganizer) 2021-Feb-22
   - necessary adjustments due to js-controller v3.2
   - option `useTestVariable` in adapter/instance configuration removed
 
 ### 1.0.3
-* (jpgorganizer)
+* (jpgorganizer) 2021-Jan-26
   - improved error handling
   - new parameter `connection retry interval`
   - axios vulnerability solved, using version `>=0.21.1`
   
 ### 1.0.2
-* (jpgorganizer)
+* (jpgorganizer) 2020-Aug-30
   - monitoring rate limits, see chapter [Rate Limits](#rate-limits) and discussion at 
   [Issue 18](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/18)
 
 
 ### 1.0.1
-* (jpgorganizer)
+* (jpgorganizer) 2020-Aug-17
   - better reconnection to GARDENA smart system server in case of your internet connection was broken
   - textual changes in io-package.json
   - improved README and FAQ
   
 ### 1.0.0
-* (jpgorganizer)
+* (jpgorganizer) 2020-Jun-13
   - code rework, no functional change expected
   - support `PAUSE` for SERVICE_VALVE, SERVICE_POWER_SOCKET. e.g. 
 	[Issue 14](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/14)
@@ -566,7 +589,7 @@ smartgarden徽标：http://www.freepik.com由Freepik设计
   - README: links to GARDENA/Husqvarna developer portal adjusted to the new address
 
 ### 0.6.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-May-03
   - new feature *Irrigation not allowed while mowing*, 
     for detailed description see 
 	[Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing); 
@@ -576,12 +599,12 @@ smartgarden徽标：http://www.freepik.com由Freepik设计
   - improvement of documentation
 
 ### 0.5.1
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Apr-26
   - some corrections (sensor, typo)
   - integration of travis-ci
   
 ### 0.5.0
-* (jpgorganizer) 
+* (jpgorganizer)  2020-Apr-25
   - MOWER: forecast for remaining charging time and remaining mowing time 
   integrated, e.g. [Issue 1](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/1)
   - **IMPORTANT CHANGE** for existing users: the id for LOCATION, all 
@@ -603,17 +626,17 @@ smartgarden徽标：http://www.freepik.com由Freepik设计
   - adapter now available at npm
   
 ### 0.4.2
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Apr-01
   - error *missing SENSOR data* fixed (many thanks to user dslraser and 
   muckel at 
   [ioBroker Forum](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system/) for testing)
 
 ### 0.4.1
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-31
   - Dependency get's resolved now
   
-### 0.4.0
-* (jpgorganizer) 
+### 0.4.0 
+* (jpgorganizer) 2020-Mar-31
   - **NOTE:** with this version an additional dependency is necessary at runtime. 
   If it does not get installed together with the installation of this adapter, 
   please install seperately with 
@@ -641,7 +664,7 @@ smartgarden徽标：http://www.freepik.com由Freepik设计
   - error in command  `stop_all_valves_i` in VALVE_SET fixed
   
 ### 0.3.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-25
   - create all states read/write 
   - error TypeError: Cannot read property 'val' of null with useTestVariable 
   fixed
@@ -649,15 +672,16 @@ smartgarden徽标：http://www.freepik.com由Freepik设计
 
 
 ### 0.2.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-24
   - **IMPORTANT** : data point for MOWER control (command) changed from  
   `duration_value` to `activity_control_i`
   - rework leftovertimer 
   - improved error handling
   - improved logging (see  loglevel in adapter configurations)
 
-### 0.0.1
-* (jpgorganizer) initial release
+### 0.0.1 
+* (jpgorganizer) 2020-Mar-01
+  - initial release
 
 ## License
 
@@ -669,4 +693,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2466 $ $Date: 2021-02-22 17:30:13 +0100 (Mo, 22 Feb 2021) $ --->
+<!--- SVN: $Rev: 2507 $ $Date: 2021-05-13 18:07:01 +0200 (Do, 13 Mai 2021) $ --->

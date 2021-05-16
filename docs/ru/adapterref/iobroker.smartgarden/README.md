@@ -2,412 +2,424 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.smartgarden/README.md
-title: ioBroker.smartgarden
-hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
+title: TR: ioBroker.smartgarden
+hash: bbKCZ49g0LWG4EJYAGtuSSRM1C6FmTKx/qpQ3e+qTHY=
 ---
-![Логотип](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
+![TR: Logo](../../../en/adapterref/iobroker.smartgarden/admin/smartgarden.png)
 
-![Установлены](http://iobroker.live/badges/smartgarden-installed.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.smartgarden.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.smartgarden.svg)
-![Статус сборки](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden.svg?branch=master)
-![Стабильный](http://iobroker.live/badges/smartgarden-stable.svg)
-![НПМ](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)
+![TR: Installed](http://iobroker.live/badges/smartgarden-installed.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.smartgarden.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.smartgarden.svg)
+![TR: Build Status](https://travis-ci.org/jpgorganizer/ioBroker.smartgarden.svg?branch=master)
+![TR: Stable](http://iobroker.live/badges/smartgarden-stable.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.smartgarden.png?downloads=true)
 
-# IoBroker.smartgarden
-** Если вам это нравится, рассмотрите возможность пожертвования: **
+TR: # ioBroker.smartgarden
+TR: **If you like it, please consider a donation:**
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8C7M7MH3KPYDC&source=url)
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=8C7M7MH3KPYDC&source=url)
 
-## IoBroker smartgarden адаптер для умной системы GARDENA
-Адаптер для умной системы GARDENA с использованием официального [API интеллектуальной системы GARDENA](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) и сервиса.
+TR: ## ioBroker smartgarden adapter for GARDENA smart system
+TR: An adapter for GARDENA smart system using official [TR: GARDENA smart system API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) and service.
 
-Адаптер позволяет разрабатывать приложение (например, с VIS), которое можно использовать параллельно с официальным приложением GARDENA. Адаптер и его дополнительные функции не влияют ни на одну из основных функций приложения GARDENA и наоборот.
+TR: The adapter allows the development of an application (e.g. with VIS) that can be used in parallel with the official GARDENA app. The adapter and its additional features do not affect any of the basic functions of the GARDENA app and vice versa.
 
-Адаптер не является полной заменой приложения GARDENA, а является дополнением для интеграции устройств GARDENA в умный дом с помощью ioBroker.
-Наиболее важные действия можно выполнять с помощью адаптера. Он также предлагает возможность реализовать свои собственные идеи, которые невозможны с приложением GARDENA.
+TR: The adapter is not a complete replacement for the GARDENA app, but an addition to integrate the GARDENA devices into a smart home with ioBroker.
+The most important actions can be carried out with the adapter. It also offers the opportunity to implement your own ideas that are not possible with the GARDENA app.
 
-## Поддерживаемые устройства
-  - Умные газонокосилки-роботы SILENO GARDENA
-  - Умный контроль орошения GARDENA
-  - Умный напорный насос GARDENA
-  - Умный контроль воды GARDENA
-  - Умный адаптер питания GARDENA
-  - Умный датчик GARDENA
+TR: ## Supported devices
+TR:   - GARDENA smart SILENO robotic lawnmowers
+TR:   - GARDENA smart Irrigation Control
+TR:   - GARDENA smart Pressure Pump
+TR:   - GARDENA smart Water Control
+TR:   - GARDENA smart Power Adapter
+TR:   - GARDENA smart Sensor
 
-Дополнительную информацию об устройствах см. В разделах [GARDENA Немецкий сайт](https://www.gardena.com/de/produkte/smart/smartsystem/) и [здесь на английском](https://www.gardena.com/uk/products/smart/smart-system/).
+TR: For more information about the devices see at [TR: GARDENA German website](https://www.gardena.com/de/produkte/smart/smartsystem/) and [TR: here in English](https://www.gardena.com/uk/products/smart/smart-system/).
 
-## Требования
-Для использования этого адаптера вам понадобятся две вещи:
+TR: ## Requirements
+TR: To use this adapter you need two things:
 
-1. Учетная запись умной системы GARDENA
-1. ключ приложения GARDENA
+TR: 1. an GARDENA smart system account
+TR: 1. an GARDENA application key
 
-Чтобы получить и то, и другое, перейдите к [https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/).
+TR: To get both things please go to [TR: https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/](https://developer.husqvarnagroup.cloud/docs#/docs/getting-started/).
 
-![get_application_key](../../../en/adapterref/iobroker.smartgarden/getting_application_key.jpg)
+![TR: getting_application_key](../../../en/adapterref/iobroker.smartgarden/getting_application_key.jpg)
 
-**Примечание:**
+TR: **Note:**
 
-  - Если у вас уже есть Husqvarna Automower® Connect или
+TR:   - If you already have a Husqvarna Automower® Connect or a
 
-Учетная запись умной системы GARDENA, вы можете войти в систему с этой учетной записью и перейти к шагу 2, создать приложение, чтобы получить ключ приложения.
-
-	---
-
-*** И почти наверняка у вас есть учетная запись. *** *Используйте ту же учетную запись, что и для приложения GARDENA, в котором зарегистрированы ваши устройства GARDENA. В противном случае вы не получите доступ к своим устройствам.*
+TR: GARDENA smart system account, you can Sign In with that account and continue with Step 2, Create application to get the application key.
 
 	---
 
-  - Убедитесь, что вы подключили приложение (из шага 2) к API
-  - API аутентификации ***и***
-- API интеллектуальной системы GARDENA.
+TR: ***And it's almost certain that you have an account.*** *Please use the same account as for the GARDENA app in which your GARDENA devices are registered. Otherwise you will not 	get access to your devices.*
 
-И, конечно же, вам потребуется работающая установка ioBroker и у вас должен быть хотя бы один [Умное устройство GARDENA](#supported-devices).
+	---
 
-## Оглавление
-  * [адаптер ioBroker smartgarden для умной системы GARDENA] (# iobroker-smartgarden-adapter-for-gardena-smart-system)
-  * [Поддерживаемые устройства] (# поддерживаемых устройств)
-  * [Требования] (# требований)
-  * [Оглавление] (# оглавление)
-  * [Установка] (# установка)
-  * [Настроечный адаптер] (# setup-adapter)
-  * [Получение поддержки] (# Get-support)
-  * [Точки данных адаптера] (# точки данных адаптера)
-     * [Общие сведения о точках данных] (# общие сведения о точках данных)
-     * [Для SERVICE_MOWER] (# для-service_mower)
-     * [Для SERVICE_VALVE_SET] (# для-service_valve_set)
-     * [Для SERVICE_VALVE] (# для-service_valve)
-     * [Для SERVICE_POWER_SOCKET] (# for-service_power_socket)
-     * [Для SERVICE_SENSOR] (# для-service_sensor)
-     * [Для SERVICE_COMMON] (# для-service_common)
-  * [Ограничения скорости] (# ограничения скорости)
-  * [Орошение запрещено во время кошения] (# Орошение запрещено при кошении)
-     * [В чем проблема?] (# В чем-проблема)
-* [Что делается?] (# Что делается)
-* [Базовое поведение - ПРЕДУПРЕЖДЕНИЕ] (# базовое поведение ---- предупреждение)
-  * [Пожелания по точкам данных] (# Пожелания по точкам данных)
-  * [Примечание] (# примечание)
-  * [Список изменений] (# список изменений)
-     * [1.0.4] (# 104)
-     * [1.0.3] (# 103)
-     * [предыдущие версии] (# 102)
-  * [Кредиты] (# кредитов)
-  * [Лицензия] (# лицензия)
+TR:   - Make sure that you've connected the application (from Step 2) to the API's
+TR:     - Authentication API ***and***
+TR: 	- GARDENA smart system API.
 
-## Установка
-Адаптер доступен
+TR: And of course you need a running ioBroker installation and you should own at least one [TR: GARDENA smart device](#supported-devices).
 
-- at npm: установить с помощью `npm install iobroker.smartgarden`
-- в GitHub по адресу https://github.com/jpgorganizer/ioBroker.smartgarden.
+TR: ## Table of Contents
+TR:   * [ioBroker smartgarden adapter for GARDENA smart system](#iobroker-smartgarden-adapter-for-gardena-smart-system)
+TR:   * [Supported devices](#supported-devices)
+TR:   * [Requirements](#requirements)
+TR:   * [Table of Contents](#table-of-contents)
+TR:   * [Installation](#installation)
+TR:   * [Setup adapter](#setup-adapter)
+TR:   * [Getting support](#getting-support)
+TR:   * [Data points of the adapter](#data-points-of-the-adapter)
+TR:      * [General things to know about data points](#general-things-to-know-about-data-points)
+TR:      * [For SERVICE_MOWER](#for-service_mower)
+TR:      * [For SERVICE_VALVE_SET](#for-service_valve_set)
+TR:      * [For SERVICE_VALVE](#for-service_valve)
+TR:      * [For SERVICE_POWER_SOCKET](#for-service_power_socket)
+TR:      * [For SERVICE_SENSOR](#for-service_sensor)
+TR:      * [For SERVICE_COMMON](#for-service_common)
+TR:   * [Rate Limits](#rate-limits)
+TR:   * [Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing)
+TR:      * [What's the problem?](#whats-the-problem)
+TR: 	 * [What is being done?](#what-is-being-done)
+TR: 	 * [Basic behaviour -- WARNING](#basic-behaviour----warning)
+TR:   * [Wishes for data points](#Wishes-for-data-points)
+TR:   * [Note](#note)
+TR:   * [Changelog](#changelog)
+TR:      * [1.0.5](#105)
+TR:      * [1.0.4](#104)
+TR:      * [1.0.3](#103)
+TR:      * [previous versions](#102)
+TR:   * [Credits](#credits)
+TR:   * [License](#license)
 
-Описание того, как установить с GitHub, доступно в [здесь](https://www.iobroker.net/docu/index-235.htm?page_id=5379&lang=de#3_Adapter_aus_eigener_URL_installieren) (немецкий язык).
+TR: ## Installation
+TR: Adapter is available
 
-## Настроить адаптер
-1. Установите адаптер.
-2. Создайте экземпляр адаптера.
-3. Проверьте и завершите настройку экземпляра.
+TR: - at npm: Install with `npm install iobroker.smartgarden`
+TR: - at GitHub under https://github.com/jpgorganizer/ioBroker.smartgarden.
 
-  **Если вы измените какое-либо значение этих параметров, перезапустите адаптер.**
+TR: An description how to install from GitHub is available [TR: here](https://www.iobroker.net/docu/index-235.htm?page_id=5379&lang=de#3_Adapter_aus_eigener_URL_installieren) (German language).
 
-3.1 Измените имя пользователя, пароль и ключ приложения в конфигурации основного экземпляра
+TR: ## Setup adapter
+TR: 1. Install the adapter
+TR: 2. Create an instance of the adapter
+TR: 3. Check and complete instance configuration
 
-      | Параметр | Описание |
+TR:    **If you change any value of those settings please restart your adapter.**
+
+TR: 3.1 Edit username, password and application key in main instance configuration
+
+| TR:       | Parameter | Description |
       | - | - |
-      | имя пользователя | имя пользователя умной системы GARDENA |
-      | пароль | соответствующий пароль |
-      | Ключ API | API Key (ключ приложения), например согласно [Требования](#requirements) |
+| TR:       | user name | user name for GARDENA smart system |
+| TR:       | password | corresponding password |
+| TR:       | API Key |  API Key (application key), e.g. under [TR: Requirements](#requirements) |
 
-Обратите внимание, что пароль и ключ приложения закодированы и хранятся в адаптере и просто декодируются для аутентификации с хостом приложения GARDENA.
+TR: Please note that password and application key are encoded and stored within the adapter and become just decoded for authentication with the GARDENA application host.
 
-3.2 Проверьте значения по умолчанию для различных настроек и включите / выключите опции в конфигурации экземпляра. Для большинства пользователей подойдут значения по умолчанию.
+TR: 3.2 Verify default values of miscellaneous settings and switch on/off options in instance configuration. For most users the default values will be ok.
 
-      | Параметр | Описание |
+| TR:       | Parameter | Description |
       | - | - |
-   | предварительно определить состояния | предварительно определить все состояния Gardena API независимо от того, передаются ли они в данный момент; включить или выключить; при включении создаются все состояния API интеллектуальной системы GARDENA, независимо от того, передаются они в данный момент сервисом GARDENA или нет; по умолчанию: выключено; *(новое в v0.4.0)* |
-   | прогноз | использовать прогноз времени зарядки и оставшегося времени косилки; включить / выключить прогнозируемую зарядку и время кошения косилки; по умолчанию: выключено; *(новое в v0.5.0)* |
-   | циклы | количество циклов истории MOWER; вы можете использовать любое число от 3 (минимум), но 10 (по умолчанию) кажется хорошим значением; актуально, только если включен вышеуказанный *'прогноз'* *(новое в v0.5.0)* |
-   | проверка орошения | Используйте проверку, разрешен ли полив во время кошения; включить / выключить; по умолчанию: выключено; *(новое в v0.6.0)* |
+| TR:       | pre-define states | pre-define all states of Gardena API regardless they are currently transmitted; switch on or off; if switched on then all states of the GARDENA smart system API are created regardless if they are currently transmitted by GARDENA service or not; default: off; *(new in v0.4.0)*|
+| TR:       | forecast | use forecast for charging time and mower remaining time; switch forecast charging and mowing time of mower on/off; default: off; *(new in v0.5.0)*|
+| TR:       | cycles | number of MOWER history cycles; you can use any number from 3 (minimum), but 10 (default) seems to be a good value; only relevant if the above *'forecast'* is on; *(new in v0.5.0)*|
+| TR:       | irrigation check| use the check whether irrigation is allowed while mowing; switch on/off; default: off; *(new in v0.6.0)*|
 
-3.3. Проверьте значения по умолчанию для системных настроек и включите / выключите опции в конфигурации экземпляра. **Большинству пользователей не нужно ничего менять на этой вкладке.**
+TR: 3.3 Verify default values of systems settings and switch on/off options in instance configuration. **Most users will not have to change anything on this tab.**
 
-      | Параметр | Описание |
+| TR:       | Parameter | Description |
       | - | - |
-      | Loglevel | Loglevel: 0 = нет журнала, 1 = несколько журналов, 2 = еще несколько журналов, 3 = все журналы; по умолчанию: 0 |
-| мониторинг пределов скорости | использовать мониторинг лимитов скорости API интеллектуальной системы Gardena; включить / выключить; по умолчанию: выключено; *(новое в v1.0.2)* |
-   | интервал повторной попытки подключения | интервал повторной попытки подключения к Gardena Webservice в случае ошибки (в секундах); по умолчанию: 300, минимум: 60; *(новое в v1.0.3)* |
-      | частота пинга | Частота отправки пингов на Gardena Webservice (в секундах); по умолчанию: 150, минимум: 1, максимум: 300 |
-      | фактор аутентификации | Фактор действительности токена аутентификации; по умолчанию: 1.001 |
-      | Auth-URL | URL-адрес хоста аутентификации; по умолчанию: [https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev) |
-      | Базовый URL | Базовый URL-адрес веб-службы; по умолчанию: [https://api.smart.gardena.dev] (https://api.smart.gardena.dev) |
+| TR:       | Loglevel | Loglevel: 0 = no log, 1 = some logs, 2 = some more logs, 3 = all logs; default: 0|
+| TR:       | beautify log | make state ids shorter in log; switch on/off; default: on; *(new in v1.0.5)*|
+| TR: 	  | monitoring Rate Limits | use monitoring for the rate limits of Gardena smart system API; switch on/off; default: off; *(new in v1.0.2)*|
+| TR:       | connection retry interval | interval for retry to connect to Gardena Webservice in case of an error (in seconds); default: 300, minimum: 60; *(new in v1.0.3)*|
+| TR:       | ping frequence | Frequence for sending Ping's to Gardena Webservice (in seconds); default: 150, minimum: 1, maximum: 300|
+| TR:       | auth factor  | Factor for validity of authentication token; default: 1.001 |
+| TR:       | Auth-URL| Authentication host URL; default: [TR: https://api.authentication.husqvarnagroup.dev](https://api.authentication.husqvarnagroup.dev)|
+| TR:       | Base-URL| Webservice Base-URL; default: [https://api.smart.gardena.dev](https://api.smart.gardena.dev)|
 
-## Получение поддержки
-Чтобы получить помощь, внимательно прочтите этот [README] (README.md) и [FAQ](FAQ.md).
-Если вам нужна дополнительная поддержка, присоединяйтесь к [Тема на форуме ioBroker](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system).
+TR: ## Getting support
+TR: To get help read this [TR: README](README.md) and the [FAQ](FAQ.md) carefully.
+If you need further support please join the [TR: ioBroker forum thread](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system).
 
-## Точки данных адаптера
-Адаптер предназначен для мониторинга и управления устройствами интеллектуальной системы GARDENA.
-Для этого будет один `LOCATION` и один или несколько `DEVICE`.
-Для каждого `DEVICE` будет
+TR: ## Data points of the adapter
+TR: The adapter is designed to monitor and control GARDENA smart system devices.
+For this there will be one `LOCATION` and one or many `DEVICE`'s.
+For each `DEVICE` there will be
 
-  - один `SERVICE_COMMON_ <id>` и
-  - один или несколько `SERVICE_ <servicelink_type> _ <id>`.
+TR:   - one `SERVICE_COMMON_<id>` and
+TR:   - one or more `SERVICE_<servicelink_type>_<id>`.
 
-Где `<servicelink_type>` - это описание типа устройства, например MOWER или VALVE, а `<id>` - это (закодированный) идентификатор устройства GARDENA, используемый API.
-См. Описание ServiceLink в [https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
+TR: Where `<servicelink_type>` is a type description for the device, for example MOWER or VALVE and `<id>` is a (encoded) GARDENA device id used by the API.
+See description for ServiceLink at [TR: https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
 
-Управление / мониторинг для каждого устройства возможен с помощью `SERVICE_<servicelink_type>`, перечисленных в следующей таблице. `SERVICE_COMMON` предоставляет общую информацию об устройстве.
+TR: Controlling/monitoring for each device is possible via the `SERVICE_<servicelink_type>` listed in the following table. The `SERVICE_COMMON` provides general information about the device.
 
-  | устройство | SERVICE_ <servicelink_type> |
+| TR:   | device | SERVICE_<servicelink_type> |
   | - | - |
-  | умная газонокосилка-робот SILENO | SERVICE_MOWER и SERVICE_COMMON |
-  | умный контроль орошения | SERVICE_VALVE_SET, SERVICE_VALVE и SERVICE_COMMON |
-  | умный нагнетательный насос | SERVICE_VALVE и SERVICE_COMMON |
-  | умный контроль воды | SERVICE_VALVE и SERVICE_COMMON |
-  | умный адаптер питания | SERVICE_POWER_SOCKET и SERVICE_COMMON |
-  | умный датчик | SERVICE_SENSOR и SERVICE_COMMON |
+| TR:   | smart SILENO robotic lawnmower | SERVICE_MOWER and SERVICE_COMMON |
+| TR:   | smart Irrigation Control | SERVICE_VALVE_SET, SERVICE_VALVE and SERVICE_COMMON |
+| TR:   | smart Pressure Pump | SERVICE_VALVE and SERVICE_COMMON |
+| TR:   | smart Water Control | SERVICE_VALVE and SERVICE_COMMON |
+| TR:   | smart Power Adapter | SERVICE_POWER_SOCKET and SERVICE_COMMON |
+| TR:   | smart Sensor | SERVICE_SENSOR and SERVICE_COMMON |
 
-Если вам нужна дополнительная информация о точках данных, см. [https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
-Там вы найдете описание каждой точки данных; кроме тех, которые помечены как точки данных адаптера, а не API интеллектуальной системы GARDENA.
+TR: If you need more information about the data points please have a look at [TR: https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger).
+There you'll find a description for every data point; except for those which are marked as data points of the adapter and not of the GARDENA smart system API.
 
-Адаптер создает свои собственные точки данных для различных функций / опций, когда функция выбрана. Эти точки данных не удаляются автоматически при отмене выбора функции. Если вам больше не нужны эти точки данных, их можно удалить вручную.
+TR: The adapter creates its own data points for various features / options when the feature is selected. These data points are not automatically deleted when the feature is deselected. If you no longer need these data points, they can be deleted manually.
 
-### Общие сведения о точках данных
-Адаптер не изменяет значения, передаваемые API интеллектуальной системы GARDENA.
-Единственное, что сделано (начиная с версии 1.0.0) - это проверить тип *временных меток* и *чисел*
+TR: ### General things to know about data points
+TR: The adapter doesn't change any values transmitted by the GARDENA smart system API.
+The only thing that is done (from version 1.0.0) is to check the type of *timestamps* and *numbers*.
 
-| проверить на | описание |
+| TR: | check for | description |
 | - | - |
-| отметки времени | все временные метки указаны в формате UTC; если полученная отметка времени не является действительной отметкой времени, вместо нее используется `01 Jan 1970 00:00:00Z` (нулевое время Unix). Если вы видите эту дату / время, сообщите об этом. |
-| числа | если число не является допустимым числом, вместо него используется «-1». Так что, если вы видите это число, сообщите об этом. |
+| TR: | timestamps | all timestamps are given in UTC; if a received timestamp is not a valid timestamp, `01 Jan 1970 00:00:00Z` (Unix time zero) is used instead. So if you see this date/time please report. |
+| TR: | numbers | if a number is not a valid number, `-1` is used instead.  So if you see this number please report. |
 
-Запросы на управление устройством будут выполнены, как только команда будет принята интеллектуальным шлюзом. Успешное выполнение команды на самом устройстве можно наблюдать по соответствующему изменению состояния.
-* Пример: * отправка команды на запуск службы VALVE в системе Smart Water Control приведет к изменению точки данных `activity_value` службы после того, как устройство обработало команду.
+TR: Requests to control a device will succeed as soon as the command was accepted by the smart Gateway. A successful execution of the command on the device itself can be observed by a respective state change.
+*Example:* sending a command to start the VALVE service of a smart Water Control will result in the `activity_value` data point of the service to be changed after the device processed the command.
 
-** Примечание. ** Запросы на управление устройством не могут быть отправлены, пока адаптер smartgarden не подключен к API интеллектуальной системы GARDENA.
+TR: **Notes:**
 
-### Для SERVICE_MOWER
-#### Контроллинг
-Для управления устройством используйте точку данных
+TR:   - Requests to control a device cannot be sent while the smartgarden adapter is not
 
-- `activity_control_i`
+TR:     connected to GARDENA smart system API.
 
-  *Эта точка данных создается адаптером и не требуется из-за API интеллектуальной системы GARDENA.*
+TR:   - Please check that you set the value for a command with `ack=false`. See [Chapter Commands and Statuses in Guide for adapter developers](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/adapterdev.md#commands-and-statuses)
 
-  Измените эту точку данных, чтобы запустить газонокосилку.
+TR: ### For SERVICE_MOWER
+TR: #### Controlling
+TR: To control the device use data point
 
-  - Для запуска в течение определенного времени установите значение планируемой продолжительности в
+TR: - `activity_control_i`
 
-  секунд (используйте число, кратное 60)
+TR:   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
 
-  - для автоматической работы установить строку `START_DONT_OVERRIDE`
-  - для отмены текущей операции и возврата к использованию зарядной станции
+TR:   Change this data point to start the mower.
 
-  строка `PARK_UNTIL_NEXT_TASK`
+TR:   - To start for a defined time set the value to the planned duration in
 
-  - чтобы отменить текущую операцию, вернитесь на зарядную станцию и проигнорируйте
+TR:   seconds (please use multiples of 60)
 
-  использовать строку расписания `PARK_UNTIL_FURTHER_NOTICE`
+TR:   - for automatic operation set string `START_DONT_OVERRIDE`
+TR:   - to cancel the current operation and return to charging station use
 
-#### Мониторинг
-Все остальные точки данных предназначены только для мониторинга и информации.
+TR:   string `PARK_UNTIL_NEXT_TASK`
 
-Особые данные:
+TR:   - to cancel the current operation, return to charging station and ignore
 
-- `activity_mowing_i`
+TR:   schedule use string `PARK_UNTIL_FURTHER_NOTICE`
 
-  *Эта точка данных создается адаптером и не требуется из-за API интеллектуальной системы GARDENA.*
+TR:   **Note:** The mower only starts with a fully charged battery.
 
-  Эта точка данных показывает два разных состояния газонокосилки:
+TR: #### Monitoring
+TR: All other data points are just for monitoring and information.
 
-  - `true`: косить или
-  - `false`: не косить.
+TR: Special data points:
 
-Эта точка данных может использоваться для дальнейших действий, когда важно знать, безопасно ли газонокосилка находится на газоне или нет.
+TR: - `activity_mowing_i`
 
-Эта точка данных устанавливается в зависимости от значения точки данных `activity_value`.
-См. Подробную информацию в следующей таблице.
+TR:   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
 
-  | `activity_value` | `activity_mowing_i` |
-  | `OK_CHARGING` Косилка должна косить, но недостаточный уровень заряда удерживает ее в зарядной станции. | ложь |
-  | `PARKED_TIMER` Газонокосилка запаркована по таймеру, снова запустится в заданное время. | ложь |
-  | `PARKED_PARK_SELECTED` Газонокосилка припаркована до дальнейшего уведомления. | ложь |
-  | `PARKED_AUTOTIMER` Косилка пропускает скашивание из-за недостаточной высоты травы. | ложь |
-  | `PAUSED` Газонокосилка находится в состоянии ожидания с закрытым люком. | ложь |
-  | `OK_CUTTING` Газонокосилка работает в автоматическом режиме (расписание). | правда |
-  | `OK_CUTTING_TIMER_OVERRIDDEN` Газонокосилка работает вне графика. | правда |
-  | `OK_SEARCHING` Газонокосилка ищет зарядную станцию. | правда |
-  | `OK_LEAVING` Газонокосилка покидает зарядную станцию. | правда |
-  | `NONE` Нет активности, возможно, из-за ошибки. | правда |
-  | `NONE` Никаких действий не происходит, возможно, из-за ошибки. | правда |
-  | все остальные значения | правда |
+TR:   This data point shows two different states for the mower:
 
-- `batteryState_chargingTime_remain_i` *(в SERVICE_COMMON ...)* и<br/>
+TR:   - `true`: mowing or
+TR:   - `false`: not mowing.
 
-`activity_mowingTime_remain_i` *(в разделе SERVICE_MOWER ...)*
+TR: This data point can be used for further actions where it is important to know whether the mower is safely on the lawn or not.
 
-  *Обе точки данных генерируются адаптером и не требуются благодаря API интеллектуальной системы GARDENA.*
+TR: Depending on the value of data point `activity_value` this data point is set.
+Please see following table for details.
 
-Эти точки данных показывают прогноз оставшегося времени зарядки и стрижки газонокосилки в секундах.
-Они создаются только тогда, когда функция выбрана в конфигурации экземпляра.
+| TR:   | `activity_value` | `activity_mowing_i` |
+| TR:   |`OK_CHARGING` The mower has to be mowing but insufficient charge level keeps it in the charging station. | false |
+| TR:   |`PARKED_TIMER` The mower is parked according to timer, will start again at configured time. | false |
+| TR:   |`PARKED_PARK_SELECTED` The mower is parked until further notice. | false |
+| TR:   |`PARKED_AUTOTIMER` The mower skips mowing because of insufficient grass height. | false |
+| TR:   |`PAUSED` The mower is in a waiting state with hatch closed. | false |
+| TR:   |`OK_CUTTING` The mower is cutting in AUTO mode (schedule). | true |
+| TR:   |`OK_CUTTING_TIMER_OVERRIDDEN` The mower is cutting outside schedule. | true |
+| TR:   |`OK_SEARCHING` The mower is searching for the charging station. | true |
+| TR:   |`OK_LEAVING` The mower is leaving charging station. | true |
+| TR:   |`NONE` No activity is happening, perhaps due to an error. | true |
+| TR:   |`NONE` No activity is happening, perhaps due to an error. | true |
+| TR:   |all other values | true |
 
-Для прогнозирования значения история последних нескольких циклов зарядки и стрижки сохраняется в двух состояниях: `info.saveMowingHistory` и `info.saveChargingHistory`.
+TR: - `batteryState_chargingTime_remain_i` *(under SERVICE_COMMON...)* and <br/>
 
-Эту функцию можно включить / выключить в конфигурации экземпляра адаптера вместе с количеством сохраненных циклов зарядки и стрижки в истории.
+TR: `activity_mowingTime_remain_i` *(under SERVICE_MOWER...)*
 
-Чтобы включить эту функцию, **убедитесь, что хотя бы один цикл кошения и зарядки выполняется без ошибок (например, не прерывается вручную или с помощью сенсорного управления).** Лучше, если хотя бы три цикла будут выполнены без ошибок.
-Эта функция пытается распознать нормальный случай и изначально предполагает, что следующий процесс является нормальным. Если это неисправно, то этот ошибочный цикл рассматривается как нормальный случай, а цикл, который затем проходит нормально, как случай неисправности. Если во время выполнения произошла ошибка, остановите адаптер, удалите две точки данных и начните заново.
+TR:   *Both data points are generated by the adapter and are not required due to the GARDENA smart system API.*
 
-Для получения дополнительной информации об общих механизмах прогнозирования см. [FORECAST.md](FORECAST.md).
+TR: Those data points show an forecast for remaining charging and mowing time in seconds of the mower.
+They are only created when the function is selected in the instance configuration.
 
-  **Примечания:**
+TR: To forecast a value an history of the last few charging and mowing cycles is saved in two states `info.saveMowingHistory` and `info.saveChargingHistory`.
 
-    1. Значения прогноза доступны только в том случае, если хотя бы один полный
+TR: This feature can be switched on/off in adapter instance configuration along with the number of saved charging and mowing cycles in history.
 
-цикл зарядки и стрижки сохраняется в истории.
+TR: To put this function into operation, **please make sure that at least one cycle of mowing and charging runs without errors (e.g. not interrupted manually or sensor control).** It is better if at least three runs are completed without errors.
+This function tries to recognize the normal case and initially assumes that the next process is a normal case. If this is faulty, then this faulty run is regarded as a normal case and the runs that then pass through normally as a fault case. If there is an error during the run, please stop the adapter, delete the two data points and start again.
 
-    2. История сохраняется в разделе «info», так что если «LOCATION» необходимо
+TR: For more information about general forecasting mechanisms see [TR: FORECAST.md](FORECAST.md).
 
-для удаления, например в случае будущего обновления он не теряется.
+TR:   **Notes:**
 
-    3. Если вы отключите газонокосилку от интеллектуальной системы GARDENA и
+TR:     1. Forecast values are only available if at least one complete
 
-подключите его снова, история будет потеряна, потому что ваша газонокосилка получит новый идентификатор в интеллектуальной системе GARDENA. Это означает, что адаптер не может распознать косилку как предыдущую - может быть, это вторая.
-В этом случае рекомендуется удалить эти две точки данных и перезапустить адаптер, чтобы предыдущие (теперь уже старые) наборы истории не читались и не записывались постоянно. Затем адаптер начинает создавать новую историю.
+TR: 	charging and mowing cycle is saved in history.
 
-4. Эта функция должна работать более чем с одной косилкой, но она
+TR:     2. The history is saved under `info` so that if the `LOCATION` needs
 
-не тестировалось *(я не могу этого сделать, потому что у меня всего одна косилка)* Если у вас несколько косилок, пожалуйста, проверьте и сообщите об ошибках и, конечно, сообщите, работает ли она должным образом. Заранее спасибо за это.
+TR: 	to be deleted, e.g. in the event of a future update, it is not lost.
 
-- `lastErrorCode_value`
+TR:     3. If you disconnect your mower from the GARDENA smart system and
 
-Обратите особое внимание на точку данных `lastErrorCode_value`.
-Описание возможных значений можно найти на https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger, см. «MowerService - lastErrorCode»
+TR: reconnect it again the history is lost, because your mower get's a new id within the GARDENA smart system. This means that the adapter cannot recognize the mower as the previous mower - may be it's a second one.
+In this case it is recommended to delete these two data points and to restart the adapter so that the previous (now old) history sets are not constantly read and written. The adapter then begins to build a new history.
 
-### Для SERVICE_VALVE_SET
-#### Контроллинг
-Для управления устройством используйте точку данных
+TR: 	4. This function should work for more than one mower, but it is
 
-- `stop_all_valves_i`
+TR: not tested *(I can't do that, because I've only one mower)*.
+If you have more than one mower please test and report errors and of course report if it works as intended. Thanks in advance for that.
 
-  *Эта точка данных создается адаптером и не требуется из-за API интеллектуальной системы GARDENA.*
+TR: - `lastErrorCode_value`
 
-  Измените эту точку данных, чтобы остановить все клапаны.
+TR: Please pay special attention to data point `lastErrorCode_value`.
+A description of possible values can be found at https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/swagger, see "MowerService - lastErrorCode"
 
-  - Чтобы немедленно остановить все клапаны, используйте строку `STOP_UNTIL_NEXT_TASK`
+TR: ### For SERVICE_VALVE_SET
+TR: #### Controlling
+TR: To control the device use data point
 
-** Примечание. ** Не отображайте значение этой точки данных в вашем приложении, так как значение в большинстве случаев не определено. Кроме того, эта точка данных не может служить триггером для ваших собственных действий, потому что для нее просто установлено значение *null* после запуска команды.
+TR: - `stop_all_valves_i`
 
-#### Мониторинг
-Все остальные точки данных предназначены только для мониторинга и информации.
+TR:   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
 
-### Для SERVICE_VALVE
-#### Контроллинг
-Для управления устройством используйте точку данных
+TR:   Change this data point to stop all valves.
 
-- `duration_value`
+TR:   - To stop all valves immediately use string `STOP_UNTIL_NEXT_TASK`
 
-  Измените эту точку данных, чтобы запустить клапан.
+TR: **Note:** Do not display the value of this data point in your application, as the value is mostly undefined. Furthermore, this data point cannot serve as a trigger for your own actions, because it is just set to value *null* after the command was triggered.
 
-  - Для запуска в течение определенного времени установите значение на значение в секундах
+TR: #### Monitoring
+TR: All other data points are just for monitoring and information.
 
-  (пожалуйста, используйте число, кратное 60).
+TR: ### For SERVICE_VALVE
+TR: #### Controlling
+TR: To control the device use data point
 
-** Примечание. ** Допустимые значения имеют некоторые ограничения.
-Сообщите, если вы видите другие ограничения.
+TR: - `duration_value`
 
-    | устройство | предел |
+TR:   Change this data point to start the valve.
+
+TR:   - To start for a defined time  set the value to the value in seconds
+
+TR:   (please use multiples of 60).
+
+TR: **Note:** There are some limitations for the allowed values.
+Please report if you see other limitations.
+
+| TR:     | device | limit |
     | - | - |
-    | Умное управление поливом GARDENA | 3540 секунд (59 минут) |
-    | Умный насос GARDENA | 36000 (10 часов) |
-    | GARDENA умный контроль воды | 36000 (10 часов) |
+| TR:     |GARDENA smart Irrigation Control| 3540 seconds (59 minutes) |
+| TR:     |GARDENA smart Pump | 36000 (10 hours) |
+| TR:     |GARDENA smart Water Control | 36000 (10 hours) |
 
-  - Чтобы отменить текущий полив и продолжить работу по расписанию, используйте строку
+TR:   - To cancel the current watering and continue with the schedule use string
 
-  `STOP_UNTIL_NEXT_TASK`
+TR:   `STOP_UNTIL_NEXT_TASK`
 
-  - Чтобы пропустить автоматическую операцию до указанного времени, текущий активный
+TR:   - To skip automatic operation until specified time, the currently active
 
-операция может или не может быть отменена (зависит от модели устройства), используйте строку `PAUSE_<number_of_seconds>`, например `PAUSE_86400` для паузы на 24 часа (используйте число, кратное 60)
+TR: operation might or might not be cancelled (depends on device model) use string `PAUSE_<number_of_seconds>`, e.g. `PAUSE_86400` to pause for 24 hours (please use multiples of 60)
 
-  - Для восстановления автоматической работы, если она была приостановлена, используйте строку `UNPAUSE`
+TR:   - To restore automatic operation if it was paused use string `UNPAUSE`
 
-- `irrigationWhileMowing_allowed_i` и` irrigationWhileMowing_mowerDefinition_i`
+TR: - `irrigationWhileMowing_allowed_i` and `irrigationWhileMowing_mowerDefinition_i`
 
-  *Эти точки данных генерируются адаптером и не требуются из-за API интеллектуальной системы GARDENA.*
+TR:   *This data points are generated by the adapter and are not required due to the GARDENA smart system API.*
 
-Эти точки данных позволяют управлять функцией *Орошение во время кошения запрещено* Они создаются только тогда, когда функция выбрана в конфигурации экземпляра.
-Описание этой функции см. В главе [Орошение во время кошения запрещено.](#Irrigation-not-allowed-while-mowing).
+TR: Those data points give control over the feature *Irrigation not allowed while mowing*.
+They are only created when the function is selected in the instance configuration.
+For description of this feature see chapter [TR: Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing).
 
-#### Мониторинг
-Все остальные точки данных предназначены только для мониторинга и информации.
+TR: #### Monitoring
+TR: All other data points are just for monitoring and information.
 
-Специальная точка данных:
+TR: Special data point:
 
-- `duration_leftover_i`
+TR: - `duration_leftover_i`
 
-  *Эта точка данных создается адаптером и не требуется из-за API интеллектуальной системы GARDENA.*
+TR:   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
 
-Значение описывает количество минут до закрытия клапана и прекращения полива.
+TR: The value describes the number of minutes till the valve is closed and watering stops.
 
-    - Целое число, единица (`1`) или более.
-    - `null`, если не определено
+TR:     - An integer, one (`1`) or more.
+TR:     - `null` if undefined
 
-### Для SERVICE_POWER_SOCKET
-#### Контроллинг
-Для управления устройством используйте точку данных
+TR: ### For SERVICE_POWER_SOCKET
+TR: #### Controlling
+TR: To control the device use data point
 
-- `duration_value`
+TR: - `duration_value`
 
-  Измените эту точку данных, чтобы включить розетку.
+TR:   Change this data point to start the power socket.
 
-  - Для запуска в течение определенного времени установите значение на значение в секундах
+TR:   - To start for a defined time  set the value to the value in seconds
 
-  (пожалуйста, используйте число, кратное 60)
+TR:   (please use multiples of 60)
 
-  - Чтобы включить устройство навсегда, используйте строку `START_OVERRIDE`.
-  - Чтобы остановить устройство, используйте `STOP_UNTIL_NEXT_TASK`.
-  - Пропустить автоматическую операцию до указанного времени. Текущая активная операция
+TR:   - To switch on the device forever please use the string `START_OVERRIDE`.
+TR:   - To stop the device use `STOP_UNTIL_NEXT_TASK`.
+TR:   - To skip automatic operation until specified time. The currently active operation
 
-НЕ будет отменен. используйте строку `PAUSE_<number_of_seconds>`, например `PAUSE_86400` для паузы на 24 часа (используйте число, кратное 60)
+TR: will NOT be cancelled. Use string `PAUSE_<number_of_seconds>`, e.g. `PAUSE_86400` to pause for 24 hours (please use multiples of 60)
 
-  - Для восстановления автоматической работы, если она была приостановлена, используйте строку `UNPAUSE`
+TR:   - To restore automatic operation if it was paused use string `UNPAUSE`
 
-#### Мониторинг
-Все остальные точки данных предназначены только для мониторинга и информации.
+TR: #### Monitoring
+TR: All other data points are just for monitoring and information.
 
-Специальная точка данных:
+TR: Special data point:
 
-- `duration_leftover_i`
+TR: - `duration_leftover_i`
 
-  *Эта точка данных создается адаптером и не требуется из-за API интеллектуальной системы GARDENA.*
+TR:   *This data point is generated by the adapter and is not required due to the GARDENA smart system API.*
 
-  Значение описывает количество минут до отключения розетки.
+TR:   The value describes the number of minutes till the power socket is shut off.
 
-    - Целое число, единица (`1`) или более.
-    - `null`, если не определено
+TR:     - An integer, one (`1`) or more.
+TR:     - `null` if undefined
 
-### Для SERVICE_SENSOR
-#### Контроллинг
-Нет доступных функций управления.
+TR: ### For SERVICE_SENSOR
+TR: #### Controlling
+TR: No control functions available.
 
-#### Мониторинг
-Все точки данных предназначены только для мониторинга и информации.
+TR: #### Monitoring
+TR: All data points are just for monitoring and information.
 
-### Для SERVICE_COMMON
-В `SERVICE_COMMON` представлена общая информация об устройстве.
-Описание интегрируется в описание других УСЛУГ _... где необходимо.
+TR: ### For SERVICE_COMMON
+TR: The `SERVICE_COMMON` provides general information about the device.
+Description is integrated into description of other SERVICE_... where necessary.
 
-## Пределы скорости
-Вам следует помнить о некоторых ограничениях.
-См. Главу *Ограничения скорости* в [*ПРОЧТИ МЕНЯ*](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/readme) описания API интеллектуальной системы GARDENA.
+TR: ## Rate Limits
+TR: There are some limits you shoud be aware of.
+Please see chapter *Rate Limits* in [TR: *README*](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/readme) of GARDENA smart system API description.
 
-Чтобы помочь вам увидеть, достигли ли вы этих ограничений скорости, вы можете включить мониторинг в конфигурации экземпляра с помощью параметра *Monitoring Rate Limits*
+TR: To help you to see if you hit those rate limits you can switch on monitoring in instance configuration with parameter *monitoring Rate Limits*.
 
-Если вы включили состояние мониторинга, `info.RateLimitCounter` обновляется при каждом запросе.
-В этом состоянии сохраняется структура данных с количеством запросов в месяц, день, час и за последние 30 и 31 день.
+TR: If you've enabled monitoring state `info.RateLimitCounter` gets actualized with every request.
+This state saves a data structure with the number of requests per month, day, hour and for the last 30 and 31 days.
 
-Структура находится в [JSON](https://en.wikipedia.org/wiki/JSON) и выглядит так:
+TR: The structure is in [TR: JSON](https://en.wikipedia.org/wiki/JSON) and looks like
 
 ```
 {
@@ -441,112 +453,125 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 }
 ```
 
-**Примечание:**
+TR: **Note:**
 
-  - Этот час - это час времени по всемирному координированному времени.
-  - Что реальное количество запросов может быть больше. Особенно как
+TR:   - That hour is hour of time in UTC
+TR:   - That the actual number of requests may be higher. Especially as
 
-  до тех пор, пока соответствующий период не будет полностью охвачен мониторингом.
+TR:   long as the respective period is not fully covered by the monitoring.
 
-  - Эта структура становится очень большой и никогда не удаляется
+TR:   - That this structure becomes very large and is never deleted by the
 
-адаптер. Поэтому, пожалуйста, периодически удаляйте его вручную или отключите мониторинг - по крайней мере, если у вас нет проблем с ограничениями скорости.
+TR: adapter. So please delete it manually from time to time or switch off monitoring - at least if you don't have any issues with the rate limits.
 
-## Орошение во время кошения запрещено.
-### В чем проблема?
-Если у вас есть и газонокосилка, и ирригационная система с выдвижными дождевателями, существует риск того, что ваша газонокосилка столкнется с выдвижным дождевателем во время полива, что приведет к ее повреждению или повреждению.
+TR: ## Irrigation not allowed while mowing
+TR: ### What's the problem?
+TR: If you have both a mower and an irrigation system with pop-up sprinklers, there is a risk that your mower will run into a pop-up sprinkler while the irrigation is running and damage it or cause damage itself.
 
-Чтобы этого не произошло, во время стрижки газонокосилку следует отключать систему полива или, что лучше, отдельные клапаны.
+TR: To prevent this, the irrigation system or better individual valves should be switched off when the mower is mowing.
 
-### Что делается?
-С помощью этой функции можно остановить полив, когда косилка находится на газоне. Это можно определить отдельно для каждого клапана.
+TR: ### What is being done?
+TR: With this function it is possible to stop irrigation when the mower is on the lawn. This can be defined separately for each valve.
 
-Для каждого клапана можно определить одну или несколько косилок, для которых нельзя открывать клапан во время кошения.
-По сути, газонокосилка имеет приоритет перед поливом, т.е. если возникает конфликт, когда газонокосилка работает и клапан открыт, клапан закрывается и устанавливается соответствующее предупреждение.
+TR: One or more mowers can be defined for each valve, for which the valve is not allowed to be open while the mower is mowing.
+Basically, the mower has priority over irrigation, i.e. if the conflict arises that the mower is mowing and a valve is open, the valve is closed and a corresponding warning is set.
 
-Кроме того, можно указать, что клапан никогда не должен открываться независимо от косилки. Например. может использоваться при повреждении клапана или трубы за ним.
+TR: Additionally it is possible to define that a valve should never open regardless of a mower. E.g. can be used if a valve or the pipe behind it is damaged.
 
-Всю проверку можно включить или выключить в конфигурации экземпляра с помощью параметра *проверка полива*
+TR: The whole check can be switched on or off in instance configuration with parameter *irrigation check*.
 
-Для каждого `SERVICE_VALVE` доступны три точки данных.
-Они используются для настройки и отправки предупреждений.
+TR: There are three data points available for each `SERVICE_VALVE`.
+They are used for configuration and for reporting warnings.
 
-  | точка данных | записываемый | Описание точек данных |
+| TR:   | data point | writeable | Description of data points |
   | - | - | - |
-  | `irrigationWhileMowing_allowed_i` | да | установите на `false`, если необходимо проверить, разрешен ли полив, когда газонокосилка косит газон, в противном случае - на `true` |
-  | `irrigationWhileMowing_warningCode_i` | нет | код предупреждения устанавливается, если клапан открывается. Возможные коды предупреждений см. В следующей таблице. Если установлено более одного предупреждения, коды объединяются с `+` (например, `STOPPED+UNKNOWN_MOWER`). |
-  | `irrigationWhileMowing_warningCode_i` | нет | код предупреждения устанавливается, если клапан открывается. Возможные коды предупреждений см. В следующей таблице. Если установлено более одного предупреждения, коды объединяются с помощью `+` (например, `STOPPED + UNKNOWN_MOWER`). |
+| TR:   |`irrigationWhileMowing_allowed_i` | yes |set to `false` if it should be checked if irrigation is allowed while the mower is mowing on the lawn, `true` otherwise |
+| TR:   |`irrigationWhileMowing_warningCode_i`| no | warning code is set if valve opens. Possible warning codes see next table. If more than one warning is set, codes are concatenated with `+` (e.g. `STOPPED+UNKNOWN_MOWER`).|
+| TR:   |`irrigationWhileMowing_warningCode_i`| no | warning code is set if valve opens. Possible warning codes see next table. If more than one warning is set, codes are concatenated with `+` (e.g. `STOPPED+UNKNOWN_MOWER`).|
 
-* ***формат идентификатора косилки***
+TR: * ***mower id format***
 
-  `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
+TR:   `smartgarden.0.LOCATION_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.DEVICE_xxxxxxxx-xxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxx.SERVICE_MOWER_xxxxxxxx-xxxxxx-xxxxxx-xxxxxxxxxxxxxxxxxxxxx`
 
-Вы можете скопировать этот идентификатор косилки из вкладки объектов ioBroker, см. Красную стрелку на следующем рисунке.
+TR: You can copy this mower id from the objects tab of ioBroker, see red arrow in the following picture.
 
-  ![идентификатор косилки](../../../en/adapterref/iobroker.smartgarden/mowerid.jpg)
+  ![TR: mower id](../../../en/adapterref/iobroker.smartgarden/mowerid.jpg)
 
-* ***коды предупреждений*** </br>
+TR: * ***warning codes*** </br>
 
-  | код предупреждения | описание |
+| TR:   | warning code| description|
   | - | - |
-  | `NO_WARNING` | нет предупреждения, клапан открыт |
-  | `STOPPED` | клапан закрывается автоматически, потому что косилка работает |
-  | `FORBIDDEN` | клапан закрыт, поскольку в точке данных `irrigationWhileMowing_mowerDefinition_i` установлен специальный код `IRRIGATION_FORBIDDEN` |
-  | `FORBIDDEN` | клапан закрыт, поскольку в точке данных` irrigationWhileMowing_mowerDefinition_i` установлен специальный код `IRRIGATION_FORBIDDEN` |
+| TR:   |  `NO_WARNING` |no warning, valve opened |
+| TR:   |  `STOPPED` |valve automatically closed because mower is mowing |
+| TR:   |  `FORBIDDEN` |valve closed because special code `IRRIGATION_FORBIDDEN` is set in data point `irrigationWhileMowing_mowerDefinition_i`|
+| TR:   |  `FORBIDDEN` |valve closed because special code `IRRIGATION_FORBIDDEN` is set in data point `irrigationWhileMowing_mowerDefinition_i`|
 
-Эта функция запускается каждый раз, когда
+TR: This function is runnig every time when
 
-- клапан открывается или
-- косилка начинает косить
+TR: - a valve becomes opened or
+TR: - a mower starts mowing
 
-Он не запускается, когда вы меняете значения в точках данных, перечисленных выше.
-Это означает: если возникает конфликтная ситуация и вы меняете `irrigationWhileMowing_allowed_i` с `true` на `false`, конфликт не распознается, и конфликт будет продолжен. То же самое относится и к изменению `irrigationWhileMowing_mowerDefinition_i`.
+TR: It doesn't run when you change the values in the data points listed above.
+That means: if there is a conflict situation and you change `irrigationWhileMowing_allowed_i` from `true` to `false`, the conflict is not recognized and the conflict will continue. The same behaviour applies to a change of `irrigationWhileMowing_mowerDefinition_i`.
 
-### Основное поведение - ПРЕДУПРЕЖДЕНИЕ
-Эта функция не может предотвратить открытие клапана во время кошения. Например. это можно сделать вручную через приложение GARDENA или автоматически по расписанию.
+TR: ### Basic behaviour -- WARNING
+TR: This feature cannot prevent a valve from opening while the mower is mowing. E.g. this can be done manually through the GARDENA app or automatically through a schedule.
 
-Эта функция позволяет максимально быстро закрыть клапан только в случае конфликта. И конфликт тоже нельзя признать.
-Так что может случиться так, что вода будет пропущена.
-**Например. невозможно предотвратить выдвижение выдвижных разбрызгивателей и столкновение газонокосилки с выдвижными разбрызгивателями **, но вероятность того, что это произойдет, сведена к минимуму.
-** Таким образом, ваше приложение должно убедиться, что этого конфликта никогда не произойдет. **
+TR: This function can only close the valve as quickly as possible in the event of a conflict. And a conflict may not be recognized either.
+So it can happen that water is let through.
+**E.g. it cannot be prevented that the pop-up sprinklers extend and that the mower hits the pop-up sprinklers**, but the likelihood that this will happen has been minimized.
+**So it is up to your application to make sure that this conflict will never happen.**
 
-## Пожелания для точек данных
-Этот адаптер сообщает **каждое значение** как точку данных, которая предоставляется через API интеллектуальной системы GARDENA. Если кому-то нужны дополнительные значения, свяжитесь с GARDENA и сообщите им, что это значение также будет включено в API. Для этого перейдите к ***Свяжитесь с нами и оставьте отзыв*** в нижнем колонтитуле [Портал разработчиков GARDENA](https://developer.husqvarnagroup.cloud).
+TR: ## Wishes for data points
+TR: This adapter reports **every value** as a data point that is supplied via the GARDENA smart system API. If someone wants more values, please contact GARDENA and inform them that this value will also be included in the API. To do this, please go to ***Contact us & Leave feedback*** in the footer on the [TR: GARDENA Developer Portal](https://developer.husqvarnagroup.cloud).
 
-## Примечание
-Это частный проект. Я не имею отношения к GARDENA или Husqvarna.
+TR: ## Note
+TR: This is a private project. I am not in any association with GARDENA or Husqvarna.
 
-## Кредиты
-Большое спасибо GARDENA / Husqvarna за предоставление этого [общедоступный API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) и особую благодарность вашей команде поддержки за очень хорошую и очень быструю поддержку.
+TR: ## Credits
+TR: Many thanks to GARDENA/Husqvarna for providing this [TR: public API](https://developer.husqvarnagroup.cloud/apis/GARDENA+smart+system+API#/general) and special thanks to your support team for providing very good and very fast support.
 
-Логотип smartgarden: http://www.freepik.com Разработано Freepik
+TR: smartgarden logo: http://www.freepik.com Designed by Freepik
 
 ## Changelog
+### 1.0.5
+* (jpgorganizer) 2021-May-13
+  - necessary adjustments due to js-controller v3.3; e.g. [Issue 29](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/29)
+    - nearly all data points get deleted and created again with intended role/unit
+    - data types for following data points changed from `string` to `number`: 
+	  - for all devices: `rfLinkLevel_value` 
+      - for mower: `batteryLevel_value`, `operatingHours_value` 
+      - for sensor: `batteryLevel_value`, `soilHumidity_value`, `soilTemperature_value`, `lightIntensity_value`, `ambientTemperature_value`
+  - compatibility test with node.js v14 and node.js v16 and added to Travis CI test; 
+    compatibility test with the upcoming Admin 5 React UI;
+    e.g. [Issue 30](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/30)
+  - new parameter *beautify log* in instance configuration; makes state ids a little bit shorter in log if switched on
+
 ### 1.0.4
-* (jpgorganizer)
+* (jpgorganizer) 2021-Feb-22
   - necessary adjustments due to js-controller v3.2
   - option `useTestVariable` in adapter/instance configuration removed
 
 ### 1.0.3
-* (jpgorganizer)
+* (jpgorganizer) 2021-Jan-26
   - improved error handling
   - new parameter `connection retry interval`
   - axios vulnerability solved, using version `>=0.21.1`
   
 ### 1.0.2
-* (jpgorganizer)
+* (jpgorganizer) 2020-Aug-30
   - monitoring rate limits, see chapter [Rate Limits](#rate-limits) and discussion at 
   [Issue 18](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/18)
 
 
 ### 1.0.1
-* (jpgorganizer)
+* (jpgorganizer) 2020-Aug-17
   - better reconnection to GARDENA smart system server in case of your internet connection was broken
   - textual changes in io-package.json
   - improved README and FAQ
   
 ### 1.0.0
-* (jpgorganizer)
+* (jpgorganizer) 2020-Jun-13
   - code rework, no functional change expected
   - support `PAUSE` for SERVICE_VALVE, SERVICE_POWER_SOCKET. e.g. 
 	[Issue 14](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/14)
@@ -564,7 +589,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - README: links to GARDENA/Husqvarna developer portal adjusted to the new address
 
 ### 0.6.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-May-03
   - new feature *Irrigation not allowed while mowing*, 
     for detailed description see 
 	[Irrigation not allowed while mowing](#Irrigation-not-allowed-while-mowing); 
@@ -574,12 +599,12 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - improvement of documentation
 
 ### 0.5.1
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Apr-26
   - some corrections (sensor, typo)
   - integration of travis-ci
   
 ### 0.5.0
-* (jpgorganizer) 
+* (jpgorganizer)  2020-Apr-25
   - MOWER: forecast for remaining charging time and remaining mowing time 
   integrated, e.g. [Issue 1](https://github.com/jpgorganizer/ioBroker.smartgarden/issues/1)
   - **IMPORTANT CHANGE** for existing users: the id for LOCATION, all 
@@ -601,17 +626,17 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - adapter now available at npm
   
 ### 0.4.2
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Apr-01
   - error *missing SENSOR data* fixed (many thanks to user dslraser and 
   muckel at 
   [ioBroker Forum](https://forum.iobroker.net/topic/31289/neuer-adapter-smartgarden-adapter-for-gardena-smart-system/) for testing)
 
 ### 0.4.1
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-31
   - Dependency get's resolved now
   
-### 0.4.0
-* (jpgorganizer) 
+### 0.4.0 
+* (jpgorganizer) 2020-Mar-31
   - **NOTE:** with this version an additional dependency is necessary at runtime. 
   If it does not get installed together with the installation of this adapter, 
   please install seperately with 
@@ -639,7 +664,7 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
   - error in command  `stop_all_valves_i` in VALVE_SET fixed
   
 ### 0.3.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-25
   - create all states read/write 
   - error TypeError: Cannot read property 'val' of null with useTestVariable 
   fixed
@@ -647,15 +672,16 @@ hash: o3LEIPsZOXPt9rb4eR/VS+B10PqGVrEWXNSsZ8gKmZ0=
 
 
 ### 0.2.0
-* (jpgorganizer) 
+* (jpgorganizer) 2020-Mar-24
   - **IMPORTANT** : data point for MOWER control (command) changed from  
   `duration_value` to `activity_control_i`
   - rework leftovertimer 
   - improved error handling
   - improved logging (see  loglevel in adapter configurations)
 
-### 0.0.1
-* (jpgorganizer) initial release
+### 0.0.1 
+* (jpgorganizer) 2020-Mar-01
+  - initial release
 
 ## License
 
@@ -667,4 +693,4 @@ Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License
 Based on a work at https://github.com/jpgorganizer/ioBroker.smartgarden. 
  
 
-<!--- SVN: $Rev: 2466 $ $Date: 2021-02-22 17:30:13 +0100 (Mo, 22 Feb 2021) $ --->
+<!--- SVN: $Rev: 2507 $ $Date: 2021-05-13 18:07:01 +0200 (Do, 13 Mai 2021) $ --->

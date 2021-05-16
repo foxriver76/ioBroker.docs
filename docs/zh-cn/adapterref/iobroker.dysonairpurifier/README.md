@@ -2,220 +2,247 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.dysonairpurifier/README.md
-title: ioBroker.dysonAirPurifier
-hash: s1zJIIEJa9uBBcgsAcVnaaBMO6CxukCwj8/He7bfINo=
+title: TR: ioBroker.dysonAirPurifier
+hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
 ---
-![安装数量（最新）](http://iobroker.live/badges/dysonairpurifier-installed.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
-![安装数量（稳定）](http://iobroker.live/badges/dysonairpurifier-stable.svg)
-![依赖状态](https://img.shields.io/david/Grizzelbee/iobroker.dysonairpurifier.svg)
-![已知漏洞](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
-![特拉维斯](https://travis-ci.org/Grizzelbee/iobroker.dysonairpurifier.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
-![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![资料下载](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/dysonairpurifier-installed.svg)
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/dysonairpurifier-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/Grizzelbee/iobroker.dysonairpurifier.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/Grizzelbee/ioBroker.dysonairpurifier/badge.svg)
+![TR: Travis-CI](https://travis-ci.org/Grizzelbee/iobroker.dysonairpurifier.svg?branch=master)
+![TR: NPM](https://nodei.co/npm/iobroker.dysonAirPurifier.svg?downloads=true)
+![TR: License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.dysonairpurifier.svg)
 
-＃ioBroker.dysonAirPurifier
-![徽标]（admin / dyson_logo.svg）！[徽标](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
+TR: # ioBroker.dysonAirPurifier
+![TR: Logo](admin/dyson_logo.svg)![Logo](../../../en/adapterref/iobroker.dysonairpurifier/admin/dyson_pure_cool.jpg)
 
-##戴森空气净化器和风扇的ioBroker适配器
-该适配器将ioBroker连接到各种戴森空气净化器。
+TR: ## ioBroker Adapter for Dyson Air Purifiers and fans
+TR: This adapter connects ioBroker to various Dyson Air Purifiers.
 
-由[Freepik]（https://www.flaticon.com/de/autoren/freepik）来自[www.flaticon.com](https://www.flaticon.com/de/)创建的徽标中的Fan-Icon。
+TR: Fan-Icon in Logo created by [TR: Freepik](https://www.flaticon.com/de/autoren/freepik) from [www.flaticon.com](https://www.flaticon.com/de/).
 
-###支持的设备
-*戴森Pure Cool Link塔（TP02，产品类型475）
-* Dyson Pure Cool Tower，2018年型号（TP04，ProductType 438）
-*戴森Pure Cool Link办公桌（DP01，产品类型469）
-* Dyson Pure Cool Desk，2018型号（DP04，ProductType 520）
-* Dyson Pure Hot + Cool Link（HP02，产品类型455）
-* Dyson Pure Hot + Cool，2018年型号（HP04，ProductType 527）
-*戴森Pure Hot + Cool（HP07，产品类型527E）
-*戴森Pure Humidify + Cool（PH01，产品类型358）
+TR: ### supported devices
+TR: * Dyson Pure Cool Link Tower (TP02, ProductType 475)
+TR: * Dyson Pure Cool Tower, 2018 model (TP04, ProductType 438)
+TR: * Dyson Pure Cool Tower, 2018 model (TP07, ProductType 438E)
+TR: * Dyson Pure Cool Link Desk (DP01, ProductType 469)
+TR: * Dyson Pure Cool Desk, 2018 model (DP04, ProductType 520)
+TR: * Dyson Pure Hot+Cool Link (HP02, ProductType 455)
+TR: * Dyson Pure Hot+Cool, 2018 model (HP04, ProductType 527)
+TR: * Dyson Pure Hot+Cool (HP07, ProductType 527E)
+TR: * Dyson Pure Humidify+Cool (PH01, ProductType 358)
 
-＃＃ 特征
-将戴森的风扇，风扇加热器，空气净化器和空气加湿器连接到ioBroker。
+TR: ## Features
+TR: Connects your Dyson fans, fan heaters, air purifiers, and air humidifiers to ioBroker.
 
-*从设备和传感器读取值
-*通过使您能够更改某些值（主功率，振荡，加热，风扇速度等），可以控制设备
-*从Dyson服务器读取设备列表
+TR: * Reads values from devices and sensors
+TR: * Can control devices by giving you the ability to change some values (main power, oscillation, heating, fan speed, ...)
+TR: * Reads device list from Dyson servers
 
-＃＃ 安装
-###先决条件
-*此适配器需要Node.js> =版本10
-*至少需要js-Controller 3.0.0
-*至少需要管理员4.0.9
-*要使此适配器运行，您需要一个Dyson帐户。
-*确保将粉丝添加到您的帐户中。通过App或在线。
+TR: ## Installation
+TR: ### sentry.io
+TR: This adapter uses sentry.io to collect details on crashes and report it automated to the author. The [TR: ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) plugin is used for it. Please refer to the [TR: plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with you're information on crashes.
 
-###适配器安装
-####使用npm
-在ioBroker安装上运行```npm install iobroker.dysonairpurifier```，以从npm存储库中获取此适配器的最新版本。
+TR: ### Prerequisites
+TR: * This adapter needs Node.js >= version 10
+TR: * At least js-Controller 3.0.0 is required
+TR: * At least Admin 4.0.9 is required
+TR: * To get this adapter running you'll need a Dyson account.
+TR: * Make sure to add your fan to your account. Either via App or online.
 
-####替代方法：使用GitHub URL
-通过将ioBroker管理员UI指向GitHub上的最新稳定版本进行安装：<https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
+TR: ### Adapter installation
+TR: #### Using npm
+TR: Run ```npm install iobroker.dysonairpurifier``` on your ioBroker installation to grab the latest version of this adapter from the npm repository.
 
-您也可以使用此方法安装较早的发行版（通过指向版本标记，例如，URL中的```v0.6.0```而不是```master```），但是通常最好使用最新版本。
+TR: #### Alternative: Using GitHub URL
+TR: Install through the ioBroker Admin UI by pointing it to the latest stable release on GitHub: <https://github.com/Grizzelbee/ioBroker.dysonairpurifier/tarball/master/>
 
-###需要配置数据
-* Dyson帐户用户名
-* Dyson帐户密码（此适配器最多可以处理32个字符的密码）
-*您的局域网中的风扇/空气净化器IP地址。
+TR: You can also install older release versions using this methods (by pointing to a version tag, e.g., ```v0.6.0``` instead of ```master```in the URL), but the most recent one is generally preferred.
 
-*请注意*：由于早期开发状态以及Dyson不符合mDNS的实施，因此您需要在首次运行之后*提供设备的本地IP。
+TR: ### Config-data needed
+TR: * Dyson account username
+TR: * Dyson account password (this adapter can handle passwords up to 32 characters)
+TR: * your fans/air purifiers IP address in your LAN.
 
-*附加说明*：自版本0.7.1起，适配器在未提供主机地址/ IP时尝试使用其主机名（序列号）连接到设备。这将在两个先决条件下起作用：
+TR: *Please note*: Due to early development state and a non conform mDNS implementation by Dyson you'll need to provide the local IP of the device *after the first run*.
 
-1.您的局域网中有一个DNS服务器正在运行。既可以在您的路由器中（例如FritzBox上运行的是DNS），也可以是专用的。
-2.您尚未更改默认设备名称。
+TR: *Additional Note*: Since Version 0.7.1 the adapter tries to connect to the device by it's hostname (serialnumber) when no host address/IP ist given. This will work under two prerequisites:
 
->在此适配器的首次启动时，将查询所有设备的Dyson API，并将在设备树中创建所有受支持的设备-其基本信息由API提供，并带有附加字段“ Hostaddress”。
->>>因此，请运行适配器一次，您的Dyson设备将使用其基本设置在设备树中创建。
->>然后停止适配器，在“主机地址”字段中输入IP，然后重新启动适配器。之后，应在设备树中的Dyson设备中填充数据。
+TR: 1. There is a DNS Server running in your LAN. Either in your router (e.g. FritzBoxes have a DNS running) or a dedicated one.
+TR: 2. You haven't changed the default devicename.
 
-##控制您的设备
-该适配器当前能够控制设备的以下状态：
+TR: > On the first start of this adapter the Dyson API is queried for all your devices and all supported devices will be created in the devicetree -- with their basic information provided by the API and an additional field "Hostaddress".
+> > So please run the adapter once, and your Dyson devices will be created in the device tree with their basic settings.
+> > Then stop the adapter, enter the IP(s) into the Hostaddress field(s) and restart the adapter. After that your Dyson devices in the device tree should be populated with data.
 
-* FanSpeed，当前风扇速度
-*夜间模式，夜间模式状态
-*振荡，风扇振荡。
-* ContinuousMonitoring，即使设备关闭也可以连续监视环境传感器。
-* MainPower，风扇的主电源。
-* AutomaticMode，风扇处于自动模式。
-*气流方向，风扇吹向的方向。 ON =前； OFF =后退（又称Jet聚焦）
-* Jetfocus，风扇吹向的方向。 ON =前； OFF =后退（又称Jet聚焦）
-*加热模式，加热模式[ON / OFF]
-* HeatingTargetTemp，加热目标温度
-* AirQualityTarget，自动模式下的目标空气质量。
-*加湿模式，开/关
-* HumidifyAutoMode，自动/关
-*自动加湿目标，自动加湿目标
-*加湿目标，手动加湿目标
-*水硬度，软，中，硬
+TR: ### 2 factor Authentication (since V0.9.0)
+TR: After installation of the adapter it should be started automatically - if not please start it first.
+After an update it will also restart automatically. In both cases it will remain in "yellow" state and probably show some errors in the log - that's fine for now.
 
-据了解，这些状态的可能值记录在下面。
-风扇速度仅允许从1到10以及“自动”的值。如果要将风扇速度设置为0，则需要关闭主电源。
-戴森应用程序也可以做到这一点。
+TR: * Open the config dialog of the adapter
+TR: * At least fill in your eMail address, the password and the country code - the rest is optional
+TR: * Click the 2FA-Code Email button to initiate the process
+TR: * You'll receive a "challengeId" automatically in the according field, an eMail and a dialog with further instructions
+TR: * enter the 6-digit code from the eMail into the field "dyson one time password"
+TR: * Click the "Finish" button
+TR: * after that you should have received a token from dyson (invisible for security purposes)
+TR: * Click save & close after you have completed your setup - the adapter should start anew and turn green.
 
-＃＃＃ 已知的问题
-*不自动检测设备的IP
+TR: All the values will be saved and shown furthermore.
+> Usually you don't need to do this 2 FA on a scheduled basis - but you may repeat it when needed.
 
-## Dyson API数据（消息有效负载）的说明
-从<https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>复制和扩展的信息
+TR: ## Controlling your device(s)
+TR: This adapter is currently able to control the following states of your devices:
 
-＃＃＃ 当前状态
-|名称|意思|可能的值|单位 |
+TR: * FanSpeed                  , Current fan speed
+TR: * Nightmode                 , Night mode state
+TR: * Oscillation               , Oscillation of fan.
+TR: * ContinuousMonitoring      , Continuous Monitoring of environmental sensors even if device is off.
+TR: * MainPower                 , Main Power of fan.
+TR: * AutomaticMode             , Fan is in automatic mode.
+TR: * Flowdirection             , Direction the fan blows to. ON=Front; OFF=Back (aka Jet focus)
+TR: * Jetfocus                  , Direction the fan blows to. ON=Front; OFF=Back (aka Jet focus)
+TR: * HeatingMode               , Heating Mode [ON/OFF]
+TR: * HeatingTargetTemp         , Target temperature for heating
+TR: * AirQualityTarget          , Target air quality for auto mode.
+TR: * HumidificationMode        , On / Off
+TR: * HumidifyAutoMode          , Auto / Off
+TR: * AutoHumidificationTarget  , Auto HumidificationTarget
+TR: * HumidificationTarget      , Manual HumidificationTarget
+TR: * WaterHardness             , Soft, Medium, Hard
+
+TR: Possible values for these states are documented below, as far as known.
+Fan speed only allows values from 1 to 10 and Auto. If you like to set your fan speed down to 0 you'll need to power off the main power.
+Which is what the dyson app does also.
+
+TR: ### Known issues
+TR: * No automatic IP detection of devices
+
+TR: ## Explanation of Dyson API data (message payload)
+TR: Information copied and extended from <https://github.com/shadowwa/Dyson-MQTT2RRD/blob/master/README.md>
+
+TR: ### CURRENT-STATE
+| TR: | name | meaning | possible values | Unit |
 | ------------- | ----- | ----- | ----- |
-|模式原因|当前模式已通过RemoteControl，App，Scheduler设置。 PRC，LAPP，LSCH，PUI | |
-|国家原因| |模式| |
-| rssi | WIFI强度| -100-0 | dBm |
-|频道| WIFI频道| 52 | |
-| fqhp | | 96704 | |
-| fghp | | 70480 | |
+| TR: | mode-reason | Current Mode has been set by RemoteControl, App, Scheduler | PRC, LAPP, LSCH, PUI | |
+| TR: | state-reason | | MODE | |
+| TR: | rssi | WIFI Strength| -100 - 0| dBm|
+| TR: | channel| WIFI Channel| 52 | |
+| TR: | fqhp | | 96704 | |
+| TR: | fghp | | 70480 | |
 
-####产品状态
-|名称|意思|可能的值|单位 |
+TR: #### product-state
+| TR: | name | meaning | possible values | Unit |
 | ------------- | ----- | ----- | ----- |
-| ercd |最后的错误代码| NONE或某些六进制值| |
-|战利品|剩余滤清器寿命| 0000-4300 |小时|
-| fmod |模式|风扇，汽车| |
-| fpwr |主电源|开，关| |
-| fnst |风扇状态|开，关，风扇| |
-| fnsp |风扇转速0001-0010，自动| |
-| fdir |又称Fandirection。喷气对焦/开=前，关=后|开，关| |
-| ffoc | JetFocus |开，关|
-| nmod |夜间模式|开启，关闭| |
-|儿子|振荡|开启，关闭| |
-| osal |振荡角度下界| 0005-355 | °（度）|
-| osau |振荡角度上边界| 0005-355 | °（度）|
-| oscs |振荡活动|开，关，空闲| |
-| ancp |摆角| CUST，0180 |°（度）|
-| qtar |空气质量指标| 0001 =好，0002 =正常，0003 =差，0004 =非常差| |
-| rhtm |连续监控|开，关| |
-|汽车| AutomaticMode |开，关| |
-| nmdv | NightMode最大风扇速度？ | 0004 | |
-| cflr |状态碳过滤器| 0000-0100 |百分比 |
-| cflt |碳过滤器|车| |
-| hflr |状态HEPA过滤器| 0000-0100 |百分比 |
-| hflt | HEPA过滤器| GHEP | |
-| sltm |睡眠计时器|开，关||
-| hmod |加热器模式[ON / OFF] |热力| |
-| hmax |加热目标温度| 0 .. 5000 | K |
-|休ume加湿模式|开，关，|
-|小屋|加湿自动模式| |
-|哼！加湿目标| |
-| cdrr | CleanDurationRemaining | |
-| rect | AutoHumidificationTarget | |
-| cltr | TimeRemainingToNextClean | |
-|棉线|水硬度| |
-| wacd |警告代码？ |没有... |
-| rstf |重置过滤器生命周期|
-| bril | | 0002 |
-|科尔夫| |开，关|
-| psta | [HP0x]未知| |
-| hsta | [HP0x]未知| |
-|倾斜[HP0x]未知| |
-|拨| [DP0x]未知| |
-| fqhp | fqhp ||
-| msta | msta ||
+| TR: | ercd | Last Error Code | NONE , or some hexa values |  |
+| TR: | filf | remaining Filter life | 0000 - 4300 | hours|
+| TR: | fmod | Mode | FAN , AUTO | |
+| TR: | fpwr | Main Power | ON, OFF | |
+| TR: | fnst | Fan Status | ON , OFF, FAN | |
+| TR: | fnsp | Fan speed | 0001 - 0010, AUTO | |
+| TR: | fdir | Fandirection aka. Jet focus/ ON=Front, OFF=Back | ON, OFF | |
+| TR: | ffoc | JetFocus | ON, OFF |
+| TR: | nmod | Night mode | ON , OFF | |
+| TR: | oson | Oscillation | ON , OFF| |
+| TR: | osal | OscillationAngle Lower Boundary | 0005 - 355| °  (degrees)|
+| TR: | osau | OscillationAngle Upper Boundary | 0005 - 355 | °  (degrees)|
+| TR: | oscs | OscillationActive | ON, OFF, IDLE | |
+| TR: | ancp | OscillationAngle  | CUST, 0180 |° (degrees)|
+| TR: | qtar | Air Quality target | 0001=Good, 0002=Normal, 0003=Bad, 0004=Very bad | |
+| TR: | rhtm | Continious Monitoring | ON, OFF | |
+| TR: | auto | AutomaticMode | ON, OFF | |
+| TR: | nmdv | NightMode Max Fanspeed? | 0004 | |
+| TR: | cflr | Status Carbonfilter  | 0000 - 0100 | Percent |
+| TR: | cflt | Carbonfilter | CARF | |
+| TR: | hflr | Status HEPA-Filter | 0000 - 0100 | Percent |
+| TR: | hflt | HEPA-Filter | GHEP | |
+| TR: | sltm | Sleeptimer | ON, OFF ||
+| TR: | hmod | Heater Mode [ON/OFF] | HEAT | |
+| TR: | hmax | Target temperature for heating | 0 .. 5000 | K |
+| TR: | hume | HumidificationMode     | ON, OFF, |
+| TR: | haut | Humidify Auto Mode| |
+| TR: | humt | Humidification Target| |
+| TR: | cdrr | CleanDurationRemaining| |
+| TR: | rect | AutoHumidificationTarget| |
+| TR: | cltr | TimeRemainingToNextClean| |
+| TR: | wath | WaterHardness| |
+| TR: | wacd | WarningCode? | NONE... |
+| TR: | rstf | reset filter lifecycle |
+| TR: | bril |  | 0002 |
+| TR: | corf |  | ON, OFF |
+| TR: | psta | [HP0x] Unknown |  |
+| TR: | hsta | [HP0x] Unknown |  |
+| TR: | tilt | [HP0x] Unknown |  |
+| TR: | dial | [DP0x] Unknown |  |
+| TR: | fqhp | fqhp||
+| TR: | msta | msta||
 
-|错误代码|含义|
+| TR: |Error-Codes| Meaning |
 | ----- | ----- |
-|无|没有活动的错误|
-| 57C2 |不明|
-| 11E1 |振荡已被禁用。请按遥控器上的“振荡”按钮以继续。 |
+| TR: | NONE | There is no error active |
+| TR: |57C2| unknown |
+| TR: |11E1| Oscillation has been disabled. Please press Button "Oscillation" on your remote to continue.|
 
-####调度程序
-|名称|意思|可能的值|单位 |
+TR: #### scheduler
+| TR: | name | meaning | possible values | Unit |
 | ------------- | ----- | ----- | ----- |
-| dstv | daylightSavingTime | 0001 ... | |
-| srsc | ？ | 7c68 ... | |
-| tzid |时区？ | 0001 ... | |
+| TR: | dstv | daylightSavingTime | 0001... | |
+| TR: | srsc | ? | 7c68... | |
+| TR: | tzid | timezone? | 0001... | |
 
-###环境电流传感器数据
-＃＃＃＃ 数据
-|名称|意思|可能的值|单位 |
+TR: ### ENVIRONMENTAL-CURRENT-SENSOR-DATA
+TR: #### data
+| TR: | name | meaning | possible values | Unit |
 | ------------- | ----- | ----- | ----- |
-|事实|湿度（％）| 0000-0100 |百分比 |
-|契约粉尘0000-0009 | |
-| sltm |睡眠计时器|关闭... 9999 |分钟|
-|机智开尔温的温度| 0000-5000 | K |
-| vact |挥发性有机化合物| 0001-0009 | |
-| pm25 | PM2.5 | 0018 ||
-| pm10 | PM10 | 0011 ||
-| va10 |挥发性有机化合物| 0004 ||
-| noxl | NO2 | 0000-0014 ||
-| p25r | | 0019 ||
-| p10r | | 0018 ||
+| TR: | hact | Humidity (%) | 0000 - 0100 | Percent |
+| TR: | pact | Dust | 0000 - 0009 | |
+| TR: | sltm | Sleeptimer | OFF... 9999 | Minutes |
+| TR: | tact | Temperature in Kelvin | 0000 - 5000 | K|
+| TR: | vact | volatil organic compounds | 0001 - 0009 | |
+| TR: |pm25|  PM2.5 |0018||
+| TR: |pm10|  PM10 |0011||
+| TR: |va10|  volatil organic compounds|0004||
+| TR: |noxl|  NO2 |0000 - 0014||
+| TR: |p25r|  |0019||
+| TR: |p10r|  |0018||
 
-###环境和使用数据
-冗余值？
+TR: ### ENVIRONMENTAL-AND-USAGE-DATA
+TR: Redundant values?
 
-＃＃＃＃ 数据
-|名称|意思|可能的值|单位 |
+TR: #### data
+| TR: | name | meaning | possible values | Unit |
 | ------------- | ----- | ----- | ----- |
-| pal0-pal9 |自小时开始以来在此级别的灰尘上花费的秒数| 0000-3600 | |
-|手掌|似乎是palX的中位数| | |
-| vol0-vol9 |自小时开始以来，此级别voc的第二次支出| 0000-3600 | |
-| volm |似乎是volX的中间值| | |
-| aql0-aql9 |在此空气质量水平上第二次消费的次数|从小时开始算起（max（pal，vol））| 0000-3600 | |
-| aqlm |似乎是aqlX的中位数| | |
-|收藏夹|似乎是在特定时间花费几秒钟| 0000-3600 | |
-| faos |似乎是在特定时间花费几秒钟| 0000-3600 | |
-| fofs |似乎是在特定时间花费几秒钟| 0000-3600 | |
-| fons |似乎是在特定时间花费几秒钟| 0000-3600 | |
-|哼！湿度 ？ （％）| 0000-0100 | |
-| tmpm |开尔文的温度？ | 0000-5000 | |
+| TR: | pal0 - pal9 | number of second spend in this level of dust since the begining of hour | 0000 - 3600 | |
+| TR: | palm | seems to be a median value of palX |  | |
+| TR: | vol0 - vol9 | number of second spend in this level of voc since the begining of hour | 0000 - 3600 | |
+| TR: | volm | seems to be a median value of volX |  | |
+| TR: | aql0 - aql9 | number of second spend in this level of air quality | max (pal, vol)) since the begining of hour | 0000 - 3600 | |
+| TR: | aqlm | seems to be a median value of aqlX |  | |
+| TR: | fafs | seems to be a number of seconds spend in a specific time | 0000 - 3600 | |
+| TR: | faos | seems to be a number of seconds spend in a specific time | 0000 - 3600 | |
+| TR: | fofs | seems to be a number of seconds spend in a specific time | 0000 - 3600 | |
+| TR: | fons | seems to be a number of seconds spend in a specific time | 0000 - 3600 | |
+| TR: | humm | humidity ? (%) | 0000 - 0100 | |
+| TR: | tmpm | temperature in kelvin ? | 0000 - 5000 | |
 
-＃＃ 法律声明
-戴森，纯净，纯净和凉爽等是[戴森有限公司](https://www.dyson.com)的商标或注册商标。所有其他商标均为其各自所有者的财产。
+TR: ## Legal Notices
+TR: Dyson, pure cool, pure hot & cool, and others are trademarks or registered trademarks of [TR: Dyson Ltd.](https://www.dyson.com) All other trademarks are the property of their respective owners.
 
 ## Changelog
+
+### V0.9.0 (2021-04-26) (Still breathing)
+* (grizzelbee) New: Added ioBroker sentry plugin to report errors automatically 
+* (grizzelbee) New: Added support for Dyson Pure Cool TP07 (438E)
+* (grizzelbee) New: Added support for Dyson 2-factor login method
+* (grizzelbee) New: Added "keep Sensorvalues" to config to prevent destroying old values when continuous monitoring is off and fan is switched off (TP02)  
+* (grizzelbee) Fix: FilterLife should now be correctly in hours and percent in two separate data fields for fans supporting this (e.g. TP02)
 
 ### V0.8.2 (2021-04-09) (Still breathing)
 * (grizzelbee) Fix: [#80](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/80) fixed npm install hint in documentation
 * (grizzelbee) Fix: [#82](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/82) fixed common.dataSource type with type >poll<
-* (grizzelbee) Fix: [#95](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/95) Added new heater model type 527E
+* (grizzelbee) Fix: [#95](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/95) Added support for dyson Hot+Cool Formaldehyde (527E)
 * (grizzelbee) Fix: [#94](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/94) Fixed dustIndex
 
 

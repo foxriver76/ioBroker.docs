@@ -2,182 +2,207 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.mielecloudservice/README.md
-title: ioBroker.MieleCloudService
-hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
+title: TR: ioBroker.MieleCloudService
+hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
 ---
-![Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
+![TR: Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
-![Anzahl der Installationen](http://iobroker.live/badges/mielecloudservice-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
-![NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
-![Lizenz](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![Downloads](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
+![TR: Number of Installations](http://iobroker.live/badges/mielecloudservice-stable.svg)
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
+![TR: NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
+![TR: License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
 
-# IoBroker.MieleCloudService [![Build-Status] (https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
-## Beschreibung
-Mit diesem Adapter können Sie Informationen zu allen Ihren Miele @ Home-Geräten von der offiziellen Miele-API eines Drittanbieters abrufen.
-Unabhängig davon, ob sie direkt über Wi-Fi oder XGW3000 Gateway verbunden sind. Es implementiert die **Miele 3rd Party API V1.0.4**
+TR: # ioBroker.MieleCloudService [![TR: Build Status](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
+TR: ## Description
+TR: This adapter is for retrieving information about all your Miele@Home devices from the official Miele 3rd-party API.
+Regardless if they are connected directly via Wi-Fi or XGW3000 Gateway. It implements the **Miele 3rd Party API V1.0.4**
 
-## Sentry.io
-Dieser Adapter verwendet sentry.io, um Details zu Abstürzen zu sammeln und diese automatisch dem Autor zu melden. Das Plugin [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) wird dafür verwendet. In den [Plugin Homepage](https://github.com/ioBroker/plugin-sentry) finden Sie detaillierte Informationen darüber, was das Plugin tut, welche Informationen gesammelt werden und wie Sie es deaktivieren können, wenn Sie den Autor nicht mit Ihren Informationen zu Abstürzen unterstützen möchten.
+TR: ## sentry.io
+TR: This adapter uses sentry.io to collect details on crashes and report it automated to the author. The [TR: ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) plugin is used for it. Please refer to the [TR: plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with you're information on crashes.
 
-## Voraussetzungen
-* Miele @ Home User (Smartphone App)
-* Miele @ Home Passwort (Smartphone App)
-* Miele Client_id (von https://www.miele.com/developer/)
-* Miele Client_secret (von https://www.miele.com/developer/)
+TR: ## Prerequisites
+TR: * Miele@Home User (Smartphone App)
+TR: * Miele@Home Password (Smartphone App)
+TR: * Miele Client_id (from https://www.miele.com/developer/)
+TR: * Miele Client_secret (from https://www.miele.com/developer/ )
 
-## Installation
-Gehen Sie zur Installation wie folgt vor:
+TR: ## Installation
+TR: To install, do the following:
 
-1. Installieren Sie über Admin mit dem
- * Stable Repo - um die aktuelle stabile Version zu erhalten
- * aktuelles Repo - um die neueste Testversion zu erhalten (möglicherweise nicht stabil)
- * via: https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - um die neueste Entwicklungsversion zu erhalten
-2. Erstellen Sie in der Miele Smartphone App ein App-Konto für Miele @ Home
-3. Erstellen Sie ein Entwicklerkonto unter https://www.miele.com/f/com/en/register_api.aspx
-4. Fügen Sie Ihre Miele-Geräte zur App hinzu (falls nicht automatisch hinzugefügt)
-6. Geben Sie die vom Miele-Entwicklerteam erhaltenen client_secret und client_id sowie die Konto-ID und das Kennwort von der App ein.
+TR: 1. Install via Admin using the
+TR:  * stable Repo - to get the current stable version
+TR:  * latest Repo - to get the latest test version (maybe not stable)
+TR:  * via: https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - to get the latest development version
+TR: 2. create an App-Account for Miele@Home in the Miele Smartphone App
+TR: 3. Create a developer account at https://www.miele.com/f/com/en/register_api.aspx
+TR: 4. Add your Miele-Devices to the App (if not added automatically)
+TR: 6. Fill in the client_secret and client_id received from Miele-developer Team and account-id and password from the App.
 
-## Steuern Ihrer Geräte
-Alle derzeit unterstützten und dokumentierten Aktionen für alle Geräte sind implementiert (API V1.0.4).
-> Bitte denken Sie daran, dass Aktionen nur funktionieren, wenn Sie Ihr Gerät in den entsprechenden Zustand versetzen (z. B. Mobile Control, powerOn, ...).
-Weitere Informationen zu Aktionen finden Sie in [Miele-Dokumentation](#documentation).
+TR: ## Controlling your devices
+TR: All currently supported and documented Actions for all devices are implemented (API V1.0.4).
+> Please remember that Actions will only work if you put your device into the appropriate state (e.g. Mobile Control, powerOn, ...).
+Please refer to [TR: Miele-Documentation](#documentation) for more Information on actions.
 
-## Bekannte Probleme
-* keiner
+TR: ## Known Issues
+TR: * none
 
-## Dokumentation
-Bitte beziehen Sie sich hauptsächlich auf die von Miele veröffentlichte API-Hauptdokumentation
+TR: ## Documentation
+TR: Please mainly refer to the main API documentation published by Miele
 
-* [Allgemeine Dokumentation] (https://www.miele.com/developer/swagger-ui/index.html)
-* [Voraussetzungen für die Ausführung einer Aktion auf einem Gerät] (https://www.miele.com/developer/swagger-ui/put_additional_info.html)
+TR: * [General Documentation](https://www.miele.com/developer/swagger-ui/index.html)
+TR: * [Preconditions to perform an action on a device](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
 
-Es gibt einige Datenpunkte in 2 Arten. Als lesbarer Text und als Zahl.
-Diese numerischen Datenfelder, die zu einem Textfeld gehören, haben denselben Namen, aber ein "_raw" wird angehängt.
-Die Felder, die eine allgemeine Bedeutung haben, sind unten aufgeführt.
-Die Felder, die nicht aufgeführt sind, unterscheiden sich in ihrer Bedeutung von Gerät zu Gerät und werden von Miele nicht dokumentiert.
-Wenn Sie in Skripten auf diese Felder verweisen müssen, verwenden Sie immer die _raw-Werte.
-Die Textwerte können sich in Zukunft ändern und hängen auch von der Sprache ab.
-Hier ist eine Liste, wofür diese Rohwerte stehen:
+TR: There are some data points available in 2 kinds. As a human-readable text and as a number.
+These numeric data fields belonging to a text field have the same name, but a "_raw" appended.
+Those fields which have a general meaning are listed below.
+The fields which aren't listed vary in their meaning from device to device and are not documented by Miele.
+If you need to refer in scripts to these fields, always use the _raw values.
+The text values may change in the future and also depend on the language.
+Here is a list of what these raw values stand for:
 
-### Gerätetypen
- | Rohwert | Staat |
+TR: ### DeviceTypes
+| TR:  | Raw value | State|
  |----------|-------|
- | 1 | WASCHMASCHINE |
- | 2 | TUMBLE DRYER |
- | 7 | SPÜLMASCHINE |
- | 8 | SPÜLMASCHINE SEMI-PROF |
- | 12 | OFEN |
- | 13 | OFEN MIKROWELLE |
- | 14 | HOB HIGHLIGHT |
- | 15 | DAMPFOFEN |
- | 16 | MIKROWELLE |
- | 17 | KAFFEESYSTEM |
- | 18 | HAUBE |
- | 19 | KÜHLSCHRANK |
- | 20 | Gefrierschrank |
- | 21 | KÜHL- / GEFRIERKOMBINATION |
- | 23 | VAKUUMREINIGER, AUTOMATISCHER ROBOTER VAKUUMREINIGER |
- | 24 | SCHEIBETROCKNER |
- | 25 | DISH WARMER |
- | 27 | HOB INDUKTION |
- | 28 | HOB GAS |
- | 31 | DAMPFOFENKOMBINATION |
- | 32 | WEINKABINETTE |
- | 33 | WEINKONDITIONIERUNGSEINHEIT |
- | 34 | WEINLAGERUNGSKONDITIONIERUNGSEINHEIT |
- | 39 | DOPPELTER OFEN |
- | 40 | DOPPELDAMPFOFEN |
- | 41 | DOPPELDAMPFOFENKOMBINATION |
- | 42 | DOPPELTE MIKROWELLE |
- | 43 | DOPPELTER MIKROWELLENOFEN |
- | 45 | DAMPFOFEN MIKROWELLENKOMBINATION |
- | 48 | VAKUUMSCHUBLADE |
- | 67 | DIALOGOVEN |
- | 68 | WEINKABINETTEN-GEFRIERKOMBINATION |
+| TR:  |1 | WASHING MACHINE|
+| TR:  |2 | TUMBLE DRYER|
+| TR:  |7 | DISHWASHER|
+| TR:  |8 | DISHWASHER SEMI-PROF|
+| TR:  |12 | OVEN|
+| TR:  |13 | OVEN MICROWAVE|
+| TR:  |14 | HOB HIGHLIGHT|
+| TR:  |15 | STEAM OVEN|
+| TR:  |16 | MICROWAVE|
+| TR:  |17 | COFFEE SYSTEM|
+| TR:  |18 | HOOD|
+| TR:  |19 | FRIDGE|
+| TR:  |20 | FREEZER|
+| TR:  |21 | FRIDGE-/FREEZER COMBINATION|
+| TR:  |23 | VACUUM CLEANER, AUTOMATIC ROBOTIC VACUUM CLEANER|
+| TR:  |24 | WASHER DRYER|
+| TR:  |25 | DISH WARMER|
+| TR:  |27 | HOB INDUCTION|
+| TR:  |28 | HOB GAS|
+| TR:  |31 | STEAM OVEN COMBINATION|
+| TR:  |32 | WINE CABINET|
+| TR:  |33 | WINE CONDITIONING UNIT|
+| TR:  |34 | WINE STORAGE CONDITIONING UNIT|
+| TR:  |39 | DOUBLE OVEN|
+| TR:  |40 | DOUBLE STEAM OVEN|
+| TR:  |41 | DOUBLE STEAM OVEN COMBINATION|
+| TR:  |42 | DOUBLE MICROWAVE|
+| TR:  |43 | DOUBLE MICROWAVE OVEN|
+| TR:  |45 | STEAM OVEN MICROWAVE COMBINATION|
+| TR:  |48 | VACUUM DRAWER|
+| TR:  |67 | DIALOGOVEN|
+| TR:  |68 | WINE CABINET FREEZER COMBINATION|
 
-### Status / Status
- | Rohwert | Staat |
+TR: ### State/Status
+| TR:  | Raw value | State|
  |----------|-------|
- | 1 | AUS |
- | 2 | STAND_BY |
- | 3 | PROGRAMMIERT |
- | 4 | PROGRAMMED_WAITING_TO_START |
- | 5 | LAUFEN |
- | 6 | PAUSE |
- | 7 | END_PROGRAMMED |
- | 8 | FEHLER |
- | 9 | PROGRAMME_INTERRUPTED |
- | 10 | LEERLAUF |
- | 11 | RINSE_HOLD |
- | 12 | SERVICE |
- | 13 | SUPERFREEZING |
- | 14 | SUPERCOOLING |
- | 15 | ÜBERHITZUNG |
- | 144 | STANDARD |
- | 145 | GESPERRT |
- | 146 | SUPERCOOLING_SUPERFREEZING |
- | 255 | Gerät offline |
+| TR:  |1|   OFF|
+| TR:  |2|   STAND_BY|
+| TR:  |3|   PROGRAMMED|
+| TR:  |4|   PROGRAMMED_WAITING_TO_START|
+| TR:  |5|   RUNNING|
+| TR:  |6|   PAUSE|
+| TR:  |7|   END_PROGRAMMED|
+| TR:  |8|   FAILURE|
+| TR:  |9|   PROGRAMME_INTERRUPTED|
+| TR:  |10|  IDLE|
+| TR:  |11|  RINSE_HOLD|
+| TR:  |12|  SERVICE|
+| TR:  |13|  SUPERFREEZING|
+| TR:  |14|  SUPERCOOLING|
+| TR:  |15|  SUPERHEATING|
+| TR:  |144| DEFAULT|
+| TR:  |145| LOCKED|
+| TR:  |146| SUPERCOOLING_SUPERFREEZING|
+| TR:  |255| Device offline|
 
-### ProgramType / Programmart
-| Rohwert | Staat |
+TR: ### ProgramType/Programmart
+| TR: | Raw value | State|
 |----------|-------|
-| 0 | Normaler Betriebsmodus |
-| 1 | Eigenes Programm |
-| 2 | Automatisches Programm |
-| 3 | Reinigungs- / Pflegeprogramm |
+| TR: |0 | Normal operation mode  |
+| TR: |1 | Own program            |
+| TR: |2 | Automatic program      |
+| TR: |3 | Cleaning-/Care program |
 
-### TrocknenSchritt / Trockenstufe
- | Rohwert | Staat |
+TR: ### dryingStep/Trockenstufe
+| TR:  | Raw value | State|
  |----------|-------|
- | 0 | Extra trocken |
- | 1 | Normal Plus |
- | 2 | Normal |
- | 3 | Leicht trocken |
- | 4 | Handeisen Stufe 1 |
- | 5 | Handeisen Stufe 2 |
- | 6 | Maschineneisen |
+| TR:  |0 |   Extra dry|
+| TR:  |1 |   Normal Plus|
+| TR:  |2 |   Normal|
+| TR:  |3 |   Slightly Dry|
+| TR:  |4 |   Hand iron level 1|
+| TR:  |5 |   Hand iron level 2|
+| TR:  |6 |   Machine iron|
 
-### Programmbezeichnung
-| Rohwert | Staat | verfügbar für |
+TR: ### Programmbezeichnung
+| TR: | Raw value | State                   | available for   |
 |-----------|-------------------------|-----------------|
-| 1 | "Baumwolle" / "Baumwolle" | Waschmaschine |
-| 3 | "Pflegeleicht" | Waschmaschine |
-| 4 | "Feinwäsche" | Waschmaschine |
-| 8 | "Wolle" | Waschmaschine |
-| 9 | "Seide" | Waschmaschine |
-| 21 | "Pumpen / Schleudern" | Waschmaschine |
-| 23 | "Oberhemden" | Waschmaschine |
-| 27 | "Imprägnieren" | Waschmaschine |
-| 29 | "Sportwäsche" | Waschmaschine |
-| 31 | "Automatisches Plus" | Waschmaschine |
-| 37 | "Outdoor" | Waschmaschine |
-| 48 | "Flusen ausspülen" | Waschtrockner |
-| 50 | "Dunkle Wäsche" | Waschtrockner |
-| 52 | "Nur Spülen / Stärken" | Waschmaschine |
-| 122 | "Express 20" | Waschtrockner |
-| 123 | "Dunkles / Jeans" | Waschmaschine |
+| TR: |         1 | "Baumwolle" / "Cotton"  | Washing Machine |
+| TR: |         3 | "Pflegeleicht"          | Washing Machine |
+| TR: |         4 | "Feinwäsche"            | Washing Machine |
+| TR: |         8 | "Wolle"                 | Washing Machine |
+| TR: |         9 | "Seide"                 | Washing Machine |
+| TR: |        21 | "Pumpen/Schleudern"     | Washing Machine |
+| TR: |        23 | "Oberhemden"            | Washing Machine |
+| TR: |        27 | "Imprägnieren"          | Washing Machine |
+| TR: |        29 | "Sportwäsche"           | Washing Machine |
+| TR: |        31 | "Automatic plus"        | Washing Machine |
+| TR: |        37 | "Outdoor"               | Washing Machine |
+| TR: |        48 | "Flusen ausspülen"      | Washer Dryer    |
+| TR: |        50 | "Dunkle Wäsche"         | Washer Dryer    |
+| TR: |        52 | "Nur Spülen/Stärken"    | Washing Machine |
+| TR: |       122 | "Express 20"            | Washer Dryer    |
+| TR: |       123 | "Dunkles/Jeans"         | Washing Machine |
 
-### ProgramPhase
-| Rohwert | Staat | verfügbar für |
+TR: ### ProgramPhase
+| TR: | Raw value | State| available for |
 |----------|-------|---------------|
-| 260 | "Waschen" / "Waschen" | Waschmaschine |
-| 261 | "Spülen" / "Spülen" | Waschmaschine |
-| 265 | "Pumpen" | Waschmaschine |
-| 266 | "Schleudern" / "Spinnen" | Waschmaschine |
-| 267 | "Knitterschutz" / "" | Waschmaschine |
-| 268 | "Ende" / "Ende" | Die meisten Geräte |
-| 256 | "Vorbügeln" | Waschmaschine |
-| 514 | "Trocknen" | Waschtrockner |
-| 519 | "Abkühlen" | Waschtrockner |
-| 532 | "Flusen ausspülen" | Waschtrockner |
+| TR: |258 | "Einweichen"           | Washing Machine |
+| TR: |260 | "Waschen" / "Washing"  | Washing Machine |
+| TR: |261 | "Spülen"  / "Rinse"    | Washing Machine |
+| TR: |265 | "Pumpen" | Washing Machine |
+| TR: |266 | "Schleudern" / "Spinning" | Washing Machine |
+| TR: |267 | "Knitterschutz" / "" | Washing Machine |
+| TR: |268 | "Ende" / "End" | Most devices |
+| TR: |256 | "Vorbügeln" | Washing Machine |
+| TR: |514 | "Trocknen" | Washer Dryer |
+| TR: |519 | "Abkühlen" | Washer Dryer |
+| TR: |532 | "Flusen ausspülen" | Washer Dryer |
 
-## Urheberrechte ©
-Copyright (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
+TR: ## Copyright
+TR: Copyright (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+
+### V4.1.0 (2021-05-15) (Carry me over)
+* (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots
+* (Stan23)     New: Added new program phase  soak/Einweichen
+
+### V4.0.22 (2021-05-06) (Twisted mind)
+* (grizzelbee) Fix: [142](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/142) Reintroduced TargetTemp for washing machines
+
+### V4.0.21 (2021-05-03) (The Edge)
+* (grizzelbee) Fix: Fixed accidental function name: createStateSpinAPIStartActionningSpeed
+* (grizzelbee) Fix: Fixed State value to set for "*.PlateStep_1" has to be type "number" but received type "string"
+
+### V4.0.20 (2021-04-30) (Sleepwalkers)
+* (grizzelbee) Fix: [137](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/137) Fixed Read-only state "info.connection" has been written without ack-flag with value "false"
+* (grizzelbee) Fix: [138](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/138) Fixed State value to set for ".Schleuderdrehzahl" has wrong type "string" but has to be "number"
+* (grizzelbee) Fix: [139](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/139) Fixed State value to set for ".ACTIONS.Light" has wrong type "number" but has to be "string" 
+* (grizzelbee) Upd: Changed device group from channel to folder  as documented [here](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md)
+
+### V4.0.19 (2021-04-29) (The scarecrow)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching - 2nd attempt
+* (grizzelbee) Fix: Fixed No-Icon Bug when appliance is unknown
+
+### V4.0.18 (2021-04-28) (Ghostlights)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching 
 
 ### V4.0.17 (2021-04-27) (Ghost in the moon)
 * (grizzelbee) New: Added ioBroker sentry plugin to report issues automatically

@@ -2,182 +2,207 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mielecloudservice/README.md
-title: ioBroker.MieleCloudService
-hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
+title: TR: ioBroker.MieleCloudService
+hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
 ---
-![Логотип](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
+![TR: Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
-![Количество установок](http://iobroker.live/badges/mielecloudservice-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
-![Известные уязвимости](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
-![НПМ](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
-![Лицензия](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
+![TR: Number of Installations](http://iobroker.live/badges/mielecloudservice-stable.svg)
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
+![TR: NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
+![TR: License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
 
-# IoBroker.MieleCloudService [![Статус сборки] (https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
-## Описание
-Этот адаптер предназначен для получения информации обо всех ваших устройствах Miele @ Home из официального стороннего API Miele.
-Независимо от того, подключены ли они напрямую через Wi-Fi или шлюз XGW3000. В нем реализован **API сторонних разработчиков Miele V1.0.4**
+TR: # ioBroker.MieleCloudService [![TR: Build Status](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
+TR: ## Description
+TR: This adapter is for retrieving information about all your Miele@Home devices from the official Miele 3rd-party API.
+Regardless if they are connected directly via Wi-Fi or XGW3000 Gateway. It implements the **Miele 3rd Party API V1.0.4**
 
-## Sentry.io
-Этот адаптер использует sentry.io для сбора сведений о сбоях и автоматического сообщения автору. Для этого используется плагин [ioBroker.sentry](https://github.com/ioBroker/plugin-sentry). Пожалуйста, обратитесь к [домашняя страница плагина](https://github.com/ioBroker/plugin-sentry) для получения подробной информации о том, что делает плагин, какая информация собирается и как его отключить, если вы не хотите поддерживать автора своей информацией о сбоях.
+TR: ## sentry.io
+TR: This adapter uses sentry.io to collect details on crashes and report it automated to the author. The [TR: ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) plugin is used for it. Please refer to the [TR: plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with you're information on crashes.
 
-## Предварительные требования
-* Miele @ Home User (приложение для смартфона)
-* Miele @ Home Password (приложение для смартфона)
-* Miele Client_id (с https://www.miele.com/developer/)
-* Miele Client_secret (с https://www.miele.com/developer/)
+TR: ## Prerequisites
+TR: * Miele@Home User (Smartphone App)
+TR: * Miele@Home Password (Smartphone App)
+TR: * Miele Client_id (from https://www.miele.com/developer/)
+TR: * Miele Client_secret (from https://www.miele.com/developer/ )
 
-## Монтаж
-Для установки сделайте следующее:
+TR: ## Installation
+TR: To install, do the following:
 
-1. Установите через Admin с помощью
- * стабильное репо - чтобы получить текущую стабильную версию
- * latest Repo - чтобы получить последнюю тестовую версию (возможно, не стабильную)
- * через: https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - чтобы получить последнюю версию для разработки
-2. Создайте учетную запись для Miele @ Home в приложении для смартфона Miele.
-3. Создайте учетную запись разработчика на странице https://www.miele.com/f/com/en/register_api.aspx.
-4. Добавьте свои устройства Miele-Devices в приложение (если не добавляются автоматически)
-6. Введите client_secret и client_id, полученные от команды разработчиков Miele, а также идентификатор учетной записи и пароль из приложения.
+TR: 1. Install via Admin using the
+TR:  * stable Repo - to get the current stable version
+TR:  * latest Repo - to get the latest test version (maybe not stable)
+TR:  * via: https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - to get the latest development version
+TR: 2. create an App-Account for Miele@Home in the Miele Smartphone App
+TR: 3. Create a developer account at https://www.miele.com/f/com/en/register_api.aspx
+TR: 4. Add your Miele-Devices to the App (if not added automatically)
+TR: 6. Fill in the client_secret and client_id received from Miele-developer Team and account-id and password from the App.
 
-## Управление вашими устройствами
-Реализованы все поддерживаемые и документированные в настоящее время Действия для всех устройств (API V1.0.4).
-> Помните, что Действия будут работать только в том случае, если вы переведете свое устройство в соответствующее состояние (например, Mobile Control, powerOn, ...).
-Пожалуйста, обратитесь к [Miele-Документация](#documentation) для получения дополнительной информации о действиях.
+TR: ## Controlling your devices
+TR: All currently supported and documented Actions for all devices are implemented (API V1.0.4).
+> Please remember that Actions will only work if you put your device into the appropriate state (e.g. Mobile Control, powerOn, ...).
+Please refer to [TR: Miele-Documentation](#documentation) for more Information on actions.
 
-## Известные проблемы
-* никто
+TR: ## Known Issues
+TR: * none
 
-## Документация
-В основном обращайтесь к основной документации API, опубликованной Miele.
+TR: ## Documentation
+TR: Please mainly refer to the main API documentation published by Miele
 
-* [Общая документация] (https://www.miele.com/developer/swagger-ui/index.html)
-* [Предварительные условия для выполнения действия на устройстве] (https://www.miele.com/developer/swagger-ui/put_additional_info.html)
+TR: * [General Documentation](https://www.miele.com/developer/swagger-ui/index.html)
+TR: * [Preconditions to perform an action on a device](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
 
-Есть несколько точек данных, доступных в 2-х видах. В виде удобочитаемого текста и числа.
-Эти числовые поля данных, принадлежащие текстовому полю, имеют то же имя, но с добавлением «_raw».
-Те поля, которые имеют общее значение, перечислены ниже.
-Поля, которые не указаны в списке, различаются по своему значению от устройства к устройству и не документируются Miele.
-Если вам нужно ссылаться в скриптах на эти поля, всегда используйте значения _raw.
-Текстовые значения могут измениться в будущем, а также зависят от языка.
-Вот список того, что означают эти необработанные значения:
+TR: There are some data points available in 2 kinds. As a human-readable text and as a number.
+These numeric data fields belonging to a text field have the same name, but a "_raw" appended.
+Those fields which have a general meaning are listed below.
+The fields which aren't listed vary in their meaning from device to device and are not documented by Miele.
+If you need to refer in scripts to these fields, always use the _raw values.
+The text values may change in the future and also depend on the language.
+Here is a list of what these raw values stand for:
 
-### Типы устройств
- | Исходное значение | Государство |
+TR: ### DeviceTypes
+| TR:  | Raw value | State|
  |----------|-------|
- | 1 | СТИРАЛЬНАЯ МАШИНА |
- | 2 | СУШИЛКА |
- | 7 | ПОСУДОМОЕЧНАЯ МАШИНА |
- | 8 | ПОСУДОМОЕЧНАЯ МАШИНА ПОЛУПРОФ |
- | 12 | ПЕЧЬ |
- | 13 | ПЕЧЬ СВЧ |
- | 14 | HOB HIGHLIGHT |
- | 15 | ПАРНАЯ ПЕЧЬ |
- | 16 | СВЧ |
- | 17 | КОФЕЙНАЯ СИСТЕМА |
- | 18 | КАПОТ |
- | 19 | ХОЛОДИЛЬНИК |
- | 20 | МОРОЗИЛЬНИК |
- | 21 | КОМБИНАЦИЯ ХОЛОДИЛЬНИКА / МОРОЗИЛЬНИКА |
- | 23 | ВАКУУМНЫЙ ПЫЛЕСОС, АВТОМАТИЧЕСКИЙ РОБОТ-ПЫЛЕСОС |
- | 24 | СТИРАЛЬНАЯ МАШИНА |
- | 25 | ПОДОГРЕВАТЕЛЬ |
- | 27 | ИНДУКЦИОННАЯ ПАНЕЛЬ |
- | 28 | ВАРОЧНЫЙ ГАЗ |
- | 31 | ПАРОВАЯ ПЕЧЬ КОМБИНАЦИЯ |
- | 32 | ВИННЫЙ ШКАФ |
- | 33 | КОНДИЦИОНЕР ВИНА |
- | 34 | КОНДИЦИОНЕР ДЛЯ ХРАНЕНИЯ ВИНА |
- | 39 | ДВОЙНАЯ ПЕЧЬ |
- | 40 | ДВОЙНАЯ ПАРОВАЯ ПЕЧЬ |
- | 41 | ДВОЙНАЯ ПЕЧЬ КОМБИНАЦИЯ |
- | 42 | ДВОЙНОЕ СВЧ |
- | 43 | ДВОЙНАЯ СВЧ-ПЕЧЬ |
- | 45 | ПАРОВАЯ ПЕЧЬ СВЧ-КОМБИНАЦИЯ |
- | 48 | ВАКУУМНЫЙ ЯЩИК |
- | 67 | ДИАЛОГОВЕН |
- | 68 | ВИННЫЙ ШКАФ КОМБИНАЦИЯ МОРОЗИЛЬНИКОВ |
+| TR:  |1 | WASHING MACHINE|
+| TR:  |2 | TUMBLE DRYER|
+| TR:  |7 | DISHWASHER|
+| TR:  |8 | DISHWASHER SEMI-PROF|
+| TR:  |12 | OVEN|
+| TR:  |13 | OVEN MICROWAVE|
+| TR:  |14 | HOB HIGHLIGHT|
+| TR:  |15 | STEAM OVEN|
+| TR:  |16 | MICROWAVE|
+| TR:  |17 | COFFEE SYSTEM|
+| TR:  |18 | HOOD|
+| TR:  |19 | FRIDGE|
+| TR:  |20 | FREEZER|
+| TR:  |21 | FRIDGE-/FREEZER COMBINATION|
+| TR:  |23 | VACUUM CLEANER, AUTOMATIC ROBOTIC VACUUM CLEANER|
+| TR:  |24 | WASHER DRYER|
+| TR:  |25 | DISH WARMER|
+| TR:  |27 | HOB INDUCTION|
+| TR:  |28 | HOB GAS|
+| TR:  |31 | STEAM OVEN COMBINATION|
+| TR:  |32 | WINE CABINET|
+| TR:  |33 | WINE CONDITIONING UNIT|
+| TR:  |34 | WINE STORAGE CONDITIONING UNIT|
+| TR:  |39 | DOUBLE OVEN|
+| TR:  |40 | DOUBLE STEAM OVEN|
+| TR:  |41 | DOUBLE STEAM OVEN COMBINATION|
+| TR:  |42 | DOUBLE MICROWAVE|
+| TR:  |43 | DOUBLE MICROWAVE OVEN|
+| TR:  |45 | STEAM OVEN MICROWAVE COMBINATION|
+| TR:  |48 | VACUUM DRAWER|
+| TR:  |67 | DIALOGOVEN|
+| TR:  |68 | WINE CABINET FREEZER COMBINATION|
 
-### Состояние / Статус
- | Исходное значение | Государство |
+TR: ### State/Status
+| TR:  | Raw value | State|
  |----------|-------|
- | 1 | ВЫКЛ |
- | 2 | STAND_BY |
- | 3 | ПРОГРАММИРОВАННАЯ |
- | 4 | PROGRAMMED_WAITING_TO_START |
- | 5 | РАБОТАЕТ |
- | 6 | ПАУЗА |
- | 7 | END_PROGRAMMED |
- | 8 | ОТКАЗ |
- | 9 | PROGRAMME_INTERRUPTED |
- | 10 | IDLE |
- | 11 | RINSE_HOLD |
- | 12 | СЕРВИС |
- | 13 | СУПЕРЗАМОРАЖИВАНИЕ |
- | 14 | ПЕРЕОХЛАЖДЕНИЕ |
- | 15 | ПЕРЕГРЕВ |
- | 144 | ПО УМОЛЧАНИЮ |
- | 145 | ЗАБЛОКИРОВАНО |
- | 146 | SUPERCOOLING_SUPERFREEZING |
- | 255 | Устройство не в сети |
+| TR:  |1|   OFF|
+| TR:  |2|   STAND_BY|
+| TR:  |3|   PROGRAMMED|
+| TR:  |4|   PROGRAMMED_WAITING_TO_START|
+| TR:  |5|   RUNNING|
+| TR:  |6|   PAUSE|
+| TR:  |7|   END_PROGRAMMED|
+| TR:  |8|   FAILURE|
+| TR:  |9|   PROGRAMME_INTERRUPTED|
+| TR:  |10|  IDLE|
+| TR:  |11|  RINSE_HOLD|
+| TR:  |12|  SERVICE|
+| TR:  |13|  SUPERFREEZING|
+| TR:  |14|  SUPERCOOLING|
+| TR:  |15|  SUPERHEATING|
+| TR:  |144| DEFAULT|
+| TR:  |145| LOCKED|
+| TR:  |146| SUPERCOOLING_SUPERFREEZING|
+| TR:  |255| Device offline|
 
-### ProgramType / Programmart
-| Исходное значение | Государство |
+TR: ### ProgramType/Programmart
+| TR: | Raw value | State|
 |----------|-------|
-| 0 | Нормальный режим работы |
-| 1 | Собственная программа |
-| 2 | Автоматическая программа |
-| 3 | Программа очистки / ухода |
+| TR: |0 | Normal operation mode  |
+| TR: |1 | Own program            |
+| TR: |2 | Automatic program      |
+| TR: |3 | Cleaning-/Care program |
 
-### СушкаStep / Trockenstufe
- | Исходное значение | Государство |
+TR: ### dryingStep/Trockenstufe
+| TR:  | Raw value | State|
  |----------|-------|
- | 0 | Экстра сухой |
- | 1 | Нормальный Плюс |
- | 2 | Нормальный |
- | 3 | Слегка сухая |
- | 4 | Подручный утюг 1-го уровня |
- | 5 | Подручный утюг 2-го уровня |
- | 6 | Машинный утюг |
+| TR:  |0 |   Extra dry|
+| TR:  |1 |   Normal Plus|
+| TR:  |2 |   Normal|
+| TR:  |3 |   Slightly Dry|
+| TR:  |4 |   Hand iron level 1|
+| TR:  |5 |   Hand iron level 2|
+| TR:  |6 |   Machine iron|
 
-### Programmbezeichnung
-| Исходное значение | Государство | доступно для |
+TR: ### Programmbezeichnung
+| TR: | Raw value | State                   | available for   |
 |-----------|-------------------------|-----------------|
-| 1 | «Баумволле» / «Хлопок» | Стиральная машина |
-| 3 | "Pflegeleicht" | Стиральная машина |
-| 4 | "Feinwäsche" | Стиральная машина |
-| 8 | "Волле" | Стиральная машина |
-| 9 | «Сайд» | Стиральная машина |
-| 21 | "Pumpen / Schleudern" | Стиральная машина |
-| 23 | «Оберхемден» | Стиральная машина |
-| 27 | "Imprägnieren" | Стиральная машина |
-| 29 | "Sportwäsche" | Стиральная машина |
-| 31 | «Автомат плюс» | Стиральная машина |
-| 37 | «На открытом воздухе» | Стиральная машина |
-| 48 | "Flusen ausspülen" | Стиральная машина с сушкой |
-| 50 | "Dunkle Wäsche" | Стиральная машина с сушкой |
-| 52 | "Нур Спюлен / Стэркен" | Стиральная машина |
-| 122 | «Экспресс 20» | Стиральная машина с сушкой |
-| 123 | «Дунклз / Джинсы» | Стиральная машина |
+| TR: |         1 | "Baumwolle" / "Cotton"  | Washing Machine |
+| TR: |         3 | "Pflegeleicht"          | Washing Machine |
+| TR: |         4 | "Feinwäsche"            | Washing Machine |
+| TR: |         8 | "Wolle"                 | Washing Machine |
+| TR: |         9 | "Seide"                 | Washing Machine |
+| TR: |        21 | "Pumpen/Schleudern"     | Washing Machine |
+| TR: |        23 | "Oberhemden"            | Washing Machine |
+| TR: |        27 | "Imprägnieren"          | Washing Machine |
+| TR: |        29 | "Sportwäsche"           | Washing Machine |
+| TR: |        31 | "Automatic plus"        | Washing Machine |
+| TR: |        37 | "Outdoor"               | Washing Machine |
+| TR: |        48 | "Flusen ausspülen"      | Washer Dryer    |
+| TR: |        50 | "Dunkle Wäsche"         | Washer Dryer    |
+| TR: |        52 | "Nur Spülen/Stärken"    | Washing Machine |
+| TR: |       122 | "Express 20"            | Washer Dryer    |
+| TR: |       123 | "Dunkles/Jeans"         | Washing Machine |
 
-### ProgramPhase
-| Исходное значение | Государство | доступно для |
+TR: ### ProgramPhase
+| TR: | Raw value | State| available for |
 |----------|-------|---------------|
-| 260 | «Вашен» / «Стирка» | Стиральная машина |
-| 261 | «Spülen» / «Полоскание» | Стиральная машина |
-| 265 | «Помпа» | Стиральная машина |
-| 266 | «Шлейдерн» / «Прядение» | Стиральная машина |
-| 267 | "Knitterschutz" / "" | Стиральная машина |
-| 268 | «Энде» / «Конец» | Большинство устройств |
-| 256 | "Vorbügeln" | Стиральная машина |
-| 514 | «Трокнен» | Стиральная машина с сушкой |
-| 519 | «Абкюлен» | Стиральная машина с сушкой |
-| 532 | "Flusen ausspülen" | Стиральная машина с сушкой |
+| TR: |258 | "Einweichen"           | Washing Machine |
+| TR: |260 | "Waschen" / "Washing"  | Washing Machine |
+| TR: |261 | "Spülen"  / "Rinse"    | Washing Machine |
+| TR: |265 | "Pumpen" | Washing Machine |
+| TR: |266 | "Schleudern" / "Spinning" | Washing Machine |
+| TR: |267 | "Knitterschutz" / "" | Washing Machine |
+| TR: |268 | "Ende" / "End" | Most devices |
+| TR: |256 | "Vorbügeln" | Washing Machine |
+| TR: |514 | "Trocknen" | Washer Dryer |
+| TR: |519 | "Abkühlen" | Washer Dryer |
+| TR: |532 | "Flusen ausspülen" | Washer Dryer |
 
-## Авторские права
-Авторские права (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
+TR: ## Copyright
+TR: Copyright (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+
+### V4.1.0 (2021-05-15) (Carry me over)
+* (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots
+* (Stan23)     New: Added new program phase  soak/Einweichen
+
+### V4.0.22 (2021-05-06) (Twisted mind)
+* (grizzelbee) Fix: [142](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/142) Reintroduced TargetTemp for washing machines
+
+### V4.0.21 (2021-05-03) (The Edge)
+* (grizzelbee) Fix: Fixed accidental function name: createStateSpinAPIStartActionningSpeed
+* (grizzelbee) Fix: Fixed State value to set for "*.PlateStep_1" has to be type "number" but received type "string"
+
+### V4.0.20 (2021-04-30) (Sleepwalkers)
+* (grizzelbee) Fix: [137](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/137) Fixed Read-only state "info.connection" has been written without ack-flag with value "false"
+* (grizzelbee) Fix: [138](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/138) Fixed State value to set for ".Schleuderdrehzahl" has wrong type "string" but has to be "number"
+* (grizzelbee) Fix: [139](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/139) Fixed State value to set for ".ACTIONS.Light" has wrong type "number" but has to be "string" 
+* (grizzelbee) Upd: Changed device group from channel to folder  as documented [here](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md)
+
+### V4.0.19 (2021-04-29) (The scarecrow)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching - 2nd attempt
+* (grizzelbee) Fix: Fixed No-Icon Bug when appliance is unknown
+
+### V4.0.18 (2021-04-28) (Ghostlights)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching 
 
 ### V4.0.17 (2021-04-27) (Ghost in the moon)
 * (grizzelbee) New: Added ioBroker sentry plugin to report issues automatically

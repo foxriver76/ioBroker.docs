@@ -2,122 +2,124 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ebus/README.md
-title: ioBroker.ebus
-hash: 8aotru73N3/+THRhHXAzo4uriEoughYC2hblYdLXlUY=
+title: TR: ioBroker.ebus
+hash: MFk/Bv62pf+xKrCvXgg4OCQhaAz9GoW7WtIQ2vuasA8=
 ---
-![Логотип](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
+![TR: Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
-![Количество установок](http://iobroker.live/badges/ebus-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.ebus.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.ebus.svg)
-![Тесты](https://travis-ci.org/rg-engineering/ioBroker.ebus.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/ebus-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.ebus.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.ebus.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.ebus/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.ebus.png?downloads=true)
 
-# IoBroker.ebus
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: # ioBroker.ebus
+![TR: GitHub Actions](https://github.com/rg-engineering/ioBroker.ebus/workflows/Test%20and%20Release/badge.svg)
 
-** Если вам это нравится, рассмотрите возможность пожертвования: **
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+TR: **If you like it, please consider a donation:**
 
-Этот адаптер читает
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-- данные из ebusd с использованием html
+TR: This adapter reads
 
-В этом случае ebusd должен работать и иметь возможность отправлять данные, например, проводник через http:// IP: порт / данные (http://192.168.0.123:8889/data) Текущая версия ebusd, вкл. файлы конфигурации можно скопировать с https://github.com/john30/ebusd. Все поля с данными, lastup и из глобального раздела анализируются. Все остальные на данный момент игнорируются.
+TR: - data from ebusd using html
 
-Существует возможность опроса данных, которые не опрашиваются напрямую ebusd. Команда read -f используется для принудительного чтения через ebus.
+TR: In this case ebusd must run and must be able to send data to e.g. explorer via http://IP:port/data (http://192.168.0.123:8889/data) Current version of ebusd incl. configuration files can be copied from https://github.com/john30/ebusd All fields with data, lastup and from global section are parsed. All others are ignored at the moment.
 
-Еще одна функция - отправить любую команду в ebusd и получить ответ для работы, например. скрипты.
+TR: There is a possibillity to poll data which are not polled by ebusd directly. Command 'read -f' is used to force reading over ebus.
 
-текущая поддерживаемая версия ebusd: 3.3
+TR: Another feature is to send any command to ebusd and receive answer to work with e.g. scripts.
 
-## Известные вопросы
-* пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.ebus/issues), если вы обнаружите ошибки или захотите новые функции
+TR: current supported ebusd-version: 3.3
 
-## 2.2.5 (21.03.2021)
-* (René) зависимости обновлены
+TR: ## known issues
+TR: * please create issues at [github](https://github.com/rg-engineering/ioBroker.ebus/issues) if you find bugs or whish new features
 
-## 2.2.4 (17.02.2021)
-* (Рене) см. Проблему # 42: Uncaught ReferenceError: oView не определен в виджете, решена
+TR: ## 2.2.5 (2021-03-21)
+TR: * (René) dependencies updated
 
-## 2.2.3 (2020-10-24)
-* (Рене) создать историю DP, если она недоступна
+TR: ## 2.2.4 (2021-02-17)
+TR: * (René) see issue #42: Uncaught ReferenceError: oView is not defined in widget solved
 
-## 2.2.0 (06.09.2020)
-* (Рене) меняйте DP только в случае необходимости, чтобы снизить нагрузку на систему
-* (René) обновить зависимости
+TR: ## 2.2.3 (2020-10-24)
+TR: * (René) create history DP if not available
 
-## 2.1.1 (27.06.2020)
-* (Рене) проблема № 26: исправление ошибки: "cmd not found" - это только сообщение об отладке, а не ошибка
+TR: ## 2.2.0 (2020-09-06)
+TR: * (René) change DP only if necessary to reduce system load
+TR: * (René) update dependencies
 
-## 2.1.0 (17.06.2020)
-* (René) рефакторинг: используется async / await
+TR: ## 2.1.1 (2020-06-27)
+TR: * (René) issue #26: bug fix: "cmd not found" is only debug message instead of error
 
-## 2.0.0 (26.04.2020)
-* (Рене) «просьба» заменена на «изогнутая»
+TR: ## 2.1.0 (2020-06-17)
+TR: * (René) refactoring:  'async/await' used
 
-## 1.0.0 (15.12.2019)
-* (Рене) обновление до моего собственного флота 3.0
+TR: ## 2.0.0 (2020-04-26)
+TR: * (René) "request" replaced by "bent"
 
-## 0.8.2 (10.11.2019)
-* (Рене) еще несколько сообщений об ошибках в точке данных "error"
+TR: ## 1.0.0 (2019-12-15)
+TR: * (René) update to my own flot 3.0
 
-## 0.8.1 (31.10.2019)
-* (René) обновление флота до версии 3.0
+TR: ## 0.8.2 (2019-11-10)
+TR: * (René) some more error messages in datapoint "error"
 
-### 0.8.0 (24.02.2019)
-* (Рене) значение hcmode2 5 = EVU Sperrzeit
+TR: ## 0.8.1 (2019-10-31)
+TR: * (René) update flot to version 3.0
 
-### 0.7.0 (28.01.2019)
-* (Рене) добавить настраиваемый тайм-аут
+TR: ### 0.8.0 (2019-02-24)
+TR: * (René) hcmode2 value 5 = EVU Sperrzeit
 
-### 0.6.0 (06.01.2019)
-* (René) поддержка компактного режима
+TR: ### 0.7.0 (2019-01-28)
+TR: * (René) add adjustable timeout
 
-### 0.5.5 (04.11.2018)
-* (Рене) очистка кода
+TR: ### 0.6.0 (2019-01-06)
+TR: * (René) support of compact mode
 
-### 0.5.4
-* (René) поддержка arduino удалена
+TR: ### 0.5.5 (2018-11-04)
+TR: * (René) code clean up
 
-### 0.5.3
-* (Рене) добавить информацию об ошибке
+TR: ### 0.5.4
+TR: * (René) arduino support removed
 
-### 0.5.2
-* (René) исправление ошибки: в vis 1.x некоторые значения не сохраняются
+TR: ### 0.5.3
+TR: * (René) add error information
 
-### 0.5.1
-* (René) исправление ошибки: если нечего опрашивать, пропустите telnet-соединение
+TR: ### 0.5.2
+TR: * (René) bug fix: in vis 1.x some values are not stored
 
-### 0.5.0
-* (Рене) записывает дату по TCP в ebusd
+TR: ### 0.5.1
+TR: * (René) bug fix: if nothing to poll then skip telnet connection
 
-### 0.4.2
-* (René) исправление ошибки для админки V3
+TR: ### 0.5.0
+TR: * (René) write date over TCP to ebusd
 
-### 0.4.1
-* (René) логотип изменен
+TR: ### 0.4.2
+TR: * (René) bug fix for admin V3
 
-### 0.4.0
-* (Рене) чтение данных из ebusd
+TR: ### 0.4.1
+TR: * (René) logo changed
 
-### 0.3.0
-* (René) поддержка ebusd
-* (René) поддержка admin3
+TR: ### 0.4.0
+TR: * (René) reading data from ebusd
 
-### 0.2.0
-* (Рене) добавить историю как JSON для vis
-* (René) добавить виджет на основе плавающего режима для отображения графика температуры, состояния и мощности
+TR: ### 0.3.0
+TR: * (René) support of ebusd
+TR: * (René) admin3 support
 
-### 0.1.0
-* (René) запланированный адаптер вместо deamon
+TR: ### 0.2.0
+TR: * (René) add history as JSON for vis
+TR: * (René) add flot based widget to display temperatur, status and power graph
 
-### 0.0.3
-* (Рене) Кодировка UTF8
+TR: ### 0.1.0
+TR: * (René) scheduled adapter instead of deamon
 
-### 0.0.2
-* (Рене) первоначальный выпуск
+TR: ### 0.0.3
+TR: * (René) UTF8 coding
+
+TR: ### 0.0.2
+TR: * (René) initial release
 
 ## Changelog
 

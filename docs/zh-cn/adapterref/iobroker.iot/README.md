@@ -2,75 +2,75 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iot/README.md
-title: ioBroker物联网适配器
-hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
+title: TR: ioBroker IoT Adapter
+hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
 ---
-![商标](../../../en/adapterref/iobroker.iot/admin/iot.png)
+![TR: Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
-![安装数量](http://iobroker.live/badges/iot-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.iot.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.iot.svg)
-![NPM](https://nodei.co/npm/iobroker.iot.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/iot-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.iot.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.iot.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.iot.png?downloads=true)
 
-＃ioBroker物联网适配器
-该适配器仅用于与Amazon Alexa，Google Home和Nightscout通信。
-它不是用于远程访问ioBroker实例。为此使用ioBroker.cloud适配器。
+TR: # ioBroker IoT Adapter
+TR: This adapter is ONLY for communication with Amazon Alexa, Google Home and Nightscout.
+It is not for remote access to your ioBroker instance. Use ioBroker.cloud adapter for that.
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-##设置
-要使用云适配器，您应该首先在ioBroker云[https://iobroker.pro](https://iobroker.pro)中注册。
+TR: ## Settings
+TR: To use cloud adapter you should first to register on the ioBroker cloud [TR: https://iobroker.pro](https://iobroker.pro).
 
-[引用Google API类型设置](https://developers.google.com/actions/smarthome/guides/)
+[TR: Reference to google API type settings](https://developers.google.com/actions/smarthome/guides/)
 
-![介绍](../../../en/adapterref/iobroker.iot/img/intro.png)
+![TR: Intro](../../../en/adapterref/iobroker.iot/img/intro.png)
 
-＃＃＃ 语
-如果选择“默认”语言，则不会翻译设备和枚举的智能名称。如果指定了某种语言，则所有已知名称都将翻译成该语言。
-出于演示目的，可以在多种语言之间快速切换。
+TR: ### Language
+TR: If you select "default" language the smart names of devices and of enumerations will not be translated. If some language specified all known names will be translated into this language.
+It is done to switch fast between many languages for demonstration purposes.
 
-###首先将函数放在名称中
-更改自我生成名称中的功能和角色的顺序：
+TR: ### Place function in names first
+TR: Change the order of function and roles in self generated names:
 
--如果为假：“客房功能”，例如“客厅调光器”
--如果为true：“多功能厅”，例如“调光客厅”
+TR: - if false: "Room function", e.g. "Living room dimmer"
+TR: - if true: "Function room", e.g. "Dimmer living room"
 
-###将单词与
-您可以定义将在功能和房间之间放置的单词。例如。在“调光器起居室中”和“调光器起居室”中将是“调光器起居室”。
+TR: ### Concatenate words with
+TR: You can define the word which will be placed between function and room. E.g. "in" and from "Dimmer living room" will be "Dimmer in living room".
 
-但不建议这样做，因为识别引擎必须再分析一个单词，否则可能导致误解。
+TR: But is not suggested doing so, because recognition engine must analyse one more word and it can lead to misunderstandings.
 
-###开关的OFF级别
-某些组由混合设备组成：调光器和开关。允许使用“ ON”和“ OFF”命令以及百分数来控制它们。
-如果命令是`Set to 30%`和`OFF level is 30%`，则开关将打开。通过命令“设置为25％”，所有开关都将关闭。
+TR: ### OFF level for switches
+TR: Some groups consist of mixed devices: dimmers and switches. It is allowed to control them with "ON" and "OFF" commands and with percents.
+If command is `Set to 30%` and the `OFF level is 30%` so the switches will be turned on. By command "Set to 25%" all switches will be turned OFF.
 
-另外，如果命令为“ OFF”，那么如果实际值大于或等于“ 30％”，则适配器将记住当前的调光器级别。
-稍后，当出现新的“ ON”命令时，适配器将调光器不是切换到100％，而是切换到内存中的电平。
+TR: Additionally, if the command is "OFF", so the adapter will remember the current dimmer level if the actual value is over or equal to the "30%".
+Later when the new "ON" command will come the adapter will switch the dimmer not to 100% but to the level in memory.
 
-例子：
+TR: Example:
 
--假设* OFF等级*为30％。
--虚拟设备“ Light”具有两个物理设备：* switch *和* dimmer *。
--命令：“将灯光设置为40％”。适配器将记住* dimmer *的该值，将其设置为“ dimmer”并打开* switch *。
--命令：“关灯”。适配器会将* dimmer *设置为0％，并关闭* switch *。
--命令：“开灯”。 *调光器* => 40％，*开关* =>开。
--命令：“将灯光设置为20％”。 *调光器* => 20％，*开关* => OFF。调光器的值低于* OFF级别*，因此不会记住该值。
--命令：“开灯”。 *调光器* => 40％，*开关* =>开。
+TR: - Assume, that *OFF level* is 30%.
+TR: - Virtual device "Light" has two physical devices: *switch* and *dimmer*.
+TR: - Command: "set the light to 40%". The adapter will remember this value for *dimmer*, will set it for "dimmer" and will turn the *switch* ON.
+TR: - Command: "turn the light off". The adapter will set the *dimmer* to 0% and will turn off the *switch*.
+TR: - Command: "turn on the light". *dimmer* => 40%, *switch* => ON.
+TR: - Command: "set the light to 20%". *dimmer* => 20%, *switch* => OFF. The value for dimmer will not be remembered, because it is bellow *OFF level*.
+TR: - Command: "turn on the light". *dimmer* => 40%, *switch* => ON.
 
-###由ON
-您可以选择将ON命令的行为显示为数字状态。可以选择特定值，或者将使用最后一个非零值。
+TR: ### by ON
+TR: You can select the behaviour of ON command will come for the number state. The specific value can be selected or last non zero value will be used.
 
-###写入回应
-对于每个命令，都会生成文本响应。您可以在此处定义对象ID，此文本必须写入其中。例如。 *sayit.0.tts.text*
+TR: ### Write response to
+TR: For every command the text response will be generated. You can define here the Object ID , where this text must be written to. E.g. *sayit.0.tts.text*.
 
-＃＃＃ 颜色
-到目前为止，只有英语alexa支持颜色控制。
-该通道必须具有以下四个角色的状态：
+TR: ### Colors
+TR: Just now only english alexa supports the color control.
+The channel must have 4 states with following roles:
 
--level.color.saturation（检测通道所需），
--level.color.hue，
--level.dimmer，
--开关（可选）
+TR: - level.color.saturation (required for detection of the channel),
+TR: - level.color.hue,
+TR: - level.dimmer,
+TR: - switch (optional)
 
 ```
 Alexa, set the "device name" to "color"
@@ -79,135 +79,135 @@ Alexa, set the bedroom light to red
 Alexa, change the kitchen to the color chocolate
 ```
 
-＃＃＃ 锁
-为了能够锁定锁，状态必须具有角色“ switch.lock”和“ native.LOCK_VALUE”才能确定锁定状态。如果需要单独的值来控制锁，则可以使用“ native.CONTROL VALUE”。
+TR: ### Lock
+TR: To have the possibility to lock the locks, the state must have the role "switch.lock" and have "native.LOCK_VALUE" to determine the lock state. If you need a seperate Value to control the Lock you can use "native.CONTROL VALUE".
 
 ```
 Alexa, is "lock name" locked/unlocked
 Alexa, lock the "lock name"
 ```
 
-##名称的产生方式
-适配器尝试生成用于智能家居控制的虚拟设备（例如Amazon Alexa或Google Home）。
+TR: ## How names will be generated
+TR: The adapter tries to generate virtual devices for smart home control (e.g. Amazon Alexa or Google Home).
 
-这是两个重要的枚举：房间和功能。
+TR: The are two important enumerations for that: rooms and functions.
 
-房间就像：起居室，浴室，卧室。
-功能如：灯光，百叶窗，暖气。
+TR: Rooms are like: living room, bathroom, sleeping room.
+Functions are like: light, blind, heating.
 
-必须满足以下条件才能在自动生成的列表中获取状态：
+TR: Following conditions must be met to get the state in the automatically generated list:
 
--状态必须处于某些“功能”枚举中。
--如果未直接包含在“功能”中，则状态必须具有角色（“状态”，“开关”或“ level。*”，例如level.dimmer）。
+TR: - the state must be in some "function" enumeration.
+TR: - the state must have role ("state", "switch" or "level.*", e.g. level.dimmer) if not directly included into "functions".
 
-可能是该通道位于“功能”中，但未声明其自身。
+TR: It can be that the channel is in the "functions", but state itself not.
 
--状态必须是可写的：common.write = true
--状态调光器必须具有common.type作为'number'
--状态加热必须具有common.unit为'°C'，'°F'或'°K'，并且common.type为'number'
+TR: - the state must be writable: common.write = true
+TR: - the state dimmer must have common.type as 'number'
+TR: - the state heating must have common.unit as '°C', '°F' or '°K' and common.type as 'number'
 
-如果状态仅在“功能”中而不在任何“房间”中，则将使用状态名称。
+TR: If the state is only in "functions" and not in any "room", the name of state will be used.
 
-状态名称将从功能和房间生成。例如。 “起居室”中的所有“灯”都将收集在虚拟设备“起居室的灯”中。
-用户无法更改此名称，因为它是自动生成的。
-但是，如果枚举名称更改，该名称也将更改。 （例如，“照明”功能更改为“照明”，因此“起居室照明”将更改为“起居室照明*”）
+TR: The state names will be generated from function and room. E.g. all *lights* in the *living room* will be collected in the virtual device *living room light*.
+The user cannot change this name, because it is generated automatically.
+But if the enumeration name changes, this name will be changed too. (e.g. function "light" changed to "lights", so the *living room light* will be changed to *living room lights*)
 
-如果状态具有common.smartName，则将忽略所有规则。在这种情况下，将仅使用智能名称。
+TR: All the rules will be ignored if the state has common.smartName. In this case just the smart name will be used.
 
-如果* common.smartName *为** false **，则状态或枚举将不包含在列表生成中。
+TR: if *common.smartName* is **false**, the state or enumeration will not be included into the list generation.
 
-通过配置对话框，可以轻松删除单个状态并将其添加到虚拟组或作为单个设备。
-![配置](../../../en/adapterref/iobroker.iot/img/configuration.png)
+TR: The configuration dialog lets the comfortable remove and add the single states to virtual groups or as single device.
+![TR: Configuration](../../../en/adapterref/iobroker.iot/img/configuration.png)
 
-如果该组只有一个状态，则可以重命名，因为将使用该状态的smartName。
-如果该组具有多个状态，则必须通过枚举名称重命名该组。
+TR: If the group has only one state it can be renamed, as for this the state's smartName will be used.
+If the group has more than one state, the group must be renamed via the enumeration's names.
 
-要创建自己的组，用户可以安装“场景”适配器或在Javascript适配器中创建“脚本”。
+TR: To create own groups the user can install "scenes" adapter or create "script" in Javascript adapter.
 
-###替换
-您可以指定字符串，可以在设备名称中自动替换它们。例如如果将替换设置为：`.STATE,.LEVEL`，则将从名称中删除所有的“ .STATE”和“ .LEVEL”。注意空格。
-如果将设置`.STATE, .LEVEL`，则将替换“ .STATE”和“ .LEVEL”，而不是“ .LEVEL”。
+TR: ### Replaces
+TR: You can specify strings, that could be automatically replaced in the devices names. E. g. if you set replaces to: `.STATE,.LEVEL`, so all ".STATE" and ".LEVEL" will be deleted from names. Be careful with spaces.
+If you will set `.STATE, .LEVEL`, so ".STATE" and " .LEVEL" will be replaced and not ".LEVEL".
 
-##助手状态
--** smart.lastObjectID **：如果只有一项设备由家庭技巧（alexa，google home）控制，则将设置此状态。
--** smart.lastFunction **：最后执行命令的功能名称（如果存在）。
--** smart.lastRoom **：执行上一个命令的房间名称（如果存在）。
--** smart.lastCommand **：最后执行的命令。命令可以是：true（ON），false（OFF），number（％），-X（在x处减小），+ X（在X处增大）
--** smart.lastResponse **：对命令的文本响应。可以将其发送到某些text2speech（sayit）引擎。
+TR: ## Helper states
+TR: - **smart.lastObjectID**: This state will be set if only one device was controlled by home skill (alexa, google home).
+TR: - **smart.lastFunction**: Function name (if exists) for which last command was executed.
+TR: - **smart.lastRoom**:     Room name (if exists) for which last command was executed.
+TR: - **smart.lastCommand**:  Last executed command. Command can be: true(ON), false(OFF), number(%), -X(decrease at x), +X(increase at X)
+TR: - **smart.lastResponse**: Textual response on command. It can be sent to some text2speech (sayit) engine.
 
-## IFTTT
-[指示](doc/ifttt.md)
+TR: ## IFTTT
+[TR: instructions](doc/ifttt.md)
 
-＃＃ 服务
-可以将消息发送到云适配器。
-如果您将`[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`und值称为有效负载。
+TR: ## Services
+TR: There is a possibility to send messages to cloud adapter.
+If you call `[POST]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>` und value as payload.
 
-`curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
+TR: `curl --data "myString" https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>`
 
-或者
+TR: or
 
-`[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
+TR: `[GET]https://service.iobroker.in/v1/iotService?service=custom_<NAME>&key=<XXX>&user=<USER_EMAIL>&data=myString`
 
-如果您在设置中将“服务白名单”字段设置为名称* custom_test *，并使用“ custom_test”作为服务名称进行调用，则状态** cloud.0.services.custom_test **将设置为* myString *。
+TR: If you set in the settings the field "White list for services" the name *custom_test*, and call with "custom_test" as the service name, the state **cloud.0.services.custom_test** will be set to *myString*.
 
-您可以在白名单中写上“ *”，然后将允许所有服务。
+TR: You may write "*" in white list and all services will be allowed.
 
-在这里，您可以找到有关如何与[任务者](doc/tasker.md)一起使用的说明。
+TR: Here you can find instructions how to use it with [TR: tasker](doc/tasker.md).
 
-仅当设置了IFTTT密钥时，才允许使用IFTTT服务。
+TR: IFTTT service is allowed only if IFTTT key is set.
 
-保留名称为`ifttt`，`text2command`§，`simpleApi`，`swagger`。必须在没有`custom_`前缀的情况下使用它们。
+TR: Reserved names are `ifttt`, `text2command`, `simpleApi`, `swagger`. These must be used without the `custom_` prefix.
 
-###`text2command`
-您可以在白名单中写入“ text2command”，可以将POST请求发送到`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>`以将数据写入* text2command.X.text *变量。
+TR: ### `text2command`
+TR: You may write "text2command" in white list, you can send POST request to `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>` to write data into *text2command.X.text* variable.
 
-您也可以使用GET方法`https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
+TR: You can use GET method too `https://service.iobroker.in/v1/iotService?service=text2command&key=<user-app-key>&user=<USER_EMAIL>&data=<MY COMMAND>`
 
-可以通过“使用text2command实例”选项在设置中定义`X`。
+TR: `X` can be defined in settings by the "Use text2command instance" option.
 
-##自定义技能
-定制技能的答案可以通过两种方式处理：
+TR: ## Custom skill
+TR: The answers for custom skill can be processed in two ways:
 
--`text2command`
--`javascript`
+TR: - `text2command`
+TR: - `javascript`
 
-###`text2command`
-如果在配置对话框中定义了`text2command`实例，则问题将发送到该实例。
+TR: ### `text2command`
+TR: if `text2command` instance is defined in the configuration dialog, so the question will be sent to the instance.
 
-必须配置`text2command`，以便解析期望的短语并给出答案。
+TR: `text2command` must be configured that the expected phrase will be parsed and the answer will be given back.
 
-###`Javascript`
-有可能直接使用脚本处理问题。如果未选择* text2command *实例，则默认情况下将其激活。
+TR: ### `Javascript`
+TR: There is a possibility to process the question directly with script. It is activated by default if no *text2command* instance is selected.
 
-如果定义了`text2command`实例，则此实例必须提供答案，并且来自* script *的答案将被忽略。
+TR: If `text2command` instance is defined, so this instance must provide the answer and the answer from *script* will be ignored.
 
-适配器将在两种状态下提供具有不同详细信息级别的详细信息
+TR: The adapter will provide the details in two states with different detail level
 
-* **smart.lastCommand** 含收到的文本，包括有关查询类型（意图）的信息。示例：“ askDevice StatusRasenmäher”
-* ** smart.lastCommandObj ***包含一个JSON字符串，可以将其解析为包含以下信息的对象
-  * **单词**将接收到的单词包含在数组中
-  * **意图**包含查询的类型。当前可能的值是“ askDevice”，“ controlDevice”，“ actionStart”，“ actionEnd”，“ askWhen”，“ askWhere”，“ askWho”
- * **deviceId** 含一个设备ID，用于标识由Amazon交付的请求发送到的设备，如果未提供，则为空字符串
- * **sessionId** 含Skill会话的sessionId，如果亚马逊说了多个命令，则应该相同，如果未提供，则为空字符串
- * **userId** 含由设备所有者（或后来与该技能进行交互的用户）来自亚马逊的用户ID，如果未提供，则为空字符串
+TR: * **smart.lastCommand** contains the received text including an info on type of query (intent). Example: "askDevice Status Rasenmäher"
+TR: * **smart.lastCommandObj*** contains an JSON string that can be parsed to an object containing the following information
+TR:   * **words** contains the received words in an array
+TR:   * **intent** contains the type of query. Possible values currently are "askDevice", "controlDevice", "actionStart", "actionEnd", "askWhen", "askWhere", "askWho"
+TR:   * **deviceId** contains a deviceId identifying the device the request was sent to, delivered by Amazon, will be empty string if not provided
+TR:   * **sessionId** contains a sessionId of the Skill session, should be the same if multiple commands were spoken, delivered by Amazon, will be empty string if not provided
+TR:   * **userId** contains a userId from the device owner (or maybe later the user that was interacting with the skill), delivered by Amazon, will be empty string if not provided
 
- 有关如何检测单词以及Alexa自定义技能区分哪些类型的查询的更多详细信息，请检查https://forum.iobroker.net/viewtopic.php?f=37&t=17452。
+TR:  More details on how the words are detected and what type of queries the Alexa Custom Skill differentiates please check https://forum.iobroker.net/viewtopic.php?f=37&t=17452 .
 
-**通过smart.lastResponse状态返回结果**
+TR: **Return result via smart.lastResponse state**
 
-响应需要在200毫秒内以“ smart.lastResponse”状态发送，并且可以是简单的文本字符串或JSON对象。
-如果是文本字符串，则将发送此文本作为对技能的响应。
-如果文本是JSON对象，则可以使用以下键：
+TR: The response needs to be sent within 200ms in the state "smart.lastResponse" and can be a simple text string or a JSON object.
+If it is a text string then this text will be sent as response to the skill.
+if the text is a JSON object then the following keys can be used:
 
-* **responseText** 要包含要返回亚马逊的文本
-*** shouldEndSession **是一个布尔值，用于控制在说出响应后会话是否将关闭或保持打开状态以接受其他语音输入。
+TR: * **responseText** needs to contain the text to return to Amazon
+TR: * **shouldEndSession** is a boolean and controls if the session will be closed after the response was spoken or stays open to accept another voice input.
 
-**通过消息将结果返回到物联网实例**
+TR: **Return result via the message to iot instance**
 
-物联网实例还接受名称为“ alexaCustomResponse”的消息，其中包含键“ response”，并且对象可以包含键** responseText **和** shouldEndSession **，如上所述。
-物联网实例将不会对消息做出任何响应！
+TR: The iot instance also accepts a message with the name "alexaCustomResponse" containing the key "response" with an object that can contain the keys **responseText** and **shouldEndSession** as described above.
+There will be no response from the iot instance to the message!
 
-**使用文字的脚本示例**
+TR: **Example of a script that uses texts**
 
 ```
 // important, that ack=true
@@ -217,7 +217,7 @@ on({id: 'iot.0.smart.lastCommand', ack: true, change: 'any'}, obj => {
 });
 ```
 
-**使用JSON对象的脚本示例**
+TR: **Example of a script that uses JSON objects**
 
 ```
 // important, that ack=true
@@ -237,10 +237,10 @@ on({id: 'iot.0.smart.lastCommandObj', ack: true, change: 'any'}, obj => {
 });
 ```
 
-###私有云
-如果您使用私人技能/动作/方法与`Alexa/Google Home/Алиса`进行通信，则可以使用IoT实例来处理来自它的请求。
+TR: ### Private cloud
+TR: If you use private skill/action/навык for communication with `Alexa/Google Home/Алиса` so you have the possibility to use IoT instance to process the requests from it.
 
-例如。对于`yandex alice`：
+TR: E.g. for `yandex alice`:
 
 ```
 const OBJECT_FROM_ALISA_SERVICE = {}; // object from alisa service or empty object
@@ -251,21 +251,27 @@ sendTo('iot.0', 'private', {type: 'alisa', request: OBJECT_FROM_ALISA_SERVICE}, 
 });
 ```
 
-支持以下类型：
+TR: Following types are supported:
 
--`alexa`-使用Amazon Alexa或Amazon Custom Skill进行操作
--`ghome`-通过Google Home与Google Actions互动
--`alisa`-与YandexАлиса代理
--`ifttt`-类似于IFTTT（实际上不是必需的，但出于测试目的）
+TR: - `alexa` - acting with Amazon Alexa or Amazon Custom Skill
+TR: - `ghome` - acting with Google Actions via Google Home
+TR: - `alisa` - acting with Yandex Алиса
+TR: - `ifttt` - acting like IFTTT (actually not required, but for tests purposes)
 
-## YandexАлиса
-[指示](doc/alisa.md)
+TR: ## Yandex Алиса
+[TR: instructions](doc/alisa.md)
 
-<！-下一个版本的占位符（在该行的开头）：
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __正在进行的工程__->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (foxriver76) we now write data received from custom services with acknowledge flag
+
+### 1.8.19 (2021-05-14)
+* (bluefox) Only added one debug output
+
 ### 1.8.16 (2021-03-13)
 * (bluefox) fixed the blind functionality in alisa
 

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.deconz/README.md
 title: TR: no title
-hash: saW+/pIe9u/UUKrgG+mLiPePkgK0e2tqxOM/kdSAsyM=
+hash: 4Q95qlMPJ1GRwW4YORp1JEHRxM0wDdpigsWkH6r7kNY=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.deconz/admin/deconz.png)
 

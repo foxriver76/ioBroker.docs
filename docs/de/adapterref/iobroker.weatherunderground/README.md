@@ -2,79 +2,87 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.weatherunderground/README.md
-title: ioBroker.weatherunderground
-hash: KQBKAuXaHZmK2XRbNAt/ff0+mkMYDLf0Ao3vFnFby04=
+title: TR: ioBroker.weatherunderground
+hash: tzGdNig2Zr1fpKhzP9WLQqNVGjUWPlk3j/vm+9/NodI=
 ---
-![Logo](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
+![TR: Logo](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/weatherunderground-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
-![NPM](https://nodei.co/npm/iobroker.weatherunderground.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/weatherunderground-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
 
-# IoBroker.weatherunderground
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+TR: # ioBroker.weatherunderground
+TR: ![TR: Test and Release](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-ioBroker Adapter zum Laden der 24-Stunden-Wettervorhersage für Ihren Standort aus [Das Wetter unter der Erde](http://www.wunderground.com/).
-Der Adapter lädt alle täglichen und stündlichen 15-Minuten-Prognosedaten (Standard).
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Anmerkungen
-Sie können diesen Adapter verwenden, um einen offiziellen API-Schlüssel für "PWS-Eigentümer" bereitzustellen, oder den API-Schlüssel leer lassen, um aus der WU-Webseite extrahierte Schlüssel zu verwenden.
+TR: ioBroker Adapter to load 24h weather forecast for your location from [TR: Weather Underground](http://www.wunderground.com/).
+The adapter loads all 15min (default) daily and hourly forecast data.
 
-## Icon Sets
-Bei Verwendung der "Legacy-API" sind verschiedene Symbolsätze verfügbar (siehe unten). Für den Benutzer mit der neuen API haben sich die Bildnamen geändert (siehe https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit) und können nun z. https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ und kann als benutzerdefinierter Satz verwendet werden (siehe unten).
+TR: ## Notes
+TR: You can use this adapter with providing an official "PWS owner" API-key or leave API key empty to use keys extracted out of the WU webpage.
 
-Ändern Sie in den Adaptereinstellungen "Benutzerdefinierte Symbol-Basis-URL" in eines der verfügbaren Symbolsätze auf Weatherunderground: (Quelle: https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets )
+TR: ## Icon Sets
+TR: There are some different Icon Sets available when using "Legacy API", see below. For the usabe with the new API the image names have changed (see https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit) and are now number based ... they can be downloaded from e.g. https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ and could be used as custom set (see below).
 
-| Icon Set | URL | Beispiel |
+TR: In Adapter settings change "Custom Icon-Base-URL" to one of the available Icon Set on Weatherunderground: (source: https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets )
+
+| TR: |    Icon Set   |     		URL	 	   |       Example	 	|
 | ------------- | -------------------------------- | --------------------- 	|
-| 1 | https://icons.wxug.com/i/c/a/ | ![Alt-Text](https://icons.wxug.com/i/c/a/partlycloudy.gif) |
-| 3 | https://icons.wxug.com/i/c/c/ | ![Alt-Text](https://icons.wxug.com/i/c/c/partlycloudy.gif) |
-| 4 | https://icons.wxug.com/i/c/d/ | ![Alt-Text](https://icons.wxug.com/i/c/d/partlycloudy.gif) |
-| 5 | https://icons.wxug.com/i/c/e/ | ![Alt-Text](https://icons.wxug.com/i/c/e/partlycloudy.gif) |
-| 6 | https://icons.wxug.com/i/c/f/ | ![Alt-Text](https://icons.wxug.com/i/c/f/partlycloudy.gif) |
-| 7 | https://icons.wxug.com/i/c/g/ | ![Alt-Text](https://icons.wxug.com/i/c/g/partlycloudy.gif) |
-| 8 | https://icons.wxug.com/i/c/h/ | ![Alt-Text](https://icons.wxug.com/i/c/h/partlycloudy.gif) |
-| 9 | https://icons.wxug.com/i/c/i/ | ![Alt-Text](https://icons.wxug.com/i/c/i/partlycloudy.gif) |
-| 10 | https://icons.wxug.com/i/c/j/ | ![Alt-Text](https://icons.wxug.com/i/c/j/partlycloudy.gif) |
-| 11 | https://icons.wxug.com/i/c/k/ | ![Alt-Text](https://icons.wxug.com/i/c/k/partlycloudy.gif) |
-| 11 | https://icons.wxug.com/i/c/k/ | ! [Alternativtext] (https://icons.wxug.com/i/c/k/partlycloudy.gif) |
+| TR: |	1	|  https://icons.wxug.com/i/c/a/   |		![TR: alt text](https://icons.wxug.com/i/c/a/partlycloudy.gif) 	|
+| TR: |	3	|  https://icons.wxug.com/i/c/c/   |		![TR: alt text](https://icons.wxug.com/i/c/c/partlycloudy.gif)	|
+| TR: |	4	|  https://icons.wxug.com/i/c/d/   |		![TR: alt text](https://icons.wxug.com/i/c/d/partlycloudy.gif)	|
+| TR: |	5	|  https://icons.wxug.com/i/c/e/   |		![TR: alt text](https://icons.wxug.com/i/c/e/partlycloudy.gif)	|
+| TR: |	6	|  https://icons.wxug.com/i/c/f/   |		![TR: alt text](https://icons.wxug.com/i/c/f/partlycloudy.gif)	|
+| TR: |	7	|  https://icons.wxug.com/i/c/g/   |		![TR: alt text](https://icons.wxug.com/i/c/g/partlycloudy.gif)	|
+| TR: |	8	|  https://icons.wxug.com/i/c/h/   |		![TR: alt text](https://icons.wxug.com/i/c/h/partlycloudy.gif)	|
+| TR: |	9	|  https://icons.wxug.com/i/c/i/   |		![TR: alt text](https://icons.wxug.com/i/c/i/partlycloudy.gif)	|
+| TR: |	10	|  https://icons.wxug.com/i/c/j/   |		![TR: alt text](https://icons.wxug.com/i/c/j/partlycloudy.gif)	|
+| TR: |	11	|  https://icons.wxug.com/i/c/k/   |		![TR: alt text](https://icons.wxug.com/i/c/k/partlycloudy.gif)	|
+| TR: |	11	|  https://icons.wxug.com/i/c/k/   |		![alt text](https://icons.wxug.com/i/c/k/partlycloudy.gif)	|
 
-Oder Sie können auch Ihre eigenen "benutzerdefinierten" Symbole verwenden. Zu diesem Zweck müssen die folgenden GIF-Dateien in einem Basis-URL-Verzeichnis bereitgestellt werden:
+TR: Or you can aso use your own "custom" icons, for this purpose the following gif-files must be provided within an Base-URL directory  :
 
-| Symbol für Tag | Ikone für die Nacht |
+| TR: |	Icon for Day		|	Icon for night		|
 | -----------------------------	| ----------------------------- |
-| Chanceflurries.gif | nt_chanceflurries.gif |
-| chancerain.gif | nt_chancerain.gif |
-| chancenleet.gif | nt_chancesleet.gif |
-| chancenleet.gif | nt_chancesleet.gif |
-| Chancennow.gif | nt_chancesnow.gif |
-| chancetstorms.gif | nt_chancetstorms.gif |
-| chancetstorms.gif | nt_chancetstorms.gif |
-| clear.gif | nt_clear.gif |
-| cloudy.gif | nt_cloudy.gif |
-| flurries.gif | nt_flurries.gif |
-| fog.gif | nt_fog.gif |
-| hazy.gif | nt_hazy.gif |
-| meistenscloudy.gif | nt_mostlycloudy.gif |
-| mostsunny.gif | nt_mostlysunny.gif |
-| teilweisecloudy.gif | nt_partlycloudy.gif |
-| teilweise sunny.gif | nt_partlysunny.gif |
-| sleet.gif | nt_sleet.gif |
-| rain.gif | nt_rain.gif |
-| sleet.gif | nt_sleet.gif |
-| teilweisecloudy.gif | nt_partlycloudy.gif |
-| sunny.gif | nt_sunny.gif |
-| tstorms.gif | nt_tstorms.gif |
-| cloudy.gif | nt_cloudy.gif |
+| TR: |	chanceflurries.gif	|	nt_chanceflurries.gif	|
+| TR: |	chancerain.gif		|	nt_chancerain.gif	|
+| TR: |	chancesleet.gif		|	nt_chancesleet.gif	|
+| TR: |	chancesleet.gif		|	nt_chancesleet.gif	|
+| TR: |	chancesnow.gif		|	nt_chancesnow.gif	|
+| TR: |	chancetstorms.gif	|	nt_chancetstorms.gif	|
+| TR: |	chancetstorms.gif	|	nt_chancetstorms.gif	|
+| TR: |	clear.gif		|	nt_clear.gif		|
+| TR: |	cloudy.gif		|	nt_cloudy.gif		|
+| TR: |	flurries.gif		|	nt_flurries.gif		|
+| TR: |	fog.gif			|	nt_fog.gif		|
+| TR: |	hazy.gif		|	nt_hazy.gif		|
+| TR: |	mostlycloudy.gif	|	nt_mostlycloudy.gif	|
+| TR: |	mostlysunny.gif		|	nt_mostlysunny.gif	|
+| TR: |	partlycloudy.gif	|	nt_partlycloudy.gif	|
+| TR: |	partlysunny.gif		|	nt_partlysunny.gif	|
+| TR: |	sleet.gif		|	nt_sleet.gif		|
+| TR: |	rain.gif		|	nt_rain.gif		|
+| TR: |	sleet.gif		|	nt_sleet.gif		|
+| TR: |	partlycloudy.gif	|	nt_partlycloudy.gif	|
+| TR: |	sunny.gif		|	nt_sunny.gif		|
+| TR: |	tstorms.gif		|	nt_tstorms.gif		|
+| TR: |	cloudy.gif 		|	nt_cloudy.gif 		|
 
-## Im ioBroker Forum
-http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef89fcad1c3
+TR: ## in ioBroker Forum (German)
+TR: http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef89fcad1c3
 
-## Machen
-Es gibt immer noch ein Problem mit der Codierung. Die Adressen mit "äüöß" werden falsch angezeigt.
+TR: ## ToDo
+TR: There is a still a problem with encoding. The addresses with "äüöß" will be shown wrong.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize for js-controller 3.3
+
+### 3.3.0 (2021-01-22)
+* (Apollon77) Optimize for js-controller 3.2
+* (Apollon77) js-controller 2.0 is now required at least
 
 ### 3.2.5 (2020-12-27)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-WEATHERUNDERGROUND-1, IOBROKER-WEATHERUNDERGROUND-2)
@@ -213,7 +221,7 @@ initial release with all basics to load WU-forecast data
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2021 dschaedl <daniel.schaedler@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

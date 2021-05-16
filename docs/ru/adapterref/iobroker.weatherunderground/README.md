@@ -2,79 +2,87 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.weatherunderground/README.md
-title: ioBroker.weatherunderground
-hash: KQBKAuXaHZmK2XRbNAt/ff0+mkMYDLf0Ao3vFnFby04=
+title: TR: ioBroker.weatherunderground
+hash: tzGdNig2Zr1fpKhzP9WLQqNVGjUWPlk3j/vm+9/NodI=
 ---
-![Логотип](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
+![TR: Logo](../../../en/adapterref/iobroker.weatherunderground/admin/wu.png)
 
-![Количество установок](http://iobroker.live/badges/weatherunderground-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
-![НПМ](https://nodei.co/npm/iobroker.weatherunderground.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/weatherunderground-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.weatherunderground.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.weatherunderground.svg)
 
-# IoBroker.weatherunderground
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: # ioBroker.weatherunderground
+TR: ![TR: Test and Release](https://github.com/iobroker-community-adapters/iobroker.weatherunderground/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/weatherunderground/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-ioBroker Адаптер для загрузки суточного прогноза погоды для вашего местоположения из [Weather Underground](http://www.wunderground.com/).
-Адаптер загружает все 15-минутные (по умолчанию) ежедневные и ежечасные данные прогноза.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Ноты
-Вы можете использовать этот адаптер с предоставлением официального API-ключа «владельца PWS» или оставить API-ключ пустым, чтобы использовать ключи, извлеченные с веб-страницы WU.
+TR: ioBroker Adapter to load 24h weather forecast for your location from [TR: Weather Underground](http://www.wunderground.com/).
+The adapter loads all 15min (default) daily and hourly forecast data.
 
-## Наборы значков
-При использовании «Legacy API» доступны несколько различных наборов значков, см. Ниже. Для использования с новым API имена изображений были изменены (см. Https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit) и теперь основаны на числах ... их можно загрузить, например, с https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ и может использоваться как настраиваемый набор (см. ниже).
+TR: ## Notes
+TR: You can use this adapter with providing an official "PWS owner" API-key or leave API key empty to use keys extracted out of the WU webpage.
 
-В настройках адаптера измените «Custom Icon-Base-URL» на один из доступных наборов значков в Weatherunderground: (источник: https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets )
+TR: ## Icon Sets
+TR: There are some different Icon Sets available when using "Legacy API", see below. For the usabe with the new API the image names have changed (see https://docs.google.com/document/d/1dNCf6nF6cjm4oOxQxjtqNuAvG_iEe5f9MQH1xlCeV4s/edit) and are now number based ... they can be downloaded from e.g. https://drive.google.com/drive/folders/0B6fWQWXuE09OOWtBOXJNX190TDQ and could be used as custom set (see below).
 
-| Набор иконок | URL | Пример |
+TR: In Adapter settings change "Custom Icon-Base-URL" to one of the available Icon Set on Weatherunderground: (source: https://www.wunderground.com/weather/api/d/docs?d=resources/icon-sets )
+
+| TR: |    Icon Set   |     		URL	 	   |       Example	 	|
 | ------------- | -------------------------------- | --------------------- 	|
-| 1 | https://icons.wxug.com/i/c/a/ | ![альтернативный текст](https://icons.wxug.com/i/c/a/partlycloudy.gif) |
-| 3 | https://icons.wxug.com/i/c/c/ | ![альтернативный текст](https://icons.wxug.com/i/c/c/partlycloudy.gif) |
-| 4 | https://icons.wxug.com/i/c/d/ | ![альтернативный текст](https://icons.wxug.com/i/c/d/partlycloudy.gif) |
-| 5 | https://icons.wxug.com/i/c/e/ | ![альтернативный текст](https://icons.wxug.com/i/c/e/partlycloudy.gif) |
-| 6 | https://icons.wxug.com/i/c/f/ | ![альтернативный текст](https://icons.wxug.com/i/c/f/partlycloudy.gif) |
-| 7 | https://icons.wxug.com/i/c/g/ | ![альтернативный текст](https://icons.wxug.com/i/c/g/partlycloudy.gif) |
-| 8 | https://icons.wxug.com/i/c/h/ | ![альтернативный текст](https://icons.wxug.com/i/c/h/partlycloudy.gif) |
-| 9 | https://icons.wxug.com/i/c/i/ | ![альтернативный текст](https://icons.wxug.com/i/c/i/partlycloudy.gif) |
-| 10 | https://icons.wxug.com/i/c/j/ | ![альтернативный текст](https://icons.wxug.com/i/c/j/partlycloudy.gif) |
-| 11 | https://icons.wxug.com/i/c/k/ | ![альтернативный текст](https://icons.wxug.com/i/c/k/partlycloudy.gif) |
-| 11 | https://icons.wxug.com/i/c/k/ | ! [альтернативный текст] (https://icons.wxug.com/i/c/k/partlycloudy.gif) |
+| TR: |	1	|  https://icons.wxug.com/i/c/a/   |		![TR: alt text](https://icons.wxug.com/i/c/a/partlycloudy.gif) 	|
+| TR: |	3	|  https://icons.wxug.com/i/c/c/   |		![TR: alt text](https://icons.wxug.com/i/c/c/partlycloudy.gif)	|
+| TR: |	4	|  https://icons.wxug.com/i/c/d/   |		![TR: alt text](https://icons.wxug.com/i/c/d/partlycloudy.gif)	|
+| TR: |	5	|  https://icons.wxug.com/i/c/e/   |		![TR: alt text](https://icons.wxug.com/i/c/e/partlycloudy.gif)	|
+| TR: |	6	|  https://icons.wxug.com/i/c/f/   |		![TR: alt text](https://icons.wxug.com/i/c/f/partlycloudy.gif)	|
+| TR: |	7	|  https://icons.wxug.com/i/c/g/   |		![TR: alt text](https://icons.wxug.com/i/c/g/partlycloudy.gif)	|
+| TR: |	8	|  https://icons.wxug.com/i/c/h/   |		![TR: alt text](https://icons.wxug.com/i/c/h/partlycloudy.gif)	|
+| TR: |	9	|  https://icons.wxug.com/i/c/i/   |		![TR: alt text](https://icons.wxug.com/i/c/i/partlycloudy.gif)	|
+| TR: |	10	|  https://icons.wxug.com/i/c/j/   |		![TR: alt text](https://icons.wxug.com/i/c/j/partlycloudy.gif)	|
+| TR: |	11	|  https://icons.wxug.com/i/c/k/   |		![TR: alt text](https://icons.wxug.com/i/c/k/partlycloudy.gif)	|
+| TR: |	11	|  https://icons.wxug.com/i/c/k/   |		![alt text](https://icons.wxug.com/i/c/k/partlycloudy.gif)	|
 
-Или вы также можете использовать свои собственные "пользовательские" значки, для этого в каталоге Base-URL должны быть предоставлены следующие файлы gif:
+TR: Or you can aso use your own "custom" icons, for this purpose the following gif-files must be provided within an Base-URL directory  :
 
-| Значок на день | Икона на ночь |
+| TR: |	Icon for Day		|	Icon for night		|
 | -----------------------------	| ----------------------------- |
-| Chanceflurries.gif | nt_chanceflurries.gif |
-| Chancerain.gif | nt_chancerain.gif |
-| Chancesleet.gif | nt_chancesleet.gif |
-| Chancesleet.gif | nt_chancesleet.gif |
-| Chancesnow.gif | nt_chancesnow.gif |
-| Chancetstorms.gif | nt_chancetstorms.gif |
-| Chancetstorms.gif | nt_chancetstorms.gif |
-| clear.gif | nt_clear.gif |
-| cloudy.gif | nt_cloudy.gif |
-| flurries.gif | nt_flurries.gif |
-| fog.gif | nt_fog.gif |
-| hazy.gif | nt_hazy.gif |
-| mostcloudy.gif | nt_mostlycloudy.gif |
-| mostsunny.gif | nt_mostlysunny.gif |
-| partlycloudy.gif | nt_partlycloudy.gif |
-| partlysunny.gif | nt_partlysunny.gif |
-| sleet.gif | nt_sleet.gif |
-| rain.gif | nt_rain.gif |
-| sleet.gif | nt_sleet.gif |
-| partlycloudy.gif | nt_partlycloudy.gif |
-| sunny.gif | nt_sunny.gif |
-| tstorms.gif | nt_tstorms.gif |
-| cloudy.gif | nt_cloudy.gif |
+| TR: |	chanceflurries.gif	|	nt_chanceflurries.gif	|
+| TR: |	chancerain.gif		|	nt_chancerain.gif	|
+| TR: |	chancesleet.gif		|	nt_chancesleet.gif	|
+| TR: |	chancesleet.gif		|	nt_chancesleet.gif	|
+| TR: |	chancesnow.gif		|	nt_chancesnow.gif	|
+| TR: |	chancetstorms.gif	|	nt_chancetstorms.gif	|
+| TR: |	chancetstorms.gif	|	nt_chancetstorms.gif	|
+| TR: |	clear.gif		|	nt_clear.gif		|
+| TR: |	cloudy.gif		|	nt_cloudy.gif		|
+| TR: |	flurries.gif		|	nt_flurries.gif		|
+| TR: |	fog.gif			|	nt_fog.gif		|
+| TR: |	hazy.gif		|	nt_hazy.gif		|
+| TR: |	mostlycloudy.gif	|	nt_mostlycloudy.gif	|
+| TR: |	mostlysunny.gif		|	nt_mostlysunny.gif	|
+| TR: |	partlycloudy.gif	|	nt_partlycloudy.gif	|
+| TR: |	partlysunny.gif		|	nt_partlysunny.gif	|
+| TR: |	sleet.gif		|	nt_sleet.gif		|
+| TR: |	rain.gif		|	nt_rain.gif		|
+| TR: |	sleet.gif		|	nt_sleet.gif		|
+| TR: |	partlycloudy.gif	|	nt_partlycloudy.gif	|
+| TR: |	sunny.gif		|	nt_sunny.gif		|
+| TR: |	tstorms.gif		|	nt_tstorms.gif		|
+| TR: |	cloudy.gif 		|	nt_cloudy.gif 		|
 
-## В форуме ioBroker (немецкий)
-http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef89fcad1c3
+TR: ## in ioBroker Forum (German)
+TR: http://forum.iobroker.org/viewtopic.php?f=20&t=2042&sid=a863d19838bc49439759bef89fcad1c3
 
-## Делать
-Проблема с кодировкой не устранена. Адреса с "äüöß" будут отображаться неправильно.
+TR: ## ToDo
+TR: There is a still a problem with encoding. The addresses with "äüöß" will be shown wrong.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Optimize for js-controller 3.3
+
+### 3.3.0 (2021-01-22)
+* (Apollon77) Optimize for js-controller 3.2
+* (Apollon77) js-controller 2.0 is now required at least
 
 ### 3.2.5 (2020-12-27)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-WEATHERUNDERGROUND-1, IOBROKER-WEATHERUNDERGROUND-2)
@@ -213,7 +221,7 @@ initial release with all basics to load WU-forecast data
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020 dschaedl <daniel.schaedler@gmail.com>
+Copyright (c) 2015-2021 dschaedl <daniel.schaedler@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

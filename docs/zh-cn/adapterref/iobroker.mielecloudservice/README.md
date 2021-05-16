@@ -2,182 +2,207 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mielecloudservice/README.md
-title: ioBroker.MieleCloudService
-hash: TVWPynVxQGOLdsNkmmd5Cj1LxQC+xmZzN/NcAKQqdPE=
+title: TR: ioBroker.MieleCloudService
+hash: kkSktIrdhuN2rLvgkbAYfJcBEo8WMtlHoRqWRIw9uW0=
 ---
-![商标](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
+![TR: Logo](../../../en/adapterref/iobroker.mielecloudservice/admin/mielecloudservice.svg)
 
-![安装数量](http://iobroker.live/badges/mielecloudservice-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
-![已知漏洞](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
-![NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
-![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![资料下载](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
+![TR: Number of Installations](http://iobroker.live/badges/mielecloudservice-stable.svg)
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.mielecloudservice.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/Grizzelbee/ioBroker.mielecloudservice/badge.svg?targetFile=package.json)
+![TR: NPM](https://nodei.co/npm/iobroker.mielecloudservice.png?downloads=true)
+![TR: License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.mielecloudservice.svg)
 
-＃ioBroker.MieleCloudService [![构建状态]（https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master）](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
-＃＃ 描述
-该适配器用于从官方Miele 3rd-party API检索有关所有Miele @ Home设备的信息。
-无论它们是否通过Wi-Fi或XGW3000网关直接连接。它实现了** Miele 3rd Party API V1.0.4 **
+TR: # ioBroker.MieleCloudService [![TR: Build Status](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice.svg?branch=master)](https://travis-ci.com/Grizzelbee/ioBroker.mielecloudservice)
+TR: ## Description
+TR: This adapter is for retrieving information about all your Miele@Home devices from the official Miele 3rd-party API.
+Regardless if they are connected directly via Wi-Fi or XGW3000 Gateway. It implements the **Miele 3rd Party API V1.0.4**
 
-## Sentry.io
-该适配器使用sentry.io收集有关崩溃的详细信息，并自动将其报告给作者。使用[ioBroker.trytry](https://github.com/ioBroker/plugin-sentry)插件。如果您不希望支持作者，那么请参阅[插件首页](https://github.com/ioBroker/plugin-sentry)有关该插件的功能，收集的信息以及如何禁用它的详细信息，有关崩溃的信息。
+TR: ## sentry.io
+TR: This adapter uses sentry.io to collect details on crashes and report it automated to the author. The [TR: ioBroker.sentry](https://github.com/ioBroker/plugin-sentry) plugin is used for it. Please refer to the [TR: plugin homepage](https://github.com/ioBroker/plugin-sentry) for detailed information on what the plugin does, which information is collected and how to disable it, if you don't like to support the author with you're information on crashes.
 
-##先决条件
-* Miele @ Home用户（智能手机应用程序）
-* Miele @ Home密码（智能手机应用程序）
-* Miele Client_id（来自https://www.miele.com/developer/）
-* Miele Client_secret（来自https://www.miele.com/developer/）
+TR: ## Prerequisites
+TR: * Miele@Home User (Smartphone App)
+TR: * Miele@Home Password (Smartphone App)
+TR: * Miele Client_id (from https://www.miele.com/developer/)
+TR: * Miele Client_secret (from https://www.miele.com/developer/ )
 
-＃＃ 安装
-要安装，请执行以下操作：
+TR: ## Installation
+TR: To install, do the following:
 
-1.使用
- *稳定的回购-获得当前的稳定版本
- *最新的Repo-获取最新的测试版本（可能不稳定）
- *通过：https://github.com/Grizzelbee/ioBroker.mielecloudservice.git-获得最新的开发版本
-2.在Miele Smartphone应用程序中为Miele @ Home创建一个应用程序帐户
-3.在https://www.miele.com/f/com/zh-CN/register_api.aspx上创建一个开发人员帐户
-4.将您的Miele设备添加到应用程序（如果未自动添加）
-6.填写从Miele-developer团队收到的client_secret和client_id以及从应用程序获得的帐户ID和密码。
+TR: 1. Install via Admin using the
+TR:  * stable Repo - to get the current stable version
+TR:  * latest Repo - to get the latest test version (maybe not stable)
+TR:  * via: https://github.com/Grizzelbee/ioBroker.mielecloudservice.git - to get the latest development version
+TR: 2. create an App-Account for Miele@Home in the Miele Smartphone App
+TR: 3. Create a developer account at https://www.miele.com/f/com/en/register_api.aspx
+TR: 4. Add your Miele-Devices to the App (if not added automatically)
+TR: 6. Fill in the client_secret and client_id received from Miele-developer Team and account-id and password from the App.
 
-##控制您的设备
-实现了所有设备当前所有受支持和记录的操作（API V1.0.4）。
->请记住，仅当您将设备置于适当的状态（例如，Mobile Control，powerOn等）时，“操作”才有效。
-请参阅[Miele文档](#documentation)了解有关操作的更多信息。
+TR: ## Controlling your devices
+TR: All currently supported and documented Actions for all devices are implemented (API V1.0.4).
+> Please remember that Actions will only work if you put your device into the appropriate state (e.g. Mobile Control, powerOn, ...).
+Please refer to [TR: Miele-Documentation](#documentation) for more Information on actions.
 
-＃＃ 已知的问题
-* 没有任何
+TR: ## Known Issues
+TR: * none
 
-##文档
-请主要参考Miele发布的主要API文档
+TR: ## Documentation
+TR: Please mainly refer to the main API documentation published by Miele
 
-* [常规文档]（https://www.miele.com/developer/swagger-ui/index.html）
-* [在设备上执行操作的前提条件]（https://www.miele.com/developer/swagger-ui/put_additional_info.html）
+TR: * [General Documentation](https://www.miele.com/developer/swagger-ui/index.html)
+TR: * [Preconditions to perform an action on a device](https://www.miele.com/developer/swagger-ui/put_additional_info.html)
 
-有2种可用的数据点。作为人类可读的文本和数字。
-这些属于文本字段的数字数据字段具有相同的名称，但附加了“ _raw”。
-那些具有一般意义的字段在下面列出。
-未列出的字段的含义因设备而异，并且未由Miele记录。
-如果需要在脚本中引用这些字段，请始终使用_raw值。
-文本值将来可能会更改，并且还取决于语言。
-以下是这些原始值代表的列表：
+TR: There are some data points available in 2 kinds. As a human-readable text and as a number.
+These numeric data fields belonging to a text field have the same name, but a "_raw" appended.
+Those fields which have a general meaning are listed below.
+The fields which aren't listed vary in their meaning from device to device and are not documented by Miele.
+If you need to refer in scripts to these fields, always use the _raw values.
+The text values may change in the future and also depend on the language.
+Here is a list of what these raw values stand for:
 
-###设备类型
- |原始值状态|
+TR: ### DeviceTypes
+| TR:  | Raw value | State|
  |----------|-------|
- | 1 |洗衣机|
- | 2 |滚筒干燥机|
- | 7 |洗碗机|
- | 8 |洗碗机半专业|
- | 12 |烤箱|
- | 13 |微波炉|
- | 14 |重点介绍|
- | 15 |蒸汽烤箱|
- | 16 |微波|
- | 17 |咖啡系统|
- | 18 |头套|
- | 19 |电冰箱|
- | 20 |冷冻机|
- | 21 |冰箱/冰柜组合|
- | 23 |真空清洁器，自动机器人真空清洁器|
- | 24 |洗衣机烘干机|
- | 25 |盘温|
- | 27 |滚刀感应|
- | 28 |燃气|
- | 31 |蒸汽烤箱组合|
- | 32 |酒柜|
- | 33 |酒柜|
- | 34 |葡萄酒储存调节装置|
- | 39 |双烤箱|
- | 40 |双蒸炉|
- | 41 |双蒸汽烤箱组合|
- | 42 |双微波|
- | 43 |双微波炉|
- | 45 |蒸汽烤箱微波组合|
- | 48 |真空吸尘器|
- | 67 | DIALOGOVEN |
- | 68 |葡萄酒柜冷冻组合|
+| TR:  |1 | WASHING MACHINE|
+| TR:  |2 | TUMBLE DRYER|
+| TR:  |7 | DISHWASHER|
+| TR:  |8 | DISHWASHER SEMI-PROF|
+| TR:  |12 | OVEN|
+| TR:  |13 | OVEN MICROWAVE|
+| TR:  |14 | HOB HIGHLIGHT|
+| TR:  |15 | STEAM OVEN|
+| TR:  |16 | MICROWAVE|
+| TR:  |17 | COFFEE SYSTEM|
+| TR:  |18 | HOOD|
+| TR:  |19 | FRIDGE|
+| TR:  |20 | FREEZER|
+| TR:  |21 | FRIDGE-/FREEZER COMBINATION|
+| TR:  |23 | VACUUM CLEANER, AUTOMATIC ROBOTIC VACUUM CLEANER|
+| TR:  |24 | WASHER DRYER|
+| TR:  |25 | DISH WARMER|
+| TR:  |27 | HOB INDUCTION|
+| TR:  |28 | HOB GAS|
+| TR:  |31 | STEAM OVEN COMBINATION|
+| TR:  |32 | WINE CABINET|
+| TR:  |33 | WINE CONDITIONING UNIT|
+| TR:  |34 | WINE STORAGE CONDITIONING UNIT|
+| TR:  |39 | DOUBLE OVEN|
+| TR:  |40 | DOUBLE STEAM OVEN|
+| TR:  |41 | DOUBLE STEAM OVEN COMBINATION|
+| TR:  |42 | DOUBLE MICROWAVE|
+| TR:  |43 | DOUBLE MICROWAVE OVEN|
+| TR:  |45 | STEAM OVEN MICROWAVE COMBINATION|
+| TR:  |48 | VACUUM DRAWER|
+| TR:  |67 | DIALOGOVEN|
+| TR:  |68 | WINE CABINET FREEZER COMBINATION|
 
-###状态/状态
- |原始值状态|
+TR: ### State/Status
+| TR:  | Raw value | State|
  |----------|-------|
- | 1 |关闭|
- | 2 | STAND_BY |
- | 3 |已编程|
- | 4 | PROGRAMMED_WAITING_TO_START |
- | 5 |正在运行|
- | 6 |暂停|
- | 7 | END_PROGRAMMED |
- | 8 |失败|
- | 9 | PROGRAMME_INTERRUPTED |
- | 10 |空闲|
- | 11 | RINSE_HOLD |
- | 12 |服务|
- | 13 |超级冷冻|
- | 14 |超冷|
- | 15 |超热|
- | 144 |默认|
- | 145 |锁定|
- | 146 | SUPERCOOLING_SUPERFREEZING |
- | 255 |设备离线|
+| TR:  |1|   OFF|
+| TR:  |2|   STAND_BY|
+| TR:  |3|   PROGRAMMED|
+| TR:  |4|   PROGRAMMED_WAITING_TO_START|
+| TR:  |5|   RUNNING|
+| TR:  |6|   PAUSE|
+| TR:  |7|   END_PROGRAMMED|
+| TR:  |8|   FAILURE|
+| TR:  |9|   PROGRAMME_INTERRUPTED|
+| TR:  |10|  IDLE|
+| TR:  |11|  RINSE_HOLD|
+| TR:  |12|  SERVICE|
+| TR:  |13|  SUPERFREEZING|
+| TR:  |14|  SUPERCOOLING|
+| TR:  |15|  SUPERHEATING|
+| TR:  |144| DEFAULT|
+| TR:  |145| LOCKED|
+| TR:  |146| SUPERCOOLING_SUPERFREEZING|
+| TR:  |255| Device offline|
 
-### ProgramType / Programmart
-|原始值状态|
+TR: ### ProgramType/Programmart
+| TR: | Raw value | State|
 |----------|-------|
-| 0 |正常运行模式 |
-| 1 |自己的程序|
-| 2 |自动程序|
-| 3 |清洁/保养程序|
+| TR: |0 | Normal operation mode  |
+| TR: |1 | Own program            |
+| TR: |2 | Automatic program      |
+| TR: |3 | Cleaning-/Care program |
 
-### DryingStep / Trockenstufe
- |原始值状态|
+TR: ### dryingStep/Trockenstufe
+| TR:  | Raw value | State|
  |----------|-------|
- | 0 |超干|
- | 1 |普通加|
- | 2 |正常|
- | 3 |稍干|
- | 4 |手工铁水准1 |
- | 5 |手动熨斗2 |
- | 6 |机铁|
+| TR:  |0 |   Extra dry|
+| TR:  |1 |   Normal Plus|
+| TR:  |2 |   Normal|
+| TR:  |3 |   Slightly Dry|
+| TR:  |4 |   Hand iron level 1|
+| TR:  |5 |   Hand iron level 2|
+| TR:  |6 |   Machine iron|
 
-### Programmbezeichnung
-|原始值州|可用于|
+TR: ### Programmbezeichnung
+| TR: | Raw value | State                   | available for   |
 |-----------|-------------------------|-----------------|
-| 1 | “ Baumwolle” /“棉” |洗衣机|
-| 3 | “ Pflegeleicht” |洗衣机|
-| 4 | “Feinwäsche” |洗衣机|
-| 8 | “ Wolle” |洗衣机|
-| 9 | “赛德” |洗衣机|
-| 21 | “泵/ Schleudern” |洗衣机|
-| 23 | “ Oberhemden” |洗衣机|
-| 27 | “Imprägnieren” |洗衣机|
-| 29 | “Sportwäsche” |洗衣机|
-| 31 | “自动加” |洗衣机|
-| 37 | “室外” |洗衣机|
-| 48 | “弗吕森·奥斯普兰” |洗衣机烘干机|
-| 50 | “ DunkleWäsche” |洗衣机烘干机|
-| 52 | “ NurSpülen/Stärken” |洗衣机|
-| 122 | “快递20” |洗衣机烘干机|
-| 123 | “ Dunkles / Jeans” |洗衣机|
+| TR: |         1 | "Baumwolle" / "Cotton"  | Washing Machine |
+| TR: |         3 | "Pflegeleicht"          | Washing Machine |
+| TR: |         4 | "Feinwäsche"            | Washing Machine |
+| TR: |         8 | "Wolle"                 | Washing Machine |
+| TR: |         9 | "Seide"                 | Washing Machine |
+| TR: |        21 | "Pumpen/Schleudern"     | Washing Machine |
+| TR: |        23 | "Oberhemden"            | Washing Machine |
+| TR: |        27 | "Imprägnieren"          | Washing Machine |
+| TR: |        29 | "Sportwäsche"           | Washing Machine |
+| TR: |        31 | "Automatic plus"        | Washing Machine |
+| TR: |        37 | "Outdoor"               | Washing Machine |
+| TR: |        48 | "Flusen ausspülen"      | Washer Dryer    |
+| TR: |        50 | "Dunkle Wäsche"         | Washer Dryer    |
+| TR: |        52 | "Nur Spülen/Stärken"    | Washing Machine |
+| TR: |       122 | "Express 20"            | Washer Dryer    |
+| TR: |       123 | "Dunkles/Jeans"         | Washing Machine |
 
-### ProgramPhase
-|原始值状态|可用于|
+TR: ### ProgramPhase
+| TR: | Raw value | State| available for |
 |----------|-------|---------------|
-| 260 | “洗涤” /“洗涤” |洗衣机|
-| 261 | “Spülen” /“冲洗” |洗衣机|
-| 265 | “泵” |洗衣机|
-| 266 | “ Schleudern” /“ Spinning” |洗衣机|
-| 267 | “ Knitterschutz” /“” |洗衣机|
-| 268 | “结尾” /“结尾” |大多数设备|
-| 256 | “Vorbügeln” |洗衣机|
-| 514 | “ Trocknen” |洗衣机烘干机|
-| 519 | “Abkühlen” |洗衣机烘干机|
-| 532 | “弗吕森·奥斯普兰” |洗衣机烘干机|
+| TR: |258 | "Einweichen"           | Washing Machine |
+| TR: |260 | "Waschen" / "Washing"  | Washing Machine |
+| TR: |261 | "Spülen"  / "Rinse"    | Washing Machine |
+| TR: |265 | "Pumpen" | Washing Machine |
+| TR: |266 | "Schleudern" / "Spinning" | Washing Machine |
+| TR: |267 | "Knitterschutz" / "" | Washing Machine |
+| TR: |268 | "Ende" / "End" | Most devices |
+| TR: |256 | "Vorbügeln" | Washing Machine |
+| TR: |514 | "Trocknen" | Washer Dryer |
+| TR: |519 | "Abkühlen" | Washer Dryer |
+| TR: |532 | "Flusen ausspülen" | Washer Dryer |
 
-##版权
-版权所有（c）2019，2021 grizzelbee <open.source@hingsen.de>
+TR: ## Copyright
+TR: Copyright (c) 2019, 2021 grizzelbee <open.source@hingsen.de>
 
 ## Changelog
+
+### V4.1.0 (2021-05-15) (Carry me over)
+* (grizzelbee) New: [149](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/149) Adding support (Start, Stop, Pause) for Miele Scout RX2 vacuum cleaner robots
+* (Stan23)     New: Added new program phase  soak/Einweichen
+
+### V4.0.22 (2021-05-06) (Twisted mind)
+* (grizzelbee) Fix: [142](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/142) Reintroduced TargetTemp for washing machines
+
+### V4.0.21 (2021-05-03) (The Edge)
+* (grizzelbee) Fix: Fixed accidental function name: createStateSpinAPIStartActionningSpeed
+* (grizzelbee) Fix: Fixed State value to set for "*.PlateStep_1" has to be type "number" but received type "string"
+
+### V4.0.20 (2021-04-30) (Sleepwalkers)
+* (grizzelbee) Fix: [137](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/137) Fixed Read-only state "info.connection" has been written without ack-flag with value "false"
+* (grizzelbee) Fix: [138](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/138) Fixed State value to set for ".Schleuderdrehzahl" has wrong type "string" but has to be "number"
+* (grizzelbee) Fix: [139](https://github.com/Grizzelbee/ioBroker.mielecloudservice/issues/139) Fixed State value to set for ".ACTIONS.Light" has wrong type "number" but has to be "string" 
+* (grizzelbee) Upd: Changed device group from channel to folder  as documented [here](https://github.com/ioBroker/ioBroker.docs/blob/master/docs/en/dev/objectsschema.md)
+
+### V4.0.19 (2021-04-29) (The scarecrow)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching - 2nd attempt
+* (grizzelbee) Fix: Fixed No-Icon Bug when appliance is unknown
+
+### V4.0.18 (2021-04-28) (Ghostlights)
+* (grizzelbee) Fix: Fixed light switch bug causing an exception when switching 
 
 ### V4.0.17 (2021-04-27) (Ghost in the moon)
 * (grizzelbee) New: Added ioBroker sentry plugin to report issues automatically

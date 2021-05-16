@@ -2,67 +2,77 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.daswetter/README.md
-title: ioBroker.DasWetter.
-hash: kfEgeJieyITeTDJH7RePBpBzCH0jn96NceNQjCQ46x8=
+title: TR: ioBroker.DasWetter.
+hash: T0xUoiSI74CQfozKb+M++No+TerMO4EyKbH3kVB3PV0=
 ---
-![Логотип](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
+![TR: Logo](../../../en/adapterref/iobroker.daswetter/admin/daswettercom.png)
 
-![Количество установок](http://iobroker.live/badges/daswetter-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.daswetter.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
-![Тесты](https://travis-ci.org/rg-engineering/ioBroker.daswetter.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/daswetter-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.daswetter.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.daswetter.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.daswetter/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.daswetter.png?downloads=true)
 
-# IoBroker.DasWetter.
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: # ioBroker.DasWetter.
+![TR: GitHub Actions](https://github.com/rg-engineering/ioBroker.daswetter/workflows/Test%20and%20Release/badge.svg)
 
-** Если вам это нравится, рассмотрите возможность пожертвования: **
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+TR: **If you like it, please consider a donation:**
 
-Этот адаптер считывает данные прогноза погоды с DasWetter.com.
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-Вам нужен аккаунт на DasWetter.com. Зарегистрируйтесь на https://www.daswetter.com/api/#/login. Учетная запись предоставляется бесплатно при определенных условиях.
+TR: This adapter reads weather forecast data from DasWetter.com.
 
-В своем аккаунте вы найдете три URL для четырех разных моделей данных:
+TR: You need an account on DasWetter.com. Register at https://www.daswetter.com/api/#/login The account is for free under certain conditions.
 
-* Прогноз на следующие 7 дней и общая информация на день: максимум и минимум, ветер (символ и описание), символ дня и погодные условия
-* подробная информация за 5 дней и каждые 3 часа: Общая ежедневная информация следующая: пик, минимумы, ветер, порывы, осадки, относительная влажность,
+TR: In your account you will find three URL for four different data models:
 
-атмосферное давление на уровне моря, линия снега, восход и закат, даты, связанные с луной, местное время
+TR: * Forecast for the next 7 days and general information of the day: high and low, wind (symbol and description), Day symbol and weather conditions
+TR: * detailed information for 5 days and every 3 hours: The general daily information is the following: peak, lows, wind, gusts, Precipitation, relative humidity,
 
-* Предварительный просмотр с подробными данными каждый час (только первые 2 дня, затем каждые 3 часа)
-* Прогноз на 5 дней и каждые 3 часа (в формате JSON)
+TR: sea level air pressure, snow line, Sunrise and sunset, dates related to the moon, local time
 
-Реализованы все четыре модели, нужно использовать хотя бы одну.
-В настройках должен использоваться URL типа http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx. Просто скопируйте полный URL из своей учетной записи.
+TR: * Preview with detailed data every hour (only for the first 2 days, then every 3 hours)
+TR: * Prediction for 5 days and every 3 hours (in JSON format)
 
-## Подсказки
-### Значки, используемые в vis
-* Доступ к таким иконкам, как `http:// ip: 8082 / adapter / daswetter / icons / tiempo-weather / galeria1 / 1.png`.
-* в galerie6 оригинальные иконки имеют формат svg. В приложении Vis могут возникнуть проблемы с визуализацией. Так что конвертированные png доступны. Просто используйте опцию «использовать png»
-* в galerie5 оригинальные иконки имеют формат svg и png. Также доступны цветная и белая версии.
+TR: All four models are implemented and one should be used at least.
+In settings URL like http://api.daswetter.com/index.php?api_lang=de&localidad=xxxx  must be used. Just copy the complete URL from your account.
 
-### "текущий" в NextHours_Day1:
-* DasWetter.com не предоставляет реальные текущие значения погоды
-* но иногда полезно иметь прогноз на текущий час
-* поэтому мы добавили «текущий», который является просто копией связанных значений часов прогноза
-* убедитесь, что вы звоните адаптеру хотя бы один раз в час, чтобы убедиться, что "текущий" обновлен правильно
-* см. также запрос функции github [issue24] (https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
+TR: ## Hints
+TR: ### icons used in vis
+TR: * Access icons like `http://ip:8082/adapter/daswetter/icons/tiempo-weather/galeria1/1.png`.
+TR: * in galerie6 original icons are in svg format. Vis app might have problems to visualize it. So converted png are available. Just use option "use png"
+TR: * in galerie5 original icons are in svg and png format. Beside also color and white versions are available
 
-### Путь 4
-* на данный момент DasWetter.com отправляет данные, которые отличаются от их собственной спецификации.
+TR: ### "current" in NextHours_Day1:
+TR: * DasWetter.com does not deliver real current weather values
+TR: * but sometimes it's helpfull to have the forecast of current hour available
+TR: * so we added "current" which is just a copy of related forecast hour values
+TR: * please make sure you call the adapter at least one time per hour to make sure "current" is updated well
+TR: * see also github feature request [issue24](https://github.com/rg-engineering/ioBroker.daswetter/issues/24)
 
-Теперь мы реализовали «автоматический ремонт», который меняет структуру до задокументированной формы.
+TR: ### path 4
+TR: * at the moment DasWetter.com sends data which are different to their own specification.
 
-## Известные проблемы
-* пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.daswetter/issues), если вы обнаружите ошибки или захотите новые функции
+TR: Now we have implemented a "auto-repair" which changes to structure to documented shape.
+
+TR: ## known issues
+TR: * please create issues at [github](https://github.com/rg-engineering/ioBroker.daswetter/issues) if you find bugs or whish new features
 
 ## Changelog
 
+### 3.0.7 (2021-05-03)
+* (René) issue #91: remove warnings with js-controller 3.3.
+
+### 3.0.5 (2021-03-21)
+* (René) dependencies updated
+
+### 3.0.4 (2020-10-16)
+* (René) see issue #76: parse rain values as float instead integer 
+
 ### 3.0.3 (2020-09-19)
 * (René) see issue #66: parse numbers added 
-
 
 ### 3.0.1 (2020-05-01)
 * (René) breaking change: old data structure is not supported anymore
@@ -140,7 +150,7 @@ for compatibility: in configuration old data structure can be enabled
 needs also 2.x of vis-weather-widget
 
 ## License
-Copyright (C) <2017 - 2020>  <info@rg-engineering.eu>
+Copyright (C) <2017 - 2021>  <info@rg-engineering.eu>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

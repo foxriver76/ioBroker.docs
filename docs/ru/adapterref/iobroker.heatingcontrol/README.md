@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.heatingcontrol/README.md
 title: TR: ioBroker.HeatingControl
-hash: X5MlFyDe+6L/X4kED2NEJY8VmMEEOG0s2mJgcylMH/M=
+hash: KUEm7DpJZNWPOSbd/t3lr2ZYuG9bp2+ftoaTHKTT0YY=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.heatingcontrol/admin/heatingcontrol.png)
 
@@ -21,6 +21,9 @@ TR: **This adapter uses Sentry libraries to automatically report exceptions and 
 TR: **If you like it, please consider a donation:**
 
 [![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+
+TR: ## Documentation
+TR: **I'm looking for support in creating / updating the user documentation and the FAQ's. If anyone is interested, please contact me...**
 
 TR: ## Adapter for controlling your heating system.
 TR: Features:
@@ -193,7 +196,14 @@ TR: When the adapter crashes or an other Code error happens, this error message 
 
 ## Changelog
 
-### 2.4.0 (2021-05-15)
+### 2.4.2 (2021-05-17)
+* (René) logging for ActorsOn optimized
+
+### 2.4.1 (2021-05-15)
+* (René) see #233: remaining override time set also for choosen room in vis
+* (René) bug fix public holiday detection
+
+### 2.4.0 (2021-05-13)
 * (René) make it ready for js-controller 3.3
 
 ### 2.3.2 (2021-04-18)

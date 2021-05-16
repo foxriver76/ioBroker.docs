@@ -2,168 +2,173 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sbfspot/README.md
-title: ioBroker.sbfspot
-hash: Ky9zdbU5WI/dZsBo0e469I5mZiA68K9OX0CRy77/Vw0=
+title: TR: ioBroker.sbfspot
+hash: AmUOKGNs+9jMar8oo7NBMt5/OVdBe1LIQxXvFOe4zOs=
 ---
-![Логотип](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
+![TR: Logo](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
-![Количество установок](http://iobroker.live/badges/sbfspot-stable.svg)
-![Версия NPM](https://img.shields.io/npm/v/iobroker.sbfspot.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
-![Тесты](https://travis-ci.org/rg-engineering/ioBroker.sbfspot.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/sbfspot-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
 
-# IoBroker.sbfspot
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: # ioBroker.sbfspot
+![TR: GitHub Actions](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
 
-** Если вам это нравится, рассмотрите возможность пожертвования: **
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-[![PayPal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+TR: **If you like it, please consider a donation:**
 
-Этот адаптер считывает данные с преобразователей мощности SMA с помощью sbfspot.
-Теперь поддерживаются оба типа баз данных (mySQL и sqlite).
-Начиная с версии 0.2.3 существует собственный виджет vis, основанный на flot, доступный для отображения исторических данных.
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-## Установка
-следуйте инструкциям по установке sbfspot на странице https://github.com/SBFspot/SBFspot/wiki
+TR: This adapter reads data from SMA power inverters using sbfspot.
+Now both database types (mySQL and sqlite) are supported.
+Since version 0.2.3 there is a own vis widget based on flot available to show historical data.
 
-[детальная установка на системы на базе arm](docs/en/install_arm.md)
+TR: ## Installation
+TR: please follow installation instructions for sbfspot under https://github.com/SBFspot/SBFspot/wiki
 
-## Подсказки
-* используйте последнюю версию от sbfspot с https://github.com/SBFspot/SBFspot
-* адаптер, sbfspot и базы данных (mySQL или sqlite) должны работать в одной системе, например. Raspberry Pi
-* руководство по установке sbfspot на Raspberry Pi (или аналогичном) можно найти по адресу https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite или https://www.rg-engineering.eu/index. php / produkte / программное обеспечение / плагин-fuer-iobroker-sbfspot
-* для Raspberry Pi существует полуавтоматический инструмент настройки, доступный по адресу https://github.com/SBFspot/sbfspot-config
+[TR: detailed installation on arm based systems](docs/en/install_arm.md)
 
-## Известные вопросы
-* иногда установка пакета npm sqlite3 не выполняется.
+TR: ## Hints
+TR: * use latest version from sbfspot from https://github.com/SBFspot/SBFspot
+TR: * adapter, sbfspot and databases (mySQL or sqlite) must run on the same system e.g. Raspberry PI
+TR: * installation manual for sbfspot on Raspberry Pi (or similar) can be found under https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite or https://www.rg-engineering.eu/index.php/produkte/software/plugin-fuer-iobroker-sbfspot
+TR: * for Raspberry Pi there is a semi-automated configuration tool available under https://github.com/SBFspot/sbfspot-config
 
-в этом случае переустановите все пакеты npm
+TR: ## known issues
+TR: * sometimes installation of npm package sqlite3 fails.
 
-> cd /opt/iobroker/node_modules/iobroker.sbfspot> sudo npm install
+TR: in that case reinstall all npm packages
 
-иногда npm intall необходимо вызывать более одного раза, чтобы успешно установить все необходимые пакеты
+TR: > cd /opt/iobroker/node_modules/iobroker.sbfspot > sudo npm install
 
-* пожалуйста, создавайте проблемы на [github] (https://github.com/rg-engineering/ioBroker.sbfspot/issues), если вы обнаружите ошибки или захотите новые функции
+TR: sometimes npm intall must be called more then one time to successfully install all necessray packages
 
-## 4.0.4 (14.02.2021)
-* (René) зависимости обновлены
+TR: * please create issues at [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues) if you find bugs or whish new features
 
-## 4.0.3 (15.01.2021)
-* (René) исправление ошибки на основе тестов CI
+TR: ## 4.0.4 (2021-02-14)
+TR: * (René) dependencies updated
 
-## 4.0.2 (2020-10-09)
-* (René) исправление ошибки на основе тестов CI
+TR: ## 4.0.3 (2021-01-15)
+TR: * (René) bug fix based on CI tests
 
-## 4.0.0 (2020-07-28)
-* (Рене) переработка для использования async / await
-* (Рене) используйте mysql2
+TR: ## 4.0.2 (2020-10-09)
+TR: * (René) bug fix based on CI tests
 
-## 3.0.0 (25.04.2020)
-* (René) пакет sqlite3 заменен на better-sqlite3
-* (Рене) роли DP перегружены
-* (Рене) см. Проблему №19: получать данные только при добавлении дневного света в качестве опции
-* (Рене) см. Проблему # 29: изменен цвет по умолчанию для метки оси виджета
-* (Рене) виджет: добавлен журнал, если виджет слишком мал
+TR: ## 4.0.0 (2020-07-28)
+TR: * (René) rework to use async/await
+TR: * (René) use mysql2
 
-## 2.4.3 (02.04.2020)
-* (René) исправление ошибки в DB_CalcHistory_Today, используемой для виджета
+TR: ## 3.0.0 (2020-04-25)
+TR: * (René) sqlite3 package replaced by better-sqlite3
+TR: * (René) roles of DP overworked
+TR: * (René) see issue #19: get data only when daylight added as an option
+TR: * (René) see issue #29: default color for widget axis label changed
+TR: * (René) widget: log if widget is too small added
 
-## 2.4.2 (01.02.2020)
-* (René) виджет исправления ошибок
+TR: ## 2.4.3 (2020-04-02)
+TR: * (René) bugfix in DB_CalcHistory_Today used for widget
 
-## 2.4.0 (28 декабря 2019 г.)
-* (Рене) обновление до моего собственного флота 3.0
+TR: ## 2.4.2 (2020-02-01)
+TR: * (René) bugfix widget
 
-## 2.3.4 (31.10.2019)
-* (René) обновление флота до версии 3.0
+TR: ## 2.4.0 (2019-12-28)
+TR: * (René) update to my own flot 3.0
 
-### 2.3.3 (03.02.2019)
-* (Рене) из-за проблем с установкой понизил версию пакета sqlite3
+TR: ## 2.3.4 (2019-10-31)
+TR: * (René) update flot to version 3.0
 
-### 2.3.1 (02.02.2019)
-* (René) исправление ошибки: в sqlite "сегодня" данные не отображались
+TR: ### 2.3.3 (2019-02-03)
+TR: * (René) due to install problems downgrade of sqlite3 package
 
-### 2.3.0 (20.01.2019)
-* (René) поддержка компактного режима
-* (Рене) добавить дополнительную информацию об ошибке в журнал
+TR: ### 2.3.1 (2019-02-02)
+TR: * (René) bug fix: with sqlite "today" data were not shown
 
-### 2.2.5 (26.11.2018)
-* (Рене) пакеты обновления
+TR: ### 2.3.0 (2019-01-20)
+TR: * (René) support of compact mode
+TR: * (René) add additional error information in log
 
-### 2.2.5 (04.11.2018)
-* (Рене) сбрасывает доход, если с сегодняшнего дня нет нового значения
+TR: ### 2.2.5 (2018-11-26)
+TR: * (René) upgrade packages
 
-### 2.2.4 (19.08.2018)
-* (René) исправление тиков на X
+TR: ### 2.2.5 (2018-11-04)
+TR: * (René) reset yield if no new value from today
 
-### 2.2.3
-* (Рене) то же, что и 2.2.2
+TR: ### 2.2.4 (2018-08-19)
+TR: * (René) bugfix for ticks on X
 
-### 2.2.2
-* (Рене) добавить отметку времени последнего обновления
+TR: ### 2.2.3
+TR: * (René) the same as 2.2.2
 
-### 2.2.1
-* (Рене) закрытие соединения с базой данных после получения последнего результата запроса (например, для поддержки более одного инвертора)
+TR: ### 2.2.2
+TR: * (René) add timestamp of last update
 
-### 2.2.0
-* (Nis) цвет фона и границы
-* (René) исправления ошибок в admin3
+TR: ### 2.2.1
+TR: * (René) close of database connection after last query result is available (e.g. to support more than one inverter)
 
-### 2.1.0
-* (Рене) Поддержка MariaDB
+TR: ### 2.2.0
+TR: * (Nis) background color and border
+TR: * (René) bug fixes in admin3
 
-### 2.0.1
-* (Рене) Поддержка admin3
+TR: ### 2.1.0
+TR: * (René) Support MariaDB
 
-### 2.0.0
-* (Рене), поскольку мы всегда используем один график для каждого виджета, сейчас поддерживается только один
+TR: ### 2.0.1
+TR: * (René) Support of admin3
 
-Внимание: виджет несовместим с версией 1.x.x; просто проверьте настройки в виджете после установки!
+TR: ### 2.0.0
+TR: * (René) since we always use one graph per widget, only one is supported now
 
-### 1.1.0
-* (René) автомасштаб по оси y
-* (René) цвет для оси y
-* (René) регулируемый формат даты
+TR: 		Attention: widget is not compatible with version 1.x.x; just check settings in widget after installation!
 
-### 1.0.1
-* (René) исправление ошибки для sqlite
+TR: ### 1.1.0
+TR: * (René) autoscale of y axis
+TR: * (René) color for y axis
+TR: * (René) adjustable date format
 
-### 1.0.0
-* (Рене) первая стабильная версия
+TR: ### 1.0.1
+TR: * (René) bug fix for sqlite
 
-### 0.2.6
-* (René) исправление ошибки в приложении для Android> 1.0.6
+TR: ### 1.0.0
+TR: * (René) first stable release
 
-### 0.2.5
-* (Рене) используйте дату установки для расчета исторических значений
+TR: ### 0.2.6
+TR: * (René) bug fix for android app > 1.0.6
 
-### 0.2.4
-* (René) логотип изменен
+TR: ### 0.2.5
+TR: * (René) use install date to calculate historical values
 
-### 0.2.3
-* (Рене) добавление исторических данных в виде точки данных (JSON)
-* (René) новый виджет vis для отображения исторических данных
+TR: ### 0.2.4
+TR: * (René) logo changed
 
-### 0.2.2
-* (Рене) переименован в sbfspot
+TR: ### 0.2.3
+TR: * (René) adding historical data as datapoint (JSON)
+TR: * (René) new vis widget to show historical data
 
-### 0.2.1
-* (René) index.html обновлен
+TR: ### 0.2.2
+TR: * (René) renamed to sbfspot
 
-### 0.2.0
-* (René) поддержка sqlite и лицензии изменена на MIT
+TR: ### 0.2.1
+TR: * (René) index.html updated
 
-### 0.1.1
-* (Рене) Кодировка UTF8
+TR: ### 0.2.0
+TR: * (René) support of sqlite and license changed to MIT
 
-### 0.1.0
-* (Рене) первый выпуск
+TR: ### 0.1.1
+TR: * (René) UTF8 coding
 
-### 0.0.1
-* (Рене) первый выпуск
+TR: ### 0.1.0
+TR: * (René) first release
+
+TR: ### 0.0.1
+TR: * (René) initial release
 
 ## Changelog
+
+### 4.0.5 (2021-03-21)
+* (René) dependencies updated
 
 ## License
 Copyright (C) <2017-2021>  <info@rg-engineering.eu>

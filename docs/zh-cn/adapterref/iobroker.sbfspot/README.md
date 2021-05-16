@@ -2,168 +2,173 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sbfspot/README.md
-title: ioBroker.sbfspot
-hash: Ky9zdbU5WI/dZsBo0e469I5mZiA68K9OX0CRy77/Vw0=
+title: TR: ioBroker.sbfspot
+hash: AmUOKGNs+9jMar8oo7NBMt5/OVdBe1LIQxXvFOe4zOs=
 ---
-![标识](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
+![TR: Logo](../../../en/adapterref/iobroker.sbfspot/admin/sbfspot.png)
 
-![安装数量](http://iobroker.live/badges/sbfspot-stable.svg)
-![NPM版本](https://img.shields.io/npm/v/iobroker.sbfspot.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
-![测验](https://travis-ci.org/rg-engineering/ioBroker.sbfspot.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/sbfspot-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.sbfspot.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.sbfspot.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.sbfspot/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.sbfspot.png?downloads=true)
 
-＃ioBroker.sbfspot
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: # ioBroker.sbfspot
+![TR: GitHub Actions](https://github.com/rg-engineering/ioBroker.sbfspot/workflows/Test%20and%20Release/badge.svg)
 
-**如果您愿意，请考虑捐赠：**
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-[![paypal]（https://www.paypalobjects.com/zh_CN/DK/i/btn/btn_donateCC_LG.gif）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+TR: **If you like it, please consider a donation:**
 
-该适配器使用sbfspot从SMA电源逆变器读取数据。
-现在支持两种数据库类型（mySQL和sqlite）。
-从0.2.3版开始，有一个基于flo的vis窗口小部件可用于显示历史数据。
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-＃＃ 安装
-请按照https://github.com/SBFspot/SBFspot/wiki下的sbfspot安装说明进行操作
+TR: This adapter reads data from SMA power inverters using sbfspot.
+Now both database types (mySQL and sqlite) are supported.
+Since version 0.2.3 there is a own vis widget based on flot available to show historical data.
 
-[在基于手臂的系统上的详细安装](docs/en/install_arm.md)
+TR: ## Installation
+TR: please follow installation instructions for sbfspot under https://github.com/SBFspot/SBFspot/wiki
 
-##提示
-*使用来自https://github.com/SBFspot/SBFspot的sbfspot的最新版本
-*适配器，sbfspot和数据库（mySQL或sqlite）必须在同一系统上运行，例如树莓派
-*可在https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite或https://www.rg-engineering.eu/index上找到Raspberry Pi（或类似版本）上sbfspot的安装手册。 php / produkte / software / plugin-fuer-iobroker-sbfspot
-*对于Raspberry Pi，在https://github.com/SBFspot/sbfspot-config下提供了一个半自动配置工具
+[TR: detailed installation on arm based systems](docs/en/install_arm.md)
 
-＃＃ 已知的问题
-*有时npm软件包sqlite3的安装失败。
+TR: ## Hints
+TR: * use latest version from sbfspot from https://github.com/SBFspot/SBFspot
+TR: * adapter, sbfspot and databases (mySQL or sqlite) must run on the same system e.g. Raspberry PI
+TR: * installation manual for sbfspot on Raspberry Pi (or similar) can be found under https://github.com/SBFspot/SBFspot/wiki/Installation-Linux-SQLite or https://www.rg-engineering.eu/index.php/produkte/software/plugin-fuer-iobroker-sbfspot
+TR: * for Raspberry Pi there is a semi-automated configuration tool available under https://github.com/SBFspot/sbfspot-config
 
-在这种情况下，请重新安装所有npm软件包
+TR: ## known issues
+TR: * sometimes installation of npm package sqlite3 fails.
 
-> cd /opt/iobroker/node_modules/iobroker.sbfspot> sudo npm安装
+TR: in that case reinstall all npm packages
 
-有时必须多次调用npm intall才能成功安装所有必需的软件包
+TR: > cd /opt/iobroker/node_modules/iobroker.sbfspot > sudo npm install
 
-*如果发现错误或有新功能，请在[github]（https://github.com/rg-engineering/ioBroker.sbfspot/issues）中创建问题
+TR: sometimes npm intall must be called more then one time to successfully install all necessray packages
 
-## 4.0.4（2021-02-14）
-*（René）依赖关系已更新
+TR: * please create issues at [github](https://github.com/rg-engineering/ioBroker.sbfspot/issues) if you find bugs or whish new features
 
-## 4.0.3（2021-01-15）
-*（René）基于CI测试的错误修复
+TR: ## 4.0.4 (2021-02-14)
+TR: * (René) dependencies updated
 
-## 4.0.2（2020-10-09）
-*（René）基于CI测试的错误修复
+TR: ## 4.0.3 (2021-01-15)
+TR: * (René) bug fix based on CI tests
 
-## 4.0.0（2020-07-28）
-*（René）重做以使用异步/等待
-*（René）使用mysql2
+TR: ## 4.0.2 (2020-10-09)
+TR: * (René) bug fix based on CI tests
 
-## 3.0.0（2020-04-25）
-*（René）sqlite3程序包被Better-sqlite3取代
-* DP的（René）角色工作过度
-*（René）参见问题＃19：仅当添加日光时才获取数据
-*（René）参见问题＃29：小部件轴标签的默认颜色已更改
-*（René）小部件：如果添加的小部件太小，则记录日志
+TR: ## 4.0.0 (2020-07-28)
+TR: * (René) rework to use async/await
+TR: * (René) use mysql2
 
-## 2.4.3（2020-04-02）
-*（René）DB_CalcHistory_Today中的错误修正用于小部件
+TR: ## 3.0.0 (2020-04-25)
+TR: * (René) sqlite3 package replaced by better-sqlite3
+TR: * (René) roles of DP overworked
+TR: * (René) see issue #19: get data only when daylight added as an option
+TR: * (René) see issue #29: default color for widget axis label changed
+TR: * (René) widget: log if widget is too small added
 
-## 2.4.2（2020-02-01）
-*（René）错误修正小工具
+TR: ## 2.4.3 (2020-04-02)
+TR: * (René) bugfix in DB_CalcHistory_Today used for widget
 
-## 2.4.0（2019-12-28）
-*（René）更新到我自己的flot 3.0
+TR: ## 2.4.2 (2020-02-01)
+TR: * (René) bugfix widget
 
-## 2.3.4（2019-10-31）
-*（René）将flot更新到3.0版
+TR: ## 2.4.0 (2019-12-28)
+TR: * (René) update to my own flot 3.0
 
-### 2.3.3（2019-02-03）
-*（René）由于安装问题而将sqlite3软件包降级
+TR: ## 2.3.4 (2019-10-31)
+TR: * (René) update flot to version 3.0
 
-### 2.3.1（2019-02-02）
-*（René）错误修复：使用sqlite的“今天”数据未显示
+TR: ### 2.3.3 (2019-02-03)
+TR: * (René) due to install problems downgrade of sqlite3 package
 
-### 2.3.0（2019-01-20）
-*（René）支持紧凑模式
-*（René）在日志中添加其他错误信息
+TR: ### 2.3.1 (2019-02-02)
+TR: * (René) bug fix: with sqlite "today" data were not shown
 
-### 2.2.5（2018-11-26）
-*（René）升级包
+TR: ### 2.3.0 (2019-01-20)
+TR: * (René) support of compact mode
+TR: * (René) add additional error information in log
 
-### 2.2.5（2018-11-04）
-*（René）如果今天没有新值可重置收益
+TR: ### 2.2.5 (2018-11-26)
+TR: * (René) upgrade packages
 
-### 2.2.4（2018-08-19）
-*（René）错误修正X
+TR: ### 2.2.5 (2018-11-04)
+TR: * (René) reset yield if no new value from today
 
-### 2.2.3
-*（René）与2.2.2相同
+TR: ### 2.2.4 (2018-08-19)
+TR: * (René) bugfix for ticks on X
 
-### 2.2.2
-*（René）添加上次更新的时间戳
+TR: ### 2.2.3
+TR: * (René) the same as 2.2.2
 
-### 2.2.1
-*（René）在获得最后一个查询结果后关闭数据库连接（例如，支持多个逆变器）
+TR: ### 2.2.2
+TR: * (René) add timestamp of last update
 
-### 2.2.0
-*（Nis）背景颜色和边框
-* admin3中的（René）错误修复
+TR: ### 2.2.1
+TR: * (René) close of database connection after last query result is available (e.g. to support more than one inverter)
 
-### 2.1.0
-*（René）支持MariaDB
+TR: ### 2.2.0
+TR: * (Nis) background color and border
+TR: * (René) bug fixes in admin3
 
-### 2.0.1
-*（René）支持admin3
+TR: ### 2.1.0
+TR: * (René) Support MariaDB
 
-### 2.0.0
-*（René），因为我们每个小部件始终使用一个图形，所以现在仅支持一个图形
+TR: ### 2.0.1
+TR: * (René) Support of admin3
 
-注意：小部件与1.x.x版本不兼容；安装后只需检查小部件中的设置即可！
+TR: ### 2.0.0
+TR: * (René) since we always use one graph per widget, only one is supported now
 
-### 1.1.0
-*（René）y轴自动缩放
-* y轴的（René）颜色
-*（René）可调日期格式
+TR: 		Attention: widget is not compatible with version 1.x.x; just check settings in widget after installation!
 
-### 1.0.1
-*（René）修复SQLite错误
+TR: ### 1.1.0
+TR: * (René) autoscale of y axis
+TR: * (René) color for y axis
+TR: * (René) adjustable date format
 
-### 1.0.0
-*（René）首次稳定发行
+TR: ### 1.0.1
+TR: * (René) bug fix for sqlite
 
-### 0.2.6
-*（René）bug修复android app> 1.0.6
+TR: ### 1.0.0
+TR: * (René) first stable release
 
-### 0.2.5
-*（René）使用安装日期来计算历史值
+TR: ### 0.2.6
+TR: * (René) bug fix for android app > 1.0.6
 
-### 0.2.4
-*（René）徽标已更改
+TR: ### 0.2.5
+TR: * (René) use install date to calculate historical values
 
-### 0.2.3
-*（René）添加历史数据作为数据点（JSON）
-*（René）新的vis小部件可显示历史数据
+TR: ### 0.2.4
+TR: * (René) logo changed
 
-### 0.2.2
-*（René）重命名为sbfspot
+TR: ### 0.2.3
+TR: * (René) adding historical data as datapoint (JSON)
+TR: * (René) new vis widget to show historical data
 
-### 0.2.1
-*（René）index.html更新
+TR: ### 0.2.2
+TR: * (René) renamed to sbfspot
 
-### 0.2.0
-*（René）对sqlite和许可证的支持已更改为MIT
+TR: ### 0.2.1
+TR: * (René) index.html updated
 
-### 0.1.1
-*（René）UTF8编码
+TR: ### 0.2.0
+TR: * (René) support of sqlite and license changed to MIT
 
-### 0.1.0
-*（René）第一版
+TR: ### 0.1.1
+TR: * (René) UTF8 coding
 
-### 0.0.1
-*（René）初始版本
+TR: ### 0.1.0
+TR: * (René) first release
+
+TR: ### 0.0.1
+TR: * (René) initial release
 
 ## Changelog
+
+### 4.0.5 (2021-03-21)
+* (René) dependencies updated
 
 ## License
 Copyright (C) <2017-2021>  <info@rg-engineering.eu>

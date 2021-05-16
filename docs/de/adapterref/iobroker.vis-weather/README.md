@@ -2,37 +2,39 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-weather/README.md
-title: ioBroker.vis-Wetter
-hash: 9kdqDhi+btPZ0neZoDFdB8A77uv3pxdmCKw5C04ENzk=
+title: TR: ioBroker.vis-weather
+hash: Idkwye4z5+4DWez86HGlvNPZk3JPTNhIGrGsOS8h+gA=
 ---
-![Logo](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
+![TR: Logo](../../../en/adapterref/iobroker.vis-weather/admin/vis-weather.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/vis-weather-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.vis-weather.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
-![Tests](https://travis-ci.org/rg-engineering/ioBroker.vis-weather.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/vis-weather-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vis-weather.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis-weather.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/rg-engineering/ioBroker.vis-weather/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.vis-weather.png?downloads=true)
 
-# IoBroker.vis-Wetter
-** Wenn es Ihnen gefällt, ziehen Sie bitte eine Spende in Betracht: **
+TR: # ioBroker.vis-weather
+![TR: GitHub Actions](https://github.com/rg-engineering/ioBroker.vis-weather/workflows/Test%20and%20Release/badge.svg)
 
-[![paypal] (https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
+TR: **If you like it, please consider a donation:**
 
-Dieses Vis-Widget zeigt Wettervorhersagedaten von DasWetter.com oder weatherunderground an. Sie müssen auch DasWetter-Adpater oder weatherunderground-Adapter ausführen ...
+[![TR: paypal](https://www.paypalobjects.com/en_US/DK/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YBAZTEBT9SYC2&source=url)
 
-Bei Wetteruntergründen muss die Vorhersage der nächsten 36 Stunden aktiviert sein.
-In DasWetter.com muss eine von vier Prognosedatenstrukturen aktiviert sein. Sie können diejenige auswählen, die Sie anzeigen möchten.
+TR: This vis-widget shows weather forecast data from DasWetter.com or weatherunderground You need DasWetter-Adpater or weatherunderground-Adapter running as well...
 
-## Notizen / Wiki
-### Prognosestunden definieren
-Standardmäßig zeigt das Prognosediagramm 40 Stunden (DasWetter) oder 36 Stunden (Wunderground). Wenn Sie es vorziehen, nur z. 10 Stunden Prognose, löschen Sie einfach die unnötigen OIDs unter oid_groups in vis-edit.
+TR: In weatherunderground you need forecast of next 36 hours enabled.
+In DasWetter.com you need one of four forecast data structures enabled. You can select the one you want to display.
 
-### OIDs werden bei Verwendung von DasWetter nicht automatisch erstellt
-Normalerweise werden OIDs automatisch erstellt, wenn Sie eine Instanz oder Datenstruktur auswählen. Wenn Sie "Keine OIDs verfügbar" erhalten, überprüfen Sie, ob Sie "NextDaysDetailed" in DasWetter verwenden.
-Möglicherweise müssen Sie "NextDaysDetailed" aktivieren.
+TR: ## Notes / wiki
+TR: ### Define Forecast hours
+TR: By default the forecast diagram shows 40 hours (DasWetter) or 36 hours (wunderground). If you prefer to only show e.g. 10 hours forecast, simply delete the unnecessary OIDs under oid_groups in vis-edit.
 
-## Bekannte Probleme
-* Bitte erstellen Sie Probleme unter [github] (https://github.com/rg-engineering/ioBroker.vis-weather/issues), wenn Sie Fehler finden oder neue Funktionen wünschen
+TR: ### OID's are not created automatically when using DasWetter
+TR: Normally OID's will be created automatically when you select instance or data structure. When you get "no OID's available" then check whether you use "NextDaysDetailed" in DasWetter.
+You might need to enable "NextDaysDetailed".
+
+TR: ## known issues
+TR: * please create issues at [github](https://github.com/rg-engineering/ioBroker.vis-weather/issues) if you find bugs or whish new features
 
 ## Changelog
 
