@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.countdown/README.md
 title: TR: ioBroker.countdown
-hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
+hash: oUuKL0pCKSuM4BOd6q3+yv7Ueqo8+iWZ2GuajDACnvk=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -14,7 +14,7 @@ hash: IWWBZACoI0aKN12/ZfJlMXnjCkpobJp2o482UsNdwG8=
 ![TR: NPM](https://nodei.co/npm/iobroker.countdown.png?downloads=true)
 
 TR: # ioBroker.countdown
-[![TR: Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown)
+TR: [![TR: Build Status Travis](https://travis-ci.com/jack-blackson/ioBroker.countdown.svg?branch=master)](https://travis-ci.com/jack-blackson/ioBroker.countdown) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/countdown/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
 TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 

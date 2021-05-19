@@ -2,30 +2,40 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.binance/README.md
-title: ioBroker.binance
-hash: g1ciorZTR3u5Yhaf5+j4iEvviAnfozU2ASrlfW4BtJo=
+title: !!!
+hash: BSYnXyUI001V3VbS9LwVPs800MPSIjbRqcpcK7c2COY=
 ---
-![商标](../../../en/adapterref/iobroker.binance/admin/binance.png)
+# !!!
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.binance.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.binance.svg)
-![安装数量（最新）](http://iobroker.live/badges/binance-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/binance-stable.svg)
-![依赖状态](https://img.shields.io/david/Kartax/iobroker.binance.svg)
-![已知漏洞](https://snyk.io/test/github/Kartax/ioBroker.binance/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.binance.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.binance.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.binance.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/binance-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/binance-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/Kartax/iobroker.binance.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/Kartax/ioBroker.binance/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.binance.png?downloads=true)
 
-＃ioBroker.binance
-＃＃ 介绍
-与加密货币交易平台币安通信的适配器
+TR: # Please note, that this plugin/repository is discontinued (open for adoption)
+# !!!
+![TR: Logo](../../../en/adapterref/iobroker.binance/admin/binance.png)
 
-适配器在配置的更新间隔中拉动货币价格。
-如果您配置了API密钥和相应的机密，它也会提取帐户余额。
-您可以在binance.com上创建一个API密钥-我建议将其限制为“只读”。
+TR: # ioBroker.binance
+TR: ## Introduction
+TR: Adapter to communicate with the crypto trading platform binance
 
-![screenshot-1]（screenshot-1.png）！[screenshot-2](../../../en/adapterref/iobroker.binance/screenshot-2.png)
+TR: The adapter pulls prices of currencies in the configured update interval.
+If you configure an API Key and the corresponding secret, it will pull account balances as well.
+You may create an API Key on binance.com - i suggest to restrict it to "read-only".
+
+![TR: screenshot-1](screenshot-1.png) ![screenshot-2](../../../en/adapterref/iobroker.binance/screenshot-2.png)
 
 ## Changelog
+### 1.1.3
+- dependency update: lodash
+### 1.1.2
+- version label fix
+### 1.1.1
+- Possibility to disabled download of all prices. Polished options and translations.
 ### 1.1.0
 - added 24hr data for selected symbols
 ### 1.0.5

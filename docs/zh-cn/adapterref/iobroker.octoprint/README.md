@@ -2,44 +2,57 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.octoprint/README.md
-title: ioBroker.octoprint
-hash: luSshPXawVP0dind2uFKzaaic/fGolnl/iOJ0QeZgbI=
+title: TR: ioBroker.octoprint
+hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
 ---
-![商标](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
+![TR: Logo](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.octoprint.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.octoprint.svg)
-![稳定的](http://iobroker.live/badges/octoprint-stable.svg)
-![已安装](http://iobroker.live/badges/octoprint-installed.svg)
-![依赖状态](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
-![已知漏洞](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
-![建置状态](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)
-![NPM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.octoprint.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.octoprint.svg)
+![TR: Stable](http://iobroker.live/badges/octoprint-stable.svg)
+![TR: installed](http://iobroker.live/badges/octoprint-installed.svg)
+![TR: Dependency Status](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
+![TR: Build Status](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
 
-＃ioBroker.octoprint
-将OctoPrint连接到ioBroker的适配器
+TR: # ioBroker.octoprint
+TR: Adapter to connect OctoPrint to ioBroker
 
-经过OctoPrint 1.6.0测试
+TR: Tested with OctoPrint 1.6.0
 
-＃＃ 特征
-＃＃＃ 信息
--获取版本信息
--获取打印机信息
--获取当前的打印作业信息
--获取文件列表信息
+TR: ## Features
+TR: ### Information
+TR: - Get version information
+TR: - Get printer information
+TR: - Get current print job information
+TR: - Get file list information
 
-###温度
--设定工具温度
--设定床温
+TR: ### Temperatures
+TR: - Set tool temperature
+TR: - Set bed temperature
 
-###命令
--打印机：连接，断开连接并返回家中
--作业：开始，取消，重新启动
--SD卡：初始化，刷新，释放
--自定义打印机命令
--系统命令
--点动X，Y和Z轴
--选择一个文件或打印它
+TR: ### Commands
+TR: - Printer: Connect, disconnect and home
+TR: - Job: Start, Cancel, Restart
+TR: - SD-Card: Init, Refresh, Release
+TR: - Custom Printer Commands
+TR: - System Commands
+TR: - Jog X, Y and Z axis
+TR: - Select a file or print it
+
+TR: ## Important!
+TR: DO NOT restart the octoprint instance (or any other instance) with code like this:
+
+```javascript
+var obj = getObject('system.adapter.octoprint.0');
+obj.common.enabled = false;
+setObject('system.adapter.octoprint.0', obj);
+```
+
+TR: Since the API key is a protected attribute since version 1.1.0, this will remove the configured API key. The reason is, that `getObject` doesn't return protected information (so the api key is not included in the returned object). When you save the object, you will save an object without the key.
+
+TR: Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
 
 ## Changelog
 

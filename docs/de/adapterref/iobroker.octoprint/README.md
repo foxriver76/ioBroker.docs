@@ -2,44 +2,57 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.octoprint/README.md
-title: ioBroker.octoprint
-hash: luSshPXawVP0dind2uFKzaaic/fGolnl/iOJ0QeZgbI=
+title: TR: ioBroker.octoprint
+hash: BrgQr0FQ/Wwz8Owf81J4OqXqvh5PzGMXJifra53T91Q=
 ---
-![Logo](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
+![TR: Logo](../../../en/adapterref/iobroker.octoprint/admin/octoprint.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.octoprint.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.octoprint.svg)
-![Stabil](http://iobroker.live/badges/octoprint-stable.svg)
-![Eingerichtet](http://iobroker.live/badges/octoprint-installed.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
-![Build-Status](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)
-![NPM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.octoprint.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.octoprint.svg)
+![TR: Stable](http://iobroker.live/badges/octoprint-stable.svg)
+![TR: installed](http://iobroker.live/badges/octoprint-installed.svg)
+![TR: Dependency Status](https://img.shields.io/david/klein0r/iobroker.octoprint.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/klein0r/ioBroker.octoprint/badge.svg)
+![TR: Build Status](http://img.shields.io/travis/klein0r/ioBroker.octoprint.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.octoprint.png?downloads=true)
 
-# IoBroker.octoprint
-Adapter zum Verbinden von OctoPrint mit ioBroker
+TR: # ioBroker.octoprint
+TR: Adapter to connect OctoPrint to ioBroker
 
-Getestet mit OctoPrint 1.6.0
+TR: Tested with OctoPrint 1.6.0
 
-## Eigenschaften
-### Information
-- Versionsinformationen abrufen
-- Druckerinformationen abrufen
-- Aktuelle Druckauftragsinformationen abrufen
-- Informationen zur Dateiliste abrufen
+TR: ## Features
+TR: ### Information
+TR: - Get version information
+TR: - Get printer information
+TR: - Get current print job information
+TR: - Get file list information
 
-### Temperaturen
-- Werkzeugtemperatur einstellen
-- Betttemperatur einstellen
+TR: ### Temperatures
+TR: - Set tool temperature
+TR: - Set bed temperature
 
-### Befehle
-- Drucker: Verbinden, trennen und nach Hause
-- Job: Starten, Abbrechen, Neustart
-- SD-Karte: Init, Refresh, Release
-- Benutzerdefinierte Druckerbefehle
-- Systembefehle
-- Joggen Sie die X-, Y- und Z-Achse
-- Wählen Sie eine Datei aus oder drucken Sie sie aus
+TR: ### Commands
+TR: - Printer: Connect, disconnect and home
+TR: - Job: Start, Cancel, Restart
+TR: - SD-Card: Init, Refresh, Release
+TR: - Custom Printer Commands
+TR: - System Commands
+TR: - Jog X, Y and Z axis
+TR: - Select a file or print it
+
+TR: ## Important!
+TR: DO NOT restart the octoprint instance (or any other instance) with code like this:
+
+```javascript
+var obj = getObject('system.adapter.octoprint.0');
+obj.common.enabled = false;
+setObject('system.adapter.octoprint.0', obj);
+```
+
+TR: Since the API key is a protected attribute since version 1.1.0, this will remove the configured API key. The reason is, that `getObject` doesn't return protected information (so the api key is not included in the returned object). When you save the object, you will save an object without the key.
+
+TR: Please use state `system.adapter.octoprint.0.alive` to stop/start the instance.
 
 ## Changelog
 

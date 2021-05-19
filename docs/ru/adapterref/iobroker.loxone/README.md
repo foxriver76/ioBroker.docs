@@ -2,503 +2,642 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.loxone/README.md
-title: ioBroker.loxone
-hash: RFvcOtNLZbcOXe0S3hodNtHZFAwGDPpE6jg8KW0TplQ=
+title: TR: ioBroker.loxone
+hash: 8fE4m8tPLb1oVSWM01sOObUj31hSSnV2f20hSlYJKg8=
 ---
-![Логотип](../../../en/adapterref/iobroker.loxone/admin/loxone.png)
+![TR: Logo](../../../en/adapterref/iobroker.loxone/admin/loxone.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.loxone.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.loxone.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/loxone-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/loxone-stable.svg)
-![Статус зависимости](https://img.shields.io/david/UncleSamSwiss/iobroker.loxone.svg)
-![НПМ](https://nodei.co/npm/iobroker.loxone.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.loxone.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.loxone.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/loxone-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/loxone-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/UncleSamSwiss/iobroker.loxone.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.loxone.png?downloads=true)
 
-# IoBroker.loxone
-[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/loxone/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+TR: # ioBroker.loxone
+[![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/loxone/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Тесты: ** ![Тестирование и выпуск](https://github.com/UncleSamSwiss/ioBroker.loxone/workflows/Test%20and%20Release/badge.svg)
+TR: **Tests:** ![TR: Test and Release](https://github.com/UncleSamSwiss/ioBroker.loxone/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер loxone для ioBroker
-** _ Для этого адаптера требуется как минимум nodejs 10.x! _ **
+TR: ## loxone adapter for ioBroker
+TR: **_This adapter requires at least nodejs 10.x!_**
 
-Получает всю информацию, доступную в Loxone Miniserver (и Loxone Miniserver Go), и предоставляет изменения в реальном времени.
+TR: Fetches all information available in Loxone Miniserver (and Loxone Miniserver Go) and provides changes in realtime.
 
-## Установить
-Установите этот адаптер через ioBroker Admin:
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-1. Откройте диалоговое окно конфигурации экземпляра.
-2. Введите IP-адрес или имя хоста и HTTP-порт (по умолчанию 80) вашего Loxone Miniserver.
-3. Создайте нового пользователя в Loxone Miniserver (используя приложение Loxone Config), которому вы дадите права только на чтение и запись для всех необходимых переменных.
-4. Введите имя этого пользователя и его пароль в диалоговом окне конфигурации.
-5. Сохраните конфигурацию.
-6. Запустите адаптер.
+TR: ## Install
+TR: Install this adapter via ioBroker Admin:
 
-## Конфигурация
-### Имя хоста / IP-адрес минисервера
-Это IP-адрес или имя хоста вашего Loxone Miniserver или Miniserver Go.
+TR: 1. Open instance config dialog
+TR: 2. Enter the IP address or host name and HTTP port (80 by default) of your Loxone Miniserver
+TR: 3. Create a new user in the Loxone Miniserver (using the Loxone Config application) to which you only give read and write rights to all required variables.
+TR: 4. Enter this user's name and its password in the config dialog
+TR: 5. Save the configuration
+TR: 6. Start the adapter
 
-### Порт минисервера
-Это HTTP-порт вашего Loxone Miniserver.
+TR: ## Configuration
+TR: ### Miniserver Hostname / IP
+TR: This is the IP address or host name of your Loxone Miniserver or Miniserver Go.
 
-По умолчанию Miniserver настроен на прослушивание порта 80, но вы могли его изменить.
+TR: ### Miniserver Port
+TR: This is the HTTP port of your Loxone Miniserver.
 
-### Имя пользователя Miniserver
-Укажите действительное имя пользователя для доступа к Loxone Miniserver.
+TR: By default the Miniserver is configured to listen on port 80, but you might have changed it.
 
-В целях безопасности настоятельно рекомендуется использовать пользователя, отличного от admin.
+TR: ### Miniserver Username
+TR: Provide a valid username to access the Loxone Miniserver.
 
-Пользователю нужен только доступ для чтения к переменным, которые вы хотите использовать из ioBroker.
+TR: It is strongly suggested to use a user different from "admin" for security reasons.
 
-### Пароль мини-сервера
-Введите пароль для данного имени пользователя (см. Выше).
+TR: The user only needs read access to the variables you want to use from ioBroker.
 
-### Синхронизировать имена
-Это обновит имена в ioBroker всякий раз, когда они изменятся в конфигурации Loxone.
-Если это отключено, имена будут синхронизироваться только при первом обнаружении элемента управления.
+TR: ### Miniserver Password
+TR: Provide the password for the given username (see above).
 
-### Синхронизировать комнаты
-Это заполнит перечисление enum.rooms всеми комнатами, предоставленными Loxone Miniserver, и свяжет все элементы управления.
+TR: ### Synchronize Names
+TR: This will update names in ioBroker whenever they change in the Loxone configuration.
+If this is disabled, names will only be synchronized the first time a control is detected.
 
-### Функции синхронизации
-Это заполнит перечисление enum.functions всеми категориями, предоставляемыми Loxone Miniserver, и свяжет все элементы управления.
-
-## Состояния
-Адаптер автоматически подключается к настроенному Loxone Miniserver и создает состояния для каждого обнаруженного состояния управления.
-
-Идентификаторы состояний имеют следующий формат: `loxone.<instance>.<control>.<state>`
-
-- `<instance>` - индекс экземпляра адаптера ioBroker (обычно "0")
-- <control> - это UUID элемента управления
-- `<state>` - состояние в элементе управления (дополнительную информацию см. в разделе [Поддерживаемые типы элементов управления] (# supported-control-types)).
-
-Имя, указанное при настройке элемента управления в Loxone Config, будет использоваться только как его отображаемое имя в ioBroker.
-Это связано с тем, что пользователь может выбрать одно и то же имя для нескольких элементов управления.
-
-Для получения дополнительных сведений об элементах управления и их состояниях также ознакомьтесь с API Loxone (особенно с файлом структуры): https://www.loxone.com/enen/kb/api/
-
-## Контроль видимости
-По умолчанию Loxone Miniserver скрывает многие элементы управления (и, следовательно, их состояния) от веб-интерфейса.
-
-Это означает, что они также скрыты от этого адаптера ioBroker.
-
-Чтобы гарантировать, что все ваши состояния должным образом передаются в ioBroker, убедитесь, что у них установлен флажок «Использовать в визуализации»:
-
-![Использовать в настройках визуализации](../../../en/adapterref/iobroker.loxone/doc/loxone-config-use-in-visualization.png)
-
-## Глобальные состояния
-В настоящее время этот адаптер обеспечивает следующие глобальные состояния:
-
-- ʻoperatingMode`: номер текущего рабочего режима Loxone Miniserver.
-- ʻoperatingMode-text`: текущий режим работы Loxone Miniserver в виде текста
-- «восход»: количество минут после полуночи, когда сегодня встает солнце.
-- `закат`: количество минут после полуночи, когда сегодня садится солнце
-- `notifications`: количество уведомлений
-- «модификации»: количество модификаций.
-- все остальные глобальные состояния просто сообщаются как тексты
-
-## Поддерживаемые типы управления
-В настоящее время этот адаптер поддерживает следующие типы элементов управления.
-
-За названием штата вы можете увидеть его тип:
-
-- `(rw)`: доступно для чтения и записи: это состояние можно изменить из ioBroker
-- `(ro)`: только для чтения: это состояние нельзя изменить из ioBroker
-- `(wo)`: только для записи: значение этого состояния не сообщается этим адаптером, но его можно изменить, запустив какое-либо действие на Loxone Miniserver
-
-### Тревога
-Обеспечивается охранной сигнализацией.
-
-- ʻarmed` (rw) логическое состояние (истина / ложь) тревоги; запись в это значение true немедленно включит тревогу (без предопределенной задержки)
-- `nextLevel` (ro) идентификатор следующего уровня тревоги
-    - 1 = Без звука
-    - 2 = Акустический
-    - 3 = оптический
-    - 4 = внутренний
-    - 5 = Внешний
-    - 6 = Удаленный
-- `nextLevelDelay` (ro) задержка следующего уровня в секундах
-- `nextLevelDelayTotal` (ro) общая задержка следующего уровня в секундах
-- `level` (ro) идентификатор текущего уровня тревоги
-    - 1 = Без звука
-    - 2 = Акустический
-    - 3 = оптический
-    - 4 = внутренний
-    - 5 = Внешний
-    - 6 = Удаленный
-- `startTime` (ro) отметка времени начала тревоги
-- ʻarmedDelay` (ro) задержка постановки управления тревогой
-- ʻarmedDelayTotal` (ro) общая задержка включения управления тревогой
-- `сенсоры` (ro) список сенсоров
-- `disabledMove` (rw) движение отключено (true) или нет (false)
-- `delayedOn` (wo) запись любого значения в это состояние включает сигнализацию с настроенной задержкой
-- `quit` (wo) запись любого значения в это состояние подтверждает тревогу
-
-### Центральная сигнализация
-Обеспечивается центральной системой охранной сигнализации.
-
-- ʻarmed` (rw) логическое состояние (истина / ложь) тревоги; запись в это значение true немедленно включит тревогу (без предопределенной задержки)
-- `delayedOn` (wo) запись любого значения в это состояние включает сигнализацию с настроенной задержкой
-- `quit` (wo) запись любого значения в это состояние подтверждает тревогу
-
-### Будильник
-Обеспечивается управление будильником.
-
-- ʻisEnabled` (rw) логическое состояние (истина / ложь) будильника
-- ʻisAlarmActive` (ro) логическое (истина / ложь), звонит ли в данный момент будильник
-- `confirmNeeded` (ro) логическое (true / false), нужно ли пользователю подтверждать тревогу
-- `ringingTime` (ro) обратный отсчет в секундах, как долго будильник будет звонить, пока он снова не повторится
-- ringDuration (rw) продолжительность звонка будильника в секундах
-- Время подготовки `prepareDuration` (rw) в секундах
-- `snoozeTime` (ro) секунд до окончания повтора
-- `snoozeDuration` (rw) продолжительность откладывания в секундах
-- `snooze` (wo) запись любого значения в это состояние откладывает текущий будильник
-- `dismiss` (wo) запись любого значения в это состояние отклоняет текущий сигнал тревоги
-
-### AudioZone
-Предоставлено Music Server Zone.
-
-- состояние музыкального сервера `serverState` (ro):
-    - -3 = неизвестная / недопустимая зона
-    - -2 = недоступен
-    - -1 = неизвестно
-    - 0 = не в сети
-    - 1 = инициализация (загрузка, попытка доступа)
-    - 2 = онлайн
-- `playState` (rw) состояние воспроизведения:
-    - -1 = неизвестно (это значение не может быть установлено)
-    - 0 = остановлено (установка этого значения приостановит воспроизведение)
-    - 1 = пауза (установка этого значения приостановит воспроизведение)
-    - 2 = воспроизведение (установка этого значения запускает / возобновляет воспроизведение)
-- состояние клиента `clientState` (ro):
-    - 0 = не в сети
-    - 1 = инициализация (загрузка, попытка доступа)
-    - 2 = онлайн
-- `power` (rw) независимо от того, активна ли мощность клиента
-- `volume` (rw) текущий объем
-- зонам maxVolume (ro) можно назначить максимальную громкость
-- `shuffle` (rw), включено ли перемешивание списка воспроизведения
-- `sourceList` (ro) список, содержащий все избранные зоны
-- режим повтора `repeat` (rw):
-    - -1 = неизвестно
-    - 0 = выкл.
-    - 1 = повторить все
-    - 2 = -не используется-
-    - 3 = повторить текущий элемент
-- `songName` (ro) название песни
-- `duration` (ro) длина всего трека, -1, если не известно (поток)
-- `progress` (rw) текущая позиция в треке
-- ʻalbum` (ro) название альбома
-- ʻartist` (ro) имя исполнителя
-- `station` (ro) название станции
-- `жанр` (ro) название жанра
-- URL изображения обложки песни или альбома `cover` (ro)
-- `source` (rw) текущий выбранный идентификатор источника (см.` sourceList` выше)
-- `prev` (wo) запись любого значения в это состояние переходит на предыдущую дорожку
-- `next` (wo) запись любого значения в это состояние переходит к следующему треку
-
-### Central Audio
-Предоставляется центральным музыкальным сервером.
-
-- `control` (wo) устанавливает состояние игры для всех игроков (` true` = играть, `false` = пауза)
-
-### Colorpicker
-Это устройство появляется только внутри LightController.
-
-- `red` (rw) красный значение палитры цветов
-- `green` (rw) зеленый значение палитры цветов
-- `blue` (rw) синий значение палитры цветов
-
-Установка одного или нескольких из вышеуказанных состояний из ioBroker отправит команду в Miniserver только примерно через 100 мс.
-Это сделано для предотвращения многократного изменения цвета при вводе одного пользователя.
-
-### Colorpicker V2
-Это устройство появляется только в Light Controller V2 в программном обеспечении Loxone версии 9 и выше.
-
-- `red` (rw) красный значение палитры цветов
-- `green` (rw) зеленый значение палитры цветов
-- `blue` (rw) синий значение палитры цветов
-
-Установка одного или нескольких из вышеуказанных состояний из ioBroker отправит команду в Miniserver только примерно через 100 мс.
-Это сделано для предотвращения многократного изменения цвета при вводе одного пользователя.
-
-### Диммер
-Обеспечивается диммерами.
-
-- `position` (rw) текущее положение диммера
-- `min` (ro) текущее минимальное значение
-- `max` (ro) текущее максимальное значение
-- `step` (ro) текущее значение шага
-- ʻon` (wo) запись любого значения в это состояние устанавливает диммер в последнее известное положение
-- ʻoff` (wo) запись любого значения в это состояние отключает диммер, устанавливает позицию в 0, но запоминает последнюю позицию
-
-### Ворота
-Обеспечивается управлением воротами.
-
-- `position` (ro) позиция от 1 = вверх до 0 = вниз
-- ʻactive` (rw) текущее направление движения ворот
-    - -1 = закрыть
-    - 0 = не движется
-    - 1 = открыто
-- `preventOpen` (ro) предотвращает ли открытие двери
-- `preventClose` (ro) предотвращает ли закрытие двери
-
-### Центральные ворота
-Обеспечивается центральным управлением воротами.
-
-- ʻopen` (wo) открывает все ворота
-- `close` (wo) закрывает все ворота
-- `stop` (wo) останавливает все двигатели ворот
-
-### InfoOnlyDigital
-Предоставляется виртуальными состояниями, а также переключателем Loxone Touch.
-
-- ʻactive` (ro) логическое состояние (истина / ложь) элемента управления
-- ʻactive-text` (ro), если настроено, текстовый эквивалент состояния
-- ʻactive-image` (ro), если настроено, изображение, эквивалентное состоянию
-- ʻactive-color` (ro), если настроено, цветовой эквивалент состояния
-
-![InfoOnlyDigital настройки](../../../en/adapterref/iobroker.loxone/doc/loxone-config-info-only-digital.png)
-
-### InfoOnlyAnalog
-Предоставляется виртуальными состояниями, а также переключателем Loxone Touch.
-
-- `value` (ro) значение состояния (номер) элемента управления
-- `value-formatted` (ro), если настроено, форматированное значение состояния (с использованием формата« Unit »из Loxone Config)
-
-### Переговорное устройство
-Предоставляется дверными контроллерами.
-
-- `bell` (ro) звонит ли колокол
-- Массив `lastBellEvents` (ro), содержащий временные метки для каждого звонка, на который не было ответа
-- `version` (ro) Только для домофонов Loxone - текст, содержащий текущую установленную прошивку
-
-    версии
-
-- ʻanswer` (wo) запись любого значения в это состояние отключит звонок
-
-Этот тип канала может содержать другие устройства. См. Дополнительную информацию в соответствующей главе.
-
-### Жалюзи
-Предусмотрены различные виды жалюзи (автоматические и ручные).
-
-- ʻup` (rw) поднимаются ли Жалюзи вверх
-- `down` (rw), движется ли Жалюзи вниз
-- `position` (ro) позиция жалюзи, число от 0 до 1
-    - Верхнее положение жалюзи = 0
-    - нижнее положение жалюзи = 1
-- `shadePosition` (ro) положение тени жалюзи (жалюзи), число от 0 до 1
-    - Жалюзи не заштрихованы = 0
-    - Жалюзи заштрихованы = 1
-- `securityActive` (ro) используется только теми, у кого есть автопилот, это означает аварийное отключение
-- ʻautoAllowed` (ro) используется только теми, у кого есть автопилот
-- ʻautoActive` (rw) используется только теми, у кого есть автопилот
-- `заблокировано` (ro) только теми, у кого есть автопилот, представляет собой выходной QI в Loxone Config.
-- ʻinfoText` (ro) сообщает, например, от того, что вызвало заблокированное состояние или что привело к срабатыванию защиты.
-- `fullUp` (wo) запись любого значения в это состояние вызывает полное движение вверх
-- `fullDown` (wo) запись любого значения в это состояние вызывает полное движение вниз
-- `shade` (wo), записав любое значение в это состояние, затеняет жалюзи в идеальное положение
-
-### Центральные жалюзи
-Обеспечивается центральным управлением жалюзи.
-
-- ʻautoActive` (rw) используется только теми, у кого есть автопилот
-- `fullUp` (wo) запись любого значения в это состояние вызывает полное движение вверх
-- `fullDown` (wo) запись любого значения в это состояние вызывает полное движение вниз
-- `shade` (wo) записывает любое значение в это состояние, затемняет все жалюзи в идеальное положение
-
-### Световой контроллер
-Обеспечивается контроллерами освещения (отеля).
-Сцены можно изменять только в приложениях Loxone, но их можно выбрать в ioBroker.
-
-- ʻactiveScene` (rw) номер текущей активной сцены
-    - 0: все выключено
-    - 1..8: сцена, определяемая пользователем (определение / изучение сцен должно выполняться с помощью инструментов Loxone)
-    - 9: все включено
-- `sceneList` (ro) список всех сцен
-- `plus` (wo) переходит к следующей сцене
-- `minus` (wo) заменяет предыдущую сцену
-
-Этот тип канала может содержать другие устройства. См. Дополнительную информацию в соответствующей главе.
-
-### Световой контроллер V2
-Предоставляется контроллерами освещения (отеля) в программном обеспечении Loxone версии 9 и выше.
-Настроения можно изменять только в приложениях Loxone, но их можно выбирать и комбинировать в ioBroker.
-
-- `moodList` (ro) список всех настроенных имен настроений
-- ʻactiveMoods` (rw) текущий активный список названий настроений
-- `favouriteMoods` (ro) список любимых названий настроения
-- ʻadditionalMoods` (ro) список не любимых названий настроений
-- `plus` (wo) переход к следующему настроению
-- `minus` (wo) изменяет предыдущее настроение
-
-Этот тип канала может содержать другие устройства. См. Дополнительную информацию в соответствующей главе.
-
-### Центральный контроллер света
-Обеспечивается центральным контроллером освещения.
-
-- `control` (wo) включает или выключает все огни
-
-### Метр
-Обеспечено счетчиками коммунальных услуг.
-
-- ʻactual` (ro) фактическое значение (число)
-- ʻactual-formatted` (ro), если настроено, отформатированное фактическое значение состояния (с использованием формата "Unit" из Loxone Config)
-- `total` (ro) общее значение (число)
-- `total-formatted` (ro), если настроено, отформатированное общее значение состояния (с использованием формата" Unit "из Loxone Config)
-- `reset` (wo) запись любого значения в это состояние сбрасывает общее значение
-
-### Нажать кнопку
-Обеспечивается виртуальными кнопочными вводами.
-
-- ʻactive` (rw) текущее состояние кнопки
-- `pulse` (wo) запись любого значения в это состояние будет имитировать нажатие кнопки только на очень короткое время
-
-### Слайдер
-Обеспечивается аналоговыми виртуальными входами.
-
-- `value` (rw) текущее значение ползунка
-- `value-formatted` (ro), если настроено, форматированное значение состояния (с использованием формата« Unit »из Loxone Config)
-- ʻerror` (ro) указывает на недопустимое значение ползунка
-
-### Дымовая сигнализация
-Обеспечено счетчиками коммунальных услуг.
-
-- `nextLevel` (ro) идентификатор следующего уровня тревоги
-    - 1 = Без звука
-    - 2 = Акустический
-    - 3 = оптический
-    - 4 = внутренний
-    - 5 = Внешний
-    - 6 = Удаленный
-- `nextLevelDelay` (ro) задержка следующего уровня в секундах
-- `nextLevelDelayTotal` (ro) общая задержка следующего уровня в секундах
-- `level` (ro) идентификатор текущего уровня тревоги
-    - 1 = Без звука
-    - 2 = Акустический
-    - 3 = оптический
-    - 4 = внутренний
-    - 5 = Внешний
-    - 6 = Удаленный
-- `сенсоры` (ro) список сенсоров
-- ʻacousticAlarm` (ro) состояние акустической тревоги ложное для неактивного и истинное для активного
-- `testAlarm` (ro) активен ли testalarm
-- ʻalarmCause` (ro) причина срабатывания сигнализации:
-    - 1 = только датчик дыма
-    - 2 = только вода
-    - 3 = дым и вода
-    - 4 = только температура
-    - 5 = огонь и температура
-    - 6 = температура и вода
-    - 7 = огонь, температура и вода
-- `startTime` (ro) отметка времени при запуске будильника
-- `timeServiceMode` (rw) задержка до отключения сервисного режима
-- `mute` (wo) запись любого значения в это состояние отключает сирену
-- `quit` (wo) запись любого значения в это состояние подтверждает срабатывание дымовой сигнализации
-
-### Переключатель
-Предоставляется виртуальными входными переключателями.
-
-- ʻactive` (rw) текущее состояние переключателя
-
-### TimedSwitch
-Предусмотрено лестничными клетками и многофункциональными переключателями.
-
-- `deactivationDelayTotal` (ro) секунд, как долго выход будет активен, если используется таймер
-- отсчет `deactivationDelay` (ro), пока выход не будет деактивирован
-    - 0 = выход выключен
-    - -1 = выход постоянно включен
-    - иначе будет отсчет от deactivationDelayTotal
-- ʻon` (wo) запись любого значения в это состояние позволяет переключателю постоянно без задержки деактивации
-- ʻoff` (wo) запись любого значения в это состояние отключает переключатель
-- `pulse` (wo) импульсный переключатель:
-    - deactivationDelay = 0
-        - Запустится обратный отсчет, от deactivationDelayTotal до 0
-    - если это переключатель подъезда:
-        - deactivationDelay = -1
-            - Нет эффекта, останется постоянно включенным.
-        - deactivationDelay> 0
-            - перезапускает обратный отсчет
-    - если это многофункциональный переключатель
-        - выключает (из обратного отсчета или постоянного состояния)
-
-### Трекер
-Предусмотрено лестничными клетками и многофункциональными переключателями.
-
-- ʻentries` (ro) список записей, возвращаемых минисервером
-
-### WindowMonitor
-Обеспечено счетчиками коммунальных услуг.
-
-- `numOpen` (ro) количество открытых окон и дверей
-- `numClosed` (ro) количество закрытых окон и дверей
-- numTilted (ro) количество наклонных окон и дверей
-- `numOffline` (ro) количество окон и дверей, которые недоступны
-- `numLocked` (ro) количество запертых окон и дверей
-- `numUnlocked` (ro) количество открытых окон и дверей
-
-Сумма значений из всех этих состояний равна количеству контролируемых окон и дверей. Окна / двери с двумя состояниями всегда будут считаться "худшим" состоянием.
-
-Для каждого контролируемого окна / двери будет устройство с индексом в качестве идентификатора и заданным именем. У них есть следующие состояния:
-
-- `closed` (ro) окно / дверь закрыто
-- `tilted` (ro) окно / дверь наклонено
-- ʻopen` (ro) окно / дверь открыто
-- `locked` (ro) окно / дверь заблокированы
-- ʻunlocked` (ro) окно / дверь разблокировано
-
-## Сервер погоды
-Информация о погодном сервере предоставляется в виде устройства с несколькими каналами.
-Устройство называется `WeatherServer`.
-Это содержит:
-
-- канал «Актуальный» с текущими значениями погоды
-- один канал для каждого часа прогноза под названием `HourXX`, где` XX` - количество часов с текущего момента
-
-Каждый канал содержит следующие состояния:
-
-- barometricPressure: числовое значение атмосферного давления.
-- `barometricPressure-formatted`: значение атмосферного давления в формате с единицей измерения
-- `dewPoint`: числовое значение точки росы
-- `dewPoint-formatted`: форматированное значение точки росы с единицей измерения
-- «воспринимаемая температура»: числовое значение воспринимаемой температуры.
-- «воспринимаемая температура-форматирование»: форматированное значение воспринимаемой температуры с единицей измерения.
-- «осадков»: числовое значение осадков.
-- «осадка в формате»: значение осадков в формате с единицей измерения.
-- «relativeHumidity»: числовое значение относительной влажности.
-- `relativeHumidity-formatted`: форматированное значение относительной влажности с единицей измерения
-- `solarRadiation`: значение солнечной радиации.
-- `temperature`: числовое значение температуры
-- `temperature-formatted`: значение температуры в формате с единицей измерения
-- `timestamp`: отметка времени данных как` value.time` (время JavaScript)
-- `weatherType`: числовое значение перечисления типа погоды
-- `weatherType-text`: текстовое представление типа погоды
-- windDirection: значение направления ветра
-- windSpeed: значение скорости ветра
-- `windSpeed-formatted`: значение скорости ветра в формате с единицей измерения
-
-## Совместимость
-Совместимость была протестирована с Loxone Miniserver Go 9.0.9.26 с использованием Loxone Config 9.0.9.26.
-
-## Отчеты об ошибках и запросы функций
-Пожалуйста, используйте репозиторий GitHub, чтобы сообщать об ошибках или запрашивать новые функции.
-
-Если вам требуется отсутствующий тип элемента управления, укажите имя, как оно записано в журнале ошибок ioBroker, а также все исходное содержимое устройства в дереве объектов ioBroker:
-
-Пример файла журнала для "LightController":
-
-![Журнал отсутствующего элемента управления LightController](../../../en/adapterref/iobroker.loxone/doc/log-missing-control-type.png)
-
-Собственное значение от ioBroker &gt; Объекты
-
-![Подробная информация об отсутствующем элементе управления LightController](../../../en/adapterref/iobroker.loxone/doc/details-missing-control-type.png)
-
-## Legal
-Этот проект не связан прямо или косвенно с компанией Loxone Electronics GmbH.
-
-Loxone и Miniserver являются зарегистрированными товарными знаками Loxone Electronics GmbH.
+TR: ### Synchronize Rooms
+TR: This will populate the enum.rooms enumeration with all rooms provided by the Loxone Miniserver and will link all controls.
+
+TR: ### Synchronize Functions
+TR: This will populate the enum.functions enumeration with all categories provided by the Loxone Miniserver and will link all controls.
+
+TR: ### Weather Server
+TR: Choose what weather data you wish to synchronize:
+
+TR: -   "Don't synchronize weather data" will not synchronize anything related to the Weather Server
+TR: -   "Synchronize current weather only" will synchronize the data under "Actual"
+TR: -   "Synchronize 24 hours of weather forcast" will synchronize the current weather and 24 hours of weather forcast
+TR: -   "Synchronize entire weather forcast" will synchronize the current weather and the entire weather forcast (96 hours)
+
+TR: ## States
+TR: The adapter automatically connects to the configured Loxone Miniserver and creates states for each control state it finds.
+
+TR: The IDs of the states are formatted like this: `loxone.<instance>.<control>.<state>`
+
+TR: -   `<instance>` is the ioBroker adapter instance index (usually "0")
+TR: -   `<control>` is the UUID of the control
+TR: -   `<state>` is the state within the control (see [Supported Control Types](#supported-control-types) for more information).
+
+TR: The name provided when configuring a control in Loxone Config will only be used as its display name in ioBroker.
+This is because a user may choose the same name for multiple controls.
+
+TR: For more information about controls and their states, please also have a look at the Loxone API (especially the Structure File): https://www.loxone.com/enen/kb/api/
+
+TR: ## Control Visibility
+TR: By default Loxone Miniserver hides many controls (and thus their states) from the Web interface.
+
+TR: That means, they are also hidden from this ioBroker adapter.
+
+TR: ### Use in User Interface
+TR: To ensure, all your states are properly reported to ioBroker, please verify that they have "Use" in the "User Interface" section checked:
+
+![TR: Use in User Interface settings](../../../en/adapterref/iobroker.loxone/doc/loxone-config-use-in-visualization.png)
+
+TR: ### Display diagnostic inputs
+TR: To see diagnostic inputs (e.g. battery status of Air devices), please verify that the device has "Display diagnostic inputs" checked:
+
+![TR: Display diagnostic inputs settings](../../../en/adapterref/iobroker.loxone/doc/loxone-config-display-diagnostics.png)
+
+TR: ## Global States
+TR: The following global states are currently provided by this adapter:
+
+TR: -   `operatingMode`: the current operating mode number of the Loxone Miniserver
+TR: -   `operatingMode-text`: the current operating mode of the Loxone Miniserver as text
+TR: -   `sunrise`: the number of minutes after midnight when the sun rises today
+TR: -   `sunset`: the number of minutes after midnight when the sun goes down today
+TR: -   `notifications`: the number of notifications
+TR: -   `modifications`: the number of modifications
+TR: -   all other global states are simply reported as texts
+
+TR: ## Supported Control Types
+TR: The following control types are currently supported by this adapter.
+
+TR: Behind the name of the state, you can see the type of the state:
+
+TR: -   `(rw)`: readable and writable: this state can be changed from ioBroker
+TR: -   `(ro)`: read-only: this state can't be changed from ioBroker
+TR: -   `(wo)`: write-only: this state's value isn't reported by this adapter, but it can be changed, triggering some action on the Loxone Miniserver
+
+TR: ### AalSmartAlarm
+TR: Provided by AAL Smart Alarm control.
+
+TR: -   `alarmLevel` (ro) the ID of the current alarm level
+TR:     -   0 = No alarm
+TR:     -   1 = Immediate alarm
+TR:     -   2 = Delayed alarm
+TR: -   `alarmCause` (ro) A string representing the last cause for an alarm
+TR: -   `isLocked` (ro) Reset active, inputs will be ignored and therefore no alarms will be executed
+TR: -   `isLeaveActive` (ro) Leave input is set, no alarms will be executed
+TR: -   `disableEndTime` (ro) End time for the control to be disabled
+TR: -   `confirm` (wo) Confirm pending alarm
+TR: -   `disable` (wo) Disable control for a certain period of time, no alarms will be executed. Setting it to 0 will reenable the Smart Alarm
+TR: -   `startDrill` (wo) Execute test alarm
+
+TR: ### AalEmergency
+TR: Provided by AAL Smart Emergency Button control.
+
+TR: -   `status` (ro) the ID of the current status
+TR:     -   0 = running, normal operation, waiting for emergency button press
+TR:     -   1 = alarm triggered
+TR:     -   2 = reset input in config asserted, control is shut down
+TR:     -   3 = app has temporarily disabled control
+TR: -   `disableEndTime` (ro) End time for the control to be disabled
+TR: -   `resetActive` (ro) text state with the active reset input (if control is in reset)
+TR: -   `trigger` (wo) trigger an alarm from the app
+TR: -   `quit` (wo) quit an active alarm
+TR: -   `disable` (wo) disable the control for the given time in seconds. Set to 0 to start control again if it is disabled
+
+TR: ### Alarm
+TR: Provided by burgler alarm control.
+
+TR: -   `armed` (rw) boolean state (true / false) of the alarm; writing `true` to this value will immediately turn the alarm on (without the predefined delay)
+TR: -   `nextLevel` (ro) the ID of the next alarm level
+TR:     -   1 = Silent
+TR:     -   2 = Acustic
+TR:     -   3 = Optical
+TR:     -   4 = Internal
+TR:     -   5 = External
+TR:     -   6 = Remote
+TR: -   `nextLevelDelay` (ro) the delay of the next level in seconds
+TR: -   `nextLevelDelayTotal` (ro) the total delay of the next level in seconds
+TR: -   `level` (ro) the ID of the current alarm level
+TR:     -   1 = Silent
+TR:     -   2 = Acustic
+TR:     -   3 = Optical
+TR:     -   4 = Internal
+TR:     -   5 = External
+TR:     -   6 = Remote
+TR: -   `startTime` (ro) the timestamp when alarm started
+TR: -   `armedDelay` (ro) the delay of the alarm control being armed
+TR: -   `armedDelayTotal` (ro) the total delay of the alarm control being armed
+TR: -   `sensors` (ro) the list of sensors
+TR: -   `disabledMove` (rw) the movement is disabled (true) or not (false)
+TR: -   `delayedOn` (wo) writing any value to this state arms the alarm with the configured delay
+TR: -   `quit` (wo) writing any value to this state acknowledges the alarm
+
+TR: ### Central Alarm
+TR: Provided by central burgler alarm control.
+
+TR: -   `armed` (rw) boolean state (true / false) of the alarm; writing `true` to this value will immediately turn the alarm on (without the predefined delay)
+TR: -   `delayedOn` (wo) writing any value to this state arms the alarm with the configured delay
+TR: -   `quit` (wo) writing any value to this state acknowledges the alarm
+
+TR: ### AlarmClock
+TR: Provided by alarm clock control.
+
+TR: -   `isEnabled` (rw) boolean state (true / false) of the alarm clock
+TR: -   `isAlarmActive` (ro) boolean (true / false) whether the alarm is currently ringing
+TR: -   `confirmationNeeded` (ro) boolean (true / false) whether the user needs to confirm the alarm
+TR: -   `ringingTime` (ro) countdown in seconds how long the alarm clock will be ringing until it’s going to snooze again
+TR: -   `ringDuration` (rw) duration in seconds the alarm clock is ringing
+TR: -   `prepareDuration` (rw) preparation time in seconds
+TR: -   `snoozeTime` (ro) seconds until snoozing ends
+TR: -   `snoozeDuration` (rw) duration in seconds of snoozing
+TR: -   `snooze` (wo) writing any value to this state snoozes the current alarm
+TR: -   `dismiss` (wo) writing any value to this state dismisses the current alarm
+
+TR: ### AudioZone
+TR: Provided by Music Server Zone.
+
+TR: -   `serverState` (ro) state of the music server:
+TR:     -   -3 = unknown/invalid zone
+TR:     -   -2 = not reachable
+TR:     -   -1 = unknown
+TR:     -   0 = offline
+TR:     -   1 = initializing (booting, trying to reach it)
+TR:     -   2 = online
+TR: -   `playState` (rw) the playback state:
+TR:     -   -1 = unknown (this value can't be set)
+TR:     -   0 = stopped (setting this value will pause playback)
+TR:     -   1 = paused (setting this value will pause playback)
+TR:     -   2 = playing (setting this value will start/resume playback)
+TR: -   `clientState` (ro) state of the client:
+TR:     -   0 = offline
+TR:     -   1 = initializing (booting, trying to reach it)
+TR:     -   2 = online
+TR: -   `power` (rw) whether or not the client power is active
+TR: -   `volume` (rw) current volume
+TR: -   `maxVolume` (ro) zones can be assigned a maximum volume
+TR: -   `shuffle` (rw) whether or not playlist shuffle is enabled
+TR: -   `sourceList` (ro) list containing all zone-favorites
+TR: -   `repeat` (rw) repeat mode:
+TR:     -   -1 = unknown
+TR:     -   0 = off
+TR:     -   1 = repeat all
+TR:     -   2 = -not used-
+TR:     -   3 = repeat current item
+TR: -   `songName` (ro) song name
+TR: -   `duration` (ro) how long the whole track is, -1 if not known (stream)
+TR: -   `progress` (rw) current position in the track
+TR: -   `album` (ro) album name
+TR: -   `artist` (ro) artist name
+TR: -   `station` (ro) station name
+TR: -   `genre` (ro) genre name
+TR: -   `cover` (ro) song/album cover image URL
+TR: -   `source` (rw) current selected source identifier (see `sourceList` above)
+TR: -   `prev` (wo) writing any value to this state moves to the previous track
+TR: -   `next` (wo) writing any value to this state moves to the next track
+
+TR: ### Central Audio
+TR: Provided by central Music Server.
+
+TR: -   `control` (wo) sets the play state of all players (`true` = play, `false` = pause)
+
+TR: ### Colorpicker
+TR: This device only appears inside a LightController.
+
+TR: -   `red` (rw) red value of the color picker
+TR: -   `green` (rw) green value of the color picker
+TR: -   `blue` (rw) blue value of the color picker
+
+TR: Setting one or more of the above states from ioBroker will only send a command to the Miniserver after about 100 ms.
+This is to prevent the color from changing multiple times for a single user input.
+
+TR: ### Colorpicker V2
+TR: This device only appears inside a Light Controller V2 in Loxone software version 9 and above.
+
+TR: -   `red` (rw) red value of the color picker
+TR: -   `green` (rw) green value of the color picker
+TR: -   `blue` (rw) blue value of the color picker
+
+TR: Setting one or more of the above states from ioBroker will only send a command to the Miniserver after about 100 ms.
+This is to prevent the color from changing multiple times for a single user input.
+
+TR: ### Dimmer
+TR: Provided by dimmers.
+
+TR: -   `position` (rw) current position for the dimmer
+TR: -   `min` (ro) current minimum value
+TR: -   `max` (ro) current maximum value
+TR: -   `step` (ro) current step value
+TR: -   `on` (wo) writing any value to this state sets the dimmer to the last known position
+TR: -   `off` (wo) writing any value to this state disables the dimmer, sets position to 0 but remembers the last position
+
+TR: ### EIBDimmer
+TR: Provided by EIB/KNX dimmers.
+
+TR: -   `position` (rw) current position for the dimmer
+TR: -   `on` (wo) writing any value to this state sets the dimmer to the last known position
+TR: -   `off` (wo) writing any value to this state disables the dimmer, sets position to 0 but remembers the last position
+
+TR: ### Gate
+TR: Provided by gate controls.
+
+TR: -   `position` (ro) the position from 1 = up to 0 = down
+TR: -   `active` (rw) current direction of the gate movement
+TR:     -   -1 = close
+TR:     -   0 = not moving
+TR:     -   1 = open
+TR: -   `preventOpen` (ro) whether preventing opening of door
+TR: -   `preventClose` (ro) whether preventing closing of door
+
+TR: ### Central Gate
+TR: Provided by central gate control.
+
+TR: -   `open` (wo) opens all gates
+TR: -   `close` (wo) closes all gates
+TR: -   `stop` (wo) stops all gate motors
+
+TR: ### InfoOnlyDigital
+TR: Provided by virtual states as well as the Loxone Touch switch.
+
+TR: -   `active` (ro) boolean state (true / false) of the control
+TR: -   `active-text` (ro) if configured, the text equivalent of the state
+TR: -   `active-image` (ro) if configured, the image equivalent of the state
+TR: -   `active-color` (ro) if configured, the color equivalent of the state
+
+![TR: InfoOnlyDigital settings](../../../en/adapterref/iobroker.loxone/doc/loxone-config-info-only-digital.png)
+
+TR: ### InfoOnlyAnalog
+TR: Provided by virtual states as well as the Loxone Touch switch.
+
+TR: -   `value` (ro) the state value (number) of the control
+TR: -   `value-formatted` (ro) if configured, the formatted value of the state (using the "Unit" format from Loxone Config)
+
+TR: ### Intercom
+TR: Provided by door controllers.
+
+TR: -   `bell` (ro) whether the bell is ringing
+TR: -   `lastBellEvents` (ro) array containing the timestamps for each bell-activity that wasn't answered
+TR: -   `version` (ro) Loxone Intercoms only - text containing the currently installed firmware
+
+TR:     versions
+
+TR: -   `answer` (wo) writing any value to this state will deactivate the bell
+
+TR: This type of channel might contain other devices. See the respective chapter for more information.
+
+TR: ### Intelligent Room Controller V2
+TR: Provided by the intelligent room controller V2 since Miniserver 10.0.
+
+TR: TODO: Documentation currently missing
+
+TR: ### Jalousie
+TR: Provided by different kinds of blinds (automatic and manual).
+
+TR: -   `up` (rw) whether Jalousie is moving up
+TR: -   `down` (rw) whether Jalousie is moving down
+TR: -   `position` (ro) position of the Jalousie, a number from 0 to 1
+TR:     -   Jalousie upper position = 0
+TR:     -   Jalousie lower position = 1
+TR: -   `shadePosition` (ro) shade position of the Jalousie (blinds), a number from 0 to 1
+TR:     -   Blinds are not shaded = 0
+TR:     -   Blinds are shaded = 1
+TR: -   `safetyActive` (ro) only used by ones with Autopilot, this represents the safety shutdown
+TR: -   `autoAllowed` (ro) only used by ones with Autopilot
+TR: -   `autoActive` (rw) only used by ones with Autopilot
+TR: -   `locked` (ro) only by ones with Autopilot, this represents the output QI in Loxone Config
+TR: -   `infoText` (ro) informs e.g. on what caused the locked state, or what did cause the safety to become active.
+TR: -   `fullUp` (wo) writing any value to this state triggers a full up motion
+TR: -   `fullDown` (wo) writing any value to this state triggers a full down motion
+TR: -   `shade` (wo) writing any value to this state shades the Jalousie to the perfect position
+
+TR: ### Central Jalousie
+TR: Provided by the central blinds control.
+
+TR: -   `autoActive` (rw) only used by ones with Autopilot
+TR: -   `fullUp` (wo) writing any value to this state triggers a full up motion
+TR: -   `fullDown` (wo) writing any value to this state triggers a full down motion
+TR: -   `shade` (wo) writing any value to this state shades of all blinds to the perfect position
+
+TR: ### Light Controller
+TR: Provided by (hotel) lighting controllers.
+Scenes can only be modified in the Loxone applications, but can be selected in ioBroker.
+
+TR: -   `activeScene` (rw) current active scene number
+TR:     -   0: all off
+TR:     -   1..8: user defined scene (definition/learning of scenes has to be done with the Loxone tools)
+TR:     -   9: all on
+TR: -   `sceneList` (ro) list of all scenes
+TR: -   `plus` (wo) changes to the next scene
+TR: -   `minus` (wo) changes to the previous scene
+
+TR: This type of channel might contain other devices. See the respective chapter for more information.
+
+TR: ### Light Controller V2
+TR: Provided by (hotel) lighting controllers in Loxone software version 9 and above.
+Moods can only be modified in the Loxone applications, but can be selected and combined in ioBroker.
+
+TR: -   `moodList` (ro) list of all configured mood names
+TR: -   `activeMoods` (rw) currently active list of mood names
+TR: -   `favoriteMoods` (ro) list of the favorite mood names
+TR: -   `additionalMoods` (ro) list of the non-favorite mood names
+TR: -   `plus` (wo) changes to the next mood
+TR: -   `minus` (wo) changes to the previous mood
+
+TR: This type of channel might contain other devices. See the respective chapter for more information.
+
+TR: ### Central Light Controller
+TR: Provided by central lighting controller.
+
+TR: -   `control` (wo) turns all lights on or off
+
+TR: ### Mailbox
+TR: Provided by Paketsafe Air / Tree.
+
+TR: -   `notificationsDisabledInput` (ro) State of the notifications disabled input
+TR: -   `packetReceived` (ro) State if a packet has been received
+TR: -   `mailReceived` (ro) State if mail has been received
+TR: -   `disableEndTime` (ro) timestamp until the notifications are disabled
+TR: -   `confirmPacket` (wo) Confirm receive of a packet
+TR: -   `confirmMail` (wo) Confirm receive of mail
+TR: -   `disableNotifications` (wo) Disable the notifications for x seconds; 0 seconds for cancelling timer
+
+TR: ### Meter
+TR: Provided by utility meters.
+
+TR: -   `actual` (ro) the actual value (number)
+TR: -   `actual-formatted` (ro) if configured, the formatted actual value of the state (using the "Unit" format from Loxone Config)
+TR: -   `total` (ro) the total value (number)
+TR: -   `total-formatted` (ro) if configured, the formatted total value of the state (using the "Unit" format from Loxone Config)
+TR: -   `reset` (wo) writing any value to this state resets the total value
+
+TR: ### Presence Detector
+TR: Provided by presence detector.
+
+TR: -   `active` (ro) presence state
+TR: -   `locked` (ro) locked state
+TR: -   `events` (ro) the number of events
+TR: -   `infoText` (ro) reason why the presence detector is locked
+
+TR: ### Pushbutton
+TR: Provided by virtual push-button inputs.
+
+TR: -   `active` (rw) the current state of the pushbutton
+TR: -   `pulse` (wo) writing any value to this state will simulate the button being pushed only for a very short time
+
+TR: ### Slider
+TR: Provided by analog virtual inputs.
+
+TR: -   `value` (rw) the current value of the slider
+TR: -   `value-formatted` (ro) if configured, the formatted value of the state (using the "Unit" format from Loxone Config)
+TR: -   `error` (ro) indicates an invalid value of the slider
+
+TR: ### SmokeAlarm
+TR: Provided by utility meters.
+
+TR: -   `nextLevel` (ro) the ID of the next alarm level
+TR:     -   1 = Silent
+TR:     -   2 = Acustic
+TR:     -   3 = Optical
+TR:     -   4 = Internal
+TR:     -   5 = External
+TR:     -   6 = Remote
+TR: -   `nextLevelDelay` (ro) delay of the next level in seconds
+TR: -   `nextLevelDelayTotal` (ro) total delay of the next level in seconds
+TR: -   `level` (ro) the ID of the current alarm level
+TR:     -   1 = Silent
+TR:     -   2 = Acustic
+TR:     -   3 = Optical
+TR:     -   4 = Internal
+TR:     -   5 = External
+TR:     -   6 = Remote
+TR: -   `sensors` (ro) the list of sensors
+TR: -   `acousticAlarm` (ro) state of the acoustic alarm false for not active and true for active
+TR: -   `testAlarm` (ro) whether testalarm is active
+TR: -   `alarmCause` (ro) the cause of the alarm:
+TR:     -   1 = smoke detector only
+TR:     -   2 = water only
+TR:     -   3 = smoke and water
+TR:     -   4 = temperature only
+TR:     -   5 = fire and temperature
+TR:     -   6 = temperature and water
+TR:     -   7 = fire, temperature and water
+TR: -   `startTime` (ro) timestamp when alarm started
+TR: -   `timeServiceMode` (rw) delay until service mode is disabled
+TR: -   `mute` (wo) writing any value to this state mutes the sirene
+TR: -   `quit` (wo) writing any value to this state acknowledges the smoke alarm
+
+TR: ### Switch
+TR: Provided by virtual input switches.
+
+TR: -   `active` (rw) the current state of the switch
+
+TR: ### Text State
+TR: Provided by "state".
+
+TR: -   `textAndIcon` (ro) the current value of the state
+
+TR: ### TimedSwitch
+TR: Provided by stairwell and multifunction switches.
+
+TR: -   `deactivationDelayTotal` (ro) seconds, how long the output will be active if the timer is used
+TR: -   `deactivationDelay` (ro) countdown until the output is deactivated
+TR:     -   0 = the output is turned off
+TR:     -   -1 = the output is permanently on
+TR:     -   otherwise it will count down from deactivationDelayTotal
+TR: -   `on` (wo) writing any value to this state enables the switch permanently without deactivation delay
+TR: -   `off` (wo) writing any value to this state disables the switch
+TR: -   `pulse` (wo) pulses the switch:
+TR:     -   deactivationDelay = 0
+TR:         -   Will start the countdown, from deactivationDelayTotal to 0
+TR:     -   if this is a stairwell switch:
+TR:         -   deactivationDelay = -1
+TR:             -   No effect, will remain permanently on.
+TR:         -   deactivationDelay > 0
+TR:             -   Restarts the countdown
+TR:     -   if this is a multifunction switch
+TR:         -   turns it off (from countdown or permanent on state)
+
+TR: ### Tracker
+TR: Provided by stairwell and multifunction switches.
+
+TR: -   `entries` (ro) list of entries returned from the miniserver
+
+TR: ### UpDownAnalog
+TR: Provided by Virtual Input (Up-Down buttons).
+
+TR: -   `value` (rw) the current value of the input
+TR: -   `value-formatted` (ro) if configured, the formatted value of the state (using the "Unit" format from Loxone Config)
+TR: -   `error` (ro) indicates an invalid value of the slider
+
+TR: ### ValueSelector
+TR: Value selection.
+
+TR: -   `value` (rw) current value
+TR: -   `min` (ro) current minimum value
+TR: -   `max` (ro) current maximum value
+TR: -   `step` (ro) current step value
+
+TR: ### WindowMonitor
+TR: Provided by utility meters.
+
+TR: -   `numOpen` (ro) number of open windows & doors
+TR: -   `numClosed` (ro) number of closed windows & doors
+TR: -   `numTilted` (ro) number of tilted windows & doors
+TR: -   `numOffline` (ro) number of windows & doors that are not available
+TR: -   `numLocked` (ro) number of locked windows & doors
+TR: -   `numUnlocked` (ro) number of unlocked windows & doors
+
+TR: The sum of the values from all these states is equal to the number of windows & doors monitored.? The windows/doors with two states will always be counted to the "worst" state.
+
+TR: For each monitored window / door there will be a device with an index as its ID and the given name. They have the following states:
+
+TR: -   `closed` (ro) the window / door is closed
+TR: -   `tilted` (ro) the window / door is tilted
+TR: -   `open` (ro) the window / door is open
+TR: -   `locked` (ro) the window / door is locked
+TR: -   `unlocked` (ro) the window / door is unlocked
+
+TR: ## Weather Server
+TR: The weather server information is provided as a device with multiple channels.
+The device is called `WeatherServer`.
+It contains:
+
+TR: -   the channel `Actual` with the current weather values
+TR: -   one channel for each forecast hour called `HourXX` where `XX` is the number of hours from now
+
+TR: Every channel contains the following states:
+
+TR: -   `barometricPressure`: numeric barometric pressure value
+TR: -   `barometricPressure-formatted`: formatted barometric pressure value with unit
+TR: -   `dewPoint`: numeric dew point value
+TR: -   `dewPoint-formatted`: formatted dew point value with unit
+TR: -   `perceivedTemperature`: numeric perceived temperature value
+TR: -   `perceivedTemperature-formatted`: formatted perceived temperature value with unit
+TR: -   `precipitation`: numeric precipitation value
+TR: -   `precipitation-formatted`: formatted precipitation value with unit
+TR: -   `relativeHumidity`: numeric relative humidity value
+TR: -   `relativeHumidity-formatted`: formatted relative humidity value with unit
+TR: -   `solarRadiation`: solar radiation value
+TR: -   `temperature`: numeric temperature value
+TR: -   `temperature-formatted`: formatted temperature value with unit
+TR: -   `timestamp`: timestamp of the data as `value.time` (JavaScript time)
+TR: -   `weatherType`: numeric weather type enumeration value
+TR: -   `weatherType-text`: text representation of the weather type
+TR: -   `windDirection`: wind direction value
+TR: -   `windSpeed`: wind speed value
+TR: -   `windSpeed-formatted`: formatted wind speed value with unit
+
+TR: ## Unsupported Control Types
+TR: When Loxone adds new control types, they are most often not immediately supported by this adapter.
+
+TR: In this case, the control will have "Unknown:" in front of its name. E.g. `Unknown: Wallbox`
+
+TR: Those controls will contain all states reported by the Miniserver, but they will all be read-only strings.
+
+TR: If you need better support for a new control type, please follow the steps in the next section to requeset a new feature.
+
+TR: **Sentry:** unsupported control types will be reported to the developers using Sentry. This way you might get new controls in the next release without having to request it yourself.
+
+TR: ## Bug Reports and Feature Requests
+TR: Please use the GitHub repository to report any bugs or request new features.
+
+TR: If you require an unsupported control type, please provide the name as it is reported in the error log of ioBroker as well as the entire raw contents of the device in the ioBroker object tree:
+
+TR: Log file example for "LightController":
+
+![TR: Log of missing LightController control](../../../en/adapterref/iobroker.loxone/doc/log-missing-control-type.png)
+
+TR: Native value from ioBroker &gt; Objects
+
+![TR: Details of missing LightController control](../../../en/adapterref/iobroker.loxone/doc/details-missing-control-type.png)
+
+TR: ## Legal
+TR: This project is not affiliated directly or indirectly with the company Loxone Electronics GmbH.
+
+TR: Loxone and Miniserver are registered trademarks of Loxone Electronics GmbH.
 
 ## Changelog
+
+<!--
+    Placeholder for the next version (at the beginning of the line):
+    ### **WORK IN PROGRESS**
+-->
+
+### 2.2.1 (2021-05-18)
+
+-   (UncleSamSwiss) Fixed typo causing "Cannot read property 'off' of undefined" (IOBROKER-LOXONE-2R, #72)
+-   (UncleSamSwiss) Improved Sentry reporting for structure file
+
+### 2.2.0 (2021-05-17)
+
+-   (UncleSamSwiss) Unknown/unsupported controls are now shown with their states as read-only strings
+-   (raintonr) Fixes for auto-position based on percentage (#76)
+-   (raintonr) Added support for IRoomControllerV2 (#22)
+-   (UncleSamSwiss) Added experimental support for EIBDimmer (#15)
+-   (UncleSamSwiss) Added support for ValueSelector (#36)
+-   (UncleSamSwiss) Added support for TextState (#73)
+-   (UncleSamSwiss) Added support for UpDownAnalog (#57)
+-   (UncleSamSwiss) Fixed some "State has wrong type" warnings (#99, #128)
+-   (UncleSamSwiss) Added support for Lumitech color picker (#44)
+-   (UncleSamSwiss) Weather server data can now be filtered (#131)
+-   (UncleSamSwiss) Added support for PresenceDetector (IOBROKER-LOXONE-1R)
+-   (UncleSamSwiss) Added support for AAL Smart Alarm (IOBROKER-LOXONE-1X)
+-   (UncleSamSwiss) Added support for AAL Emergency Button (IOBROKER-LOXONE-1W)
+-   (UncleSamSwiss) Added support for Paketsafe (IOBROKER-LOXONE-1P)
+
+### 2.1.0 (2020-12-21)
+
+-   (raintonr) Fixed: activeMoods can get stuck/not sync properly; all events is now handled with a queue (#58, #61, #62)
+-   (raintonr) Added open/close buttons to Garage/Gate Control (#59, #60)
+-   (pinkit) Added support for virtual text inputs (#48)
+-   (UncleSamSwiss) Updated to the latest adapter template
+-   (UncleSamSwiss) Changed log level of "Currently unsupported control type" message to "info" (#65)
 
 ### 2.0.2 (2020-10-26)
 
@@ -514,7 +653,7 @@ Loxone и Miniserver являются зарегистрированными т�
 
 ### 2.0.0
 
-- **BREAKING:** Since the password is now encrypted, you will need to enter the password again after an update to this version!
+-   **BREAKING:** Since the password is now encrypted, you will need to enter the password again after an update to this version!
 -   (UncleSamSwiss) Updated to the latest development tools and changed to the TypeScript language
 
 ### 1.1.0
@@ -570,7 +709,7 @@ Loxone и Miniserver являются зарегистрированными т�
 
 ## License
 
-Copyright 2020 UncleSamSwiss
+Copyright 2021 UncleSamSwiss
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

@@ -2,30 +2,40 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.binance/README.md
-title: ioBroker.binance
-hash: g1ciorZTR3u5Yhaf5+j4iEvviAnfozU2ASrlfW4BtJo=
+title: !!!
+hash: BSYnXyUI001V3VbS9LwVPs800MPSIjbRqcpcK7c2COY=
 ---
-![логотип](../../../en/adapterref/iobroker.binance/admin/binance.png)
+# !!!
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.binance.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.binance.svg)
-![Количество установок (последняя)](http://iobroker.live/badges/binance-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/binance-stable.svg)
-![Статус зависимости](https://img.shields.io/david/Kartax/iobroker.binance.svg)
-![Известные уязвимости](https://snyk.io/test/github/Kartax/ioBroker.binance/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.binance.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.binance.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.binance.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/binance-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/binance-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/Kartax/iobroker.binance.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/Kartax/ioBroker.binance/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.binance.png?downloads=true)
 
-# IoBroker.binance
-## Введение
-Адаптер для связи с криптографической торговой платформой
+TR: # Please note, that this plugin/repository is discontinued (open for adoption)
+# !!!
+![TR: Logo](../../../en/adapterref/iobroker.binance/admin/binance.png)
 
-Адаптер вытягивает цены валют в настроенном интервале обновления.
-Если вы настроите ключ API и соответствующий секретный ключ, он также потянет остатки на счетах.
-Вы можете создать ключ API на binance.com - я предлагаю ограничить его только для чтения.
+TR: # ioBroker.binance
+TR: ## Introduction
+TR: Adapter to communicate with the crypto trading platform binance
 
-![screenshot-1] (screenshot-1.png)! [screenshot-2](../../../en/adapterref/iobroker.binance/screenshot-2.png)
+TR: The adapter pulls prices of currencies in the configured update interval.
+If you configure an API Key and the corresponding secret, it will pull account balances as well.
+You may create an API Key on binance.com - i suggest to restrict it to "read-only".
+
+![TR: screenshot-1](screenshot-1.png) ![screenshot-2](../../../en/adapterref/iobroker.binance/screenshot-2.png)
 
 ## Changelog
+### 1.1.3
+- dependency update: lodash
+### 1.1.2
+- version label fix
+### 1.1.1
+- Possibility to disabled download of all prices. Polished options and translations.
 ### 1.1.0
 - added 24hr data for selected symbols
 ### 1.0.5

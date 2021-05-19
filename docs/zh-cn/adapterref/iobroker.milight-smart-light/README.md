@@ -2,51 +2,53 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.milight-smart-light/README.md
-title: ioBroker.milight-smart-light
-hash: cWv7WlDzwUw8WHGt7KPNdnmutK4CenySEwXQgJItWjc=
+title: TR: ioBroker.milight-smart-light
+hash: 5pIHYWxLRBx9JzitGECa91GS6s7APvK2vcMJLXLqx1Y=
 ---
-![milight-smart-light徽标](../../../en/adapterref/iobroker.milight-smart-light/admin/milight-smart-light.png)
+![TR: milight-smart-light Logo](../../../en/adapterref/iobroker.milight-smart-light/admin/milight-smart-light.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.milight-smart-light.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.milight-smart-light.svg)
-![稳定](http://iobroker.live/badges/milight-smart-light-stable.svg)
-![已安装](http://iobroker.live/badges/milight-smart-light-installed.svg)
-![依赖状态](https://img.shields.io/david/steiger04/iobroker.milight-smart-light.svg)
-![已知漏洞](https://snyk.io/test/github/steiger04/ioBroker.milight-smart-light/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.milight-smart-light.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.milight-smart-light.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.milight-smart-light.svg)
+![TR: stable](http://iobroker.live/badges/milight-smart-light-stable.svg)
+![TR: installed](http://iobroker.live/badges/milight-smart-light-installed.svg)
+![TR: Dependency Status](https://img.shields.io/david/steiger04/iobroker.milight-smart-light.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/steiger04/ioBroker.milight-smart-light/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.milight-smart-light.png?downloads=true)
 
-＃ioBroker.milight-smart-light
-![测试与发布](https://github.com/steiger04/ioBroker.milight-smart-light/workflows/Test%20and%20Release/badge.svg)
+TR: # ioBroker.milight-smart-light
+![TR: Test and Release](https://github.com/steiger04/ioBroker.milight-smart-light/workflows/Test%20and%20Release/badge.svg)
 
-ioBroker的此适配器基于mwittig的节点模块控制Milight LED灯泡和LED灯带。
+TR: This adapter for ioBroker controls Milight LED bulbs and LED strips and based on the node module from mwittig.
 
-mwittig /[Node-milight-promise](https://github.com/mwittig/node-milight-promise)
+TR: mwittig / [TR: node-milight-promise](https://github.com/mwittig/node-milight-promise)
 
-使用适配器，您可以同时使用：** v6 Bridge **和** Legacy Bridge **。
+TR: With adapter you can use both: **v6 Bridge** and **Legacy Bridge**.
 
-** v6桥：**
+TR: **v6 Bridge:**
 
--网桥（仅iBox1）
--白色
--rgb（w）
-- 饱满的色彩
--fullColor8Zone
+TR: - bridge (only iBox1)
+TR: - white
+TR: - rgb(w)
+TR: - fullColor
+TR: - fullColor8Zone
 
-**旧桥：**
+TR: **Legacy Bridge:**
 
--白色
--rgb（w）
+TR: - white
+TR: - rgb(w)
 
-**描述**
+TR: **Description**
 
-可以在[er](https://steiger04.github.io/milight-smart-light-doku/)中找到详细说明。
+TR: A detailed description can be found [TR: here](https://steiger04.github.io/milight-smart-light-doku/).
 
-###版本
--** Node.js **：使用10.18.1版或更高版本
--** iobroker.admin **：使用3.5.10或更高版本
+TR: ### Versions
+TR: - **Node.js**: use v. 10.18.1 or higher
+TR: - **iobroker.admin**: use v. 3.5.10 or higher
 
 ## Changelog
-### 1.1.1 (2020-01-13)
+### 1.2.1 (2020-05-18)
+- (steiger04) Compatibility with socketio v3.1.4
+### 1.2.0 (2020-01-16)
 - (steiger04) compact mode added
 ### 1.0.5 (2020-01-10)
 - (steiger04) Small bug fix

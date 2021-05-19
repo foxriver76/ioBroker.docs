@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: TR: ioBroker IoT Adapter
-hash: BmoMf+LIXUxNddbcDjCBbnqlvBWGyuq6DE962F5aVYI=
+hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
@@ -266,7 +266,13 @@ TR: <!-- Placeholder for the next version (at the beginning of the line):
 TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.8.22 (2021-05-16)
+* (bluefox) Make it admin4 compatible
+
+### 1.8.21 (2021-05-16)
+* (bluefox) Fixed the encryption of the password. Warning: if you see the message in the log, that password is invalid, please enter the password in configuration dialog one more time and save.
+
+### 1.8.20 (2021-05-16)
 * (foxriver76) we now write data received from custom services with acknowledge flag
 
 ### 1.8.19 (2021-05-14)
