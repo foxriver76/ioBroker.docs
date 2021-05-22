@@ -2,50 +2,49 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.swiss-weather-api/README.md
-title: ioBroker.swiss-weather-api
-hash: pLbVrk1AXeOxB8SDnfr8FEkVce9i++LOGy0MotabGSg=
+title: TR: ioBroker.swiss-weather-api
+hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
 ---
-![商标](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
+![TR: Logo](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.swiss-weather-api.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.swiss-weather-api.svg)
-![安装数量（最新）](http://iobroker.live/badges/swiss-weather-api-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/swiss-weather-api-stable.svg)
-![依赖状态](https://img.shields.io/david/baerengraben/iobroker.swiss-weather-api.svg)
-![已知漏洞](https://snyk.io/test/github/baerengraben/ioBroker.swiss-weather-api/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.swiss-weather-api.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.swiss-weather-api.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.swiss-weather-api.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/swiss-weather-api-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/swiss-weather-api-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/baerengraben/iobroker.swiss-weather-api.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/baerengraben/ioBroker.swiss-weather-api/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.swiss-weather-api.png?downloads=true)
+![TR: Travis-CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
-＃ioBroker.swiss-weather-api
-##适用于ioBroker的swiss-weather-api适配器
-连接到出色的SRG-SSR天气API（https://developer.srgssr.ch/apis/srgssr-weather）。
+TR: # ioBroker.swiss-weather-api
+TR: ## swiss-weather-api adapter for ioBroker
+TR: Connects to the great SRF weather API (https://developer.srgssr.ch/apis/srf-weather).
+The SRF Weather REST API allows you to get weather forecasts and reports from more than 25.000 locations across Switzerland. A "Freemium" subscription allows you to get 50 Request/day.
 
-SRG-SSR Weather REST API可让您从瑞士超过25.000个地点获取天气预报和报告。
+TR: ##**Icons**
+TR: Since Version 0.1.8 SRG-SSR provides their own icons. So each Datapoint provides an URL to the correspondig weather-situation (Color, Dark, and Light Icons).
 
-**图标**
+TR: ##**Please Be aware that this adapter only supports locations within Switzerland.**
+TR: ### Getting started
+TR: 1. Get a free accout on https://developer.srgssr.ch/
+TR: 1. Go to "My Apps" and create a new App. Here you can choose a Product. "Freemium" is their free product. If you only want to do 50 request per day (every 30min) or/and don't want to pay for more request per day, "Freemium" is what you want to choose. Now, this will create a specific ConsumerKey and ConsumerSecret
+TR: 1. Find out Longitude / Latitude (decimal degrees) of the chosen location for which forecast is needed. This information is optional if you have set your location in the ioBroker settings (main settings) (via the map). In this case you could leave the latitude and longitude fields empty. The adapter then takes over the settings of the ioBroker. Latitude and longitude entered in the adapter configuration override the ioBroker settings.
+TR: 1. Install this Adapter on ioBroker => This can take several minutes (~7min on a Raspberry Pi 3)
+TR: 1. On Adapter Configuration fill in
+TR:    1. Name of App
+TR:    1. ConsumerKey of App
+TR:    1. ConsumerSecret of App
+TR:    1. Longitude / Latitude of the chosen swiss location for which forecast is needed. => Please use decimal degrees (for example Zürich: 47.36667 / 8.5)
+TR:    1. Poll Interval in Minutes (By default 30 minutes - 50 Request/Day)
 
-天气图标可从https://erikflowers.github.io/weather-icons/重用
-
-从0.1.8版开始，SRG-SSR甚至提供了自己的图标。因此，您可以选择要使用的图标集。
-
-**请注意，此适配器仅支持瑞士境内的位置。**
-
-＃＃＃ 入门
-1.在https://developer.srgssr.ch/上获得免费帐户
-1.确保使用产品“ SRG-SSR-PUBLIC-API-V2”，因为这是他们的免费产品
-1.转到“我的应用程序”并创建一个新的应用程序。这将创建一个特定的ConsumerKey和ConsumerSecret
-1.找出需要进行预测的所选位置的经度/纬度（十进制）
-1.在ioBroker上安装此适配器=>这可能需要几分钟（在Raspberry Pi 3上约为7分钟）
-1.在“适配器配置”上填写
-   1.应用名称
-   1. App的ConsumerKey
-   1. App的ConsumerSecret
-   1.需要预测的所选瑞士位置的经度/纬度。 =>请使用十进制度数（例如苏黎世：47.36667 / 8.5）
-   1.以分钟为单位的轮询间隔（默认为30分钟）
-
-适配器启动后10秒钟进行第一个查询。首次启动后，将根据配置参数（以分钟为单位的轮询间隔）定期执行查询
+TR: The first query is made 10s after the adapter was started. After the first start, the query will be executed regularly according to the conifugation parameter (Poll Interval in Minutes)
 
 ## Changelog
+
+### 0.9.0
+* (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 
+* (baerengraben)  Update to new SRF Weater API (https://developer.srgssr.ch/apis/srf-weather). Attention: Old Weather-API (Adapter Version 0.3.2 and earlier) will be decommissioned on Sept. 2021)
+* (baerengraben)  Removed Icon-Support from https://erikflowers.github.io/weather-icons/ since SRF is providing their own icons.
 
 ### 0.3.2
 * (baerengraben)  Fix for https://github.com/baerengraben/iobroker.swiss-weather-api/issues/13.

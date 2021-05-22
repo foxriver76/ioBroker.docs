@@ -2,95 +2,101 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.yr/README.md
-title: ioBroker.yr
-hash: s+SkqMZbnSFY2acITgHvIqIIe9qKW6oTr0EU8TLj2nE=
+title: TR: ioBroker.yr
+hash: Wv+VSiCyLkFwarjbReHt20yyPPZ0pCInwx5v1zeUOZg=
 ---
-![Logo](../../../en/adapterref/iobroker.yr/admin/yr.png)
+![TR: Logo](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/yr-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.yr.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.yr.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/yr-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.yr.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.yr.svg)
+![TR: Tests](https://travis-ci.org/ioBroker/ioBroker.yr.svg?branch=master)
+![TR: NPM](https://nodei.co/npm/iobroker.yr.png?downloads=true)
 
-# IoBroker.yr
-holt 48h Wettervorhersage von [yr.nr.](yr.no)
+TR: # ioBroker.yr
+TR: fetches 48h weather forecast from [TR: yr.no](yr.no)
 
-[yr.no] (yr.no) ist eine gemeinsame Dienstleistung des [Norwegian Meteorological Institute] (met.no) und der [Norwegian Broadcasting Corporation](nrk.no)
+[TR: yr.no](yr.no) is a joint service by the [Norwegian Meteorological Institute](met.no) and the [Norwegian Broadcasting Corporation](nrk.no)
 
-http://om.yr.no/verdata/free-weather-data/
+TR: http://om.yr.no/verdata/free-weather-data/
 
-** Hinweis ** - Wenn _ "Fehlende Übersetzungen an iobroker.net senden" _ aktiviert ist (Standardeinstellung), werden fehlende Übersetzungen an den iobroker.net-Server gesendet. Es werden keine IPS oder zusätzliche Informationen gespeichert oder analysiert. Nur die Übersetzung fehlt.
+TR: **Note** - if _"Send missing translations to iobroker.net"_ is activated (default) missing translations will be sent to iobroker.net server. No ips or any additional info will be stored or analysed. Just missing translation.
 
-## Icons
-Icons werden hier [https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) entnommen und gehören zu yr.no.
+TR: ## Icons
+TR: Icons are taken from here [TR: https://github.com/YR/weather-symbols](https://github.com/YR/weather-symbols) and belongs to yr.no.
 
-## 1.0.4 [2016-07-06]
-* (bluefox) Link zur Readme-Datei korrigieren
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### 1.0.3 [2016-05-17]
-* (bluefox) Liesmichpfad ändern
+TR: ### __WORK IN PROGRESS__ -->
+TR: ## 1.0.4 [2016-07-06]
+TR: * (bluefox) fix link to readme
 
-### 1.0.2 [2016-05-16]
-* (bluefox) füge Übersetzungen hinzu
+TR: ### 1.0.3 [2016-05-17]
+TR: * (bluefox) change readme path
 
-### 1.0.1 [2016-04-25]
-* (bluefox) füge Übersetzungen hinzu
+TR: ### 1.0.2 [2016-05-16]
+TR: * (bluefox) add translations
 
-### 1.0.0 [2016-03-15]
-* (bluefox) Parsing von Städten ändern
+TR: ### 1.0.1 [2016-04-25]
+TR: * (bluefox) add translations
 
-### 0.1.9 [2015-10-28]
-* (bluefox) behebt Fehler bei Übersetzungen
+TR: ### 1.0.0 [2016-03-15]
+TR: * (bluefox) change parsing of cities
 
-### 0.1.8 [2015-10-27]
-* (bluefox) übersetzungen
-* (bluefox) lädt fehlende Übersetzungen automatisch zu iobroker.net hoch
+TR: ### 0.1.9 [2015-10-28]
+TR: * (bluefox) fix error with translations
 
-### 0.1.7 [2015-07-10]
-* (bluefox) macht Ihre Arbeit mit Metro-Widgets möglich
+TR: ### 0.1.8 [2015-10-27]
+TR: * (bluefox) translations
+TR: * (bluefox) automatically upload of missing translations to iobroker.net
 
-### 0.1.6 [2015-06-12]
-* (bluefox) übersetzungen
+TR: ### 0.1.7 [2015-07-10]
+TR: * (bluefox) make yr works with metro widgets
 
-### 0.1.5 [2015-03-26]
-* (bluefox) übersetzungen
+TR: ### 0.1.6 [2015-06-12]
+TR: * (bluefox) translations
 
-### 0.1.4 [2015-03-24]
-* (bluefox) Einheit "%" für "Windrichtung" entfernen
+TR: ### 0.1.5 [2015-03-26]
+TR: * (bluefox) translations
 
-### 0.1.3 [2015-03-22]
-* (bluefox) behebt Fehler mit morgen und übermorgen
+TR: ### 0.1.4 [2015-03-24]
+TR: * (bluefox) remove unit "%" for "wind direction"
 
-### 0.1.2 [2015-03-08]
-* (bluefox) richtige Links zur Website yr.no
+TR: ### 0.1.3 [2015-03-22]
+TR: * (bluefox) fix error with tomorrow and day after tomorrow
 
-0.1.1
-* (bluefox) fügt Übersetzungen für die Wetterzustände in anderen Sprachen hinzu
+TR: ### 0.1.2 [2015-03-08]
+TR: * (bluefox) correct links to yr.no web site
 
-0,1,0
-* (bluefox) aktualisiert Ihr neues Objektmodell
+TR: ### 0.1.1
+TR: * (bluefox) add translates for the weather states in other languages
 
-0,04
-* (Hobbyquaker) "Prognose" voranstellen. IDs angeben
+TR: ### 0.1.0
+TR: * (bluefox) update yr on the new objects model
 
-0.0.3
-* (Hobbyquaker) Einstellungen der Benutzeroberfläche mit automatischer Vervollständigung der Position
-* (Hobbyquaker) wurde in Prognose in yr_forecast umbenannt
-* (Hobbyquaker) Kinderattribut hinzugefügt
-* (Hobbyquaker) verringerte die Log-Ausführlichkeit
-* (Hobbyquaker) Korrekturen
+TR: ### 0.0.4
+TR: * (hobbyquaker) prepend "forecast." to state IDs
 
-0,02
-* (Hobbyquaker) Korrekturen
+TR: ### 0.0.3
+TR: * (hobbyquaker) settings ui with autocomplete for location
+TR: * (hobbyquaker) renamed yr_forecast to forecast
+TR: * (hobbyquaker) added children attribute
+TR: * (hobbyquaker) decreased log verbosity
+TR: * (hobbyquaker) fixes
 
-### 0.0.1
-* (Hobbyquaker) erste Veröffentlichung
+TR: ### 0.0.2
+TR: * (hobbyquaker) fixes
 
-## Machen
-* setState Forecast_object
+TR: ### 0.0.1
+TR: * (hobbyquaker) first release
+
+TR: ## Todo
+TR: * setState forecast_object
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (arteck) Type of state was corrected  
+
 ### 2.0.3 [2018-10-10]
 * (bluefox) add translations
 
@@ -107,7 +113,7 @@ Icons werden hier [https://github.com/YR/weather-symbols](https://github.com/YR/
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2014-2018 hobbyquaker <hq@ccu.io>
+Copyright (c) 2014-2021 hobbyquaker <hq@ccu.io>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
