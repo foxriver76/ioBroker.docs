@@ -2,29 +2,29 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.text2command/README.md
-title: ioBroker.text2命令
-hash: EJKyI8ZO0IeFIyxLvHk2Zt/zsWCaU+vR7TAxE2A0oaI=
+title: TR: ioBroker.text2command
+hash: G6rw6Jl8yrPs/8YWk+wBEuW5iwR3q5KDQXr7fv+LmfA=
 ---
-![商标](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
+![TR: Logo](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
-![安装数量](http://iobroker.live/badges/text2command-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.text2command.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.text2command.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.text2command.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/text2command-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.text2command.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.text2command.svg)
+![TR: Tests](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
+![TR: NPM](https://nodei.co/npm/iobroker.text2command.png?downloads=true)
 
-＃ioBroker.text2command
-##说明
-此适配器可以将普通句子转换，例如*'打开厨房的灯'*到特定命令，并将状态*'adapter.0.device.kitchenLight'*设置为** true **。
+TR: # ioBroker.text2command
+TR: ## Description
+TR: This adapter can convert normal sentences, like `Switch light in kitchen on` to specific command and sets the state `adapter.0.device.kitchenLight` to `true`.
 
-单独激活该适配器没有意义。它应与其他适配器一起使用，例如电报或Android应用程序** iobroker.vis **。
+TR: This adapter makes no sense to be activated standalone. It should be used with other adapters like telegram or Android app **`iobroker.vis`**.
 
-##用法
-要执行命令，请在语句中写入状态** text2command。<INSTANCE> .text **。您将始终在** text2command。<INSTANCE> .response **中获得答案。
+TR: ## Usage
+TR: To execute command, write state **`text2command.<INSTANCE>.text`** with sentence. You will always get the answer in `text2command.<INSTANCE>.response`.
 
-如果您定义“对ID的答案”，答案也将写在该ID中。这对于例如实现语音确认。
+TR: If you define **Answer to ID**, the answer will be written in this ID too. This required for e.g. to realise the voice acknowledges.
 
-您可以通过javascript中的`sendTo`发送消息。答案将在消息中返回：
+TR: You can send a message via `sendTo` from javascript. The answer will come in the message back:
 
 ```
 sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
@@ -32,199 +32,199 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 });
 ```
 
-可以使用正则表达式，例如：```/^light\son|^lamp\son/```。正则表达式始终不区分大小写。
+TR: Regular expressions can be used, like: `/^light\son|^lamp\son/`. Regular expressions are always case-insensitive.
 
-要使用“按功能打开/关闭”，您应该注意功能。
+TR: To use "Switch on/off by function" you should care of functions.
 
-关键字的工作方式如下：
+TR: Keywords work as following:
 
--关键字按空格划分
--所有关键字必须出现在句子中才能触发规则：例如关键字：“开灯”将在“开灯”上触发，“在所有地方开灯”而不会在“开灯”上触发，点亮''
--一个关键字可以有多种形式。关键字的变体必须除以“ /”。例如。关键字：“ switch / make / do light on / true”将触发：`“ do light true”，“ make please light on”。
--如果关键字在很多情况下都可以出现（名词，词根，宾格，复数等），则它们都必须以变体形式列出，例如：```lighting / lights on''`。
+TR: - keywords are divided by space
+TR: - all keywords must present in a sentence to trigger a rule: e.g. keyword: `light on` will trigger on `switch light on`, `make light on everywhere` and do not trigger on `switch on`, `make light`.
+TR: - one keyword can has many forms. Variations of keyword must be divided by "/". E.g. keywords: `switch/make/do light on/true` will trigger on: `do light true`, `make please light on`.
+TR: - if keyword can come in many cases(nom, gen, accusative, plural, ...) they all must be listed as variations, like: `switch light/lights on`.
 
-以下功能将被解释为
+TR: Following functions will be interpreted as
 
-枚举函数：
+TR: enum.functions:
 
-** enum.functions.light **（Licht |Свет）：
+TR: **`enum.functions.light`** (Licht | Свет):
 
--角色-level.dimmer
--角色-switch.light
+TR: - roles - `level.dimmer`
+TR: - roles - `switch.light`
 
-**枚举。功能。背光**（Beleuchtung |Подсветка）：
+TR: **`enum.functions.backlight`** (Beleuchtung | Подсветка):
 
--角色-level.backlight
--角色-switch.backlight
+TR: - roles - `level.backlight`
+TR: - roles - `switch.backlight`
 
-**函数功能。百叶窗/百叶窗**（Rolladen | |алюзи/окна）
+TR: **`enum.functions.blinds/shutter`** (Rolladen | Жалюзи/окна)
 
--角色-level.blind
--角色-switch.blind
+TR: - roles - `level.blind`
+TR: - roles - `switch.blind`
 
-**枚举。功能。窗帘**（Vorhänge|Шторы）
+TR: **`enum.functions.curtain`** (Vorhänge | Шторы)
 
--角色-level.curtain
--角色-switch.curtain
+TR: - roles - `level.curtain`
+TR: - roles - `switch.curtain`
 
-**枚举函数加热**（Heizung |Отопление/Подогрев）
+TR: **`enum.functions.heating`** (Heizung | Отопление/Подогрев)
 
--角色-水平温度
--角色-开关温度
+TR: - roles - `level.temperature`
+TR: - roles - `switch.temperature`
 
-** enum.functions.music **（Musik |Музыка）
+TR: **`enum.functions.music`** (Musik | Музыка)
 
--角色-button.play
--角色-button.stop / button.pause
+TR: - roles - `button.play`
+TR: - roles - `button.stop` / `button.pause`
 
-**枚举功能，警报/安全**（警报/警报|Охрана）
+TR: **`enum.functions.alarm/security`** (Alarmanlage / Alarm | Охрана)
 
--角色-switch.security
+TR: - roles - `switch.security`
 
-** enum.functions.lock **（Schloß/ Schloss |Замок）
+TR: **`enum.functions.lock`** (Schloß / Schloss | Замок)
 
--角色-switch.open
--角色-switch.lock
+TR: - roles - `switch.open`
+TR: - roles - `switch.lock`
 
-支持以下房间：
+TR: Following rooms are supported:
 
-|短语中的关键字|英语中可能的enum.rooms |德语|俄语|
+| TR: | key word in phrase    | Possible enum.rooms in english  | in german                | in russian             |
 |-----------------------|---------------------------------|--------------------------|------------------------|
-|无处不在无处不在-| -|
-|生活|客厅| wohnzimmer | зал|
-|卧室|卧室/卧室| schlafzimmer | спальня|
-|浴|浴室/浴室| badezimmer /坏| ванная|
-|工作/办公室|办公室arbeitszimmer | кабинет|
-|儿童/儿童/托儿所|苗圃| kinderzimmer | детская|
-|贵宾室/贵宾室| guestwc | gästewc| гостевойтуалет|
-|厕所/壁橱| wc | wc | туалет|
-|地板/进入|地板|死/帮派/暴动| коридор/прихожая|
-|厨房|厨房| küche/ kueche | кухня|
-|阳台/露台/露台|露台| balkon / terrasse | терасса/балкон|
-|餐饮|饭厅| esszimmer | столовая|
-|车库|车库|车库| гараж|
-|楼梯|楼梯| trepe / treppenhaus | лестница|
-|花园花园花园сад|
-|法院/院子|法院霍夫двор|
-|客房客房gästezimmer| гостевая|
-|阁楼|阁楼|喷雾器| кладовка|
-|屋顶屋顶dachstuhl | крыша|
-|终端|终端|鹅掌| | сени|
-|洗手间|洗手间| waschraum | прачечная|
-|加热室|加热室|暖气室/ heizungsraum | котельная|
-|小屋小屋schuppen / scheune | сарай|
-|避暑别墅|凉亭| gartenhaus | теплица|
+| TR: | everywhere            | everywhere                      | -                        | -                      |
+| TR: | living                | livingroom                      | wohnzimmer               | зал                    |
+| TR: | bedroom               | bedroom/sleepingroom            | schlafzimmer             | спальня                |
+| TR: | bath                  | bathroom/bath                   | badezimmer/bad           | ванная                 |
+| TR: | working/office        | office                          | arbeitszimmer            | кабинет                |
+| TR: | kids/child/nursery    | nursery                         | kinderzimmer             | детская                |
+| TR: | guets wc/guest closet | guestwc                         | gästewc                  | гостевой туалет        |
+| TR: | wc/closet             | wc                              | wc                       | туалет                 |
+| TR: | floor/enter           | floor                           | diele/gang/flur          | коридор/прихожая       |
+| TR: | kitchen               | kitchen                         | küche/kueche             | кухня                  |
+| TR: | balcony/terrace/patio | terrace                         | balkon/terrasse          | терасса/балкон         |
+| TR: | dinning               | dinningroom                     | esszimmer                | столовая               |
+| TR: | garage                | garage                          | garage                   | гараж                  |
+| TR: | stair                 | stairs                          | trepe/treppenhaus        | лестница               |
+| TR: | garden                | garden                          | garten                   | сад                    |
+| TR: | court/yard            | court                           | hof                      | двор                   |
+| TR: | guest room            | guestroom                       | gästezimmer              | гостевая               |
+| TR: | attic                 | attic                           | speicher                 | кладовка               |
+| TR: | roof                  | roof                            | dachstuhl                | крыша                  |
+| TR: | terminal              | terminal                        | anschlussraum            | сени                   |
+| TR: | wash room             | washroom                        | waschraum                | прачечная              |
+| TR: | heat room             | heatroom                        | heatingroom/heizungsraum | котельная              |
+| TR: | hovel                 | hovel                           | schuppen/scheune         | сарай                  |
+| TR: | summer house          | summerhouse                     | gartenhaus               | теплица                |
 
-您可以在确认中使用模式：
+TR: You can use patterns in acknowledges:
 
--％s：值
--％u：单位
--％n：名称（已计划！）
--{objectId}：此objectID的状态将放置在此处
+TR: - `%s`: value
+TR: - `%u`: unit
+TR: - `%n`: name (planned!)
+TR: - `{objectId}`: the state of this objectID will be placed here
 
-支持以下命令：
+TR: Following commands are supported:
 
-＃＃＃ 现在是几奌？
-答：14：56（当前时间）
+TR: ### What time is it?
+TR: Answer: 14:56 (current time)
 
-＃＃＃ 请问你贵姓大名？
-答案是可定制的。默认值：```My name is Alpha```
+TR: ### What is your name?
+TR: Answer is customizable. Default: `My name is Alpha`
 
-###室外温度是多少？
-用户必须指定状态ID，以读取外部温度。
-答案是可定制的。默认值：```Outside temperature is %s %u```**％s **将替换为温度，四舍五入为整数。 **％u **将被此状态的单位或系统温度单位替换。
+TR: ### What is the outside temperature?
+TR: User must specify the state ID, where to read outside temperature.
+Answer is customizable. Default: `Outside temperature is %s %u` **`%s`** will be replaced by temperature, rounded to integer. **`%u`** will be replaced by units of this state or by system temperature units.
 
-###内部温度是多少？
-用户必须指定状态ID，以读取内部温度。
-答案是可定制的。默认值：```Inside temperature is %s %u```**％s **将替换为温度，四舍五入为整数。 **％u **将被此状态的单位或系统温度单位替换。
+TR: ### What is the inside temperature?
+TR: User must specify the state ID, where to read inside temperature.
+Answer is customizable. Default: `Inside temperature is %s %u` **`%s`** will be replaced by temperature, rounded to integer. **`%u`** will be replaced by units of this state or by system temperature units.
 
-###按功能打开/关闭
-该命令从枚举中读取信息。它使用“枚举功能”查找设备类型（例如灯光，警报，音乐），并使用“枚举室”检测房间名称。
+TR: ### Switch on/off by function
+TR: This command reads information from enums. It uses **enum.functions** to find type of device (e.g. light, alarm, music) and **`enum.rooms`** to detect room name.
 
-德语示例：![枚举](../../../en/adapterref/iobroker.text2command/img/enums.png)
+TR: Example in german: ![TR: Enums](../../../en/adapterref/iobroker.text2command/img/enums.png)
 
-要打开的关键字是：*打开*，例如```switch rear light in bath on```
+TR: Keywords to switch on are: *switch on*, e.g. `switch rear light in bath on`
 
-要关闭的关键字是：*关闭*，例如```switch light in living room off```
+TR: Keywords to switch off are: *switch off*, e.g. `switch light in living room off`
 
-如果需要，答案将自动生成：```Switch off %function% in %room%```，其中％function％和％room％将由找到的设备类型和位置替换。
+TR: Answer will be generated automatically if desired: `Switch off %function% in %room%`, where `%function%` and `%room%` will be replaced by found device type and location.
 
-命令也接受数值。它具有优先级，例如在§§JJJJJ_0_0§§命令中，灯光将设置为15％，并且不处于* off *状态。
+TR: Command accept the numeric value too. It has priority, e.g. in command `switch light off in living room on 15%` the light will be set to 15% and not in *off* state.
 
-您可以在[]中定义默认房间。例如```switch the light on[sleepingroom]```
+TR: You can define default room in []. E.g. `switch the light on[sleepingroom]`
 
-###打开/关闭百叶窗
-该命令从枚举中读取信息。它使用** enum.functions.blind **查找百叶窗或百叶窗类型，并使用** enum.rooms **检测房间名称。
+TR: ### Open/close blinds
+TR: This command reads information from enums. It uses **`enum.functions.blind`** to find type blinds or shutter and **`enum.rooms`** to detect room name.
 
-向上移动百叶窗的关键词是：*向上盲目*，例如```set blinds up in sleeping room```
+TR: Keywords to move blinds up are: *blinds up*, e.g. `set blinds up in sleeping room`
 
-向下移动百叶窗的关键词是：*向下百叶窗*，例如```move blinds down in office```
+TR: Keywords to move blinds down are: *blinds down*, e.g. `move blinds down in office`
 
-您可以指定百分数的确切位置，例如```move blinds to 40 percent in office```
+TR: You can specify the exact position of blind in percent, e.g. `move blinds to 40 percent in office`
 
-如果需要，将自动生成答案：``` in %room%```，其中％room％将替换为找到的设备类型和位置。
+TR: Answer will be generated automatically if desired: ` in %room%`, where %room% will be replaced by found device type and location.
 
-###开启/关闭某些功能
-用户必须指定设备的状态ID（必须控制）和值（必须写入）。
+TR: ### Switch something on/off
+TR: User must specify state ID of device, which must be controlled and value, which must be written.
 
-您应该为每个位置创建规则（例如* on *和* off *）。
+TR: You should create rule for every position (e.g. for `on` and for `off`).
 
-答案是可定制的。默认值：```Switched on```
+TR: Answer is customizable. Default: `Switched on`
 
-例如。：
+TR: E.g.:
 
--```停用警报```，对象ID：```hm-rpc.0.alarm```，值：```false''`，答案：```警报已停用/停用'' 。在这种情况下，答案将在“警报已停用”和“警报已停用”之间随机分配。
--```激活警报```，对象ID：```hm-rpc.0.alarm```，值：```true''`，答案：```警报已激活/激活/完成` ``。在这种情况下，答案将在“警报已激活”，“已激活”和“完成”之间随机分配。
+TR: - `Deactivate alarm`, Object ID: `hm-rpc.0.alarm`, Value: `false`, Answer: `Alarm is deactivated/Deactivated`. In this case the answer will be randomized between *Alarm is deactivated* and *Deactivated*.
+TR: - `Activate alarm`, Object ID: `hm-rpc.0.alarm`, Value: `true`, Answer: `Alarm is activated/Activated/Done` . In this case the answer will be randomized between *Alarm is activated*, *Activated* and *Done*.
 
-*停用*必须在列表中的第一位，因为它更长。
+TR: *Deactivate* must be first in the list, because it is longer.
 
-您可以在控制命令中使用浮点值。如果文本中有一些数字值，它将用作控制值，而预定义值将被忽略。
+TR: You can use float values in the control commands. If some numeric value will be in the text it will be used as control value and the predefined value will be ignored.
 
-例如。对于规则：
+TR: E.G. for rule:
 
--```Set light level''，对象ID：```hm-rpc.0.light.STATE`''，Value：```10''`，Answer：```Level设置为％s ％```。
+TR: - `Set light level`, Object ID: `hm-rpc.0.light.STATE`, Value: `10`, Answer: `Level set to %s%`.
 
-如果命令类似于```Set light level to 50%```§，则在§§JJJJJ_1_1§§中将写入50，答案将为§§JJJJJ_2_2§§。
+TR: If command is like `Set light level to 50%`, so into the `hm-rpc.0.light.STATE` will be written 50 and answer will be `Level set to 50%`.
 
-如果命令类似于```Set light level```§，则将在```hm-rpc.0.light.STATE```中写入10，答案将为```Level set to 10%```。
+TR: If command is like `Set light level`, so into the `hm-rpc.0.light.STATE` will be written 10 and answer will be `Level set to 10%`.
 
-###询问一些事情
-用户必须指定设备的状态ID，该值将被读取。
-该模板将回答某些状态的信息。
+TR: ### Ask about something
+TR: User must specify state ID of device, which value will be read.
+This template will answer with information from some state.
 
-例如。：
+TR: E.g.:
 
--Windows打开，对象ID：javascript.0.countOpenedWindows，确认：％s Windows实际打开
--```温度卧室''，对象ID：```hm-rpc.0.sleepingRoomSensor.TEMPERATURE''，确认：```卧室的实际温度为％s％u /％s％u ```。在这种情况下，答案将随机分布在*卧室的实际温度为％s％u *和*％s％u *之间。
+TR: - `windows opened`, Object ID: `javascript.0.countOpenedWindows`, Acknowledge: `Actual %s windows opened`
+TR: - `temperature sleeping room`, Object ID: `hm-rpc.0.sleepingRoomSensor.TEMPERATURE`, Acknowledge: `Actual temperature in sleeping room is %s %u/%s %u`. In this case the answer will be randomized between *Actual temperature in sleeping room is %s %u* and *%s %u*.
 
-###发送文字至状态
-您可以将一些文本写入状态。用户必须指定状态ID才能在其中写入文本。
+TR: ### Send text to state
+TR: You can write some text into state. User must specify state ID to write text into it.
 
-例如。规则：```email [to] wife```，对象ID：```javascript.0.emailToWife```，确认：```Email sent```文本：*发送电子邮件给我的妻子：我会迟到*。适配器从关键字（在本例中为* wife *）中查找最后一个单词，从下一个词中提取文本（在本例中为*我会迟到*），然后将此文本写入* javascript.0.emailToWife *。
-单词* to *不需要触发规则，但是将从文本中删除。
+TR: E.g. rule: `email [to] wife`, Object ID: `javascript.0.emailToWife`, Acknowledge: `Email sent` Text: `Send email to my wife: I will be late`. Adapter looks for the last word from keywords (in this case `wife`), extracts text from the next word (in this case `I will be late`) and writes this text into `javascript.0.emailToWife`.
+Word `to` is not required to trigger the rule, but will be removed from text.
 
-###你很好（只是为了好玩）
-答案是可定制的。默认值：```Thank you```或```You are welcome```§
+TR: ### You are good (Just for fun)
+TR: Answer is customizable. Default: `Thank you` or `You are welcome`
 
-###谢谢（很有趣）
-答案是可定制的。默认值：```No problem```或```You are welcome```§
+TR: ### Thank you (Just for fun)
+TR: Answer is customizable. Default: `No problem` or `You are welcome`
 
-###创建答案
-您可以在确认中使用绑定{objectId}生成答案。用于alexa。
+TR: ### Create answer
+TR: You can generate answer with bindings {objectId} in acknowledge. Used for alexa.
 
-例如。：
+TR: E.g.:
 
--打开窗口，确认：实际打开的{javascript.0.countOpenedWindows}窗口已打开。
--```temperature sleep room`''，Acknowledge：```卧室的实际温度为{t：hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round（t）} / {hm-rpc.0.sleepingRoomSensor.TEMPERATURE; round（1）}度在这种情况下，答案将随机分布在*卧室的实际温度为<VALUE> *和* <VALUE> *之间。
+TR: - `windows opened`, Acknowledge: `Actual {javascript.0.countOpenedWindows} windows opened`
+TR: - `temperature sleeping room`, Acknowledge: `Actual temperature in sleeping room is {t: hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round(t)}/{hm-rpc.0.sleepingRoomSensor.TEMPERATURE; round(1)} degree`. In this case the answer will be randomized between *Actual temperature in sleeping room is <VALUE>* and *<VALUE>*.
 
-您可以在此处阅读有关绑定的更多信息：（对象的绑定）[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
+TR: You can read more about bindings here: (Bindings of objects)[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
-另外，您还可以通过{hm-rpc.0.light.STATE.lc; dateinterval}（每12分钟2分钟）或{hm-rpc.0.light.STATE.lc; dateinterval（true）}来获取到现在的时间（ 2分12秒**前**）
+TR: Additional you can get time until now by `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 minutes and 12 seconds) or `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 minutes and 12 seconds **ago**)
 
-##使用javascript的外部规则
-有可能使用javascript引擎来处理text2command中的命令。
-为此，您必须在“处理器状态ID”（高级设置）中指定一些状态，并在某些JS或Blockly脚本中侦听此状态。
-您可以在admin或脚本中手动创建一些状态。处理脚本如下所示：
+TR: ## External rules with javascript
+TR: There is a possibility to use javascript engine to process commands in text2command.
+To do that you must specify some state in "Processor state ID" (Advanced settings) and to listen on this state in some JS or Blockly script.
+You can create some state manually in admin or in script. Processing script can look like this one:
 
 ```
 createState("textProcessor", '', function () {
@@ -249,23 +249,28 @@ createState("textProcessor", '', function () {
 });
 ```
 
-在text2command **Processor state ID** 设置中将其设置为* javascript.0.textProcessor *，以使此示例正常工作。
+TR: Set in settings of text2command **Processor state ID** as *`javascript.0.textProcessor`* to let this example work.
 
-首先，将使用您的javascript处理该命令，如果javascript在预定义的时间内（默认为1秒）以''或不回答，则该命令将由规则处理。
+TR: First the command will be processed with your javascript and if javascript will answer with '' or not answer in predefined time (1 second by default) the command will be processed by rules.
 
-###选项：通过每个命令写入响应
-如果每个命令都激活了该命令（无论请求是通过状态发送还是通过sendTo发出），则`text2command.X.response`都会带有答案。
+TR: ### Option: Write to response by every command
+TR: If activated so by every command (no matter if the request came via state or sendTo) the `text2command.X.response` will be written with the answer.
 
-＃ 去做
--俄罗斯男性和女性答案。
+TR: # ToDo
+TR: - in Russian male and female answers.
 
-<！-下一个版本的占位符（在该行的开头）：
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __正在进行的工程__->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 2.1.0 (2021-05-24)
+* (bluefox) Updated GUI.
 
-### __WORK IN PROGRESS__
+### 2.0.7 (2020-12-12)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-TEXT2COMMAND-J)
+
+### 2.0.6 (2020-12-03)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-TEXT2COMMAND-D, IOBROKER-TEXT2COMMAND-C)
 
 ### 2.0.5 (2020-09-5)
@@ -387,7 +392,7 @@ createState("textProcessor", '', function () {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

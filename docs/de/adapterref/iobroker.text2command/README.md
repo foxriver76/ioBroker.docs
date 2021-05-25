@@ -2,29 +2,29 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.text2command/README.md
-title: ioBroker.text2command
-hash: EJKyI8ZO0IeFIyxLvHk2Zt/zsWCaU+vR7TAxE2A0oaI=
+title: TR: ioBroker.text2command
+hash: G6rw6Jl8yrPs/8YWk+wBEuW5iwR3q5KDQXr7fv+LmfA=
 ---
-![Logo](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
+![TR: Logo](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/text2command-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.text2command.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.text2command.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.text2command.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/text2command-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.text2command.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.text2command.svg)
+![TR: Tests](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
+![TR: NPM](https://nodei.co/npm/iobroker.text2command.png?downloads=true)
 
-# IoBroker.text2command
-## Beschreibung
-Dieser Adapter kann normale Sätze wie *'Licht in der Küche einschalten'* in einen bestimmten Befehl umwandeln und den Status *'adapter.0.device.kitchenLight'* auf **true** setzen.
+TR: # ioBroker.text2command
+TR: ## Description
+TR: This adapter can convert normal sentences, like `Switch light in kitchen on` to specific command and sets the state `adapter.0.device.kitchenLight` to `true`.
 
-Dieser Adapter macht keinen Sinn, um eigenständig aktiviert zu werden. Es sollte mit anderen Adaptern wie Telegramm oder Android App **iobroker.vis** verwendet werden.
+TR: This adapter makes no sense to be activated standalone. It should be used with other adapters like telegram or Android app **`iobroker.vis`**.
 
-## Verwendung
-Um den Befehl auszuführen, schreiben Sie den Status **text2command. <INSTANCE> .text** mit dem Satz. Sie erhalten die Antwort immer in **text2command. <INSTANCE> .response**
+TR: ## Usage
+TR: To execute command, write state **`text2command.<INSTANCE>.text`** with sentence. You will always get the answer in `text2command.<INSTANCE>.response`.
 
-Wenn Sie **Antwort auf ID** definieren, wird die Antwort auch in diese ID geschrieben. Dies ist z.B. zu erkennen, die Stimme bestätigt.
+TR: If you define **Answer to ID**, the answer will be written in this ID too. This required for e.g. to realise the voice acknowledges.
 
-Sie können eine Nachricht über `sendTo` aus Javascript senden. Die Antwort wird in der Nachricht zurückkommen:
+TR: You can send a message via `sendTo` from javascript. The answer will come in the message back:
 
 ```
 sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
@@ -32,198 +32,199 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 });
 ```
 
-Reguläre Ausdrücke können verwendet werden, wie: ```/^light\son|^lamp\son/```. Reguläre Ausdrücke unterscheiden immer zwischen Groß- und Kleinschreibung.
+TR: Regular expressions can be used, like: `/^light\son|^lamp\son/`. Regular expressions are always case-insensitive.
 
-Um "Ein- / Ausschalten nach Funktion" zu verwenden, sollten Sie sich um Funktionen kümmern.
+TR: To use "Switch on/off by function" you should care of functions.
 
-Schlüsselwörter funktionieren wie folgt:
+TR: Keywords work as following:
 
-- Schlüsselwörter werden durch Leerzeichen geteilt
-- Alle Schlüsselwörter müssen in einem Satz enthalten sein, um eine Regel auszulösen: z. Schlüsselwort: `` `Licht an``` wird ausgelöst bei` `` Licht einschalten```, `` `Licht überall einschalten``` und nicht bei` `` Einschalten```, `` `auslösen Licht machen```.
-- Ein Schlüsselwort kann viele Formen haben. Variationen des Schlüsselworts müssen durch "/" geteilt werden. Z.B. Schlüsselwörter: `` `switch / make / do light on / true``` wird ausgelöst:` `` do light true```, `` `make please light on```.
-- Wenn das Schlüsselwort in vielen Fällen vorkommen kann (nom, gen, akkusativ, plural, ...), müssen alle als Variationen aufgeführt werden, z. B.: `` `Licht / Lichter einschalten```.
+TR: - keywords are divided by space
+TR: - all keywords must present in a sentence to trigger a rule: e.g. keyword: `light on` will trigger on `switch light on`, `make light on everywhere` and do not trigger on `switch on`, `make light`.
+TR: - one keyword can has many forms. Variations of keyword must be divided by "/". E.g. keywords: `switch/make/do light on/true` will trigger on: `do light true`, `make please light on`.
+TR: - if keyword can come in many cases(nom, gen, accusative, plural, ...) they all must be listed as variations, like: `switch light/lights on`.
 
-Folgende Funktionen werden interpretiert als
+TR: Following functions will be interpreted as
 
-enum.functions:
+TR: enum.functions:
 
-** enum.functions.light ** (Licht | Свет):
+TR: **`enum.functions.light`** (Licht | Свет):
 
-- Rollen - Level.Dimmer
-- Rollen - switch.light
+TR: - roles - `level.dimmer`
+TR: - roles - `switch.light`
 
-** enum.functions.backlight ** (Beleuchtung | Подсветка):
+TR: **`enum.functions.backlight`** (Beleuchtung | Подсветка):
 
-- Rollen - Ebene. Hintergrundbeleuchtung
-- Rollen - switch.backlight
+TR: - roles - `level.backlight`
+TR: - roles - `switch.backlight`
 
-** enum.functions.blinds / shutter ** (Rolladen | Жалюзи / окна)
+TR: **`enum.functions.blinds/shutter`** (Rolladen | Жалюзи/окна)
 
-- Rollen - level.blind
-- Rollen - switch.blind
+TR: - roles - `level.blind`
+TR: - roles - `switch.blind`
 
-** enum.functions.curtain ** (Vorweisungen | Шторы)
+TR: **`enum.functions.curtain`** (Vorhänge | Шторы)
 
-- Rollen - Level.Curtain
-- Rollen - switch.curtain
+TR: - roles - `level.curtain`
+TR: - roles - `switch.curtain`
 
-** enum.functions.heating ** (Heizung | Отопление / Подогрев)
+TR: **`enum.functions.heating`** (Heizung | Отопление/Подогрев)
 
-- Rollen - Ebene.Temperatur
-- Rollen - Schaltertemperatur
+TR: - roles - `level.temperature`
+TR: - roles - `switch.temperature`
 
-** enum.functions.music ** (Musik | Музыка)
+TR: **`enum.functions.music`** (Musik | Музыка)
 
-- Rollen - Button.play
-- Rollen - button.stop / button.pause
+TR: - roles - `button.play`
+TR: - roles - `button.stop` / `button.pause`
 
-** enum.functions.alarm / security ** (Alarmanlage / Alarm | Охрана)
+TR: **`enum.functions.alarm/security`** (Alarmanlage / Alarm | Охрана)
 
-- Rollen - switch.security
+TR: - roles - `switch.security`
 
-** enum.functions.lock ** (Schloß / Schloss | Замок)
+TR: **`enum.functions.lock`** (Schloß / Schloss | Замок)
 
-- Rollen - switch.open
-- Rollen - switch.lock
+TR: - roles - `switch.open`
+TR: - roles - `switch.lock`
 
-Folgende Räume werden unterstützt:
+TR: Following rooms are supported:
 
-| Schlüsselwort in Phrase | Mögliche enum.rooms in englisch | auf deutsch | auf russisch |
+| TR: | key word in phrase    | Possible enum.rooms in english  | in german                | in russian             |
 |-----------------------|---------------------------------|--------------------------|------------------------|
-| überall | überall | - | - |
-| leben | Wohnzimmer | wohnzimmer | зал |
-| Schlafzimmer | Schlafzimmer / Schlafzimmer | schlafzimmer | спальня |
-| Bad | Bad / Badewanne | badezimmer / schlecht | ванная |
-| Arbeit / Büro | Büro | Arbeitszimmer | кабинет |
-| Kinder / Kind / Kindergarten | Kindergarten | Kinderzimmer | детская |
-| guets wc / gästeschrank | guestwc | gästewc | гостевой туалет |
-| WC / Schrank | wc | wc | туалет |
-| Etage / betreten | Boden | diele / gang / flur | коридор / прихожая |
-| Küche | Küche | küche / kueche | кухня |
-| Balkon / Terrasse / Terrasse | Terrasse | balkon / terrasse | терасса / балкон |
-| Abendessen | Esszimmer | esszimmer | столовая |
-| Garage | Garage | Garage | гараж |
-| Treppe | Treppe | trepe / treppenhaus | лестница |
-| Garten | Garten | garten | сад |
-| Gericht / Hof | Gericht | hof | двор |
-| Gästezimmer | Gästezimmer | gästezimmer | гостевая |
-| Dachboden | Dachboden | speicher | кладовка |
-| Dach | Dach | dachstuhl | крыша |
-| Terminal | Terminal | anschlussraum | сени |
-| Waschraum | Waschraum | Waschraum | прачечная |
-| Heizraum | Heizraum | Heizraum / heizungsraum | котельная |
-| Hütte | Hütte | schuppen / scheune | сарай |
-| Sommerhaus | Sommerhaus | gartenhaus | теплица |
+| TR: | everywhere            | everywhere                      | -                        | -                      |
+| TR: | living                | livingroom                      | wohnzimmer               | зал                    |
+| TR: | bedroom               | bedroom/sleepingroom            | schlafzimmer             | спальня                |
+| TR: | bath                  | bathroom/bath                   | badezimmer/bad           | ванная                 |
+| TR: | working/office        | office                          | arbeitszimmer            | кабинет                |
+| TR: | kids/child/nursery    | nursery                         | kinderzimmer             | детская                |
+| TR: | guets wc/guest closet | guestwc                         | gästewc                  | гостевой туалет        |
+| TR: | wc/closet             | wc                              | wc                       | туалет                 |
+| TR: | floor/enter           | floor                           | diele/gang/flur          | коридор/прихожая       |
+| TR: | kitchen               | kitchen                         | küche/kueche             | кухня                  |
+| TR: | balcony/terrace/patio | terrace                         | balkon/terrasse          | терасса/балкон         |
+| TR: | dinning               | dinningroom                     | esszimmer                | столовая               |
+| TR: | garage                | garage                          | garage                   | гараж                  |
+| TR: | stair                 | stairs                          | trepe/treppenhaus        | лестница               |
+| TR: | garden                | garden                          | garten                   | сад                    |
+| TR: | court/yard            | court                           | hof                      | двор                   |
+| TR: | guest room            | guestroom                       | gästezimmer              | гостевая               |
+| TR: | attic                 | attic                           | speicher                 | кладовка               |
+| TR: | roof                  | roof                            | dachstuhl                | крыша                  |
+| TR: | terminal              | terminal                        | anschlussraum            | сени                   |
+| TR: | wash room             | washroom                        | waschraum                | прачечная              |
+| TR: | heat room             | heatroom                        | heatingroom/heizungsraum | котельная              |
+| TR: | hovel                 | hovel                           | schuppen/scheune         | сарай                  |
+| TR: | summer house          | summerhouse                     | gartenhaus               | теплица                |
 
-Sie können Muster in Bestätigungen verwenden:
+TR: You can use patterns in acknowledges:
 
-- %s : Wert
--% u: Einheit
--% n: Name (geplant!)
-- {objectId}: Der Status dieser objectID wird hier platziert
+TR: - `%s`: value
+TR: - `%u`: unit
+TR: - `%n`: name (planned!)
+TR: - `{objectId}`: the state of this objectID will be placed here
 
-Folgende Befehle werden unterstützt:
+TR: Following commands are supported:
 
-### Wie spät ist es?
-Antwort: 14:56 (aktuelle Zeit)
+TR: ### What time is it?
+TR: Answer: 14:56 (current time)
 
-### Wie lautet dein Name?
-Die Antwort ist anpassbar. Voreinstellung: ```My name is Alpha```
+TR: ### What is your name?
+TR: Answer is customizable. Default: `My name is Alpha`
 
-### Wie ist die Außentemperatur?
-Der Benutzer muss die Status-ID angeben, unter der die Außentemperatur abgelesen werden soll.
-Die Antwort ist anpassbar. Standard: ```Outside temperature is %s %u``` **%s** werden durch Temperatur ersetzt, auf ganze Zahl gerundet. **u** wird durch Einheiten dieses Zustands oder durch Systemtemperatureinheiten ersetzt.
+TR: ### What is the outside temperature?
+TR: User must specify the state ID, where to read outside temperature.
+Answer is customizable. Default: `Outside temperature is %s %u` **`%s`** will be replaced by temperature, rounded to integer. **`%u`** will be replaced by units of this state or by system temperature units.
 
-### Wie hoch ist die Innentemperatur?
-Der Benutzer muss die Status-ID angeben, unter der die Innentemperatur abgelesen werden soll.
-Die Antwort ist anpassbar. Standard: ```Inside temperature is %s %u``` **%s** werden durch Temperatur ersetzt, auf ganze Zahl gerundet. **u** wird durch Einheiten dieses Zustands oder durch Systemtemperatureinheiten ersetzt.
+TR: ### What is the inside temperature?
+TR: User must specify the state ID, where to read inside temperature.
+Answer is customizable. Default: `Inside temperature is %s %u` **`%s`** will be replaced by temperature, rounded to integer. **`%u`** will be replaced by units of this state or by system temperature units.
 
-### Ein- / Ausschalten nach Funktion
-Dieser Befehl liest Informationen aus Aufzählungen. Es verwendet **enum.functions** um den Gerätetyp (z. B. Licht, Alarm, Musik) zu finden, und **enum.rooms** um den Raumnamen zu ermitteln.
+TR: ### Switch on/off by function
+TR: This command reads information from enums. It uses **enum.functions** to find type of device (e.g. light, alarm, music) and **`enum.rooms`** to detect room name.
 
-Beispiel auf Deutsch: ![Aufzählungen](../../../en/adapterref/iobroker.text2command/img/enums.png)
+TR: Example in german: ![TR: Enums](../../../en/adapterref/iobroker.text2command/img/enums.png)
 
-Schlüsselwörter zum Einschalten sind: *einschalten* z. ```switch rear light in bath on```
+TR: Keywords to switch on are: *switch on*, e.g. `switch rear light in bath on`
 
-Schlüsselwörter zum Ausschalten sind: *Ausschalten* z. ```switch light in living room off```
+TR: Keywords to switch off are: *switch off*, e.g. `switch light in living room off`
 
-Die Antwort wird auf Wunsch automatisch generiert: ```Switch off %function% in %room%```, wobei% function% und% room% durch den gefundenen Gerätetyp und den gefundenen Standort ersetzt werden.
+TR: Answer will be generated automatically if desired: `Switch off %function% in %room%`, where `%function%` and `%room%` will be replaced by found device type and location.
 
-Befehl akzeptiert auch den numerischen Wert. Es hat Priorität, z. im Befehl ```switch light off in living room on 15%``` wird das Licht auf 15% gesetzt und nicht im *Aus* -Zustand.
+TR: Command accept the numeric value too. It has priority, e.g. in command `switch light off in living room on 15%` the light will be set to 15% and not in *off* state.
 
-Sie können den Standardraum in [] definieren. Zum Beispiel ```switch the light on[sleepingroom]```
+TR: You can define default room in []. E.g. `switch the light on[sleepingroom]`
 
-### Jalousien öffnen / schließen
-Dieser Befehl liest Informationen aus Aufzählungen. Es verwendet **enum.functions.blind** um Jalousien oder Rollläden zu finden, und **enum.rooms** um den Raumnamen zu erkennen.
+TR: ### Open/close blinds
+TR: This command reads information from enums. It uses **`enum.functions.blind`** to find type blinds or shutter and **`enum.rooms`** to detect room name.
 
-Schlüsselwörter, um Jalousien nach oben zu bewegen, sind: *Jalousien nach oben* z. ```set blinds up in sleeping room```
+TR: Keywords to move blinds up are: *blinds up*, e.g. `set blinds up in sleeping room`
 
-Schlüsselwörter, um Jalousien nach unten zu bewegen, sind: *Jalousien nach unten* z. ```move blinds down in office```
+TR: Keywords to move blinds down are: *blinds down*, e.g. `move blinds down in office`
 
-Sie können die genaue Position des Blinds in Prozent angeben, z. ```move blinds to 40 percent in office```
+TR: You can specify the exact position of blind in percent, e.g. `move blinds to 40 percent in office`
 
-Die Antwort wird auf Wunsch automatisch generiert: ``` in %room%```, wobei% room% durch den gefundenen Gerätetyp und den gefundenen Standort ersetzt wird.
+TR: Answer will be generated automatically if desired: ` in %room%`, where %room% will be replaced by found device type and location.
 
-### Schalten Sie etwas ein / aus
-Der Benutzer muss die Status-ID des Geräts angeben, die gesteuert werden muss, und den Wert, der geschrieben werden muss.
+TR: ### Switch something on/off
+TR: User must specify state ID of device, which must be controlled and value, which must be written.
 
-Sie sollten für jede Position eine Regel erstellen (z. B. für *ein* und für *aus* .
+TR: You should create rule for every position (e.g. for `on` and for `off`).
 
-Die Antwort ist anpassbar. Voreinstellung: ```Switched on```
+TR: Answer is customizable. Default: `Switched on`
 
-Z.B.:
+TR: E.g.:
 
-- `` `Alarm deaktivieren```, Objekt-ID:` `` hm-rpc.0.alarm```, Wert: `` `false```, Antwort:` `` Alarm ist deaktiviert / deaktiviert``` . In diesem Fall wird die Antwort zufällig zwischen *Alarm ist deaktiviert* und *Deaktiviert* aufgeteilt.
-- `` `Alarm aktivieren```, Objekt-ID:` `` hm-rpc.0.alarm```, Wert: `` `true```, Antwort:` `` Alarm ist aktiviert / aktiviert / erledigt` ``. In diesem Fall wird die Antwort zufällig zwischen *Alarm ist aktiviert* *Aktiviert* und *Fertig* aufgeteilt.
+TR: - `Deactivate alarm`, Object ID: `hm-rpc.0.alarm`, Value: `false`, Answer: `Alarm is deactivated/Deactivated`. In this case the answer will be randomized between *Alarm is deactivated* and *Deactivated*.
+TR: - `Activate alarm`, Object ID: `hm-rpc.0.alarm`, Value: `true`, Answer: `Alarm is activated/Activated/Done` . In this case the answer will be randomized between *Alarm is activated*, *Activated* and *Done*.
 
-* Deaktivieren * muss an erster Stelle in der Liste stehen, da es länger ist.
+TR: *Deactivate* must be first in the list, because it is longer.
 
-Sie können Gleitkommawerte in den Steuerbefehlen verwenden. Wenn ein numerischer Wert im Text enthalten ist, wird er als Steuerwert verwendet und der vordefinierte Wert wird ignoriert.
+TR: You can use float values in the control commands. If some numeric value will be in the text it will be used as control value and the predefined value will be ignored.
 
-Z.B. für Regel für Regel:
+TR: E.G. for rule:
 
-- `` `Lichtstärke einstellen```, Objekt-ID:` `` hm-rpc.0.light.STATE```, Wert: `` `10```, Antwort:` `` Stufe auf %s  eingestellt % `` `.
+TR: - `Set light level`, Object ID: `hm-rpc.0.light.STATE`, Value: `10`, Answer: `Level set to %s%`.
 
-Wenn der Befehl wie ```Set light level to 50%``` ist, wird in die ```hm-rpc.0.light.STATE``` 50 geschrieben und die Antwort lautet ```Level set to 50%```.
+TR: If command is like `Set light level to 50%`, so into the `hm-rpc.0.light.STATE` will be written 50 and answer will be `Level set to 50%`.
 
-Wenn der Befehl wie ```Set light level``` ist, wird in die ```hm-rpc.0.light.STATE``` 10 geschrieben und die Antwort lautet ```Level set to 10%```.
+TR: If command is like `Set light level`, so into the `hm-rpc.0.light.STATE` will be written 10 and answer will be `Level set to 10%`.
 
-### Nach etwas fragen
-Der Benutzer muss die Status-ID des Geräts angeben, welcher Wert gelesen wird.
-Diese Vorlage wird mit Informationen aus einem bestimmten Bundesstaat beantwortet.
+TR: ### Ask about something
+TR: User must specify state ID of device, which value will be read.
+This template will answer with information from some state.
 
-Z.B.:
+TR: E.g.:
 
-- `` `Fenster geöffnet```, Objekt-ID:` `` javascript.0.countOpenedWindows```, Bestätigung: `` `Tatsächliche %s  Fenster geöffnet```
-- `` `Temperaturschlafzimmer```, Objekt-ID:` `` hm-rpc.0.sleepingRoomSensor.TEMPERATURE```, Bestätigung: `` `Die tatsächliche Temperatur im Schlafzimmer beträgt %s % u /% s% u `` `. In diesem Fall wird die Antwort randomisiert zwischen *Die tatsächliche Temperatur im Schlafzimmer beträgt% s% u* und *s% u*
+TR: - `windows opened`, Object ID: `javascript.0.countOpenedWindows`, Acknowledge: `Actual %s windows opened`
+TR: - `temperature sleeping room`, Object ID: `hm-rpc.0.sleepingRoomSensor.TEMPERATURE`, Acknowledge: `Actual temperature in sleeping room is %s %u/%s %u`. In this case the answer will be randomized between *Actual temperature in sleeping room is %s %u* and *%s %u*.
 
-### Text an Status senden
-Sie können Text in den Status schreiben. Der Benutzer muss die Status-ID angeben, um Text hinein zu schreiben.
+TR: ### Send text to state
+TR: You can write some text into state. User must specify state ID to write text into it.
 
-Z.B. Regel: ```email [to] wife```, Objekt-ID: ```javascript.0.emailToWife```, Bestätigung: ```Email sent``` Text: *E-Mail an meine Frau senden: Ich werde zu spät kommen* Der Adapter sucht das letzte Wort aus Schlüsselwörtern (in diesem Fall *Frau* , extrahiert Text aus dem nächsten Wort (in diesem Fall *Ich komme zu spät* und schreibt diesen Text in *javascript.0.emailToWife* Word *bis* ist nicht erforderlich, um die Regel auszulösen, wird jedoch aus dem Text entfernt.
+TR: E.g. rule: `email [to] wife`, Object ID: `javascript.0.emailToWife`, Acknowledge: `Email sent` Text: `Send email to my wife: I will be late`. Adapter looks for the last word from keywords (in this case `wife`), extracts text from the next word (in this case `I will be late`) and writes this text into `javascript.0.emailToWife`.
+Word `to` is not required to trigger the rule, but will be removed from text.
 
-### Du bist gut (nur zum Spaß)
-Die Antwort ist anpassbar. Voreinstellung: ```Thank you``` oder ```You are welcome```
+TR: ### You are good (Just for fun)
+TR: Answer is customizable. Default: `Thank you` or `You are welcome`
 
-### Danke (Nur zum Spaß)
-Die Antwort ist anpassbar. Voreinstellung: ```No problem``` oder ```You are welcome```
+TR: ### Thank you (Just for fun)
+TR: Answer is customizable. Default: `No problem` or `You are welcome`
 
-### Antwort erstellen
-Sie können eine Antwort mit Bindungen {objectId} zur Bestätigung generieren. Wird für Alexa verwendet.
+TR: ### Create answer
+TR: You can generate answer with bindings {objectId} in acknowledge. Used for alexa.
 
-Z.B.:
+TR: E.g.:
 
-- `` `Fenster geöffnet```, Bestätigen:` `` Tatsächliche {javascript.0.countOpenedWindows} Fenster geöffnet```
-- `` `Temperaturschlafzimmer```, Bestätigung:` `` Die tatsächliche Temperatur im Schlafzimmer beträgt {t: hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round (t)} / {hm-rpc.0.sleepingRoomSensor.TEMPERATURE; runder (1)} Grad```. In diesem Fall wird die Antwort zufällig zwischen *Die tatsächliche Temperatur im Schlafzimmer ist <WERT>* und *<WERT>*
+TR: - `windows opened`, Acknowledge: `Actual {javascript.0.countOpenedWindows} windows opened`
+TR: - `temperature sleeping room`, Acknowledge: `Actual temperature in sleeping room is {t: hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round(t)}/{hm-rpc.0.sleepingRoomSensor.TEMPERATURE; round(1)} degree`. In this case the answer will be randomized between *Actual temperature in sleeping room is <VALUE>* and *<VALUE>*.
 
-Weitere Informationen zu Bindungen finden Sie hier: (Bindungen von Objekten) [https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
+TR: You can read more about bindings here: (Bindings of objects)[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
-Zusätzlich können Sie Zeit bis jetzt durch {hm-rpc.0.light.STATE.lc; Dateinterval} (2 Minuten und 12 Sekunden) oder {hm-rpc.0.light.STATE.lc; Dateinterval (true)} ( 2 Minuten und 12 Sekunden **vor**
+TR: Additional you can get time until now by `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 minutes and 12 seconds) or `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 minutes and 12 seconds **ago**)
 
-## Externe Regeln mit Javascript
-Es besteht die Möglichkeit, die Javascript-Engine zum Verarbeiten von Befehlen in text2command zu verwenden.
-Dazu müssen Sie in "Prozessorstatus-ID" (Erweiterte Einstellungen) einen Status angeben und diesen Status in einem JS- oder Blockly-Skript abhören.
-Sie können einen Status manuell in admin oder im Skript erstellen. Das Verarbeitungsskript kann folgendermaßen aussehen:
+TR: ## External rules with javascript
+TR: There is a possibility to use javascript engine to process commands in text2command.
+To do that you must specify some state in "Processor state ID" (Advanced settings) and to listen on this state in some JS or Blockly script.
+You can create some state manually in admin or in script. Processing script can look like this one:
 
 ```
 createState("textProcessor", '', function () {
@@ -248,23 +249,28 @@ createState("textProcessor", '', function () {
 });
 ```
 
-Legen Sie in den Einstellungen von text2command **Prozessorstatus-ID** *javascript.0.textProcessor* fest, damit dieses Beispiel funktioniert.
+TR: Set in settings of text2command **Processor state ID** as *`javascript.0.textProcessor`* to let this example work.
 
-Zuerst wird der Befehl mit Ihrem Javascript verarbeitet. Wenn Javascript mit '' antwortet oder nicht in vordefinierter Zeit (standardmäßig 1 Sekunde) antwortet, wird der Befehl durch Regeln verarbeitet.
+TR: First the command will be processed with your javascript and if javascript will answer with '' or not answer in predefined time (1 second by default) the command will be processed by rules.
 
-### Option: Schreiben Sie mit jedem Befehl in die Antwort
-Wenn dies von jedem Befehl aktiviert wird (unabhängig davon, ob die Anfrage über state oder sendTo eingegangen ist), werden die `text2command.X.response` mit der Antwort geschrieben.
+TR: ### Option: Write to response by every command
+TR: If activated so by every command (no matter if the request came via state or sendTo) the `text2command.X.response` will be written with the answer.
 
-# Machen
-- in russischen männlichen und weiblichen Antworten.
+TR: # ToDo
+TR: - in Russian male and female answers.
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __WORK IN PROGRESS__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 2.1.0 (2021-05-24)
+* (bluefox) Updated GUI.
 
-### __WORK IN PROGRESS__
+### 2.0.7 (2020-12-12)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-TEXT2COMMAND-J)
+
+### 2.0.6 (2020-12-03)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-TEXT2COMMAND-D, IOBROKER-TEXT2COMMAND-C)
 
 ### 2.0.5 (2020-09-5)
@@ -386,7 +392,7 @@ Wenn dies von jedem Befehl aktiviert wird (unabhängig davon, ob die Anfrage üb
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,191 +2,198 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.meteoalarm/README.md
-title: ioBroker.meteoalarm
-hash: t4W+whBjVkdsu5kxkZwHOH7v6dtTuIvKgqCLEolI/Gg=
+title: TR: ioBroker.meteoalarm
+hash: 8Q/1vN8a1K+Lofg+VaZ4YQhEoG4CiTKEjdoFZOakcGI=
 ---
-![Логотип](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
+![TR: Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)
-![Количество установок](http://iobroker.live/badges/meteoalarm-stable.svg)
-![НПМ](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)
+![TR: Number of Installations](http://iobroker.live/badges/meteoalarm-stable.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)
 
-# IoBroker.meteoalarm
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: # ioBroker.meteoalarm
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-Адаптер метео сигнализации для ioBroker ---------------------------------------------- -------------------------------- Этот адаптер получает сигналы о погоде с meteoalarm.eu, включая ветер, снег, дождь. , высокая и низкая температура и т. д. Эта информация доступна на местном языке и для подробных регионов.
+TR: meteoalarm Adapter for ioBroker ------------------------------------------------------------------------------ This adapter is pulling weather alarms from meteoalarm.eu, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
 
-## Как это использовать
-Есть два варианта получения ссылки для получения информации о метео-тревогах.
+TR: ## How to use it
+TR: There are two options how you can get the link to retrieve the meteoalarm information.
 
-Вариант 1. Выберите свою страну, затем нажмите «Загрузить регион», а затем выберите регион. Затем xml заполняется автоматически. Просто нажмите «Сохранить», и все готово.
+TR: Option 1: Choose your country, then press "load region", and then choose the region. The xml is then filled automatically. Just press save and you are ready.
 
-Вариант 2: перейдите на http://meteoalarm.eu и выберите свой регион. Затем перейдите к символу RSS в правом верхнем углу, щелкните правой кнопкой мыши и скопируйте ссылку. Это ссылка, которую вы можете добавить в настройку адаптера.
+TR: Option 2: Go to http://meteoalarm.eu and choose your region. Then go to the RSS symbol on the top right side, do a right click and copy the link. This is the link which you please add to the setup of the adapter.
 
-![Логотип](../../../en/adapterref/iobroker.meteoalarm/screenshot.png)
+![TR: Logo](../../../en/adapterref/iobroker.meteoalarm/screenshot.png)
 
-## Доступные поля
-| Имя поля | Описание |
+TR: ## Available fields
+| TR: |Field Name|Description|
 |:---:|:---:|
-| Последнее обновление | Дата последнего получения данных адаптером |
-| Ссылка | Ссылка на RSS-канал |
-| Расположение | Расположение сигнала тревоги |
-| Дата публикации | Дата публикации сигнала тревоги согласно сайту |
-| HTMLToday | HTML-виджет, отображающий будильники на сегодня |
-| Карта погоды страны | HTML-ссылка на карту погоды страны, в которой возник сигнал тревоги |
-| Сегодня / Завтра | Эти точки данных доступны на сегодня и завтра: |
-| Текст | Текст сигнала тревоги на языке страны |
-| С | Дата начала сигнала тревоги |
-| Кому | Дата окончания сигнала тревоги |
-| Тип | Тип тревоги в виде числа |
-| TypeText | Тип сообщения в виде текста |
-| Уровень | Уровень тревоги в виде числа |
-| LevelText | Уровень тревоги в виде текста |
-| Цвет | Цвет будильника для виджетов |
-| Значок | Значок типа сигнала тревоги |
+| TR: |Last Update|Date when the adapter received data the last time|
+| TR: |Link|Link to the RSS Feed|
+| TR: |Location|Alarm Location|
+| TR: |Publication Date|Publication Date of the alarm according to the website|
+| TR: |HTMLToday|HTML Widget that displays Alarms for today|
+| TR: |Weather Map Country|HTML Link to Weather Map of the Alarm Country|
+| TR: |Today/Tomorrow|These datapoints are available for today and tomorrow:|
+| TR: |   Text|Alarm Text in country specific language|
+| TR: |   From|Alarm starting date|
+| TR: |   To|Alarm ending date|
+| TR: |   Type|Type of Alarm as number|
+| TR: |   TypeText|Type of Alarm as text|
+| TR: |   Level|Level of Alarm as number|
+| TR: |   LevelText|Level of Alarm as text|
+| TR: |   Color|Alarm color for widgets|
+| TR: |   Icon|Alarm type icon|
 
-## Типы сигналов тревоги
-| Тип сигнала тревоги | Описание |
+TR: ## Alarm Types
+| TR: |Alarm Type|Description|
 |:---:|:---:|
-| 1 | Ветер |
-| 2 | Снег / Лед |
-| 3 | Гром и молния |
-| 4 | Туман |
-| 5 | Высокая температура |
-| 6 | Низкая температура |
-| 7 | Побережье |
-| 8 | Лесной пожар |
-| 9 | Лавина |
-| 10 | Дождь |
-| 11 | Неизвестно |
-| 12 | Наводнение |
-| 13 | Дождь-наводнение |
+| TR: |1|Wind|
+| TR: |2|Snow/Ice|
+| TR: |3|Thunder & Lightning|
+| TR: |4|Fog|
+| TR: |5|High temperature|
+| TR: |6|Low temperature|
+| TR: |7|Coast Event|
+| TR: |8|Forrest fire|
+| TR: |9|Avalanche|
+| TR: |10|Rain|
+| TR: |11|Unknown|
+| TR: |12|Flood|
+| TR: |13|Rain-Flood|
 
-## Уровни срабатывания сигнализации
-| Уровень тревоги | Описание |
+TR: ## Alarm Levels
+| TR: |Alarm Level|Description|
 |:---:|:---:|
-| Зеленый | На данный момент нет доступных предупреждений. |
-| Желтый | Погода потенциально опасна. Прогнозируемые погодные явления не являются чем-то необычным, но следует уделять повышенное внимание деятельности, подверженной метеорологическим рискам. Будьте в курсе ожидаемых метеорологических условий и не принимайте на себя никаких рисков. |
-| Апельсин | Погода опасная. Предсказаны необычные метеорологические явления. Вероятны повреждения и аварии. Будьте очень внимательны и осторожны и будьте в курсе ожидаемых метеорологических условий. |
-| Красный | Погода очень опасная. Были предсказаны необычно интенсивные метеорологические явления. Чрезвычайные повреждения и аварии, часто на больших территориях, угрожают жизни и имуществу. |
+| TR: |Green|There is no warning available at the moment.|
+| TR: |Yellow|The weather is potentially dangerous. The predicted weather phenomena are not unusual, but increased attention should be paid to activities exposed to meteorological risks. Keep yourself informed about the meteorological conditions to be expected and do not take any avoidable risks.|
+| TR: |Orange|The weather is dangerous. Unusual meteorological phenomena have been predicted. Damage and accidents are likely. Be very attentive and careful and keep up to date with the expected meteorological conditions. |
+| TR: |Red|The weather is very dangerous. Unusually intense meteorological phenomena were predicted. Extreme damage and accidents, often over large areas, threaten life and property. |
 
-## Поддерживаемые страны
-* Австрия
-* Хорватия
-* Республика Чехия
-* Финляндия
-* Германия
-* Греция
-* Венгрия
-* Ирландия
-* Израиль
-* Италия
-* Латвия
-* Литва
-* Мальта
-* Молдова
-* Черногория
-* Нидерланды
-* Норвегия
-* Польша
-* Румыния
-* Сербия
-* Словакия
-* Испания
-* Швейцария
-* Швеция
+TR: ## Supported countries
+TR: * Austria
+TR: * Croatia
+TR: * Czech Republic
+TR: * Finnland
+TR: * Germany
+TR: * Greece
+TR: * Hungary
+TR: * Ireland
+TR: * Israel
+TR: * Italy
+TR: * Latvia
+TR: * Lithuania
+TR: * Malta
+TR: * Moldova
+TR: * Montenegro
+TR: * Netherlands
+TR: * Norway
+TR: * Poland
+TR: * Romania
+TR: * Serbia
+TR: * Slovakia
+TR: * Spain
+TR: * Switzerland
+TR: * Sweden
 
-Если вы не можете найти свою страну, создайте проблему на github, и я с радостью добавлю ее.
+TR: If you don't find your country, please create an issue on github, and I will be happy to add it
 
-## Невозможные страны
-* Франция (RSS-канал недоступен)
-* Португалия (разделение невозможно)
-* Словения (RSS-канал недоступен)
+TR: ## Not possible countries
+TR: * France (no rss feed available)
+TR: * Portugal (no splitting possible)
+TR: * Slovenia (no rss feed available)
 
-## Возможности для реализации
-* Обработка нескольких сигналов тревоги за один день
+TR: ## Features to implement
+TR: * Handle multiple alarms on one day
 
-## 1.1.10 (2021-05-09)
-* (jack-blackson) Обновления пакетов
+TR: ## 1.2.0 (2021-05-16)
+TR: * (jack-blackson) New Setup:
 
-## 1.1.9 (2021-05-07)
-* (jack-blackson) Обновления пакетов
+TR: "No Background Color in HTML Widget": Ability to use the HTML Widget without background color (e.g. if you want to use the color object to fill your whole widget, not just the html widget) "Define Warning colors": Ability to define the colors for the various alarm levels in HEX code. Used for HTML widget and also for the color object to manually assign it to another widget "Use white icons": Use white icons instead of black ones "No Icons": Don't show icon in HTML widget - if you want to show the icon seperatly, or just the icon
 
-## 1.1.5 (2021-05-02)
-* (jack-blackson) Исправление ошибок JS-Controller 3.3.1, обработка ошибок не определен язык
+TR: * (jack-blackson) New Icons
 
-## 1.1.4 (2021-04-05)
-* (jack-blackson) Обработка сообщения об ошибке ENOTFOUND, добавлено Sentry
+TR: ## 1.1.11 (2021-05-09)
+TR: * (jack-blackson) Package Updates
 
-## 1.1.3 (29.03.2021)
-* (jack-blackson) Исправлены ошибки проверки адаптера
+TR: ## 1.1.9 (2021-05-07)
+TR: * (jack-blackson) Package Updates
 
-## 1.1.2 (29.03.2021)
-* (jack-blackson) Исправление неработающего обновления данных, убрана автогенерация ссылок из-за ошибок CORS
+TR: ## 1.1.5 (2021-05-02)
+TR: * (jack-blackson) Bugfix JS-Controller 3.3.1 errors, error handling no language defined
 
-## 1.1.1 (2020-10-28)
-* (jack-blackson) Исправление ошибок в данных HTML
+TR: ## 1.1.4 (2021-04-05)
+TR: * (jack-blackson) Handle ENOTFOUND error message, added Sentry
 
-## 1.1.0 (29.03.2020)
-* (jack-blackson) Исправление ошибок Германия
+TR: ## 1.1.3 (2021-03-29)
+TR: * (jack-blackson) Error fixes adapter checker
 
-## 1.0.9 (06.02.2020)
-* (jack-blackson) Исправление ошибок Германия
+TR: ## 1.1.2 (2021-03-29)
+TR: * (jack-blackson) Bugfix for not working data update, removed link autogeneration due to CORS errors
 
-## 1.0.8 (15.11.2019)
-* (jack-blackson) Добавлены Польша, Молдова, Греция, Румыния
-* (jack-blackson) Добавлена новая точка данных для получения ссылки на карту погоды
+TR: ## 1.1.1 (2020-10-28)
+TR: * (jack-blackson) Bugfix HTML Data
 
-## 1.0.7 (13.11.2019)
-* (jack-blackson) Добавлены Чехия, Ирландия, Израиль, Литва, Латвия, Черногория, Мальта, Сербия, Швеция
+TR: ## 1.1.0 (2020-03-29)
+TR: * (jack-blackson) Bugfix Germany
 
-## 1.0.6 (19.10.2019)
-* (jack-blackson) Добавлены Швейцария и Словакия.
+TR: ## 1.0.9 (2020-02-06)
+TR: * (jack-blackson) Bugfix Germany
 
-## 1.0.5 (22.09.2019)
-* (Джек-Блэксон) Небольшие корректировки при регистрации.
+TR: ## 1.0.8 (2019-11-15)
+TR: * (jack-blackson) Added Poland, Moldova, Greece, Romania
+TR: * (jack-blackson) Added new Datapoint to get Link to Weather Map
 
-## 1.0.4 (11.09.2019)
-* (Джек-Блэксон) Ошибка Трэвиса
+TR: ## 1.0.7 (2019-11-13)
+TR: * (jack-blackson) Added Czech Republic, Ireland, Israel, Lithuania, Latvia, Montenegro, Malta, Serbia, Sweden
 
-## 1.0.3 (09.09.2019)
-* (jack-blackson) Небольшие исправления, изменение типа "deamon" на "schedule"
+TR: ## 1.0.6 (2019-10-19)
+TR: * (jack-blackson) Added Switzerland & Slowakia
 
-## 1.0.2 (25.08.2019)
-* (Джек-Блэксон) Информация о выпуске переупорядочена
+TR: ## 1.0.5 (2019-09-22)
+TR: * (jack-blackson) Small logging adjustments
 
-### 1.0.1 (18.08.2019)
-* (jack-blackson) Исправление ошибки без значка будильника
+TR: ## 1.0.4 (2019-09-11)
+TR: * (jack-blackson) Travis error
 
-### 1.0.0 (12.08.2019)
-* (jack-blackson) Релизная версия
+TR: ## 1.0.3 (2019-09-09)
+TR: * (jack-blackson) Small bugfixes, change from type "deamon" to "schedule"
 
-### 0.6.0 (05.08.2019)
-* (jack-blackson) Сохранять значки погоды локально в адаптере
+TR: ## 1.0.2 (2019-08-25)
+TR: * (jack-blackson) Reordered release infos
 
-### 0.5.0 (21.07.2019)
-* (jack-blackson) Обработка таймаутов
-* (jack-blackson) Перевод на все языки
-* (jack-blackson) проверка URL
+TR: ### 1.0.1 (2019-08-18)
+TR: * (jack-blackson) Bugfix no alarm icon
 
-### 0.4.0 (20.07.2019)
-* (jack-blackson) Добавлены данные для NL, NO, HR, FI, ES
-* (jack-blackson) Добавлен текст типа, тип теперь пуст, если уровень 1 (без предупреждения)
-* (Джек-Блэксон) Скорректированные цвета
+TR: ### 1.0.0 (2019-08-12)
+TR: * (jack-blackson) Release version
 
-### 0.3.0 (13.07.2019)
-* (jack-blackson) Добавлен HTML-виджет
-* (Джек-Блэксон) Значок исправления ошибки
+TR: ### 0.6.0 (2019-08-05)
+TR: * (jack-blackson) Store weather icons local in adapter
 
-### 0.2.0 (12.07.2019)
-* (jack-blackson) Добавлены данные "Завтра"
+TR: ### 0.5.0 (2019-07-21)
+TR: * (jack-blackson) Handle Timeouts
+TR: * (jack-blackson) Translations for all languages
+TR: * (jack-blackson) URL checks
 
-### 0.1.0 (11.07.2019)
-* (Джек-Блэксон) начальная версия
+TR: ### 0.4.0 (2019-07-20)
+TR: * (jack-blackson) Added data for NL,NO,HR,FI,ES
+TR: * (jack-blackson) Added Type Text, Type is now empty if Level is 1 (No Warning)
+TR: * (jack-blackson) Adjusted colors
 
-## Кредиты
-Колокольчик в иконке, разработанной Freepik с сайта www.flaticon.com
+TR: ### 0.3.0 (2019-07-13)
+TR: * (jack-blackson) Added HTML Widget
+TR: * (jack-blackson) Bugfix icon
+
+TR: ### 0.2.0 (2019-07-12)
+TR: * (jack-blackson) Added "Tomorrow" data
+
+TR: ### 0.1.0 (2019-07-11)
+TR: * (jack-blackson) initial version
+
+TR: ## Credits
+TR: Bell in icon designed by Freepik from www.flaticon.com
 
 ## Changelog
 

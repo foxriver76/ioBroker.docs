@@ -2,175 +2,177 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fb-checkpresence/README.md
-title: без заголовка
-hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
+title: TR: ioBroker.fb-checkpresence
+hash: 716YzLmTM3wTgPjJrRAiV4xC/nUyt7Cehw5dpLJ2vOU=
 ---
-![Количество установок](http://iobroker.live/badges/fb-checkpresence-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
-![Статус зависимости](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)
-![Известные уязвимости](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/afuerhoff/ioBroker.fb-checkpresence/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/afuerhoff/ioBroker.fb-checkpresence?branch=master&svg=true)
+![TR: Logo](../../../en/adapterref/iobroker.fb-checkpresence/admin/fb-checkpresence.png)
 
-<h1><img src="admin/fb-checkpresence.png" width="64"/>ioBroker.fb-checkpresence</h1>
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
+![TR: Number of Installations (latest)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![TR: Number of Installations (stable)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
 
-## Адаптер fb-checkpresence для ioBroker
-Адаптер проверяет присутствие членов семьи над фритцбоксом.
-Вы должны указать имя члена семьи и mac-адрес (или ip-адрес) используемого устройства.
-Комментарий не является обязательным, и вы можете включить или отключить члена семьи.
-Точка данных основана на имени члена.
+TR: # ioBroker.fb-checkpresence
+TR: **Tests:** ![TR: Test and Release](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
-### Предварительные условия адаптера
-Для правильной работы вам необходимо установить адаптер истории. Вы можете выбрать один из следующих адаптеров:
+TR: ## fb-checkpresence adapter for ioBroker
+TR: The adapter checks the presence of family members over the fritzbox.
+You must fill in the name of the family member and the mac-address (or ip-address) of the used device.
+The comment is optional and you can enable or disable the family member.
+The datapoint is based on the member name.
 
-* История
-* SQL
-* InfluxDB
+TR: ### Adapter pre conditions
+TR: For the correct function you have to install a history adapter. You can choose one of the following adapters:
 
-## Используемое устройство
-Для этого адаптера используется AVM Fritzbox. Здесь вы можете найти информацию о Fritzbox https://avm.de/produkte/fritzbox/.
-Сервисы fritzbox используются по протоколу TR-064.
+TR: * History
+TR: * SQL
+TR: * InfluxDB
 
-### Условия Fritzbox
-Используемый интерфейс TR-064 от fritzbox описан здесь: https://avm.de/service/schnittstellen/.
-Используются следующие услуги и действия TR-064:
+TR: ## Used device
+TR: For this adapter the AVM Fritzbox is used. Here you can find informations about the Fritzbox https://avm.de/produkte/fritzbox/.
+The fritzbox services are used over the TR-064 protocol.
 
-* Хосты: 1 - X_AVM-DE_GetHostListPath (поддерживается с 2017-01-09)
-* Хосты: 1 - X_AVM-DE_GetMeshListPath
-* Хосты: 1 - GetSpecificHostEntry
-* Хосты: 1 - X_AVM-DE_GetSpecificHostEntryByIP (поддерживается с 18 мая 2016 г.)
-* DeviceInfo: 1 - GetSecurityPort
-* DeviceInfo: 1 - GetInfo
-* WANPPPConnection: 1 - GetInfo
-* WANIPConnection: 1 - GetInfo
-* WLANConfiguration3 - SetEnable
-* WLANConfiguration3 - GetInfo
-* WLANConfiguration3 - GetSecurityKeys
-* X_AVM-DE_HostFilter - DisallowWANAccessByIP
-* X_AVM-DE_HostFilter - GetWANAccessByIP
-* DeviceConfig: 1 - перезагрузка
-* LANConfigSecurity1 - X_AVM-DE_GetCurrentUser
+TR: ### Fritzbox conditions
+TR: The used TR-064 interface from the fritzbox is described here: https://avm.de/service/schnittstellen/.
+Following TR-064 services and actions are used:
 
-По умолчанию интерфейс TR-064 не активирован. Однако это можно легко изменить через веб-интерфейс FritzBox. Для этого войдите в свой FritzBox и убедитесь, что режим эксперта активирован.
-Затем вы найдете ниже «Домашняя сеть» Обзор домашней сети »Настройки сети» пункт «Разрешить доступ для приложений». Здесь вы должны установить флажок, а затем перезапустить FritzBox один раз.
+TR: * Hosts:1 - X_AVM-DE_GetHostListPath (supported since 2017-01-09)
+TR: * Hosts:1 - X_AVM-DE_GetMeshListPath
+TR: * Hosts:1 - GetSpecificHostEntry
+TR: * Hosts:1 - X_AVM-DE_GetSpecificHostEntryByIP (supported since 2016-05-18)
+TR: * DeviceInfo:1 - GetSecurityPort
+TR: * DeviceInfo:1 - GetInfo
+TR: * WANPPPConnection:1 - GetInfo
+TR: * WANIPConnection:1 - GetInfo
+TR: * WLANConfiguration3 - SetEnable
+TR: * WLANConfiguration3 - GetInfo
+TR: * WLANConfiguration3 - GetSecurityKeys
+TR: * X_AVM-DE_HostFilter - DisallowWANAccessByIP
+TR: * X_AVM-DE_HostFilter - GetWANAccessByIP
+TR: * DeviceConfig:1 - Reboot
+TR: * LANConfigSecurity1 - X_AVM-DE_GetCurrentUser
 
-Подсказка: после изменения параметров не забудьте перезапустить Fritzbox!<img src="doc/access_settings_network.JPG"/>
+TR: By default, the TR-064 interface is not activated. However, this can easily be changed via the FritzBox web interface. To do this log in into your FritzBox and ensure that the expert view is activated.
+Then you will find below "Home Network »Home Network Overview» Network Settings" the point "Allow access for applications". There you have to activate the checkbox and then restart the FritzBox once.
 
-## Диалог конфигурации
-### Общий
-Значения конфигурации проверены, и можно сохранить только правильные значения. В противном случае кнопка сохранения неактивна.
+TR: Hint: After changing the options, don't forget the restart of the Fritzbox ! <img src="doc/access_settings_network.JPG"/>
 
-### IP-адрес, пользователь и пароль Fritzbox
-Конфигурация ip-адреса, пользователя и пароля необходима для получения данных устройства из fritzbox.
-Следовательно, пользователь должен быть создан в fritzbox. Это требуется для более новой версии прошивки (> = 7.25) fritzbox. См. Информацию здесь: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%.1Box. Пароль зашифрован и не был сохранен в виде открытого текста. Имя пользователя и пароль могут содержать не более 32 символов. См. Информацию: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf % 20nicht% 20leer% 20sein.
+TR: ## Configuration dialog
+TR: ### General
+TR: The configuration values are validated and only correct values can be saved. Otherwise the save button is disabled.
 
-### Параметр SSL
-В некоторых случаях адаптер не мог подключиться к fritzbox. Может помочь отключить эту опцию.
-В этом случае адаптер пытается подключиться без https.
+TR: ### Fritzbox IP-address, user and password
+TR: The configuration of ip-address, user and password is necessary to get the device data from the fritzbox.
+Therefore a user has to be created in the fritzbox. This is required with newer firmware version (>= 7.25)of the fritzbox. See here fore information: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf The password is encrypted and wasn't saved in clear text. The user name and password may have a maximum of 32 characters. See for information: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf%20nicht%20leer%20sein.
 
-### Интервал
-У вас есть отдельные интервалы для членов семьи и устройств Fritzbox.
-Интервал для устройств Fritzbox можно настроить от 1 до 59 минут. Обычно значение от 1 до 5 минут является оптимальным интервалом для чтения данных fritzbox. Члены семьи могут быть настроены от 10 до 600. Каждый новый цикл начинается, если предыдущий цикл завершен.
+TR: ### Ssl option
+TR: In some cases the adapter could not connect to the fritzbox. It could help to disable this option.
+In this case the adapter tries to connect without https.
 
-### Время фильтрации
-Если время фильтрации больше 0 с, состояние члена семейства проверяется дважды (после времени фильтрации), если состояние меняется на ложное. Если состояние истинно, состояние устанавливается немедленно.
+TR: ### Interval
+TR: You have separate intervals for family members and Fritzbox devices.
+The interval for Fritzbox devices can be configured from 1 to 59 minutes. Normally a value between 1 and 5 minutes is an optimal interval to read the fritzbox data. Family members could be configured from 10s to 600s. Every new cycle starts if the previous cycle is finished.
 
-### Адаптер истории
-По адаптеру истории вычисляются некоторые значения. Вы можете выбрать, будет ли использоваться история, sql или адаптер infxdb для этих вычислений. Адаптер истории должен быть установлен предварительно, а затем его можно будет выбрать в диалоговом окне конфигурации.
-Если конфигурация истории отключена, то вычисление некоторых значений не может быть осуществлено.
+TR: ### Filter time
+TR: If the filter time is greater than 0s the state of a family member is checked twice (after the filter time) if the state is changing to false. If the state is true the state is immediate set.
 
-### Формат даты
-Параметры маски формата даты описаны на этой веб-странице: https://www.npmjs.com/package/dateformat.
-Маска формата используется для форматирования объектов таблиц html и json.
+TR: ### History adapter
+TR: Over the history adapter some values are calculated. You can choose, if the history, the sql or the influxdb adapter is used for this calculations. The history adapter must be installed preliminary and can then selected in the configuration dialog.
+If the history configuration is disabled then the calculation of some values could not be realized.
 
-### Создание FB устройств
-Если этот параметр отмечен, объекты создаются для каждого устройства в списке устройств Fritzbox.
-Если этот параметр отключен, информация о сетке также отключена.
+TR: ### Dateformat
+TR: The date format mask options are described on this web page: https://www.npmjs.com/package/dateformat.
+The format mask is used for formatting the html and json table objects.
 
-### Ресинхронизация объектов устройства FB
-Если этот параметр отмечен, то объект устройства FB повторно синхронизируется со списком устройств Fritzbox.
+TR: ### Creation of FB devices
+TR: If this option is checked, the objects for every device in the Fritzbox device list are created.
+If this option is disabled, then also the mesh informations are disabled.
 
-### Создание информации о сетке
-Эта опция может быть отмечена, если создание FB-устройств разрешено. Если этот флажок установлен, объекты сетки создаются для каждого устройства в списке устройств Fritzbox.
+TR: ### Resynchronisation of FB device objects
+TR: If this option is checked, then the FB device object are re-synchronized with the device list fom Fritzbox.
 
-### Информация о гостях
-Если этот параметр отмечен, создаются состояния для гостей.
+TR: ### Creation of mesh information
+TR: This option can be checked if the creation of FB devices is allowed. If this option is checked, the mesh objects for every device in the Fritzbox device list are created.
 
-### Генерация qr-кода
-Если эта опция отмечена, генерируется qr-код от гостевой wlan.
+TR: ### guest information
+TR: If this option is checked the states for guests are created.
 
-### Настройки членов семьи
-Для настроенного члена семьи вы должны ввести имя члена, имя хоста, Mac- и IP-адрес, комментарий, и вы можете включить или отключить члена. Группа не обязательна. Если вы оставите группу пустой и установите флаг совместимости в значение true, поведение будет похоже на более старую версию adaper. В будущей версии вы должны использовать состояние присутствия от члена семьи. Это поведение включается / выключается флажком совместимости: -> compatibility = true: поведение как в более старой версии с пустой группой.
--> совместимость = false: новое поведение. Все состояния под папкой familymembers.
-Для каждого члена адаптер создает состояние присутствия и проверяет, присутствует ли член или нет. Состояние было изменено, если изменилось состояние присутствия. Вы также можете включить фильтрацию для члена. Если состояние истинно, состояние немедленно меняется на истинное. Если это ложь, то значение будет проверено снова по истечении времени фильтрации.
-Если состояние в обоих случаях ложно, то состояние меняется на ложное. В остальном не меняется.
-Для получения информации о скорости в объектах необходимо выбрать опцию fb-devices.
+TR: ### qr-code generation
+TR: If this option is checked the qr-code from guest wlan is generated.
 
-### Настройки белого списка
-В белый список вы можете вставить все известные устройства. Любые неизвестные устройства перечислены в объекте черного списка.
-Если вы установите флажок в заголовке таблицы, будут выбраны все устройства.
+TR: ### Family member settings
+TR: For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. If you leave the group empty and set the compatibility flag to true the behaviour is like an older version of the adaper. In a future version you have to use the presence state from a family member. This behaviour is switched on/off with the compatibility checkbox: -> compatibility = true: behaviour as an older version with empty group.
+-> compatibility = false: new behaviour. All states beneath the familymembers folder.
+For every member the adapter creates a presence state and checks if the member is present or absent. The state was changed if the presence state changed. You can also enable the filtering for a member. If the state is true the state changes immediately to true. If it is false then the value will checked after the filter time again.
+If the state is in both cases false then the state changes to false. Otherwise it does not change.
+To get the speed information in the objects you have to select fb-devices option.
 
-## Функции
-### Проверка поддержки AVM
-Функция проверяет наличие используемых функций fritzbox. Доступность регистрируется как информация. Если у вас есть проблемы, посмотрите, все ли функции установлены на true. Также для пользователя проверяются права доступа, и для функции устанавливается значение false, если права доступа неверны.
+TR: ### Whitelist settings
+TR: In the white list you can insert every known device. Any unknown devices are listed in the blacklist object.
+If you check the checkbox in the headline of the table all devices are selected.
 
-### Включение / выключение гостевой wlan
-В гостевой папке вы можете установить для состояния wlan значение true или false, а затем гостевой wlan включится или выключится.
+TR: ## Features
+TR: ### AVM support check
+TR: The function checks the availability of used fritzbox features. The availability is logged as info. If you have problems look if the features are all set to true. Also the access rights are checked for the user and the feature is set to false if the acces right is not correct.
 
-### QR-код гостевой беспроводной сети
-QR-код гостевой wlan сохраняется в состоянии wlanQR в гостевой папке. QR-код может отображаться на vis в виджете Basic - Bool SVG.
+TR: ### Switch on / off the guest wlan
+TR: Under the folder guest you can set the state wlan to true or false and then the guest wlan switches on or off.
 
-### Включение / выключение доступа в Интернет устройств Fritzbox
-В папке FB-devices вы можете установить для отключенного состояния значение true или false, а доступ в Интернет для этого устройства будет заблокирован в Fritzbox.
+TR: ### QR code of guest wlan
+TR: The QR code of the guest wlan is saved in the state wlanQR in the guest folder. The QR code can show in vis in the basic - Bool SVG widget.
 
-### Получить гостей, черный список
-В этой функции проверяется, вошел ли какой-либо пользователь в систему как гость. Также проверяется, нет ли какого-либо устройства в белом списке.
-Эти устройства добавлены в черный список.
+TR: ### Switch on / off the internet access of Fritzbox devices
+TR: Under the folder FB-devices you could set the disabled state to true or false and the the internet access of this device is blocked in the Fritzbox.
 
-### Стань активным
-Для каждого члена семьи вычисляется присутствие, даты приезда и отъезда, а также несколько других сведений, которые сохраняются в объекте-члене, если выбран адаптер истории.
+TR: ### Get guests, blacklist
+TR: In this function it is checked if any user is logged in as guest. Also is checked if any device is not in the white list listed.
+This devices are added to the blacklist.
 
-### Номер хоста, активные устройства
-Количество устройств и количество активных берутся из фритцбокса.
+TR: ### Get Active
+TR: For every family member the presence, the comming and going dates and several other infos are calculated and saved in the member object if a history adapter is selected.
 
-## Объекты
-### Наличие объекта Все
-Если присутствуют все члены семьи, значит, объект верен.
+TR: ### Host number, active devices
+TR: The amount of devices and how many are active are get from the fritzbox.
 
-### Наличие объекта
-Если присутствует один член семьи, значит, объект верен.
+TR: ## Objects
+TR: ### Object presenceAll
+TR: If all family members are present then the object is true.
 
-### Объектные устройства
-Все эти устройства перечислены в fritzbox.
+TR: ### Object presence
+TR: If one family member ist present then the object is true.
 
-### Объект activeDevices
-Это количество всех активных устройств в fritzbox
+TR: ### Object devices
+TR: These are all listed devices in the fritzbox
 
-### Объект html, json
-Эти объекты представляют собой таблицы (json и html) с информацией о приходе и уходе всех членов семьи в них.
+TR: ### Object activeDevices
+TR: These are the amount of all active devices in the fritzbox
 
-### Информация об объекте
-Здесь перечислены сведения о последнем обновлении и состоянии подключения адаптера.
+TR: ### Object html, json
+TR: These objects are tables (json and html) with the comming and going information of all family members in it.
 
-### Объект гость
-Здесь перечислены сведения о количестве активных гостей и объекты таблицы с информацией об устройстве в ней.
+TR: ### Object info
+TR: Here are informations listed about the last update and the connection status from the adapter.
 
-### Черный список объектов
-Здесь перечислены сведения о количестве неизвестных устройств и объекты таблицы с информацией о неизвестных устройствах.
+TR: ### Object guest
+TR: Here are informations listed about the amount of active guests and table objects with the device information in it.
 
-### Объект member.present
-Здесь вы найдете информацию о присутствии участника в текущий день и о том, как долго этот участник имел статус истинный с момента последнего изменения.
+TR: ### Object blacklist
+TR: Here are informations listed about the amount of unknown devices and table objects with the unknown device information in it.
 
-### Объект member.absent
-Здесь вы найдете информацию об отсутствии участника в текущий день и о том, как долго участник находился в статусе false с момента последнего изменения.
+TR: ### Object member.present
+TR: Here you will find information about the presence of a member on the current day and how long the member has been the status true since the last change.
 
-### Объект member.comming, member.going
-Здесь вы найдете информацию, когда член семьи прибывает или выходит из дома.
+TR: ### Object member.absent
+TR: Here you will find information about the absence of a member on the current day and how long the member has been the status false since the last change.
 
-### Объект member.history, member.historyHtml
-Здесь вы найдете информацию об истории текущего дня.
+TR: ### Object member.comming, member.going
+TR: Here you will find information when the family member arrives or leaving home.
+
+TR: ### Object member.history, member.historyHtml
+TR: Here you will find information about the history of the current day.
 
 ## Changelog
 <!--
@@ -179,6 +181,33 @@ QR-код гостевой wlan сохраняется в состоянии wla
     * Did some changes
     * Did some more changes
 -->
+
+### __WORK IN PROGRESS__
+* (afuerhoff) npm updated
+* (afuerhoff) checkservice fixed
+
+### 1.1.4 (2021-05-11)
+* (afuerhoff) family groups implemented
+* (afuerhoff) compatability mode implemented
+* (afuerhoff) dependencies updated
+* (afuerhoff) configuration options added
+* (afuerhoff) dialogboxes optimized
+* (afuerhoff) translations updated
+* (afuerhoff) general program structure optimized
+* (afuerhoff) filter for family members implemeted
+* (afuerhoff) password handling updated
+* (afuerhoff) documentation updated
+* (afuerhoff) QR-Code implemented
+* (afuerhoff) setState presence only if changed
+* (afuerhoff) access rights implemented
+* (afuerhoff) use name for presence
+* (afuerhoff) active / inactive devices
+* (afuerhoff) interval 10s bug fixed
+* (afuerhoff) Bugfix dateformat pattern
+* (afuerhoff) SSL (https) workaround implemented
+* (afuerhoff) Connection check optimized
+* (afuerhoff) Mesh handling optimized 
+
 ### 1.1.3 (2021-03-31)
 * (afuerhoff) family groups implemented
 * (afuerhoff) compatability mode implemented
@@ -190,6 +219,7 @@ QR-код гостевой wlan сохраняется в состоянии wla
 * (afuerhoff) filter for family members implemeted
 * (afuerhoff) password handling updated
 * (afuerhoff) documentation updated
+
 
 ### 1.1.2 (2021-01-13)
 * (afuerhoff) QR-Code implemented
@@ -216,9 +246,6 @@ QR-код гостевой wlan сохраняется в состоянии wla
 * (afuerhoff) switch on, off internet access of devices 
 * (afuerhoff) structural changes
 * (afuerhoff) code optimization
-
-### 1.0.4 (2020-06-28)
-* (afuerhoff) bugfix json list and guest handling, new object guest.presence
 
 ## License
 MIT License

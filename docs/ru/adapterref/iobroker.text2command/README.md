@@ -2,29 +2,29 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.text2command/README.md
-title: ioBroker.text2command
-hash: EJKyI8ZO0IeFIyxLvHk2Zt/zsWCaU+vR7TAxE2A0oaI=
+title: TR: ioBroker.text2command
+hash: G6rw6Jl8yrPs/8YWk+wBEuW5iwR3q5KDQXr7fv+LmfA=
 ---
-![Логотип](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
+![TR: Logo](../../../en/adapterref/iobroker.text2command/admin/text2command.png)
 
-![Количество установок](http://iobroker.live/badges/text2command-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.text2command.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.text2command.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.text2command.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/text2command-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.text2command.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.text2command.svg)
+![TR: Tests](https://travis-ci.org/ioBroker/ioBroker.text2command.svg?branch=master)
+![TR: NPM](https://nodei.co/npm/iobroker.text2command.png?downloads=true)
 
-# IoBroker.text2command
-## Описание
-Этот адаптер может преобразовывать обычные предложения, такие как *'Включить свет на кухне'* в определенную команду и устанавливать для состояния *'adapter.0.device.kitchenLight'* значение **true**
+TR: # ioBroker.text2command
+TR: ## Description
+TR: This adapter can convert normal sentences, like `Switch light in kitchen on` to specific command and sets the state `adapter.0.device.kitchenLight` to `true`.
 
-Этот адаптер нет смысла активировать отдельно. Его следует использовать с другими адаптерами, такими как Telegram или Android-приложение **iobroker.vis**
+TR: This adapter makes no sense to be activated standalone. It should be used with other adapters like telegram or Android app **`iobroker.vis`**.
 
-## Применение
-Чтобы выполнить команду, напишите состояние **text2command. <INSTANCE> .text** с предложением. Вы всегда получите ответ в **text2command. <INSTANCE> .response**
+TR: ## Usage
+TR: To execute command, write state **`text2command.<INSTANCE>.text`** with sentence. You will always get the answer in `text2command.<INSTANCE>.response`.
 
-Если вы определите **Ответ на ID** ответ будет записан и в этом ID. Это необходимо, например, для чтобы понять голос подтверждает.
+TR: If you define **Answer to ID**, the answer will be written in this ID too. This required for e.g. to realise the voice acknowledges.
 
-Вы можете отправить сообщение через `sendTo` из javascript. Ответ придет в ответном сообщении:
+TR: You can send a message via `sendTo` from javascript. The answer will come in the message back:
 
 ```
 sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
@@ -32,198 +32,199 @@ sendTo('text2command', 'Switch light in kitchen on', function (err, response) {
 });
 ```
 
-Можно использовать регулярные выражения, например: ```/^light\son|^lamp\son/```. Регулярные выражения всегда нечувствительны к регистру.
+TR: Regular expressions can be used, like: `/^light\son|^lamp\son/`. Regular expressions are always case-insensitive.
 
-Для использования «Включение / выключение по функции» следует позаботиться о функциях.
+TR: To use "Switch on/off by function" you should care of functions.
 
-Ключевые слова работают следующим образом:
+TR: Keywords work as following:
 
-- ключевые слова разделены пробелом
-- все ключевые слова должны присутствовать в предложении, чтобы сработало правило: например, ключевое слово: `` свет горит '' срабатывает по `` включить свет '', `` зажигать повсюду`` и не срабатывать по `` включить '', `` сделать свет ''.
-- одно ключевое слово может иметь много форм. Варианты ключевого слова должны быть разделены знаком "/". Например. ключевые слова: `` включить / сделать / включить свет / истина`` будет срабатывать: `` сделать свет истинным``, `` сделать, пожалуйста, зажгите``.
-- если ключевое слово может присутствовать во многих падежах (ном, род, винительный падеж, множественное число, ...), все они должны быть указаны как варианты, например: `` включить свет / свет ''.
+TR: - keywords are divided by space
+TR: - all keywords must present in a sentence to trigger a rule: e.g. keyword: `light on` will trigger on `switch light on`, `make light on everywhere` and do not trigger on `switch on`, `make light`.
+TR: - one keyword can has many forms. Variations of keyword must be divided by "/". E.g. keywords: `switch/make/do light on/true` will trigger on: `do light true`, `make please light on`.
+TR: - if keyword can come in many cases(nom, gen, accusative, plural, ...) they all must be listed as variations, like: `switch light/lights on`.
 
-Следующие функции будут интерпретироваться как
+TR: Following functions will be interpreted as
 
-enum.functions:
+TR: enum.functions:
 
-** enum.functions.light ** (Licht | Свет):
+TR: **`enum.functions.light`** (Licht | Свет):
 
-- роли - диммер уровня
-- роли - switch.light
+TR: - roles - `level.dimmer`
+TR: - roles - `switch.light`
 
-** enum.functions.backlight ** (Beleuchtung | Подсветка):
+TR: **`enum.functions.backlight`** (Beleuchtung | Подсветка):
 
-- роли - level.backlight
-- роли - switch.backlight
+TR: - roles - `level.backlight`
+TR: - roles - `switch.backlight`
 
-** enum.functions.blinds / shutter ** (Rolladen | Жалюзи / окна)
+TR: **`enum.functions.blinds/shutter`** (Rolladen | Жалюзи/окна)
 
-- роли - level.blind
-- роли - switch.blind
+TR: - roles - `level.blind`
+TR: - roles - `switch.blind`
 
-** enum.functions.curtain ** (Vorhänge | Шторы)
+TR: **`enum.functions.curtain`** (Vorhänge | Шторы)
 
-- роли - level.curtain
-- роли - switch.curtain
+TR: - roles - `level.curtain`
+TR: - roles - `switch.curtain`
 
-** enum.functions.heating ** (Heizung | Отопление / Подогрев)
+TR: **`enum.functions.heating`** (Heizung | Отопление/Подогрев)
 
-- роли - уровень. температура
-- роли - переключатель. температура
+TR: - roles - `level.temperature`
+TR: - roles - `switch.temperature`
 
-** enum.functions.music ** (Музыка | Музыка)
+TR: **`enum.functions.music`** (Musik | Музыка)
 
-- роли - button.play
-- роли - button.stop / button.pause
+TR: - roles - `button.play`
+TR: - roles - `button.stop` / `button.pause`
 
-** enum.functions.alarm / security ** (Alarmanlage / Alarm | Охрана)
+TR: **`enum.functions.alarm/security`** (Alarmanlage / Alarm | Охрана)
 
-- роли - switch.security
+TR: - roles - `switch.security`
 
-** enum.functions.lock ** (Schloß / Schloss | Замок)
+TR: **`enum.functions.lock`** (Schloß / Schloss | Замок)
 
-- роли - switch.open
-- роли - switch.lock
+TR: - roles - `switch.open`
+TR: - roles - `switch.lock`
 
-Поддерживаются следующие комнаты:
+TR: Following rooms are supported:
 
-| ключевое слово во фразе | Возможные enum.rooms на английском языке | на немецком языке | на русском |
+| TR: | key word in phrase    | Possible enum.rooms in english  | in german                | in russian             |
 |-----------------------|---------------------------------|--------------------------|------------------------|
-| везде | везде | - | - |
-| живущий | гостиная | wohnzimmer | зал |
-| спальня | спальня / спальня | schlafzimmer | спальня |
-| ванна | ванная / ванна | бадезиммер / плохой | ванная |
-| рабочий / офис | офис | arbeitszimmer | кабинет |
-| дети / ребенок / ясли | питомник | детский сад | детская |
-| туалет / гостевой туалет | guestwc | gästewc | гостевой туалет |
-| туалет / шкаф | туалет | туалет | туалет |
-| этаж / вход | этаж | диель / ганг / флур | коридор / прихожая |
-| кухня | кухня | куче / куче | кухня |
-| балкон / терраса / патио | терраса | балкон / терраса | терасса / балкон |
-| столовая | столовая | эссзиммер | столовая |
-| гараж | гараж | гараж | гараж |
-| лестница | лестница | трепе / треппенхаус | лестница |
-| сад | сад | сад | сад |
-| двор / двор | суд | хоф | двор |
-| гостевая комната | гостевая комната | gästezimmer | гостевая |
-| чердак | чердак | Speicher | кладовка |
-| крыша | крыша | dachstuhl | крыша |
-| терминал | терминал | аншлюссраум | сени |
-| умывальник | туалет | waschraum | прачечная |
-| отопление | теплая | обогреватель / heizungsraum | котельная |
-| лачуга | лачуга | schuppen / scheune | сарай |
-| летний домик | беседка | садовый дом | теплица |
+| TR: | everywhere            | everywhere                      | -                        | -                      |
+| TR: | living                | livingroom                      | wohnzimmer               | зал                    |
+| TR: | bedroom               | bedroom/sleepingroom            | schlafzimmer             | спальня                |
+| TR: | bath                  | bathroom/bath                   | badezimmer/bad           | ванная                 |
+| TR: | working/office        | office                          | arbeitszimmer            | кабинет                |
+| TR: | kids/child/nursery    | nursery                         | kinderzimmer             | детская                |
+| TR: | guets wc/guest closet | guestwc                         | gästewc                  | гостевой туалет        |
+| TR: | wc/closet             | wc                              | wc                       | туалет                 |
+| TR: | floor/enter           | floor                           | diele/gang/flur          | коридор/прихожая       |
+| TR: | kitchen               | kitchen                         | küche/kueche             | кухня                  |
+| TR: | balcony/terrace/patio | terrace                         | balkon/terrasse          | терасса/балкон         |
+| TR: | dinning               | dinningroom                     | esszimmer                | столовая               |
+| TR: | garage                | garage                          | garage                   | гараж                  |
+| TR: | stair                 | stairs                          | trepe/treppenhaus        | лестница               |
+| TR: | garden                | garden                          | garten                   | сад                    |
+| TR: | court/yard            | court                           | hof                      | двор                   |
+| TR: | guest room            | guestroom                       | gästezimmer              | гостевая               |
+| TR: | attic                 | attic                           | speicher                 | кладовка               |
+| TR: | roof                  | roof                            | dachstuhl                | крыша                  |
+| TR: | terminal              | terminal                        | anschlussraum            | сени                   |
+| TR: | wash room             | washroom                        | waschraum                | прачечная              |
+| TR: | heat room             | heatroom                        | heatingroom/heizungsraum | котельная              |
+| TR: | hovel                 | hovel                           | schuppen/scheune         | сарай                  |
+| TR: | summer house          | summerhouse                     | gartenhaus               | теплица                |
 
-Вы можете использовать шаблоны в подтверждениях:
+TR: You can use patterns in acknowledges:
 
-- %s : значение
--% u: блок
--% n: имя (планируется!)
-- {objectId}: здесь будет помещено состояние этого objectID
+TR: - `%s`: value
+TR: - `%u`: unit
+TR: - `%n`: name (planned!)
+TR: - `{objectId}`: the state of this objectID will be placed here
 
-Поддерживаются следующие команды:
+TR: Following commands are supported:
 
-### Который сейчас час?
-Ответ: 14:56 (текущее время)
+TR: ### What time is it?
+TR: Answer: 14:56 (current time)
 
-### Как Вас зовут?
-Ответ настраиваемый. По умолчанию: ```My name is Alpha```
+TR: ### What is your name?
+TR: Answer is customizable. Default: `My name is Alpha`
 
-### Какая наружная температура?
-Пользователь должен указать ID состояния, где читать наружную температуру.
-Ответ настраиваемый. По умолчанию: ```Outside temperature is %s %u``` **%s** будет заменено температурой, округленной до целого числа. **u** будет заменен на единицы измерения этого состояния или единицы измерения температуры системы.
+TR: ### What is the outside temperature?
+TR: User must specify the state ID, where to read outside temperature.
+Answer is customizable. Default: `Outside temperature is %s %u` **`%s`** will be replaced by temperature, rounded to integer. **`%u`** will be replaced by units of this state or by system temperature units.
 
-### Какая внутри температура?
-Пользователь должен указать ID состояния, где читать внутреннюю температуру.
-Ответ настраиваемый. По умолчанию: ```Inside temperature is %s %u``` **%s** будет заменено температурой, округленной до целого числа. **u** будет заменен на единицы измерения этого состояния или единицы измерения температуры системы.
+TR: ### What is the inside temperature?
+TR: User must specify the state ID, where to read inside temperature.
+Answer is customizable. Default: `Inside temperature is %s %u` **`%s`** will be replaced by temperature, rounded to integer. **`%u`** will be replaced by units of this state or by system temperature units.
 
-### Включение / выключение по функции
-Эта команда считывает информацию из перечислений. Он использует **enum.functions** для поиска типа устройства (например, свет, будильник, музыка) и **enum.rooms** для определения названия комнаты.
+TR: ### Switch on/off by function
+TR: This command reads information from enums. It uses **enum.functions** to find type of device (e.g. light, alarm, music) and **`enum.rooms`** to detect room name.
 
-Пример на немецком языке: ![Перечисления](../../../en/adapterref/iobroker.text2command/img/enums.png)
+TR: Example in german: ![TR: Enums](../../../en/adapterref/iobroker.text2command/img/enums.png)
 
-Ключевые слова для включения: *включить* например ```switch rear light in bath on```
+TR: Keywords to switch on are: *switch on*, e.g. `switch rear light in bath on`
 
-Ключевые слова для выключения: *выключить* например ```switch light in living room off```
+TR: Keywords to switch off are: *switch off*, e.g. `switch light in living room off`
 
-При желании автоматически будет сгенерирован ответ: ```Switch off %function% in %room%```, где% function% и% room% будут заменены на тип и местоположение найденного устройства.
+TR: Answer will be generated automatically if desired: `Switch off %function% in %room%`, where `%function%` and `%room%` will be replaced by found device type and location.
 
-Команда также принимает числовое значение. Он имеет приоритет, например в команде ```switch light off in living room on 15%``` свет будет установлен на 15%, а не в состоянии *выключено*
+TR: Command accept the numeric value too. It has priority, e.g. in command `switch light off in living room on 15%` the light will be set to 15% and not in *off* state.
 
-Вы можете определить комнату по умолчанию в []. Например, ```switch the light on[sleepingroom]```
+TR: You can define default room in []. E.g. `switch the light on[sleepingroom]`
 
-### Открытие / закрытие жалюзи
-Эта команда считывает информацию из перечислений. Он использует **enum.functions.blind** для поиска типа жалюзи или ставни и **enum.rooms** для определения имени комнаты.
+TR: ### Open/close blinds
+TR: This command reads information from enums. It uses **`enum.functions.blind`** to find type blinds or shutter and **`enum.rooms`** to detect room name.
 
-Ключевые слова для поднятия блайндов: *блайнды вверх* например ```set blinds up in sleeping room```
+TR: Keywords to move blinds up are: *blinds up*, e.g. `set blinds up in sleeping room`
 
-Ключевые слова для опускания блайндов: *блайнды вниз* например ```move blinds down in office```
+TR: Keywords to move blinds down are: *blinds down*, e.g. `move blinds down in office`
 
-Вы можете указать точное положение блайнда в процентах, например ```move blinds to 40 percent in office```
+TR: You can specify the exact position of blind in percent, e.g. `move blinds to 40 percent in office`
 
-При желании автоматически будет сгенерирован ответ: ``` in %room%```, где% room% будет заменено на тип и местоположение найденного устройства.
+TR: Answer will be generated automatically if desired: ` in %room%`, where %room% will be replaced by found device type and location.
 
-### Включить / выключить что-нибудь
-Пользователь должен указать ID состояния устройства, которым необходимо управлять, и значение, которое необходимо записать.
+TR: ### Switch something on/off
+TR: User must specify state ID of device, which must be controlled and value, which must be written.
 
-Вы должны создать правило для каждой позиции (например, для *on* и для *off* .
+TR: You should create rule for every position (e.g. for `on` and for `off`).
 
-Ответ настраиваемый. По умолчанию: ```Switched on```
+TR: Answer is customizable. Default: `Switched on`
 
-Например.:
+TR: E.g.:
 
-- `` Деактивировать тревогу``, ID объекта: `` hm-rpc.0.alarm``, Значение: `` false``, Ответ: `` Тревога деактивирована / Деактивирована`` . В этом случае ответ будет рандомизирован между *Тревога деактивирована* и *Деактивирована*
-- `` Активировать тревогу``, ID объекта: `` hm-rpc.0.alarm``, Значение: `` true``, Ответ: `` Тревога активирована / Активирована / Готово` ``. В этом случае ответ будет рандомизирован между *Тревога активирована* *Активирована* и *Готово*
+TR: - `Deactivate alarm`, Object ID: `hm-rpc.0.alarm`, Value: `false`, Answer: `Alarm is deactivated/Deactivated`. In this case the answer will be randomized between *Alarm is deactivated* and *Deactivated*.
+TR: - `Activate alarm`, Object ID: `hm-rpc.0.alarm`, Value: `true`, Answer: `Alarm is activated/Activated/Done` . In this case the answer will be randomized between *Alarm is activated*, *Activated* and *Done*.
 
-* Деактивировать * должен быть первым в списке, потому что он длиннее.
+TR: *Deactivate* must be first in the list, because it is longer.
 
-В управляющих командах можно использовать значения с плавающей запятой. Если в тексте будет какое-то числовое значение, оно будет использоваться как контрольное значение, а предопределенное значение будет проигнорировано.
+TR: You can use float values in the control commands. If some numeric value will be in the text it will be used as control value and the predefined value will be ignored.
 
-НАПРИМЕР. для правила для правила:
+TR: E.G. for rule:
 
-- `` Установить уровень освещенности '', ID объекта: `` hm-rpc.0.light.STATE '', значение: `` 10 '', ответ: `` Уровень установлен на %s  % ``.
+TR: - `Set light level`, Object ID: `hm-rpc.0.light.STATE`, Value: `10`, Answer: `Level set to %s%`.
 
-Если команда похожа на ```Set light level to 50%```, то в ```hm-rpc.0.light.STATE``` будет написано 50 и ответ будет ```Level set to 50%```.
+TR: If command is like `Set light level to 50%`, so into the `hm-rpc.0.light.STATE` will be written 50 and answer will be `Level set to 50%`.
 
-Если команда похожа на ```Set light level```, то в ```hm-rpc.0.light.STATE``` будет написано 10 и ответ будет ```Level set to 10%```.
+TR: If command is like `Set light level`, so into the `hm-rpc.0.light.STATE` will be written 10 and answer will be `Level set to 10%`.
 
-### Спросите о чем-нибудь
-Пользователь должен указать ID состояния устройства, значение которого будет считываться.
-Этот шаблон ответит информацией из некоторого состояния.
+TR: ### Ask about something
+TR: User must specify state ID of device, which value will be read.
+This template will answer with information from some state.
 
-Например.:
+TR: E.g.:
 
-- `` окна открыты '', ID объекта: `` javascript.0.countOpenedWindows``, Подтверждение: `` Фактические %s  окна открыты``
-- `` температура в спальне '', ID объекта: `` hm-rpc.0.sleepingRoomSensor.TEMPERATURE '', Подтвердите: `` Фактическая температура в спальне %s % u /% s% u ``. В этом случае ответ будет рандомизирован между *Фактическая температура в спальне% s% u* и *s% u*
+TR: - `windows opened`, Object ID: `javascript.0.countOpenedWindows`, Acknowledge: `Actual %s windows opened`
+TR: - `temperature sleeping room`, Object ID: `hm-rpc.0.sleepingRoomSensor.TEMPERATURE`, Acknowledge: `Actual temperature in sleeping room is %s %u/%s %u`. In this case the answer will be randomized between *Actual temperature in sleeping room is %s %u* and *%s %u*.
 
-### Отправить текст в состояние
-Вы можете ввести текст в состояние. Пользователь должен указать идентификатор состояния, чтобы написать в него текст.
+TR: ### Send text to state
+TR: You can write some text into state. User must specify state ID to write text into it.
 
-Например. правило: ```email [to] wife```, ID объекта: ```javascript.0.emailToWife```, Подтверждение: ```Email sent``` Текст: *Отправить электронное письмо моей жене: я опоздаю* Адаптер ищет последнее слово из ключевых слов (в данном случае *жена* , извлекает текст из следующего слова (в данном случае *я опоздаю* и записывает этот текст в *javascript.0.emailToWife* Слова с *по* не требуются для срабатывания правила, но будут удалены из текста.
+TR: E.g. rule: `email [to] wife`, Object ID: `javascript.0.emailToWife`, Acknowledge: `Email sent` Text: `Send email to my wife: I will be late`. Adapter looks for the last word from keywords (in this case `wife`), extracts text from the next word (in this case `I will be late`) and writes this text into `javascript.0.emailToWife`.
+Word `to` is not required to trigger the rule, but will be removed from text.
 
-### Ты молодец (просто для удовольствия)
-Ответ настраиваемый. По умолчанию: ```Thank you``` или ```You are welcome```
+TR: ### You are good (Just for fun)
+TR: Answer is customizable. Default: `Thank you` or `You are welcome`
 
-### Спасибо (просто для удовольствия)
-Ответ настраиваемый. По умолчанию: ```No problem``` или ```You are welcome```
+TR: ### Thank you (Just for fun)
+TR: Answer is customizable. Default: `No problem` or `You are welcome`
 
-### Создать ответ
-Вы можете сгенерировать ответ с привязкой {objectId} в подтверждении. Используется для alexa.
+TR: ### Create answer
+TR: You can generate answer with bindings {objectId} in acknowledge. Used for alexa.
 
-Например.:
+TR: E.g.:
 
-- `` windows open '', подтверждение: `` актуальные {javascript.0.countOpenedWindows} окна открыты``
-- `` температура в спальне '', Подтвердите: `` Фактическая температура в спальне равна {t: hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round (t)} / {hm-rpc.0.sleepingRoomSensor.TEMPERATURE; раунд (1)} степень ''. В этом случае ответ будет рандомизирован между *Фактическая температура в спальне <VALUE>* и *<VALUE>*
+TR: - `windows opened`, Acknowledge: `Actual {javascript.0.countOpenedWindows} windows opened`
+TR: - `temperature sleeping room`, Acknowledge: `Actual temperature in sleeping room is {t: hm-rpc.0.sleepingRoomSensor.TEMPERATURE; Math.round(t)}/{hm-rpc.0.sleepingRoomSensor.TEMPERATURE; round(1)} degree`. In this case the answer will be randomized between *Actual temperature in sleeping room is <VALUE>* and *<VALUE>*.
 
-Вы можете узнать больше о привязках здесь: (Привязки объектов) [https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
+TR: You can read more about bindings here: (Bindings of objects)[https://github.com/ioBroker/ioBroker.vis#bindings-of-objects]
 
-Дополнительно вы можете получить время до настоящего момента с помощью {hm-rpc.0.light.STATE.lc; dateinterval} (2 минуты 12 секунд) или {hm-rpc.0.light.STATE.lc; dateinterval (true)} ( 2 минуты 12 секунд **назад**
+TR: Additional you can get time until now by `{hm-rpc.0.light.STATE.lc;dateinterval}` (2 minutes and 12 seconds) or `{hm-rpc.0.light.STATE.lc;dateinterval(true)}` (2 minutes and 12 seconds **ago**)
 
-## Внешние правила с javascript
-Есть возможность использовать движок javascript для обработки команд в text2command.
-Для этого вы должны указать какое-то состояние в «ID состояния процессора» (Дополнительные настройки) и прослушивать это состояние в каком-нибудь JS или Blockly скрипте.
-Вы можете создать какое-то состояние вручную в админке или в скрипте. Скрипт обработки может выглядеть так:
+TR: ## External rules with javascript
+TR: There is a possibility to use javascript engine to process commands in text2command.
+To do that you must specify some state in "Processor state ID" (Advanced settings) and to listen on this state in some JS or Blockly script.
+You can create some state manually in admin or in script. Processing script can look like this one:
 
 ```
 createState("textProcessor", '', function () {
@@ -248,23 +249,28 @@ createState("textProcessor", '', function () {
 });
 ```
 
-Задайте в настройках text2command **ID состояния процессора** как *javascript.0.textProcessor* чтобы этот пример работал.
+TR: Set in settings of text2command **Processor state ID** as *`javascript.0.textProcessor`* to let this example work.
 
-Сначала команда будет обработана вашим javascript, и если javascript ответит "" или не ответит в заранее определенное время (1 секунда по умолчанию), команда будет обработана по правилам.
+TR: First the command will be processed with your javascript and if javascript will answer with '' or not answer in predefined time (1 second by default) the command will be processed by rules.
 
-### Вариант: писать в ответ каждой командой
-Если это активировано каждой командой (независимо от того, пришел ли запрос через состояние или sendTo), `text2command.X.response` будут записаны с ответом.
+TR: ### Option: Write to response by every command
+TR: If activated so by every command (no matter if the request came via state or sendTo) the `text2command.X.response` will be written with the answer.
 
-# Делать
-- на русском языке мужские и женские ответы.
+TR: # ToDo
+TR: - in Russian male and female answers.
 
-<! - Заполнитель для следующей версии (в начале строки):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 2.1.0 (2021-05-24)
+* (bluefox) Updated GUI.
 
-### __WORK IN PROGRESS__
+### 2.0.7 (2020-12-12)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-TEXT2COMMAND-J)
+
+### 2.0.6 (2020-12-03)
 * (Apollon77) Prevent crash case (Sentry IOBROKER-TEXT2COMMAND-D, IOBROKER-TEXT2COMMAND-C)
 
 ### 2.0.5 (2020-09-5)
@@ -386,7 +392,7 @@ createState("textProcessor", '', function () {
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

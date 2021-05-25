@@ -2,175 +2,177 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fb-checkpresence/README.md
-title: 无题
-hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
+title: TR: ioBroker.fb-checkpresence
+hash: 716YzLmTM3wTgPjJrRAiV4xC/nUyt7Cehw5dpLJ2vOU=
 ---
-![安装数量](http://iobroker.live/badges/fb-checkpresence-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
-![依赖状态](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)
-![已知漏洞](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/afuerhoff/ioBroker.fb-checkpresence/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/afuerhoff/ioBroker.fb-checkpresence?branch=master&svg=true)
+![TR: Logo](../../../en/adapterref/iobroker.fb-checkpresence/admin/fb-checkpresence.png)
 
-<h1><img src="admin/fb-checkpresence.png" width="64"/>ioBroker.fb-checkpresence</h1>
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
+![TR: Number of Installations (latest)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![TR: Number of Installations (stable)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
 
-## IoBroker的fb-checkpresence适配器
-适配器检查在炸弹箱上是否存在家庭成员。
-您必须填写家庭成员的名称和所用设备的mac地址（或ip地址）。
-注释是可选的，您可以启用或禁用家庭成员。
-数据点基于成员名称。
+TR: # ioBroker.fb-checkpresence
+TR: **Tests:** ![TR: Test and Release](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
-###适配器前提条件
-为了获得正确的功能，您必须安装历史记录适配器。您可以选择以下适配器之一：
+TR: ## fb-checkpresence adapter for ioBroker
+TR: The adapter checks the presence of family members over the fritzbox.
+You must fill in the name of the family member and the mac-address (or ip-address) of the used device.
+The comment is optional and you can enable or disable the family member.
+The datapoint is based on the member name.
 
-* 历史
-* SQL
-* InfluxDB
+TR: ### Adapter pre conditions
+TR: For the correct function you have to install a history adapter. You can choose one of the following adapters:
 
-##二手设备
-对于此适配器，使用AVM Fritzbox。在这里，您可以找到有关Fritzbox的信息https://avm.de/produkte/fritzbox/。
-fritzbox服务通过TR-064协议使用。
+TR: * History
+TR: * SQL
+TR: * InfluxDB
 
-### Fritzbox条件
-此处描述了来自炸弹箱的二手TR-064接口：https：//avm.de/service/schnittstellen/。
-使用了以下TR-064服务和操作：
+TR: ## Used device
+TR: For this adapter the AVM Fritzbox is used. Here you can find informations about the Fritzbox https://avm.de/produkte/fritzbox/.
+The fritzbox services are used over the TR-064 protocol.
 
-*主机：1-X_AVM-DE_GetHostListPath（自2017年1月9日以来受支持）
-*主机：1-X_AVM-DE_GetMeshListPath
-*主机：1-GetSpecificHostEntry
-*主机：1-X_AVM-DE_GetSpecificHostEntryByIP（自2016年5月18日开始受支持）
-* DeviceInfo：1-GetSecurityPort
-* DeviceInfo：1-GetInfo
-* WANPPPConnection：1-GetInfo
-* WANIPConnection：1-GetInfo
-* WLANConfiguration3-设置启用
-* WLANConfiguration3-GetInfo
-* WLANConfiguration3-GetSecurityKeys
-* X_AVM-DE_HostFilter-DisallowWANAccessByIP
-* X_AVM-DE_HostFilter-GetWANAccessByIP
-* DeviceConfig：1-重新启动
-* LANConfigSecurity1-X_AVM-DE_GetCurrentUser
+TR: ### Fritzbox conditions
+TR: The used TR-064 interface from the fritzbox is described here: https://avm.de/service/schnittstellen/.
+Following TR-064 services and actions are used:
 
-默认情况下，TR-064接口未激活。但是，可以通过FritzBox Web界面轻松更改此设置。为此，请登录到FritzBox并确保激活了专家视图。
-然后，您将在“家庭网络»家庭网络概述»网络设置”下面找到“允许访问应用程序”。在那里，您必须激活复选框，然后重新启动FritzBox。
+TR: * Hosts:1 - X_AVM-DE_GetHostListPath (supported since 2017-01-09)
+TR: * Hosts:1 - X_AVM-DE_GetMeshListPath
+TR: * Hosts:1 - GetSpecificHostEntry
+TR: * Hosts:1 - X_AVM-DE_GetSpecificHostEntryByIP (supported since 2016-05-18)
+TR: * DeviceInfo:1 - GetSecurityPort
+TR: * DeviceInfo:1 - GetInfo
+TR: * WANPPPConnection:1 - GetInfo
+TR: * WANIPConnection:1 - GetInfo
+TR: * WLANConfiguration3 - SetEnable
+TR: * WLANConfiguration3 - GetInfo
+TR: * WLANConfiguration3 - GetSecurityKeys
+TR: * X_AVM-DE_HostFilter - DisallowWANAccessByIP
+TR: * X_AVM-DE_HostFilter - GetWANAccessByIP
+TR: * DeviceConfig:1 - Reboot
+TR: * LANConfigSecurity1 - X_AVM-DE_GetCurrentUser
 
-提示：更改选项后，不要忘记重新启动Fritzbox！<img src="doc/access_settings_network.JPG"/>
+TR: By default, the TR-064 interface is not activated. However, this can easily be changed via the FritzBox web interface. To do this log in into your FritzBox and ensure that the expert view is activated.
+Then you will find below "Home Network »Home Network Overview» Network Settings" the point "Allow access for applications". There you have to activate the checkbox and then restart the FritzBox once.
 
-##配置对话框
-＃＃＃ 一般的
-验证配置值，并且只能保存正确的值。否则，保存按钮将被禁用。
+TR: Hint: After changing the options, don't forget the restart of the Fritzbox ! <img src="doc/access_settings_network.JPG"/>
 
-### Fritzbox IP地址，用户名和密码
-要从fritzbox中获取设备数据，必须配置ip地址，用户名和密码。
-因此，必须在fritzbox中创建一个用户。对于fritzbox的较新固件版本（> = 7.25），这是必需的。请参阅此处的有关信息：https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf密码已加密，未以明文形式保存。用户名和密码最多可以包含32个字符。参见信息：https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf ％20nicht％20leer％20sein。
+TR: ## Configuration dialog
+TR: ### General
+TR: The configuration values are validated and only correct values can be saved. Otherwise the save button is disabled.
 
-### Ssl选项
-在某些情况下，适配器无法连接到fritzbox。禁用此选项可能会有所帮助。
-在这种情况下，适配器尝试不使用https进行连接。
+TR: ### Fritzbox IP-address, user and password
+TR: The configuration of ip-address, user and password is necessary to get the device data from the fritzbox.
+Therefore a user has to be created in the fritzbox. This is required with newer firmware version (>= 7.25)of the fritzbox. See here fore information: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf The password is encrypted and wasn't saved in clear text. The user name and password may have a maximum of 32 characters. See for information: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf%20nicht%20leer%20sein.
 
-＃＃＃ 间隔
-家庭成员和Fritzbox设备的间隔时间是分开的。
-Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间的值是读取fritzbox数据的最佳间隔。家庭成员的配置时间可以从10秒到600秒。如果前一个周期结束，则每个新周期都会开始。
+TR: ### Ssl option
+TR: In some cases the adapter could not connect to the fritzbox. It could help to disable this option.
+In this case the adapter tries to connect without https.
 
-###过滤时间
-如果筛选时间大于0s，则在状态更改为false时（在筛选时间之后）检查一次家庭成员的状态两次。如果状态为true，则立即设置状态。
+TR: ### Interval
+TR: You have separate intervals for family members and Fritzbox devices.
+The interval for Fritzbox devices can be configured from 1 to 59 minutes. Normally a value between 1 and 5 minutes is an optimal interval to read the fritzbox data. Family members could be configured from 10s to 600s. Every new cycle starts if the previous cycle is finished.
 
-###历史记录适配器
-在历史记录适配器上，将计算一些值。如果使用历史记录，则可以选择sql或influxdb适配器进行此计算。历史记录适配器必须预先安装，然后可以在配置对话框中选择。
-如果禁用历史记录配置，则无法实现某些值的计算。
+TR: ### Filter time
+TR: If the filter time is greater than 0s the state of a family member is checked twice (after the filter time) if the state is changing to false. If the state is true the state is immediate set.
 
-＃＃＃ 日期格式
-日期格式掩码选项在以下网页上进行了描述：https://www.npmjs.com/package/dateformat。
-格式掩码用于格式化html和json表对象。
+TR: ### History adapter
+TR: Over the history adapter some values are calculated. You can choose, if the history, the sql or the influxdb adapter is used for this calculations. The history adapter must be installed preliminary and can then selected in the configuration dialog.
+If the history configuration is disabled then the calculation of some values could not be realized.
 
-###创建FB设备
-如果选中此选项，则会为Fritzbox设备列表中的每个设备创建对象。
-如果禁用此选项，则还将禁用网格信息。
+TR: ### Dateformat
+TR: The date format mask options are described on this web page: https://www.npmjs.com/package/dateformat.
+The format mask is used for formatting the html and json table objects.
 
-### FB设备对象的重新同步
-如果选中此选项，则FB设备对象将与Fritzbox的设备列表重新同步。
+TR: ### Creation of FB devices
+TR: If this option is checked, the objects for every device in the Fritzbox device list are created.
+If this option is disabled, then also the mesh informations are disabled.
 
-###创建网格信息
-如果允许创建FB设备，则可以选中此选项。如果选中此选项，则会为Fritzbox设备列表中的每个设备创建网格对象。
+TR: ### Resynchronisation of FB device objects
+TR: If this option is checked, then the FB device object are re-synchronized with the device list fom Fritzbox.
 
-###客人信息
-如果选中此选项，则会创建来宾的状态。
+TR: ### Creation of mesh information
+TR: This option can be checked if the creation of FB devices is allowed. If this option is checked, the mesh objects for every device in the Fritzbox device list are created.
 
-###二维码生成
-如果选中此选项，则会生成来自来宾无线局域网的二维码。
+TR: ### guest information
+TR: If this option is checked the states for guests are created.
 
-###家庭成员设置
-对于已配置的家庭成员，您应该输入成员名称，主机名，mac和ip地址，注释，然后可以启用或禁用该成员。组是可选的。如果将组保留为空，并将兼容性标志设置为true，则行为类似于旧版本的适配器。在将来的版本中，您必须使用家人的状态。使用兼容性复选框打开/关闭此行为：->兼容性= true：行为与具有空组的旧版本相同。
-->兼容性=否：新行为。家庭成员文件夹下的所有州。
-适配器为每个成员创建一个状态，并检查该成员是否存在。如果状态更改，则状态也会更改。您还可以为成员启用过滤。如果状态为true，则状态立即变为true。如果为假，则将在过滤时间之后再次检查该值。
-如果两种情况下的状态均为假，则状态更改为假。否则它不会改变。
-要获得对象中的速度信息，必须选择fb-devices选项。
+TR: ### qr-code generation
+TR: If this option is checked the qr-code from guest wlan is generated.
 
-###白名单设置
-在白名单中，您可以插入每个已知的设备。黑名单对象中列出了所有未知设备。
-如果您选中表格标题中的复选框，则会选中所有设备。
+TR: ### Family member settings
+TR: For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. If you leave the group empty and set the compatibility flag to true the behaviour is like an older version of the adaper. In a future version you have to use the presence state from a family member. This behaviour is switched on/off with the compatibility checkbox: -> compatibility = true: behaviour as an older version with empty group.
+-> compatibility = false: new behaviour. All states beneath the familymembers folder.
+For every member the adapter creates a presence state and checks if the member is present or absent. The state was changed if the presence state changed. You can also enable the filtering for a member. If the state is true the state changes immediately to true. If it is false then the value will checked after the filter time again.
+If the state is in both cases false then the state changes to false. Otherwise it does not change.
+To get the speed information in the objects you have to select fb-devices option.
 
-＃＃ 特征
-### AVM支持检查
-该功能检查已使用的fritzbox功能的可用性。可用性记录为信息。如果有问题，请查看所有功能是否都设置为true。如果访问权限不正确，还将检查用户的访问权限，并将功能设置为false。
+TR: ### Whitelist settings
+TR: In the white list you can insert every known device. Any unknown devices are listed in the blacklist object.
+If you check the checkbox in the headline of the table all devices are selected.
 
-###开启/关闭访客无线局域网
-在guest虚拟机文件夹下，您可以将状态wlan设置为true或false，然后guest虚拟机wlan开启或关闭。
+TR: ## Features
+TR: ### AVM support check
+TR: The function checks the availability of used fritzbox features. The availability is logged as info. If you have problems look if the features are all set to true. Also the access rights are checked for the user and the feature is set to false if the acces right is not correct.
 
-###访客无线局域网的QR码
-来宾wlan的QR码保存在来宾文件夹中的状态wlanQR中。 QR代码可以在基本的Bool SVG小部件中可见显示。
+TR: ### Switch on / off the guest wlan
+TR: Under the folder guest you can set the state wlan to true or false and then the guest wlan switches on or off.
 
-###开启/关闭Fritzbox设备的互联网访问
-在文件夹FB-devices下，您可以将禁用状态设置为true或false，并且该设备的Internet访问在Fritzbox中被阻止。
+TR: ### QR code of guest wlan
+TR: The QR code of the guest wlan is saved in the state wlanQR in the guest folder. The QR code can show in vis in the basic - Bool SVG widget.
 
-###吸引客人进入黑名单
-在此功能中，检查是否有任何用户以访客身份登录。还检查是否有任何设备不在列出的白名单中。
-该设备已添加到黑名单中。
+TR: ### Switch on / off the internet access of Fritzbox devices
+TR: Under the folder FB-devices you could set the disabled state to true or false and the the internet access of this device is blocked in the Fritzbox.
 
-###活跃起来
-如果选择了历史记录适配器，则将为每个家庭成员计算在场，来临和去世日期以及其他一些信息，并将其保存在成员对象中。
+TR: ### Get guests, blacklist
+TR: In this function it is checked if any user is logged in as guest. Also is checked if any device is not in the white list listed.
+This devices are added to the blacklist.
 
-###主机号，活动设备
-设备的数量以及活动设备的数量可从fritzbox中获得。
+TR: ### Get Active
+TR: For every family member the presence, the comming and going dates and several other infos are calculated and saved in the member object if a history adapter is selected.
 
-##对象
-###对象的存在
-如果所有家庭成员都在场，则该对象为真。
+TR: ### Host number, active devices
+TR: The amount of devices and how many are active are get from the fritzbox.
 
-###对象存在
-如果存在一个家庭成员，则该对象为真。
+TR: ## Objects
+TR: ### Object presenceAll
+TR: If all family members are present then the object is true.
 
-###对象设备
-这些都是fritzbox中列出的所有设备
+TR: ### Object presence
+TR: If one family member ist present then the object is true.
 
-###对象activeDevices
-这些是fritzbox中所有活动设备的数量
+TR: ### Object devices
+TR: These are all listed devices in the fritzbox
 
-###对象html，json
-这些对象是表（json和html），其中包含所有家庭成员的来往信息。
+TR: ### Object activeDevices
+TR: These are the amount of all active devices in the fritzbox
 
-###对象信息
-以下是有关适配器的最新更新和连接状态的信息。
+TR: ### Object html, json
+TR: These objects are tables (json and html) with the comming and going information of all family members in it.
 
-###对象来宾
-以下列出了有关活动来宾和表对象（其中包含设备信息）数量的信息。
+TR: ### Object info
+TR: Here are informations listed about the last update and the connection status from the adapter.
 
-###对象黑名单
-以下列出了有关未知设备数量和其中包含未知设备信息的表对象的信息。
+TR: ### Object guest
+TR: Here are informations listed about the amount of active guests and table objects with the device information in it.
 
-###对象member.present
-在这里，您将找到有关当日成员在场的信息以及自上次更改以来该成员的状态为真多久的信息。
+TR: ### Object blacklist
+TR: Here are informations listed about the amount of unknown devices and table objects with the unknown device information in it.
 
-###对象member.absent
-在这里，您可以找到有关当日缺少成员以及该成员自上次更改以来一直处于错误状态的信息。
+TR: ### Object member.present
+TR: Here you will find information about the presence of a member on the current day and how long the member has been the status true since the last change.
 
-###对象member.comming，member.going
-在这里，您将找到家人抵达或离开家时的信息。
+TR: ### Object member.absent
+TR: Here you will find information about the absence of a member on the current day and how long the member has been the status false since the last change.
 
-###对象member.history，member.historyHtml
-在这里，您将找到有关当天历史的信息。
+TR: ### Object member.comming, member.going
+TR: Here you will find information when the family member arrives or leaving home.
+
+TR: ### Object member.history, member.historyHtml
+TR: Here you will find information about the history of the current day.
 
 ## Changelog
 <!--
@@ -179,6 +181,33 @@ Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间�
     * Did some changes
     * Did some more changes
 -->
+
+### __WORK IN PROGRESS__
+* (afuerhoff) npm updated
+* (afuerhoff) checkservice fixed
+
+### 1.1.4 (2021-05-11)
+* (afuerhoff) family groups implemented
+* (afuerhoff) compatability mode implemented
+* (afuerhoff) dependencies updated
+* (afuerhoff) configuration options added
+* (afuerhoff) dialogboxes optimized
+* (afuerhoff) translations updated
+* (afuerhoff) general program structure optimized
+* (afuerhoff) filter for family members implemeted
+* (afuerhoff) password handling updated
+* (afuerhoff) documentation updated
+* (afuerhoff) QR-Code implemented
+* (afuerhoff) setState presence only if changed
+* (afuerhoff) access rights implemented
+* (afuerhoff) use name for presence
+* (afuerhoff) active / inactive devices
+* (afuerhoff) interval 10s bug fixed
+* (afuerhoff) Bugfix dateformat pattern
+* (afuerhoff) SSL (https) workaround implemented
+* (afuerhoff) Connection check optimized
+* (afuerhoff) Mesh handling optimized 
+
 ### 1.1.3 (2021-03-31)
 * (afuerhoff) family groups implemented
 * (afuerhoff) compatability mode implemented
@@ -190,6 +219,7 @@ Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间�
 * (afuerhoff) filter for family members implemeted
 * (afuerhoff) password handling updated
 * (afuerhoff) documentation updated
+
 
 ### 1.1.2 (2021-01-13)
 * (afuerhoff) QR-Code implemented
@@ -216,9 +246,6 @@ Fritzbox设备的间隔可以配置为1到59分钟。通常，1到5分钟之间�
 * (afuerhoff) switch on, off internet access of devices 
 * (afuerhoff) structural changes
 * (afuerhoff) code optimization
-
-### 1.0.4 (2020-06-28)
-* (afuerhoff) bugfix json list and guest handling, new object guest.presence
 
 ## License
 MIT License

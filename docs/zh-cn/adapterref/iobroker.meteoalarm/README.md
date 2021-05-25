@@ -2,191 +2,198 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
-title: ioBroker.metalarm
-hash: t4W+whBjVkdsu5kxkZwHOH7v6dtTuIvKgqCLEolI/Gg=
+title: TR: ioBroker.meteoalarm
+hash: 8Q/1vN8a1K+Lofg+VaZ4YQhEoG4CiTKEjdoFZOakcGI=
 ---
-![商标](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
+![TR: Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)
-![安装数量](http://iobroker.live/badges/meteoalarm-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.meteoalarm.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.meteoalarm.svg)
+![TR: Number of Installations](http://iobroker.live/badges/meteoalarm-stable.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.meteoalarm.png?downloads=true)
 
-＃ioBroker.meteoalarm
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: # ioBroker.meteoalarm
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-ioBroker的meteoalarm适配器---------------------------------------------- --------------------------------此适配器从meteoalarm.eu获取天气警报，其中包括风，雪，雨，高温和低温等。此信息以本地语言和特定区域提供。
+TR: meteoalarm Adapter for ioBroker ------------------------------------------------------------------------------ This adapter is pulling weather alarms from meteoalarm.eu, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
 
-＃＃ 如何使用它
-有两种方法可以获取链接以检索气象警报信息。
+TR: ## How to use it
+TR: There are two options how you can get the link to retrieve the meteoalarm information.
 
-选项1：选择您的国家/地区，然后按“加载区域”，然后选择区域。然后，将自动填充xml。只需按保存就可以了。
+TR: Option 1: Choose your country, then press "load region", and then choose the region. The xml is then filled automatically. Just press save and you are ready.
 
-选项2：转到http://meteoalarm.eu并选择您的地区。然后转到右上角的RSS符号，右键单击并复制链接。这是您需要添加到适配器设置的链接。
+TR: Option 2: Go to http://meteoalarm.eu and choose your region. Then go to the RSS symbol on the top right side, do a right click and copy the link. This is the link which you please add to the setup of the adapter.
 
-![商标](../../../en/adapterref/iobroker.meteoalarm/screenshot.png)
+![TR: Logo](../../../en/adapterref/iobroker.meteoalarm/screenshot.png)
 
-##可用字段
-|字段名称|描述|
+TR: ## Available fields
+| TR: |Field Name|Description|
 |:---:|:---:|
-|最后更新|适配器上次接收数据的日期|
-|链接|链接到RSS源|
-|位置|警报位置|
-|发布日期|根据网站的警报发布日期|
-| HTMLToday |显示今日警报的HTML小部件|
-|天气地图国家/地区| HTML链接到警报国家/地区的天气地图|
-|今天/明天|这些数据点可用于今天和明天：|
-|文字|使用特定国家/地区语言的警报文字|
-|发件人|报警开始日期|
-|收件人|报警结束日期|
-|类型|警报类型作为编号|
-| TypeText |警报的类型为文本|
-|级别|警报级别为数字|
-| LevelText |警报级别为文本|
-|颜色|小部件的警报颜色|
-|图标|报警类型图标|
+| TR: |Last Update|Date when the adapter received data the last time|
+| TR: |Link|Link to the RSS Feed|
+| TR: |Location|Alarm Location|
+| TR: |Publication Date|Publication Date of the alarm according to the website|
+| TR: |HTMLToday|HTML Widget that displays Alarms for today|
+| TR: |Weather Map Country|HTML Link to Weather Map of the Alarm Country|
+| TR: |Today/Tomorrow|These datapoints are available for today and tomorrow:|
+| TR: |   Text|Alarm Text in country specific language|
+| TR: |   From|Alarm starting date|
+| TR: |   To|Alarm ending date|
+| TR: |   Type|Type of Alarm as number|
+| TR: |   TypeText|Type of Alarm as text|
+| TR: |   Level|Level of Alarm as number|
+| TR: |   LevelText|Level of Alarm as text|
+| TR: |   Color|Alarm color for widgets|
+| TR: |   Icon|Alarm type icon|
 
-##警报类型
-|警报类型|描述|
+TR: ## Alarm Types
+| TR: |Alarm Type|Description|
 |:---:|:---:|
-| 1 |风|
-| 2 |雪/冰|
-| 3 |雷电|
-| 4 |雾|
-| 5 |高温|
-| 6 |低温|
-| 7 |海岸事件|
-| 8 |阿甘之火|
-| 9 |雪崩|
-| 10 |雨|
-| 11 |未知|
-| 12 |洪水|
-| 13 |雨洪|
+| TR: |1|Wind|
+| TR: |2|Snow/Ice|
+| TR: |3|Thunder & Lightning|
+| TR: |4|Fog|
+| TR: |5|High temperature|
+| TR: |6|Low temperature|
+| TR: |7|Coast Event|
+| TR: |8|Forrest fire|
+| TR: |9|Avalanche|
+| TR: |10|Rain|
+| TR: |11|Unknown|
+| TR: |12|Flood|
+| TR: |13|Rain-Flood|
 
-##警报级别
-|警报级别|描述|
+TR: ## Alarm Levels
+| TR: |Alarm Level|Description|
 |:---:|:---:|
-|绿色|当前无警告。 |
-|黄色|天气潜在危险。预计的天气现象并不罕见，但应更加重视面临气象风险的活动。使自己了解预期的气象状况，并且不要承担任何可避免的风险。 |
-|橙色|天气很危险。已经预测到异常的气象现象。可能会造成损坏和事故。要非常专心和细心，并与预期的气象条件保持同步。 |
-|红色|天气非常危险。可以预料到异常强烈的气象现象。经常在大面积上发生的极端损坏和事故威胁着生命和财产安全。 |
+| TR: |Green|There is no warning available at the moment.|
+| TR: |Yellow|The weather is potentially dangerous. The predicted weather phenomena are not unusual, but increased attention should be paid to activities exposed to meteorological risks. Keep yourself informed about the meteorological conditions to be expected and do not take any avoidable risks.|
+| TR: |Orange|The weather is dangerous. Unusual meteorological phenomena have been predicted. Damage and accidents are likely. Be very attentive and careful and keep up to date with the expected meteorological conditions. |
+| TR: |Red|The weather is very dangerous. Unusually intense meteorological phenomena were predicted. Extreme damage and accidents, often over large areas, threaten life and property. |
 
-##支持的国家
-*奥地利
-* 克罗地亚
-* 捷克共和国
-*芬兰
-* 德国
-*希腊
-*匈牙利
-*爱尔兰
-* 以色列
-* 意大利
-*拉脱维亚
-*立陶宛
-*马耳他
-* 摩尔多瓦
-*黑山
-* 荷兰
-* 挪威
-*波兰
-* 罗马尼亚
-*塞尔维亚
-*斯洛伐克
-* 西班牙
-* 瑞士
-*瑞典
+TR: ## Supported countries
+TR: * Austria
+TR: * Croatia
+TR: * Czech Republic
+TR: * Finnland
+TR: * Germany
+TR: * Greece
+TR: * Hungary
+TR: * Ireland
+TR: * Israel
+TR: * Italy
+TR: * Latvia
+TR: * Lithuania
+TR: * Malta
+TR: * Moldova
+TR: * Montenegro
+TR: * Netherlands
+TR: * Norway
+TR: * Poland
+TR: * Romania
+TR: * Serbia
+TR: * Slovakia
+TR: * Spain
+TR: * Switzerland
+TR: * Sweden
 
-如果找不到您的国家，请在github上创建一个问题，我很乐意添加
+TR: If you don't find your country, please create an issue on github, and I will be happy to add it
 
-##不可能的国家
-*法国（无RSS提要）
-*葡萄牙（不可分裂）
-*斯洛文尼亚（没有RSS提要）
+TR: ## Not possible countries
+TR: * France (no rss feed available)
+TR: * Portugal (no splitting possible)
+TR: * Slovenia (no rss feed available)
 
-##要实现的功能
-*一天处理多个警报
+TR: ## Features to implement
+TR: * Handle multiple alarms on one day
 
-## 1.1.10（2021-05-09）
-*（jack-blackson）软件包更新
+TR: ## 1.2.0 (2021-05-16)
+TR: * (jack-blackson) New Setup:
 
-## 1.1.9（2021-05-07）
-*（jack-blackson）软件包更新
+TR: "No Background Color in HTML Widget": Ability to use the HTML Widget without background color (e.g. if you want to use the color object to fill your whole widget, not just the html widget) "Define Warning colors": Ability to define the colors for the various alarm levels in HEX code. Used for HTML widget and also for the color object to manually assign it to another widget "Use white icons": Use white icons instead of black ones "No Icons": Don't show icon in HTML widget - if you want to show the icon seperatly, or just the icon
 
-## 1.1.5（2021-05-02）
-*（jack-blackson）Bugfix JS-Controller 3.3.1错误，错误处理未定义语言
+TR: * (jack-blackson) New Icons
 
-## 1.1.4（2021-04-05）
-*（jack-blackson）处理ENOTFOUND错误消息，添加了Sentry
+TR: ## 1.1.11 (2021-05-09)
+TR: * (jack-blackson) Package Updates
 
-## 1.1.3（2021-03-29）
-*（jack-blackson）错误修复了适配器检查器
+TR: ## 1.1.9 (2021-05-07)
+TR: * (jack-blackson) Package Updates
 
-## 1.1.2（2021-03-29）
-*（jack-blackson）错误修正，无法更新数据，并由于CORS错误而删除了链接自动生成
+TR: ## 1.1.5 (2021-05-02)
+TR: * (jack-blackson) Bugfix JS-Controller 3.3.1 errors, error handling no language defined
 
-## 1.1.1（2020-10-28）
-*（jack-blackson）错误修正HTML资料
+TR: ## 1.1.4 (2021-04-05)
+TR: * (jack-blackson) Handle ENOTFOUND error message, added Sentry
 
-## 1.1.0（2020-03-29）
-*（杰克·布莱克森）Bugfix德国
+TR: ## 1.1.3 (2021-03-29)
+TR: * (jack-blackson) Error fixes adapter checker
 
-## 1.0.9（2020-02-06）
-*（杰克·布莱克森）Bugfix德国
+TR: ## 1.1.2 (2021-03-29)
+TR: * (jack-blackson) Bugfix for not working data update, removed link autogeneration due to CORS errors
 
-## 1.0.8（2019-11-15）
-*（jack-blackson）添加了波兰，摩尔多瓦，希腊，罗马尼亚
-*（jack-blackson）添加了新的数据点以获取到“天气地图”的链接
+TR: ## 1.1.1 (2020-10-28)
+TR: * (jack-blackson) Bugfix HTML Data
 
-## 1.0.7（2019-11-13）
-*（jack-blackson）添加了捷克共和国，爱尔兰，以色列，立陶宛，拉脱维亚，黑山，马耳他，塞尔维亚，瑞典
+TR: ## 1.1.0 (2020-03-29)
+TR: * (jack-blackson) Bugfix Germany
 
-## 1.0.6（2019-10-19）
-*（jack-blackson）添加了瑞士和Slowakia
+TR: ## 1.0.9 (2020-02-06)
+TR: * (jack-blackson) Bugfix Germany
 
-## 1.0.5（2019-09-22）
-*（jack-blackson）较小的日志记录调整
+TR: ## 1.0.8 (2019-11-15)
+TR: * (jack-blackson) Added Poland, Moldova, Greece, Romania
+TR: * (jack-blackson) Added new Datapoint to get Link to Weather Map
 
-## 1.0.4（2019-09-11）
-*（杰克·布莱克森）特拉维斯（Travis）错误
+TR: ## 1.0.7 (2019-11-13)
+TR: * (jack-blackson) Added Czech Republic, Ireland, Israel, Lithuania, Latvia, Montenegro, Malta, Serbia, Sweden
 
-## 1.0.3（2019-09-09）
-*（jack-blackson）的一些小错误修正，从“恶魔”类型更改为“时间表”
+TR: ## 1.0.6 (2019-10-19)
+TR: * (jack-blackson) Added Switzerland & Slowakia
 
-## 1.0.2（2019-08-25）
-*（jack-blackson）重新排序了发布信息
+TR: ## 1.0.5 (2019-09-22)
+TR: * (jack-blackson) Small logging adjustments
 
-### 1.0.1（2019-08-18）
-*（jack-blackson）错误修正没有警报图标
+TR: ## 1.0.4 (2019-09-11)
+TR: * (jack-blackson) Travis error
 
-### 1.0.0（2019-08-12）
-*（jack-blackson）发行版本
+TR: ## 1.0.3 (2019-09-09)
+TR: * (jack-blackson) Small bugfixes, change from type "deamon" to "schedule"
 
-### 0.6.0（2019-08-05）
-*（jack-blackson）将天气图标存储在适配器本地
+TR: ## 1.0.2 (2019-08-25)
+TR: * (jack-blackson) Reordered release infos
 
-### 0.5.0（2019-07-21）
-*（jack-blackson）处理超时
-*（jack-blackson）所有语言的翻译
-*（jack-blackson）URL检查
+TR: ### 1.0.1 (2019-08-18)
+TR: * (jack-blackson) Bugfix no alarm icon
 
-### 0.4.0（2019-07-20）
-*（jack-blackson）添加了NL，NO，HR，FI，ES的数据
-*（jack-blackson）添加了Type文本，如果Level为1，Type现在为空（无警告）
-*（杰克·布莱克森）调整后的颜色
+TR: ### 1.0.0 (2019-08-12)
+TR: * (jack-blackson) Release version
 
-### 0.3.0（2019-07-13）
-*（jack-blackson）添加了HTML小部件
-*（jack-blackson）错误修正图标
+TR: ### 0.6.0 (2019-08-05)
+TR: * (jack-blackson) Store weather icons local in adapter
 
-### 0.2.0（2019-07-12）
-*（jack-blackson）添加了“明天”数据
+TR: ### 0.5.0 (2019-07-21)
+TR: * (jack-blackson) Handle Timeouts
+TR: * (jack-blackson) Translations for all languages
+TR: * (jack-blackson) URL checks
 
-### 0.1.0（2019-07-11）
-*（杰克·布莱克森）初始版本
+TR: ### 0.4.0 (2019-07-20)
+TR: * (jack-blackson) Added data for NL,NO,HR,FI,ES
+TR: * (jack-blackson) Added Type Text, Type is now empty if Level is 1 (No Warning)
+TR: * (jack-blackson) Adjusted colors
 
-##学分
-图标中的钟声由Freepik从www.flaticon.com设计
+TR: ### 0.3.0 (2019-07-13)
+TR: * (jack-blackson) Added HTML Widget
+TR: * (jack-blackson) Bugfix icon
+
+TR: ### 0.2.0 (2019-07-12)
+TR: * (jack-blackson) Added "Tomorrow" data
+
+TR: ### 0.1.0 (2019-07-11)
+TR: * (jack-blackson) initial version
+
+TR: ## Credits
+TR: Bell in icon designed by Freepik from www.flaticon.com
 
 ## Changelog
 

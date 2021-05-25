@@ -2,175 +2,177 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.fb-checkpresence/README.md
-title: kein Titel
-hash: DMvFhWFPYeS5t66i2pAeuERPxhK73GromMQBTBGJUmE=
+title: TR: ioBroker.fb-checkpresence
+hash: 716YzLmTM3wTgPjJrRAiV4xC/nUyt7Cehw5dpLJ2vOU=
 ---
-![Anzahl der Installationen](http://iobroker.live/badges/fb-checkpresence-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/afuerhoff/ioBroker.fb-checkpresence/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/afuerhoff/ioBroker.fb-checkpresence?branch=master&svg=true)
+![TR: Logo](../../../en/adapterref/iobroker.fb-checkpresence/admin/fb-checkpresence.png)
 
-<h1><img src="admin/fb-checkpresence.png" width="64"/>ioBroker.fb-checkpresence</h1>
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.fb-checkpresence.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.fb-checkpresence.svg)
+![TR: Number of Installations (latest)](https://iobroker.live/badges/fb-checkpresence-installed.svg)
+![TR: Number of Installations (stable)](https://iobroker.live/badges/fb-checkpresence-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/afuerhoff/iobroker.fb-checkpresence.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.fb-checkpresence/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.fb-checkpresence.png?downloads=true)
 
-## Fb-checkpresence Adapter für ioBroker
-Der Adapter überprüft die Anwesenheit von Familienmitgliedern über die Fritzbox.
-Sie müssen den Namen des Familienmitglieds und die Mac-Adresse (oder IP-Adresse) des verwendeten Geräts eingeben.
-Der Kommentar ist optional und Sie können das Familienmitglied aktivieren oder deaktivieren.
-Der Datenpunkt basiert auf dem Mitgliedsnamen.
+TR: # ioBroker.fb-checkpresence
+TR: **Tests:** ![TR: Test and Release](https://github.com/afuerhoff/ioBroker.fb-checkpresence/workflows/Test%20and%20Release/badge.svg)
 
-### Adaptervorbedingungen
-Für die richtige Funktion müssen Sie einen Verlaufsadapter installieren. Sie können einen der folgenden Adapter auswählen:
+TR: ## fb-checkpresence adapter for ioBroker
+TR: The adapter checks the presence of family members over the fritzbox.
+You must fill in the name of the family member and the mac-address (or ip-address) of the used device.
+The comment is optional and you can enable or disable the family member.
+The datapoint is based on the member name.
 
-* Geschichte
-* SQL
-* InfluxDB
+TR: ### Adapter pre conditions
+TR: For the correct function you have to install a history adapter. You can choose one of the following adapters:
 
-## Gebrauchtes Gerät
-Für diesen Adapter wird die AVM Fritzbox verwendet. Hier finden Sie Informationen zur Fritzbox https://avm.de/produkte/fritzbox/.
-Die Fritzbox-Dienste werden über das TR-064-Protokoll verwendet.
+TR: * History
+TR: * SQL
+TR: * InfluxDB
 
-### Fritzbox Bedingungen
-Die verwendete TR-064-Schnittstelle aus der Fritzbox wird hier beschrieben: https://avm.de/service/schnittstellen/.
-Folgende TR-064-Dienste und -Aktionen werden verwendet:
+TR: ## Used device
+TR: For this adapter the AVM Fritzbox is used. Here you can find informations about the Fritzbox https://avm.de/produkte/fritzbox/.
+The fritzbox services are used over the TR-064 protocol.
 
-* Hosts: 1 - X_AVM-DE_GetHostListPath (unterstützt seit dem 09.01.2017)
-* Hosts: 1 - X_AVM-DE_GetMeshListPath
-* Hosts: 1 - GetSpecificHostEntry
-* Hosts: 1 - X_AVM-DE_GetSpecificHostEntryByIP (unterstützt seit dem 18.05.2016)
-* DeviceInfo: 1 - GetSecurityPort
-* DeviceInfo: 1 - GetInfo
-* WANPPPConnection: 1 - GetInfo
-* WANIPConnection: 1 - GetInfo
-* WLANConfiguration3 - SetEnable
-* WLANConfiguration3 - GetInfo
-* WLANConfiguration3 - GetSecurityKeys
-* X_AVM-DE_HostFilter - DisallowWANAccessByIP
-* X_AVM-DE_HostFilter - GetWANAccessByIP
-* DeviceConfig: 1 - Neustart
-* LANConfigSecurity1 - X_AVM-DE_GetCurrentUser
+TR: ### Fritzbox conditions
+TR: The used TR-064 interface from the fritzbox is described here: https://avm.de/service/schnittstellen/.
+Following TR-064 services and actions are used:
 
-Standardmäßig ist die TR-064-Schnittstelle nicht aktiviert. Dies kann jedoch einfach über die FritzBox-Weboberfläche geändert werden. Melden Sie sich dazu in Ihrer FritzBox an und stellen Sie sicher, dass die Expertenansicht aktiviert ist.
-Dann finden Sie unter "Heimnetzwerk» Heimnetzwerkübersicht »Netzwerkeinstellungen" den Punkt "Zugriff für Anwendungen zulassen". Dort müssen Sie das Kontrollkästchen aktivieren und dann die FritzBox einmal neu starten.
+TR: * Hosts:1 - X_AVM-DE_GetHostListPath (supported since 2017-01-09)
+TR: * Hosts:1 - X_AVM-DE_GetMeshListPath
+TR: * Hosts:1 - GetSpecificHostEntry
+TR: * Hosts:1 - X_AVM-DE_GetSpecificHostEntryByIP (supported since 2016-05-18)
+TR: * DeviceInfo:1 - GetSecurityPort
+TR: * DeviceInfo:1 - GetInfo
+TR: * WANPPPConnection:1 - GetInfo
+TR: * WANIPConnection:1 - GetInfo
+TR: * WLANConfiguration3 - SetEnable
+TR: * WLANConfiguration3 - GetInfo
+TR: * WLANConfiguration3 - GetSecurityKeys
+TR: * X_AVM-DE_HostFilter - DisallowWANAccessByIP
+TR: * X_AVM-DE_HostFilter - GetWANAccessByIP
+TR: * DeviceConfig:1 - Reboot
+TR: * LANConfigSecurity1 - X_AVM-DE_GetCurrentUser
 
-Tipp: Vergessen Sie nach dem Ändern der Optionen nicht den Neustart der Fritzbox!<img src="doc/access_settings_network.JPG"/>
+TR: By default, the TR-064 interface is not activated. However, this can easily be changed via the FritzBox web interface. To do this log in into your FritzBox and ensure that the expert view is activated.
+Then you will find below "Home Network »Home Network Overview» Network Settings" the point "Allow access for applications". There you have to activate the checkbox and then restart the FritzBox once.
 
-## Konfigurationsdialog
-### Allgemeines
-Die Konfigurationswerte werden validiert und es können nur korrekte Werte gespeichert werden. Andernfalls ist die Schaltfläche Speichern deaktiviert.
+TR: Hint: After changing the options, don't forget the restart of the Fritzbox ! <img src="doc/access_settings_network.JPG"/>
 
-### Fritzbox IP-Adresse, Benutzer und Passwort
-Die Konfiguration von IP-Adresse, Benutzer und Passwort ist erforderlich, um die Gerätedaten von der fritzbox abzurufen.
-Daher muss ein Benutzer in der Fritzbox erstellt werden. Dies ist bei neueren Firmware-Versionen (> = 7.25) der fritzbox erforderlich. Weitere Informationen finden Sie hier: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf Das Passwort ist verschlüsselt und wurde nicht im Klartext gespeichert. Der Benutzername und das Passwort dürfen maximal 32 Zeichen lang sein. Weitere Informationen finden Sie unter: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf % 20nicht% 20leer% 20sein.
+TR: ## Configuration dialog
+TR: ### General
+TR: The configuration values are validated and only correct values can be saved. Otherwise the save button is disabled.
 
-### Ssl Option
-In einigen Fällen konnte der Adapter keine Verbindung zur Fritzbox herstellen. Es könnte hilfreich sein, diese Option zu deaktivieren.
-In diesem Fall versucht der Adapter, eine Verbindung ohne https herzustellen.
+TR: ### Fritzbox IP-address, user and password
+TR: The configuration of ip-address, user and password is necessary to get the device data from the fritzbox.
+Therefore a user has to be created in the fritzbox. This is required with newer firmware version (>= 7.25)of the fritzbox. See here fore information: https://avm.de/fileadmin/user_upload/Global/Service/Schnittstellen/Empfehlungen%20zur%20Benutzerfu%CC%88hrung%20bei%20der%20Anmeldung%20an%20einer%20FRITZ%21Box_v1.1.pdf The password is encrypted and wasn't saved in clear text. The user name and password may have a maximum of 32 characters. See for information: https://service.avm.de/help/de/FRITZ-Box-Fon-WLAN-7490/014/hilfe_zeichen_fuer_kennwoerter#:~:text=Namen%20f%C3%BCr%20Benutzer,Kennwortfeld%20darf%20nicht%20leer%20sein.
 
-### Intervall
-Sie haben separate Intervalle für Familienmitglieder und Fritzbox-Geräte.
-Das Intervall für Fritzbox-Geräte kann zwischen 1 und 59 Minuten konfiguriert werden. Normalerweise ist ein Wert zwischen 1 und 5 Minuten ein optimales Intervall zum Lesen der Fritzbox-Daten. Familienmitglieder können von 10 bis 600 Sekunden konfiguriert werden. Jeder neue Zyklus beginnt, wenn der vorherige Zyklus beendet ist.
+TR: ### Ssl option
+TR: In some cases the adapter could not connect to the fritzbox. It could help to disable this option.
+In this case the adapter tries to connect without https.
 
-### Filterzeit
-Wenn die Filterzeit größer als 0s ist, wird der Status eines Familienmitglieds zweimal (nach der Filterzeit) überprüft, wenn sich der Status in false ändert. Wenn der Status wahr ist, wird der Status sofort festgelegt.
+TR: ### Interval
+TR: You have separate intervals for family members and Fritzbox devices.
+The interval for Fritzbox devices can be configured from 1 to 59 minutes. Normally a value between 1 and 5 minutes is an optimal interval to read the fritzbox data. Family members could be configured from 10s to 600s. Every new cycle starts if the previous cycle is finished.
 
-### Verlaufsadapter
-Über den Verlaufsadapter werden einige Werte berechnet. Sie können wählen, ob für diese Berechnungen der Verlauf, der SQL- oder der Influxdb-Adapter verwendet werden soll. Der Verlaufsadapter muss vorläufig installiert werden und kann dann im Konfigurationsdialog ausgewählt werden.
-Wenn die Verlaufskonfiguration deaktiviert ist, konnte die Berechnung einiger Werte nicht realisiert werden.
+TR: ### Filter time
+TR: If the filter time is greater than 0s the state of a family member is checked twice (after the filter time) if the state is changing to false. If the state is true the state is immediate set.
 
-### Datumsformat
-Die Optionen für die Datumsformatmaske werden auf dieser Webseite beschrieben: https://www.npmjs.com/package/dateformat.
-Die Formatmaske wird zum Formatieren der HTML- und JSON-Tabellenobjekte verwendet.
+TR: ### History adapter
+TR: Over the history adapter some values are calculated. You can choose, if the history, the sql or the influxdb adapter is used for this calculations. The history adapter must be installed preliminary and can then selected in the configuration dialog.
+If the history configuration is disabled then the calculation of some values could not be realized.
 
-### Erstellung von FB-Geräten
-Wenn diese Option aktiviert ist, werden die Objekte für jedes Gerät in der Fritzbox-Geräteliste erstellt.
-Wenn diese Option deaktiviert ist, sind auch die Netzinformationen deaktiviert.
+TR: ### Dateformat
+TR: The date format mask options are described on this web page: https://www.npmjs.com/package/dateformat.
+The format mask is used for formatting the html and json table objects.
 
-### Resynchronisation von FB-Geräteobjekten
-Wenn diese Option aktiviert ist, wird das FB-Geräteobjekt erneut mit der Geräteliste von Fritzbox synchronisiert.
+TR: ### Creation of FB devices
+TR: If this option is checked, the objects for every device in the Fritzbox device list are created.
+If this option is disabled, then also the mesh informations are disabled.
 
-### Erstellung von Netzinformationen
-Diese Option kann aktiviert werden, wenn die Erstellung von FB-Geräten zulässig ist. Wenn diese Option aktiviert ist, werden die Netzobjekte für jedes Gerät in der Fritzbox-Geräteliste erstellt.
+TR: ### Resynchronisation of FB device objects
+TR: If this option is checked, then the FB device object are re-synchronized with the device list fom Fritzbox.
 
-### Gäste Information
-Wenn diese Option aktiviert ist, werden die Status für Gäste erstellt.
+TR: ### Creation of mesh information
+TR: This option can be checked if the creation of FB devices is allowed. If this option is checked, the mesh objects for every device in the Fritzbox device list are created.
 
-### Qr-Code-Generierung
-Wenn diese Option aktiviert ist, wird der QR-Code vom Gast-WLAN generiert.
+TR: ### guest information
+TR: If this option is checked the states for guests are created.
 
-### Einstellungen für Familienmitglieder
-Für ein konfiguriertes Familienmitglied sollten Sie den Mitgliedsnamen, den Hostnamen, die Mac- und IP-Adresse sowie einen Kommentar eingeben und das Mitglied aktivieren oder deaktivieren. Eine Gruppe ist optional. Wenn Sie die Gruppe leer lassen und das Kompatibilitätsflag auf true setzen, ähnelt das Verhalten einer älteren Version des Adapers. In einer zukünftigen Version müssen Sie den Anwesenheitsstatus eines Familienmitglieds verwenden. Dieses Verhalten wird mit dem Kontrollkästchen Kompatibilität ein- und ausgeschaltet: -> Kompatibilität = true: Verhalten als ältere Version mit leerer Gruppe.
--> Kompatibilität = falsch: neues Verhalten. Alle Zustände unter dem Ordner für Familienmitglieder.
-Für jedes Mitglied erstellt der Adapter einen Anwesenheitsstatus und prüft, ob das Mitglied anwesend ist oder nicht. Der Status wurde geändert, wenn sich der Anwesenheitsstatus geändert hat. Sie können auch die Filterung für ein Mitglied aktivieren. Wenn der Zustand wahr ist, ändert sich der Zustand sofort in wahr. Wenn es falsch ist, wird der Wert nach der Filterzeit erneut überprüft.
-Wenn der Status in beiden Fällen falsch ist, ändert sich der Status in falsch. Ansonsten ändert es sich nicht.
-Um die Geschwindigkeitsinformationen in den Objekten zu erhalten, müssen Sie die Option fb-Geräte auswählen.
+TR: ### qr-code generation
+TR: If this option is checked the qr-code from guest wlan is generated.
 
-### Whitelist-Einstellungen
-In die weiße Liste können Sie jedes bekannte Gerät einfügen. Alle unbekannten Geräte werden im Blacklist-Objekt aufgelistet.
-Wenn Sie das Kontrollkästchen in der Überschrift der Tabelle aktivieren, sind alle Geräte ausgewählt.
+TR: ### Family member settings
+TR: For a configured family member you should enter the member name, the hostname, the mac- and ip-address, a comment and you can enable or disable the member. A group is optional. If you leave the group empty and set the compatibility flag to true the behaviour is like an older version of the adaper. In a future version you have to use the presence state from a family member. This behaviour is switched on/off with the compatibility checkbox: -> compatibility = true: behaviour as an older version with empty group.
+-> compatibility = false: new behaviour. All states beneath the familymembers folder.
+For every member the adapter creates a presence state and checks if the member is present or absent. The state was changed if the presence state changed. You can also enable the filtering for a member. If the state is true the state changes immediately to true. If it is false then the value will checked after the filter time again.
+If the state is in both cases false then the state changes to false. Otherwise it does not change.
+To get the speed information in the objects you have to select fb-devices option.
 
-## Eigenschaften
-### Überprüfung der AVM-Unterstützung
-Die Funktion prüft die Verfügbarkeit der verwendeten Fritzbox-Funktionen. Die Verfügbarkeit wird als Info protokolliert. Wenn Sie Probleme haben, prüfen Sie, ob alle Funktionen auf true gesetzt sind. Außerdem werden die Zugriffsrechte für den Benutzer überprüft und die Funktion wird auf false gesetzt, wenn das Zugriffsrecht nicht korrekt ist.
+TR: ### Whitelist settings
+TR: In the white list you can insert every known device. Any unknown devices are listed in the blacklist object.
+If you check the checkbox in the headline of the table all devices are selected.
 
-### Schalten Sie den Gast-WLAN ein / aus
-Unter dem Ordner guest können Sie den Status wlan auf true oder false setzen. Anschließend wird der Gast wlan ein- oder ausgeschaltet.
+TR: ## Features
+TR: ### AVM support check
+TR: The function checks the availability of used fritzbox features. The availability is logged as info. If you have problems look if the features are all set to true. Also the access rights are checked for the user and the feature is set to false if the acces right is not correct.
 
-### QR-Code des Gast-WLAN
-Der QR-Code des Gast-WLAN wird im Status-WLAN im Gastordner gespeichert. Der QR-Code kann im Basis-Bool-SVG-Widget in vis angezeigt werden.
+TR: ### Switch on / off the guest wlan
+TR: Under the folder guest you can set the state wlan to true or false and then the guest wlan switches on or off.
 
-### Schalten Sie den Internetzugang von Fritzbox-Geräten ein / aus
-Unter dem Ordner FB-Geräte können Sie den Deaktivierungsstatus auf true oder false setzen und der Internetzugang dieses Geräts ist in der Fritzbox gesperrt.
+TR: ### QR code of guest wlan
+TR: The QR code of the guest wlan is saved in the state wlanQR in the guest folder. The QR code can show in vis in the basic - Bool SVG widget.
 
-### Gäste holen, schwarze Liste
-In dieser Funktion wird geprüft, ob ein Benutzer als Gast angemeldet ist. Wird auch überprüft, ob ein Gerät nicht in der Whitelist aufgeführt ist.
-Diese Geräte werden der Blacklist hinzugefügt.
+TR: ### Switch on / off the internet access of Fritzbox devices
+TR: Under the folder FB-devices you could set the disabled state to true or false and the the internet access of this device is blocked in the Fritzbox.
 
-### Aktiv werden
-Für jedes Familienmitglied werden die Anwesenheit, das Kommen und Gehen sowie mehrere andere Informationen berechnet und im Mitgliedsobjekt gespeichert, wenn ein Verlaufsadapter ausgewählt ist.
+TR: ### Get guests, blacklist
+TR: In this function it is checked if any user is logged in as guest. Also is checked if any device is not in the white list listed.
+This devices are added to the blacklist.
 
-### Hostnummer, aktive Geräte
-Die Anzahl der Geräte und wie viele aktiv sind, wird von der Fritzbox abgerufen.
+TR: ### Get Active
+TR: For every family member the presence, the comming and going dates and several other infos are calculated and saved in the member object if a history adapter is selected.
 
-## Objekte
-### ObjektpräsenzAlle
-Wenn alle Familienmitglieder anwesend sind, ist das Objekt wahr.
+TR: ### Host number, active devices
+TR: The amount of devices and how many are active are get from the fritzbox.
 
-### Objektpräsenz
-Wenn ein Familienmitglied anwesend ist, ist das Objekt wahr.
+TR: ## Objects
+TR: ### Object presenceAll
+TR: If all family members are present then the object is true.
 
-### Objektgeräte
-Dies sind alles aufgelistete Geräte in der Fritzbox
+TR: ### Object presence
+TR: If one family member ist present then the object is true.
 
-### Object activeDevices
-Dies ist die Anzahl aller aktiven Geräte in der Fritzbox
+TR: ### Object devices
+TR: These are all listed devices in the fritzbox
 
-### Objekt html, json
-Diese Objekte sind Tabellen (json und html) mit den kommenden und fortlaufenden Informationen aller Familienmitglieder.
+TR: ### Object activeDevices
+TR: These are the amount of all active devices in the fritzbox
 
-### Objektinfo
-Hier finden Sie Informationen zum letzten Update und zum Verbindungsstatus des Adapters.
+TR: ### Object html, json
+TR: These objects are tables (json and html) with the comming and going information of all family members in it.
 
-### Objektgast
-Hier finden Sie Informationen zur Anzahl der aktiven Gäste und Tabellenobjekte mit den darin enthaltenen Geräteinformationen.
+TR: ### Object info
+TR: Here are informations listed about the last update and the connection status from the adapter.
 
-### Objekt-Blacklist
-Hier finden Sie Informationen zur Anzahl unbekannter Geräte und Tabellenobjekte mit den darin enthaltenen unbekannten Geräteinformationen.
+TR: ### Object guest
+TR: Here are informations listed about the amount of active guests and table objects with the device information in it.
 
-### Objekt member.present
-Hier finden Sie Informationen über die Anwesenheit eines Mitglieds am aktuellen Tag und darüber, wie lange der Status des Mitglieds seit der letzten Änderung gültig war.
+TR: ### Object blacklist
+TR: Here are informations listed about the amount of unknown devices and table objects with the unknown device information in it.
 
-### Objekt member.absent
-Hier finden Sie Informationen zur Abwesenheit eines Mitglieds am aktuellen Tag und wie lange der Status des Mitglieds seit der letzten Änderung falsch war.
+TR: ### Object member.present
+TR: Here you will find information about the presence of a member on the current day and how long the member has been the status true since the last change.
 
-### Objekt member.comming, member.going
-Hier finden Sie Informationen, wann das Familienmitglied ankommt oder das Haus verlässt.
+TR: ### Object member.absent
+TR: Here you will find information about the absence of a member on the current day and how long the member has been the status false since the last change.
 
-### Objekt member.history, member.historyHtml
-Hier finden Sie Informationen zur Geschichte des aktuellen Tages.
+TR: ### Object member.comming, member.going
+TR: Here you will find information when the family member arrives or leaving home.
+
+TR: ### Object member.history, member.historyHtml
+TR: Here you will find information about the history of the current day.
 
 ## Changelog
 <!--
@@ -179,6 +181,33 @@ Hier finden Sie Informationen zur Geschichte des aktuellen Tages.
     * Did some changes
     * Did some more changes
 -->
+
+### __WORK IN PROGRESS__
+* (afuerhoff) npm updated
+* (afuerhoff) checkservice fixed
+
+### 1.1.4 (2021-05-11)
+* (afuerhoff) family groups implemented
+* (afuerhoff) compatability mode implemented
+* (afuerhoff) dependencies updated
+* (afuerhoff) configuration options added
+* (afuerhoff) dialogboxes optimized
+* (afuerhoff) translations updated
+* (afuerhoff) general program structure optimized
+* (afuerhoff) filter for family members implemeted
+* (afuerhoff) password handling updated
+* (afuerhoff) documentation updated
+* (afuerhoff) QR-Code implemented
+* (afuerhoff) setState presence only if changed
+* (afuerhoff) access rights implemented
+* (afuerhoff) use name for presence
+* (afuerhoff) active / inactive devices
+* (afuerhoff) interval 10s bug fixed
+* (afuerhoff) Bugfix dateformat pattern
+* (afuerhoff) SSL (https) workaround implemented
+* (afuerhoff) Connection check optimized
+* (afuerhoff) Mesh handling optimized 
+
 ### 1.1.3 (2021-03-31)
 * (afuerhoff) family groups implemented
 * (afuerhoff) compatability mode implemented
@@ -190,6 +219,7 @@ Hier finden Sie Informationen zur Geschichte des aktuellen Tages.
 * (afuerhoff) filter for family members implemeted
 * (afuerhoff) password handling updated
 * (afuerhoff) documentation updated
+
 
 ### 1.1.2 (2021-01-13)
 * (afuerhoff) QR-Code implemented
@@ -216,9 +246,6 @@ Hier finden Sie Informationen zur Geschichte des aktuellen Tages.
 * (afuerhoff) switch on, off internet access of devices 
 * (afuerhoff) structural changes
 * (afuerhoff) code optimization
-
-### 1.0.4 (2020-06-28)
-* (afuerhoff) bugfix json list and guest handling, new object guest.presence
 
 ## License
 MIT License
