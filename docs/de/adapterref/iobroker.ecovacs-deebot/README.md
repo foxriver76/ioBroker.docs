@@ -2,109 +2,116 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
-title: Ecovacs Deebot Adapter für ioBroker
-hash: 1d7KU08pEpgFEPk5lobDG6m7w25Ap2BBBkHzvhuuKN8=
+title: TR: Ecovacs Deebot adapter for ioBroker
+hash: 49L0KJ5YoprBrRIjUEykIuGtjd3pyv4qd/iYj/AVN7s=
 ---
-![Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
+![TR: Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
-![stabile Version](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
-![Letzte Version](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
-![Anzahl der Installationen](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
-![Anzahl der Downloads](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
-![npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/mrbungle64/iobroker.ecovacs-deebot.svg)
-![Travis-CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
+![TR: Stable version](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
+![TR: Latest version](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
+![TR: Number of Installations](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
+![TR: Number of Downloads](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
+![TR: npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
+![TR: Dependency Status](https://img.shields.io/david/mrbungle64/iobroker.ecovacs-deebot.svg)
+![TR: Travis-CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
 
-# Ecovacs Deebot Adapter für ioBroker
-Dieser Adapter verwendet die Bibliothek [ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js).
+TR: # Ecovacs Deebot adapter for ioBroker
+TR: This adapter uses the [TR: ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library.
 
-## Eigenschaften
-Einige bemerkenswerte Merkmale sind:
+TR: ## Features
+TR: Some noteworthy features are:
 
-* Informationen abrufen (z. B. Batterie, Reinigungsprotokoll, Verbrauchsmaterial, Reinigungs- und Ladestatus)
-* Senden Sie saubere Befehle (z. B. Auto, Spot-Bereich, benutzerdefinierter Bereich).
-* Senden Sie einige andere Befehle (z. B. Sound abspielen, Verbrauchsmaterialien zurücksetzen, verschieben)
-* Speichern Sie den zuletzt ausgeführten benutzerdefinierten Bereich und führen Sie die gespeicherten Bereiche erneut aus
-* Einstellung der Vakuumleistung (Reinigungsgeschwindigkeit) und des Wasserstandes
-* Informationen während des Reinigungsvorgangs abrufen (z. B. aktuelle Position und Bereich)
-* Informationen zu den Karten abrufen inkl. Spotbereiche und virtuelle Grenzen
-* Löschen, Speichern und Neuerstellen einzelner virtueller Grenzen sowie eines vollständigen Satzes virtueller Grenzen *)
+TR: * Retrieve information (e.g. battery, cleaning log, consumable, cleaning and charging status)
+TR: * Send clean commands (e.g. auto, spot area, custom area)
+TR: * Send some other commands (e.g. play sound, reset consumables, move)
+TR: * Save the last run custom area and rerun the saved areas
+TR: * Adjustment of vacuum power (clean speed) and water level
+TR: * Retrieve information during the cleaning process (e.g. current position and area)
+TR: * Retrieve information of the maps incl. spot areas and virtual boundaries
+TR: *Delete, save and recreate single virtual boundaries as well as a full set of virtual boundaries*
 
-*) Experimentell
+TR: *) Experimental
 
-Bitte beachten Sie: Einige Funktionen sind nur für einige Modelle verfügbar
+TR: Please note: Some features are only available for some models
 
-## Modelle
-### Unterstützte Modelle
-* Deebot 900/901
-* Deebot OZMO 930
-* Deebot OZMO 920/950
+TR: ## Models
+TR: ### Supported models
+TR: * Deebot 900/901
+TR: * Deebot OZMO 930
+TR: * Deebot OZMO 920/950
 
-Die aufgeführten Modelle sind diejenigen, die ich selbst in Gebrauch habe oder die technisch mit diesen identisch sind.
+TR: The models listed are those that I have in use myself or which are technically identical to these.
 
-### Diese Modelle sollten ordnungsgemäß oder zumindest teilweise funktionieren
-* Deebot Slim 2
-* Deebot N79-Serie
-* Deebot M88
-* Deebot 600/601/605
-* Deebot 710/711/711s
-* Deebot OZMO 610
-* Deebot OZMO 900/905
-* Deebot OZMO T5
-* Deebot OZMO T8-Serie
-* Deebot OZMO Slim 10
-* Deebot N3 MAX
-* Deebot N7
-* Deebot N8-Serie
-* Deebot U2-Serie
+TR: ### These models should work properly or at least partially
+TR: * Deebot Slim 2
+TR: * Deebot N79 series
+TR: * Deebot M88
+TR: * Deebot 600/601/605
+TR: * Deebot 710/711/711s
+TR: * Deebot OZMO 610
+TR: * Deebot OZMO 900/905
+TR: * Deebot OZMO Slim 10
+TR: * Deebot OZMO T5
+TR: * Deebot U2 series
+TR: * Deebot N3 MAX
+TR: * Deebot N7
+TR: * Deebot N8 series
+TR: * Deebot (OZMO) T8 series
+TR: * Deebot T9 series
 
-Die aufgeführten Modelle funktionieren entweder bereits oder sind diesen Modellen technisch ähnlich.
-Trotzdem kann die Funktionalität teilweise eingeschränkt sein.
+TR: The models listed are either already known to work or are technically similar to these models.
+Nevertheless, the functionality may be partially limited.
 
-Ich versuche, ein breites Spektrum an Funktionen zu erreichen, entscheide dies jedoch von Fall zu Fall in Abhängigkeit von der Komplexität und verschiedenen anderen Kriterien.
-Es besteht natürlich kein Anspruch auf volle Funktionalität.
+TR: I try to achieve a wide range of functionality, but decide this case by case depending on complexity and various other criteria.
+There is of course no claim to full functionality.
 
-## Installation
-Es wird empfohlen, Version 10.x, 12.x oder 14.x von Node.js zu verwenden. Die mindestens erforderliche Version ist 10.x.
+TR: ## Installation
+TR: It is recommended to use version 10.x, 12.x or 14.x of Node.js. The minimum required version is 10.x
 
-Dieser Adapter verwendet die Bibliothek [Node-Canvas](https://www.npmjs.com/package/canvas) für einige kartenbezogene Funktionen, für die möglicherweise einige zusätzliche Pakete installiert werden müssen.
-Dies ist optional und für Modelle ohne Kartenfunktionalität nicht erforderlich. Für den vollen Funktionsumfang installieren Sie bitte die folgenden Pakete.
+TR: This adapter uses the [TR: node-canvas](https://www.npmjs.com/package/canvas) library for some map-related functionality which may require the installation of some additional packages.
+This is optional and not necessary for models without map functionality, but for full functional range please install the following packages.
 
-Für Debian-basierte Linux-Systeme sollten die folgenden Befehle ausgeführt werden:
+TR: For Debian-based Linux systems the following commands should be executed:
 
 ```bash
 sudo apt-get update
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Anweisungen für andere Systeme finden Sie unter https://www.npmjs.com/package/canvas#compiling
+TR: For instructions for other systems visit https://www.npmjs.com/package/canvas#compiling
 
-## Verwendung
-* Informationen zur Verwendung dieses Adapters finden Sie [hier] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
+TR: ## Usage
+TR: * Information on how to use this adapter can be found [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
-### Zustände
-* Informationen zu den Bundesstaaten finden Sie [hier] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (Englisch) und [hier] (https:// github .com / mrbungle64 / ioBroker.ecovacs-deebot / wiki / Datenpunkte-% 28DE% 29)
+TR: ### States
+TR: * Information about the states can be found [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (English) and [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (German)
 
-## FAQ
-* Häufig gestellte Fragen finden Sie [hier] (https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
+TR: ## FAQ
+TR: * Frequently asked questions can be found [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
-## Bekannte Probleme
-* Für einige Modelle (z. B. Deebot OZMO 930) wird empfohlen, einmal täglich [einen Neustart zu planen] (https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) da es einige Berichte gibt, dass die Verbindung nach ca. 24 Stunden
-* Einige Reinigungsfunktionen funktionieren möglicherweise nicht mit Deebot 710/711 / 711s. Bitte verwenden Sie vorerst Version 0.5.8.
-* Die "Kanten" -Funktion funktioniert nicht mit Deebot U2 (startet stattdessen die automatische Reinigung)
+TR: ## Known issues
+TR: * For some models (e.g. Deebot OZMO 930) it is recommended to [schedule a restart](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) once a day because there are some reports that the connection is lost after approx. 24 hours
+TR: * Some cleaning functions may not work with Deebot 710/711/711s. Please use version 0.5.8 for now.
+TR: * The "edge" function does not work with Deebot U2 (starts auto clean instead)
 
-## Haftungsausschluss
-Ich bin in keiner Weise mit ECOVACS verbunden.
+TR: ## Disclaimer
+TR: I am in no way affiliated with ECOVACS.
 
 ## Changelog
 
-### 1.1.2 (alpha)
-* Using library version 0.6.0-beta.3
-* Added experimental functions for deleting, saving and recreating saved virtual boundaries (920,950,T8)
-* Added option to control clean speed and water level separately for each spot area
-* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
-* Move some states from "info" channel to sub channels "info.library" and "info.network"
+### 1.2.0 (alpha)
+* Using library version 0.6.1
+* Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
+* Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
+* Added options to control clean speed and water level separately for each spot area
+* Added function to save current spot area values
 * Added some cleaning log values and some states for current cleaning stats
+* Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
+* Moved some states from "info" channel to sub channels "info.library" and "info.network"
+* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
+* Some optimisations for js-controller 3.3
+* Improved support for N8 series
+* Initial support for T9/T9+
 * Some improvements and fixes
 
 ### 1.1.1

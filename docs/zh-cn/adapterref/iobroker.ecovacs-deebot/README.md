@@ -2,109 +2,116 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
-title: 适用于ioBroker的Ecovacs Deebot适配器
-hash: 1d7KU08pEpgFEPk5lobDG6m7w25Ap2BBBkHzvhuuKN8=
+title: TR: Ecovacs Deebot adapter for ioBroker
+hash: 49L0KJ5YoprBrRIjUEykIuGtjd3pyv4qd/iYj/AVN7s=
 ---
-![商标](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
+![TR: Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
-![稳定版](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
-![最新版本](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
-![安装数量](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
-![下载次数](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
-![npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
-![依赖状态](https://img.shields.io/david/mrbungle64/iobroker.ecovacs-deebot.svg)
-![特拉维斯](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
+![TR: Stable version](http://iobroker.live/badges/ecovacs-deebot-stable.svg)
+![TR: Latest version](http://img.shields.io/npm/v/iobroker.ecovacs-deebot.svg)
+![TR: Number of Installations](http://iobroker.live/badges/ecovacs-deebot-installed.svg)
+![TR: Number of Downloads](https://img.shields.io/npm/dm/iobroker.ecovacs-deebot.svg)
+![TR: npm](https://img.shields.io/npm/dt/iobroker.ecovacs-deebot.svg)
+![TR: Dependency Status](https://img.shields.io/david/mrbungle64/iobroker.ecovacs-deebot.svg)
+![TR: Travis-CI](https://travis-ci.org/mrbungle64/ioBroker.ecovacs-deebot.svg?branch=master)
 
-＃适用于ioBroker的Ecovacs Deebot适配器
-该适配器使用[ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js)库。
+TR: # Ecovacs Deebot adapter for ioBroker
+TR: This adapter uses the [TR: ecovacs-deebot.js](https://github.com/mrbungle64/ecovacs-deebot.js) library.
 
-＃＃ 特征
-一些值得注意的功能是：
+TR: ## Features
+TR: Some noteworthy features are:
 
-*检索信息（例如电池，清洁日志，消耗品，清洁和充电状态）
-*发送整洁的命令（例如自动，专色区域，自定义区域）
-*发送其他一些命令（例如播放声音，重置消耗品，移动）
-*保存上次运行的自定义区域，然后重新运行保存的区域
-*调整真空功率（清洁速度）和水位
-*在清洁过程中检索信息（例如当前位置和区域）
-*检索地图信息，包括点区域和虚拟边界
-*删除，保存和重新创建单个虚拟边界以及全套虚拟边界*）
+TR: * Retrieve information (e.g. battery, cleaning log, consumable, cleaning and charging status)
+TR: * Send clean commands (e.g. auto, spot area, custom area)
+TR: * Send some other commands (e.g. play sound, reset consumables, move)
+TR: * Save the last run custom area and rerun the saved areas
+TR: * Adjustment of vacuum power (clean speed) and water level
+TR: * Retrieve information during the cleaning process (e.g. current position and area)
+TR: * Retrieve information of the maps incl. spot areas and virtual boundaries
+TR: *Delete, save and recreate single virtual boundaries as well as a full set of virtual boundaries*
 
-*）实验
+TR: *) Experimental
 
-请注意：某些功能仅适用于某些型号
+TR: Please note: Some features are only available for some models
 
-＃＃ 楷模
-###支持的型号
-* Deebot 900/901
-* Deebot OZMO 930
-* Deebot OZMO 920/950
+TR: ## Models
+TR: ### Supported models
+TR: * Deebot 900/901
+TR: * Deebot OZMO 930
+TR: * Deebot OZMO 920/950
 
-列出的模型是我自己使用的模型，或者在技术上与这些模型相同的模型。
+TR: The models listed are those that I have in use myself or which are technically identical to these.
 
-###这些模型应该正常运行或至少部分运行
-* Deebot苗条2
-* Deebot N79系列
-* Deebot M88
-* Deebot 600/601/605
-* Deebot 710/711 / 711s
-* Deebot OZMO 610
-* Deebot OZMO 900/905
-* Deebot OZMO T5
-* Deebot OZMO T8系列
-* Deebot OZMO苗条10
-* Deebot N3 MAX
-* Deebot N7
-* Deebot N8系列
-* Deebot U2系列
+TR: ### These models should work properly or at least partially
+TR: * Deebot Slim 2
+TR: * Deebot N79 series
+TR: * Deebot M88
+TR: * Deebot 600/601/605
+TR: * Deebot 710/711/711s
+TR: * Deebot OZMO 610
+TR: * Deebot OZMO 900/905
+TR: * Deebot OZMO Slim 10
+TR: * Deebot OZMO T5
+TR: * Deebot U2 series
+TR: * Deebot N3 MAX
+TR: * Deebot N7
+TR: * Deebot N8 series
+TR: * Deebot (OZMO) T8 series
+TR: * Deebot T9 series
 
-列出的模型已经众所周知可以使用，或者在技术上与这些模型相似。
-但是，功能可能会受到部分限制。
+TR: The models listed are either already known to work or are technically similar to these models.
+Nevertheless, the functionality may be partially limited.
 
-我尝试实现广泛的功能，但要根据复杂性和其他各种标准来逐案决定。
-当然，没有任何关于完整功能的声明。
+TR: I try to achieve a wide range of functionality, but decide this case by case depending on complexity and various other criteria.
+There is of course no claim to full functionality.
 
-＃＃ 安装
-建议使用Node.js的10.x，12.x或14.x版本。最低要求版本是10.x
+TR: ## Installation
+TR: It is recommended to use version 10.x, 12.x or 14.x of Node.js. The minimum required version is 10.x
 
-此适配器将[节点画布](https://www.npmjs.com/package/canvas)库用于某些与地图相关的功能，这些功能可能需要安装一些其他软件包。
-这是可选的，对于没有地图功能的型号不是必需的，但是对于完整功能范围，请安装以下软件包。
+TR: This adapter uses the [TR: node-canvas](https://www.npmjs.com/package/canvas) library for some map-related functionality which may require the installation of some additional packages.
+This is optional and not necessary for models without map functionality, but for full functional range please install the following packages.
 
-对于基于Debian的Linux系统，应执行以下命令：
+TR: For Debian-based Linux systems the following commands should be executed:
 
 ```bash
 sudo apt-get update
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-有关其他系统的说明，请访问https://www.npmjs.com/package/canvas#compiling
+TR: For instructions for other systems visit https://www.npmjs.com/package/canvas#compiling
 
-＃＃ 用法
-*有关如何使用此适配器的信息可以在[此处]（https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki）中找到
+TR: ## Usage
+TR: * Information on how to use this adapter can be found [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki)
 
-＃＃＃ 状态
-*有关状态的信息可以在[here]（https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29）（英文）和[here]（https://github.com/github .com / mrbungle64 / ioBroker.ecovacs-deebot / wiki / Datenpunkte-％28DE％29）（德语）
+TR: ### States
+TR: * Information about the states can be found [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/States-%28EN%29) (English) and [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/Datenpunkte-%28DE%29) (German)
 
-＃＃ 常问问题
-*常见问题可以在[此处]找到（https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ）
+TR: ## FAQ
+TR: * Frequently asked questions can be found [here](https://github.com/mrbungle64/ioBroker.ecovacs-deebot/wiki/FAQ)
 
-＃＃ 已知的问题
-*对于某些型号（例如Deebot OZMO 930），建议每天一次[安排重新启动]（https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content）因为有一些报告说大约过后连接会丢失。 24小时
-*某些清洁功能可能不适用于Deebot 710/711 / 711s。请暂时使用0.5.8版。
-*“边缘”功能不适用于Deebot U2（而是启动自动清洁）
+TR: ## Known issues
+TR: * For some models (e.g. Deebot OZMO 930) it is recommended to [schedule a restart](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) once a day because there are some reports that the connection is lost after approx. 24 hours
+TR: * Some cleaning functions may not work with Deebot 710/711/711s. Please use version 0.5.8 for now.
+TR: * The "edge" function does not work with Deebot U2 (starts auto clean instead)
 
-##免责声明
-我绝不隶属于ECOVACS。
+TR: ## Disclaimer
+TR: I am in no way affiliated with ECOVACS.
 
 ## Changelog
 
-### 1.1.2 (alpha)
-* Using library version 0.6.0-beta.3
-* Added experimental functions for deleting, saving and recreating saved virtual boundaries (920,950,T8)
-* Added option to control clean speed and water level separately for each spot area
-* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
-* Move some states from "info" channel to sub channels "info.library" and "info.network"
+### 1.2.0 (alpha)
+* Using library version 0.6.1
+* Added functions for deleting, saving and recreating saved virtual boundaries (e.g. 920, 950, T8 series)
+* Added functions for saving and recreating sets of virtual boundaries (e.g. 920, 950, T8 series)
+* Added options to control clean speed and water level separately for each spot area
+* Added function to save current spot area values
 * Added some cleaning log values and some states for current cleaning stats
+* Removed "Use alternative API call for lastCleaningMapImageURL and lastCleaningTimestamp" option
+* Moved some states from "info" channel to sub channels "info.library" and "info.network"
+* Quite a lot of improvements for processing map data, spot areas and virtual boundaries
+* Some optimisations for js-controller 3.3
+* Improved support for N8 series
+* Initial support for T9/T9+
 * Some improvements and fixes
 
 ### 1.1.1

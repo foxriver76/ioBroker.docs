@@ -4,36 +4,70 @@ BADGE-NPM version: http://img.shields.io/npm/v/iobroker.feiertage.svg
 BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.feiertage.svg
 BADGE-Tests: https://travis-ci.org/Pix---/ioBroker.feiertage.svg?branch=master
 BADGE-Open Issues: http://githubbadges.herokuapp.com/Pix---/ioBroker.feiertage/issues.svg
+BADGE-Known Vulnerabilities: https://snyk.io/test/github/Pix---/ioBroker.feiertage/badge.svg?targetFile=package.json
 BADGE-NPM: https://nodei.co/npm/iobroker.feiertage.png?downloads=true
 BADGE-Travis-CI: http://img.shields.io/travis/Pix---/ioBroker.feiertage/master.svg
 BADGE-AppVeyor: https://ci.appveyor.com/api/projects/status/github/Pix---/ioBroker.feiertage?branch=master&svg=true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.feiertage/README.md
-title: ioBroker.feiertage
-hash: LCkDOioMHElQsEWf0/+/KDRtr1cLoWGbmJ3sBvdAzjM=
+title: TR: ioBroker.feiertage
+hash: r+oIiU+3aQ36gFv0g0qd+LJO3g7InRNcuYWQzn8NJh8=
 ---
-![徽标](../../../de/adapterref/iobroker.feiertage/../../admin/feiertage.png)
+![TR: Logo](../../../de/adapterref/iobroker.feiertage/../../admin/feiertage.png)
 
-＃ioBroker.feedage
-##说明
-该适配器提供日期，到该日期为止的持续时间（以天为单位）以及下一个德国假日的名称，并提供有关今天，明天或后天是公共假日的信息。
+TR: # ioBroker.feiertage
+TR: ## Beschreibung
+TR: Dieser Adapter liefert das Datum, die Dauer bis zu diesem Datum in Tagen und den Namen des nächsten deutschen Feiertages und gibt Auskunft, ob heute, morgen oder übermorgen ein Feiertag ist.
 
-##个数据点
-![旧文字](../../../de/adapterref/iobroker.feiertage/img/DatapointsScreenshot.jpg "屏幕截图数据点")
+TR: Brückentage, die jährlich fest am Freitag nach einem Feiertag stattfinden sind auswählbar.
 
-##设置
-可以选择填充数据点时应考虑的假期。
+TR: ##  Datenpunkte
+![TR: alt text](../../../de/adapterref/iobroker.feiertage/img/DatapointsScreenshot.jpg "TR: Screenshot Datenpunkte")
 
-![旧文字](../../../de/adapterref/iobroker.feiertage/img/SettingScreenshot.jpg "屏幕截图设置")
+TR: ## Einstellungen
+TR: Feiertage, die bei der Befüllung der Datenpunkte berücksichtigt werden sollen, können ausgewählt werden.
 
-##激活
-适配器每天在午夜启动。无需更频繁地启动。
+![TR: alt text](../../../de/adapterref/iobroker.feiertage/img/SettingScreenshot.jpg "TR: Screenshot Einstellungen")
 
-##其他
-当然，可以使用不同的假期选择来创建适配器的其他实例。所以你可以，例如涵盖度假者的不同要求。 [快门控制适配器](https://github.com/simatec/ioBroker.shuttercontrol/blob/master/docs/de/shuttercontrol.md#extra-einstellungen)是一个示例应用程序。
+TR: ## Aktivierung
+TR: Der Adapter startet jeden Tag um Mitternacht. Ein häufigeres Starten ist nicht erforderlich.
+
+TR: ## Sonstiges
+TR: Es können natürlich weitere Instanzen des Adapters mit abweichenden Feiertagsauswahlen angelegt werden. So kann man z.B. die unterschiedlichen Anforderungen bei Feiertagsarbeitern abdecken. Eine Beispielanwendung ist der [TR: Shuttercontrol Adapter](https://github.com/simatec/ioBroker.shuttercontrol/blob/master/docs/de/shuttercontrol.md#extra-einstellungen)
 
 ## Changelog
+### 1.0.23 (2021-05-27)
+* (pix, crycode-de) Code improved (timer)
+
+### 1.0.22 (2021-05-27)
+* (pix) Fridays after holidays on Thursday can be selected (Brückentag)
+
+### 1.0.21 (2021-05-05)
+* (pix) minor code fixes, update news cleaned
+
+### 1.0.20 (2021-05-05)
+* (pix) connectionType and dataSource added
+
+### 1.0.19 (2020-04-21)
+* (pix) NodeJS 10 or higher required
+
+### 1.0.18 (2020-03-25)
+* (pix) Italy's Day of Liberation and Day of Republic added
+* (pix) Minor fixes
+
+### 1.0.17 (2020-01-22)
+* (kampfratte) Day of Freedom added
+
+### 1.0.16 (2020-01-22)
+* (pix) Minor fixes
+
+### 1.0.15 (2019-12-31)
+* (kampfratte) Fixed wrong year displayed if holiday is in next year
+
+### 1.0.14 (2019-12-19)
+* (pix) National day in Switzerland added
+
 ### 1.0.13 (2019-09-20)
 * (pix) Offsets corrected
 
@@ -142,7 +176,7 @@ hash: LCkDOioMHElQsEWf0/+/KDRtr1cLoWGbmJ3sBvdAzjM=
 
 ## License
 
-Copyright (c) 2019 pix
+Copyright (c) 2021 pix
 
 The MIT License (MIT)
 

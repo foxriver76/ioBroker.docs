@@ -2,52 +2,82 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.statistics/README.md
-title: ioBroker.statistics
-hash: adIa0874RzAX7ME3y5k56uOLZbThzREl8C1ROlIdnd4=
+title: TR: ioBroker.statistics
+hash: AuaRcz6l0S7OYjP7Y0x2/PW7EwSI1OhFRue1IYG3Nj4=
 ---
-![Logo](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
+![TR: Logo](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/statistics-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.statistics.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.statistics.svg)
-![Build Status](https://travis-ci.org/foxthefox/ioBroker.statistics.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.statistics.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/statistics-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.statistics.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.statistics.svg)
+![TR: Build Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.statistics.svg?branch=master)
+![TR: NPM](https://nodei.co/npm/iobroker.statistics.png?downloads=true)
 
-# IoBroker.statistics
-## Beschreibung
-Dieser Adapter erleichtert die Konfiguration von Statistiken.
+TR: # ioBroker.statistics
+TR: ## Description
+TR: This adapter will make the configuration of statistics easier.
 
-`The adapter only reacts on state changes (state.ack=true), not on commands!`
+TR: `The adapter only reacts on state changes (state.ack=true), not on commands!`
 
-Wählen Sie aus folgenden Einstellungen:
+TR: choose from the following settings:
 
-* Impulse zählen oder Ein- / Ausschalten (nur bei Binärwerten und positiver Flanke)
-* Kosten aus den Zählwerten berechnen (Nur für Binärwerte)
-* wie lange war der Status wahr / AN und wie lange falsch / AUS (nur für Binärwerte)
-* Delta zwischen aufgezeichneten Analogwerten (nur für Analogwerte)
-* Tägliches Maximum, Minimum und Durchschnitt (nicht für Delta-Berechnungen)
-* min / max über das Jahr
-* zählt innerhalb von 5 min und täglich max, min und Durchschnitt davon (nicht für Delta-Berechnungen)
-* Summe der gruppierten Werte
+TR: * count impulses or on/off changes (Only for binary values and positive edge)
+TR: * calculate costs from the counted values (Only for binary values)
+TR: * how long was status true/ON and how long false/OFF (Only for binary values)
+TR: * delta between logged analogue values (Only for analog values)
+TR: * daily max, min and average (Not for delta calculations)
+TR: * min/max over the year
+TR: * counts within 5 min and daily max, min and average of it (Not for delta calculations)
+TR: * sum up of grouped values
 
-Der Adapter abonniert die konfigurierten Objekte und erstellt seine eigenen Status in der Statistikstruktur.
+TR: The adapter subscribes to the configured objects and creates his own states in the statistics tree.
 
-Es werden 2 separate Bäume erstellt:
+TR: 2 separate trees are created:
 
-* statistics.0.save -> Endwerte des Zeitrahmens
-* statistics.0.temp -> temporäre Werte bis zum Zeitpunkt der Übertragung zum Speichern, dann beginnt die Zeit erneut
+TR: * `statistics.0.save` -> final values of the time frame
+TR: * `statistics.0.temp` -> temporary values up to the moment of transfer to save, then temp starts again
 
-Die Struktur des Staates ist: `statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
+TR: The structure of the state is: `statistics.0.{save|temp}.{kind of stat}.{original observed state}.{state of statistical value}`
 
-Ein deutsches HowTo-Dokument finden Sie hier: [howto_de](./doc/howto_de.md)
+TR: A german HowTo doc is available here: [TR: howto_de](./doc/howto_de.md)
 
-## Die Einstellungen
-* Geben Sie die relevanten Gruppen auf der Instanzkonfigurationsseite an (admin => instance => statistics config).
-* geben Sie die Konfiguration in den Einstellungen des Status an (admin => objects)
+TR: ## Settings
+TR: * specify the relevant groups in the instance configuration page (admin => instances => statistics config)
+TR: * specify the configuration in the settings of the state (admin => objects)
+
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (bluefox) added the support of Admin5 
 
-### 0.2.1 [2019-06-15]
+### 1.0.4
+* (foxthefox) changed the state change to BOTH positive and negative edges, hence it causes a lot of log entries
+
+### 1.0.3 (2021-02-08)
+* (Apollon77) fix from sentry crash reports
+
+### 1.0.2 (2021-01-06)
+* (foxthefox) try catch around the cronjobs
+
+### 1.0.1 (2020-12-22)
+* (Black-Thunder) Precision in rounding set to 4
+
+### 1.0.0 (2020-05-01)
+* (bluefox) Caught error if structure is invalid
+* (bluefox) Added sentry
+* adapter.getObjectView -> controller > 2.0
+
+### 0.2.3 (2020-01-02)
+* (HIRSCH-DE) bugfix main.js
+* (foxthefox) delete messagehandler
+
+### 0.2.2 (2019-06-29)
+* (foxthefox) adapter logs a warning when invalid values arrive and cancels further processing
+
+### 0.2.1 (2019-06-15)
 * (foxthefox) correction, timecount value was milliseconds instead seconds
 * (foxthefox) other calculations with 2 decimal places after comma
 * (foxthefox) min/max for day/week/month/quarter/year
@@ -55,21 +85,21 @@ Ein deutsches HowTo-Dokument finden Sie hier: [howto_de](./doc/howto_de.md)
 * (foxthefox) fixing the PR with dayMin 0 at 00:00
 * (foxthefox) improvement for timecount when receiving status updates and no real status change
 
-### 0.2.0 [2019-01-08]
+### 0.2.0 (2019-01-08)
 * (foxthefox) compact mode
 
-### 0.1.4 [2019-01-07]
+### 0.1.4 (2019-01-07)
 * (foxthefox) license added in io-package.json
 * (foxthefox) ReadMe updated
 * (foxthefox) type = misc-data
 
-### 0.1.3 [2019-01-06]
+### 0.1.3 (2019-01-06)
 * first npm release
 * (foxthefox) german doc added
 * (foxthefox) error corrections
 * (foxthefox) travis testing corrections
 
-### 0.1.2 [2018-09-08]
+### 0.1.2 (2018-09-08)
 * (bluefox) total refactoring
 
 ### 0.0.3
@@ -86,5 +116,6 @@ Ein deutsches HowTo-Dokument finden Sie hier: [howto_de](./doc/howto_de.md)
 
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2019 foxthefox <foxthefox@wysiwis.net>,
-                   bluefox <dogafox@gmail.com>
+Copyright (c) 2018-2021 foxthefox <foxthefox@wysiwis.net>,
+
+Copyright (c) 2018-2021 bluefox <dogafox@gmail.com>

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.dysonairpurifier/README.md
 title: TR: ioBroker.dysonAirPurifier
-hash: O6SB+OXHA3GdSIb3tZpGPsvoVJplaZxuEOC575VGttE=
+hash: mVco6iaD07UO1wopefxpYIaCfD7j3WesVgoR2YjtgnQ=
 ---
 ![TR: Number of Installations (latest)](http://iobroker.live/badges/dysonairpurifier-installed.svg)
 ![TR: NPM version](https://img.shields.io/npm/v/iobroker.dysonairpurifier.svg)
@@ -138,7 +138,7 @@ TR: #### product-state
 | ------------- | ----- | ----- | ----- |
 | TR: | ercd | Last Error Code | NONE , or some hexa values |  |
 | TR: | filf | remaining Filter life | 0000 - 4300 | hours|
-| TR: | fmod | Mode | FAN , AUTO | |
+| TR: | fmod | Mode | FAN , AUTO, OFF | |
 | TR: | fpwr | Main Power | ON, OFF | |
 | TR: | fnst | Fan Status | ON , OFF, FAN | |
 | TR: | fnsp | Fan speed | 0001 - 0010, AUTO | |
@@ -232,7 +232,10 @@ TR: Dyson, pure cool, pure hot & cool, and others are trademarks or registered t
 
 ## Changelog
 
-### V0.9.0 (2021-04-26) (Still breathing)
+### V0.9.1 (2021-05-17) (Still breathing)
+* (grizzelbee) New: [#105](https://github.com/Grizzelbee/ioBroker.dysonairpurifier/issues/105) TP02, HP02 and others supporting the fmod token are now able to switch from Off to Auto- and manual-mode
+
+### V0.9.0 (2021-05-15) (Still breathing)
 * (grizzelbee) New: Added ioBroker sentry plugin to report errors automatically 
 * (grizzelbee) New: Added support for Dyson Pure Cool TP07 (438E)
 * (grizzelbee) New: Added support for Dyson 2-factor login method

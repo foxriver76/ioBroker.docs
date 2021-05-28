@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.swiss-weather-api/README.md
 title: TR: ioBroker.swiss-weather-api
-hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
+hash: Y4XW7jc7X0m8UrHWpSUBaBDPQhCs2u/8oH6uVk03k8Y=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -17,6 +17,21 @@ hash: w5/s9Oyl4qRqCQlepfC5uMcSa3gYyBYf1wzyJ/F0OXo=
 ![TR: Travis-CI](http://img.shields.io/travis/baerengraben/ioBroker.swiss-weather-api/master.svg)
 
 TR: # ioBroker.swiss-weather-api
+TR: #Attention!!!
+TR: **SRG has completely rebuilt its API. The old API (<= adapter version 0.3.2) is NOT supported anymore. From adapter version 0.9.x the new API of the SRG is used. That's why a new SRG APP (eg product "Freemium") must be created (https://developer.srgssr.ch/apis/srf-weather). See also Readme, chapter "Getting started" (below). Please also note that the new API will also create completely new objects.**
+
+TR: **The good news is that the new API also provides  more data. ;)**
+
+TR: **Update procedure**
+
+TR: So my recommendation for the update from 0.3.2 to 0.9.x is:
+
+TR: - remove the old adapter before installing version 0.9.x.
+TR:    - please note that the data-objects will be removed accordingly as well.
+TR: - create a new freemium app on srg developer portal (https://developer.srgssr.ch/apis/srf-weather)
+TR: - install new version 0.9.x and set configuration with new consumerkey and consumersecret
+TR:   - on startup, the new adapter will create new, different data-objects.
+
 TR: ## swiss-weather-api adapter for ioBroker
 TR: Connects to the great SRF weather API (https://developer.srgssr.ch/apis/srf-weather).
 The SRF Weather REST API allows you to get weather forecasts and reports from more than 25.000 locations across Switzerland. A "Freemium" subscription allows you to get 50 Request/day.
@@ -40,6 +55,12 @@ TR:    1. Poll Interval in Minutes (By default 30 minutes - 50 Request/Day)
 TR: The first query is made 10s after the adapter was started. After the first start, the query will be executed regularly according to the conifugation parameter (Poll Interval in Minutes)
 
 ## Changelog
+
+### 0.9.1
+* (baerengraben)  Fix to reduce amount of Rest-Calls: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/41
+* (baerengraben)  Fix for https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/32 (Crashes when no Internet Connection is available)
+* (baerengraben)  Partly Fix for https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/24: Handling Adapter State Info.
+
 
 ### 0.9.0
 * (baerengraben)  Removed NodeJs 10 support and added NodeJs 16 support 

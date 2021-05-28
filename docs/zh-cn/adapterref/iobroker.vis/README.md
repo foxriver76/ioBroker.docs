@@ -2,88 +2,88 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis/README.md
-title: 可视化
-hash: 0/WhX+8/BEES00UkNOAlQGpMkGBAUjWmKW1ywEDjUKg=
+title: TR: Visualisation
+hash: Sw/yjJuk/qGdIt7UG6e5P16JYqG9InI+CFfibXx1cZs=
 ---
-![商标](../../../en/adapterref/iobroker.vis/admin/vis.png)
+![TR: Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
-![安装数量](http://iobroker.live/badges/vis-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.vis.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.vis.svg)
-![NPM](https://nodei.co/npm/iobroker.vis.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/vis-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vis.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.vis.png?downloads=true)
 
-＃可视化
-ioBroker平台的Web可视化。
+TR: # Visualisation
+TR: WEB visualisation for ioBroker platform.
 
-##安装与说明文件
-![演示界面](img/user0.png)![演示界面](../../../en/adapterref/iobroker.vis/img/user7.png)
+TR: ## Installation & Documentation
+TR: ![TR: Demo interface](img/user0.png) ![TR: Demo interface](../../../en/adapterref/iobroker.vis/img/user7.png)
 
-[在线演示](https://iobroker.click/)
+[TR: Online Demos](https://iobroker.click/)
 
-##对象绑定
-通常，大多数小部件都具有ObjectID属性，并且此属性可以与对象ID的某些值绑定。
-但是还有另一种选择如何将窗口小部件的* any *属性绑定到某个ObjectID。
+TR: ## Bindings of objects
+TR: Normally, most of the widgets have ObjectID attribute and this attribute can be bound with some value of object ID.
+But there is another option how to bind *any* attribute of widget to some ObjectID.
 
-只需写入属性```{object.id}```§中，它将绑定到该对象的值（不在编辑模式下）。
-如果您使用特殊格式，甚至可以对其进行一些简单的操作，例如乘法或格式化。
-彭定康的格式如下：
+TR: Just write into attribute ```{object.id}``` and it will be bound (not in edit mode) to this object's value.
+If you use the special format, you can even make some simple operations with it, e.g. multiplying or formatting.
+Patten has following format:
 
 ```
 {objectID;operation1;operation2;...}
 ```
 
-支持以下操作：
+TR: Following operations are supported:
 
--`\ *`-相乘。参数必须放在方括号中，例如“ *（4）”。在此示例中，我们将值乘以4。
--`\ +`-添加。参数必须放在方括号中，例如“ +（4.5）”。在此示例中，我们将值添加为4.5。
--`\ -`-减去。参数必须放在方括号中，例如“-（-674.5）”。在此样本中，我们从值-674.5中减去。
--`/`-除法。参数必须放在方括号中，例如“ /(0.5）”。在此示例中，我们将值除以0.5。
--`％`-取模。参数必须放在方括号中，例如“％（5）”。在此示例中，我们取5的模。
--`round`-取整值。
--`round（N）`-将值四舍五入到点后N个位置，例如34.678; round（1）=> 34.7
--`hex`-将值转换为十六进制值。所有字母均小写。
--`hex2`-将值转换为十六进制值。所有字母均小写。如果值小于16，则将添加前导零。
--`HEX`-与十六进制相同，但大写。
--`HEX2`-与hex2相同，但大写。
--`date`-根据给定的格式格式化日期。格式与[iobroker.javascript]（https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate）中的格式相同
--`min（N）`-如果值小于N，则取N，否则取值
--`max（M）`-如果值大于M，则取M，否则取值
--`sqrt`-平方根
--`pow（n）`-N的幂。
--`pow`-2的幂。
--`floor`-Math.floor
--`ceil`-Math.ceil
--`random（R）`-Math.random（）* R，或者如果没有参数则只是Math.random（）
--`formatValue（decimals）`-根据系统设置格式化值并使用小数
--`date（format）`-将值格式化为日期。格式如下：“ YYYY-MM-DD hh：mm：ss.sss”
--`momentDate（format，useTodayOrYesterday）`-使用Moment.js将值格式化为日期。 [必须根据moment.js库输入批准的格式]（https://momentjs.com/docs/#/displaying/format/）。使用`useTodayOrYesterday = true`时，todayjs格式`ddd` /`dddd`被今天/昨天覆盖。
--`array（element1，element2 [，element3，element4]）`-返回索引的元素。例如：`{id.ack; array（ack为假，ack为真）}}
+TR: - `\*` - multiplying. Argument must be in brackets, like "*(4)". In this sample we multiplying value with 4.
+TR: - `\+` - add. Argument must be in brackets, like "+(4.5)". In this sample we add to value 4.5.
+TR: - `\-` - subtract. Argument must be in brackets, like "-(-674.5)". In this sample we subtract from value -674.5.
+TR: - `/` - dividing. Argument must be in brackets, like "/(0.5)". In this sample we dividing value by 0.5.
+TR: - `%` - modulo. Argument must be in brackets, like "%(5)". In this sample we take modulo of 5.
+TR: - `round` - round the value.
+TR: - `round(N)` - round the value with N places after point, e.g. 34.678;round(1) => 34.7
+TR: - `hex` - convert value to hexadecimal value. All letters are lower cased.
+TR: - `hex2` - convert value to hexadecimal value. All letters are lower cased. If value less 16, so the leading zero will be added.
+TR: - `HEX` - same as hex, but upper-cased.
+TR: - `HEX2` - same as hex2, but upper-cased.
+TR: - `date` - format date according to given format. Format is the same as in [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
+TR: - `min(N)` - if value is less than N, take the N, else value
+TR: - `max(M)` - if value is greater than M, take the M, else value
+TR: - `sqrt` - square root
+TR: - `pow(n)` - power of N.
+TR: - `pow` - power of 2.
+TR: - `floor` - Math.floor
+TR: - `ceil` - Math.ceil
+TR: - `random(R)` - Math.random() * R, or just Math.random() if no argument
+TR: - `formatValue(decimals)` - format value according to system settings and use decimals
+TR: - `date(format)` - format value as date. Format is like: "YYYY-MM-DD hh:mm:ss.sss"
+TR: - `momentDate(format, useTodayOrYesterday)` - format value as date using Moment.js. [Approved formats must be entered according to the moment.js library](https://momentjs.com/docs/#/displaying/format/). With `useTodayOrYesterday=true` the momentjs format `ddd`/`dddd` are overwritten with today / yesterday
+TR: - `array(element1,element2[,element3,element4])` - returns the element of index. e.g.: `{id.ack;array(ack is false,ack is true)}`
 
-您可以在任何文本中使用此模式，例如
+TR: You can use this pattern in any text, like
 
 ```
 My calculations with {objectID1;operation1;operation2;...} are {objectID2;operation3;operation4;...}
 ```
 
-或颜色计算：
+TR: or color calculations:
 
 ```
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-要显示对象的时间戳记，请在对象ID的末尾写入`.ts`或`.lc`（用于最后一次更改），例如：
+TR: To show timestamp of object write `.ts` or `.lc` (for last change) at the end of object id, e.g.:
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
 ```
 
-还有另一种写模式的可能性：
+TR: There is another possibility to write the pattern:
 
 ```
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(h*h + w*w))}
 ```
 
-`{h:height;w:width;h*w}`将被解释为功能：
+TR: `{h:height;w:width;h*w}` will be interpreted as function:
 
 ```
 value = (function () {
@@ -93,30 +93,30 @@ value = (function () {
 })();
 ```
 
-您可以使用* any * JavaScript函数。参数必须用'：'定义，否则，将被解释为公式。
+TR: You can use *any* javascript functions. Arguments must be defined with ':', if not, it will be interpreted as formula.
 
-注意类型。它们都定义为字符串。可以肯定的是，使用parseFloat函数将该值视为数字。
+TR: Take care about types. All of them defined as strings. To be sure, that value will be treated as number use parseFloat function.
 
 ```
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
-###特殊绑定
-有许多不同的内部绑定可在视图中提供其他信息：
+TR: ### Special bindings
+TR: There are a number different internal bindings to provide additional information in views:
 
-*`username`-显示已登录的用户
-*`view`-实际视图的名称
-*`wname`-小部件名称
-*`widget`-是具有小部件所有数据的对象。只能在JS部分中使用，例如`{a：a; widget.data.name}`
-*`wid`-实际小部件的名称
-*`language`-可以是`de`，`en`或`ru`。
-*`instance`-浏览器实例
-*`login`-是否需要登录（例如显示/隐藏注销按钮）
-*`local_ *`-如果状态名称是从`local_`开始的，则不会将其报告给ioBroker，而是会更新所有依赖此状态的窗口小部件。 （当前浏览器会话的局部变量）
+TR: * `username` - shows logged-in user
+TR: * `view` - name of actual view
+TR: * `wname` - widget name
+TR: * `widget` - is an object with all data of widget. Can be used only in JS part, like `{a:a;widget.data.name}`
+TR: * `wid` - name of actual widget
+TR: * `language` - can be `de`, `en` or `ru`.
+TR: * `instance` - browser instance
+TR: * `login` - if login required or not (e.g. to show/hide logout button)
+TR: * `local_*` - if state name is started from `local_` it will not be reported to ioBroker but will update all widgets, that depends on this state. (Local variable for current browser session)
 
-注意：要在计算中使用“：”（例如，在字符串公式中），请改用“ ::”。
+TR: Note: to use ":" in calculations (e.g. in string formula) use "::" instead.
 
-**请记住**，样式定义将被解释为绑定，因此请使用`{{style: value}}`或仅
+TR: **Remember**, that style definitions will be interpreted as bindings, so use `{{style: value}}` or just
 
 ```
 {
@@ -124,89 +124,95 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 }
 ```
 
-为了那个原因。
+TR: for that.
 
-##过滤器
-要在一个视图上可视化所有小部件的数量，可以使用过滤器减少视图上同时显示的小部件的数量。
+TR: ## Filters
+TR: To visualise on the one view thw whole number of widgets you can use filters to reduce the amount of widgets simultaneously shown on the view.
 
-每个窗口小部件都有一个字段`filter`。如果您将其设置为某个值，例如`light`，因此您可以使用其他小部件`(bars - filters, filter - dropdown)`来控制哪个过滤器实际处于活动状态。
+TR: Every widget has a field `filter`. If you set it to some value, e.g. `light`, so you can use other widget `(bars - filters, filter - dropdown)` to control which filter is actually active.
 
-##控制界面
-Vis创建3个变量：
+TR: ## Control interface
+TR: Vis creates 3 variables:
 
--`control.instance`-如果必须控制每个浏览器，则应在此处编写浏览器实例或FFFFFFFF。
--`control.data`-命令参数。请参阅特定的命令描述。
--`control.command`-命令名称。编写此变量将触发命令。这意味着在写入命令之前，“实例”和“数据”必须与数据一起准备。
+TR: - `control.instance` - Here the browser instance should be written or FFFFFFFF if every browser must be controlled.
+TR: - `control.data`     - Parameter for command. See specific command description.
+TR: - `control.command`  - Command name. Write this variable triggers the command. That means before command will be written the "instance" and "data" must be prepared with data.
 
-命令：
+TR: Commands:
 
-*`alert`-在可见中显示警报窗口。 “ control.data”具有以下格式“ message; title; jquery-icon”。标题和jquery-icon是可选的。可以在[here]（http://jqueryui.com/themeroller/）中找到图标名称。要显示图标“ ui-icon-info”，请写“ Message ;; info`”。
-*`changeView`-切换到所需的视图。 “ control.data”必须具有视图名称。您也可以将项目名称指定为“项目/视图”。默认项目为“ main”。
-*`refresh`-重新加载vis，例如在将项目更改为在所有浏览器上重新加载后。
-*`reload`-与刷新相同。
-*`dialog`-显示对话框窗口。对话框必须存在于视图中。之一：
+TR: * `alert` - show alert window in the vis. "control.data" has following format "message;title;jquery-icon". Title and jquery-icon are optional. Icon names can be found [here](http://jqueryui.com/themeroller/). To show icon "ui-icon-info" write ```Message;;info```.
+TR: * `changeView` - switch to desired view. "control.data" must have the name of view. You can specify project name too as "project/view". Default project is "main".
+TR: * `refresh` - reload the vis, for instance after project is changed to reload on all browsers.
+TR: * `reload` - same as refresh.
+TR: * `dialog` - Show dialog window. Dialog must exist on view. One of:
 
-    -`static-HTML-对话框`，
-    -`static-图标-对话框`，
-    -`container-HTML-在jqui对话框中查看，
-    -`container-ext cmd-在jqui对话框中查看，
-    -`container-Icon-在jqui对话框中查看，
-    -`容器-按钮-在jqui对话框中查看。
+TR:     - `static    - HTML    - Dialog`,
+TR:     - `static    - Icon    - Dialog`,
+TR:     - `container - HTML    - view in jqui Dialog`,
+TR:     - `container - ext cmd - view in jqui Dialog`,
+TR:     - `container - Icon    - view in jqui Dialog`,
+TR:     - `container - Button  - view in jqui Dialog`.
 
-    `control.data`必须具有对话框小部件的ID，例如`w00056`。
+TR:     `control.data` must have id of dialog widget, e.g. `w00056`.
 
-*`dialogClose`
-*`popup`-打开一个新的浏览器窗口。链接必须在`control.data`中指定，例如http://google.com
-*`playSound`-播放声音文件。文件的链接在`control.data`中指定，例如http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3。
+TR: * `dialogClose`
+TR: * `popup` - opens a new browser window. Link must be specified in `control.data`, e.g. http://google.com
+TR: * `playSound` - play sound file. The link to file is specified in `control.data`, e.g. http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
 
-  您可以在vis中上传自己的文件，并使其像`/vis.0/main/img/myFile.mp3`一样播放。
+TR:   You can upload your own file in vis and let it play as for instance `/vis.0/main/img/myFile.mp3`.
 
-如果用户更改视图或在开始时，变量将由vis填充。
+TR: If user changes the view or at start the variables will be filled by the vis with
 
--`control.instance`：浏览器实例和`ack = true`
--`control.data`：以`project / view`形式的项目和视图名称，例如`main / view`（和`ack = true`）
--`control.command`：`changedView`和`ack = true`
+TR: - `control.instance`: browser instance and `ack=true`
+TR: - `control.data`: project and view name in form `project/view`, e.g. `main/view` (and `ack=true`)
+TR: - `control.command`: `changedView` and `ack=true`
 
-您可以将JSON字符串或对象作为`{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`写入control.command中。在这种情况下，实例和数据将从JSON对象获取。
+TR: You can write the JSON-string or Object into control.command as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case the instance and data will be taken from JSON object.
 
-JavaScript适配器示例：
+TR: Example for javascript adapter:
 
 ```
 setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data": ""});
 ```
 
-＃＃ 默认视图
-您可以为每个视图定义所需的分辨率（菜单=>工具=>分辨率）。这只是在编辑模式下的可视边框，用于向您显示某些特定设备上的屏幕尺寸。在实时模式下，它将不可见，并且边框外的所有小部件都将可见。
+TR: ## Default view
+TR: You can define for every view the desired resolution (Menu=>Tools=>Resolution). This is only the visual border in edit mode to show you the screen size on some specific device. In real time mode it will not be visible and all widgets outside of border will be visible.
 
-此外，您可以定义是否必须将此视图用作此分辨率的默认视图。
+TR: Additionally, you can define if this view must be used as default for this resolution.
 
-因此，每次调用`index.html`（不包含`#viewName`）时，都会打开最适合此分辨率视图的视图。
-如果只有一个视图带有*“ Default” *标志，那么将独立于屏幕分辨率或方向打开此视图。
+TR: So every time the `index.html` (without `#viewName`) is called, the best suitable for this resolution view will be opened.
+If only one view has *"Default"* flag, so this view will be opened independently from screen resolution or orientation.
 
-例如。您可以创建两个视图“ Landscape-Mobile”和“ Portrait-Mobile”，并且当您更改方向或屏幕尺寸时，这两个视图将自动切换。
+TR: E.g. you can create two views "Landscape-Mobile" and "Portrait-Mobile" and these two views will be switched automatically when you change the orientation or screen size.
 
-有一个帮助器小部件“基本-屏幕分辨率”，它显示实际屏幕分辨率和最适合该分辨率的默认视图。
+TR: There is a helper widget "basic - Screen Resolution" that shows actual screen resolution and best suitable default view for this resolution.
 
-##设置
-###如果睡眠时间超过
-有一条规则是，在断开连接一段时间后，将重新加载整个VIS页面以同步项目。
-您可以在菜单“设置...”中对其进行配置。如果将时间间隔设置为“从不”，则将永远不会重新加载该页面。
+TR: ## Settings
+TR: ### Reload if sleep longer than
+TR: There is a rule, that after some disconnection period the whole VIS page will be reloaded to synchronise the project.
+You can configure it in the menu "Settings...". If you set interval to "never" so the page will never be reloaded.
 
-###重新连接间隔
-设置连接尝试之间的间隔（如果断开连接）。如果设置为2秒，它将尝试每2秒建立一次连接。
+TR: ### Reconnect interval
+TR: Set the interval between the connection attempts if disconnected. If you set 2 seconds, it will try to establish the connection every 2 seconds.
 
-###黑暗重新连接屏幕
-有时（夜间），需要具有黑暗的加载屏幕。使用此选项可以进行设置。
+TR: ### Dark reconnect screen
+TR: Sometimes (in the night) it is required to have dark loading screen. With this option you can set it.
 
-请注意，这些设置仅对重新连接有效，而对首次连接无效。
+TR: Notice that these settings are valid only for reconnection and not for the first connect.
 
-![黑暗的](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
+![TR: Dark](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
 
-<！-下一个版本的占位符（在该行的开头）：
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __正在进行的工程__->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (thost96) fixes for issues found by adapter-checker
+
+### 1.3.10 (2021-05-25)
+* (bluefox) Fixed the support of admin5
+
 ### 1.3.9 (2021-04-29)
 * (agav99) Added support of local browser variables
 * (Scrounger) Bug fix for null & NaN values in width and height

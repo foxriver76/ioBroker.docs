@@ -2,88 +2,88 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis/README.md
-title: Visualisierung
-hash: 0/WhX+8/BEES00UkNOAlQGpMkGBAUjWmKW1ywEDjUKg=
+title: TR: Visualisation
+hash: Sw/yjJuk/qGdIt7UG6e5P16JYqG9InI+CFfibXx1cZs=
 ---
-![Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
+![TR: Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/vis-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.vis.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.vis.svg)
-![NPM](https://nodei.co/npm/iobroker.vis.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/vis-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vis.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.vis.png?downloads=true)
 
-# Visualisierung
-WEB-Visualisierung für die ioBroker-Plattform.
+TR: # Visualisation
+TR: WEB visualisation for ioBroker platform.
 
-## Installation & Dokumentation
-![Demo-Oberfläche](img/user0.png) ![Demo-Oberfläche](../../../en/adapterref/iobroker.vis/img/user7.png)
+TR: ## Installation & Documentation
+TR: ![TR: Demo interface](img/user0.png) ![TR: Demo interface](../../../en/adapterref/iobroker.vis/img/user7.png)
 
-[Online-Demos](https://iobroker.click/)
+[TR: Online Demos](https://iobroker.click/)
 
-## Bindungen von Objekten
-Normalerweise haben die meisten Widgets das ObjectID-Attribut, und dieses Attribut kann mit einem Wert der Objekt-ID verknüpft werden.
-Es gibt jedoch eine andere Option, wie *jedes* Attribut des Widgets an eine ObjectID gebunden werden kann.
+TR: ## Bindings of objects
+TR: Normally, most of the widgets have ObjectID attribute and this attribute can be bound with some value of object ID.
+But there is another option how to bind *any* attribute of widget to some ObjectID.
 
-Schreiben Sie einfach in das Attribut ```{object.id}``` und es wird (nicht im Bearbeitungsmodus) an den Wert dieses Objekts gebunden.
-Wenn Sie das spezielle Format verwenden, können Sie damit sogar einige einfache Vorgänge ausführen, z. Multiplizieren oder Formatieren.
-Patten hat folgendes Format:
+TR: Just write into attribute ```{object.id}``` and it will be bound (not in edit mode) to this object's value.
+If you use the special format, you can even make some simple operations with it, e.g. multiplying or formatting.
+Patten has following format:
 
 ```
 {objectID;operation1;operation2;...}
 ```
 
-Folgende Operationen werden unterstützt:
+TR: Following operations are supported:
 
-- `\ *` - Multiplizieren. Das Argument muss in Klammern stehen, z. B. "* (4)". In diesem Beispiel multiplizieren wir den Wert mit 4.
-- `\ +` - hinzufügen. Das Argument muss in Klammern stehen, z. B. "+ (4.5)". In diesem Beispiel addieren wir den Wert 4.5.
-- `\ -` - subtrahieren. Das Argument muss in Klammern stehen, z. B. "- (- 674.5)". In diesem Beispiel subtrahieren wir vom Wert -674,5.
-- `/` - Teilen. Das Argument muss in Klammern stehen, z. B. "/(0.5)". In dieser Stichprobe teilen wir den Wert durch 0,5.
-- `%` - Modulo. Das Argument muss in Klammern stehen, z. B. "% (5)". In diesem Beispiel nehmen wir Modulo von 5.
-- `round` - rundet den Wert.
-- `round (N)` - rundet den Wert mit N Stellen nach dem Punkt, z. 34,678; Runde (1) => 34,7
-- `hex` - Wert in Hexadezimalwert umwandeln. Alle Buchstaben sind in Kleinbuchstaben geschrieben.
-- `hex2` - Wert in Hexadezimalwert umwandeln. Alle Buchstaben sind in Kleinbuchstaben geschrieben. Wenn der Wert kleiner als 16 ist, wird die führende Null addiert.
-- `HEX` - wie Hex, jedoch in Großbuchstaben.
-- `HEX2` - wie hex2, jedoch in Großbuchstaben.
-- `Datum` - Format Datum gemäß gegebenem Format. Das Format ist das gleiche wie in [iobroker.javascript] (https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate).
-- `min (N)` - Wenn der Wert kleiner als N ist, nimm den Wert N, sonst
-- `max (M)` - Wenn der Wert größer als M ist, nehmen Sie den Wert M, sonst
-- `sqrt` - Quadratwurzel
-- `pow (n)` - Potenz von N.
-- `pow` - Potenz von 2.
-- `Boden` - Math.floor
-- `Decke` - Math.ceil
-- `random (R)` - Math.random () * R oder einfach Math.random (), wenn kein Argument vorhanden ist
-- `formatValue (Dezimalstellen)` - Formatieren Sie den Wert gemäß den Systemeinstellungen und verwenden Sie Dezimalstellen
-- `Datum (Format)` - Formatwert als Datum. Das Format lautet wie folgt: "JJJJ-MM-TT hh: mm: ss.sss"
-- `momentDate (format, useTodayOrYesterday)` - Formatieren Sie den Wert als Datum mit Moment.js. [Genehmigte Formate müssen gemäß der Bibliothek moment.js eingegeben werden] (https://momentjs.com/docs/#/displaying/format/). Mit `useTodayOrYesterday = true` wird das momentjs-Format` ddd` /` dddd` mit today / gestern überschrieben
-- `array (element1, element2 [, element3, element4])` - gibt das Element des Index zurück. Beispiel: `{id.ack; Array (ack ist falsch, ack ist wahr)}`
+TR: - `\*` - multiplying. Argument must be in brackets, like "*(4)". In this sample we multiplying value with 4.
+TR: - `\+` - add. Argument must be in brackets, like "+(4.5)". In this sample we add to value 4.5.
+TR: - `\-` - subtract. Argument must be in brackets, like "-(-674.5)". In this sample we subtract from value -674.5.
+TR: - `/` - dividing. Argument must be in brackets, like "/(0.5)". In this sample we dividing value by 0.5.
+TR: - `%` - modulo. Argument must be in brackets, like "%(5)". In this sample we take modulo of 5.
+TR: - `round` - round the value.
+TR: - `round(N)` - round the value with N places after point, e.g. 34.678;round(1) => 34.7
+TR: - `hex` - convert value to hexadecimal value. All letters are lower cased.
+TR: - `hex2` - convert value to hexadecimal value. All letters are lower cased. If value less 16, so the leading zero will be added.
+TR: - `HEX` - same as hex, but upper-cased.
+TR: - `HEX2` - same as hex2, but upper-cased.
+TR: - `date` - format date according to given format. Format is the same as in [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
+TR: - `min(N)` - if value is less than N, take the N, else value
+TR: - `max(M)` - if value is greater than M, take the M, else value
+TR: - `sqrt` - square root
+TR: - `pow(n)` - power of N.
+TR: - `pow` - power of 2.
+TR: - `floor` - Math.floor
+TR: - `ceil` - Math.ceil
+TR: - `random(R)` - Math.random() * R, or just Math.random() if no argument
+TR: - `formatValue(decimals)` - format value according to system settings and use decimals
+TR: - `date(format)` - format value as date. Format is like: "YYYY-MM-DD hh:mm:ss.sss"
+TR: - `momentDate(format, useTodayOrYesterday)` - format value as date using Moment.js. [Approved formats must be entered according to the moment.js library](https://momentjs.com/docs/#/displaying/format/). With `useTodayOrYesterday=true` the momentjs format `ddd`/`dddd` are overwritten with today / yesterday
+TR: - `array(element1,element2[,element3,element4])` - returns the element of index. e.g.: `{id.ack;array(ack is false,ack is true)}`
 
-Sie können dieses Muster in jedem Text verwenden, wie z
+TR: You can use this pattern in any text, like
 
 ```
 My calculations with {objectID1;operation1;operation2;...} are {objectID2;operation3;operation4;...}
 ```
 
-oder Farbberechnungen:
+TR: or color calculations:
 
 ```
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-Um den Zeitstempel des Objekts anzuzeigen, schreiben Sie `.ts` oder `.lc` (für letzte Änderung) am Ende der Objekt-ID, z.
+TR: To show timestamp of object write `.ts` or `.lc` (for last change) at the end of object id, e.g.:
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
 ```
 
-Es gibt eine andere Möglichkeit, das Muster zu schreiben:
+TR: There is another possibility to write the pattern:
 
 ```
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(h*h + w*w))}
 ```
 
-`{h:height;w:width;h*w}` werden als Funktion interpretiert:
+TR: `{h:height;w:width;h*w}` will be interpreted as function:
 
 ```
 value = (function () {
@@ -93,30 +93,30 @@ value = (function () {
 })();
 ```
 
-Sie können *beliebige* Javascript-Funktionen verwenden. Argumente müssen mit ':' definiert werden. Andernfalls wird sie als Formel interpretiert.
+TR: You can use *any* javascript functions. Arguments must be defined with ':', if not, it will be interpreted as formula.
 
-Achten Sie auf Typen. Alle von ihnen als Zeichenfolgen definiert. Um sicherzugehen, dass dieser Wert als Zahl behandelt wird, verwenden Sie die Funktion parseFloat.
+TR: Take care about types. All of them defined as strings. To be sure, that value will be treated as number use parseFloat function.
 
 ```
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
-### Spezielle Bindungen
-Es gibt verschiedene interne Bindungen, um zusätzliche Informationen in Ansichten bereitzustellen:
+TR: ### Special bindings
+TR: There are a number different internal bindings to provide additional information in views:
 
-* `Benutzername` - Zeigt den angemeldeten Benutzer an
-* `view` - Name der tatsächlichen Ansicht
-* `wname` - Widgetname
-* `Widget` - ist ein Objekt mit allen Daten des Widgets. Kann nur im JS-Teil verwendet werden, z. B. "{a: a; widget.data.name}"
-* `wid` - Name des tatsächlichen Widgets
-* `language` - kann` de`, `en` oder` ru` sein.
-* `instance` - Browserinstanz
-* `login` - ob ein Login erforderlich ist oder nicht (z. B. um die Abmeldeschaltfläche anzuzeigen / auszublenden)
-* `local_ *` - Wenn der Statusname von `local_` aus gestartet wird, wird er nicht an ioBroker gemeldet, sondern aktualisiert alle Widgets, die von diesem Status abhängen. (Lokale Variable für aktuelle Browsersitzung)
+TR: * `username` - shows logged-in user
+TR: * `view` - name of actual view
+TR: * `wname` - widget name
+TR: * `widget` - is an object with all data of widget. Can be used only in JS part, like `{a:a;widget.data.name}`
+TR: * `wid` - name of actual widget
+TR: * `language` - can be `de`, `en` or `ru`.
+TR: * `instance` - browser instance
+TR: * `login` - if login required or not (e.g. to show/hide logout button)
+TR: * `local_*` - if state name is started from `local_` it will not be reported to ioBroker but will update all widgets, that depends on this state. (Local variable for current browser session)
 
-Hinweis: Um ":" in Berechnungen (z. B. in der Zeichenfolgenformel) zu verwenden, verwenden Sie stattdessen "::".
+TR: Note: to use ":" in calculations (e.g. in string formula) use "::" instead.
 
-** Denken Sie daran **, dass Stildefinitionen als Bindungen interpretiert werden. Verwenden Sie daher `{{style: value}}` oder nur
+TR: **Remember**, that style definitions will be interpreted as bindings, so use `{{style: value}}` or just
 
 ```
 {
@@ -124,89 +124,95 @@ Hinweis: Um ":" in Berechnungen (z. B. in der Zeichenfolgenformel) zu verwenden,
 }
 ```
 
-dafür.
+TR: for that.
 
-## Filter
-Um in einer Ansicht die ganze Anzahl von Widgets zu visualisieren, können Sie Filter verwenden, um die Anzahl der Widgets zu reduzieren, die gleichzeitig in der Ansicht angezeigt werden.
+TR: ## Filters
+TR: To visualise on the one view thw whole number of widgets you can use filters to reduce the amount of widgets simultaneously shown on the view.
 
-Jedes Widget hat ein Feld `filter`. Wenn Sie einen bestimmten Wert festlegen, z. `light`, sodass Sie mit einem anderen Widget `(bars - filters, filter - dropdown)` steuern können, welcher Filter tatsächlich aktiv ist.
+TR: Every widget has a field `filter`. If you set it to some value, e.g. `light`, so you can use other widget `(bars - filters, filter - dropdown)` to control which filter is actually active.
 
-## Steuerschnittstelle
-Vis erstellt 3 Variablen:
+TR: ## Control interface
+TR: Vis creates 3 variables:
 
-- `control.instance` - Hier sollte die Browserinstanz geschrieben werden oder FFFFFFFF, wenn jeder Browser gesteuert werden muss.
-- `control.data` - Parameter für den Befehl. Siehe spezifische Befehlsbeschreibung.
-- `control.command` - Befehlsname. Das Schreiben dieser Variablen löst den Befehl aus. Das heißt, bevor der Befehl geschrieben wird, müssen "Instanz" und "Daten" mit Daten vorbereitet werden.
+TR: - `control.instance` - Here the browser instance should be written or FFFFFFFF if every browser must be controlled.
+TR: - `control.data`     - Parameter for command. See specific command description.
+TR: - `control.command`  - Command name. Write this variable triggers the command. That means before command will be written the "instance" and "data" must be prepared with data.
 
-Befehle:
+TR: Commands:
 
-* `alert` - Alarmfenster im Vis anzeigen. "control.data" hat das folgende Format "message; title; jquery-icon". Titel und Abfragesymbol sind optional. Symbolnamen finden Sie [hier] (http://jqueryui.com/themeroller/). Um das Symbol "ui-icon-info" anzuzeigen, schreiben Sie `` `Message ;; info```.
-* `changeView` - wechselt zur gewünschten Ansicht. "control.data" muss den Namen view haben. Sie können den Projektnamen auch als "Projekt / Ansicht" angeben. Das Standardprojekt ist "main".
-* `refresh` - lädt das vis neu, zum Beispiel nachdem das Projekt geändert wurde, um es in allen Browsern neu zu laden.
-* `reload` - wie aktualisieren.
-* `dialog` - Dialogfenster anzeigen. Der Dialog muss in der Ansicht vorhanden sein. Einer von:
+TR: * `alert` - show alert window in the vis. "control.data" has following format "message;title;jquery-icon". Title and jquery-icon are optional. Icon names can be found [here](http://jqueryui.com/themeroller/). To show icon "ui-icon-info" write ```Message;;info```.
+TR: * `changeView` - switch to desired view. "control.data" must have the name of view. You can specify project name too as "project/view". Default project is "main".
+TR: * `refresh` - reload the vis, for instance after project is changed to reload on all browsers.
+TR: * `reload` - same as refresh.
+TR: * `dialog` - Show dialog window. Dialog must exist on view. One of:
 
-    - `static - HTML - Dialog`,
-    - `static - Icon - Dialog`,
-    - `container - HTML - view in jqui Dialog`,
-    - `container - ext cmd - view in jqui Dialog`,
-    - `container - Icon - view in jqui Dialog`,
-    - `container - Button - Ansicht im jqui Dialog`.
+TR:     - `static    - HTML    - Dialog`,
+TR:     - `static    - Icon    - Dialog`,
+TR:     - `container - HTML    - view in jqui Dialog`,
+TR:     - `container - ext cmd - view in jqui Dialog`,
+TR:     - `container - Icon    - view in jqui Dialog`,
+TR:     - `container - Button  - view in jqui Dialog`.
 
-    `control.data` müssen die ID des Dialog-Widgets haben, z. `w00056`.
+TR:     `control.data` must have id of dialog widget, e.g. `w00056`.
 
-* `dialogClose`
-* `popup` - öffnet ein neues Browserfenster. Der Link muss in "control.data" angegeben werden, z. http://google.com
-* `playSound` - Sounddatei abspielen. Der Link zur Datei ist in "control.data" angegeben, z. http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
+TR: * `dialogClose`
+TR: * `popup` - opens a new browser window. Link must be specified in `control.data`, e.g. http://google.com
+TR: * `playSound` - play sound file. The link to file is specified in `control.data`, e.g. http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
 
-  Sie können Ihre eigene Datei in vis hochladen und wie beispielsweise `/vis.0/main/img/myFile.mp3` abspielen lassen.
+TR:   You can upload your own file in vis and let it play as for instance `/vis.0/main/img/myFile.mp3`.
 
-Wenn der Benutzer die Ansicht ändert oder zu Beginn, werden die Variablen vom vis mit gefüllt
+TR: If user changes the view or at start the variables will be filled by the vis with
 
-- `control.instance`: Browser-Instanz und` ack = true`
-- `control.data`: Projekt- und Ansichtsname in der Form` project / view`, z. `main / view` (und` ack = true`)
-- `control.command`:` definedView` und `ack = true`
+TR: - `control.instance`: browser instance and `ack=true`
+TR: - `control.data`: project and view name in form `project/view`, e.g. `main/view` (and `ack=true`)
+TR: - `control.command`: `changedView` and `ack=true`
 
-Sie können den JSON-String oder das Objekt als Befehl in `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}` in control.command schreiben. In diesem Fall werden die Instanz und die Daten vom JSON-Objekt übernommen.
+TR: You can write the JSON-string or Object into control.command as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case the instance and data will be taken from JSON object.
 
-Beispiel für einen Javascript-Adapter:
+TR: Example for javascript adapter:
 
 ```
 setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data": ""});
 ```
 
-## Standardansicht
-Sie können für jede Ansicht die gewünschte Auflösung definieren (Menü => Extras => Auflösung). Dies ist nur der visuelle Rand im Bearbeitungsmodus, um die Bildschirmgröße auf einem bestimmten Gerät anzuzeigen. Im Echtzeitmodus ist es nicht sichtbar und alle Widgets außerhalb des Rahmens sind sichtbar.
+TR: ## Default view
+TR: You can define for every view the desired resolution (Menu=>Tools=>Resolution). This is only the visual border in edit mode to show you the screen size on some specific device. In real time mode it will not be visible and all widgets outside of border will be visible.
 
-Darüber hinaus können Sie festlegen, ob diese Ansicht als Standard für diese Auflösung verwendet werden muss.
+TR: Additionally, you can define if this view must be used as default for this resolution.
 
-Jedes Mal, wenn die `index.html` (ohne `#viewName`) aufgerufen werden, wird die für diese Auflösungsansicht am besten geeignete geöffnet.
-Wenn nur eine Ansicht das Flag *"Standard"* hat, wird diese Ansicht unabhängig von der Bildschirmauflösung oder -ausrichtung geöffnet.
+TR: So every time the `index.html` (without `#viewName`) is called, the best suitable for this resolution view will be opened.
+If only one view has *"Default"* flag, so this view will be opened independently from screen resolution or orientation.
 
-Z.B. Sie können zwei Ansichten "Landscape-Mobile" und "Portrait-Mobile" erstellen. Diese beiden Ansichten werden automatisch umgeschaltet, wenn Sie die Ausrichtung oder Bildschirmgröße ändern.
+TR: E.g. you can create two views "Landscape-Mobile" and "Portrait-Mobile" and these two views will be switched automatically when you change the orientation or screen size.
 
-Es gibt ein Hilfs-Widget "Grundlegend - Bildschirmauflösung", das die tatsächliche Bildschirmauflösung und die am besten geeignete Standardansicht für diese Auflösung anzeigt.
+TR: There is a helper widget "basic - Screen Resolution" that shows actual screen resolution and best suitable default view for this resolution.
 
-## Die Einstellungen
-### Nachladen, wenn der Schlaf länger als ist
-Es gibt eine Regel, dass nach einer gewissen Unterbrechungszeit die gesamte VIS-Seite neu geladen wird, um das Projekt zu synchronisieren.
-Sie können es im Menü "Einstellungen ..." konfigurieren. Wenn Sie das Intervall auf "nie" setzen, wird die Seite nie neu geladen.
+TR: ## Settings
+TR: ### Reload if sleep longer than
+TR: There is a rule, that after some disconnection period the whole VIS page will be reloaded to synchronise the project.
+You can configure it in the menu "Settings...". If you set interval to "never" so the page will never be reloaded.
 
-### Intervall wieder verbinden
-Legen Sie das Intervall zwischen den Verbindungsversuchen fest, wenn die Verbindung getrennt wird. Wenn Sie 2 Sekunden einstellen, wird alle 2 Sekunden versucht, die Verbindung herzustellen.
+TR: ### Reconnect interval
+TR: Set the interval between the connection attempts if disconnected. If you set 2 seconds, it will try to establish the connection every 2 seconds.
 
-### Dunkler Bildschirm zum erneuten Verbinden
-Manchmal (in der Nacht) ist ein dunkler Ladebildschirm erforderlich. Mit dieser Option können Sie es einstellen.
+TR: ### Dark reconnect screen
+TR: Sometimes (in the night) it is required to have dark loading screen. With this option you can set it.
 
-Beachten Sie, dass diese Einstellungen nur für die erneute Verbindung und nicht für die erste Verbindung gültig sind.
+TR: Notice that these settings are valid only for reconnection and not for the first connect.
 
-![Dunkel](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
+![TR: Dark](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __WORK IN PROGRESS__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (thost96) fixes for issues found by adapter-checker
+
+### 1.3.10 (2021-05-25)
+* (bluefox) Fixed the support of admin5
+
 ### 1.3.9 (2021-04-29)
 * (agav99) Added support of local browser variables
 * (Scrounger) Bug fix for null & NaN values in width and height

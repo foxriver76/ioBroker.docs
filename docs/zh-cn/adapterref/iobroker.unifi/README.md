@@ -2,93 +2,97 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.unifi/README.md
-title: ioBroker.unifi
-hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
+title: TR: ioBroker.unifi
+hash: ZzOpiHmdAxM0QjTfyZeBcdKrkbb/LWCiGRdFFOieXts=
 ---
-![商标](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
+![TR: Logo](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
 
-![安装数量](http://iobroker.live/badges/unifi-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.unifi.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.unifi.svg)
-![NPM](https://nodei.co/npm/iobroker.unifi.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/unifi-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.unifi.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.unifi.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.unifi.png?downloads=true)
 
-＃ioBroker.unifi
-此ioBroker适配器允许使用公共UniFi控制器Web-API监视和限制[UniFi设备](http://www.ubnt.com/)，例如UniFi WiFi接入点。
+TR: # ioBroker.unifi
+TR: This ioBroker adapter allows the monitoring and limited controlling of [TR: UniFi devices](http://www.ubnt.com/), such as UniFi WiFi Access Points using the public UniFi Controller Web-API.
 
-＃＃ 配置
-###最低要求信息
-要启动此适配器并运行，需要以下信息：
+TR: ## Configuration
+TR: ###  Minimum required information
+TR: To get this adapter up and running the following information is needed:
 
-* UniFi控制器的IP地址和端口（如果该控制器在UbiOS（例如UDM Pro）上运行，请将该端口留空）
-*用户名和密码（不支持2FA）
-*更新间隔
+TR: * IP address and port of your UniFi controller (Leave the port empty in case your controller is running on UbiOS (e.g. UDM-Pro))
+TR: * Local username and password (2FA **cannot** be supported)
+TR: * Update interval
 
-默认情况下，信息每60秒更新一次。根据您的ioBroker硬件和网络大小（客户端，UniFi设备等），不建议进一步缩短间隔。
+TR: By default the information is updated every 60 seconds. Depending on your ioBroker hardware and your network size (number of clients, UniFi devices etc.) it is recommended to keep this interval and refraid from further decreasing it.
 
-###过滤对象
-适配器会从您的UniFi控制器中更新尽可能多的信息，但可以限制更新的信息。
+TR: ### Filter objects
+TR: The adapter updates as much information from your UniFi controller as possible, but offers the possibility to limit the updated information.
 
-可以禁用所选信息的更新或过滤该信息的特定对象。
+TR: It is possible to disable the update of selected information or filter specific objects of that information.
 
-|信息|可过滤的对象|
+| TR: | Information | Objects filterable by                   |
 |-------------|-----------------------------------------|
-|客户|名称，主机名，IP地址，MAC地址|
-|设备|名称，IP地址，MAC地址|
-|无线局域网|姓名|
-|网络|姓名|
-|健康|子系统|
+| TR: | Clients     | Name, Hostname, IP address, MAC address |
+| TR: | Devices     | Name, IP address, MAC address           |
+| TR: | WiFis       | Name                                    |
+| TR: | Networks    | Name                                    |
+| TR: | Health      | Subsystem                               |
 
-＃＃ 控制
-###启用/禁用WLAN
-通过更改WLAN的“启用”状态，可以启用/禁用它。几秒钟后，更改将被提供给访问点。
+TR: ## Control
+TR: ### Enable/disable WiFis
+TR: By changing the 'enabled' state of a WiFi it is possible to enable/disable it. Some seconds later the change will be provisioned to the Access Points.
 
-###凭证创建
-使用“ vouchers.create_vouchers”按钮可以创建预定义的凭单。可以配置将创建的凭证的数量，凭证的有效期限，还可以设置上传和下载的限制。
+TR: ### Voucher creation
+TR: Using the `vouchers.create_vouchers` button it is possible to create predefined vouchers. It is possible to configure the number of vouchers that will be created, the duration the vouchers are valid and also set limits for up- and download.
 
-##缺少数据点
-适配器使用[节点统一](https://github.com/jens-maus/node-unifi)连接到您的UniFi控制器。为简化起见，并非所有可用的数据点都被拉到ioBroker中。如果您缺少数据点，请使用以下URL来检查API。 （注意：您必须用设置替换IP，PORT和SITE）
+TR: ## Missing datapoints
+TR: The adapter uses [TR: node-unifi](https://github.com/jens-maus/node-unifi) to connect to your UniFi Controller. To simplify things, not all availble datapoints are pulled into your ioBroker. In case you're missing datapoints, use the following URLs to check the API. (Note: You have to replace IP, PORT and SITE with your settings)
 
-|信息| API URL |
+| TR: | Information | API URL                                     |
 |-------------|---------------------------------------------|
-|网站| https：// IP：PORT / api / self / sites |
-| SysInfo | https：// IP：PORT / api / s / SITE / stat / sysinfo |
-|客户| https：// IP：PORT / api / s / SITE / stat / sta |
-|设备| https：// IP：PORT / api / s / SITE / stat / device |
-|无线局域网| https：// IP：PORT / api / s / SITE / rest / wlanconf |
-|网络| https：// IP：PORT / api / s / SITE / rest / networkconf |
-|健康| https：// IP：PORT / api / s / SITE / stat / health |
-|优惠券| https：// IP：PORT / api / s / SITE / stat / voucher |
-| DPI | https：// IP：PORT / api / s / SITE / stat / dpi |
-|警报器| https：// IP：PORT / api / s / SITE / stat / alarm |
+| TR: | Sites       | https://IP:PORT/api/self/sites              |
+| TR: | SysInfo     | https://IP:PORT/api/s/SITE/stat/sysinfo     |
+| TR: | Clients     | https://IP:PORT/api/s/SITE/stat/sta         |
+| TR: | Devices     | https://IP:PORT/api/s/SITE/stat/device      |
+| TR: | WiFis       | https://IP:PORT/api/s/SITE/rest/wlanconf    |
+| TR: | Networks    | https://IP:PORT/api/s/SITE/rest/networkconf |
+| TR: | Health      | https://IP:PORT/api/s/SITE/stat/health      |
+| TR: | Vouchers    | https://IP:PORT/api/s/SITE/stat/voucher     |
+| TR: | DPI         | https://IP:PORT/api/s/SITE/stat/dpi         |
+| TR: | Alarms      | https://IP:PORT/api/s/SITE/stat/alarm       |
 
-### UbiOS端点
-|信息| API URL |
+TR: ### UbiOS/UDM-Pro endpoints
+| TR: | Information | API URL                                              |
 |-------------|------------------------------------------------------|
-|网站| https：// IP / proxy / network / api / self / sites |
-| SysInfo | https：// IP / proxy / network / api / s / SITE / stat / sysinfo |
-|客户| https：// IP / proxy / network / api / s / SITE / stat / sta |
-|设备| https：// IP / proxy / network / api / s / SITE / stat / device |
-|无线局域网| https：// IP / proxy / network / api / s / SITE / rest / wlanconf |
-|网络| https：// IP / proxy / network / api / s / SITE / rest / networkconf |
-|健康| https：// IP / proxy / network / api / s / SITE / stat / health |
-|优惠券| https：// IP / proxy / network / api / s / SITE / stat / voucher |
-| DPI | https：// IP / proxy / network / api / s / SITE / stat / dpi |
-|警报器| https：// IP / proxy / network / api / s / SITE / stat / alarm |
+| TR: | Sites       | https://IP/proxy/network/api/self/sites              |
+| TR: | SysInfo     | https://IP/proxy/network/api/s/SITE/stat/sysinfo     |
+| TR: | Clients     | https://IP/proxy/network/api/s/SITE/stat/sta         |
+| TR: | Devices     | https://IP/proxy/network/api/s/SITE/stat/device      |
+| TR: | WiFis       | https://IP/proxy/network/api/s/SITE/rest/wlanconf    |
+| TR: | Networks    | https://IP/proxy/network/api/s/SITE/rest/networkconf |
+| TR: | Health      | https://IP/proxy/network/api/s/SITE/stat/health      |
+| TR: | Vouchers    | https://IP/proxy/network/api/s/SITE/stat/voucher     |
+| TR: | DPI         | https://IP/proxy/network/api/s/SITE/stat/dpi         |
+| TR: | Alarms      | https://IP/proxy/network/api/s/SITE/stat/alarm       |
 
-＃＃ 已知的问题
-*客户端下线后，客户端的is_wired状态不正确。这是UniFi控制器的已知问题，与适配器无关。 （请参阅https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1）
+TR: ## Known issues
+TR: * The is_wired state of clients is incorrect after a client went offline. This is a known issue of the UniFi controller and is not related to the adapter. (see https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1)
 
-＃＃ 参考
-该适配器使用以下第三方nodejs模块的功能：
+TR: ## References
+TR: This adapter uses functionality from the following third-party nodejs modules:
 
-* [node-unifi]（https://github.com/jens-maus/node-unifi）
-* [json-logic-js]（https://github.com/jwadhams/json-logic-js）
+TR: * [node-unifi](https://github.com/jens-maus/node-unifi)
+TR: * [json-logic-js](https://github.com/jwadhams/json-logic-js)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.10 (2021-05-27)
+* (jens-maus) Changed "Update done" output to be output as debug info.
+* (jens-maus) Updated dependencies.
+
 ### 0.5.9 (2021-05-07)
 * (jens-maus) Fixed all js-controller 3.3 related state warnings
 * (kirovilya, jens-maus) Added device state object with dedicated states list.

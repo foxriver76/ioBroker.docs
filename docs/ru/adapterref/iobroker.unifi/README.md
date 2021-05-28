@@ -2,93 +2,97 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unifi/README.md
-title: ioBroker.unifi
-hash: 1eu6brniZsV62zT/Li5E57rGEfySbXdC9MBXNIPLd1U=
+title: TR: ioBroker.unifi
+hash: ZzOpiHmdAxM0QjTfyZeBcdKrkbb/LWCiGRdFFOieXts=
 ---
-![Логотип](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
+![TR: Logo](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
 
-![Количество установок](http://iobroker.live/badges/unifi-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.unifi.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.unifi.svg)
-![НПМ](https://nodei.co/npm/iobroker.unifi.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/unifi-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.unifi.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.unifi.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.unifi.png?downloads=true)
 
-# IoBroker.unifi
-Этот адаптер ioBroker позволяет осуществлять мониторинг и ограниченное управление [Устройства UniFi](http://www.ubnt.com/), например точками доступа UniFi WiFi, с помощью общедоступного веб-API UniFi Controller.
+TR: # ioBroker.unifi
+TR: This ioBroker adapter allows the monitoring and limited controlling of [TR: UniFi devices](http://www.ubnt.com/), such as UniFi WiFi Access Points using the public UniFi Controller Web-API.
 
-## Конфигурация
-### Минимальная необходимая информация
-Для запуска этого адаптера необходима следующая информация:
+TR: ## Configuration
+TR: ###  Minimum required information
+TR: To get this adapter up and running the following information is needed:
 
-* IP-адрес и порт вашего контроллера UniFi (оставьте порт пустым, если ваш контроллер работает на UbiOS (например, UDM Pro))
-* Имя пользователя и пароль (2FA не поддерживается)
-* Интервал обновления
+TR: * IP address and port of your UniFi controller (Leave the port empty in case your controller is running on UbiOS (e.g. UDM-Pro))
+TR: * Local username and password (2FA **cannot** be supported)
+TR: * Update interval
 
-По умолчанию информация обновляется каждые 60 секунд. В зависимости от вашего оборудования ioBroker и размера вашей сети (количество клиентов, устройств UniFi и т. Д.) Не рекомендуется дополнительно уменьшать интервал.
+TR: By default the information is updated every 60 seconds. Depending on your ioBroker hardware and your network size (number of clients, UniFi devices etc.) it is recommended to keep this interval and refraid from further decreasing it.
 
-### Фильтровать объекты
-Адаптер обновляет как можно больше информации с вашего контроллера UniFi, но предлагает возможность ограничить обновленную информацию.
+TR: ### Filter objects
+TR: The adapter updates as much information from your UniFi controller as possible, but offers the possibility to limit the updated information.
 
-Можно отключить обновление выбранной информации или отфильтровать определенные объекты этой информации.
+TR: It is possible to disable the update of selected information or filter specific objects of that information.
 
-| Информация | Объекты фильтруются по |
+| TR: | Information | Objects filterable by                   |
 |-------------|-----------------------------------------|
-| Клиенты | Имя, имя хоста, IP-адрес, MAC-адрес |
-| Устройства | Имя, IP-адрес, MAC-адрес |
-| WLAN | Имя |
-| Сети | Имя |
-| Здоровье | Подсистема |
+| TR: | Clients     | Name, Hostname, IP address, MAC address |
+| TR: | Devices     | Name, IP address, MAC address           |
+| TR: | WiFis       | Name                                    |
+| TR: | Networks    | Name                                    |
+| TR: | Health      | Subsystem                               |
 
-## Контроль
-### Включение / отключение WLAN
-Изменяя состояние «включено» WLAN, можно включить / отключить его. Через несколько секунд изменение будет внесено в точки доступа.
+TR: ## Control
+TR: ### Enable/disable WiFis
+TR: By changing the 'enabled' state of a WiFi it is possible to enable/disable it. Some seconds later the change will be provisioned to the Access Points.
 
-### Создание ваучера
-Используя кнопку «vouchers.create_vouchers», можно создавать предопределенные ваучеры. Можно настроить количество создаваемых ваучеров, срок действия ваучеров, а также установить лимиты на загрузку и скачивание.
+TR: ### Voucher creation
+TR: Using the `vouchers.create_vouchers` button it is possible to create predefined vouchers. It is possible to configure the number of vouchers that will be created, the duration the vouchers are valid and also set limits for up- and download.
 
-## Отсутствующие точки данных
-Адаптер использует [узел-унифи](https://github.com/jens-maus/node-unifi) для подключения к вашему контроллеру UniFi. Чтобы упростить ситуацию, не все доступные точки данных загружаются в ваш ioBroker. Если вам не хватает точек данных, используйте следующие URL-адреса для проверки API. (Примечание: вы должны заменить IP, ПОРТ и САЙТ своими настройками)
+TR: ## Missing datapoints
+TR: The adapter uses [TR: node-unifi](https://github.com/jens-maus/node-unifi) to connect to your UniFi Controller. To simplify things, not all availble datapoints are pulled into your ioBroker. In case you're missing datapoints, use the following URLs to check the API. (Note: You have to replace IP, PORT and SITE with your settings)
 
-| Информация | URL API |
+| TR: | Information | API URL                                     |
 |-------------|---------------------------------------------|
-| Сайты | https:// IP: ПОРТ / api / self / sites |
-| SysInfo | https:// IP: ПОРТ / api / s / SITE / stat / sysinfo |
-| Клиенты | https:// IP: ПОРТ / api / s / SITE / stat / sta |
-| Устройства | https:// IP: ПОРТ / api / s / SITE / stat / device |
-| WLAN | https:// IP: ПОРТ / api / s / SITE / rest / wlanconf |
-| Сети | https:// IP: ПОРТ / api / s / SITE / rest / networkconf |
-| Здоровье | https:// IP: PORT / api / s / SITE / stat / health |
-| Ваучеры | https:// IP: PORT / api / s / SITE / stat / voucher |
-| DPI | https:// IP: ПОРТ / api / s / SITE / stat / dpi |
-| Сигнализация | https:// IP: ПОРТ / api / s / SITE / stat / alarm |
+| TR: | Sites       | https://IP:PORT/api/self/sites              |
+| TR: | SysInfo     | https://IP:PORT/api/s/SITE/stat/sysinfo     |
+| TR: | Clients     | https://IP:PORT/api/s/SITE/stat/sta         |
+| TR: | Devices     | https://IP:PORT/api/s/SITE/stat/device      |
+| TR: | WiFis       | https://IP:PORT/api/s/SITE/rest/wlanconf    |
+| TR: | Networks    | https://IP:PORT/api/s/SITE/rest/networkconf |
+| TR: | Health      | https://IP:PORT/api/s/SITE/stat/health      |
+| TR: | Vouchers    | https://IP:PORT/api/s/SITE/stat/voucher     |
+| TR: | DPI         | https://IP:PORT/api/s/SITE/stat/dpi         |
+| TR: | Alarms      | https://IP:PORT/api/s/SITE/stat/alarm       |
 
-### Конечные точки UbiOS
-| Информация | URL API |
+TR: ### UbiOS/UDM-Pro endpoints
+| TR: | Information | API URL                                              |
 |-------------|------------------------------------------------------|
-| Сайты | https:// IP / прокси / сеть / api / self / sites |
-| SysInfo | https:// IP / прокси / сеть / api / s / SITE / stat / sysinfo |
-| Клиенты | https:// IP / прокси / сеть / api / s / SITE / stat / sta |
-| Устройства | https:// IP / прокси / сеть / api / s / SITE / stat / device |
-| WLAN | https:// IP / прокси / сеть / api / s / SITE / rest / wlanconf |
-| Сети | https:// IP / прокси / сеть / api / s / SITE / rest / networkconf |
-| Здоровье | https:// IP / прокси / сеть / api / s / SITE / stat / health |
-| Ваучеры | https:// IP / прокси / сеть / api / s / SITE / stat / voucher |
-| DPI | https:// IP / прокси / сеть / api / s / SITE / stat / dpi |
-| Сигнализация | https:// IP / прокси / сеть / api / s / SITE / stat / alarm |
+| TR: | Sites       | https://IP/proxy/network/api/self/sites              |
+| TR: | SysInfo     | https://IP/proxy/network/api/s/SITE/stat/sysinfo     |
+| TR: | Clients     | https://IP/proxy/network/api/s/SITE/stat/sta         |
+| TR: | Devices     | https://IP/proxy/network/api/s/SITE/stat/device      |
+| TR: | WiFis       | https://IP/proxy/network/api/s/SITE/rest/wlanconf    |
+| TR: | Networks    | https://IP/proxy/network/api/s/SITE/rest/networkconf |
+| TR: | Health      | https://IP/proxy/network/api/s/SITE/stat/health      |
+| TR: | Vouchers    | https://IP/proxy/network/api/s/SITE/stat/voucher     |
+| TR: | DPI         | https://IP/proxy/network/api/s/SITE/stat/dpi         |
+| TR: | Alarms      | https://IP/proxy/network/api/s/SITE/stat/alarm       |
 
-## Известные проблемы
-* Состояние is_wired клиентов неверно после того, как клиент перешел в автономный режим. Это известная проблема контроллера UniFi, не связанная с адаптером. (см. https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1)
+TR: ## Known issues
+TR: * The is_wired state of clients is incorrect after a client went offline. This is a known issue of the UniFi controller and is not related to the adapter. (see https://community.ui.com/questions/Wireless-clients-shown-as-wired-clients/49d49818-4dab-473a-ba7f-d51bc4c067d1)
 
-## Рекомендации
-Этот адаптер использует функции следующих сторонних модулей nodejs:
+TR: ## References
+TR: This adapter uses functionality from the following third-party nodejs modules:
 
-* [узел-unifi] (https://github.com/jens-maus/node-unifi)
-* [json-logic-js] (https://github.com/jwadhams/json-logic-js)
+TR: * [node-unifi](https://github.com/jens-maus/node-unifi)
+TR: * [json-logic-js](https://github.com/jwadhams/json-logic-js)
 
 ## Changelog
 <!--
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+### 0.5.10 (2021-05-27)
+* (jens-maus) Changed "Update done" output to be output as debug info.
+* (jens-maus) Updated dependencies.
+
 ### 0.5.9 (2021-05-07)
 * (jens-maus) Fixed all js-controller 3.3 related state warnings
 * (kirovilya, jens-maus) Added device state object with dedicated states list.

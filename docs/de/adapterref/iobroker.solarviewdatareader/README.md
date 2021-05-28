@@ -2,80 +2,79 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.solarviewdatareader/README.md
-title: ioBroker.solarviewdatareader
-hash: 05N10yWtxS1P7K3+raksbc/gr4OudAtGI2km5AIX8jw=
+title: TR: ioBroker.solarviewdatareader
+hash: DGtXy5iIPV0aJXSBR+TGxY/qUvt9Dhwsqoorf7fJtlU=
 ---
-![Logo](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
+![TR: Logo](../../../en/adapterref/iobroker.solarviewdatareader/admin/solarviewdatareader.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/solarviewdatareader-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.solarviewdatareader.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/afuerhoff/iobroker.solarviewdatareader.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.solarviewdatareader.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/afuerhoff/ioBroker.solarviewdatareader/master.svg)
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.solarviewdatareader.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.solarviewdatareader.svg)
+![TR: Number of Installations (latest)](https://iobroker.live/badges/solarviewdatareader-installed.svg)
+![TR: Number of Installations (stable)](https://iobroker.live/badges/solarviewdatareader-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/afuerhoff/iobroker.solarviewdatareader.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/afuerhoff/ioBroker.solarviewdatareader/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.solarviewdatareader.png?downloads=true)
 
-# IoBroker.solarviewdatareader
-## Solarviewdatareader Adapter für ioBroker
-Der Adapter liest die Daten aus dem Solarview-Datenlogger.
-Hier finden Sie weitere Informationen zu Solarview: https://www.solarview.info/solarlogger.aspx
+TR: # ioBroker.solarviewdatareader
+TR: **Tests:** ![TR: Test and Release](https://github.com/afuerhoff/ioBroker.solarviewdatareader/workflows/Test%20and%20Release/badge.svg)
 
-## Aufbau
-### IP-Adresse, Port
-Um die Daten vom Datenlogger abzurufen, müssen Sie die IP-Adresse und den Port von Ihrem Solarview-TCP-Server eingeben.
-Der Standardport ist 15000. Weitere Informationen finden Sie in der Solarview-Dokumentation unter https://www.solarview.info/solarlogger.aspx.
+TR: ## solarviewdatareader adapter for ioBroker
+TR: The adapter reads the data from the Solarview data logger.
+Here you can find additional infos about Solarview: https://www.solarview.info/solarlogger.aspx
 
-### D0 Konverter
-Wenn Sie einen D0-Konverter an den Solarview-Datenlogger angeschlossen haben, können Sie diese Option aktivieren.
-Bei Fragen lesen Sie bitte die Solarview-Dokumentation.
+TR: ## Configuration
+TR: ### IP address, Port
+TR: To get the data from the datalogger you must enter the ip-address and the port from your solarview TCP server.
+The standard port is 15000. Please refer to the Solarview documentation https://www.solarview.info/solarlogger.aspx.
 
-### Selbstverbrauchszählersumme und 1 bis 4
-Wenn Sie ein S0-Messgerät haben, können Sie diese Option aktivieren.
-Sie können bis zu 4 Eigenverbrauchszähler und die Summe aller Zähler haben.
-Bei Fragen lesen Sie bitte die Solarview-Dokumentation.
+TR: ### D0 converter
+TR: If you have a D0 converter connected to the Solarview data logger you can enable this option.
+For questions please refer to the Solarview documentation.
 
-### Wechselrichter 1 bis 4
-Jeder Wechselrichter kann separat aktiviert werden.
-Bei Fragen lesen Sie bitte die Solarview-Dokumentation.
+TR: ### Self consumption meter sum and 1 to 4
+TR: If you have a S0 meter, you can enable this option.
+You can have up to 4 self consumption meters and the sum from all meters.
+For questions please refer to the Solarview documentation.
 
-### Intervall, Intervallstart, Intervallende
-Hier können Sie den Zeitbereich und das Intervall konfigurieren. Der Zeitbereich für 24 Stunden liegt zwischen 00:00 und 23:59 Uhr.
-Nicht 00:00 bis 00:00.
+TR: ### Inverter 1 to 4
+TR: Every inverter you can enable separately.
+For questions please refer to the Solarview documentation.
 
-### Systemvariable CCU, Systemvariable setzen
-Dies ist eine Besonderheit für die homematische CCU. Sie können eine Systemvariable in der CCU definieren.
-In dieser Systemvariablen wird der tatsächliche PAC-Wert gespeichert.
-Sie müssen den ioBroker-Status für diese Systemvariable eingeben -> **z. "hm-rega.0.12345"**
+TR: ### Interval, interval start, interval end
+TR: Here you can configure the time range and the interval. The time range for 24h is 00:00 to 23:59.
+Not 00:00 to 00:00.
 
-### Erstellte Zustände
-#### Pvig, pvi1..4, d0supply, d0consumption
-täglich = Tagesertrag (kWh) monatlich = monatlicher Ertrag (kWh) jährlich = jährlicher Ertrag (kWh) gesamt = Gesamtertrag (kWh) Strom = Generatorleistung in W UDC, UDCB, UDCC, UDCD = Generatorspannungen in Volt pro MPP-Tracker IDC, IDCB, IDCC, IDCD = Generatorstrom in Ampere pro MPP-Tracker UL1, IL1 = Netzspannung, Netzstromphase 1 UL2, IL2 = Netzspannung, Netzstromphase 2 UL3, IL3 = Netzspannung, Netzstromphase 3 TKK = Temperaturwechselrichter
+TR: ### Set system variable CCU, System variable
+TR: This ist a special feature for the homematic CCU. You can define a system variable in the CCU.
+In this system variable the actual PAC value is saved.
+You have to fill in the ioBroker state for that system variable -> **e.g. "hm-rega.0.12345"**
+
+TR: ### Created states
+TR: #### pvig, pvi1..4, d0supply, d0consumption
+TR: daily = daily yield (kWh) montly = monthly yield (kWh) yearly = yearly yield (kWh) total = total yield (kWh) current = generator power in W UDC, UDCB, UDCC, UDCD = generator voltages in volt per MPP-Tracker IDC, IDCB, IDCC, IDCD = generator current in ampere per MPP-Tracker UL1, IL1 = mains voltage, mains power phase 1 UL2, IL2 = mains voltage, mains power phase 2 UL3, IL3 = mains voltage, mains power phase 3 TKK= Temperature inverter
 
 ## Changelog
 <!--
 	Placeholder for the next version (at the beginning of the line):
 	### __WORK IN PROGRESS__
 -->
-### __WORK IN PROGRESS__
+### 1.0.2 (2021-05-07)
+* (afuerhoff) node.js 14 and 16 compatibilty
+* (afuerhoff) dependencies updated
+
+### 1.0.1 (2021-05-01)
+* (afuerhoff) changes due to js-controller 3.3.x
+
+### 1.0.0 (2021-04-25)
 * (afuerhoff) dependencies updated
 * (afuerhoff) documentation changed
+* (afuerhoff) minor changes
+* (afuerhoff) due to stable state version set to 1.0.0
 
 ### 0.2.1
 * (afuerhoff) self consumption meter optimized
 ### 0.2.0
 * (afuerhoff) Error handling optimized, self consumption meter implemented
-### 0.1.0
-* (afuerhoff) optimizations for adding to latest repository
-### 0.0.5
-* (afuerhoff) Code optimized, unload optimized, documentation added 
-### 0.0.4
-* (afuerhoff) Objects, Telnet client and checksum calculation changed
-### 0.0.3
-* (afuerhoff) inverter selection added
-### 0.0.2
-* (afuerhoff) test version
-### 0.0.1
-* (afuerhoff) initial release
 
 ## License
 MIT License

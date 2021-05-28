@@ -2,88 +2,88 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis/README.md
-title: Визуализация
-hash: 0/WhX+8/BEES00UkNOAlQGpMkGBAUjWmKW1ywEDjUKg=
+title: TR: Visualisation
+hash: Sw/yjJuk/qGdIt7UG6e5P16JYqG9InI+CFfibXx1cZs=
 ---
-![Логотип](../../../en/adapterref/iobroker.vis/admin/vis.png)
+![TR: Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
-![Количество установок](http://iobroker.live/badges/vis-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.vis.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.vis.svg)
-![НПМ](https://nodei.co/npm/iobroker.vis.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/vis-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vis.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.vis.png?downloads=true)
 
-# Визуализация
-WEB-визуализация для платформы ioBroker.
+TR: # Visualisation
+TR: WEB visualisation for ioBroker platform.
 
-## Установка и документация
-![Демо-интерфейс](img/user0.png) ![Демо-интерфейс](../../../en/adapterref/iobroker.vis/img/user7.png)
+TR: ## Installation & Documentation
+TR: ![TR: Demo interface](img/user0.png) ![TR: Demo interface](../../../en/adapterref/iobroker.vis/img/user7.png)
 
-[Интернет-демонстрации](https://iobroker.click/)
+[TR: Online Demos](https://iobroker.click/)
 
-## Привязки объектов
-Обычно большинство виджетов имеют атрибут ObjectID, и этот атрибут может быть связан с некоторым значением идентификатора объекта.
-Но есть еще один вариант, как привязать *любой* атрибут виджета к какому-либо ObjectID.
+TR: ## Bindings of objects
+TR: Normally, most of the widgets have ObjectID attribute and this attribute can be bound with some value of object ID.
+But there is another option how to bind *any* attribute of widget to some ObjectID.
 
-Просто введите атрибут ```{object.id}```, и он будет привязан (не в режиме редактирования) к значению этого объекта.
-Если вы используете специальный формат, вы даже можете выполнять с ним некоторые простые операции, например умножение или форматирование.
-Паттен имеет следующий формат:
+TR: Just write into attribute ```{object.id}``` and it will be bound (not in edit mode) to this object's value.
+If you use the special format, you can even make some simple operations with it, e.g. multiplying or formatting.
+Patten has following format:
 
 ```
 {objectID;operation1;operation2;...}
 ```
 
-Поддерживаются следующие операции:
+TR: Following operations are supported:
 
-- `\ *` - умножение. Аргумент должен быть заключен в квадратные скобки, например «* (4)». В этом примере мы умножаем значение на 4.
-- `\ +` - добавить. Аргумент должен быть в скобках, например «+ (4.5)». В этом примере мы добавляем к значению 4.5.
-- `\ -` - вычесть. Аргумент должен быть в скобках, например «- (- 674,5)». В этом примере мы вычитаем из значения -674,5.
-- `/` - разделение. Аргумент должен быть в скобках, например «/(0.5)». В этом примере мы разделили значение на 0,5.
-- `%` - по модулю. Аргумент должен быть в скобках, например «% (5)». В этом примере мы берем по модулю 5.
-- `round` - округлить значение.
-- `round (N)` - округлить значение с N разрядами после точки, например 34,678; круглый (1) => 34,7
-- `hex` - преобразовать значение в шестнадцатеричное. Все буквы в нижнем регистре.
-- `hex2` - преобразовать значение в шестнадцатеричное значение. Все буквы в нижнем регистре. Если значение меньше 16, будет добавлен ведущий ноль.
-- `HEX` - то же, что и hex, но в верхнем регистре.
-- `HEX2` - то же, что и hex2, но в верхнем регистре.
-- `date` - форматировать дату согласно заданному формату. Формат такой же, как в [iobroker.javascript] (https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
-- `min (N)` - если значение меньше N, взять N, иначе значение
-- `max (M)` - если значение больше M, взять M, иначе значение
-- `sqrt` - квадратный корень
-- `pow (n)` - мощность N.
-- `pow` - степень двойки.
-- `пол` - Math.floor
-- `ceil` - Math.ceil
-- `random (R)` - Math.random () * R, или просто Math.random (), если нет аргумента
-- `formatValue (decimals)` - форматировать значение в соответствии с настройками системы и использовать десятичные дроби
-- `дата (формат)` - форматировать значение как дату. Формат такой: «ГГГГ-ММ-ДД чч: мм: сс.ссс».
-- `momentDate (format, useTodayOrYesterday)` - форматировать значение как дату с помощью Moment.js. [Утвержденные форматы необходимо вводить в соответствии с библиотекой moment.js] (https://momentjs.com/docs/#/displaying/format/). При использовании `useTodayOrYesterday = true` формат momentjs` ddd` / `dddd` заменяется на сегодня / вчера.
-- `array (element1, element2 [, element3, element4])` - возвращает элемент индекса. например: `{id.ack; array (ack - ложь, ack - истина)}`
+TR: - `\*` - multiplying. Argument must be in brackets, like "*(4)". In this sample we multiplying value with 4.
+TR: - `\+` - add. Argument must be in brackets, like "+(4.5)". In this sample we add to value 4.5.
+TR: - `\-` - subtract. Argument must be in brackets, like "-(-674.5)". In this sample we subtract from value -674.5.
+TR: - `/` - dividing. Argument must be in brackets, like "/(0.5)". In this sample we dividing value by 0.5.
+TR: - `%` - modulo. Argument must be in brackets, like "%(5)". In this sample we take modulo of 5.
+TR: - `round` - round the value.
+TR: - `round(N)` - round the value with N places after point, e.g. 34.678;round(1) => 34.7
+TR: - `hex` - convert value to hexadecimal value. All letters are lower cased.
+TR: - `hex2` - convert value to hexadecimal value. All letters are lower cased. If value less 16, so the leading zero will be added.
+TR: - `HEX` - same as hex, but upper-cased.
+TR: - `HEX2` - same as hex2, but upper-cased.
+TR: - `date` - format date according to given format. Format is the same as in [iobroker.javascript](https://github.com/iobroker/iobroker.javascript/blob/master/README.md#formatdate)
+TR: - `min(N)` - if value is less than N, take the N, else value
+TR: - `max(M)` - if value is greater than M, take the M, else value
+TR: - `sqrt` - square root
+TR: - `pow(n)` - power of N.
+TR: - `pow` - power of 2.
+TR: - `floor` - Math.floor
+TR: - `ceil` - Math.ceil
+TR: - `random(R)` - Math.random() * R, or just Math.random() if no argument
+TR: - `formatValue(decimals)` - format value according to system settings and use decimals
+TR: - `date(format)` - format value as date. Format is like: "YYYY-MM-DD hh:mm:ss.sss"
+TR: - `momentDate(format, useTodayOrYesterday)` - format value as date using Moment.js. [Approved formats must be entered according to the moment.js library](https://momentjs.com/docs/#/displaying/format/). With `useTodayOrYesterday=true` the momentjs format `ddd`/`dddd` are overwritten with today / yesterday
+TR: - `array(element1,element2[,element3,element4])` - returns the element of index. e.g.: `{id.ack;array(ack is false,ack is true)}`
 
-Вы можете использовать этот шаблон в любом тексте, например
+TR: You can use this pattern in any text, like
 
 ```
 My calculations with {objectID1;operation1;operation2;...} are {objectID2;operation3;operation4;...}
 ```
 
-или расчеты цвета:
+TR: or color calculations:
 
 ```
 #{objectRed;/(100);*(255);HEX2}{objectGreen;HEX2}{objectBlue;HEX2}
 ```
 
-Чтобы показать временную метку объекта, напишите `.ts` или `.lc` (для последнего изменения) в конце идентификатора объекта, например:
+TR: To show timestamp of object write `.ts` or `.lc` (for last change) at the end of object id, e.g.:
 
 ```
 Last change: {objectRed.lc;date(hh:mm)}
 ```
 
-Есть еще одна возможность записать выкройку:
+TR: There is another possibility to write the pattern:
 
 ```
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(h*h + w*w))}
 ```
 
-`{h:height;w:width;h*w}` будет интерпретироваться как функция:
+TR: `{h:height;w:width;h*w}` will be interpreted as function:
 
 ```
 value = (function () {
@@ -93,30 +93,30 @@ value = (function () {
 })();
 ```
 
-Вы можете использовать *любые* функции javascript. Аргументы должны быть определены с помощью ":", в противном случае это будет интерпретировано как формула.
+TR: You can use *any* javascript functions. Arguments must be defined with ':', if not, it will be interpreted as formula.
 
-Позаботьтесь о типах. Все они определены как строки. Конечно, это значение будет рассматриваться как число с использованием функции parseFloat.
+TR: Take care about types. All of them defined as strings. To be sure, that value will be treated as number use parseFloat function.
 
 ```
 Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Math.pow(parseFloat(h), 2) + Math.pow(parseFloat(w), 2)))}
 ```
 
-### Специальные привязки
-Существует ряд различных внутренних привязок для предоставления дополнительной информации в представлениях:
+TR: ### Special bindings
+TR: There are a number different internal bindings to provide additional information in views:
 
-* `username` - показывает авторизованного пользователя
-* `view` - имя актуального вида
-* `wname` - имя виджета
-* `widget` - это объект со всеми данными виджета. Может использоваться только в части JS, например `{a: a; widget.data.name}`
-* `wid` - имя актуального виджета
-* `language` - может быть` de`, `en` или` ru`.
-* `instance` - экземпляр браузера
-* `login` - если вход требуется или нет (например, чтобы показать / скрыть кнопку выхода)
-* `local_ *` - если имя состояния начинается с `local_`, оно не будет передано ioBroker, но обновит все виджеты, которые зависят от этого состояния. (Локальная переменная для текущего сеанса браузера)
+TR: * `username` - shows logged-in user
+TR: * `view` - name of actual view
+TR: * `wname` - widget name
+TR: * `widget` - is an object with all data of widget. Can be used only in JS part, like `{a:a;widget.data.name}`
+TR: * `wid` - name of actual widget
+TR: * `language` - can be `de`, `en` or `ru`.
+TR: * `instance` - browser instance
+TR: * `login` - if login required or not (e.g. to show/hide logout button)
+TR: * `local_*` - if state name is started from `local_` it will not be reported to ioBroker but will update all widgets, that depends on this state. (Local variable for current browser session)
 
-Примечание: чтобы использовать ":" в вычислениях (например, в строковой формуле), используйте вместо этого "::".
+TR: Note: to use ":" in calculations (e.g. in string formula) use "::" instead.
 
-** Помните **, что определения стилей будут интерпретироваться как привязки, поэтому используйте `{{style: value}}` или просто
+TR: **Remember**, that style definitions will be interpreted as bindings, so use `{{style: value}}` or just
 
 ```
 {
@@ -124,89 +124,95 @@ Hypotenuse of {height} and {width} = {h:height;w:width;Math.max(20, Math.sqrt(Ma
 }
 ```
 
-для этого.
+TR: for that.
 
-## Фильтры
-Для визуализации в одном представлении всего количества виджетов вы можете использовать фильтры, чтобы уменьшить количество виджетов, одновременно отображаемых в представлении.
+TR: ## Filters
+TR: To visualise on the one view thw whole number of widgets you can use filters to reduce the amount of widgets simultaneously shown on the view.
 
-У каждого виджета есть поле `filter`. Если вы установите для него какое-то значение, например `light`, чтобы вы могли использовать другой виджет `(bars - filters, filter - dropdown)` для управления активным фильтром.
+TR: Every widget has a field `filter`. If you set it to some value, e.g. `light`, so you can use other widget `(bars - filters, filter - dropdown)` to control which filter is actually active.
 
-## Интерфейс управления
-Vis создает 3 переменные:
+TR: ## Control interface
+TR: Vis creates 3 variables:
 
-- `control.instance` - здесь должен быть написан экземпляр браузера или FFFFFFFF, если каждый браузер должен контролироваться.
-- `control.data` - параметр для команды. См. Описание конкретной команды.
-- `control.command` - Имя команды. Запись в эту переменную запускает команду. Это означает, что перед записью команды необходимо подготовить «экземпляр» и «данные» с данными.
+TR: - `control.instance` - Here the browser instance should be written or FFFFFFFF if every browser must be controlled.
+TR: - `control.data`     - Parameter for command. See specific command description.
+TR: - `control.command`  - Command name. Write this variable triggers the command. That means before command will be written the "instance" and "data" must be prepared with data.
 
-Команды:
+TR: Commands:
 
-* `alert` - показать окно с предупреждением в vis. "control.data" имеет следующий формат: "сообщение; заголовок; значок jquery". Заголовок и значок jquery необязательны. Названия значков можно найти [здесь] (http://jqueryui.com/themeroller/). Чтобы отобразить значок ui-icon-info, напишите `` Message ;; info``.
-* `changeView` - переключиться на желаемый вид. "control.data" должно иметь имя представления. Вы также можете указать название проекта как «проект / представление». Проект по умолчанию - «главный».
-* `refresh` - перезагрузить vis, например, после изменения проекта для перезагрузки во всех браузерах.
-* `reload` - то же, что и обновление.
-* `dialog` - Показать диалоговое окно. Диалог должен существовать на просмотре. Один из:
+TR: * `alert` - show alert window in the vis. "control.data" has following format "message;title;jquery-icon". Title and jquery-icon are optional. Icon names can be found [here](http://jqueryui.com/themeroller/). To show icon "ui-icon-info" write ```Message;;info```.
+TR: * `changeView` - switch to desired view. "control.data" must have the name of view. You can specify project name too as "project/view". Default project is "main".
+TR: * `refresh` - reload the vis, for instance after project is changed to reload on all browsers.
+TR: * `reload` - same as refresh.
+TR: * `dialog` - Show dialog window. Dialog must exist on view. One of:
 
-    - `static - HTML - Dialog`,
-    - `static - Icon - Dialog`,
-    - `контейнер - HTML - просмотр в диалоге jqui`,
-    - `container - ext cmd - просмотреть в jqui Dialog`,
-    - `контейнер - Значок - просмотр в диалоге jqui`,
-    - `контейнер - Кнопка - просмотр в диалоге jqui`.
+TR:     - `static    - HTML    - Dialog`,
+TR:     - `static    - Icon    - Dialog`,
+TR:     - `container - HTML    - view in jqui Dialog`,
+TR:     - `container - ext cmd - view in jqui Dialog`,
+TR:     - `container - Icon    - view in jqui Dialog`,
+TR:     - `container - Button  - view in jqui Dialog`.
 
-    `control.data` должен иметь идентификатор диалогового виджета, например `w00056`.
+TR:     `control.data` must have id of dialog widget, e.g. `w00056`.
 
-* `dialogClose`
-* `popup` - открывает новое окно браузера. Ссылка должна быть указана в control.data, например http://google.com
-* `playSound` - воспроизвести звуковой файл. Ссылка на файл указывается в control.data, например http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
+TR: * `dialogClose`
+TR: * `popup` - opens a new browser window. Link must be specified in `control.data`, e.g. http://google.com
+TR: * `playSound` - play sound file. The link to file is specified in `control.data`, e.g. http://www.modular-planet.de/fx/marsians/Marsiansrev.mp3.
 
-  Вы можете загрузить свой собственный файл в vis и позволить ему воспроизводиться, например, как `/vis.0/main/img/myFile.mp3`.
+TR:   You can upload your own file in vis and let it play as for instance `/vis.0/main/img/myFile.mp3`.
 
-Если пользователь изменит представление или при запуске, переменные будут заполнены vis с
+TR: If user changes the view or at start the variables will be filled by the vis with
 
-- `control.instance`: экземпляр браузера и` ack = true`
-- `control.data`: название проекта и представления в форме` проект / представление`, например main / view (и ack = true)
-- `control.command`:` changedView` и `ack = true`
+TR: - `control.instance`: browser instance and `ack=true`
+TR: - `control.data`: project and view name in form `project/view`, e.g. `main/view` (and `ack=true`)
+TR: - `control.command`: `changedView` and `ack=true`
 
-Вы можете записать JSON-строку или объект в control.command как `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. В этом случае экземпляр и данные будут взяты из объекта JSON.
+TR: You can write the JSON-string or Object into control.command as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case the instance and data will be taken from JSON object.
 
-Пример для адаптера javascript:
+TR: Example for javascript adapter:
 
 ```
 setState('vis.0.control.command', {"instance": "*", "command": "refresh", "data": ""});
 ```
 
-## Вид по умолчанию
-Вы можете определить для каждого вида желаемое разрешение (Меню => Инструменты => Разрешение). Это только визуальная рамка в режиме редактирования, показывающая размер экрана на каком-то конкретном устройстве. В режиме реального времени он не будет виден, и будут видны все виджеты за пределами границы.
+TR: ## Default view
+TR: You can define for every view the desired resolution (Menu=>Tools=>Resolution). This is only the visual border in edit mode to show you the screen size on some specific device. In real time mode it will not be visible and all widgets outside of border will be visible.
 
-Кроме того, вы можете определить, нужно ли использовать это представление по умолчанию для этого разрешения.
+TR: Additionally, you can define if this view must be used as default for this resolution.
 
-Таким образом, каждый раз, когда вызывается `index.html` (без `#viewName`), открывается вид, наиболее подходящий для этого разрешения.
-Если только одно представление имеет флаг *"По умолчанию"* то это представление будет открыто независимо от разрешения или ориентации экрана.
+TR: So every time the `index.html` (without `#viewName`) is called, the best suitable for this resolution view will be opened.
+If only one view has *"Default"* flag, so this view will be opened independently from screen resolution or orientation.
 
-Например. вы можете создать два представления «Пейзаж-Мобильный» и «Портрет-Мобильный», и эти два представления будут переключаться автоматически при изменении ориентации или размера экрана.
+TR: E.g. you can create two views "Landscape-Mobile" and "Portrait-Mobile" and these two views will be switched automatically when you change the orientation or screen size.
 
-Существует вспомогательный виджет «Базовое - Разрешение экрана», который показывает фактическое разрешение экрана и наиболее подходящий вид по умолчанию для этого разрешения.
+TR: There is a helper widget "basic - Screen Resolution" that shows actual screen resolution and best suitable default view for this resolution.
 
-## Настройки
-### Перезагрузите, если спите дольше, чем
-Существует правило, что после некоторого периода отключения вся страница VIS будет перезагружена для синхронизации проекта.
-Вы можете настроить его в меню «Настройки ...». Если вы установите интервал «никогда», страница никогда не будет перезагружена.
+TR: ## Settings
+TR: ### Reload if sleep longer than
+TR: There is a rule, that after some disconnection period the whole VIS page will be reloaded to synchronise the project.
+You can configure it in the menu "Settings...". If you set interval to "never" so the page will never be reloaded.
 
-### Интервал повторного подключения
-Установите интервал между попытками подключения при отключении. Если вы установите 2 секунды, он будет пытаться установить соединение каждые 2 секунды.
+TR: ### Reconnect interval
+TR: Set the interval between the connection attempts if disconnected. If you set 2 seconds, it will try to establish the connection every 2 seconds.
 
-### Темный экран повторного подключения
-Иногда (ночью) требуется темный экран загрузки. С помощью этой опции вы можете установить это.
+TR: ### Dark reconnect screen
+TR: Sometimes (in the night) it is required to have dark loading screen. With this option you can set it.
 
-Обратите внимание, что эти настройки действительны только для повторного подключения, а не для первого подключения.
+TR: Notice that these settings are valid only for reconnection and not for the first connect.
 
-![Темный](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
+![TR: Dark](../../../en/adapterref/iobroker.vis/img/dark_screen.png)
 
-<! - Заполнитель для следующей версии (в начале строки):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### __WORK IN PROGRESS__
+* (thost96) fixes for issues found by adapter-checker
+
+### 1.3.10 (2021-05-25)
+* (bluefox) Fixed the support of admin5
+
 ### 1.3.9 (2021-04-29)
 * (agav99) Added support of local browser variables
 * (Scrounger) Bug fix for null & NaN values in width and height
