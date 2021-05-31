@@ -3,14 +3,14 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.unifi/README.md
 title: TR: ioBroker.unifi
-hash: ZzOpiHmdAxM0QjTfyZeBcdKrkbb/LWCiGRdFFOieXts=
+hash: zSzVMfDGm9zu8qpM6269G1Ytu9zXQOIIt8F9wdWr3NA=
 ---
-![TR: Logo](../../../en/adapterref/iobroker.unifi/admin/unifi.png)
-
 ![TR: Number of Installations](http://iobroker.live/badges/unifi-stable.svg)
 ![TR: NPM version](http://img.shields.io/npm/v/iobroker.unifi.svg)
 ![TR: Downloads](https://img.shields.io/npm/dm/iobroker.unifi.svg)
 ![TR: NPM](https://nodei.co/npm/iobroker.unifi.png?downloads=true)
+
+TR: <img height="100px" src="admin/unifi.png" align="left"><br/>
 
 TR: # ioBroker.unifi
 TR: This ioBroker adapter allows the monitoring and limited controlling of [TR: UniFi devices](http://www.ubnt.com/), such as UniFi WiFi Access Points using the public UniFi Controller Web-API.
