@@ -2,51 +2,46 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.twinkly/README.md
-title: ioBroker.twinkly
-hash: hldAZkmyW8gb0j+l0H2YzXZmhkZQE2diQeEA+IatQy8=
+title: TR: ioBroker.twinkly
+hash: /lG0DQSc6EvjJOdXRtxZRURjSWcr9Iiujz1V4IHVEOE=
 ---
-![商标](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
+![TR: Logo](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
-![安装数量（最新）](http://iobroker.live/badges/twinkly-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/twinkly-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.twinkly.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
-![依赖状态](https://img.shields.io/david/patrickbs96/iobroker.twinkly.svg)
-![已知漏洞](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/twinkly-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/twinkly-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.twinkly.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
+![TR: Dependency Status](https://img.shields.io/david/patrickbs96/iobroker.twinkly.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)
+![TR: AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)
 
-＃ioBroker.twinkly
-**测试：** Linux / Mac：[![Travis-CI]（https://travis-ci.com/patrickbs96/ioBroker.twinkly.svg）](https://travis-ci.com/github/patrickbs96/ioBroker.twinkly)]
+TR: # ioBroker.twinkly
+TR: **Tests:** Linux/Mac: [![TR: Travis-CI](https://travis-ci.com/patrickbs96/ioBroker.twinkly.svg)](https://travis-ci.com/github/patrickbs96/ioBroker.twinkly)
 
-##用于ioBroker的twinkly适配器
-与[闪烁的灯光](https://www.twinkly.com/)通信的适配器。
+TR: ## twinkly adapter for ioBroker
+TR: Adapter to communicate with the [TR: Twinkly lights](https://www.twinkly.com/).
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-##设置
-可以使用以下设置：![admin.png](../../../en/adapterref/iobroker.twinkly/img/admin.png)
+TR: ## Settings
+TR: The following Settings are available: ![TR: admin.png](../../../en/adapterref/iobroker.twinkly/img/admin.png)
 
-在表中，您可以添加要控制的所有Twinkly灯。
+TR: In the table you can add all the Twinkly lights you want to control.
 
-|专栏描述 |
+| TR: | Column       | Description                        |
 | ------------ | ---------------------------------- |
-| `Enabled`|是否应访问此连接|
-| `IP Address`|闪烁灯的IP地址|
-| IP地址|闪烁灯的IP地址|
+| TR: | `Enabled`    | Shall this connection be accessed  |
+| TR: | `IP Address` | IP-Address to the Twinkly Lights   |
+| TR: | `IP Address` | IP-Address to the Twinkly Lights   |
 
-选中后，将为每个设备创建以下附加状态：
+TR: The following additionals States are created per device when checked:
 
-*设备信息（已读）
-*网络状态（已读）
-* MQTT（读/写）
+TR: * Device Info (read)
+TR: * Network Status (read)
+TR: * MQTT (read/write)
 
-[私人API信息] [https://xled-docs.readthedocs.io/en/latest/）[PavolBabinčák](https://github.com/scrool)
-
-＃＃ 去做
-*选中“扩展JSON”开关后，不会创建频道（**重启解决了atm错误**）
-*网络状态（写）
-*状态为开：选中其“模式”播放列表/电影的复选框
+[TR: Private API information](https://xled-docs.readthedocs.io/en/latest/) by [Pavol Babinčák](https://github.com/scrool)
 
 ## Changelog
 

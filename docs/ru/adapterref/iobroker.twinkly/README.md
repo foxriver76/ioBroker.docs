@@ -2,51 +2,46 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.twinkly/README.md
-title: ioBroker.twinkly
-hash: hldAZkmyW8gb0j+l0H2YzXZmhkZQE2diQeEA+IatQy8=
+title: TR: ioBroker.twinkly
+hash: /lG0DQSc6EvjJOdXRtxZRURjSWcr9Iiujz1V4IHVEOE=
 ---
-![Логотип](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
+![TR: Logo](../../../en/adapterref/iobroker.twinkly/admin/twinkly.png)
 
-![Количество установок (последнее)](http://iobroker.live/badges/twinkly-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/twinkly-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.twinkly.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
-![Статус зависимости](https://img.shields.io/david/patrickbs96/iobroker.twinkly.svg)
-![Известные уязвимости](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/twinkly-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/twinkly-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.twinkly.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.twinkly.svg)
+![TR: Dependency Status](https://img.shields.io/david/patrickbs96/iobroker.twinkly.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/patrickbs96/ioBroker.twinkly/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.twinkly.png?downloads=true)
+![TR: AppVeyor](https://ci.appveyor.com/api/projects/status/github/patrickbs96/ioBroker.twinkly?branch=master&svg=true)
 
-# IoBroker.twinkly
-** Тесты: ** Linux / Mac: [![Travis-CI] (https://travis-ci.com/patrickbs96/ioBroker.twinkly.svg)](https://travis-ci.com/github/patrickbs96/ioBroker.twinkly)
+TR: # ioBroker.twinkly
+TR: **Tests:** Linux/Mac: [![TR: Travis-CI](https://travis-ci.com/patrickbs96/ioBroker.twinkly.svg)](https://travis-ci.com/github/patrickbs96/ioBroker.twinkly)
 
-## Адаптер twinkly для ioBroker
-Адаптер для связи с [Мерцающие огни](https://www.twinkly.com/).
+TR: ## twinkly adapter for ioBroker
+TR: Adapter to communicate with the [TR: Twinkly lights](https://www.twinkly.com/).
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Настройки
-Доступны следующие настройки: ![admin.png](../../../en/adapterref/iobroker.twinkly/img/admin.png)
+TR: ## Settings
+TR: The following Settings are available: ![TR: admin.png](../../../en/adapterref/iobroker.twinkly/img/admin.png)
 
-В таблицу вы можете добавить все источники Twinkly, которыми хотите управлять.
+TR: In the table you can add all the Twinkly lights you want to control.
 
-| Колонка | Описание |
+| TR: | Column       | Description                        |
 | ------------ | ---------------------------------- |
-| `Enabled` | Будет ли это соединение доступно |
-| `IP Address` | IP-адрес для мерцающих огней |
-| `IP-адрес` | IP-адрес для мерцающих огней |
+| TR: | `Enabled`    | Shall this connection be accessed  |
+| TR: | `IP Address` | IP-Address to the Twinkly Lights   |
+| TR: | `IP Address` | IP-Address to the Twinkly Lights   |
 
-Если установлен флажок, для каждого устройства создаются следующие дополнительные состояния:
+TR: The following additionals States are created per device when checked:
 
-* Информация об устройстве (читать)
-* Состояние сети (читать)
-* MQTT (чтение / запись)
+TR: * Device Info (read)
+TR: * Network Status (read)
+TR: * MQTT (read/write)
 
-[Информация о частном API] (https://xled-docs.readthedocs.io/en/latest/) [Павол Бабинчак](https://github.com/scrool)
-
-## ДЕЛАТЬ
-* После того, как переключатель "развернуть JSON" установлен, каналы не создаются (** перезапуск решает эту ошибку atm **)
-* Состояние сети (запись)
-* Состояние включено: флажок для списка воспроизведения / фильма в режиме ВКЛ.
+[TR: Private API information](https://xled-docs.readthedocs.io/en/latest/) by [Pavol Babinčák](https://github.com/scrool)
 
 ## Changelog
 

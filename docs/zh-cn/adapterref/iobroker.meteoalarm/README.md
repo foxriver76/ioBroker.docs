@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: TR: ioBroker.meteoalarm
-hash: 8Q/1vN8a1K+Lofg+VaZ4YQhEoG4CiTKEjdoFZOakcGI=
+hash: kBaShtjPs24XEaIcv6XpFuhXcnngk++euf8elrsCNbI=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -63,6 +63,15 @@ TR: ## Alarm Types
 | TR: |12|Flood|
 | TR: |13|Rain-Flood|
 
+TR: ## Setup
+TR: "No Background Color in HTML Widget": Ability to use the HTML Widget without background color (e.g. if you want to use the color object to fill your whole widget, not just the html widget)
+
+TR: "Define Warning colors": Ability to define the colors for the various alarm levels in HEX code. Used for HTML widget and also for the color object to manually assign it to another widget
+
+TR: "Use white icons": Use white icons instead of black ones
+
+TR: "No symbols in widget": Don't use the symbol in the HTML widget. You can still access it in the objects. This is usefill if you want to show the icon seperatly from the widget - e.g. in a bigger size.
+
 TR: ## Alarm Levels
 | TR: |Alarm Level|Description|
 |:---:|:---:|
@@ -108,10 +117,7 @@ TR: ## Features to implement
 TR: * Handle multiple alarms on one day
 
 TR: ## 1.2.0 (2021-05-16)
-TR: * (jack-blackson) New Setup:
-
-TR: "No Background Color in HTML Widget": Ability to use the HTML Widget without background color (e.g. if you want to use the color object to fill your whole widget, not just the html widget) "Define Warning colors": Ability to define the colors for the various alarm levels in HEX code. Used for HTML widget and also for the color object to manually assign it to another widget "Use white icons": Use white icons instead of black ones "No Icons": Don't show icon in HTML widget - if you want to show the icon seperatly, or just the icon
-
+TR: * (jack-blackson) New Setup: "No Background Color in HTML Widget", "Define Warning colors" and "Use white icons"
 TR: * (jack-blackson) New Icons
 
 TR: ## 1.1.11 (2021-05-09)
