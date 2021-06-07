@@ -2,70 +2,73 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.schwoerer-ventcube/README.md
-title: ioBroker.schwoerer-ventcube
-hash: ooQd7u6nAw3NV7A4xcAwWg32vY9GzGvOivxyM/aXzcQ=
+title: TR: ioBroker.schwoerer-ventcube
+hash: aBfWMJanRauvuqMhJ8iYqrkhjzBVlq3oBmX+Gd6wvyc=
 ---
-![Logo](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
+![TR: Logo](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.schwoerer-ventcube.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.schwoerer-ventcube.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/Excodibur/iobroker.schwoerer-ventcube.svg)
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/schwoerer-ventcube-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/schwoerer-ventcube-stable.svg)
-![Sprachklasse: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.schwoerer-ventcube.svg?logo=lgtm&logoWidth=18)
-![NPM](https://nodei.co/npm/iobroker.schwoerer-ventcube.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.schwoerer-ventcube.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.schwoerer-ventcube.svg)
+![TR: Dependency Status](https://img.shields.io/david/Excodibur/iobroker.schwoerer-ventcube.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/schwoerer-ventcube-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/schwoerer-ventcube-stable.svg)
+![TR: Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.schwoerer-ventcube.svg?logo=lgtm&logoWidth=18)
+![TR: NPM](https://nodei.co/npm/iobroker.schwoerer-ventcube.png?downloads=true)
 
-# IoBroker.schwoerer-ventcube
-![Github-Veröffentlichungsstatus](https://github.com/Excodibur/iobroker.schwoerer-ventcube/workflows/Build%2C%20Test%20and%20Release/badge.svg)
+TR: # ioBroker.schwoerer-ventcube
+![TR: Github release status](https://github.com/Excodibur/iobroker.schwoerer-ventcube/workflows/Build%2C%20Test%20and%20Release/badge.svg)
 
-## Schwoerer-ventcube adapter für ioBroker
-Adapter für Schwoererhaus Ventcube System. Weitere Informationen zu Ventcube Fresh finden Sie in [Hier](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/).
+TR: ## schwoerer-ventcube adapter for ioBroker
+TR: Adapter for Schwoererhaus Ventcube system. More information about Ventcube Fresh can be found [TR: here](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/).
 
-** Haftungsausschluss **: Dieser Adapter wird von der Firma [Schwoererhaus KG](https://www.schwoererhaus.de/), die das Ventcube-System vertreibt, weder entwickelt noch offiziell unterstützt. Anweisungen sollten mit Sorgfalt und auf eigenes Risiko befolgt werden.
+TR: **Disclaimer**: This adapter is neither developed nor officially supported by the company [TR: Schwoererhaus KG](https://www.schwoererhaus.de/) which distributes the Ventcube system. Instructions should be followed with care and at your own risk.
 
-### Voraussetzungen
-Um auf die Netzwerkschnittstelle von Ventcube zugreifen zu können, müssen folgende (bekannte) Voraussetzungen erfüllt sein:
+TR: ### Preconditions
+TR: In order to access the network-interface of Ventcube the following (known) preconditions need to be met:
 
-- Der Ventcube muss mit Ihrem internen Netzwerk verbunden sein (normalerweise über ein Netzwerkkabel).
-- Die Modbus-TCP-Schnittstelle muss unterstützt werden (Systemsteuerung:> = V1.05, VentCube:> = V02.11) und muss häufig zuerst manuell aktiviert werden
-    * Melden Sie sich in der Systemsteuerung im Abschnitt "Service" an (verwenden Sie das Standardkennwort aus den Dokumenten).
-* Überprüfen Sie in den Grundeinstellungen, ob die Netzwerkverbindung hergestellt ist und "9. Netzwerkschnittstelle" und "10. Modbus TCP" beide aktiv sind.
-* Wenn die letzten beiden Einstellungen nicht aktiv sind, aktivieren Sie sie und starten Sie den Ventcube neu (z. B. indem Sie die Stromversorgung vorübergehend unterbrechen).
+TR: - The Ventcube needs to be connected to your internal network (usually via network-cable)
+TR: - Modbus TCP interface needs to be supported (Control-Panel: >= V1.05, VentCube: >= V02.11) and often has to be enabled manually first
+TR:     * On Control Panel login to "Service" section (use standard password from docs)
+TR: 	* In Basic Settings check that Network Connection is established and "9. Network Interface" and "10. Modbus TCP" are both active.
+TR: 	* If the last two settings are not active, activate them and restart the Ventcube (e.g. by cutting the power temporarily)
 
-### Konfigurationsparameter
-Abhängig vom gebäudespezifischen Ventcube-Setup werden nicht alle Parameter verwendet, die über die Ventcube-Schnittstelle abgerufen oder geändert werden können. Jeder Parameter im Ordner "parameters" wird neben einem Eintrag im Ordner "lastUpdate" angezeigt, der den letzten Abrufzeitstempel für jeden Parameter angibt.
+TR: ### Configuration parameters
+TR: Depending on the building-specific Ventcube setup not all parameters that can be retrieved from or changed via the Ventcube interface will be used. Each parameter in the "parameters" folder goes side-by-side with an entry in the "lastUpdate" folder that indicates the last fetch timestamp for each parameter.
 
-Alle in der unten angegebenen Spezifikation genannten Parameter wurden dem Adapter hinzugefügt und können über die Option ***Erweiterte Funktionen*** aufgerufen werden, die während der Adapterbereitstellung konfiguriert werden kann. Wenn Sie diese Option aktivieren, ruft der Adapter regelmäßig Daten für mehr als 100 Parameter ab, von denen die meisten möglicherweise nicht in normalen Haushalten verwendet werden. Der Testumfang war auf ***Grundfunktionen*** beschränkt (standardmäßig aktiviert).
+TR: All parameters mentioned in the specification referenced below were added to the adapter and can be accessed via ***Advanced Functions*** option that is configurable during adapter deployment. Enabling this option will cause the adapter to periodically retrieve data for 100+ parameters, of which most might not be used in common households. Test scope was limited to ***Basic Functions*** (enabled by default).
 
-Die folgenden Standardkonfigurationswerte müssen wahrscheinlich während der Adapterbereitstellung geändert werden, damit eine ordnungsgemäße Verbindung zu Ventcube hergestellt werden kann:
+TR: The following default config-values likely will need to be changed during adapter deployment for it to connect to Ventcube properly:
 
-| Parameter | Standardwert | **Sollte sein** | Erklärung |
-| `Server` | localhost | ***HERMES-LT*** oder ***lokale Netzwerk-IP von Ventcube*** | Der Standardwert wird für Tests verwendet und muss unbedingt geändert werden! |
-| `Port` | 10502 | ***502*** | Der Standardwert wird für Tests verwendet und muss unbedingt geändert werden! |
-| `Interval` | 30 | 30 | Nach wie vielen Sekunden sollten die Metriken vom Server | aktualisiert werden |
-| `Request Timeout` | 5000 | 5000 | Wie viele Millisekunden warten, bis das Zeitlimit für Anfragen an Ventcube abgelaufen ist? |
-| `Reconnection Attempts` | 10 | 10 | Wenn die Verbindung zu Ventcube unterbrochen wird, wie oft sollte eine erneute Verbindung versucht werden |
-| `Delay between reconnection attempts` | 10000 | 10000 | Wie lange zwischen Wiederverbindungsversuchen gewartet werden soll (in Millisekunden) |
-| `Advanced Functions` | & # 10003; | | Während Grundfunktionen ausreichen können, wenn Ventcube nur zur Belüftung verwendet wird, sollten erweiterte Funktionen aktiviert werden, wenn Heiz- / Kühlfunktionen oder Systemmetriken (Fehlercodes, Lüfterdetails) benötigt werden. |
-| `Erweiterte Funktionen` | & # 10003; | | Während Grundfunktionen ausreichen können, wenn Ventcube nur zur Belüftung verwendet wird, sollten erweiterte Funktionen aktiviert werden, wenn Heiz- / Kühlfunktionen oder Systemmetriken (Fehlercodes, Lüfterdetails) benötigt werden. |
+| TR: | Parameter                             | Default Value | **Should be**                                         | Explanation |
+| TR: | `Server`                              | localhost     | ***HERMES-LT*** or ***local network IP of Ventcube*** | Default value is used for tests and definitely needs to be changed! |
+| TR: | `Port`                                | 10502         | ***502***                                             | Default value is used for tests and definitely needs to be changed! |
+| TR: | `Interval`                            | 30            | 30                                                    | After how many seconds should metrics be refreshed from server |
+| TR: | `Request Timeout`                     | 5000          | 5000                                                  | How many milliseconds to wait until requests to Ventcube time out |
+| TR: | `Reconnection Attempts`               | 10            | 10                                                    | In case connection is lost to Ventcube, how many times a reconnect should be attempted |
+| TR: | `Delay between reconnection attempts` | 10000         | 10000                                                 | How long to wait between reconnection attempts (in milliseconds) |
+| TR: | `Advanced Functions`                  | &#10003;      |                                                       | While basic functions might be sufficient if Ventcube is just used for air ventilation, advanced functions should be activated if heating/cooling functions, or system metrics (error codes, fan details) are needed. |
+| TR: | `Advanced Functions`                  | &#10003;      |                                                       | While basic functions might be sufficient if Ventcube is just used for air ventilation, advanced functions should be activated if heating/cooling functions, or system metrics (error codes, fan details) are needed. |
 
-#### Interessante Funktionen (zunächst)
-- ***Betriebsart*** , veränderbar
-- ***Stoßlüftung*** , 30 Minuten Luftstoß der Stufe 4), austauschbar
-- ***Ist Temp Raum 1*** (Temperatur im Haus)
-- ***T10 Außentemperatur***
+TR: #### Interesting functions (to start with)
+TR: - ***Betriebsart***, changeable
+TR: - ***Stoßlüftung*** (30 minute level 4 air burst), changeable
+TR: - ***Ist Temp Raum 1*** (temperature inside house)
+TR: - ***T10 Außentemperatur***
 
-### Referenzsystem
-Der ioBroker-Adapter wurde erfolgreich getestet mit:
+TR: ### Reference system
+TR: The ioBroker adapter was tested sucessfully with:
 
-| Systemsteuerung | Ventcube | Modbus-Spezifikation |
+| TR: | Control Panel | Ventcube | Modbus specification              |
 |---------------|----------|-----------------------------------|
-| V01.10 | V02.26 | Parameterliste_Modbus_TCP_03.2020 |
+| TR: | V01.10        | V02.26   | [TR: Parameterliste_Modbus_TCP_03.2020](https://schwoerer-service.com/storage/files/Community/2020/Parameterliste_Modbus_TCP_032020.pdf) |
+
+## Changelog
+See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/master/CHANGELOG.md).
 
 ## License
 MIT License
 
-Copyright (c) 2020 Excodibur <non@existant.com>
+Copyright (c) 2020-2021 Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,516 +1,520 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/denon-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.denon.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.denon.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.denon.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.denon/README.md
-title: ioBroker.denon
-hash: JYREJt7gT3z33R1WkTzC1mRy5Fp2M+2eeCHRIxmYS5E=
+title: TR: ioBroker.denon
+hash: QJOQw2ySmAxZxcy7FlzxYF/KQ/SiBO4lyLxKnHMYyBE=
 ---
-![商标](../../../en/adapterref/iobroker.denon/admin/denon.png)
+![TR: Logo](../../../en/adapterref/iobroker.denon/admin/denon.png)
 
-![安装数量](http://iobroker.live/badges/denon-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.denon.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.denon.svg)
-![NPM](https://nodei.co/npm/iobroker.denon.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/denon-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.denon.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.denon.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.denon.png?downloads=true)
 
-＃ioBroker.denon
+TR: # ioBroker.denon
 ===========================
 
-![建立状态](https://github.com/foxriver76/ioBroker.denon/workflows/Test%20and%20Release/badge.svg)
+![TR: Build Status](https://github.com/foxriver76/ioBroker.denon/workflows/Test%20and%20Release/badge.svg)
 
-##安装
-您可以通过ioBroker Web界面安装适配器，也可以通过npm在本地计算机上安装适配器。
+TR: ## Installation
+TR: You can either install the adapter via the ioBroker web interface or on your local machine via npm.
 
-###基于浏览器
-1.在浏览器中打开ioBroker Web界面（例如：192.168.30.70:8081）
-2.单击选项卡“适配器”
-3.在过滤器中键入“ Denon”
-4.单击三个点，然后单击DENON AVR适配器的“ +”符号
+TR: ### Browser-based
+TR: 1. Open your ioBroker web interface in a browser (eg: 192.168.30.70:8081)
+TR: 2. Click on Tab "Adapters"
+TR: 3. Type "Denon" in the Filter
+TR: 4. Click on the three points and then on the "+" symbol of the DENON AVR adapter
 
-![添加适配器](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
+![TR: Add Adapter](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
 
-###本地机器
-浏览到iobroker文件夹并执行以下命令：
+TR: ### Local machine
+TR: Navigate into your iobroker folder and execute the following command:
 
 ```bash
 npm i iobroker.denon
 ```
 
-＃＃ 设定
-除了适配器安装之外，还必须确保正确配置了AVR。
+TR: ## Setup
+TR: Additional to the adapter installation you have to make sure that your AVR is correctly configured.
 
-### IoBroker
-1.在浏览器中打开ioBroker界面（例如：192.168.1.33:8081）
-2.导航至选项卡“适配器”
-3.单击三个点，然后单击DENON AVR适配器的“ +”符号
+TR: ### ioBroker
+TR: 1. Open your ioBroker interface in a browser (eg: 192.168.1.33:8081)
+TR: 2. Navigate to Tab "Adapters"
+TR: 3. Click on the three points and then on the "+" symbol of the DENON AVR adapter
 
-![添加适配器](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
+![TR: Add Adapter](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
 
-4.现在，您可以看到适配器配置页面->输入DENON AVR的IP地址或单击搜索
+TR: 4. Now you can see the adapter configuration page --> type in the ip-address of your DENON AVR or click on the search
 
-图标以在您的网络中找到AVR（通过UPnP）![适配器配置](../../../en/adapterref/iobroker.denon/docs/en/media/fillInIp.png)
+TR: icon to find AVRs in your network (via UPnP) ![TR: Adapter Configuration](../../../en/adapterref/iobroker.denon/docs/en/media/fillInIp.png)
 
-5.如果您还想调整请求/轮询间隔，请确保单击“高级设置”选项卡。
+TR: 5. If you also want to adjust the request/poll interval, make sure to click on the "Advanced Settings" Tab.
 
-通过减少轮询间隔，适配器将减少更新显示内容之间的时间。
-通过减少请求间隔，将减少发送命令之间的时间。
-默认设置应适合大多数用户。
-![高级设置](../../../en/adapterref/iobroker.denon/docs/en/media/advancedSettings.png)
+TR: By decreasing the Poll Interval the adapter will decrease the time between updating the display contents.
+By decreasing the request interval the time between sending commands will be decreased.
+The default settings should fit well for the most users.
+![TR: Advanced Settings](../../../en/adapterref/iobroker.denon/docs/en/media/advancedSettings.png)
 
-6.单击保存并关闭
+TR: 6. Click on Save & Close
 
-### AV接收机的网络设置
-1.按SETUP（设置）按钮，然后菜单出现在FL-显示器（和GUI）上
-2.选择“网络”->“设置”
-3.设置如下所述的参数
+TR: ### Network Setup of AV Receiver
+TR: 1. Press SETUP button, then Menu appears on FL-display(and GUI)
+TR: 2. Select "Network" --> "Settings"
+TR: 3. Set parameters described below
 
-   * DHCP：“ ON”（当DHCP服务器在本地网络上时使用此设置。）*
+TR:    *DHCP: "ON" (Use this setting when DHCP server is on the local network.)*
 
-   * IP地址：<DHCP>设置为“关”时，请设置IP地址。*
+TR:    *IP Address: When <DHCP> sets "Off”, please set IP address.*
 
-   *子网掩码：当<DHCP>设置为“关”时，请设置子网掩码。*
+TR:    *Subnet Mask: When <DHCP> sets "Off", please set Subnet Mask.*
 
-   *网关：当网关位于本地网络上时，设置网关的地址。*
+TR:    *Gateway: Set the address of Gateway when Gateway is on the local network.*
 
-   *主DNS：请勿设置此参数。*
+TR:    *Primary DNS: Do not set this parameter.*
 
-   *第二个DNS：请勿设置此参数。*
+TR:    *Second DNS: Do not set this parameter.*
 
-   *代理：将此参数设置为“关”。*
+TR:    *Proxy: Set this parameter "Off".*
 
-4.按SETUP（设置）按钮，然后菜单出现在FL显示屏（和GUI）上
-5.选择“网络”->“网络控制/ IP控制”
-6.将此参数设置为“ Always On”。
+TR: 4. Press SETUP button, then Menu appears on FL-display (and GUI)
+TR: 5. Select “Network" --> Network Control/IP Control"
+TR: 6. Set this parameter to "Always On".
 
-##用法
-请注意，AVR只能管理一个telnet连接。如果您具有有效的telnet连接，则e。 G。使用javascript适配器，AVR将拒绝该适配器的连接。
-在这里，您可以找到状态的描述以及如何使用它们。
+TR: ## Usage
+TR: Take note, that the AVRs can only manage a single telnet connection. If you are having an active telnet connection e. g. with the javascript adapter, the AVR will refuse the connection of this adapter.
+Here you can find a description of the states and how to use them.
 
-＃＃＃ 纽扣
-适配器创建以下按钮：
+TR: ### Buttons
+TR: The adapter creates the following buttons:
 
-####频道：zoneMain / zone2 / zone3
-* zoneMain.playPause
+TR: #### Channel: zoneMain / zone2 / zone3
+TR: * zoneMain.playPause
 
-   *播放和暂停来自蓝牙，在线，USB / iPod来源的音乐。*
+TR:    *Play and pause music from Bluetooth, Online, USB/iPod sources.*
 
-* zoneMain.play
+TR: * zoneMain.play
 
-   *播放来自蓝牙，在线，USB / iPod来源的音乐。
+TR:    *Play music from Bluetooth, Online, USB/iPod sources.*
 
-* zoneMain.pause
+TR: * zoneMain.pause
 
-   *暂停来自蓝牙，在线，USB / iPod来源的音乐。*
+TR:    *Pause music from Bluetooth, Online, USB/iPod sources.*
 
-* zoneMain.skipMinus
+TR: * zoneMain.skipMinus
 
-   *跳至上一个标题。*
+TR:    *Skip to previous title.*
 
-   *不完全支持HEOS AVR'S *
+TR:    *NOT FULLY SUPPORTED FOR HEOS AVR'S*
 
-* zoneMain.skipPlus
+TR: * zoneMain.skipPlus
 
-   *跳到下一个标题。*
+TR:    *Skip to next title.*
 
-   *不完全支持HEOS AVR'S *
+TR:    *NOT FULLY SUPPORTED FOR HEOS AVR'S*
 
-* zoneMain.volumeDown / zone2.volumeDown / zone3.volumeDown
+TR: * zoneMain.volumeDown / zone2.volumeDown / zone3.volumeDown
 
-   *减少主要区域/区域2 /区域3的音量。*
+TR:    *Decrease volume of Main Zone / Zone2 / Zone3.*
 
-* zoneMain.volumeUp / zone2.volumeUp / zone3.volumeUp
+TR: * zoneMain.volumeUp / zone2.volumeUp / zone3.volumeUp
 
-   *增加主要区域/区域2 /区域3的音量。*
+TR:    *Increase volume of Main Zone / Zone2 / Zone3.*
 
-* zoneMain.equalizerBassUp / zone2.equalizerBassUp / zone3.equalizerBassUp
+TR: * zoneMain.equalizerBassUp / zone2.equalizerBassUp / zone3.equalizerBassUp
 
-   *增加区域低音等级的按钮。*
+TR:    *Button which increases bass level of the Zone.*
 
-   *当Dyn EQ设置为OFF且Tone Control打开时，可以调节低音和高音设置*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-* zoneMain.equalizerBassDown / zone2.equalizerBassDown / zone3.equalizerBassDown
+TR: * zoneMain.equalizerBassDown / zone2.equalizerBassDown / zone3.equalizerBassDown
 
-   *降低区域低音等级的按钮。
+TR:    *Button which decreases bass level of the Zone.*
 
-   *当Dyn EQ设置为OFF且Tone Control打开时，可以调节低音和高音设置*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-* zoneMain.equalizerTrebleUp / zone2.equalizerTrebleUp / zone3.equalizerTrebleUp
+TR: * zoneMain.equalizerTrebleUp / zone2.equalizerTrebleUp / zone3.equalizerTrebleUp
 
-   *增加区域高音水平的按钮。*
+TR:    *Button which increases treble level of the Zone.*
 
-   *当Dyn EQ设置为OFF且Tone Control打开时，可以调节低音和高音设置*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-* zoneMain.equalizerTrebleDown / zone2.equalizerTrebleDown / zone3.equalizerTrebleDown
+TR: * zoneMain.equalizerTrebleDown / zone2.equalizerTrebleDown / zone3.equalizerTrebleDown
 
-   *降低区域高音水平的按钮。*
+TR:    *Button which decreases treble level of the Zone.*
 
-   *当Dyn EQ设置为OFF且Tone Control打开时，可以调节低音和高音设置*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-####频道：设置
-* settings.subwooferLevelDown / settings.subwooferTwoLevelDown
+TR: #### Channel: settings
+TR: * settings.subwooferLevelDown / settings.subwooferTwoLevelDown
 
-   *通过按下按钮降低低音炮的音量。*
+TR:    *Reduce subwoofer level by pressing the button.*
 
-* settings.subwooferLevelUp / settings.subwooferTwoLevelUp
+TR: * settings.subwooferLevelUp / settings.subwooferTwoLevelUp
 
-   *按一下按钮提高低音炮的音量。*
+TR:    *Increase subwoofer level by pressing the button.*
 
-* settings.containmentAmountDown
+TR: * settings.containmentAmountDown
 
-   *减少Audyssey LFC数量。如果您的AVR支持该按钮，则只会创建该按钮。*
+TR:    *Decrease Audyssey LFC amount. The button will only be created, if it is supported by your AVR.*
 
-* settings.containmentAmountUp
+TR: * settings.containmentAmountUp
 
-   *增加Audyssey LFC数量。如果您的AVR支持该按钮，则只会创建该按钮。*
+TR:    *Increase Audyssey LFC amount. The button will only be created, if it is supported by your AVR.*
 
-* settings.cursorUp / settings.cursorDown / settings.cursorLeft / settings.cursorRight
+TR: * settings.cursorUp / settings.cursorDown / settings.cursorLeft / settings.cursorRight
 
-   *模拟遥控器的光标按钮*
+TR:    *Simulates the cursor buttons of your remote control*
 
-* settings.enter
+TR: * settings.enter
 
-   *模拟遥控器的输入按钮*
+TR:    *Simulates the enter button of your remote control*
 
-* settings.return
+TR: * settings.return
 
-   *模拟遥控器的返回/返回按钮*
+TR:    *Simulates the return/back button of your remote control*
 
-* settings.option
+TR: * settings.option
 
-   *模拟遥控器的选项按钮*
+TR:    *Simulates the option button of your remote control*
 
-* settings.info
+TR: * settings.info
 
-   *模拟遥控器的信息按钮*
+TR:    *Simulates the info button of your remote control*
 
-＃＃＃ 状态
-适配器将创建以下状态：
+TR: ### States
+TR: Following states will be created by the adapter:
 
-####频道：信息
-*信息连接
+TR: #### Channel: info
+TR: * info.connection
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |布尔| R |
+| TR:     |boolean|R|
 
-   *只读的布尔指标。如果您的经纪人连接到您的DENON AVR，则状态为true，否则为false。*
+TR:    *Read-only boolean indicator. If your broker is connected to your DENON AVR, the state is true otherwise false.*
 
-* info.friendlyName
+TR: * info.friendlyName
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | string | R |
+| TR:     |string|R|
 
-   *只读字符串。包含连接的AVR的友好名称。*
+TR:    *Read only string. Contains the friendly name of the connected AVR.*
 
-* info.onlinePresets
+TR: * info.onlinePresets
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | string | R |
+| TR:     |string|R|
 
-* JSON数组格式的字符串，它通过ID和频道表示当前保存的收藏夹。
-每个通道的名称限制为20位数字。您可以通过设置settings.savePreset将当前频道保存为一个ID，并通过将settings.loadPreset设置为相关ID来加载一个当前频道。*
+TR: *String in JSON array format, which represents the current saved favorites by its id and channel.
+The names of each channel are limited by 20 digits. You can save the current channel to an id by setting settings.savePreset and load one by setting settings.loadPreset to the related id.*
 
-####频道：zoneMain / zone2 / zone3
-* zoneMain.volume / zone2.volume / zone3.volume
+TR: #### Channel: zoneMain / zone2 / zone3
+TR: * zoneMain.volume / zone2.volume / zone3.volume
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |编号| R / W |
+| TR:     |number|R/W|
 
-*数字值代表您的AVR的当前Main Zone / Zone2 / Zone 3音量。您也可以在此处设置音量。
-在单独的状态下，音量也以dB表示。 G。 mainVolumeDB *
+TR: *Number value which represents the current Main Zone / Zone2 / Zone 3 volume of your AVR. You can also set the volume here.
+The volume is represented in dB too in separate states, e. g. mainVolumeDB*
 
-   *范围是0到98（可能会由于最大音量而降低），其中80 = 0 dB *
+TR:    *Range is from 0 to 98 (maybe lower due to maximumVolume), where 80 = 0 dB*
 
-   *例：*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.zoneMain.volume', 45.5); // Sets volume of Main Zone to 45.5
 ```
 
-* zoneMain.maximumVolume
+TR: * zoneMain.maximumVolume
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | number | R |
+| TR:     |number|R|
 
-   *只读数字，表示最大可能的音量，其中80 = 0 dB。在maximumVolumeDB状态下，音量也以dB为单位设置。*
+TR:    *Read-only number which represents the maximum possible volume, where 80 = 0 dB. The volume is also set in dB in the maximumVolumeDB state.*
 
-* zoneMain.muteIndicator / zone2.muteIndicator / zone3.muteIndicator
+TR: * zoneMain.muteIndicator / zone2.muteIndicator / zone3.muteIndicator
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-   *布尔值，如果“主区域” /“区域2” /“区域3”被静音，则为true，否则为false。您可以在此状态下将AVR静音。*
+TR:    *Boolean value, which is true if the Main Zone / Zone2 / Zone3 is muted, otherwise false. You can mute your AVR with this state.*
 
-   *例：*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your AVR
 ```
 
-* zoneMain.powerZone / zone2.powerZone / zone3.powerZone
+TR: * zoneMain.powerZone / zone2.powerZone / zone3.powerZone
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-   *布尔值，如果打开了区域则为true，否则为false。您可以在此状态下打开和关闭AVR /区域。*
+TR:    *Boolean value, which is true if the Zone is turned on, otherwise false. You can turn your AVR / Zone on and off with this state.*
 
-* zoneMain.selectInput / zone2.selectInput / zone3.selectInput
+TR: * zoneMain.selectInput / zone2.selectInput / zone3.selectInput
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-   *字符串值包含当前输入源。您还可以使用以下编码设置输入源：*
+TR:    *The string value contains the current input source. You can also set the input source with the following encoding:*
 
-   *0：PHONO*
+TR:    *0: 	PHONO*
 
-   *1：CD*
+TR:    *1: 	CD*
 
-   * 2：调谐器*
+TR:    *2: 	TUNER*
 
-   *3：DVD*
+TR:    *3: 	DVD*
 
-   *4：BD*
+TR:    *4: 	BD*
 
-   * 5：电视*
+TR:    *5: 	TV*
 
-   *6：SAT / CBL*
+TR:    *6: 	SAT/CBL*
 
-   *7：MPLAY*
+TR:    *7: 	MPLAY*
 
-   * 8：游戏*
+TR:    *8: 	GAME*
 
-   *9：NET*
+TR:    *9: 	NET*
 
-   *10：SPOTIFY*
+TR:    *10:	SPOTIFY*
 
-   *11：LASTFM*
+TR:    *11:	LASTFM*
 
-   *12：IRADIO*
+TR:    *12:	IRADIO*
 
-   * 13：服务器*
+TR:    *13:	SERVER*
 
-   * 14：最爱*
+TR:    *14:	FAVORITES*
 
-   *15：AUX1*
+TR:    *15:	AUX1*
 
-   *16：AUX2*
+TR:    *16:	AUX2*
 
-   *17：AUX3*
+TR:    *17:	AUX3*
 
-   *18：AUX4*
+TR:    *18:	AUX4*
 
-   *19：AUX5*
+TR:    *19:	AUX5*
 
-   *20：AUX6*
+TR:    *20:	AUX6*
 
-   *21：AUX7*
+TR:    *21:	AUX7*
 
-   *22：BT*
+TR:    *22: BT*
 
-   *23：USB*
+TR:    *23: USB*
 
-*请注意，并非每种输入源都适用于每种AVR型号。如果您的AVR有其他输入，则一旦检测到它们，它们就会被添加到列表中。*
+TR: *Please note, that not every input source is available on every AVR model. If your AVR has additional inputs, they will be appended to the list, once they have been detected.*
 
-   *例：*
+TR:    *Example:*
 
 ```javascript
  setState('denon.0.zoneMain.selectInput', '5'); // Selects TV as input for Main Zone
 ```
 
-* zoneMain.quickSelect / zone2.quickSelect / zone3.quickSelect
+TR: * zoneMain.quickSelect / zone2.quickSelect / zone3.quickSelect
 
-   |数据类型|权限|
+| TR:    |Data type|Permission|
    |:---:|:---:|
-   |编号| R / W |
+| TR:    |number|R/W|
 
-   *使用遥控器的快速选择按钮，主区域/ Zone2 / Zone3的数字从1到5。
+TR:    *Emulates the quick select buttons of your remote, with numbers from 1 to 5 for Main Zone / Zone2 / Zone3.*
 
-* zoneMain.sleepTimer / zone2.sleepTimer / zone3.sleepTimer
+TR: * zoneMain.sleepTimer / zone2.sleepTimer / zone3.sleepTimer
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |编号| R / W |
+| TR:     |number|R/W|
 
-   *用于读取和设置所选区域的睡眠计时器的数字值。该值将在不到10秒的时间内更新。*
+TR:    *Number-value to read and set the sleep timer for the selected zone. The value will be updated in less than 10 seconds.*
 
-* zoneMain.iconURL
+TR: * zoneMain.iconURL
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | string | R |
+| TR:     |string|R|
 
-   *包含一个链接，您可以在其中找到当前播放的频道/歌曲的封面。*
+TR:    *Contains a link where you can find the cover of the channel/song which is currently played.*
 
-   *不支持HEOS AVR'S *
+TR:    *NOT SUPPORTED FOR HEOS AVR'S*
 
-* zoneMain.equalizerBass / zone2.equalizerBass / zone3.equalizerBass
+TR: * zoneMain.equalizerBass / zone2.equalizerBass / zone3.equalizerBass
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |编号| R / W |
+| TR:     |number|R/W|
 
-   *数字值代表区域的低音水平。值范围是-6至+6 dB。*
+TR:    *Number value which represents the bass level of the Zone. Value range is from -6 to +6 dB.*
 
-   *当Dyn EQ设置为OFF且Tone Control打开时，可以调节低音和高音设置*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-* zoneMain.equalizerTreble / zone2.equalizerTreble / zone3.equalizerTreble
+TR: * zoneMain.equalizerTreble / zone2.equalizerTreble / zone3.equalizerTreble
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |编号| R / W |
+| TR:     |number|R/W|
 
-   *数字值代表区域的高音水平。值范围是-6至+6 dB。*
+TR:    *Number value which represents the treble level of the Zone. Value range is from -6 to +6 dB.*
 
-   *当Dyn EQ设置为OFF且Tone Control打开时，可以调节低音和高音设置*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-* zoneMain.channelVolumeFrontLeft / zone2.channelVolumeFrontLeft / zone3.channelVolumeFrontLeft / ...
+TR: * zoneMain.channelVolumeFrontLeft / zone2.channelVolumeFrontLeft / zone3.channelVolumeFrontLeft / ...
 
-   |数据类型|权限|
+| TR:    |Data type|Permission|
    |:---:|:---:|
-   |编号| R / W |
+| TR:    |number|R/W|
 
-*数字值代表每个扬声器的当前声道音量。每个扬声器都有一个单独的状态。设置会影响当前的“选择输入模式”。可以在-12 dB到+12 dB的范围内调整状态。*
+TR: *Number value which represents the current channel volume for each speaker. Each speaker has a separate state. The settings affect the current Select Input Mode. The state can be adjusted from -12 dB to +12 dB.*
 
-####频道：显示
-* display.displayContent
+TR: #### Channel: display
+TR: * display.displayContent
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | string | R |
+| TR:     |string|R|
 
-   *包含AVR显示内容的只读字符串。它有九个州0-9. *
+TR:    *Read-only string which contains the content of your AVR display. It has nine states 0 - 9.*
 
-   *不支持HEOS AVR的显示内容*
+TR:    *DISPLAY CONTENT IS NOT SUPPORTED FOR HEOS AVR'S*
 
-*显示亮度
+TR: * display.brightness
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-   *表示显示屏亮度的字符串值。该值还可以通过以下编码来设置显示亮度：*
+TR:    *String value which represents the display brightness. The value can also set the display brightness by the following encoding:*
 
-   * 0：关闭->关闭显示*
+TR:    *0: Off --> turns display off*
 
-   * 1：暗->将显示变为暗*
+TR:    *1: Dark --> turns display dark*
 
-   * 2：变暗->使显示变暗*
+TR:    *2: Dimmed --> turns display dimmed*
 
-   * 3：亮->使显示屏变亮*
+TR:    *3: Bright --> turns display bright*
 
-   *例：*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.display.brightness', '3'); // Sets display brightness to "Bright"
 ```
 
-####频道：设置
-* settings.powerSystem
+TR: #### Channel: settings
+TR: * settings.powerSystem
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-   *布尔值，如果打开AVR，则为true，否则为false。您也可以在此状态下打开和关闭AVR。*
+TR:    *Boolean value which is true, if the AVR is turned on, otherwise false. You can also turn your AVR on and off with this state.*
 
-* settings.surroundMode
+TR: * settings.surroundMode
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-   *字符串值包含当前的环绕声模式。您还可以使用以下编码更改来源：*
+TR:    *The string value contains the current Surround mode. You can also change the source with the following encoding:*
 
-   * 0：立体声*
+TR:    *0:	STEREO*
 
-   * 1：虚拟*
+TR:    *1:	VIRTUAL*
 
-   * 2：视频游戏*
+TR:    *2:	VIDEO GAME*
 
-   * 3：MCH立体声*
+TR:    *3:	MCH STEREO*
 
-   * 4：DTS环绕声*
+TR:    *4:	DTS SURROUND*
 
-   * 5：杜比数字*
+TR:    *5:	DOLBY DIGITAL*
 
-   * 6：电影*
+TR:    *6:	MOVIE*
 
-   * 7：音乐*
+TR:    *7:	MUSIC*
 
-   * 8：直接*
+TR:    *8:	DIRECT*
 
-   * 9：纯正*
+TR:    *9:	PURE DIRECT*
 
-   * 10：自动*
+TR:    *10:	AUTO*
 
-   * 11：游戏*
+TR:    *11:	GAME*
 
-   *12：AURO3D*
+TR:    *12:	AURO3D*
 
-   *13：AURO2DSURR*
+TR:    *13:	AURO2DSURR*
 
-   * 14：宽屏*
+TR:    *14:	WIDE SCREEN*
 
-   * 15：超级体育场*
+TR:    *15:	SUPER STADIUM*
 
-   * 16：摇滚竞技场*
+TR:    *16:	ROCK ARENA*
 
-   * 17：爵士俱乐部*
+TR:    *17:	JAZZ CLUB*
 
-   * 18：经典音乐会*
+TR:    *18:	CLASSIC CONCERT*
 
-   * 19：MONO电影*
+TR:    *19:	MONO MOVIE*
 
-   * 20：矩阵*
+TR:    *20:	MATRIX*
 
-   *请注意，并非每种环绕声模式在每种AVR型号上都可用。
+TR:    *Please note, that not every Surround mode is available on every AVR model.*
 
-   *例：*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.settings.surroundMode', '3'); // Sets Multi Channel Stereo as surround mode
 ```
 
-* settings.lfeAmount
+TR: * settings.lfeAmount
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |编号| R / W |
+| TR:     |number|R/W|
 
-*额外的低音扬声器信号量，以dB为单位。
-范围从0 dB到-10 dB。其中10 = -10 dB。*
+TR: *Amount of subwoofer signal additional directed to speakers in dB.
+Range is from 0 dB to -10 dB. Where 10 = -10 dB.*
 
-* settings.expertCommand
+TR: * settings.expertCommand
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-   *您可以在这种状态下发送自己的自定义命令。您可以在[AVR-Control-Protocol.pdf](docs/AVR-Control-Protocol.pdf)*中找到有关现有命令的概述。
+TR:    *You can send your own custom commands with this state. You can find an overview about the existing commands in the [TR: AVR-Control-Protocol.pdf](docs/AVR-Control-Protocol.pdf)*
 
-   *例：*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.settings.expertCommand', 'ECOON'); // Turns Main Zone ECO mode on
 ```
 
-* settings.expertReadingPattern
+TR: * settings.expertReadingPattern
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-*如果要获取存储在`settings.expertReadingResult`中的特定答案，则必须将RegEx设置为此状态。
-必须设置RegEx，以便RegEx构造函数可以使用它。建议使用[RegEx测试仪](https://regexr.com/)。
-不要在RegEx的开头或结尾设置`/`。*
+TR: *If you want to get specific answers stored in `settings.expertReadingResult` you have to set a RegEx to this state.
+RegEx has to be set, so that a RegEx Constructor can use it. It is recommended to use a [TR: RegEx tester](https://regexr.com/).
+Do not set `/` at the beginning or end of the RegEx.*
 
-    *例：*
+TR:     *Example:*
 
 ```javascript
 setState('denon.0.settings.expertReadingPattern', '(MV.+)|(SSINFAISFSV.+)');
@@ -522,6 +526,31 @@ ttings.expertReadingResult
 |string|R|
 
 *Incoming data, which matches the RegEx of `settings.expertReadingPattern` will be set to this state.*
+
+
+ttings.dialogControl
+
+|Data type|Permission|
+|:---:|:---:|
+|number|R/W|
+
+*The dialog control, which can be operated from 0 dB to 6 dB.*
+
+ttings.dialogLevelAdjust
+
+|Data type|Permission|
+|:---:|:---:|
+|boolean|R/W|
+
+*Turns the dialog level adjustment on, which allows to modify the dialog volume of DTS content.*
+
+ttings.dialogLevel
+
+|Data type|Permission|
+|:---:|:---:|
+|boolean|R/W|
+
+*If dialog level adjustment is turned on you can modify the dialog volume of DTS content between -12 dB and +12 dB.*
 
 ttings.outputMonitor
 
@@ -543,292 +572,320 @@ Example:*
 etState('denon.0.settings.outputMonitor', '2'); // Sets monitor 2 as active monitor
 ``
 
-* settings.videoProcessingMode
+TR: * settings.videoProcessingMode
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-   *选择AVR的视频处理模式。仅当您的AVR支持时，才会创建此状态。您可以在以下状态之间切换状态：*
+TR:    *Select the video processing mode of your AVR. This state will only be created if your AVR supports it. You can switch the state between:*
 
-   * 0：自动*
+TR:    *0: AUTO*
 
-   * 1：游戏*
+TR:    *1: GAME*
 
-   * 2：电影*
+TR:    *2: MOVIE*
 
-   *例：*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing Mode to "MOVIE"
 ```
 
-* settings.centerSpread
+TR: * settings.centerSpread
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-   *布尔值，如果中心跨度持续，则为true，否则为false。您也可以在此状态下打开/关闭中心传播。*
+TR:    *Boolean-value which is true if center spread is truned on, else false. You can also turn on/off center spread with this state.*
 
-* settings.dynamicEq
+TR: * settings.dynamicEq
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-   *布尔值，表示动态均衡器的状态。您也可以在此状态下打开和关闭动态均衡器。*
+TR:    *Boolean value which represents the state of Dynamic EQ. You can also set Dynamic EQ on and off with this state.*
 
-* settings.subwooferLevelState
+TR: * settings.subwooferLevelState
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-   *布尔值，如果为true，则可以在低音炮级别上进行更改。*
+TR:    *Boolean value, if it's true, you are able to make changes on the subwoofer level.*
 
-* settings.subwooferLevel / settings.subwooferTwoLevel
+TR: * settings.subwooferLevel / settings.subwooferTwoLevel
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |编号| R / W |
+| TR:     |number|R/W|
 
-*数值表示当前的低音炮电平。该值的范围是-12至12（-12 dB至+12 dB）。
-只有您的AVR支持SubwooferTwoLevel状态。*
+TR: *Number value which indicates the current subwoofer level. The value has a range from -12 to 12 (-12 dB to +12 dB).
+The SubwooferTwoLevel state will only be created if it is supported by your AVR.*
 
-* settings.audysseyLfc
+TR: * settings.audysseyLfc
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-*布尔值，它包含并能够控制Audyssey低频抑制状态（开/关）。
-如果您的AVR支持该状态，则只会创建状态。*
+TR: *Boolean value, which contains and is able to control Audyssey Low Frequency Containment status (on/off).
+The state will only be created, if it is supported by your AVR.*
 
-* settings.containmentAmount
+TR: * settings.containmentAmount
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |编号| R / W |
+| TR:     |number|R/W|
 
-*数字值，用于设置低频抑制量。该值可以在1到7之间。只有在您的AVR支持的情况下，才会创建状态。*
+TR: *Number value to set the Low Frequency Containment Amount. The value can be between 1 and 7. The state will only be created, if it is supported by your AVR.*
 
-* settings.multEq
+TR: * settings.multEq
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-   *字符串值，使用以下编码设置AVR的MultEQ功能：*
+TR:    *String value, to set the MultEQ function of your AVR with the following encoding:*
 
-   * 0：关闭*
+TR:    *0: OFF*
 
-   *1：AUDYSSEY*
+TR:    *1: AUDYSSEY*
 
-   *2：BYP.LR*
+TR:    *2: BYP.LR*
 
-   * 3：平*
+TR:    *3: FLAT*
 
-   * 4：手册*
+TR:    *4: MANUAL*
 
-* settings.dynamicVolume
+TR: * settings.dynamicVolume
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-   *通过以下编码选择动态卷的字符串值：*
+TR:    *String value to select the Dynamic Volume by following encoding:*
 
-   * 0：OFF->关闭动态音量*
+TR:    *0: OFF --> turns Dynamic Volume off*
 
-   * 1：LIT->将“动态音量”调为浅*
+TR:    *1: LIT --> turns Dynamic Volume to light*
 
-   *2：MED->将“动态音量”设置为“中等”*
+TR:    *2: MED --> turns Dynamic Volume to medium*
 
-   * 3：HEV->将动态音量调大*
+TR:    *3: HEV --> turns Dynamic Volume to heavy*
 
-* settings.referenceLevelOffset
+TR: * settings.referenceLevelOffset
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-   *用于通过以下编码选择参考电平偏移的字符串值：*
+TR:    *String value to select the Reference Level Offset by the following encoding:*
 
-   *0：0 dB*
+TR:    *0: 	0 dB*
 
-   *5：5 dB*
+TR:    *5:	5 dB*
 
-   * 10：10分贝*
+TR:    *10:	10 dB*
 
-   *15：15 dB*
+TR:    *15: 15 dB*
 
-   *例：*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.settings.referenceLevelOffset', '5'); // Sets Reference Level Offset to 5 dB
 ```
 
-* settings.pictureMode
+TR: * settings.pictureMode
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-   *用于设置图片模式直接更改的字符串值。仅当您的AVR支持时才创建此状态*
+TR:    *String value to set the Picture Mode Direct Change. This state will only be created when your AVR supports it*
 
-   *您可以将以下值设置为字符串：*
+TR:    *You can set the following values as string:*
 
-   *'关闭'*
+TR:    *'Off'*
 
-   *'标准'*
+TR:    *'Standard'*
 
-   *'电影'*
+TR:    *'Movie'*
 
-   *'生动'*
+TR:    *'Vivid'*
 
-   *'流'*
+TR:    *'Stream'*
 
-   *“自定义” *
+TR:    *'Custom'*
 
-   *“ ISF日” *
+TR:    *'ISF Day'*
 
-   *“ ISF之夜” *
+TR:    *'ISF Night'*
 
-   *例：*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct Change to Standard
 ```
 
-* settings.toneControl
+TR: * settings.toneControl
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-   *布尔值，指示音调控制状态。您可以在此状态下将其关闭/打开。*
+TR:    *Boolean value, which indicates Tone Control status. You can turn it off/on with this state.*
 
-   *仅当Dyn EQ设置为OFF时才能打开音调控制*
+TR:    *Tone Control can only be turned on when Dyn EQ is set to OFF*
 
-* settings.setupMenu
+TR: * settings.setupMenu
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-   *布尔型指示器，指示设置菜单当前处于打开还是关闭状态。您可以在此状态下打开和关闭它。*
+TR:    *Boolean indicator, which indicates if setup menu is currently open or closed. You can open and close it with this state.*
 
-* settings.savePreset
+TR: * settings.savePreset
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |编号| R / W |
+| TR:     |number|R/W|
 
-*数字值，可以将其设置为info.onlinePresets的值。然后，当前通道将被保存为给定编号的预设。
-只能使用info.onlinePresets中包含的数字。无论命令是否成功，状态都不会得到确认。您可以检查info.onlinePresets来检查命令是否按方面进行工作。*
+TR: *Number value, which can be set to a value of info.onlinePresets. Then the current channel will be saved as a preset to the given number.
+Only numbers which are contained in info.onlinePresets can be used. The state will not get an acknowledge, no matter the command was successful or not. You can check info.onlinePresets to check if the command has worked as aspected.*
 
-* settings.loadPreset
+TR: * settings.loadPreset
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |编号| R / W |
+| TR:     |number|R/W|
 
-*数字值，可以将其设置为info.onlinePresets的值。这将加载相关的频道。
-无论命令是否成功，此状态都不会得到确认。*
+TR: *Number value, which can be set to a value of info.onlinePresets. This will load the related channel.
+This state will not get an acknowledge, no matter the command has been successful or not.*
 
-###其他州
-由于某些AVR（如DENON POA-3012CI）使用另一种逻辑，因此状态有所不同。
-与上面列出的状态相同的状态是：settings.powerSystem，settings.expertCommand，display.brightness和info.connection。此外，还会为每个区域2-12（偶数）创建以下状态：
+TR: ### Other States
+TR: Due to the fact that some AVRs like the DENON POA-3012CI use another logic there are some differences in the states.
+The states which are equal to the ones listed above are: settings.powerSystem, settings.expertCommand, display.brightness and info.connection. Additional the following states are created for each zone 2-12 (even):
 
-* zoneX.speakerOneVolume / zoneX.speakerTwoVolume
+TR: * zoneX.speakerOneVolume / zoneX.speakerTwoVolume
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |编号| R / W |
+| TR:     |number|R/W|
 
-*数字值，代表AVR扬声器的音量。如果将operationMode设置为“ BRIDGED”，则扬声器将无法独立控制，并且一个扬声器的控制也控制另一个扬声器的音量。*
+TR: *Number value, which represents the volume of the AVR's speaker. If operationMode is set to 'BRIDGED' the speakers cannot independently controlled and the control of one also controls the other ones volume.*
 
-* zoneX.selectInputOne / zoneX.selectInputTwo
+TR: * zoneX.selectInputOne / zoneX.selectInputTwo
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-*键值对，代表AVR扬声器的选定输入。如果将operationMode设置为“ BRIDGED”，则扬声器无法独立控制，并且一个扬声器的控制也控制另一个扬声器的输入。*
+TR: *Key value pair, which represents the selected input of the AVR's speaker. If operationMode is set to 'BRIDGED' the speakers cannot independently controlled and the control of one also controls the other ones input.*
 
-    *以下值是可能的：*
+TR:     *The following values are possible:*
 
-    *'0'：'BUS L'*
+TR:     *'0': 'BUS L'*
 
-    *'1'：'BUS R'*
+TR:     *'1': 'BUS R'*
 
-    *'2'：'BUS M'*
+TR:     *'2': 'BUS M'*
 
-    *'3'：'AUX'*
+TR:     *'3': 'AUX'*
 
-* zoneX.operationMode
+TR: * zoneX.operationMode
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-*键值对，代表AVR的operationMode。如果将operationMode设置为“ BRIDGED”，则扬声器无法独立控制，并且控制扬声器一也可以控制扬声器二。*
+TR: *Key value pair, which represents the operationMode of the AVR. If operationMode is set to 'BRIDGED' the speakers cannot independently controlled and controlling speaker one also controls speaker two.*
 
-    *以下值是可能的：*
+TR:     *The following values are possible:*
 
-    *'0'：'NORMAL'*
+TR:     *'0': 'NORMAL'*
 
-    *'1'：'BRIDGED'*
+TR:     *'1': 'BRIDGED'*
 
-* zoneX.lowCutFilterSpeakerOne / zoneX.lowCutFilterSpeakerTwo
+TR: * zoneX.lowCutFilterSpeakerOne / zoneX.lowCutFilterSpeakerTwo
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-*布尔值，指示是否启用或禁用扬声器的低切滤波器。在桥接模式下，两个扬声器将彼此依赖。*
+TR: *Boolean value, which indicates if the low cut filter for the speaker is enabled or disabled. In bridged mode both speakers will depend on each other.*
 
-* zoneX.zoneTurnOnModeChange
+TR: * zoneX.zoneTurnOnModeChange
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-*键值对，代表区域的区域开启模式更改。您还可以在此状态下控制AVR。*
+TR: *Key value pair, which represents the zone turn on mode change of the zone. You can also control your AVR with this state.*
 
-    *以下值是可能的：*
+TR:     *The following values are possible:*
 
-    *'0'：'常量'*
+TR:     *'0': 'Constant'*
 
-    *'1'：“触发” *
+TR:     *'1': 'Trigger in'*
 
-    *'2'：'音频信号'*
+TR:     *'2': 'Audio signal'*
 
-    *'3'：'关闭'*
+TR:     *'3': 'Off'*
 
-* zoneX.triggerInput
+TR: * zoneX.triggerInput
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-    *使用此布尔值打开或关闭触发器输入。
+TR:     *Turn trigger input on or off with this boolean value.*
 
-* zoneX.audioSignalInput
+TR: * zoneX.audioSignalInput
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | boolean | R / W |
+| TR:     |boolean|R/W|
 
-    *布尔值，指示和控制AVR的音频信号输入。*
+TR:     *Boolean value which indicates and controls the audio signal input of your AVR.*
 
-##缺少功能和错误
-如果缺少任何功能或检测到错误，请打开[问题](https://github.com/foxriver76/ioBroker.denon/issues)。
+TR: ## Missing functions & bugs
+TR: If you are missing any functions or detected a bug, please open an [TR: issue](https://github.com/foxriver76/ioBroker.denon/issues).
 
-该适配器已通过DENON AVR-X1200W和Marantz SR5009进行了测试。
+TR: The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### 1.11.0 (2021-06-06)
+* (foxriver76) implemented dialog level adjustment for DTS content (closes #143)
+* (foxriver76) new datapoints are `settings.dialogLevelAdjust`, `settings.dialogLevel`, `settings.dialogControl`
+
+### 1.10.7 (2021-05-12)
+* (foxriver76) fix missing conversion to db on equalizer states for additional zones (fixes #137)
+
+### 1.10.6 (2021-05-03)
+* (foxriver76) we fixed some more types
+
+### 1.10.5 (2021-05-02)
+* (foxriver76) we fixed some datapoints having wrong types or wrong state values set (fixes #130)
+
+### 1.10.4 (2021-02-20)
+* (foxriver76) if an older model (e.g. AVR 3808) just sends `NSE`, we do not set displayContent state anymore (fixes #112)
+
+### 1.10.3 (2021-01-28)
+* (foxriver76) don't poll whole online presets after change, it is unnecessary load
+
+### 1.10.2 (2021-01-28)
+* (foxriver76) return after detecting NSH command
+* (foxriver76) use release script
+
 ### 1.10.0 (2021-01-17)
 * (foxriver76) auto-detect selectInput of all zones
 
@@ -1061,7 +1118,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

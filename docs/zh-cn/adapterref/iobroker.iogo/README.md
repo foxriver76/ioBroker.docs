@@ -2,36 +2,34 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.iogo/README.md
-title: ioBroker.iogo
-hash: yk5U6cZpi1vr4MAnRb+S96DdU2ZGKTH4Xe3ih//Tk/g=
+title: TR: ioBroker.iogo
+hash: QL2wzeIR6M4+eTIT45OnCbDxi4/yh6wmTyVyBdUwvKI=
 ---
-![商标](../../../en/adapterref/iobroker.iogo/admin/iogo.png)
+![TR: Logo](../../../en/adapterref/iobroker.iogo/admin/iogo.png)
 
-![安装数量](http://iobroker.live/badges/iogo-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.iogo.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.iogo.svg)
-![特拉维斯](http://img.shields.io/travis/nisiode/ioBroker.iogo/master.svg)
-![NPM](https://nodei.co/npm/iobroker.iogo.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/iogo-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.iogo.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.iogo.svg)
+![TR: Travis-CI](http://img.shields.io/travis/nisiode/ioBroker.iogo/master.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.iogo.png?downloads=true)
 
-＃ioBroker.iogo
-=================
+TR: # ioBroker.iogo
+TR: This adapter is adding extra features to the smarthome app ioGo https://play.google.com/store/apps/details?id=de.nisnagel.iogo.
+Please visit www.iogo.app for more information on how to get started.
 
-此适配器为ioGo https://play.google.com/store/apps/details?id=de.nisnagel.iogo智能家居应用程序增加了额外的功能。
-请访问www.iogo.app以获取有关如何入门的更多信息。
+TR: ## Configuration
+TR: You need a valid licence key to use this adapter.
+A licence can be bought after creating an account at https://www.iogo.app.
 
-##配置
-您需要有效的许可证密钥才能使用此适配器。
-在https://www.iogo.app创建帐户后，可以购买许可证。
+TR: Please enter your account information (email/password) in the instance configuration.
 
-请在实例配置中输入您的帐户信息（电子邮件/密码）。
+TR: ## Usage
+TR: You can send message to all authenticated users over messageBox `sendTo('iogo', 'New message')` or to specific user `sendTo('iogo', {user: 'Username', text: 'Test message'})`.
+User must be created before (please read the application documentation for further details).
 
-##用法
-您可以通过messageBox```sendTo('iogo', 'New message')```向所有经过身份验证的用户或特定用户§§JJJJJ_1_1§§发送消息。
-必须先创建用户（请阅读应用程序文档以获取更多详细信息）。
+TR: It is possible to specify more than one recipient (just separate the Usernames by comma). For example: Recipient: "User1,User4,User5"
 
-可以指定多个收件人（只需用逗号分隔用户名）。例如：收件人：“ User1，User4，User5”
-
-示例如何使用javascript发送通知定制消息：
+TR: Example how to send notification customized message with javascript:
 
 ```
 sendTo('iogo', {
@@ -41,11 +39,11 @@ sendTo('iogo', {
 });
 ```
 
-还有一个例子：
+TR: And one example with blockly:
 
-![块状](../../../en/adapterref/iobroker.iogo/img/blockly.png)
+![TR: blockly](../../../en/adapterref/iobroker.iogo/img/blockly.png)
 
-还支持回调：
+TR: Callbacks are supported as well:
 
 ```
 sendTo('iogo', {title: 'News', text: 'New message'}, function (res) {
@@ -53,7 +51,7 @@ sendTo('iogo', {title: 'News', text: 'New message'}, function (res) {
 });
 ```
 
-只需将路径发送到图像而不是文本，或使用url属性```sendTo('iogo.0', 'absolute/path/file.png')```
+TR: Just send the path to your image instead of text or use url attribute `sendTo('iogo.0', 'absolute/path/file.png')`
 
 ```
 sendTo('iogo', {
@@ -64,15 +62,24 @@ sendTo('iogo', {
 });
 ```
 
-**可能的选项**：
+TR: **Possible options**:
 
--*用户*：单个用户或用户列表
--*文本*：消息本身
--* title *：通知的标题
--* url *：图片的绝对路径
--*到期时间*：到期时间（以秒为单位）
+TR: - `user`: Single user or list of users
+TR: - `text`: The message itself
+TR: - `title`: The notification's title
+TR: - `url`: Absolute path to an image
+TR: - `expiry`: Expiration time in seconds
+
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 0.7.0 (2021-05-24)
+* (bluefox) Added support of Admin5
+
+### 0.6.x
+* (nisio) Changes for ioGo app version 2.3.0+ (older versions no longer supported)
 
 ### 0.5.x
 * (nisio) Changes for ioGo app version 2.1.0+ (older versions no longer supported)
@@ -94,7 +101,7 @@ sendTo('iogo', {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2020 Nis Nagel <info@iogo.app>
+Copyright (c) 2018 - 2021 Nis Nagel <info@iogo.app>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

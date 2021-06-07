@@ -2,36 +2,34 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iogo/README.md
-title: ioBroker.iogo
-hash: yk5U6cZpi1vr4MAnRb+S96DdU2ZGKTH4Xe3ih//Tk/g=
+title: TR: ioBroker.iogo
+hash: QL2wzeIR6M4+eTIT45OnCbDxi4/yh6wmTyVyBdUwvKI=
 ---
-![Логотип](../../../en/adapterref/iobroker.iogo/admin/iogo.png)
+![TR: Logo](../../../en/adapterref/iobroker.iogo/admin/iogo.png)
 
-![Количество установок](http://iobroker.live/badges/iogo-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.iogo.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.iogo.svg)
-![Трэвис-Си](http://img.shields.io/travis/nisiode/ioBroker.iogo/master.svg)
-![НПМ](https://nodei.co/npm/iobroker.iogo.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/iogo-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.iogo.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.iogo.svg)
+![TR: Travis-CI](http://img.shields.io/travis/nisiode/ioBroker.iogo/master.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.iogo.png?downloads=true)
 
-# IoBroker.iogo
-=================
+TR: # ioBroker.iogo
+TR: This adapter is adding extra features to the smarthome app ioGo https://play.google.com/store/apps/details?id=de.nisnagel.iogo.
+Please visit www.iogo.app for more information on how to get started.
 
-Этот адаптер добавляет дополнительные функции в приложение smarthome ioGo https://play.google.com/store/apps/details?id=de.nisnagel.iogo.
-Посетите www.iogo.app для получения дополнительной информации о том, как начать работу.
+TR: ## Configuration
+TR: You need a valid licence key to use this adapter.
+A licence can be bought after creating an account at https://www.iogo.app.
 
-## Конфигурация
-Для использования этого адаптера вам потребуется действующий лицензионный ключ.
-Лицензию можно купить после создания учетной записи на https://www.iogo.app.
+TR: Please enter your account information (email/password) in the instance configuration.
 
-Пожалуйста, введите данные своей учетной записи (адрес электронной почты / пароль) в конфигурации экземпляра.
+TR: ## Usage
+TR: You can send message to all authenticated users over messageBox `sendTo('iogo', 'New message')` or to specific user `sendTo('iogo', {user: 'Username', text: 'Test message'})`.
+User must be created before (please read the application documentation for further details).
 
-## Применение
-Вы можете отправить сообщение всем авторизованным пользователям через messageBox ```sendTo('iogo', 'New message')``` или конкретному пользователю ```sendTo('iogo', {user: 'Username', text: 'Test message'})```.
-Пользователь должен быть создан раньше (подробнее см. В документации к приложению).
+TR: It is possible to specify more than one recipient (just separate the Usernames by comma). For example: Recipient: "User1,User4,User5"
 
-Можно указать более одного получателя (просто разделите имена пользователей запятыми). Например: Получатель: «Пользователь1, Пользователь4, Пользователь5».
-
-Пример отправки настроенного сообщения уведомления с помощью javascript:
+TR: Example how to send notification customized message with javascript:
 
 ```
 sendTo('iogo', {
@@ -41,11 +39,11 @@ sendTo('iogo', {
 });
 ```
 
-И один пример с блочным:
+TR: And one example with blockly:
 
-![блочно](../../../en/adapterref/iobroker.iogo/img/blockly.png)
+![TR: blockly](../../../en/adapterref/iobroker.iogo/img/blockly.png)
 
-Также поддерживаются обратные вызовы:
+TR: Callbacks are supported as well:
 
 ```
 sendTo('iogo', {title: 'News', text: 'New message'}, function (res) {
@@ -53,7 +51,7 @@ sendTo('iogo', {title: 'News', text: 'New message'}, function (res) {
 });
 ```
 
-Просто отправьте путь к вашему изображению вместо текста или используйте атрибут url ```sendTo('iogo.0', 'absolute/path/file.png')```
+TR: Just send the path to your image instead of text or use url attribute `sendTo('iogo.0', 'absolute/path/file.png')`
 
 ```
 sendTo('iogo', {
@@ -64,15 +62,24 @@ sendTo('iogo', {
 });
 ```
 
-** Возможные варианты **:
+TR: **Possible options**:
 
-- *пользователь* один пользователь или список пользователей.
-- *текст* само сообщение
-- *title* заголовок уведомления.
-- *url* абсолютный путь к изображению
-- *expiry* время истечения в секундах
+TR: - `user`: Single user or list of users
+TR: - `text`: The message itself
+TR: - `title`: The notification's title
+TR: - `url`: Absolute path to an image
+TR: - `expiry`: Expiration time in seconds
+
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 0.7.0 (2021-05-24)
+* (bluefox) Added support of Admin5
+
+### 0.6.x
+* (nisio) Changes for ioGo app version 2.3.0+ (older versions no longer supported)
 
 ### 0.5.x
 * (nisio) Changes for ioGo app version 2.1.0+ (older versions no longer supported)
@@ -94,7 +101,7 @@ sendTo('iogo', {
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018 - 2020 Nis Nagel <info@iogo.app>
+Copyright (c) 2018 - 2021 Nis Nagel <info@iogo.app>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

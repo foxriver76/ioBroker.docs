@@ -2,136 +2,136 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fahrplan/README.md
-title: ioBroker.fahrplan
-hash: s9SQ+G/1sCPvJhE6taLGgoHSlqIFoJgRT01FtTRcK7I=
+title: TR: ioBroker.fahrplan
+hash: RpPf7SiUxswbPgOac7tF/PxNwnYeKzMbzOENkaYnjU8=
 ---
-![商标](../../../en/adapterref/iobroker.fahrplan/admin/fahrplan.png)
+![TR: Logo](../../../en/adapterref/iobroker.fahrplan/admin/fahrplan.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.fahrplan.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.fahrplan.svg)
-![安装数量（最新）](https://iobroker.live/badges/fahrplan-installed.svg)
-![安装数量（稳定）](https://iobroker.live/badges/fahrplan-stable.svg)
-![依赖状态](https://img.shields.io/david/gaudes/iobroker.fahrplan.svg)
-![NPM](https://nodei.co/npm/iobroker.fahrplan.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.fahrplan.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.fahrplan.svg)
+![TR: Number of Installations (latest)](https://iobroker.live/badges/fahrplan-installed.svg)
+![TR: Number of Installations (stable)](https://iobroker.live/badges/fahrplan-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/gaudes/iobroker.fahrplan.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.fahrplan.png?downloads=true)
 
-＃ioBroker.fahrplan
-![测试与发布](https://github.com/gaudes/ioBroker.fahrplan/workflows/Test%20and%20Release/badge.svg)[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/fahrplan/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+TR: # ioBroker.fahrplan
+TR: ![TR: Test and Release](https://github.com/gaudes/ioBroker.fahrplan/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/fahrplan/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Fahrplan适配器适用于ioBroker
-###德文
-移动API或HAFAS verwendet的Dieser Adapter。 HAFAS负责HaCon Fahrplan-Auskunfts系统和von vieleneuropäischenVerkehrsunternehmen verwendet，以及德国铁路公司的合同。
-[HAFAS-客户](https://github.com/public-transport/hafas-client)。
+TR: ## Fahrplan Adapter für ioBroker
+TR: ### Deutsch
+TR: Dieser Adapter für ioBroker verwendet die mobile API von HAFAS verwendet. HAFAS steht für HaCon Fahrplan-Auskunfts-System und wird von vielen europäischen Verkehrsunternehmen verwendet, unter anderem auch von der Deutschen Bahn.
+Der Zugriff auf HAFAS erfolgt hierbei über [TR: HAFAS-Client](https://github.com/public-transport/hafas-client).
 
-Der Adapter bietet hierbei drei Funktionen：
+TR: Der Adapter bietet hierbei drei Funktionen:
 
-#### FahrplanfürVerbindungen（路线）
-适配器和密码转换中的RoutenMüssen。
-有关适配器的时间间隔，请参见以下信息。
-可以在ioBroker dargestellt中使用HTML以及可选的详细信息。
-VIS eingebunden werden中的Das HTML-Objekt kann einfach。
+TR: #### Fahrplan für Verbindungen (Routen)
+TR: Die gewünschten Routen müssen in der Adapterkonfiguration eingerichtet und aktiviert werden.
+Über einen konfigurierbaren Intervall ruft der Adapter dann regelmäßig die Verbindungsinformationen ab.
+Die nächsten drei Verbindungen werden als HTML und optional auch detailiert als Objekte in ioBroker dargestellt.
+Das HTML-Objekt kann einfach in VIS eingebunden werden.
 
-#### Benenrichrichung beiVerspätungender Routen
-路线图路线图路线图道路图。因此，通过Telegram oder Alexa erfolgen的kann beispielsweise eine Benachrichtigung，与Bestbinmmte VerbindungVerspätetist进行了交流。
+TR: #### Benachrichtigung bei Verspätungen der Routen
+TR: Für die konfigurierten Routen kann ein Verspätungsalarm aktiviert werden. So kann beispielsweise eine Benachrichtigung via Telegram oder Alexa erfolgen, falls alle oder eine bestimmte Verbindung verspätet ist.
 
-#### AbfahrtstafelnfürStationen
-Zusätzlich主题曲适配器作者Abfahrtstafelfürkonfigurierte Stationen。
-Hierbei werden dienächstendrei Abfahrten einer Station站点，对象站点和HTML站点。
+TR: #### Abfahrtstafeln für Stationen
+TR: Zusätzlich bietet der Adapter eine Abfahrtstafel für konfigurierte Stationen.
+Hierbei werden die nächsten drei Abfahrten einer Station abgerufen und als Objekte und HTML dargestellt.
 
-** Dieser Adapter可以自动访问Sentry Bibliotheken UM，并且可以自动生成和编辑Entwickler zuübermitteln。** Weitere详细信息和信息，请访问[哨兵插件](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry Reporting with ab JS-Controller 3.0 verwendet。
+TR: **Dieser Adapter verwendet die Sentry Bibliotheken um automatisch Abstürze und Programmfehler an die Entwickler zu übermitteln.** Weitere Details und für Informationen zur Deaktivierung der Fehlerberichterstattung in der [TR: Sentry-Plugin Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab JS-Controller 3.0 verwendet.
 
-＃＃＃ 英语
-ioBroker的此适配器使用HAFAS的移动API。 HAFAS是整个欧洲的公共交通提供商使用的公共交通管理系统，例如德意志铁路。
-[HAFAS-客户](https://github.com/public-transport/hafas-client)用于访问HAFAS。
+TR: ### English
+TR: This adapter for ioBroker uses the mobile API of HAFAS. HAFAS is a public transport management system used by public transport providers across Europe, e.g. Deutsche Bahn.
+[TR: HAFAS-Client](https://github.com/public-transport/hafas-client) is used to access HAFAS.
 
-适配器提供三种功能：
+TR: The adapter provides three functions:
 
-####连接时间表（路由）
-必须在适配器配置中配置并启用所需的路由。
-适配器将按配置的时间间隔自动检索连接信息。
-接下来的三个连接以html格式保存在ioBroker中，可选的以详细对象的形式保存。
-HTML对象可以很容易地在VIS中使用。
+TR: #### Timetable for Connections (Routes)
+TR: The desired routes has to be configured and enabled in the adapter configuration.
+The Adapter retrieves the connection information by a configured interval automatically.
+The next three connections are saved in ioBroker as HTML and optional as detailed objects.
+The HTML-object could easily be used in VIS.
 
-####路线延迟通知
-可以为配置的路由激活延迟通知。例如，当所有或一个特定的连接延迟时，Telegram或Alexa可能会发出通知。
+TR: #### Notification for delays on routes
+TR: A delay notification can be activated for configured routes. For example, there can be a notification by Telegram or Alexa when all or one specific connection is delayed.
 
-####车站发车时刻表
-另外，适配器为配置的工作站提供了出发时间表。
-在这里，接下来的三个连接被公开并创建为对象和HTML。
+TR: #### Departure timetable for stations
+TR: Additionally the Adapter provides a departure timetable for configured stations.
+Here the next three connections are reveived and created as objects and HTML.
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Konfiguration
-###德文
-Die Start- and Zielorte sowie Zwischenzielemüssenmit ihrer numerischen ID Angegeben werden。
-Eine Suchfunktion ist in Tab Einstellungen integriert。
+TR: ## Konfiguration
+TR: ### Deutsch
+TR: Die Start- und Zielorte sowie Zwischenziele müssen mit ihrer numerischen ID angegeben werden.
+Eine Suchfunktion ist im Tab Einstellungen integriert.
 
-#### Tab Einstellungen
+TR: #### Tab Einstellungen
 ![](../../../en/adapterref/iobroker.fahrplan/docs/de/img/settings.png)
 
-| Einstellung | Beschreibung | ------------------------------ | --- | | Anbieter | Auswahl des zu verwendenden Anbieters，aktuell DB，ÖBB和SBB | Aktualisierungsintervall |在Minuten的Angabe路线aktualisiert werden中的间隔| Verspätetmarkieren ab |位于Minuten ab der der Verbindung地区的Verspätung地区。 Standardmäßigwerden nurVerspätungenab zwei Minuten markiert | HTML-Ansicht erzeugen | Erineugt专业版路线Einem Objekt中的Route Eine konfigurierbare HTML-Tabelle | Detailierte Objekte speichern |遵守法律| JSON-Elemente speichern | DieRückgabevon HAFAS erfolgt als JSON，diese sollten zur Fehlerbehebung gespeichert werden
+TR: | Einstellung                     | Beschreibung |---------------------------------|--- | Anbieter                        |  Auswahl des zu verwendenden Anbieters, aktuell DB, ÖBB und SBB | Aktualisierungsintervall        |  Intervall in dem die Route aktualisiert werden, Angabe in Minuten | Verspätet markieren ab          |  Verspätung in Minuten ab der die Verbindung als verspätet markiert wird. Standardmäßig werden nur Verspätungen ab zwei Minuten markiert | Farbe für Pünktlich             |  Farbwert für bestätigte Pünktlichkeit | Farbe für Verspätungen          |  Farbwert für Verspätungen | Überschriftenerstellung         |  HTML-Tabellen werden mit Überschriften erzeugt | HTML-Ansicht erzeugen für Route |  Erzeugt pro Route eine konfigurierbare HTML-Tabelle in einem Objekt | HTML-Ansicht erzeugen pro Verbindung |  Erzeugt pro einzelner Verbindung eine HTML-Tabelle in einem Objekt | Detailierte Objekte speichern|  Konfiguration der auszugebenden Objekte | JSON-Elemente speichern      |  Die Rückgabe von HAFAS erfolgt als JSON, diese sollten zur Fehlerbehebung gespeichert werden
 
-这样的集成是非常重要的。 Zuerst muss ein Anbieterausgewähltwerden。
-Danach kannüberdas Suchfeld和Drückendes Knopfs“探索”纳赫艾纳站gesucht werden。
-Die Suchergebnisse der aktuellen搜寻werden在der Tabelle angezeigt。
+TR: Auf der rechten Seite ist die Suchfunktion integriert. Zuerst muss ein Anbieter ausgewählt werden.
+Danach kann über das Suchfeld und Drücken des Knopfs "Suche" nach einer Station gesucht werden.
+Die Suchergebnisse der aktuellen Suche werden in der Tabelle angezeigt.
 
-#### Tab Routen
+TR: #### Tab Routen
 ![](../../../en/adapterref/iobroker.fahrplan/docs/de/img/settings_routes.png)
 
-Mit dem + -ButtonkönnenneueEinträgezur Tabellehinzugefügtwerden。
+TR: Mit dem +-Button können neue Einträge zur Tabelle hinzugefügt werden.
 
-| Einstellung | Beschreibung | ----------------------------- | --- | | Nr | Die Unmmer Entspricht dem Unterknoten在Objekten和wird automatisch vergeben中。
-| Aktiv | Wenn的路线图和werden的路线图|信息| | | | | | | | | | | | | | |冯| Numerische ID von Startbahnhof oder Starthaltestelle（Ermittlungüber追求）|冯（艾格纳名字）| Benutzerdefinierter名称von Startbahnhof oder Starthaltestelle，来自HTML-和语言版本|纳赫Numerische ID von Zielbahnhof oder Zielhaltestelle（Ermittlungüber追求）| Nach（艾格纳名称）| Benutzerdefinierter名称von Zielbahnhof oder Zielhaltestelle，来自HTML-和语言文本verwendet |通过1 | Fahrtüberbestimmten Ort angegeben als numerische ID（可选，首字母缩写）|通过2 | Fahrtüberbestimmten Ort angegeben als numerische ID（可选，首字母缩写）| Verkehrsmittel | Auswahl des Verkehrsmittels，z.B.公交车，S-Bahn，usw。奥地利标准法院|最大限度。版权|马克西姆·安扎尔·乌姆斯蒂根（Maximale Anzahl an Umstiegen）。 0分钟前。
-| Abfahrten |安扎尔（Anzahl）abzurufender Fahrten | Fahrradmitnahme | Nur Verbindungen mit Fahrradmitnahmeauswählen| Zeit-Offset | Abfahrtszeit：0 = Jetzt，父级Minuten = Jetzt加n Minuten
+TR: | Einstellung                 | Beschreibung |-----------------------------|--- | Nr                          | Die Nummer entspricht dem Unterknoten in den Objekten und wird automatisch vergeben.
+| Aktiv                       | Wenn die Route aktiviert ist werden die Verbindungsinfos aktualisiert | Von                         | Numerische ID von Startbahnhof oder Starthaltestelle (Ermittlung über Suche) | Von (Eigener Name)          | Benutzerdefinierter Name von Startbahnhof oder Starthaltestelle, für HTML- und Verspätungstext verwendet | Nach                        | Numerische ID von Zielbahnhof oder Zielhaltestelle (Ermittlung über Suche) | Nach (Eigener Name)         | Benutzerdefinierter Name von Zielbahnhof oder Zielhaltestelle, für HTML- und Verspätungstext verwendet | Via                         | Fahrt über bestimmten Ort angegeben als numerische ID (optional, sonst leer) | Verkehrsmittel              | Auswahl des Verkehrsmittels, z.B. Bus, S-Bahn, usw. Standardmäßig werden alle Verkehrsmittel ausgewählt | Max. Umstiege               | Maximale Anzahl an Umstiegen. 0 für nur direkte Verbindungen.
+| Abfahrten                   | Anzahl abzurufender Fahrten | Fahrradmitnahme             | Nur Verbindungen mit Fahrradmitnahme auswählen | Zeit-Offset                 | Abfahrtszeit: 0 = Jetzt, sonst n Minuten = Jetzt plus n Minuten
 
-#### TabVerspätungsalarm
+TR: #### Tab Verspätungsalarm
 ![](../../../en/adapterref/iobroker.fahrplan/docs/de/img/settings_delaynotification.png)
 
-Mit dem + -ButtonkönnenneueEinträgezur Tabellehinzugefügtwerden。
+TR: Mit dem +-Button können neue Einträge zur Tabelle hinzugefügt werden.
 
-| Einstellung | Beschreibung | ----------------------------- | --- | | Nr | Die Unmmer Entspricht dem Unterknoten在Objekten和wird automatisch vergeben中。
-| Aktiv | Wenn derVerspätungsalarmist Wird Diesergeprüft|路线|警报警报路线| Geplante Abfahrt | Geplante Abfahrtszeit der zuprüfenden路线（Leer = Alle Verbindungen）| Wochentag | Wochentage an denen diePrüfungerfolgen soll |在Minuten的Benachrichtigung |阿萨尔·德·米诺滕·沃·阿布法尔特，在denen benachrichtigt werden soll |文字对| | | | | | | | | | | | | | | | | | | | | | | | | | | Angabe eines vorhandenen Objekts
+TR: | Einstellung                 | Beschreibung |-----------------------------|--- | Nr                          | Die Nummer entspricht dem Unterknoten in den Objekten und wird automatisch vergeben.
+| Aktiv                       | Wenn der Verspätungsalarm aktiviert ist wird dieser geprüft | Route                       | Route auf die sich der Alarm beziehen soll | Geplante Abfahrt            | Geplante Abfahrtszeit der zu prüfenden Route (Leer = Alle Verbindungen) | Wochentag                   | Wochentage an denen die Prüfung erfolgen soll | Benachrichtigung in Minuten | Anzahl der Minuten vor der Abfahrt, in denen benachrichtigt werden soll | Objekt für Ausgabetext      | Angabe eines vorhandenen Objekts
 
-Hinweis zum Ausgabetext：肯恩·本·恩本·法恩（Vis z.B.） “说”-Alexa适配器的对象，而“响应”-Telegram适配器对象的对象。
+TR: Hinweis zum Ausgabetext: Hier kann neben einfachen Objekten für VIS z.B. auch das "speak"-Objekt des Alexa-Adapters oder das "reponse"-Objekt des Telegram-Adapters verwendet werden.
 
-#### Tab Abfahrtstafeln
+TR: #### Tab Abfahrtstafeln
 ![](../../../en/adapterref/iobroker.fahrplan/docs/de/img/settings_departuretimetables.png)
 
-Mit dem + -ButtonkönnenneueEinträgezur Tabellehinzugefügtwerden。
+TR: Mit dem +-Button können neue Einträge zur Tabelle hinzugefügt werden.
 
-| Einstellung | Beschreibung | ----------------------------- | --- | | Nr | Die Unmmer Entspricht dem Unterknoten在Objekten和wird automatisch vergeben中。
-| Aktiv | Wenn der Eintrag女演员Wird Dieser Abgerufen |冯| Numerische ID von Startbahnhof oder Starthaltestelle（Ermittlungüber追求）|冯（艾格纳名字）| Benutzerdefinierter名称von Startbahnhof oder Starthaltestelle，来自HTML-Ausgabe verwendet | Abfahrten | Anzahl abzurufender Abfahrten | Verkehrsmittel | Auswahl des Verkehrsmittels，z.B.公交车，S-Bahn，usw。奥地利标准法院| Zeit-Offset | Abfahrtszeit：0 = Jetzt，父级Minuten = Jetzt加n Minuten
+TR: | Einstellung                 | Beschreibung |-----------------------------|--- | Nr                          | Die Nummer entspricht dem Unterknoten in den Objekten und wird automatisch vergeben.
+| Aktiv                       | Wenn der Eintrag aktiviert ist wird dieser abgerufen | Von                         | Numerische ID von Startbahnhof oder Starthaltestelle (Ermittlung über Suche) | Von (Eigener Name)          | Benutzerdefinierter Name von Startbahnhof oder Starthaltestelle, für HTML-Ausgabe verwendet | Abfahrten                   | Anzahl abzurufender Abfahrten | Verkehrsmittel              | Auswahl des Verkehrsmittels, z.B. Bus, S-Bahn, usw. Standardmäßig werden alle Verkehrsmittel ausgewählt | Zeit-Offset                 | Abfahrtszeit: 0 = Jetzt, sonst n Minuten = Jetzt plus n Minuten
 
-＃＃＃ 英语
-起点，终点和中途停留必须使用数字ID进行标识。
-这些ID的搜索功能集成在“选项卡设置”中。
+TR: ### English
+TR: Start and Desination and stopovers has to be identified with a numeric id.
+Search function for theses IDs is integrated in Tab Settings.
 
-####选项卡设置
+TR: #### Tab Settings
 ![](../../../en/adapterref/iobroker.fahrplan/docs/en/img/settings.png)
 
-|设置|说明| ----------------------------- | --- | |供应商|选择公共交通提供商，目前是DB，ÖBB和SBB |更新间隔|几分钟内更新路线的间隔|延迟后|标记延迟定义延迟后的分钟数应标记为延迟，默认情况下，当延迟大于一分钟时，会标记延迟创建HTML视图|在对象中为每个路由创建一个可配置的HTML表。保存详细对象|输出对象的配置|保存JSON元素|从HAFAS返回的是JSON，应保存以进行故障排除
+TR: | Setting                     | Description |-----------------------------|--- | Provider                    |  Selection of public transport provider, currently DB, ÖBB and SBB | Update interval             |  Interval for updates of the routes in minutes | Mark delayed after Delay in |  Define minutes after a delay should be marked as delay, per default a delay is marked when the delay is larger than one minute | Color for on time           |  Color for confirmed on time | Color for delays            |  Color for delays | Headlines creation for HTML tables |  Create headlines for HTML tables | Create HTML view for route  |  Creates per route a configurable HTML table in an object | Create HTML view per journey |  Creates per journey a HTML table in an object | Save detailed objects       |  Configuration of output objects | Save JSON elements          |  Return from HAFAS is JSON, should be saved for troubleshooting
 
-####选项卡路线
+TR: #### Tab Routes
 ![](../../../en/adapterref/iobroker.fahrplan/docs/en/img/settings_routes.png)
 
-使用+按钮，可以将新条目添加到表中。
+TR: With +-Button new entries can be added to the table.
 
-|设置|说明| ----------------------------- | --- | | Nr |该数字与对象中的子节点匹配，并自动分配。激活|激活路由后，连接信息将更新。来自| Start Station oder start stop的数字ID |来自（自定义名称）| Start Station oder start stop的自定义名称，用于HTML-和延迟通知输出|到|目的地站或目的地站的数字ID |来自（自定义名称）|目标站或目标站的自定义名称，用于HTML-和延迟通知输出|通过1 |跨过特殊电台作为数字ID（可选，默认情况下为空）通过2 |跨过特殊电台作为数字ID（可选，默认情况下为空）车辆|选择车辆，例如公共汽车，轻轨等。默认情况下，所有车辆都被选择。最大限度。转移|路径上的最大传输，仅直接连接为0 |出发收到的出发数量|自行车|仅选择允许使用自行车的连接|时间偏移|出发时间：0 =现在，否则n分钟=现在加n分钟
+TR: | Setting                     | Description |-----------------------------|--- | Nr                          | The number match the subnode in objects and is assigned automatically | Activ                       | Connection information is updated when route is activ | From                        | Numeric ID of start station oder start stop | From (Custom name)          | Custom name for start station oder start stop, used in HTML- and delay notification output | To                          | Numeric ID of destination station oder destination stop | From (Custom name)          | Custom name for destination station oder destination stop, used in HTML- and delay notification output | Via                         | Ride over special station as numeric ID (optional, empty per default) | Vehicle                     | Selection of vehicle, e.g. Bus, S-Bahn, etc. Per default all vehicles are selected | Max. transfers              | Maximum transfers on route, 0 for direct connections only | Departures                  | Number of departures to receive | Bycicle                     | Select only connections where bycicles allowed | Time Offset                 | Departure Time: 0 = now, otherwise n minutes = now plus n minutes
 
-#### Tab延迟警报
+TR: #### Tab Delay alarm
 ![](../../../en/adapterref/iobroker.fahrplan/docs/en/img/settings_delaynotification.png)
 
-使用+按钮，可以将新条目添加到表中。
+TR: With +-Button new entries can be added to the table.
 
-| Einstellung | Beschreibung | ----------------------------- | --- | | Nr |该数字与对象中的子节点匹配，并自动分配。激活|检查延迟警报是否已激活|路线|有关此延迟警报的路线计划出发|计划检查的连接的计划离开（空=所有路线）|平日|工作日应检查连接|几分钟内通知|延迟警报启用后，出发前分钟|输出文本的对象|文本输出的ioBroker状态
+TR: | Einstellung                 | Beschreibung |-----------------------------|--- | Nr                          | The number match the subnode in objects and is assigned automatically | Activ                       | Check for delay alarm is activated | Route                       | Route concerning this delay alarm | Planned Departure           | Planned departure of connection to be checked (Empty = All Routes) | Weekdays                    | Weekdays when connection should be checked | Notification in minutes     | Minutes before departure when delay alarm is active | Object for output text      | ioBroker state for text output
 
-“用于输出文本的对象”的提示：可以使用在VIS中使用的简单状态，但也可以使用Alexa适配器的“讲话”状态或电报适配器的“响应”状态。
+TR: Hint for "Object for output text": Simple states for usage in VIS could be used, but also "speak"-state of Alexa adapter or "response"-state of Telegram adapter.
 
-####选项卡出发时刻表
+TR: #### Tab Departure Timetables
 ![](../../../en/adapterref/iobroker.fahrplan/docs/en/img/settings_departuretimetables.png)
 
-使用+按钮，可以将新条目添加到表中。
+TR: With +-Button new entries can be added to the table.
 
-|设置|说明| ----------------------------- | --- | | Nr |该数字与对象中的子节点匹配，并自动分配。激活|激活项目后，连接信息将更新。来自| Start Station oder start stop的数字ID |来自（自定义名称）| Start Station oder start stop的自定义名称，用于HTML-和延迟通知输出|出发收到的出发数量|车辆|选择车辆，例如公共汽车，轻轨等。默认情况下，所有车辆都被选择。时间偏移|出发时间：0 =现在，否则n分钟=现在加n分钟
+TR: | Setting                     | Description |-----------------------------|--- | Nr                          | The number match the subnode in objects and is assigned automatically | Activ                       | Connection information is updated when item is activ | From                        | Numeric ID of start station oder start stop | From (Custom name)          | Custom name for start station oder start stop, used in HTML- and delay notification output | Departures                  | Number of departures to receive | Vehicle                     | Selection of vehicle, e.g. Bus, S-Bahn, etc. Per default all vehicles are selected | Time Offset                 | Departure Time: 0 = now, otherwise n minutes = now plus n minutes
 
 ## Changelog
 
@@ -140,7 +140,7 @@ Mit dem + -ButtonkönnenneueEinträgezur Tabellehinzugefügtwerden。
 	### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
+### 1.1.0 (2021-06-04)
 * (Gaudes) Time offset for routes and departure tables (Git #88)
 * (Gaudes) Check if unloaded before writing/deleting objects (Sentry #7)
 * (Gaudes) Include Dependabot updates
@@ -164,13 +164,6 @@ Mit dem + -ButtonkönnenneueEinträgezur Tabellehinzugefügtwerden。
 * (Gaudes) Add product selection to departure timetable
 * (Gaudes) Update HAFAS client to 5.15.1 (Fix error Clientversion with OEBB profile)
 * (Gaudes) Enhanced information reporting on error (Sentry Breadcrumbs)
-* (Gaudes) Include Dependabot updates
-
-### 1.0.3 (2021-01-27)
-* (Gaudes) Station search returns only stations (Sentry Multiple results found for station)
-* (Gaudes) Integrate SBB profile
-* (Gaudes) Leave out superflous journey per route than configured
-* (Gaudes) Fix call of helper for correct counters
 * (Gaudes) Include Dependabot updates
 
 ## License

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-materialdesign/README.md
 title: TR: Material Design Widgets for ioBroker VIS
-hash: pdqQLewTkodcFW6TFIVrYBjg+g2c26nmXUjYWyMOSTA=
+hash: oQMVwervJppon0mSdqitg8D9On6i/hQ0BtFGgnSjhrU=
 ---
 ![TR: stable version](http://iobroker.live/badges/vis-materialdesign.svg)
 ![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis-materialdesign.svg)
@@ -133,46 +133,46 @@ TR: 		- [Autocomplete](#autocomplete)
 TR: 			- [Menu JSON Properties](#menu-json-properties-1)
 TR: 			- [HTML Properties](#html-properties-28)
 TR: 	- [Top App Bar](#top-app-bar)
+TR: 		- [Editor Settings](#editor-settings-27)
 TR: 		- [Submenu](#submenu)
 TR: 			- [Submenu JSON Properties](#submenu-json-properties)
 TR: 	- [Charts](#charts)
 TR: 		- [Bar Chart](#bar-chart)
-TR: 			- [Editor Settings](#editor-settings-27)
+TR: 			- [Editor Settings](#editor-settings-28)
 TR: 			- [Dataset JSON Properties](#dataset-json-properties)
 TR: 		- [Pie Chart](#pie-chart)
-TR: 			- [Editor Settings](#editor-settings-28)
+TR: 			- [Editor Settings](#editor-settings-29)
 TR: 			- [Dataset JSON Properties](#dataset-json-properties-1)
 TR: 		- [Line History Chart:](#line-history-chart)
-TR: 			- [Editor Settings](#editor-settings-29)
+TR: 			- [Editor Settings](#editor-settings-30)
 TR: 		- [JSON Chart](#json-chart)
 TR: 			- [JSON Properties](#json-properties)
 TR: 	- [Table](#table)
-TR: 		- [Editor Settings](#editor-settings-30)
+TR: 		- [Editor Settings](#editor-settings-31)
 TR: 		- [Data - JSON Stucture](#data---json-stucture)
 TR: 		- [internal object binding](#internal-object-binding)
 TR: 		- [Control Elements using HTML Widgets](#control-elements-using-html-widgets)
 TR: 		- [Control Elements - **deprecated since v0.5.0**](#control-elements---deprecated-since-v050)
 TR: 	- [Responsive Layout](#responsive-layout)
 TR: 		- [Masonry Views](#masonry-views)
-TR: 			- [Editor Settings](#editor-settings-31)
-TR: 		- [Grid Views](#grid-views)
 TR: 			- [Editor Settings](#editor-settings-32)
+TR: 		- [Grid Views](#grid-views)
+TR: 			- [Editor Settings](#editor-settings-33)
 TR: 	- [Alerts](#alerts)
-TR: 		- [Editor Settings](#editor-settings-33)
+TR: 		- [Editor Settings](#editor-settings-34)
 TR: 		- [Datapoint JSON Properties](#datapoint-json-properties)
 TR: 		- [Script: send alert to widget](#script-send-alert-to-widget)
 TR: 	- [Calendar](#calendar)
-TR: 		- [Editor Settings](#editor-settings-34)
+TR: 		- [Editor Settings](#editor-settings-35)
 TR: 		- [Datapoint JSON Properties](#datapoint-json-properties-1)
 TR: 		- [Script: ical conversion](#script-ical-conversion)
 TR: 	- [Dialog](#dialog)
-TR: 		- [Editor Settings](#editor-settings-35)
+TR: 		- [Editor Settings](#editor-settings-36)
 TR: 	- [HTML Widgets](#html-widgets)
 TR: 		- [Examples](#examples)
 TR: - [Informations](#informations)
 TR: 	- [used libraries](#used-libraries)
 TR: 	- [Changelog](#changelog)
-TR: 		- [__WORK IN PROGRESS__](#work-in-progress)
 
 TR: # General
 TR: ## Online Example Project
@@ -1181,7 +1181,7 @@ TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</t
 TR: ### Data JSON Properties
 TR: JSON string must be an array of objects with the following properties:
 
-TR: <table> <thead> <tr> <th>Property</th> <th>Description</th> <th>Type</th> <th>Values</th> </tr> </thead> <tbody> <tr> <td>listType</td> <td>type of list</td> <td>string</td> <td>text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td> </tr> <tr> <td>objectId</td> <td>object id for button</td> <td>string</td> <td/> </tr> <tr> <td>buttonStateValue</td> <td>value for button state</td> <td>string</td> <td/> </tr> <tr> <td>buttonNavView</td> <td>view to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonLink</td> <td>url to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueTrue</td> <td>true value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueFalse</td> <td>false value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>readOnly</td> <td>button is read only</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>showValueLabel</td> <td>show value as text</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>valueAppendix</td> <td>append text to value</td> <td>string</td> <td/> </tr> <tr> <td>background</td> <td>background color</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>text</td> <td>text</td> <td>string</td> <td/> </tr> <tr> <td>subText</td> <td>second text</td> <td>string</td> <td/> </tr> <tr> <td>image</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageColor</td> <td>color of Material Design Icons</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>imageActive</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageActiveColor</td> <td>image path or name of Material Design Icons for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundColor</td> <td>background color of button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundActiveColor</td> <td>background color of button for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarColor</td> <td>color of status bar</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarText</td> <td>text of status bar</td> <td>string</td> <td/> </tr> <tr> <td>lockEnabled</td> <td>enable Locking</td> <td>boolean</td> <td>false | true</td> </tr> </tbody> </table>
+TR: <table> <thead> <tr> <th>Property</th> <th>Description</th> <th>Type</th> <th>Values</th> </tr> </thead> <tbody> <tr> <td>listType</td> <td>type of list</td> <td>string</td> <td>text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td> </tr> <tr> <td>objectId</td> <td>object id for button</td> <td>string</td> <td/> </tr> <tr> <td>fullRow</td> <td>display element over whole row</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>buttonStateValue</td> <td>value for button state</td> <td>string</td> <td/> </tr> <tr> <td>buttonNavView</td> <td>view to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonLink</td> <td>url to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueTrue</td> <td>true value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueFalse</td> <td>false value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>readOnly</td> <td>button is read only</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>showValueLabel</td> <td>show value as text</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>valueAppendix</td> <td>append text to value</td> <td>string</td> <td/> </tr> <tr> <td>background</td> <td>background color</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>text</td> <td>text</td> <td>string</td> <td/> </tr> <tr> <td>subText</td> <td>second text</td> <td>string</td> <td/> </tr> <tr> <td>image</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageColor</td> <td>color of Material Design Icons</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>imageActive</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageActiveColor</td> <td>image path or name of Material Design Icons for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundColor</td> <td>background color of button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundActiveColor</td> <td>background color of button for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarColor</td> <td>color of status bar</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarText</td> <td>text of status bar</td> <td>string</td> <td/> </tr> <tr> <td>lockEnabled</td> <td>enable Locking</td> <td>boolean</td> <td>false | true</td> </tr> </tbody> </table>
 
 TR: <!-- omit in toc -->
 
@@ -1775,6 +1775,46 @@ TR: ##### Layout modal:
 
 TR: ##### Layout permanent:
 ![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_permanent.gif)
+
+TR: ##### Layout auto:
+![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/topappbar_auto.gif)
+
+TR: Layout 'auto' switch automatically between layout 'modal' and 'permanent' depending on screen resolution. Via VIS-Editor you can set the resolution from which the 'permanent' layout should be used (bigger than condition).
+
+TR: **Hint: Using with the 'View in Widget 8' widget**
+
+TR: To work correct with the 'view in widget 8' widget you have to define a css media rule.
+
+TR: * First assign a "Common CSS Rule" to the widget , e.g. named `my-view-in-widget8`.
+TR: * Then add the following CSS to your project:
+
+```
+.my-view-in-widget8 {
+    top: 64px !important;
+    height: calc(100% - 64px) !important;
+    overflow-y: auto;
+}
+@media screen and (max-width: 800px) {
+    /* Resolution lower than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 0 !important;
+        width: 100% !important;
+    }
+}
+@media screen and (min-width: 800px) {
+    /* Resolution higher than 800px -> using 'modal' layout */
+    .my-view-in-widget8 {
+        left: 256px !important;
+        width: calc(100% - 256px) !important;
+    }
+}
+```
+
+TR: * In the CSS customize the resolution to the resolution that you set via VIS Editor (in the example `max-width: 800px` and `min-width: 800px`)
+TR: * If you set a custome width for the menu drawer, than you also have to change 'left' and 'width' property in the CSS to this value (in the example `left: 256px !important;` and `width: calc(100% - 256px) !important;`)
+
+TR: ### Editor Settings
+TR: Settings that are not listed in the table below are self-explanatory.
 
 TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td> <td>Object ID</td> <td>must be set to a datapoint from typ number. For example this datapoint can be used by <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">view in widget 8</a></td> </tr> <tr> <td>show index of navigation items</td> <td>shows the index of navigation before the item label. This number can be used in <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">view in widget 8</a> to define the view that should be shown if the item is selected</td> </tr> <tr> <td>count of navigation items</td> <td>Define the count of the navigations items</td> </tr> </tbody> </table>
 
@@ -4340,8 +4380,12 @@ TR: * [Material Design Icons](https://materialdesignicons.com/)
 	### __WORK IN PROGRESS__
 -->
 
+<!-- omit in toc -->
 ### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: new layout 'auto' added - change between modal and permanent layout depending on screen resolution. [Details see documentation!](#layout-auto)
 * (Scrounger) Top App Bar Widget: option added to set value on click at item that toggle submenu
+* (Scrounger) IconList Widget: option added to show single element over whole row
+* (Scrounger) IconList Widget: bug fix for applying active color ([#176](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/176))
 
 <!-- omit in toc -->
 ### 0.5.7 (2021-05-26)

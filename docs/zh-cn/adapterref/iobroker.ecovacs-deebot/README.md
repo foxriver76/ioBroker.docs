@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ecovacs-deebot/README.md
 title: TR: Ecovacs Deebot adapter for ioBroker
-hash: 49L0KJ5YoprBrRIjUEykIuGtjd3pyv4qd/iYj/AVN7s=
+hash: FnMYOflQ5eNPmJub4vSXFG64MYs86SP/qderkgRQ7ME=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -93,6 +93,7 @@ TR: ## Known issues
 TR: * For some models (e.g. Deebot OZMO 930) it is recommended to [schedule a restart](https://www.iobroker.net/#en/documentation/admin/instances.md#The%20page%20content) once a day because there are some reports that the connection is lost after approx. 24 hours
 TR: * Some cleaning functions may not work with Deebot 710/711/711s. Please use version 0.5.8 for now.
 TR: * The "edge" function does not work with Deebot U2 (starts auto clean instead)
+TR: * Some "cleaninglog" states are empty on T9 series ("last20Logs", "lastCleaningDate" and "lastCleaningMapImageURL")
 
 TR: ## Disclaimer
 TR: I am in no way affiliated with ECOVACS.

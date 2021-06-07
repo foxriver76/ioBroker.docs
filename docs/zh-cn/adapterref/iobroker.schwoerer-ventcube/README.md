@@ -2,70 +2,73 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.schwoerer-ventcube/README.md
-title: ioBroker.schwoerer-ventcube
-hash: ooQd7u6nAw3NV7A4xcAwWg32vY9GzGvOivxyM/aXzcQ=
+title: TR: ioBroker.schwoerer-ventcube
+hash: aBfWMJanRauvuqMhJ8iYqrkhjzBVlq3oBmX+Gd6wvyc=
 ---
-![商标](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
+![TR: Logo](../../../en/adapterref/iobroker.schwoerer-ventcube/admin/schwoerer-ventcube.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.schwoerer-ventcube.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.schwoerer-ventcube.svg)
-![依赖状态](https://img.shields.io/david/Excodibur/iobroker.schwoerer-ventcube.svg)
-![安装数量（最新）](http://iobroker.live/badges/schwoerer-ventcube-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/schwoerer-ventcube-stable.svg)
-![语言等级：JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.schwoerer-ventcube.svg?logo=lgtm&logoWidth=18)
-![NPM](https://nodei.co/npm/iobroker.schwoerer-ventcube.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.schwoerer-ventcube.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.schwoerer-ventcube.svg)
+![TR: Dependency Status](https://img.shields.io/david/Excodibur/iobroker.schwoerer-ventcube.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/schwoerer-ventcube-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/schwoerer-ventcube-stable.svg)
+![TR: Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Excodibur/ioBroker.schwoerer-ventcube.svg?logo=lgtm&logoWidth=18)
+![TR: NPM](https://nodei.co/npm/iobroker.schwoerer-ventcube.png?downloads=true)
 
-＃ioBroker.schwoerer-ventcube
-![Github发布状态](https://github.com/Excodibur/iobroker.schwoerer-ventcube/workflows/Build%2C%20Test%20and%20Release/badge.svg)
+TR: # ioBroker.schwoerer-ventcube
+![TR: Github release status](https://github.com/Excodibur/iobroker.schwoerer-ventcube/workflows/Build%2C%20Test%20and%20Release/badge.svg)
 
-## IoBroker的schwoerer-ventcube适配器
-Schwoererhaus Ventcube系统的适配器。可以在[这里](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/)中找到有关Ventcube Fresh的更多信息。
+TR: ## schwoerer-ventcube adapter for ioBroker
+TR: Adapter for Schwoererhaus Ventcube system. More information about Ventcube Fresh can be found [TR: here](https://www.bauinfocenter.de/lueftung/lueftungsanlagen/).
 
-**免责声明**：此适配器既未由分发Ventcube系统的公司[Schwoererhaus KG](https://www.schwoererhaus.de/)开发也未得到官方支持。请严格按照说明进行操作，风险自负。
+TR: **Disclaimer**: This adapter is neither developed nor officially supported by the company [TR: Schwoererhaus KG](https://www.schwoererhaus.de/) which distributes the Ventcube system. Instructions should be followed with care and at your own risk.
 
-###前提条件
-为了访问Ventcube的网络接口，需要满足以下（已知）先决条件：
+TR: ### Preconditions
+TR: In order to access the network-interface of Ventcube the following (known) preconditions need to be met:
 
--Ventcube需要连接到您的内部网络（通常通过网络电缆）
--需要支持Modbus TCP接口（控制面板：> = V1.05，VentCube：> = V02.11），通常必须先手动启用
-    *在控制面板上登录“服务”部分（使用docs中的标准密码）
-*在“基本设置”中，检查是否已建立网络连接，并且“ 9.网络接口”和“ 10. Modbus TCP”均处于活动状态。
-*如果最后两个设置均未激活，请激活它们并重新启动Ventcube（例如，暂时切断电源）
+TR: - The Ventcube needs to be connected to your internal network (usually via network-cable)
+TR: - Modbus TCP interface needs to be supported (Control-Panel: >= V1.05, VentCube: >= V02.11) and often has to be enabled manually first
+TR:     * On Control Panel login to "Service" section (use standard password from docs)
+TR: 	* In Basic Settings check that Network Connection is established and "9. Network Interface" and "10. Modbus TCP" are both active.
+TR: 	* If the last two settings are not active, activate them and restart the Ventcube (e.g. by cutting the power temporarily)
 
-###配置参数
-根据特定于建筑物的Ventcube设置，不会使用所有可以从Ventcube接口检索或更改的参数。 “ parameters”文件夹中的每个参数与“ lastUpdate”文件夹中的条目并排，该条目指示每个参数的最后获取时间戳。
+TR: ### Configuration parameters
+TR: Depending on the building-specific Ventcube setup not all parameters that can be retrieved from or changed via the Ventcube interface will be used. Each parameter in the "parameters" folder goes side-by-side with an entry in the "lastUpdate" folder that indicates the last fetch timestamp for each parameter.
 
-下文引用的规范中提到的所有参数均已添加到适配器中，并且可以通过***高级功能***选项进行访问，该选项可在适配器部署期间进行配置。启用此选项将导致适配器定期检索100多个参数的数据，其中大多数可能不会在普通家庭中使用。测试范围仅限于***基本功能***（默认情况下启用）。
+TR: All parameters mentioned in the specification referenced below were added to the adapter and can be accessed via ***Advanced Functions*** option that is configurable during adapter deployment. Enabling this option will cause the adapter to periodically retrieve data for 100+ parameters, of which most might not be used in common households. Test scope was limited to ***Basic Functions*** (enabled by default).
 
-可能需要在适配器部署期间更改以下默认配置值，以使其正确连接到Ventcube：
+TR: The following default config-values likely will need to be changed during adapter deployment for it to connect to Ventcube properly:
 
-|参数默认值**应该** |说明|
-| `Server`|本地主机| *** HERMES-LT ***或*** Ventcube的局域网IP *** |默认值用于测试，肯定需要更改！ |
-| `Port`| 10502 | ***502*** |默认值用于测试，肯定需要更改！ |
-| `Interval`| 30 | 30 |在几秒钟后，应该从服务器刷新指标。 |
-| `Request Timeout`| 5000 | 5000 |到Ventcube的请求超时要等待多少毫秒|
-| `Reconnection Attempts`| 10 | 10 |万一失去与Ventcube的连接，应尝试多少次重新连接|
-| `Delay between reconnection attempts`| 10000 | 10000 |两次重新连接尝试之间等待的时间（以毫秒为单位）|
-| `Advanced Functions`| ＆＃10003; | |如果仅将Ventcube用于通风，基本功能就足够了，但是如果需要加热/冷却功能或系统指标（错误代码，风扇详细信息），则应激活高级功能。 |
-| “高级功能” | ＆＃10003; | |如果仅将Ventcube用于通风，基本功能就足够了，但是如果需要加热/冷却功能或系统指标（错误代码，风扇详细信息），则应激活高级功能。 |
+| TR: | Parameter                             | Default Value | **Should be**                                         | Explanation |
+| TR: | `Server`                              | localhost     | ***HERMES-LT*** or ***local network IP of Ventcube*** | Default value is used for tests and definitely needs to be changed! |
+| TR: | `Port`                                | 10502         | ***502***                                             | Default value is used for tests and definitely needs to be changed! |
+| TR: | `Interval`                            | 30            | 30                                                    | After how many seconds should metrics be refreshed from server |
+| TR: | `Request Timeout`                     | 5000          | 5000                                                  | How many milliseconds to wait until requests to Ventcube time out |
+| TR: | `Reconnection Attempts`               | 10            | 10                                                    | In case connection is lost to Ventcube, how many times a reconnect should be attempted |
+| TR: | `Delay between reconnection attempts` | 10000         | 10000                                                 | How long to wait between reconnection attempts (in milliseconds) |
+| TR: | `Advanced Functions`                  | &#10003;      |                                                       | While basic functions might be sufficient if Ventcube is just used for air ventilation, advanced functions should be activated if heating/cooling functions, or system metrics (error codes, fan details) are needed. |
+| TR: | `Advanced Functions`                  | &#10003;      |                                                       | While basic functions might be sufficient if Ventcube is just used for air ventilation, advanced functions should be activated if heating/cooling functions, or system metrics (error codes, fan details) are needed. |
 
-####有趣的功能（开始）
--*** Betriebsart ***，多变
--***Stoßlüftung***（30分钟4级空气喷射），可更换
--*** Ist Temp Raum 1 ***（室内温度）
--*** T10Außentemperatur***
+TR: #### Interesting functions (to start with)
+TR: - ***Betriebsart***, changeable
+TR: - ***Stoßlüftung*** (30 minute level 4 air burst), changeable
+TR: - ***Ist Temp Raum 1*** (temperature inside house)
+TR: - ***T10 Außentemperatur***
 
-###参考系统
-ioBroker适配器已成功测试：
+TR: ### Reference system
+TR: The ioBroker adapter was tested sucessfully with:
 
-|控制面板Ventcube | Modbus规格|
+| TR: | Control Panel | Ventcube | Modbus specification              |
 |---------------|----------|-----------------------------------|
-| V01.10 | V02.26 |参数列表e_Modbus_TCP_03.2020 |
+| TR: | V01.10        | V02.26   | [TR: Parameterliste_Modbus_TCP_03.2020](https://schwoerer-service.com/storage/files/Community/2020/Parameterliste_Modbus_TCP_032020.pdf) |
+
+## Changelog
+See [Changelog](https://github.com/Excodibur/ioBroker.schwoerer-ventcube/blob/master/CHANGELOG.md).
 
 ## License
 MIT License
 
-Copyright (c) 2020 Excodibur <non@existant.com>
+Copyright (c) 2020-2021 Excodibur
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

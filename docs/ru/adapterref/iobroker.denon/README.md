@@ -1,516 +1,520 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/denon-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.denon.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.denon.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.denon.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.denon/README.md
-title: ioBroker.denon
-hash: JYREJt7gT3z33R1WkTzC1mRy5Fp2M+2eeCHRIxmYS5E=
+title: TR: ioBroker.denon
+hash: QJOQw2ySmAxZxcy7FlzxYF/KQ/SiBO4lyLxKnHMYyBE=
 ---
-![Логотип](../../../en/adapterref/iobroker.denon/admin/denon.png)
+![TR: Logo](../../../en/adapterref/iobroker.denon/admin/denon.png)
 
-![Количество установок](http://iobroker.live/badges/denon-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.denon.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.denon.svg)
-![NPM](https://nodei.co/npm/iobroker.denon.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/denon-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.denon.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.denon.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.denon.png?downloads=true)
 
-# IoBroker.denon
+TR: # ioBroker.denon
 ===========================
 
-![Статус сборки](https://github.com/foxriver76/ioBroker.denon/workflows/Test%20and%20Release/badge.svg)
+![TR: Build Status](https://github.com/foxriver76/ioBroker.denon/workflows/Test%20and%20Release/badge.svg)
 
-## Установка
-Вы можете установить адаптер через веб-интерфейс ioBroker или на локальный компьютер через npm.
+TR: ## Installation
+TR: You can either install the adapter via the ioBroker web interface or on your local machine via npm.
 
-### На основе браузера
-1. Откройте веб-интерфейс ioBroker в браузере (например: 192.168.30.70:8081)
-2. Щелкните вкладку «Адаптеры».
-3. Введите "Denon" в фильтр.
-4. Щелкните три точки, а затем символ «+» адаптера DENON AVR.
+TR: ### Browser-based
+TR: 1. Open your ioBroker web interface in a browser (eg: 192.168.30.70:8081)
+TR: 2. Click on Tab "Adapters"
+TR: 3. Type "Denon" in the Filter
+TR: 4. Click on the three points and then on the "+" symbol of the DENON AVR adapter
 
-![Добавить адаптер](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
+![TR: Add Adapter](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
 
-### Локальный компьютер
-Перейдите в папку iobroker и выполните следующую команду:
+TR: ### Local machine
+TR: Navigate into your iobroker folder and execute the following command:
 
 ```bash
 npm i iobroker.denon
 ```
 
-## Настроить
-В дополнение к установке адаптера вы должны убедиться, что ваш AVR правильно настроен.
+TR: ## Setup
+TR: Additional to the adapter installation you have to make sure that your AVR is correctly configured.
 
-### IoBroker
-1. Откройте интерфейс ioBroker в браузере (например: 192.168.1.33:8081)
-2. Перейдите на вкладку «Адаптеры».
-3. Щелкните три точки, а затем символ «+» адаптера DENON AVR.
+TR: ### ioBroker
+TR: 1. Open your ioBroker interface in a browser (eg: 192.168.1.33:8081)
+TR: 2. Navigate to Tab "Adapters"
+TR: 3. Click on the three points and then on the "+" symbol of the DENON AVR adapter
 
-![Добавить адаптер](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
+![TR: Add Adapter](../../../en/adapterref/iobroker.denon/docs/en/media/plusAddAdapter.png)
 
-4. Теперь вы можете увидеть страницу конфигурации адаптера -> введите ip-адрес вашего DENON AVR или нажмите на поиск
+TR: 4. Now you can see the adapter configuration page --> type in the ip-address of your DENON AVR or click on the search
 
-значок, чтобы найти AVR в вашей сети (через UPnP) ![Конфигурация адаптера](../../../en/adapterref/iobroker.denon/docs/en/media/fillInIp.png)
+TR: icon to find AVRs in your network (via UPnP) ![TR: Adapter Configuration](../../../en/adapterref/iobroker.denon/docs/en/media/fillInIp.png)
 
-5. Если вы также хотите настроить интервал запроса / опроса, не забудьте щелкнуть вкладку «Дополнительные настройки».
+TR: 5. If you also want to adjust the request/poll interval, make sure to click on the "Advanced Settings" Tab.
 
-Уменьшая интервал опроса, адаптер сократит время между обновлением содержимого дисплея.
-При уменьшении интервала запроса время между отправкой команд будет уменьшено.
-Настройки по умолчанию должны подходить большинству пользователей.
-![Расширенные настройки](../../../en/adapterref/iobroker.denon/docs/en/media/advancedSettings.png)
+TR: By decreasing the Poll Interval the adapter will decrease the time between updating the display contents.
+By decreasing the request interval the time between sending commands will be decreased.
+The default settings should fit well for the most users.
+![TR: Advanced Settings](../../../en/adapterref/iobroker.denon/docs/en/media/advancedSettings.png)
 
-6. Нажмите "Сохранить и закрыть".
+TR: 6. Click on Save & Close
 
-### Настройка сети AV-ресивера
-1. Нажмите кнопку SETUP, затем на FL-дисплее (и в графическом интерфейсе пользователя) появится меню.
-2. Выберите «Сеть» -> «Настройки».
-3. Установите параметры, описанные ниже.
+TR: ### Network Setup of AV Receiver
+TR: 1. Press SETUP button, then Menu appears on FL-display(and GUI)
+TR: 2. Select "Network" --> "Settings"
+TR: 3. Set parameters described below
 
-   *DHCP: «ВКЛ.» (Используйте этот параметр, если DHCP-сервер находится в локальной сети.)*
+TR:    *DHCP: "ON" (Use this setting when DHCP server is on the local network.)*
 
-   *IP-адрес: если для <DHCP> установлено значение «Выкл.», Установите IP-адрес.*
+TR:    *IP Address: When <DHCP> sets "Off”, please set IP address.*
 
-   *Маска подсети: если для <DHCP> установлено значение «Выкл.», Установите маску подсети.*
+TR:    *Subnet Mask: When <DHCP> sets "Off", please set Subnet Mask.*
 
-   *Шлюз: установите адрес шлюза, когда шлюз находится в локальной сети.*
+TR:    *Gateway: Set the address of Gateway when Gateway is on the local network.*
 
-   *Первичный DNS: не устанавливайте этот параметр.*
+TR:    *Primary DNS: Do not set this parameter.*
 
-   *Второй DNS: не устанавливайте этот параметр.*
+TR:    *Second DNS: Do not set this parameter.*
 
-   *Прокси: установите для этого параметра «Выкл.».*
+TR:    *Proxy: Set this parameter "Off".*
 
-4. Нажмите кнопку SETUP, затем на FL-дисплее (и в графическом интерфейсе пользователя) появится меню.
-5. Выберите «Сеть» -> Управление сетью / IP-контроль ».
-6. Установите для этого параметра значение «Всегда включен».
+TR: 4. Press SETUP button, then Menu appears on FL-display (and GUI)
+TR: 5. Select “Network" --> Network Control/IP Control"
+TR: 6. Set this parameter to "Always On".
 
-## Применение
-Обратите внимание, что AVR могут управлять только одним соединением Telnet. Если у вас есть активное соединение Telnet e. г. с адаптером javascript AVR откажется от подключения этого адаптера.
-Здесь вы можете найти описание состояний и способы их использования.
+TR: ## Usage
+TR: Take note, that the AVRs can only manage a single telnet connection. If you are having an active telnet connection e. g. with the javascript adapter, the AVR will refuse the connection of this adapter.
+Here you can find a description of the states and how to use them.
 
-### Кнопки
-Адаптер создает следующие кнопки:
+TR: ### Buttons
+TR: The adapter creates the following buttons:
 
-#### Канал: zoneMain / zone2 / zone3
-* zoneMain.playPause
+TR: #### Channel: zoneMain / zone2 / zone3
+TR: * zoneMain.playPause
 
-   *Воспроизведение и приостановка музыки из источников Bluetooth, Online, USB / iPod.*
+TR:    *Play and pause music from Bluetooth, Online, USB/iPod sources.*
 
-* zoneMain.play
+TR: * zoneMain.play
 
-   *Воспроизведение музыки с источников Bluetooth, онлайн, USB / iPod.*
+TR:    *Play music from Bluetooth, Online, USB/iPod sources.*
 
-* zoneMain.pause
+TR: * zoneMain.pause
 
-   *Приостановите воспроизведение музыки из источников Bluetooth, Online, USB / iPod.*
+TR:    *Pause music from Bluetooth, Online, USB/iPod sources.*
 
-* zoneMain.skipMinus
+TR: * zoneMain.skipMinus
 
-   *Перейти к предыдущему заголовку.*
+TR:    *Skip to previous title.*
 
-   *НЕ ПОЛНОСТЬЮ ПОДДЕРЖИВАЕТСЯ ДЛЯ HEOS AVR*
+TR:    *NOT FULLY SUPPORTED FOR HEOS AVR'S*
 
-* zoneMain.skipPlus
+TR: * zoneMain.skipPlus
 
-   *Перейти к следующему заголовку.*
+TR:    *Skip to next title.*
 
-   *НЕ ПОЛНОСТЬЮ ПОДДЕРЖИВАЕТСЯ ДЛЯ HEOS AVR*
+TR:    *NOT FULLY SUPPORTED FOR HEOS AVR'S*
 
-* zoneMain.volumeDown / zone2.volumeDown / zone3.volumeDown
+TR: * zoneMain.volumeDown / zone2.volumeDown / zone3.volumeDown
 
-   *Уменьшите громкость в основной зоне / зоне 2 / зоне 3.*
+TR:    *Decrease volume of Main Zone / Zone2 / Zone3.*
 
-* zoneMain.volumeUp / zone2.volumeUp / zone3.volumeUp
+TR: * zoneMain.volumeUp / zone2.volumeUp / zone3.volumeUp
 
-   *Увеличьте громкость Main Zone / Zone2 / Zone3.*
+TR:    *Increase volume of Main Zone / Zone2 / Zone3.*
 
-* zoneMain.equalizerBassUp / zone2.equalizerBassUp / zone3.equalizerBassUp
+TR: * zoneMain.equalizerBassUp / zone2.equalizerBassUp / zone3.equalizerBassUp
 
-   *Кнопка увеличения уровня низких частот Зоны.*
+TR:    *Button which increases bass level of the Zone.*
 
-   *Настройки низких и высоких частот можно регулировать, если для параметра Dyn EQ установлено значение OFF, а для параметра Tone Control включено*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-* zoneMain.equalizerBassDown / zone2.equalizerBassDown / zone3.equalizerBassDown
+TR: * zoneMain.equalizerBassDown / zone2.equalizerBassDown / zone3.equalizerBassDown
 
-   *Кнопка уменьшения уровня низких частот Зоны.*
+TR:    *Button which decreases bass level of the Zone.*
 
-   *Настройки низких и высоких частот можно регулировать, если для параметра Dyn EQ установлено значение OFF, а для параметра Tone Control включено*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-* zoneMain.equalizerTrebleUp / zone2.equalizerTrebleUp / zone3.equalizerTrebleUp
+TR: * zoneMain.equalizerTrebleUp / zone2.equalizerTrebleUp / zone3.equalizerTrebleUp
 
-   *Кнопка увеличения высоких частот Зоны.*
+TR:    *Button which increases treble level of the Zone.*
 
-   *Настройки низких и высоких частот можно регулировать, если для параметра Dyn EQ установлено значение OFF, а для параметра Tone Control включено*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-* zoneMain.equalizerTrebleDown / zone2.equalizerTrebleDown / zone3.equalizerTrebleDown
+TR: * zoneMain.equalizerTrebleDown / zone2.equalizerTrebleDown / zone3.equalizerTrebleDown
 
-   *Кнопка уменьшения высоких частот Зоны.*
+TR:    *Button which decreases treble level of the Zone.*
 
-   *Настройки низких и высоких частот можно регулировать, если для параметра Dyn EQ установлено значение OFF, а для параметра Tone Control включено*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-#### Канал: настройки
-* settings.subwooferLevelDown / settings.subwooferTwoLevelDown
+TR: #### Channel: settings
+TR: * settings.subwooferLevelDown / settings.subwooferTwoLevelDown
 
-   *Уменьшите уровень сабвуфера, нажав кнопку.*
+TR:    *Reduce subwoofer level by pressing the button.*
 
-* settings.subwooferLevelUp / settings.subwooferTwoLevelUp
+TR: * settings.subwooferLevelUp / settings.subwooferTwoLevelUp
 
-   *Увеличьте уровень сабвуфера, нажав кнопку.*
+TR:    *Increase subwoofer level by pressing the button.*
 
-* settings.containmentAmountDown
+TR: * settings.containmentAmountDown
 
-   *Уменьшите количество Audyssey LFC. Кнопка будет создана только в том случае, если она поддерживается вашим AVR.*
+TR:    *Decrease Audyssey LFC amount. The button will only be created, if it is supported by your AVR.*
 
-* settings.containmentAmountUp
+TR: * settings.containmentAmountUp
 
-   *Увеличьте количество Audyssey LFC. Кнопка будет создана только в том случае, если она поддерживается вашим AVR.*
+TR:    *Increase Audyssey LFC amount. The button will only be created, if it is supported by your AVR.*
 
-* settings.cursorUp / settings.cursorDown / settings.cursorLeft / settings.cursorRight
+TR: * settings.cursorUp / settings.cursorDown / settings.cursorLeft / settings.cursorRight
 
-   *Имитирует кнопки курсора вашего пульта дистанционного управления*
+TR:    *Simulates the cursor buttons of your remote control*
 
-* settings.enter
+TR: * settings.enter
 
-   *Имитирует кнопку ввода вашего пульта дистанционного управления*
+TR:    *Simulates the enter button of your remote control*
 
-* settings.return
+TR: * settings.return
 
-   *Имитирует кнопку возврата / возврата вашего пульта дистанционного управления*
+TR:    *Simulates the return/back button of your remote control*
 
-* settings.option
+TR: * settings.option
 
-   *Имитирует кнопку выбора вашего пульта дистанционного управления*
+TR:    *Simulates the option button of your remote control*
 
-* settings.info
+TR: * settings.info
 
-   *Имитирует информационную кнопку вашего пульта дистанционного управления*
+TR:    *Simulates the info button of your remote control*
 
-### Состояния
-Адаптер создаст следующие состояния:
+TR: ### States
+TR: Following states will be created by the adapter:
 
-#### Канал: информация
-* info.connection
+TR: #### Channel: info
+TR: * info.connection
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Логический индикатор только для чтения. Если ваш брокер подключен к вашему DENON AVR, состояние истинно, иначе - ложно.*
+TR:    *Read-only boolean indicator. If your broker is connected to your DENON AVR, the state is true otherwise false.*
 
-* info.friendlyName
+TR: * info.friendlyName
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R |
+| TR:     |string|R|
 
-   *Только чтение строки. Содержит понятное имя подключенного AVR.*
+TR:    *Read only string. Contains the friendly name of the connected AVR.*
 
-* info.onlinePresets
+TR: * info.onlinePresets
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R |
+| TR:     |string|R|
 
-*Строка в формате массива JSON, которая представляет текущее сохраненное избранное по его идентификатору и каналу.
-Названия каждого канала ограничены 20 цифрами. Вы можете сохранить текущий канал с идентификатором, установив settings.savePreset и загрузить один, установив settings.loadPreset на соответствующий идентификатор.*
+TR: *String in JSON array format, which represents the current saved favorites by its id and channel.
+The names of each channel are limited by 20 digits. You can save the current channel to an id by setting settings.savePreset and load one by setting settings.loadPreset to the related id.*
 
-#### Канал: zoneMain / zone2 / zone3
-* zoneMain.volume / zone2.volume / zone3.volume
+TR: #### Channel: zoneMain / zone2 / zone3
+TR: * zoneMain.volume / zone2.volume / zone3.volume
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-*Числовое значение, которое представляет текущую громкость основной зоны / зоны 2 / зоны 3 вашего AVR. Вы также можете установить громкость здесь.
-Громкость также отображается в дБ в отдельных состояниях, т.е. г. mainVolumeDB*
+TR: *Number value which represents the current Main Zone / Zone2 / Zone 3 volume of your AVR. You can also set the volume here.
+The volume is represented in dB too in separate states, e. g. mainVolumeDB*
 
-   *Диапазон от 0 до 98 (может быть меньше из-за максимальной громкости), где 80 = 0 дБ*
+TR:    *Range is from 0 to 98 (maybe lower due to maximumVolume), where 80 = 0 dB*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.zoneMain.volume', 45.5); // Sets volume of Main Zone to 45.5
 ```
 
-* zoneMain.maximumVolume
+TR: * zoneMain.maximumVolume
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R |
+| TR:     |number|R|
 
-   *Число только для чтения, которое представляет максимально возможную громкость, где 80 = 0 дБ. Громкость также устанавливается в дБ в состоянии maximumVolumeDB.*
+TR:    *Read-only number which represents the maximum possible volume, where 80 = 0 dB. The volume is also set in dB in the maximumVolumeDB state.*
 
-* zoneMain.muteIndicator / zone2.muteIndicator / zone3.muteIndicator
+TR: * zoneMain.muteIndicator / zone2.muteIndicator / zone3.muteIndicator
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-   *Логическое значение, которое истинно, если основная зона / Zone2 / Zone3 отключена, в противном случае - false. В этом состоянии вы можете отключить звук AVR.*
+TR:    *Boolean value, which is true if the Main Zone / Zone2 / Zone3 is muted, otherwise false. You can mute your AVR with this state.*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.zoneMain.muteIndicator', true); // Mutes the Main Zone of your AVR
 ```
 
-* zoneMain.powerZone / zone2.powerZone / zone3.powerZone
+TR: * zoneMain.powerZone / zone2.powerZone / zone3.powerZone
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-   *Логическое значение, которое истинно, если Зона включена, иначе ложно. В этом состоянии вы можете включать и выключать свой AVR / Zone.*
+TR:    *Boolean value, which is true if the Zone is turned on, otherwise false. You can turn your AVR / Zone on and off with this state.*
 
-* zoneMain.selectInput / zone2.selectInput / zone3.selectInput
+TR: * zoneMain.selectInput / zone2.selectInput / zone3.selectInput
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-   *Строковое значение содержит текущий источник ввода. Вы также можете установить источник входного сигнала со следующей кодировкой:*
+TR:    *The string value contains the current input source. You can also set the input source with the following encoding:*
 
-   *0: PHONO*
+TR:    *0: 	PHONO*
 
-   *1: CD*
+TR:    *1: 	CD*
 
-   *2: ТЮНЕР*
+TR:    *2: 	TUNER*
 
-   *3: DVD*
+TR:    *3: 	DVD*
 
-   *4: BD*
+TR:    *4: 	BD*
 
-   *5: ТВ*
+TR:    *5: 	TV*
 
-   *6: SAT / CBL*
+TR:    *6: 	SAT/CBL*
 
-   *7: MPLAY*
+TR:    *7: 	MPLAY*
 
-   *8: ИГРА*
+TR:    *8: 	GAME*
 
-   *9: НЕТТО*
+TR:    *9: 	NET*
 
-   *10: ОБНАРУЖИТЬ*
+TR:    *10:	SPOTIFY*
 
-   *11: LASTFM*
+TR:    *11:	LASTFM*
 
-   *12: ИРАДИО*
+TR:    *12:	IRADIO*
 
-   *13: СЕРВЕР*
+TR:    *13:	SERVER*
 
-   *14: ИЗБРАННОЕ*
+TR:    *14:	FAVORITES*
 
-   *15: AUX1*
+TR:    *15:	AUX1*
 
-   *16: AUX2*
+TR:    *16:	AUX2*
 
-   *17: AUX3*
+TR:    *17:	AUX3*
 
-   *18: AUX4*
+TR:    *18:	AUX4*
 
-   *19: AUX5*
+TR:    *19:	AUX5*
 
-   *20: AUX6*
+TR:    *20:	AUX6*
 
-   *21: AUX7*
+TR:    *21:	AUX7*
 
-   *22: BT*
+TR:    *22: BT*
 
-   *23: USB*
+TR:    *23: USB*
 
-*Обратите внимание, что не все источники входного сигнала доступны на каждой модели AVR. Если ваш AVR имеет дополнительные входы, они будут добавлены в список, как только они будут обнаружены.*
+TR: *Please note, that not every input source is available on every AVR model. If your AVR has additional inputs, they will be appended to the list, once they have been detected.*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
  setState('denon.0.zoneMain.selectInput', '5'); // Selects TV as input for Main Zone
 ```
 
-* zoneMain.quickSelect / zone2.quickSelect / zone3.quickSelect
+TR: * zoneMain.quickSelect / zone2.quickSelect / zone3.quickSelect
 
-   | Тип данных | Разрешение |
+| TR:    |Data type|Permission|
    |:---:|:---:|
-   | номер | R / W |
+| TR:    |number|R/W|
 
-   *Имитирует кнопки быстрого выбора на вашем пульте дистанционного управления с номерами от 1 до 5 для Main Zone / Zone2 / Zone3.*
+TR:    *Emulates the quick select buttons of your remote, with numbers from 1 to 5 for Main Zone / Zone2 / Zone3.*
 
-* zoneMain.sleepTimer / zone2.sleepTimer / zone3.sleepTimer
+TR: * zoneMain.sleepTimer / zone2.sleepTimer / zone3.sleepTimer
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-   *Числовое значение для чтения и установки таймера сна для выбранной зоны. Значение будет обновлено менее чем через 10 секунд.*
+TR:    *Number-value to read and set the sleep timer for the selected zone. The value will be updated in less than 10 seconds.*
 
-* zoneMain.iconURL
+TR: * zoneMain.iconURL
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R |
+| TR:     |string|R|
 
-   *Содержит ссылку, по которой вы можете найти обложку канала / песни, которая воспроизводится в данный момент.*
+TR:    *Contains a link where you can find the cover of the channel/song which is currently played.*
 
-   *НЕ ПОДДЕРЖИВАЕТСЯ ДЛЯ HEOS AVR*
+TR:    *NOT SUPPORTED FOR HEOS AVR'S*
 
-* zoneMain.equalizerBass / zone2.equalizerBass / zone3.equalizerBass
+TR: * zoneMain.equalizerBass / zone2.equalizerBass / zone3.equalizerBass
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-   *Числовое значение, представляющее уровень низких частот Зоны. Диапазон значений от -6 до +6 дБ.*
+TR:    *Number value which represents the bass level of the Zone. Value range is from -6 to +6 dB.*
 
-   *Настройки низких и высоких частот можно регулировать, если для параметра Dyn EQ установлено значение OFF, а для параметра Tone Control включено*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-* zoneMain.equalizerTreble / zone2.equalizerTreble / zone3.equalizerTreble
+TR: * zoneMain.equalizerTreble / zone2.equalizerTreble / zone3.equalizerTreble
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-   *Числовое значение, представляющее уровень высоких частот Зоны. Диапазон значений от -6 до +6 дБ.*
+TR:    *Number value which represents the treble level of the Zone. Value range is from -6 to +6 dB.*
 
-   *Настройки низких и высоких частот можно регулировать, если для параметра Dyn EQ установлено значение OFF, а для параметра Tone Control включено*
+TR:    *Bass and treble settings can be adjusted when Dyn EQ is set to OFF and Tone Control is on*
 
-* zoneMain.channelVolumeFrontLeft / zone2.channelVolumeFrontLeft / zone3.channelVolumeFrontLeft / ...
+TR: * zoneMain.channelVolumeFrontLeft / zone2.channelVolumeFrontLeft / zone3.channelVolumeFrontLeft / ...
 
-   | Тип данных | Разрешение |
+| TR:    |Data type|Permission|
    |:---:|:---:|
-   | номер | R / W |
+| TR:    |number|R/W|
 
-*Числовое значение, представляющее текущую громкость канала для каждого динамика. У каждого динамика есть отдельное состояние. Настройки влияют на текущий режим выбора входа. Состояние можно регулировать от -12 дБ до +12 дБ.*
+TR: *Number value which represents the current channel volume for each speaker. Each speaker has a separate state. The settings affect the current Select Input Mode. The state can be adjusted from -12 dB to +12 dB.*
 
-#### Канал: дисплей
-* display.displayContent
+TR: #### Channel: display
+TR: * display.displayContent
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R |
+| TR:     |string|R|
 
-   *Строка только для чтения, которая содержит содержимое вашего дисплея AVR. Он имеет девять состояний от 0 до 9.*
+TR:    *Read-only string which contains the content of your AVR display. It has nine states 0 - 9.*
 
-   *ДИСПЛЕЙ НЕ ПОДДЕРЖИВАЕТСЯ ДЛЯ HEOS AVR*
+TR:    *DISPLAY CONTENT IS NOT SUPPORTED FOR HEOS AVR'S*
 
-* display.brightness
+TR: * display.brightness
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-   *Строковое значение, представляющее яркость дисплея. Значение также может установить яркость дисплея, используя следующую кодировку:*
+TR:    *String value which represents the display brightness. The value can also set the display brightness by the following encoding:*
 
-   *0: Off -> выключает дисплей*
+TR:    *0: Off --> turns display off*
 
-   *1: Темный -> дисплей темнеет*
+TR:    *1: Dark --> turns display dark*
 
-   *2: Затемненный -> затемняет дисплей*
+TR:    *2: Dimmed --> turns display dimmed*
 
-   *3: Яркий -> делает дисплей ярким*
+TR:    *3: Bright --> turns display bright*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.display.brightness', '3'); // Sets display brightness to "Bright"
 ```
 
-#### Канал: настройки
-* settings.powerSystem
+TR: #### Channel: settings
+TR: * settings.powerSystem
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-   *Логическое значение, которое истинно, если AVR включен, иначе ложно. Вы также можете включать и выключать AVR в этом состоянии.*
+TR:    *Boolean value which is true, if the AVR is turned on, otherwise false. You can also turn your AVR on and off with this state.*
 
-* settings.surroundMode
+TR: * settings.surroundMode
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-   *Строковое значение содержит текущий режим объемного звука. Вы также можете изменить источник с помощью следующей кодировки:*
+TR:    *The string value contains the current Surround mode. You can also change the source with the following encoding:*
 
-   *0: СТЕРЕО*
+TR:    *0:	STEREO*
 
-   *1: ВИРТУАЛЬНЫЙ*
+TR:    *1:	VIRTUAL*
 
-   *2: ВИДЕО ИГРА*
+TR:    *2:	VIDEO GAME*
 
-   *3: MCH STEREO*
+TR:    *3:	MCH STEREO*
 
-   *4: DTS ОБЪЕМНОЕ*
+TR:    *4:	DTS SURROUND*
 
-   *5: DOLBY DIGITAL*
+TR:    *5:	DOLBY DIGITAL*
 
-   *6: ФИЛЬМ*
+TR:    *6:	MOVIE*
 
-   *7: МУЗЫКА*
+TR:    *7:	MUSIC*
 
-   *8: ПРЯМОЙ*
+TR:    *8:	DIRECT*
 
-   *9: ЧИСТЫЙ ПРЯМОЙ*
+TR:    *9:	PURE DIRECT*
 
-   *10: АВТО*
+TR:    *10:	AUTO*
 
-   *11: ИГРА*
+TR:    *11:	GAME*
 
-   *12: AURO3D*
+TR:    *12:	AURO3D*
 
-   *13: AURO2DSURR*
+TR:    *13:	AURO2DSURR*
 
-   *14: ШИРОКИЙ ЭКРАН*
+TR:    *14:	WIDE SCREEN*
 
-   *15: СУПЕР СТАДИОН*
+TR:    *15:	SUPER STADIUM*
 
-   *16: РОК-АРЕНА*
+TR:    *16:	ROCK ARENA*
 
-   *17: ДЖАЗ-КЛУБ*
+TR:    *17:	JAZZ CLUB*
 
-   *18: КЛАССИЧЕСКИЙ КОНЦЕРТ*
+TR:    *18:	CLASSIC CONCERT*
 
-   *19: МОНО ФИЛЬМ*
+TR:    *19:	MONO MOVIE*
 
-   *20: МАТРИЦА*
+TR:    *20:	MATRIX*
 
-   *Обратите внимание, что не все режимы объемного звучания доступны на каждой модели AVR.*
+TR:    *Please note, that not every Surround mode is available on every AVR model.*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.settings.surroundMode', '3'); // Sets Multi Channel Stereo as surround mode
 ```
 
-* settings.lfeAmount
+TR: * settings.lfeAmount
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-*Количество дополнительного сигнала сабвуфера, направленного на динамики в дБ.
-Диапазон от 0 дБ до -10 дБ. Где 10 = -10 дБ.*
+TR: *Amount of subwoofer signal additional directed to speakers in dB.
+Range is from 0 dB to -10 dB. Where 10 = -10 dB.*
 
-* settings.expertCommand
+TR: * settings.expertCommand
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-   *В этом состоянии вы можете отправлять свои собственные команды. Вы можете найти обзор существующих команд в [AVR-Control-Protocol.pdf](docs/AVR-Control-Protocol.pdf)*
+TR:    *You can send your own custom commands with this state. You can find an overview about the existing commands in the [TR: AVR-Control-Protocol.pdf](docs/AVR-Control-Protocol.pdf)*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.settings.expertCommand', 'ECOON'); // Turns Main Zone ECO mode on
 ```
 
-* settings.expertReadingPattern
+TR: * settings.expertReadingPattern
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-*Если вы хотите получить конкретные ответы, хранящиеся в `settings.expertReadingResult`, вы должны установить RegEx в это состояние.
-RegEx должен быть установлен, чтобы его мог использовать конструктор RegEx. Рекомендуется использовать [Тестер RegEx](https://regexr.com/).
-Не устанавливайте `/` в начале или конце RegEx.*
+TR: *If you want to get specific answers stored in `settings.expertReadingResult` you have to set a RegEx to this state.
+RegEx has to be set, so that a RegEx Constructor can use it. It is recommended to use a [TR: RegEx tester](https://regexr.com/).
+Do not set `/` at the beginning or end of the RegEx.*
 
-    *Пример:*
+TR:     *Example:*
 
 ```javascript
 setState('denon.0.settings.expertReadingPattern', '(MV.+)|(SSINFAISFSV.+)');
@@ -522,6 +526,31 @@ ttings.expertReadingResult
 |string|R|
 
 *Incoming data, which matches the RegEx of `settings.expertReadingPattern` will be set to this state.*
+
+
+ttings.dialogControl
+
+|Data type|Permission|
+|:---:|:---:|
+|number|R/W|
+
+*The dialog control, which can be operated from 0 dB to 6 dB.*
+
+ttings.dialogLevelAdjust
+
+|Data type|Permission|
+|:---:|:---:|
+|boolean|R/W|
+
+*Turns the dialog level adjustment on, which allows to modify the dialog volume of DTS content.*
+
+ttings.dialogLevel
+
+|Data type|Permission|
+|:---:|:---:|
+|boolean|R/W|
+
+*If dialog level adjustment is turned on you can modify the dialog volume of DTS content between -12 dB and +12 dB.*
 
 ttings.outputMonitor
 
@@ -543,292 +572,320 @@ Example:*
 etState('denon.0.settings.outputMonitor', '2'); // Sets monitor 2 as active monitor
 ``
 
-* settings.videoProcessingMode
+TR: * settings.videoProcessingMode
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-   *Выберите режим обработки видео вашего AVR. Это состояние будет создано, только если ваш AVR поддерживает его. Вы можете переключать состояние между:*
+TR:    *Select the video processing mode of your AVR. This state will only be created if your AVR supports it. You can switch the state between:*
 
-   *0: АВТО*
+TR:    *0: AUTO*
 
-   *1: ИГРА*
+TR:    *1: GAME*
 
-   *2: ФИЛЬМ*
+TR:    *2: MOVIE*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.settings.videoProcessingMode', '2'); // Sets Video Processing Mode to "MOVIE"
 ```
 
-* settings.centerSpread
+TR: * settings.centerSpread
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-   *Логическое значение, которое истинно, если центральное распространение усечено, иначе ложно. Вы также можете включить / выключить центральный разворот в этом состоянии.*
+TR:    *Boolean-value which is true if center spread is truned on, else false. You can also turn on/off center spread with this state.*
 
-* settings.dynamicEq
+TR: * settings.dynamicEq
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-   *Логическое значение, которое представляет состояние Dynamic EQ. В этом состоянии также можно включать и выключать динамический эквалайзер.*
+TR:    *Boolean value which represents the state of Dynamic EQ. You can also set Dynamic EQ on and off with this state.*
 
-* settings.subwooferLevelState
+TR: * settings.subwooferLevelState
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-   *Логическое значение, если оно истинно, вы можете вносить изменения на уровне сабвуфера.*
+TR:    *Boolean value, if it's true, you are able to make changes on the subwoofer level.*
 
-* settings.subwooferLevel / settings.subwooferTwoLevel
+TR: * settings.subwooferLevel / settings.subwooferTwoLevel
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-*Числовое значение, указывающее текущий уровень сабвуфера. Значение находится в диапазоне от -12 до 12 (от -12 дБ до +12 дБ).
-Состояние SubwooferTwoLevel будет создано только в том случае, если оно поддерживается вашим AVR.*
+TR: *Number value which indicates the current subwoofer level. The value has a range from -12 to 12 (-12 dB to +12 dB).
+The SubwooferTwoLevel state will only be created if it is supported by your AVR.*
 
-* settings.audysseyLfc
+TR: * settings.audysseyLfc
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-*Логическое значение, которое содержит и может контролировать состояние низкочастотного сдерживания Audyssey (вкл. / Выкл.).
-Состояние будет создано только в том случае, если оно поддерживается вашим AVR.*
+TR: *Boolean value, which contains and is able to control Audyssey Low Frequency Containment status (on/off).
+The state will only be created, if it is supported by your AVR.*
 
-* settings.containmentAmount
+TR: * settings.containmentAmount
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-*Числовое значение для установки уровня сдерживания низкой частоты. Значение может быть от 1 до 7. Состояние будет создано только в том случае, если оно поддерживается вашим AVR.*
+TR: *Number value to set the Low Frequency Containment Amount. The value can be between 1 and 7. The state will only be created, if it is supported by your AVR.*
 
-* settings.multEq
+TR: * settings.multEq
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-   *Строковое значение, чтобы установить функцию MultEQ вашего AVR со следующей кодировкой:*
+TR:    *String value, to set the MultEQ function of your AVR with the following encoding:*
 
-   *0: ВЫКЛ*
+TR:    *0: OFF*
 
-   *1: ОДИССИ*
+TR:    *1: AUDYSSEY*
 
-   *2: BYP.LR*
+TR:    *2: BYP.LR*
 
-   *3: ПЛОСКИЙ*
+TR:    *3: FLAT*
 
-   *4: РУЧНОЙ*
+TR:    *4: MANUAL*
 
-* settings.dynamicVolume
+TR: * settings.dynamicVolume
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-   *Строковое значение для выбора динамического объема в следующей кодировке:*
+TR:    *String value to select the Dynamic Volume by following encoding:*
 
-   *0: ВЫКЛ -> отключает динамическую громкость*
+TR:    *0: OFF --> turns Dynamic Volume off*
 
-   *1: LIT -> загорается динамический объем*
+TR:    *1: LIT --> turns Dynamic Volume to light*
 
-   *2: MED -> переключает динамическую громкость на средний*
+TR:    *2: MED --> turns Dynamic Volume to medium*
 
-   *3: HEV -> превращает динамический объем в тяжелый*
+TR:    *3: HEV --> turns Dynamic Volume to heavy*
 
-* settings.referenceLevelOffset
+TR: * settings.referenceLevelOffset
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-   *Строковое значение для выбора опорного уровня смещения следующей кодировкой:*
+TR:    *String value to select the Reference Level Offset by the following encoding:*
 
-   *0: 0 дБ*
+TR:    *0: 	0 dB*
 
-   *5: 5 дБ*
+TR:    *5:	5 dB*
 
-   *10: 10 дБ*
+TR:    *10:	10 dB*
 
-   *15: 15 дБ*
+TR:    *15: 15 dB*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.settings.referenceLevelOffset', '5'); // Sets Reference Level Offset to 5 dB
 ```
 
-* settings.pictureMode
+TR: * settings.pictureMode
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-   *Строковое значение для установки прямого изменения режима изображения. Это состояние будет создано только в том случае, если ваш AVR поддерживает его*
+TR:    *String value to set the Picture Mode Direct Change. This state will only be created when your AVR supports it*
 
-   *Вы можете установить следующие значения в виде строки:*
+TR:    *You can set the following values as string:*
 
-   *'Выкл.'*
+TR:    *'Off'*
 
-   *'Стандартный'*
+TR:    *'Standard'*
 
-   *'Фильм'*
+TR:    *'Movie'*
 
-   *'Яркий'*
+TR:    *'Vivid'*
 
-   *'Поток'*
+TR:    *'Stream'*
 
-   *'Пользовательский'*
+TR:    *'Custom'*
 
-   *«День ISF»*
+TR:    *'ISF Day'*
 
-   *'ISF Night'*
+TR:    *'ISF Night'*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
 setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct Change to Standard
 ```
 
-* settings.toneControl
+TR: * settings.toneControl
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-   *Логическое значение, которое указывает состояние управления тоном. Вы можете выключить / включить его в этом состоянии.*
+TR:    *Boolean value, which indicates Tone Control status. You can turn it off/on with this state.*
 
-   *Управление тоном можно включить, только если для параметра Dyn EQ установлено значение OFF*
+TR:    *Tone Control can only be turned on when Dyn EQ is set to OFF*
 
-* settings.setupMenu
+TR: * settings.setupMenu
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-   *Логический индикатор, который указывает, открыто или закрыто меню настройки. Вы можете открывать и закрывать его в этом состоянии.*
+TR:    *Boolean indicator, which indicates if setup menu is currently open or closed. You can open and close it with this state.*
 
-* settings.savePreset
+TR: * settings.savePreset
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-*Числовое значение, которое может быть установлено равным значению info.onlinePresets. Затем текущий канал будет сохранен в качестве предустановки под заданным номером.
-Могут использоваться только числа, содержащиеся в info.onlinePresets. Состояние не получит подтверждения, независимо от того, была команда успешна или нет. Вы можете проверить info.onlinePresets, чтобы проверить, правильно ли работает команда.*
+TR: *Number value, which can be set to a value of info.onlinePresets. Then the current channel will be saved as a preset to the given number.
+Only numbers which are contained in info.onlinePresets can be used. The state will not get an acknowledge, no matter the command was successful or not. You can check info.onlinePresets to check if the command has worked as aspected.*
 
-* settings.loadPreset
+TR: * settings.loadPreset
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-*Числовое значение, которое может быть установлено равным значению info.onlinePresets. Это загрузит связанный канал.
-Это состояние не получит подтверждения, независимо от того, была команда успешна или нет.*
+TR: *Number value, which can be set to a value of info.onlinePresets. This will load the related channel.
+This state will not get an acknowledge, no matter the command has been successful or not.*
 
-### Другие состояния
-Из-за того, что некоторые AVR, такие как DENON POA-3012CI, используют другую логику, есть некоторые различия в состояниях.
-Состояниями, которые равны перечисленным выше, являются: settings.powerSystem, settings.expertCommand, display.brightness и info.connection. Для каждой зоны 2-12 (четная) дополнительно создаются следующие состояния:
+TR: ### Other States
+TR: Due to the fact that some AVRs like the DENON POA-3012CI use another logic there are some differences in the states.
+The states which are equal to the ones listed above are: settings.powerSystem, settings.expertCommand, display.brightness and info.connection. Additional the following states are created for each zone 2-12 (even):
 
-* zoneX.speakerOneVolume / zoneX.speakerTwoVolume
+TR: * zoneX.speakerOneVolume / zoneX.speakerTwoVolume
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-*Числовое значение, которое представляет громкость динамика AVR. Если для параметра operationMode установлено значение «BRIDGED», динамики не могут управляться независимо, а управление одним из них также регулирует громкость других.*
+TR: *Number value, which represents the volume of the AVR's speaker. If operationMode is set to 'BRIDGED' the speakers cannot independently controlled and the control of one also controls the other ones volume.*
 
-* zoneX.selectInputOne / zoneX.selectInputTwo
+TR: * zoneX.selectInputOne / zoneX.selectInputTwo
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-*Пара ключевых значений, которая представляет выбранный вход динамика AVR. Если для параметра operationMode установлено значение «BRIDGED», динамики не могут управляться независимо, и управление одним из них также управляет входом других.*
+TR: *Key value pair, which represents the selected input of the AVR's speaker. If operationMode is set to 'BRIDGED' the speakers cannot independently controlled and the control of one also controls the other ones input.*
 
-    *Возможны следующие значения:*
+TR:     *The following values are possible:*
 
-    *'0': 'ШИНА L'*
+TR:     *'0': 'BUS L'*
 
-    *'1': 'АВТОБУС R'*
+TR:     *'1': 'BUS R'*
 
-    *'2': 'АВТОБУС M'*
+TR:     *'2': 'BUS M'*
 
-    *'3': 'AUX'*
+TR:     *'3': 'AUX'*
 
-* zoneX.operationMode
+TR: * zoneX.operationMode
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-*Пара «ключ-значение», представляющая режим работы AVR. Если для параметра operationMode установлено значение «BRIDGED», динамики не могут управлять независимо друг от друга, а управление первым динамиком также управляет вторым динамиком.*
+TR: *Key value pair, which represents the operationMode of the AVR. If operationMode is set to 'BRIDGED' the speakers cannot independently controlled and controlling speaker one also controls speaker two.*
 
-    *Возможны следующие значения:*
+TR:     *The following values are possible:*
 
-    *'0': 'НОРМАЛЬНЫЙ'*
+TR:     *'0': 'NORMAL'*
 
-    *'1': 'МОСТ'*
+TR:     *'1': 'BRIDGED'*
 
-* zoneX.lowCutFilterSpeakerOne / zoneX.lowCutFilterSpeakerTwo
+TR: * zoneX.lowCutFilterSpeakerOne / zoneX.lowCutFilterSpeakerTwo
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-*Логическое значение, которое указывает, включен или отключен фильтр низких частот для динамика. В мостовом режиме оба динамика будут зависеть друг от друга.*
+TR: *Boolean value, which indicates if the low cut filter for the speaker is enabled or disabled. In bridged mode both speakers will depend on each other.*
 
-* zoneX.zoneTurnOnModeChange
+TR: * zoneX.zoneTurnOnModeChange
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | строка | R / W |
+| TR:     |string|R/W|
 
-*Пара ключ-значение, представляющая изменение режима включения зоны. Вы также можете управлять своим AVR в этом состоянии.*
+TR: *Key value pair, which represents the zone turn on mode change of the zone. You can also control your AVR with this state.*
 
-    *Возможны следующие значения:*
+TR:     *The following values are possible:*
 
-    *'0': 'Константа'*
+TR:     *'0': 'Constant'*
 
-    *'1': 'Триггер в'*
+TR:     *'1': 'Trigger in'*
 
-    *'2': 'Аудиосигнал'*
+TR:     *'2': 'Audio signal'*
 
-    *'3': 'Выкл.'*
+TR:     *'3': 'Off'*
 
-* zoneX.triggerInput
+TR: * zoneX.triggerInput
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-    *Включите или выключите вход триггера с помощью этого логического значения.*
+TR:     *Turn trigger input on or off with this boolean value.*
 
-* zoneX.audioSignalInput
+TR: * zoneX.audioSignalInput
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | логическое | R / W |
+| TR:     |boolean|R/W|
 
-    *Логическое значение, которое указывает и контролирует вход аудиосигнала вашего AVR.*
+TR:     *Boolean value which indicates and controls the audio signal input of your AVR.*
 
-## Отсутствующие функции и ошибки
-Если у вас отсутствуют какие-либо функции или обнаружена ошибка, откройте [выпуск](https://github.com/foxriver76/ioBroker.denon/issues).
+TR: ## Missing functions & bugs
+TR: If you are missing any functions or detected a bug, please open an [TR: issue](https://github.com/foxriver76/ioBroker.denon/issues).
 
-Адаптер протестирован с DENON AVR-X1200W и Marantz SR5009.
+TR: The adapter is tested with an DENON AVR-X1200W and a Marantz SR5009.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### 1.11.0 (2021-06-06)
+* (foxriver76) implemented dialog level adjustment for DTS content (closes #143)
+* (foxriver76) new datapoints are `settings.dialogLevelAdjust`, `settings.dialogLevel`, `settings.dialogControl`
+
+### 1.10.7 (2021-05-12)
+* (foxriver76) fix missing conversion to db on equalizer states for additional zones (fixes #137)
+
+### 1.10.6 (2021-05-03)
+* (foxriver76) we fixed some more types
+
+### 1.10.5 (2021-05-02)
+* (foxriver76) we fixed some datapoints having wrong types or wrong state values set (fixes #130)
+
+### 1.10.4 (2021-02-20)
+* (foxriver76) if an older model (e.g. AVR 3808) just sends `NSE`, we do not set displayContent state anymore (fixes #112)
+
+### 1.10.3 (2021-01-28)
+* (foxriver76) don't poll whole online presets after change, it is unnecessary load
+
+### 1.10.2 (2021-01-28)
+* (foxriver76) return after detecting NSH command
+* (foxriver76) use release script
+
 ### 1.10.0 (2021-01-17)
 * (foxriver76) auto-detect selectInput of all zones
 
@@ -1061,7 +1118,7 @@ setState('denon.0.settings.pictureMode', 'Standard'); // Set Picture Mode Direct
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
