@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.countdown/README.md
 title: TR: ioBroker.countdown
-hash: LrKhxAVrwjHmNGYgW5ktyrOZ6gOgaOx5DsTXtT7NDzc=
+hash: OBGsQSNA2a3INavUciECKOo87Iu69HijMV4FIKAePsc=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.countdown/admin/countdown.png)
 
@@ -76,6 +76,9 @@ TR: ## Available outputs
 TR: ## Features to add
 TR: * Possibility to add a script as a parameter and start it when countdown ends
 TR: * Possibility to use plus and minus in addminutes and the other add functions
+
+TR: ## 1.2.4 (2021-06-09)
+TR: * (jack-blackson) Small bugfixes, translations
 
 TR: ## 1.2.3 (2021-05-27)
 TR: * (jack-blackson) Small bugfixes, translations

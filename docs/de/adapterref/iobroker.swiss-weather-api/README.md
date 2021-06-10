@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.swiss-weather-api/README.md
 title: TR: ioBroker.swiss-weather-api
-hash: Y4XW7jc7X0m8UrHWpSUBaBDPQhCs2u/8oH6uVk03k8Y=
+hash: WDW3IjUe7KhQ2OQJWNA7w+d4L8Tuoh94bV8IPdkC0VM=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.swiss-weather-api/admin/swiss-weather-api.png)
 
@@ -54,7 +54,31 @@ TR:    1. Poll Interval in Minutes (By default 30 minutes - 50 Request/Day)
 
 TR: The first query is made 10s after the adapter was started. After the first start, the query will be executed regularly according to the conifugation parameter (Poll Interval in Minutes)
 
+TR: ### Visualisation Example
+TR: ###### Prerequisite:
+TR: * Adapter [Material Design Widgets](https://github.com/Scrounger/ioBroker.vis-materialdesign) >= 0.5.7
+TR: * Adapter [Vis](https://github.com/iobroker/iobroker.vis/blob/master/README.md)
+TR: * [Improt Views to Vis](https://github.com/baerengraben/ioBroker.swiss-weather-api/tree/master/views)
+
+TR: ###### Example
+![TR: Tablet](../../../en/adapterref/iobroker.swiss-weather-api/doc/Wettervorhersage_visu_anim.gif)
+
 ## Changelog
+
+### 0.9.5
+* (baerengraben)  Some small improvements
+
+### 0.9.4
+* (baerengraben)  Bugfix: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/47 
+
+### 0.9.3
+* (baerengraben)  Function Update: Added day_name to identify weekday from "forecast.day.day0.day_name" to "forecast.day.day7.day_name". 
+* (baerengraben)  Added last_run as Object on swiss-weather-api.0.info.lastrun.
+* (baerengraben)  Added JsonChart Object on swiss-weather-api.0.forecast.60minutes.day(0-4).JsonChart.
+* (baerengraben)  Added some Examples how to do visualisation (folder views) based on https://forum.iobroker.net/topic/32232/material-design-widgets-wetter-view 
+
+### 0.9.2
+* (baerengraben)  Function Update: The current weather information is provided as a forecast.current_hour object. Every hour this information is updated. This is done every hour by copying the corresponding values from forecast.60minutes.day0.<current_time>. So no new http request will be executed. The values are only copied from the forecast objects. This makes it easier to display the current weather in the visualization.
 
 ### 0.9.1
 * (baerengraben)  Fix to reduce amount of Rest-Calls: https://github.com/baerengraben/ioBroker.swiss-weather-api/issues/41
@@ -125,7 +149,7 @@ TR: The first query is made 10s after the adapter was started. After the first s
 ## License
 MIT License
 
-Copyright (c) 2020 baerengraben <baerengraben@intelli.ch>
+Copyright (c) 2021 baerengraben <baerengraben@intelli.ch>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,120 +2,122 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.knx/README.md
-title: ioBroker.knx
-hash: xiWyDYd30ali/ijXzsYDvpZQ4LlbKF9of94Ml/eduSA=
+title: TR: ioBroker.knx
+hash: yAp86KmeXQAQiaNEOn928YYT8VWxt8WjMp8pT/XXcVo=
 ---
-![Логотип](../../../en/adapterref/iobroker.knx/admin/knx.png)
+![TR: Logo](../../../en/adapterref/iobroker.knx/admin/knx.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.knx.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.knx.svg)
-![НПМ](https://nodei.co/npm/iobroker.knx.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.knx.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.knx.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.knx.png?downloads=true)
 
-# IoBroker.knx
-## Описание
-ru: Этот адаптер позволяет импортировать файлы knxproj из ETS. Он генерирует преобразование между адресами группы KNX и ioBroker и помещает устройства в комнаты (особенно для MobileUI).
+TR: # ioBroker.knx
+TR: ## Description
+TR: ru: [Установка и базовая настройка адаптера](doc/ru/readme.md)
 
-Он подключается к стандартным шлюзам KNX / LAN.
+TR: en: This adapter allows importing of knxproj Files from ETS. It generates the translation between KNX- group addresses and ioBroker and puts the devices into rooms (esp. for MobileUI).
 
-Перед началом: Каждый DPT com.Objects должен быть установлен в вашем проекте ETS. Каждое устройство должно быть рассортировано по структуре вашего объекта.
+TR: It connects to standard KNX/LAN Gateways.
 
-## Функции:
-* импорт файла `knxproj`
-* создание ETS-подобной объектной структуры
-* поиск и объединение act-channel и state-channel (эвристика)
-* обновление всех состояний при запуске
-* отправка READ в KNX-Bus при записи на объект-состояние
-* сортировка каналов по комнатам
+TR: Before beginning: Every DPT of com.Objects should be set in your ETS project. Every device should be sorted into your facility structure.
 
-## Конфигурация адаптера
-После установки этого адаптера откройте конфигурацию адаптера. Заполнить:
+TR: ## Features:
+TR: * importing `knxproj` file
+TR: * generating ETS-like object structure
+TR: * finding and combining act-channel and state-channel (heuristic)
+TR: * updating all states on start
+TR: * emitting a READ to the KNX-Bus, while writing on state-object
+TR: * sorting channels to rooms
 
-### IP-адрес шлюза KNX
-<IP вашего KNX / Lan GW> в формате IPv4
+TR: ## Adapter configuration
+TR: After installing this adapter, open the adapter configuration. Fill in:
 
-### Порт
-Обычно это порт 3671.
+TR: ### KNX Gateway IP
+TR: <IP of your KNX/Lan GW> with IPv4 format
 
-### Phys. Адрес ЕИБ
-Заполните бесплатно физ. адрес, соответствующий вашей архитектуре KNX, **НО НЕ адрес вашего шлюза KNX!** не может заканчиваться на 0 !!!
+TR: ### Port
+TR: This is normally port 3671.
 
-### Уровень отладки
-Расширяет выходной уровень адаптера для целей отладки.
+TR: ### phys. EIB Address
+TR: Fill in free phys. address corresponding to your KNX-architecture, **BUT NOT the address of your KNX Gateway!** May not end in 0 !!!
 
-### Загрузить knxproj
-здесь вы можете загрузить свой экспорт ETS в формате `knxproj`.
+TR: ### debug-Level
+TR: Extends the output level of the adapter for debugging purposes.
 
-После успешного импорта в диалоговом окне отображается количество импортированных объектов. Теперь нажмите «сохранить и закрыть», и адаптер должен запуститься.
-При запуске адаптер читает все групповые адреса с флагом чтения. Это может занять некоторое время и привести к большой нагрузке на вашу шину KNX. Но значения в вашем vis обновляются после запуска.
+TR: ### Upload knxproj
+TR: here you can upload your ETS Export in `knxproj` format.
 
-### Объекты
-Вот под knx.0 дерево групповых адресов, как в вашем проекте ETS.
+TR: After successful import a dialog shows the number of imported objects. Now press "save & close" and the adapter should start.
+While starting the adapter reads all group addresses with read-Flag. This might take a while and can produce a high load on your KNX-bus. But the values in your vis are updated after start.
 
-### Перечисления
-Если в вашем ETS есть строительная конструкция с соответствующими устройствами, она будет показана здесь. Под «членами» находятся имена групповых адресов, перечисленных для устройств с флагом отправки в этой группе.
+TR: ### Objects
+TR: Here is under knx.0 the group address tree like in your ETS project.
 
-### Использование
-Если адаптер запускается успешно, ваши точки данных будут доступны для всего, что вы хотите делать.
+TR: ### Enumerations
+TR: If you have a building structure in your ETS with the corresponding devices, it will be shown here. Under "members" are the names of group addresses listed from the devices with send-Flag in this Group.
 
-### Типы точек данных
-Доступны все DPT в соответствии с «Системными спецификациями, взаимодействием, типами данных» от KNX Association. Это означает, что есть 2 типа информации, которую вы можете получить: 1) значение или строку 2) значения, разделенные запятыми, или массив значений (на данный момент я не знаю, как лучше обрабатывать)
+TR: ### Usage
+TR: If the adapter starts successfully, your data points will be available for everything you like to do.
 
-Например, DPT5.001 кодируется как 8-битное целое число без знака. Это дает единственное значение. DPT3.007 (Control Dimming) кодируется как 1 бит (логическое значение) + 3 бит (беззнаковое целое число).
-Это приводит, например, к в таком значении, как «0,5», где «0» означает «уменьшение», а «5» означает количество интервалов.
+TR: ### Data point Types
+TR: All DPTs according to "System Specifications, Interworking, Datapointtypes" from KNX Association are available. That means there are 2 types of information you can get: 1) a Value or a String 2) comma-separated values or an array of values (for the moment I don't know what's the better way to handle)
 
-## Wie werden die Datenpunkte generiert (Deutsch)
-### 1) Auslesen Aller Kommunikationsobjektreferenzen (im folgenden KOR)
-Dabei werden den Gruppenaddressreferenz (im folgenden GAR) IDs der jeweilige DPT der KOR zugeordnet, wenn er vorhanden ist. Ausserdem bekommt der erste Eintrag die Attribute write = yes und read = no. Alle darauf folgenden GAR ID's bekommen nur den DPT zugeordnet
+TR: For example a DPT5.001 is encoded as unsigned Integer with 8-Bit. This gives a single Value. The DPT3.007 (Control Dimming) is encoded as 1Bit(Boolean)+3Bit(unsigned Int).
+This results e.g. in a value like "0,5", where "0" means "decrease" and "5" means number of intervals.
 
-### 2) Erzeugen der Gruppenadressstruktur (im folgenden GAS)
-Hier wird die GAS anhand der GAR IDs erzeugt und ebenfalls die DPTs zugeordnet, Fall dies unter 1) noch nicht geschehen ist.
+TR: ## Wie werden die Datenpunkte generiert (Deutsch)
+TR: ### 1) Auslesen aller Kommunikationsobjektreferenzen (im folgenden KOR)
+TR: Dabei werden den Gruppenaddressreferenz (im folgenden GAR) IDs der jeweilige DPT der KOR zugeordnet, wenn er vorhanden ist. Ausserdem bekommt der erste Eintrag die Attribute write=yes und read=no. Alle darauf folgenden GAR ID's bekommen nur den DPT zugeordnet
 
-### 3) Herausfinden der Schalt- und Statusaddressen
-In dem ETS-Export sind die Schalt- und Statusadressen nicht hinterlegt. Somit führe ich eine Ähnlichkeitsprüfungaller Gruppenadressnamen durch mit der Auswertung auf status und state.
-Wird ein Pärchen gefunden, dessen Ähnlichkeit mehr als 90% beträgt, dann wird angenommen, dass die GA1 die Schaltadresse und GA2 die Statusadresse ist. Dabei erhält GA1 das write = true und read = false и GA2 das write = false und read = true.
+TR: ### 2) Erzeugen der Gruppenadressstruktur (im folgenden GAS)
+TR: Hier wird die GAS anhand der GAR IDs erzeugt und ebenfalls die DPTs zugeordnet, falls dies unter 1) noch nicht geschehen ist.
+
+TR: ### 3) Herausfinden der Schalt- und Statusaddressen
+TR: In dem ETS-Export sind die Schalt- und Statusadressen nicht hinterlegt. Somit führe ich eine Ähnlichkeitsprüfung aller Gruppenadressnamen durch mit der Auswertung auf status und state.
+Wird ein Pärchen gefunden, dessen Ähnlichkeit mehr als 90% beträgt, dann wird angenommen, dass die GA1 die Schaltadresse und GA2 die Statusadresse ist. Dabei erhält GA1 das write=true und read=false und GA2 das write=false und read=true.
 Außerdem werden die DPT abgeglichen aus der jeweilig korrespondierenden GA. Aus diesem Grund ist es schwierig, Pärchen zu finden, wenn die Gruppenadressbeschriftungen nicht konsistent sind.
 
-Weiterhin werden die Флаги in den Gerätekonfigurationen betrachtet. Dabei werden die Flags wie folgt umgesetzt:
+TR: Weiterhin werden die Flags in den Gerätekonfigurationen betrachtet. Dabei werden die Flags wie folgt umgesetzt:
 
-| KNX | | | iobroker | | |
+| TR: | KNX   |  |  | iobroker |  |  |
 |-------|-----------|------------|----------|----------|-------------------------------------------------|
-| Lesen | Шрайбен | Übertragen | Lesen | Шрайбен | Erklärung |
-| - | - | - | - | - | der wert wird über GroupValueResponse aktualiesiert |
-| х | - | - | х | х | ein Trigger darauf löst GroupValueRead aus |
-| - | х | - | - | х | Schreibt den angegeben Wert mit GroupValueWrite auf den KNX-Bus |
-| - | - | х | х | - | der Wert wird über GroupValueResponse актуальный |
-| х | - | х | х | х | ein Trigger darauf löst GroupValueRead aus |
+| TR: | Lesen | Schreiben | Übertragen | Lesen    | Schreiben| Erklärung                                       |
+| TR: |   -   |    -      |    -      |   -     |    -    | der wert wird über GroupValueResponse aktualiesiert |
+| TR: |   x   |    -      |    -      |   x     |    x    | ein Trigger darauf löst GroupValueRead aus|
+| TR: |   -   |    x      |    -      |   -     |    x    | Schreibt den angegeben Wert mit GroupValueWrite auf den KNX-Bus|
+| TR: |   -   |    -      |    x      |   x     |    -    | der Wert wird über GroupValueResponse aktualisiert |
+| TR: |   x   |    -      |    x      |   x     |    x    | ein Trigger darauf löst GroupValueRead aus|
 
-### 4) Erzeugen der Datenpunktpaare (im folgenden DPP)
-Ein DPP wird erzeugt, wenn die GA, GAR und der DPT valid sind. Mit diesen DPP arbeitet der Adapter. Fehlen также der DPT in einer GA, weil er auf keiner der o. A. Wege gefunden werden konnte, so wird für diese GA kein DPP erzeugt und sie ist im Weiteren nicht nutzbar.
+TR: ###  4)Erzeugen der Datenpunktpaare (im folgenden DPP)
+TR: Ein DPP wird erzeugt, wenn die GA, GAR und der DPT valid sind. Mit diesen DPP arbeitet der Adapter. Fehlen also der DPT in einer GA, weil er auf keiner der o. A. Wege gefunden werden konnte, so wird für diese GA kein DPP erzeugt und sie ist im Weiteren nicht nutzbar.
 
-Im Idealfall werden somit für einen Schaltkanal 2 DPP erzeugt. Das erste ist das Schalten. В этом случае GAR ID указывает на статус DPP hinterlegt. Das zweite ist dann das Status DPP ohne weitere Referenz.
+TR: Im Idealfall werden somit für einen Schaltkanal 2 DPP erzeugt. Das erste ist das Schalten. In diesem ist die GAR ID des Status DPP hinterlegt. Das zweite ist dann das Status DPP ohne weitere Referenz.
 
-## Beim Start des Adapters
-Alle mit dem Lesen-Flag markierten DPP werden beim Start abgefragt. Dies verursacht u.U. eine höhere Buslast und dauert einen Moment. Im Anschluss sind aber alle aktuellen Werte verfügbar.
+TR: ## Beim Start des Adapters
+TR: Alle mit dem Lesen-Flag markierten DPP werden beim Start abgefragt. Dies verursacht u.U. eine höhere Buslast und dauert einen Moment. Im Anschluss sind aber alle aktuellen Werte verfügbar.
 
-## (скрытый) Характеристики:
-Durch senden eines Wertes auf eine Statusadresse werden die Kommunikationsobjekte innerhalb dieser Gruppenadresse per GroupValueRead abgefragt.
+TR: ## (hidden) Features:
+TR: Durch senden eines Wertes auf eine Statusadresse werden die Kommunikationsobjekte innerhalb dieser Gruppenadresse per GroupValueRead abgefragt.
 
-### Vermeidung von Problemen
-1) соблюдать Программирование ETS и соблюдать Программирование ETS и соблюдать Программирование ETS
+TR: ### Vermeidung von Problemen
+TR: 1) saubere ETS Programmierung und saubere ETS Programmierung und saubere ETS Programmierung
 
-* zuweisen der DPTs !!
-* einheitliche Beschriftung der GA-Namen (z.B "EG Wohnen Decke Licht schalten" и "EG Wohnen Decke Licht schalten status")
-* Vermeidung von Sonderzeichen ",. /; \ &% $ § []" (kann zu Problemen bei der Erzeugung der GAS führen)
+TR: *   zuweisen der DPTs!!
+TR: *   einheitliche Beschriftung der GA-Namen (z.B "EG Wohnen Decke Licht schalten" und "EG Wohnen Decke Licht schalten status" )
+TR: *   Vermeidung von Sonderzeichen ",./;\&%$§[]" (kann zu Problemen bei der Erzeugung der GAS führen)
 
-2) Prüfen ob das KNX / LAN GW erreichbar ist. Wenn es das nicht ist, versucht der Adapter sich kontinuierlich zu verbinden.
+TR: 2) Prüfen ob das KNX/LAN GW erreichbar ist. Wenn es das nicht ist, versucht der Adapter sich kontinuierlich zu verbinden.
 
-3) Physikalische Adresse richtig wählen (wichtig beim Einsatz von Linienkopplern). !!! АЧТУНГ: его собственный физический адрес - это НИХТ, который адрес шлюзов локальной сети и дарф ничего не делает !!!
+TR: 3) Physikalische Adresse richtig wählen ( wichtig beim Einsatz von Linienkopplern ). !!! ACHTUNG: die hier eingetragene physikalische Adresse ist NICHT die Adresse des LAN Gateways und darf nicht auf 0 enden !!!
 
-4) Der Port der LAN Schnittstelle ist i.d.R. 3671
+TR: 4) Der Port der LAN Schnittstelle ist i.d.R. 3671
 
-5) Durch die Möglichkeit der Statusabfrage ist eines zu beachten: Es ist sicherzustellen, dass nicht mehr als 40 Anfragen pro Sekunde vom ioBroker generiert werden, denn diese können dann Physikalisch Bedingt nicht détémehr dépétée andemehr dépété.
+TR: 5) Durch die Möglichkeit der Statusabfrage ist eines zu beachten: Es ist sicherzustellen, dass nicht mehr als 40 Anfragen pro Sekunde vom ioBroker generiert werden, denn diese können dann physikalisch bedingt nicht mehr durch den Adapter an das Gateway weitergereicht werden.
 
-## Запланированные функции
-* добавление адресов в описание объекта (id)
-* выборочный импорт knx-проекта
-* требуется версия узла> 8.9.4!
+TR: ## planned features
+TR: * adding addresses to object-description (id)
+TR: * selective import of knx-project
+TR: * require node Version >8.9.4!
 
 ## Changelog
 ### 1.0.45 (2021_03_22)

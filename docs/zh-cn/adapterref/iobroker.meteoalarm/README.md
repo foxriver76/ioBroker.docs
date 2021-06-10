@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: TR: ioBroker.meteoalarm
-hash: kBaShtjPs24XEaIcv6XpFuhXcnngk++euf8elrsCNbI=
+hash: WTSAKgVijJSIgYS1KHyy/KSxzMFRzASqr8S3BdDDI+A=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -93,6 +93,7 @@ TR: * Israel
 TR: * Italy
 TR: * Latvia
 TR: * Lithuania
+TR: * Luxembourg
 TR: * Malta
 TR: * Moldova
 TR: * Montenegro
@@ -115,6 +116,10 @@ TR: * Slovenia (no rss feed available)
 
 TR: ## Features to implement
 TR: * Handle multiple alarms on one day
+
+TR: ## 1.2.1 (2021-06-05)
+TR: * (jack-blackson) Bugfix to handle incorrect XML (if country instead of region is used)
+TR: * (jack-blackson) Added Luxembourg
 
 TR: ## 1.2.0 (2021-05-16)
 TR: * (jack-blackson) New Setup: "No Background Color in HTML Widget", "Define Warning colors" and "Use white icons"

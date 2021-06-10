@@ -906,6 +906,7 @@ https://doc.iobroker.net/#de/adapters/adapterref/iobroker.panasonic-viera/README
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.parser/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.paw/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.pegelalarm/README.md
+https://doc.iobroker.net/#de/adapters/adapterref/iobroker.ph803w/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.phantomjs/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.philips-air/README.md
 https://doc.iobroker.net/#de/adapters/adapterref/iobroker.pi-hole/README.md
@@ -1343,6 +1344,7 @@ https://doc.iobroker.net/#en/adapters/adapterref/iobroker.panasonic-viera/README
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.parser/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.paw/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.pegelalarm/README.md
+https://doc.iobroker.net/#en/adapters/adapterref/iobroker.ph803w/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.phantomjs/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.philips-air/README.md
 https://doc.iobroker.net/#en/adapters/adapterref/iobroker.pi-hole/README.md
@@ -1780,6 +1782,7 @@ https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.panasonic-viera/README
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.parser/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.paw/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.pegelalarm/README.md
+https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.ph803w/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.phantomjs/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.philips-air/README.md
 https://doc.iobroker.net/#ru/adapters/adapterref/iobroker.pi-hole/README.md
@@ -2217,6 +2220,7 @@ https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.panasonic-viera/REA
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.parser/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.paw/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pegelalarm/README.md
+https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.ph803w/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.phantomjs/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.philips-air/README.md
 https://doc.iobroker.net/#zh-cn/adapters/adapterref/iobroker.pi-hole/README.md

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vis-materialdesign/README.md
 title: TR: Material Design Widgets for ioBroker VIS
-hash: oQMVwervJppon0mSdqitg8D9On6i/hQ0BtFGgnSjhrU=
+hash: Hi81kgDyekH1Z72C8T8TDVg3zOpHWXegVQPNA3cBcDQ=
 ---
 ![TR: stable version](http://iobroker.live/badges/vis-materialdesign.svg)
 ![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis-materialdesign.svg)
@@ -1181,7 +1181,7 @@ TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</t
 TR: ### Data JSON Properties
 TR: JSON string must be an array of objects with the following properties:
 
-TR: <table> <thead> <tr> <th>Property</th> <th>Description</th> <th>Type</th> <th>Values</th> </tr> </thead> <tbody> <tr> <td>listType</td> <td>type of list</td> <td>string</td> <td>text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td> </tr> <tr> <td>objectId</td> <td>object id for button</td> <td>string</td> <td/> </tr> <tr> <td>fullRow</td> <td>display element over whole row</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>buttonStateValue</td> <td>value for button state</td> <td>string</td> <td/> </tr> <tr> <td>buttonNavView</td> <td>view to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonLink</td> <td>url to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueTrue</td> <td>true value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueFalse</td> <td>false value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>readOnly</td> <td>button is read only</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>showValueLabel</td> <td>show value as text</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>valueAppendix</td> <td>append text to value</td> <td>string</td> <td/> </tr> <tr> <td>background</td> <td>background color</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>text</td> <td>text</td> <td>string</td> <td/> </tr> <tr> <td>subText</td> <td>second text</td> <td>string</td> <td/> </tr> <tr> <td>image</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageColor</td> <td>color of Material Design Icons</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>imageActive</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageActiveColor</td> <td>image path or name of Material Design Icons for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundColor</td> <td>background color of button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundActiveColor</td> <td>background color of button for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarColor</td> <td>color of status bar</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarText</td> <td>text of status bar</td> <td>string</td> <td/> </tr> <tr> <td>lockEnabled</td> <td>enable Locking</td> <td>boolean</td> <td>false | true</td> </tr> </tbody> </table>
+TR: <table> <thead> <tr> <th>Property</th> <th>Description</th> <th>Type</th> <th>Values</th> </tr> </thead> <tbody> <tr> <td>listType</td> <td>type of list <ul> <li>buttonToggleValueTrue: is only on if the value equals the condition 'on'</li> <li>buttonToggleValueFalse: is only off if the value equals the condition 'off'</li> </ul> </td> <td>string</td> <td>text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td> </tr> <tr> <td>objectId</td> <td>object id for button</td> <td>string</td> <td/> </tr> <tr> <td>usePercentOfRow</td> <td>item use x percent of row.</td> <td>number</td> <td>0 = auto</td> </tr> <tr> <td>buttonStateValue</td> <td>value for button state</td> <td>string</td> <td/> </tr> <tr> <td>buttonNavView</td> <td>view to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonLink</td> <td>url to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueTrue</td> <td>true value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueFalse</td> <td>false value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>readOnly</td> <td>button is read only</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>showValueLabel</td> <td>show value as text</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>valueAppendix</td> <td>append text to value</td> <td>string</td> <td/> </tr> <tr> <td>background</td> <td>background color</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>text</td> <td>text</td> <td>string</td> <td/> </tr> <tr> <td>subText</td> <td>second text</td> <td>string</td> <td/> </tr> <tr> <td>image</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageColor</td> <td>color of Material Design Icons</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>imageActive</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageActiveColor</td> <td>image path or name of Material Design Icons for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundColor</td> <td>background color of button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundActiveColor</td> <td>background color of button for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarColor</td> <td>color of status bar</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarText</td> <td>text of status bar</td> <td>string</td> <td/> </tr> <tr> <td>lockEnabled</td> <td>enable Locking</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>visibilityOid</td> <td>Object Id for visibility</td> <td>string</td> <td/> </tr> <tr> <td>visibilityCondition</td> <td>visibility condition</td> <td>string</td> <td>== | != | <= | >= | < | > | consist | not consist | exist | not exist</td> </tr> <tr> <td>visibilityConditionValue</td> <td>value for visibility condition</td> <td>string</td> <td/> </tr> </tbody> </table>
 
 TR: <!-- omit in toc -->
 
@@ -4381,11 +4381,14 @@ TR: * [Material Design Icons](https://materialdesignicons.com/)
 -->
 
 <!-- omit in toc -->
-### __WORK IN PROGRESS__
+### 0.5.8 (2021-06-09)
 * (Scrounger) Top App Bar Widget: new layout 'auto' added - change between modal and permanent layout depending on screen resolution. [Details see documentation!](#layout-auto)
 * (Scrounger) Top App Bar Widget: option added to set value on click at item that toggle submenu
-* (Scrounger) IconList Widget: option added to show single element over whole row
+* (Scrounger) IconList Widget: option added to set used space per row for every items
+* (Scrounger) IconList Widget: option added to set visibility condition for every items ([#118](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/118))
 * (Scrounger) IconList Widget: bug fix for applying active color ([#176](https://github.com/Scrounger/ioBroker.vis-materialdesign/issues/176))
+* (Scrounger) Grid Widget: bug fix for visibility condition
+* (Scrounger) Masonry Widget: bug fix for visibility condition
 
 <!-- omit in toc -->
 ### 0.5.7 (2021-05-26)
@@ -4433,10 +4436,6 @@ TR: * [Material Design Icons](https://materialdesignicons.com/)
 * (Scrounger) Documentation revised
 * (Scrounger) materialdesignicons library updated to v5.9.55
 * (Scrounger) bug fixes
-
-<!-- omit in toc -->
-### 0.4.2 (2020-12-29)
-* (Scrounger) vis-google-fonts dependency removed
 
 <!-- omit in toc -->
 

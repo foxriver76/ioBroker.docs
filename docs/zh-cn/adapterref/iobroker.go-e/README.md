@@ -2,41 +2,52 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.go-e/README.md
-title: ioBroker.go充电器
-hash: z6Xgq5QQSdBHuRZHWfl2FDeCbmlLRy5CK6sYe9/ShmU=
+title: TR: ioBroker.go-echarger
+hash: 7hip1hsyJb3wxZsJ4wwU3F8pfiS5sppmGSddrs8O/zg=
 ---
-![商标](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
+![TR: Logo](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.go-e.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.go-e.svg)
-![安装数量（最新）](http://iobroker.live/badges/go-e-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/go-e-stable.svg)
-![依赖状态](https://img.shields.io/david/MK-2001/iobroker.go-e.svg)
-![已知漏洞](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)
-![构建与测试](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
-![NPM](https://nodei.co/npm/iobroker.go-e.png?mini=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.go-e.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.go-e.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/go-e-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/go-e-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/MK-2001/iobroker.go-e.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/MK-2001/ioBroker.go-e/badge.svg)
+![TR: Build & Tests](https://img.shields.io/travis/MK-2001/ioBroker.go-e/master.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.go-e.png?mini=true)
+![TR: Codacy Badge](https://app.codacy.com/project/badge/Grade/34be1ff5fb7943c4aab5ec6a06f0e4a5)
+![TR: Alerts](https://img.shields.io/lgtm/alerts/github/MK-2001/ioBroker.go-e)
+![TR: Code Quality](https://img.shields.io/lgtm/grade/javascript/github/MK-2001/ioBroker.go-e)
 
-＃ioBroker.go-echarger
-＃go-eCharger Wallbox
-![产品图片](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png)有关更多详细信息，请访问https://go-e.co/
+TR: # ioBroker.go-echarger
+TR: # Usage of Sentry
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## IoBroker的go-eCharger适配器
-** EN ** go-e是电动移动的邀请。电动汽车是我们的动力，而我们的核心竞争力是电动汽车的充电技术。从单个的电动汽车充电站到光伏连接，再到整个建筑物的负载管理，我们都是满足现代电动汽车所有要求的整体系统解决方案提供商。
+TR: # The go-eCharger Wallbox
+TR: ![TR: Product Image](../../../en/adapterref/iobroker.go-e/admin/go-eCharger-HOME-Wallbox.png) For more details please visit https://go-e.co/
 
-** DE ** Aufforderung，Sich Elektrisch zu bewegen。 e-Mobilitätist unser Antrieb，wobei unsere Kernkompetenz die LadetechnikfürElektroautos ist。冯·e·恩泽尔嫩·莱德斯特在电动汽车上的应用
+TR: ## Notice
+TR: This Adapter is currently only running with API v1. The new API v2 support is currently pending.
+Please make sure that in the App you turned on the API v1.
 
-## IoBroker-Adapter手册
-您可以在这里找到安装和配置手册：[适配器手册](./docs/Readme.md)
+TR: Dieser Adapter unterstützt derzeit nur die API v1. Die Entwicklung auf die API v2 steht in der Warteschlange. Bitte stelle sicher, dass in der APP die API v1 aktiviert wurde.
+![TR: API_v1](../../../en/adapterref/iobroker.go-e/./99-docs/active_v1.jpg)
 
-##开发人员手册
-加入适配器社区https://t.me/goECharger
+TR: ## go-eCharger adapter for ioBroker **EN** go-e is an invitation to move electrically. E-mobility is our drive, whereby our core competence is the charging technology for electric cars. From the individual charging station for e-cars to photovoltaic connections to load management of entire buildings, we are providers of holistic system solutions for all requirements of modern e-mobility.
+TR: **DE** go-e ist die Aufforderung, sich elektrisch zu bewegen. e-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist. Von der einzelnen Ladestation für e-Autos über Photovoltaik-Anbindung bis hin zum Lastmanagement von ganzen Gebäuden, sind wir Anbieter gesamtheitlicher Systemlösungen für sämtliche Anforderungen der modernen e-Mobilität.
 
-官方API文档：https：//github.com/goecharger/go-eCharger-API-v1
+TR: ## ioBroker-Adapter manual
+TR: The Manual for installation and configuration you can find here: [TR: Adapter Manual](./docs/Readme.md)
 
-官方产品支持：https：//go-e.co/support/
+TR: ## Developer manual
+TR: Join the adapter Community https://t.me/goECharger
 
-##版权
-版权所有（c）2021 MK-2001 go-e@itinsi.de
+TR: Official API Documentation: https://github.com/goecharger/go-eCharger-API-v1
+
+TR: Official Product Support: https://go-e.co/support/
+
+TR: ## Copyright
+TR: Copyright (c) 2021 MK-2001 go-e@itinsi.de
 
 ## Changelog
 

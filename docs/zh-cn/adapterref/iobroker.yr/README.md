@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.yr/README.md
 title: TR: ioBroker.yr
-hash: qOo57l4UKwcb/jpMdhk/Zk4lcG4tAvY1se4xjUcxfGk=
+hash: nJ8ThmSwhhe6DrBPNofMOL2H//cmHUGTqSf3IviPa0w=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.yr/admin/yr.png)
 
@@ -25,7 +25,7 @@ TR: fetches 10d weather forecast from [TR: yr.no](yr.no)
 
 TR: https://api.met.no/weatherapi/locationforecast/2.0/documentation
 
-TR: **Note** - if _"Send missing translations to iobroker.net"_ is activated (default) missing translations will be sent to iobroker.net server. No ips or any additional info will be stored or analysed. Just missing translation.
+TR: **Note** - if _"Send missing translations to iobroker.net"_ is activated (default) missing translations will be sent to iobroker.net server. No IPs or any additional info will be stored or analysed. Just missing translation.
 
 TR: ## Icons
 TR: Icons are taken from here [TR: https://api.met.no/weatherapi/weathericon/2.0/documentation](https://api.met.no/weatherapi/weathericon/2.0/documentation) and belongs to yr.no.
@@ -105,7 +105,7 @@ TR: * setState forecast_object
 
 ## Changelog
 
-### __WORK IN PROGRESS__
+### 3.0.0 [2021-06-06]
 * (withstu) Switch to new JSON API and change data Structure (breaking)
 * (withstu) Update project dependencies
 * (arteck) Type of state was corrected  
