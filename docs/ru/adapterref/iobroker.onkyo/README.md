@@ -2,47 +2,57 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.onkyo/README.md
-title: ioBroker.onkyo
-hash: 0UrlqHs+CqpyKdo8oX1S7jFJE940wg34/Nco0GC6/nE=
+title: TR: ioBroker.onkyo
+hash: D2kaOQbC/ENX3OEQpT2QiPgW2tvZkW5i8JEEapw2dEU=
 ---
-![Логотип](../../../en/adapterref/iobroker.onkyo/admin/onkyo.png)
+![TR: Logo](../../../en/adapterref/iobroker.onkyo/admin/onkyo.png)
 
-![Количество установок](http://iobroker.live/badges/onkyo-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.onkyo.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.onkyo.svg)
-![Трэвис-Си](https://travis-ci.org/ioBroker/ioBroker.onkyo.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.onkyo.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/onkyo-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.onkyo.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.onkyo.svg)
 
-# IoBroker.onkyo
-### Крупное обновление!
-Позаботьтесь об этом крупном обновлении. Начиная с версии 2.0 есть структурные изменения! Если вы обновитесь до этой версии, вам придется изменить переменные в любом другом адаптере, таком как VIS или javascript! В новой версии поддерживаются материалы и обложки. Медиа-объекты поддерживают виджеты проигрывателя, такие как sonso или winamp.
-![ВИС](../../../en/adapterref/iobroker.onkyo/admin/player.png)
+TR: # ioBroker.onkyo
+TR: ![TR: Test and Release](https://github.com/ioBroker/iobroker.onkyo/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/onkyo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Этот адаптер позволяет управлять AVR Onkyo и Pioneer по протоколу EISCP.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-Он использует node-eiscp: https://github.com/tillbaks/node-eiscp
+TR: ### 2.0 Major update!
+TR: Starting with 2.0 there are structure changes! If you update to this version, you have to change the variables in any other adapter like VIS or javascript! The new version supports Materials and cover arts. The media objects supports player widgets like sonos or winamp.
+![TR: VIS](../../../en/adapterref/iobroker.onkyo/admin/player.png)
 
-Для отправки команд есть особое состояние «RAW». Записывает в это состояние триггера только команды RAW, такие как известные файлы EISCP Excel. В качестве примера команды EISCP RAW в форме «PWR01».
+TR: This adapter allows control of Onkyo and Pioneer AVRs using the EISCP protocol.
 
-Еще одно особое состояние адаптера - «подключен». Это логическое значение, показывающее, подключен ли в данный момент node-eiscp к получателю.
+TR: It uses node-eiscp: https://github.com/tillbaks/node-eiscp
 
-Пример просмотра VIS ![ВИС](../../../en/adapterref/iobroker.onkyo/admin/onkyo-vis.png)
+TR: For sending commands, there is a special state "RAW". Writes to that state trigger only RAW commands like the known EISCP Excel files As example of an EISCP RAW command in the form of "PWR01".
 
-## Протестированные приемники
-### Onkyo
-* TX-NR 525
-* TX-NR 626
-* TX-NR 727
+TR: Another special state maintained by the adapter is "connected". It's a boolean showing whether node-eiscp is currently connected to a receiver.
 
-### Пионер
-* VXS-S520D
-* VSX-1131
+TR: Example of VIS view ![TR: VIS](../../../en/adapterref/iobroker.onkyo/admin/onkyo-vis.png)
 
-<! - Заполнитель для следующей версии (в начале строки):
+TR: ## Tested Receivers
+TR: ### Onkyo
+TR: * TX-NR 525
+TR: * TX-NR 626
+TR: * TX-NR 727
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+TR: ### Pioneer
+TR: * VXS-S520D
+TR: * VSX-1131
+
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add reconnection and device offline detection
+* (Apollon77) Add crash reporting using sentry in js.controller 3+
+
+### 2.0.6 (2021-05-28)
+* (Diginix) fixed data types
+
 ### 2.0.5 (2021-04-27)
 * (Diginix) fixed some object properties
 * (bluefox) Added the support of compact mode
@@ -148,4 +158,5 @@ hash: 0UrlqHs+CqpyKdo8oX1S7jFJE940wg34/Nco0GC6/nE=
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2019 Eisbaeeer <eisbaeeer@gmail.com>, owagner
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
+              2014-2015 Oliver Wagner <owagner@tellerulam.com>

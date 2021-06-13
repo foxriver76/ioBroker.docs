@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-materialdesign/README.md
 title: TR: Material Design Widgets for ioBroker VIS
-hash: Hi81kgDyekH1Z72C8T8TDVg3zOpHWXegVQPNA3cBcDQ=
+hash: f44Q7Tu0clIY9cCO/GVWID/Sd08qjn6XttPaIURIs98=
 ---
 ![TR: stable version](http://iobroker.live/badges/vis-materialdesign.svg)
 ![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis-materialdesign.svg)
@@ -134,6 +134,7 @@ TR: 			- [Menu JSON Properties](#menu-json-properties-1)
 TR: 			- [HTML Properties](#html-properties-28)
 TR: 	- [Top App Bar](#top-app-bar)
 TR: 		- [Editor Settings](#editor-settings-27)
+TR: 		- [Menu JSON Properties](#menu-json-properties-2)
 TR: 		- [Submenu](#submenu)
 TR: 			- [Submenu JSON Properties](#submenu-json-properties)
 TR: 	- [Charts](#charts)
@@ -1811,12 +1812,22 @@ TR: * Then add the following CSS to your project:
 ```
 
 TR: * In the CSS customize the resolution to the resolution that you set via VIS Editor (in the example `max-width: 800px` and `min-width: 800px`)
-TR: * If you set a custome width for the menu drawer, than you also have to change 'left' and 'width' property in the CSS to this value (in the example `left: 256px !important;` and `width: calc(100% - 256px) !important;`)
+TR: * If you set a custom width for the menu drawer, than you also have to change 'left' and 'width' property in the CSS to this value (in the example `left: 256px !important;` and `width: calc(100% - 256px) !important;`)
 
 TR: ### Editor Settings
 TR: Settings that are not listed in the table below are self-explanatory.
 
-TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=3><img src="doc/en/media/topappbar_settings.png"></td> <td>Object ID</td> <td>must be set to a datapoint from typ number. For example this datapoint can be used by <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">view in widget 8</a></td> </tr> <tr> <td>show index of navigation items</td> <td>shows the index of navigation before the item label. This number can be used in <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">view in widget 8</a> to define the view that should be shown if the item is selected</td> </tr> <tr> <td>count of navigation items</td> <td>Define the count of the navigations items</td> </tr> </tbody> </table>
+TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</th> </tr> </thead> <tbody> <tr> <td rowspan=6><img src="doc/en/media/topappbar_common.png"></td> <td>Object ID</td> <td>must be set to a datapoint from typ number. For example this datapoint can be used by <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">view in widget 8</a></td> </tr> <tr> <td>show index of navigation items</td> <td>shows the index of navigation before the item label. This number can be used in <a href="https://www.iobroker.net/#en/documentation/viz/basic.md" target="_blank">view in widget 8</a> to define the view that should be shown if the item is selected</td> </tr> <tr> <td>count of navigation items</td> <td>Define the count of the navigations items</td> </tr> <tr> <td>fallback value if not in user group</td> <td>if you use the group permissions, you can define here the value to switch to if the user is not in the group</td> </tr> <tr> <td>disable fallback value</td> <td>disable fallback value</td> </tr> <tr> <td>Object Id for selected menu item id or name</td> <td>You can optionally specify a datapoint in which the name or the menu id of the selected navigation element is written.<br>If no menu id is specified, the text of the navigation element is used. If the selected navigation element is a submenu, the name or menu id of the corresponding navigation element and submenu element is written separated with a '.', e.g. <code>EG.Wohnzimmer</code><br><br>For example, this can be used to dynamically create widgets depending on the selected navigation element.</td> </tr> <tr> <td rowspan=2><img src="doc/en/media/topappbar_data.png"></td> <td>input method for the navigation items</td> <td>Choose if the navigation elements are created by VIS editor or by json string.</td> </tr> <tr> <td>JSON String for navigation items</td> <td><a href="#menu-json-properties-2">details see Menu JSON Properties and Submenu JSON Properties</a></td> </tr> </tbody> </table>
+
+TR: ### Menu JSON Properties
+TR: menu items can be defined by a JSON string:
+
+TR: <table> <thead> <tr> <th>Property</th> <th>Description</th> <th>Type</th> <th>Values</th> </tr> </thead> <tbody> <tr> <td>menuId</td> <td>define a custom id for menu item, will be written to the "Object Id for selected menu item id or name" if selected</td> <td>string</td> <td></td> </tr> <tr> <td>text</td> <td>text of menu item</td> <td>string</td> <td></td> </tr> <tr> <td>header</td> <td>header of menu item</td> <td>string</td> <td></td> </tr> <tr> <td>icon</td> <td>icon or image path of entry</td> <td>string</td> <td></td> </tr> <tr> <td>iconColor</td> <td>icon color (works not if image is used)</td> <td>color</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>divider</td> <td>show a divider</td> <td>boolean</td> <td>false, true</td> </tr> <tr> <td>userGroups</td> <td>user groups that are allowed to view and control this entry.</td> <td>array[string]</td> <td>id of user groups</td> </tr> <tr> <td>behaviorNotInUserGroup</td> <td>hide or disable entry if user is not part of user group</td> <td>string</td> <td>hide, disabled</td> </tr> <tr> <td>setValueOnMenuToggleClick</td> <td>set value on click at item that toggle submenu</td> <td>boolean</td> <td>false, true</td> </tr> <tr> <td>subMenuIconColor</td> <td>icon color of sub menu items (works not if image is used)</td> <td>color</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>subMenus</td> <td>Object with sub menu items, <a href="#submenu-json-properties">Details see Submenu JSON Properties</a></td> <td>array[subMenu]</td> <td></td> </tr> </tbody> </table>
+
+TR: <!-- omit in toc -->
+
+TR: #### Menu JSON Properties - Example
+TR: <details> <pre><code> [ { "text": "Start", "divider": "true", "icon": "home" }, { "menuId": "EG", "text": "Erdgeschoss", "icon": "home-floor-0", "setValueOnMenuToggleClick": "true", "subMenus": [ { "menuId": "Esszimmer", "text": "Esszimmer", "icon": "table-furniture" }, { "menuId": "Wohnzimmer", "text": "Wohnzimmer", "icon": "sofa" }, { "menuId": "Kueche", "text": "Küche", "icon": "sofa" }, { "menuId": "Eingang", "text": "Eingang", "icon": "sofa" }, { "menuId": "Flur", "text": "Flur", "icon": "sofa" }, { "menuId": "Bad", "text": "Bad", "icon": "sofa" }, { "menuId": "Zimmer", "text": "Zimmer", "icon": "sofa" } ] }, { "menuId": "DG", "text": "Dachgeschoss", "icon": "home-roof", "setValueOnMenuToggleClick": "true", "subMenus": [ { "text": "Flur", "icon": "table-furniture" }, { "text": "Galerie", "icon": "sofa" }, { "text": "Schlafzimmer", "icon": "sofa" }, { "text": "Ankleide", "icon": "sofa" }, { "text": "Bad", "icon": "sofa" }, { "text": "Kinderzimmer", "icon": "sofa" } ] } ] </code></pre> </details>
 
 TR: ### Submenu
 ![TR: Logo](../../../en/adapterref/iobroker.vis-materialdesign/doc/en/media/drawer_subMenu.png)
@@ -1824,11 +1835,11 @@ TR: ### Submenu
 TR: submenus must be defined by a JSON string:
 
 TR: #### Submenu JSON Properties
-TR: <table> <thead> <tr> <th>Property</th> <th>Description</th> <th>Type</th> <th>Values</th> </tr> </thead> <tbody> <tr> <td>text</td> <td>text of entry</td> <td>string</td> <td></td> </tr> <tr> <td>icon</td> <td>icon or image path of entry</td> <td>string</td> <td></td> </tr> <tr> <td>iconColor</td> <td>icon color (works not if image is used)</td> <td>color</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>divider</td> <td>show a divider</td> <td>boolean</td> <td>false, true</td> </tr> <tr> <td>userGroups</td> <td>user groups that are allowed to view and control this entry.</td> <td>array[string]</td> <td>id of user groups</td> </tr> <tr> <td>behaviorNotInUserGroup</td> <td>hide or disable entry if user is not part of user group</td> <td>string</td> <td>hide, disabled</td> </tr> </tbody> </table>
+TR: <table> <thead> <tr> <th>Property</th> <th>Description</th> <th>Type</th> <th>Values</th> </tr> </thead> <tbody> <tr> <td>menuId</td> <td>define a custom id for menu item, will be written to the "Object Id for selected menu item id or name" if selected</td> <td>string</td> <td></td> </tr> <tr> <td>text</td> <td>text of submenu</td> <td>string</td> <td></td> </tr> <tr> <td>icon</td> <td>icon or image path of entry</td> <td>string</td> <td></td> </tr> <tr> <td>iconColor</td> <td>icon color (works not if image is used)</td> <td>color</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>divider</td> <td>show a divider</td> <td>boolean</td> <td>false, true</td> </tr> <tr> <td>userGroups</td> <td>user groups that are allowed to view and control this entry.</td> <td>array[string]</td> <td>id of user groups</td> </tr> <tr> <td>behaviorNotInUserGroup</td> <td>hide or disable entry if user is not part of user group</td> <td>string</td> <td>hide, disabled</td> </tr> </tbody> </table>
 
 TR: <!-- omit in toc -->
 
-TR: #### Submenu JSON Properties - Example
+TR: ##### Submenu JSON Properties - Example
 TR: <details> <pre><code> [ { "text": "subitem0", "icon": "account", "iconColor": "red" }, { "text": "subitem1", "icon": "home", "iconColor": "green", "divider": "true" }, { "text": "subitem1", "divider": "true", "icon": "/vis.0/myImages/devices/lxc_iobroker.png", "userGroups": ["administrator", "user"], "behaviorNotInUserGroup": "disabled" } ] </code></pre> </details>
 
 TR: ## Charts
@@ -4379,6 +4390,11 @@ TR: * [Material Design Icons](https://materialdesignicons.com/)
     Placeholder for the next version (at the beginning of the line):	   
 	### __WORK IN PROGRESS__
 -->
+
+<!-- omit in toc -->
+### __WORK IN PROGRESS__
+* (Scrounger) Top App Bar Widget: option added to define navigation items per JSON String [Details see documentation!](#top-app-bar)
+* (Scrounger) Top App Bar Widget: option added to define an id per item
 
 <!-- omit in toc -->
 ### 0.5.8 (2021-06-09)

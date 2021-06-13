@@ -2,47 +2,57 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.onkyo/README.md
-title: ioBroker.onkyo
-hash: 0UrlqHs+CqpyKdo8oX1S7jFJE940wg34/Nco0GC6/nE=
+title: TR: ioBroker.onkyo
+hash: D2kaOQbC/ENX3OEQpT2QiPgW2tvZkW5i8JEEapw2dEU=
 ---
-![商标](../../../en/adapterref/iobroker.onkyo/admin/onkyo.png)
+![TR: Logo](../../../en/adapterref/iobroker.onkyo/admin/onkyo.png)
 
-![安装数量](http://iobroker.live/badges/onkyo-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.onkyo.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.onkyo.svg)
-![特拉维斯](https://travis-ci.org/ioBroker/ioBroker.onkyo.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.onkyo.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/onkyo-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.onkyo.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.onkyo.svg)
 
-＃ioBroker.onkyo
-###重大更新！
-照顾好这个重大更新。从2.0版开始，结构发生了变化！如果您更新到此版本，则必须在任何其他适配器（如VIS或javascript）中更改变量！新版本支持“材料”和“封面艺术”。媒体对象支持播放器窗口小部件，例如sonso或winamp。
-![可视化](../../../en/adapterref/iobroker.onkyo/admin/player.png)
+TR: # ioBroker.onkyo
+TR: ![TR: Test and Release](https://github.com/ioBroker/iobroker.onkyo/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/onkyo/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-该适配器允许使用EISCP协议控制Onkyo和Pioneer AVR。
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-它使用node-eiscp：https://github.com/tillbaks/node-eiscp
+TR: ### 2.0 Major update!
+TR: Starting with 2.0 there are structure changes! If you update to this version, you have to change the variables in any other adapter like VIS or javascript! The new version supports Materials and cover arts. The media objects supports player widgets like sonos or winamp.
+![TR: VIS](../../../en/adapterref/iobroker.onkyo/admin/player.png)
 
-为了发送命令，有一个特殊的状态“ RAW”。仅将RAW命令（例如已知的EISCP Excel文件）写入该状态作为EISCP RAW命令的示例，形式为“ PWR01”。
+TR: This adapter allows control of Onkyo and Pioneer AVRs using the EISCP protocol.
 
-适配器维护的另一个特殊状态是“已连接”。这是一个布尔值，显示node-eiscp当前是否已连接到接收器。
+TR: It uses node-eiscp: https://github.com/tillbaks/node-eiscp
 
-VIS视图示例![可视化](../../../en/adapterref/iobroker.onkyo/admin/onkyo-vis.png)
+TR: For sending commands, there is a special state "RAW". Writes to that state trigger only RAW commands like the known EISCP Excel files As example of an EISCP RAW command in the form of "PWR01".
 
-##经过测试的接收器
-### Onkyo
-* TX-NR 525
-* TX-NR 626
-* TX-NR 727
+TR: Another special state maintained by the adapter is "connected". It's a boolean showing whether node-eiscp is currently connected to a receiver.
 
-###先驱
-* VXS-S520D
-* VSX-1131
+TR: Example of VIS view ![TR: VIS](../../../en/adapterref/iobroker.onkyo/admin/onkyo-vis.png)
 
-<！-下一个版本的占位符（在该行的开头）：
+TR: ## Tested Receivers
+TR: ### Onkyo
+TR: * TX-NR 525
+TR: * TX-NR 626
+TR: * TX-NR 727
 
-### __进展中__->
+TR: ### Pioneer
+TR: * VXS-S520D
+TR: * VSX-1131
+
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add reconnection and device offline detection
+* (Apollon77) Add crash reporting using sentry in js.controller 3+
+
+### 2.0.6 (2021-05-28)
+* (Diginix) fixed data types
+
 ### 2.0.5 (2021-04-27)
 * (Diginix) fixed some object properties
 * (bluefox) Added the support of compact mode
@@ -148,4 +158,5 @@ VIS视图示例![可视化](../../../en/adapterref/iobroker.onkyo/admin/onkyo-vi
 
 ## License
 The MIT License (MIT)
-Copyright (c) 2019 Eisbaeeer <eisbaeeer@gmail.com>, owagner
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
+              2014-2015 Oliver Wagner <owagner@tellerulam.com>
