@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.modbus/README.md
 title: TR: iobroker.modbus
-hash: gNmu0hv+Aq+NEhK/K4rv7rBlSTc+rbgpabulbpGAzyI=
+hash: xkNd5mJeFpG/k6t2CHMxxHryp80Gj3rnLw06dghu72M=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.modbus/admin/modbus.png)
 
@@ -45,21 +45,33 @@ TR: - holding registers are from 40001 to 60000
 
 TR: Every alias will be mapped internally to address, e.g. 30011 will be mapped to input register 10. and so on.
 
-TR: ### Do not align addresses to word
+TR: ### Do not align addresses to 16 bits (word)
 TR: Normally the coils and the discrete inputs addresses are aligned to 16 bit. Like addresses from 3 to 20 will be aligned to 0 up 32.
 If this option is active the addresses will not be aligned.
+
+TR: ### Do not use multiple registers
+TR: If slave does not support "write multiple registers" command, you can activate it to get warnings, when the multiple registers will be written.
+
+TR: ### Use only multiple write registers
+TR: If slave only supports "write multiple registers" command, you can activate so the registers will be written always with FC15/FC16 command.
 
 TR: ### Round Real to
 TR: How many digits after comma for float and doubles.
 
-TR: ### Poll delay
+TR: ### Data polling interval
 TR: Cyclic poll interval (Only relevant for master)
 
-TR: ### Reconnect time
+TR: ### Reconnect delay
 TR: Reconnection interval (Only relevant for master)
 
+TR: ### Read timeout
+TR: Timeout for read requests in milliseconds.
+
 TR: ### Pulse time
-TR: if pulse used for coils, this define the interval how long is pulse.
+TR: If pulse used for coils, this defines the interval how long is the pulse.
+
+TR: ### Wait time
+TR: Wait time between polling of two different device IDs in milliseconds.
 
 TR: ### Max read request length
 TR: Maximal length of command READ_MULTIPLE_REGISTERS as number of registers to read.
@@ -73,11 +85,20 @@ TR: There is a software [TR: **Modbus RTU <-> Modbus RTU over TCP**](http://mbus
 
 TR: Both solutions **RTU over TCP** and **TCP** works well.
 
-TR: ### Do not use multiple registers
-TR: If slave does not support "write multiple registers" command, you can activate it to get warnings, when the multiple registers will be written.
+TR: ### Read interval
+TR: Delay between two read requests in ms. Default 0.
 
 TR: ### Write interval
 TR: Delay between two write requests in ms. Default 0.
+
+TR: ### Update unchanged states
+TR: Normally if the value has not changed it will not be written into ioBroker. This flag allows to update the value's timestamp by every cycle.
+
+TR: ### Do not include addresses in ID
+TR: Do not add address in the generated ioBroker iD. `10_Input10` vs `Input10`.
+
+TR: ### Preserve dots in ID
+TR: With this flag the Name will be `Inputs.Input10`. Without => `Inputs_Input10`
 
 TR: ## Parameters for single address line in config
 TR: ### Address
@@ -96,10 +117,10 @@ TR: ### Unit
 TR: Unit of the Parameter
 
 TR: ### Type
-TR: Datatype to read from Bus. For details about the possible datatypes see section Data types
+TR: Datatype to read from Bus. For details about the possible data types see section Data types
 
 TR: ### Length
-TR: Length of parameter. For the most parameters this is determined based on the data type, but for Strings this defines the lenght in Bytes / characters
+TR: Length of parameter. For the most parameters this is determined based on the data type, but for Strings this defines the length in Bytes / characters
 
 TR: ### Factor
 TR: This factor is used to multiply the read value from Bus for static scaling. So the calculation looks like following val = x * Factor + Offset
@@ -109,13 +130,13 @@ TR: This offset is added to the read value after above multiplication. So the ca
 
 TR: ### Formula
 TR: This field can be used for advanced calculations if Factor and Offset is not sufficient. If this field is set, then the Factor and Offset field is ignored.
-The Formula is executed by the eval() function. Therefore all common functions are supported. Especially the Math functions. The formula must comply with Javascript syntax, therefore also take care about uper and lower cases.
+The Formula is executed by the eval() function. Therefore all common functions are supported. Especially the Math functions. The formula must comply with Javascript syntax, therefore also take care about upper and lower cases.
 
 TR: In the formula, "x" has to be used for the read value from Modbus. E.g. `x * Math.pow(10, sf['40065'])`
 
-TR: If the formula cannot evaluated during runtime, then the Adapter writes a warning message to the log.
+TR: If the formula cannot be evaluated during runtime, then the Adapter writes a warning message to the log.
 
-TR: Another usecase for fomulas could also be to prevent unplausible data with a formula like "x > 2000000 ? null : x"
+TR: Another use case for formulas could also be to prevent implausible data with a formula like `x > 2000000 ? null : x`
 
 TR: ### Role
 TR: ioBroker role to assign.
@@ -170,7 +191,7 @@ TR: The point-to-point Modbus protocol is a popular choice for RTU communication
 TR: Such convenience does not come without some complications however, and Modbus RTU Message protocol is no exception. The protocol itself was designed based on devices with a 16-bit register length. Consequently, special considerations were required when implementing 32-bit data elements. This implementation settled on using two consecutive 16-bit registers to represent 32 bits of data or essentially 4 bytes of data. It is within these 4 bytes of data that single-precision floating point data can be encoded into a Modbus RTU message.
 
 TR: ### The Importance of Byte Order
-TR: Modbus itself does not define a floating point data type but it is widely accepted that it implements 32-bit floating point data using the IEEE-754 standard. However, the IEEE standard has no clear cut definition of byte order of the data payload. Therefore the most important consideration when dealing with 32-bit data is that data is addressed in the proper order.
+TR: Modbus itself does not define a floating point data type, but it is widely accepted that it implements 32-bit floating point data using the IEEE-754 standard. However, the IEEE standard has no clear definition of byte order of the data payload. Therefore the most important consideration when dealing with 32-bit data is that data is addressed in the proper order.
 
 TR: For example, the number 123/456.00 as defined in the IEEE 754 standard for single-precision 32-bit floating point numbers appears as follows:
 
@@ -184,7 +205,7 @@ TR: Ordering the same bytes in a “C D A B” sequence is known as a “word sw
 
 ![TR: Image3](../../../en/adapterref/iobroker.modbus/img/img3.png)
 
-TR: Furthermore, both a “byte swap” and a “word swap” would essentially reverse the sequence of the bytes altogether to produce yet another result:
+TR: Furthermore, both a `byte swap` and a `word swap` would essentially reverse the sequence of the bytes altogether to produce yet another result:
 
 ![TR: Image4](../../../en/adapterref/iobroker.modbus/img/img4.png)
 
@@ -197,7 +218,7 @@ TR: The Modbus protocol itself is declared as a ‘big-Endian’ protocol, as pe
 
 TR: Big-Endian is the most commonly used format for network protocols – so common, in fact, that it is also referred to as ‘network order’.
 
-TR: Given that the Modbus RTU message protocol is big-Endian, in order to successfully exchange a 32-bit datatype via a Modbus RTU message, the endianness of both the master and the slave must considered. Many RTU master and slave devices allow specific selection of byte order particularly in the case of software-simulated units. One must merely insure that both all units are set to the same byte order.
+TR: Given that the Modbus RTU message protocol is big-Endian, in order to successfully exchange a 32-bit datatype via a Modbus RTU message, the endianness of both the master, and the slave must be considered. Many RTU master and slave devices allow specific selection of byte order particularly in the case of software-simulated units. It only has to be ensured that both units are set to the same byte order.
 
 TR: As a rule of thumb, the family of a device’s microprocessor determines its endianness. Typically, the big-Endian style (the high-order byte is stored first, followed by the low-order byte) is generally found in CPUs designed with a Motorola processor. The little-Endian style (the low-order byte is stored first, followed by the high-order byte) is generally found in CPUs using the Intel architecture. It is a matter of personal perspective as to which style is considered ‘backwards’.
 
@@ -260,16 +281,16 @@ TR: <!-- Placeholder for the next version (at the beginning of the line):
 TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 3.4.2 (2021-06-15)
 * (nkleber78) Corrected issue with the scale factors
 * (bluefox) New react GUI added
-* (bluefox) Add new option: Use only Write multiple registers
+* (bluefox) Add new option: Use only Write multiple registers, read interval
 
 ### 3.3.1 (2021-05-10)
 * (bluefox) fixed the configuration dialog for "input registers" in slave mode 
 
 ### 3.3.0 (2021-04-16)
-* (Apollon77) Allow to use write-only (no poll) states
+* (Apollon77) Allow usage of write-only (no poll) states
 * (Apollon77/TmShaz) F Write multiple registers
 * (prog42) create states of type string with default value of type string
 
@@ -333,7 +354,7 @@ TR: ### __WORK IN PROGRESS__ -->
 
 ### 3.0.4 (2020-06-05)
 * (bluefox) Added device ID by export/import
-* (bluefox) Added the write interval parameter
+* (bluefox) Added the "write interval" parameter
 * (bluefox) Added the disabling of write multiple registers
 
 ### 3.0.3 (2020-06-05)
@@ -385,7 +406,7 @@ TR: ### __WORK IN PROGRESS__ -->
 * (bluefox) Create all states each after other
 
 ### 0.4.10 (2017-02-10)
-* (Apollon77) Do not recreate all datapoints on start of adapter
+* (Apollon77) Do not recreate all data points on start of adapter
 * (ykuendig) Multiple optimization and wording fixes
 
 ### 0.4.9 (2016-12-20)

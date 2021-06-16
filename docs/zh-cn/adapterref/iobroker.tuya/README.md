@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.tuya/README.md
 title: TR: ioBroker.tuya
-hash: YMrzpnbTUt/3afAiGyNrfmH41Ah98LziOJHXWkCoMTY=
+hash: Dyw+8uyBMTmMhGScsOipJmn0VIAUv/lq+yDEbl+uJxg=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.tuya/admin/tuya.png)
 
@@ -71,7 +71,7 @@ TR: The sync is only needed initially or after you added new devices to your App
 TR: Some images for some mobile OS can be found at the [TR: Proxy-Page](PROXY.md).
 
 TR: ## Not for Battery powered devices
-TR: Battery powered devices are normally NOT supported by this adapter! The reason is that they are not online all the time to save power. Whenever they get a signal, thay go online, send the update to the the Tuya cloud servers and go offline again. They do not emit any UDP packages or are online long enough so that the adapter could connect to them.
+TR: Battery powered devices are normally NOT supported by this adapter! The reason is that they are not online all the time to save power. Whenever they get a signal, they go online, send the update to the the Tuya cloud servers and go offline again. They do not emit any UDP packages or are online long enough so that the adapter could connect to them.
 A soon as someone finds a way to directly fetch data from the Tuya cloud this may change.
 
 TR: ## Credits
@@ -87,6 +87,13 @@ TR: Please use GitHub issues for this.
 TR: Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Make sure for enums values are set with correct type
+
+### 3.6.3 (2021-06-04)
+* (Apollon77) More schema information added
+* (Apollon77) Update tuyapi
 
 ### 3.6.2 (2021-05-10)
 * (Apollon77) type "bitmap" is a number

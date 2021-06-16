@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.go-e/README.md
 title: TR: ioBroker.go-echarger
-hash: oCNZvv8a1LjfwBn7pwwqGINRdoYd+6zEwtnEEvsRHyc=
+hash: wnEwj3vtISxrEMdQh63/cVXtX2WdfQoqIq+f6KyjDhk=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.go-e/admin/go-echarger.png)
 
@@ -36,7 +36,7 @@ TR: Dieser Adapter unterstützt derzeit nur die API v1. Die Entwicklung auf die 
 TR: ## go-eCharger adapter for ioBroker **EN** go-e is an invitation to move electrically. E-mobility is our drive, whereby our core competence is the charging technology for electric cars. From the individual charging station for e-cars to photovoltaic connections to load management of entire buildings, we are providers of holistic system solutions for all requirements of modern e-mobility.
 TR: **DE** go-e ist die Aufforderung, sich elektrisch zu bewegen. e-Mobilität ist unser Antrieb, wobei unsere Kernkompetenz die Ladetechnik für Elektroautos ist. Von der einzelnen Ladestation für e-Autos über Photovoltaik-Anbindung bis hin zum Lastmanagement von ganzen Gebäuden, sind wir Anbieter gesamtheitlicher Systemlösungen für sämtliche Anforderungen der modernen e-Mobilität.
 
-TR: ## ioBroker-Adapter manual
+TR: ## ioBroker-Adapter manual / Quick start guide
 TR: The Manual for installation and configuration you can find here: [TR: Adapter Manual](./docs/Readme.md)
 
 TR: ## Developer manual
