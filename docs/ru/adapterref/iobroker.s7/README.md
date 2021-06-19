@@ -7,99 +7,99 @@ BADGE-NPM: https://nodei.co/npm/iobroker.s7.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.s7/README.md
-title: ioBroker.S7
-hash: I6x/U3+nhImauYGf++qbdsGE3FrGTXoqptKnNB87LBo=
+title: TR: ioBroker.S7
+hash: nAuRGgna8b2Yl/7OOGbig0EnQ2VauC1p6p25yWF+jwg=
 ---
-# IoBroker.S7
-## Подробное описание
-Адаптер S7, который поставляется с ioBroker, основан на Snap7 \. Snap7 будет установлен во время первой установки адаптера и обрабатывает связь TCP / IP между ПЛК S7 и ioBroker. Поэтому обязательно, чтобы S7 был оснащен интерфейсом Ethernet (встроенным или внешним CP) для связи по TCP / IP с оборудованием, на котором работает ioBroker. В качестве предварительного условия пользователь должен знать основы связи по протоколу TCP / IP и должен иметь возможность конфигурировать ПЛК S7 с помощью программного обеспечения Step7. Но это не должно быть проблемой для тех, кто рассматривает возможность подключения S7 к ioBroker.
+TR: # ioBroker.S7
+TR: ## Detailed description
+TR: The S7 adapter which comes with ioBroker is based on Snap7\. Snap7 will be installed during the first time installation of the adapter and handles the TCP/IP communication between the S7 PLC and ioBroker. So it is mandatory that the S7 is equipped with an Ethernet interface (integrated or external CP) in order to communicate over TCP/IP with the hardware ioBroker is running on. As a prerequisite the user has to know the basics about TCP/IP communication and he/ she has to be able to configure the S7 PLC with the Step7 software. But that shouldn’t be a challenge for someone considering to linking an S7 to ioBroker.
 
-## Монтаж
-Это руководство основано на следующей конфигурации:
+TR: ## Installation
+TR: This guide is based on the following configuration:
 
-* S7-315 со встроенным интерфейсом Ethernet
-* Raspberry Pi 2, ioBroker, работающий под Debian GNU / Linux 7.8 (wheezy)
-* Диапазон IP-адресов 192.168.1.xxx
-* ПК работает:
-    * Инструмент для работы с электронными таблицами, такой как MS Excel, Apache Open Office
-    * Браузер Google Chrome
-    * Step7 V5.5 SP4 HF5
+TR: * S7-315 with integrated Ethernet interface
+TR: * Raspberry Pi 2, ioBroker running under Debian GNU/Linux 7.8 (wheezy)
+TR: * IP address range 192.168.1.xxx
+TR: * PC running:
+TR:     * Spread sheet tool like MS Excel, Apache Open Office
+TR:     * Google Chrome Browser
+TR:     * Step7 V5.5 SP4 HF5
 
-** нужен дополнительный документ: (iobroker_adapter_S7.xlsx) [iobroker_adapter_S7.xlsx] **
+TR: **needed additional document:  (iobroker_adapter_S7.xlsx)[iobroker_adapter_S7.xlsx]**
 
-### Связь через блоки данных (БД)
-В этом руководстве описывается связь между ioBroker и ПЛК S7 через блоки данных. Для связи могут быть созданы идеально выделенные БД. БД должны быть интегрированы в код, запущенный в S7 \. Преимущество такого подхода заключается в том, что вы можете быть уверены, что не будете перезаписывать данные случайно, например, в экземпляре блока данных, что может привести к нежелательным или неожиданным реакциям в вашем программном обеспечении S7. Если вам приходится использовать существующие блоки данных из-за ограничений памяти или из-за невозможности внесения каких-либо изменений в программное обеспечение S7, убедитесь, что вы вводите соответствующие данные в ioBroker только во избежание конфликтов.
+TR: ### Communication through Data Blocks (DBs)
+TR: This guide describes the communication between ioBroker and the S7 PLC through data blocks. Ideally dedicated DBs can be generated for the communication. The DBs have to be integrated in the code running in the S7\. The advantage with that approach is that you can be sure that you won’t overwrite data accidentally for example in an instance data block which could lead to unwanted or unexpected reactions in your S7 software. If you have to use existing data blocks due to memory restrictions or that you can not do any modification to the S7 software, make sure that you populate the relevant data to ioBroker only in order to avoid conflicts.
 
-### Генерация БД связи
-Мы собираемся работать с 4 БД:
+TR: ### Generate communication DBs
+TR: We are going to work with 4 DBs:
 
-* DB20 - двоичные значения, отправленные из ioBroker в S7 (цифровой вход из представления S7)
-* DB21 - двоичные значения, отправленные в ioBroker из S7 (цифровой вывод из представления S7)
-* DB22 - Реальные значения, отправленные из ioBroker в S7 (аналоговый вход из представления S7)
-* DB23 - реальные значения, отправленные в ioBroker из S7 (аналоговый выход из представления S7)
+TR: * DB20 – Binary values sent from ioBroker to the S7 (digital input from an S7 view)
+TR: * DB21 – Binary values sent to ioBroker from the S7 (digital output from an S7 view)
+TR: * DB22 – Real values sent from ioBroker to the S7 (analog input from an S7 view)
+TR: * DB23 – Real values sent to ioBroker from the S7 (analog output from an S7 view)
 
-БД будут генерироваться с использованием электронной таблицы с одной таблицей на блок данных.
+TR: The DBs will be generated using a spread sheet with one table per data block.
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_tabelle_1.png)
 
-#### Подготовка DB20 - двоичные значения, отправленные из ioBroker в S7
+TR: #### Preparation of DB20 – Binary values sent from ioBroker to the S7
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_tabelle_3.png)
 
 ![](../../../en/adapterref/iobroker.s7/img/zoom61_black.png)
 
-Столбцы от A до M основаны на структуре в ioBroker и должны быть заполнены пользователем на основе программного обеспечения S7. Возможно, вы захотите использовать части таблицы символов S7 (копировать - вставить). В столбце O код для S7 DB выводится из содержимого в столбцах от A до M.
+TR: Column A through M are based on the structure in ioBroker and have to be filled in by the user based on the S7 software. You might want to make use of parts of the S7 symbol table (copy – paste). In column O the code for the S7 DB is derived from the content in column A through M.
 
-* Столбец A: DB = номер БД в S7 и первая часть адреса в ioBroker
-* Столбец B: Байт = Байт в БД в S7 и вторая часть адреса в ioBroker
-* Столбец C: Бит = Бит в БД в S7 и третья часть адреса в ioBroker
-* Столбец D: Имя = Имя в БД в S7 и имя в ioBroker
-* Колонка E: Описание = Комментарий в БД в S7 и описание в ioBroker
-* Столбец F: Тип = Введите в БД в S7 и введите в ioBroker
-* Столбец G: длина = длина в ioBroker
-* Колонка H: Единица = Единица в ioBroker
-* Столбец I: Роль = роль в ioBroker
-* Столбец J: Комната = комната в ioBroker
-* Столбец K: опрос = точка данных будет опрашиваться циклически (истина / ложь)
-* Столбец L: RW = точка данных может быть записана (true / false) и «true» в DB20, поскольку мы хотим записать данные в S7
-* Столбец M: WP = точка данных будет установлена на «1» только для «времени импульса», определенного в «General - General»
+TR: * Column A: DB = DB Number in the S7 and first part of address in ioBroker
+TR: * Column B: Byte = Byte in DB in the S7 and second part of address in ioBroker
+TR: * Column C: Bit = Bit in DB in the S7 and third part of address in ioBroker
+TR: * Column D: Name = Name in DB in the S7 and name in ioBroker
+TR: * Column E: Description = Comment in DB in the S7 and description in ioBroker
+TR: * Column F: Type = Type in DB in the S7 and type in ioBroker
+TR: * Column G: Length = length in ioBroker
+TR: * Column H: Unit = unit in ioBroker
+TR: * Column I: Role = role in ioBroker
+TR: * Column J: Room = room in ioBroker
+TR: * Column K: Poll = data point will be polled cyclically (true/false)
+TR: * Column L: RW = data point can be written (true/false) è “true” in DB20 as we want to write data to the S7
+TR: * Column M: WP = data point will be set to “1” only for the “pulse time” defined under “General – General”
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_config_1.png)
 
-* Столбец N: намеренно оставлено пустым
-* Столбец O: содержимое БД = содержимое, которое будет скопировано в Шаг 7 для генерации БД, формула: `` `= CONCATENATE (D2;": "; F2;": = ";" false; ";" // "; E2 ) `` `
+TR: * Column N: intentionally left empty
+TR: * Column O: DB content = content which will be copied to Step7 for DB generation, formula: ```=CONCATENATE(D2;":";F2;":=";"false;";"//";E2)```
 
-#### Подготовка DB21 - двоичные значения, отправленные в ioBroker из S7
+TR: #### Preparation of DB21 – Binary values sent to ioBroker from the S7
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_tabelle_3.png)
 
 ![](../../../en/adapterref/iobroker.s7/img/zoom61_black.png)
 
-* Столбец L: RW и «ложь» в DB21, поскольку мы хотим читать данные с S7
+TR: * Column L: RW è “false” in DB21 as we want to read data from the S7
 
-#### Подготовка DB22 - реальные значения, отправленные с ioBroker на S7
+TR: #### Preparation of DB22 – Real values sent from ioBroker to the S7
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_tabelle_4.png)
 
 ![](../../../en/adapterref/iobroker.s7/img/zoom61_black.png)
 
-* Столбец B: Байт = начальный байт действительного значения (0, 4, 8,…)
-* Столбец C: Бит = оставлено пустым
-* Столбец L: RW и «истина» в DB22, поскольку мы хотим записать данные в S7
-* Столбец O: Формула: `` `= CONCATENATE_ _ (D2;": "; F2;": = ";" 0.000000e + 000; ";" // "; E2)` ``
+TR: * Column B: Byte = start byte of real value (0, 4, 8, …)
+TR: * Column C: Bit = left empty
+TR: * Column L: RW è “true” in DB22 as we want to write data to the S7
+TR: * Column O: Formula: ```=CONCATENATE_ _(D2;":";F2;":=";"0.000000e+000;";"//";E2)```
 
-#### Подготовка DB23 - Реальные значения, отправленные в ioBroker из S7
+TR: #### Preparation of DB23 – Real values sent to ioBroker from the S7
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_tabelle_5.png)
 
 ![](../../../en/adapterref/iobroker.s7/img/zoom61_black.png)
 
-* Столбец B: Байт = начальный байт действительного значения (0, 4, 8,…)
-* Столбец C: Бит = оставлено пустым
-* Столбец L: RW и «ложь» в DB23, поскольку мы хотим читать данные с S7
-* Столбец O: Формула: `` `= CONCATENATE_ _ (D2;": "; F2;": = ";" 0.000000e + 000; ";" // "; E2)` ``
+TR: * Column B: Byte = start byte of real value (0, 4, 8, …)
+TR: * Column C: Bit = left empty
+TR: * Column L: RW è “false” in DB23 as we want to read data from the S7
+TR: * Column O: Formula: ```=CONCATENATE_ _(D2;":";F2;":=";"0.000000e+000;";"//";E2)```
 
-#### Создание источников БД в Шаге 7
-Теперь мы сгенерируем БД в Шаге 7, используя код в столбце O нашей электронной таблицы. В вашей программе Step7 вставьте источник STL, щелкнув правой кнопкой мыши на «Источники». [![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_1.png)
+TR: #### Create DB sources in Step7
+TR: We will now generate the DBs in Step7 using the code in column O of our spread sheet. In your Step7 program insert an STL source by clicking the right mouse button on “Sources”. [ ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_1.png)
 
-Переименуйте новый источник в «DB20».
-Вставьте следующий код в пустой источник:
+TR: Rename the new source to “DB20”.
+Insert the following code in the empty source:
 
 ```
 DATA_BLOCK DB 20
@@ -111,150 +111,186 @@ DATA_BLOCK DB 20
 END_DATA_BLOCK
 ```
 
-Источник должен выглядеть так:
+TR: The source should look like this:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_2.png)
 
-Скопируйте источник «DB20» 3 раза и назовите копии DB21, DB22, DB23, а также измените строку в каждом источнике на:
+TR: Copy the source “DB20” 3 times and name the copies DB21, DB22, DB23 while also changing line one in each source to:
 
-* `` `DATA_BLOCK DB 21```
-* `` `DATA_BLOCK DB 22```
-* `` `DATA_BLOCK DB 23```
+TR: * ```DATA_BLOCK DB 21```
+TR: * ```DATA_BLOCK DB 22```
+TR: * ```DATA_BLOCK DB 23```
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_3.png)
 
-Теперь перейдите к электронной таблице, таблице DB20, и скопируйте код в столбце O (без заголовка):
+TR: Now go to the spread sheet, table DB20, and copy the code in column O (without headline):
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_4.png)
 
-Вставьте ячейки в источнике под названием «DB20» на шаге 7 между «STRUCT» и «END_STRUCT;»
+TR: Paste the cells in the source called “DB20” in Step7 between “STRUCT” and “END_STRUCT;”:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_5.png)
 
-Запустите компилятор, и результат должен быть 0 ошибок, 0 предупреждений. DB20 теперь сгенерирован, и вы нашли новый блок в разделе «Блоки» в вашей программе S7.
+TR: Start the compiler and the result should be 0 Errors, 0 Warnings. DB20 has now been generated and you find the new block under “Blocks” in your S7 program.
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_6.png)
 
-Блок выглядит так:
+TR: The block looks like this:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_7.png)
 
- Адрес должен соответствовать адресу в электронной таблице, просто выполните проверку работоспособности, сравнив комбинацию байтов и битов:
+TR:  The address should be in correspondence with the address in the spread sheet, just do a sanity check by comparing the combination of Byte and Bit:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_8.png)
 
-Повторите эти действия для DB21, DB22, DB23 и убедитесь, что вы выбрали столбец O из правой таблицы и вставили его в правильный источник (таблица DB21 в источник DB21 и т. Д.). Поскольку DB22 и 23 будут работать со значениями REAL, вы можете найти ниже, как блоки будут смотреться
+TR: Repeat for DB21, DB22, DB23 and make sure you pick the column O from the right table and paste it to the correct source (table DB21 to source DB21 etc.) As DB22 and 23 will deal with REAL values, you can find below how the blocks will look.
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_9.png)
 
-Также здесь адрес должен соответствовать электронной таблице (байт):
+TR: Also here the address should correspond with the spread sheet (Byte):
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_10.png)
 
-Теперь у нас есть 4 БД, необходимые для связи:
+TR: We now have the 4 DBs required for the communication:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_step7_11.png)
 
-Вы должны дать им символическое имя соответственно, что помогает сохранить ясность. Не забудьте подключить их к логике S7 и загрузить модифицированный код.
+TR: You should give them a symbolic name accordingly, that helps to maintain clarity. Don’t forget to connect them to the S7 logic and download the modified code.
 
-### Заполнение БД в ioBroker
-Теперь, когда 4 БД являются частью кода, работающего в S7, мы расскажем ioBroker, как связаться с S7.
+TR: ### Populate DBs to ioBroker
+TR: Now that the 4 DBs are part of the code running in the S7, we will tell ioBroker how to communicate with the S7.
 
-#### Установка экземпляра адаптера S7
-Адаптеры - аппаратное обеспечение - Siemens S7 Adapter - +
+TR: #### Installation of S7 Adapter instance
+TR: Adapters – hardware – Siemens S7 Adapter – +
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_1.png)
 
-Несколько экземпляров возможны, если вы хотите, чтобы ваш ioBroker соединялся с несколькими процессорами S7. Включите новый экземпляр адаптера:
+TR: Multiple instances are possible in case you want your ioBroker to connect with multiple S7 CPUs.   Enable the new adapter instance:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_2.png)
 
-На этом шаге также можно изменить название адаптера (стандарт: адаптер Siemens S7). Использование IP-адреса в качестве части заголовка было бы одной идеей. Откройте конфигурацию адаптера
+TR: The title of the adapter (standard: Siemens S7 Adapter) can also be changed in that step. Using the IP address as part of the title would be one idea. Open the adapter configuration
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_3.png)
 
-и начинаем настраивать адаптер S7:
+TR: and start to configure the S7 adapter:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_4.png)
 
-* Вкладка «Общие»
-    * PLC соединение
-        * IP-адрес ПЛК IP-адрес ПЛК, как определено в настройке StepW HW Config
+TR: * Tab “General”
+TR:     * PLC Connection
+TR:         * PLC IP Address IP address of the PLC as defined in the Step7 HW Config
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_5.png)
 
-* S7 LOGO! Если вы используете ЛОГОТИП, а не ПЛК S7
-* PLC Rack Rack номер процессора, как указано в конфигурации StepW HW (R0 / S2)
-* Номер слота ПЛК ЦПУ, как указано в настройке StepW HW (R0 / S2)
+TR: * S7 LOGO! In case you’re using a LOGO, not an S7 PLC
+TR: * PLC Rack Rack number of the CPU as found in the Step7 HW Config (R0/S2)
+TR: * PLC Slot Slot number of the CPU as found in the Step7 HW Config (R0/S2)
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_6.png)
 
-* Генеральный
-    * Округление до: количество цифр, на которые будут округлены действительные значения после разделителя, например 2 -> 12.12 3 -> 12.123… 9 -> 12.123456789
-    * Задержка опроса: цикл обновления связи в миллисекундах
-* Время <span style="line-height: 1.5;">повторного подключения</span> : <span style="line-height: 1.5;">длительность в миллисекундах после попытки повторного подключения после потери соединения с S7.</span>
-* Время импульса: <span style="line-height: 1.5;">время в миллисекундах для «1» для точек данных, настроенных как WP = true</span>
-* Импорт файла символов:
-    * Загрузка символов Функция импорта символов Step7 из файла ASCII - здесь не используется
-* Импорт файла БД:
-    * Добавление функции БД для импорта БД Step7 из файла ASCII - здесь не используется
+TR: * General
+TR:     * Round real to: Number of digits real values will be rounded to after separator, e.g.: 2 -> 12.12 3 -> 12.123 … 9 -> 12.123456789
+TR:     * Poll delay: Communication update cycle in milliseconds
+TR:     * Reconnect time: <span style="line-height: 1.5;">Duration in milliseconds after a reconnect will be tried once the connection to the S7 was lost</span>
+TR:     * Pulse time: <span style="line-height: 1.5;">Time in milliseconds for “1” for data points configured as WP = true</span>
+TR: * Import symbols file:
+TR:     * Load symbols Feature to import Step7 symbols from an ASCII file – not used here
+TR: * Import DB file:
+TR:     * Add DB Feature to import Step7 DBs from an ASCII file – not used here
 
-#### Настройка ioBroker для связи
-Мы пропускаем вкладки «Входы», «Выходы» и «Маркеры» и переходим прямо к «БД»:
+TR: #### Configure ioBroker for the communication
+TR: We skip the tabs “Inputs”, “Outputs” and “Markers” and go right to “DBs”:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_7.png)
 
-Здесь вы можете найти структуру электронной таблицы. Мы снова готовы к массовому проектированию. Нажмите кнопку «Импортировать из CSV» [
+TR: Here you can find the structure of the spread sheet. We’re ready for bulk engineering again. Click the “Import from CSV” button [
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_8.png)
 
-и вы получите пустое поле. Теперь снова перейдите к электронной таблице, таблице DB20, и скопируйте столбцы от A до M (без заголовков). [
+TR: and you get an empty field. Now go to the spread sheet again, table DB20, and copy column A through M (without headlines). [
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_9.png)
 
-Вставьте ячейки в пустое поле импорта в ioBroker и подтвердите, нажав «Экспорт», который должен называться «Импорт». [
+TR: Paste the cells in the empty import field in ioBroker and confirm with “Export” – which is meant to be called “Import”. [
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_10.png)
 
-Первая БД готова и готова к общению:
+TR: The first DB is done and ready for communication:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_11.png)
 
-Повторите для DB21, DB22, DB23 \. Каждый раз, когда вы нажимаете «Импорт из CSV», вы получаете пустое поле, но содержимое будет добавлено в список. Вы должны сделать это в кратчайшие сроки, независимо от того, сколько точек данных вы хотите заполнить. Если вы хотите использовать функции, которые входят в ioBroker, заполнив Длина, Единица, Роль, Комната, вы также можете сделать это в электронной таблице, чтобы воспользоваться преимуществами массового проектирования. Если вы решите сделать это позже или только для пары точек данных, вы также можете сделать это непосредственно в ioBroker в разделе «БД» со встроенными опциями редактирования. Не забудьте сохранить, хотя! 12 [
+TR: Repeat for DB21, DB22, DB23\. Each time you click “Import from CSV” you get an empty box, but the contents will be added to the list. You should be done in no time, no matter how many data points you want to populate. In case you want to make use of the features which come with ioBroker by filling in Length, Unit, Role, Room, you can do that in the spread sheet, too, in order to take advantage of bulk engineering. If you decide to do that later or for a couple of data points only, you can also do that directly in ioBroker under “DBs” with the integrated edit options. Don’t forget to save, though! 12 [
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_12.png)
 
-#### Тест связи
-Перейдите на вкладку «Объекты» в ioBroker и найдите экземпляр S7 (например, s7.0, а не system.adapter.S7.0). Если вам что-то не хватает: F5 (обновление веб-страницы) - король! Ее вы найдете две группы:
+TR: #### Communication test
+TR: Go to the tab “Objects” in ioBroker and find the S7 instance (e.g. s7.0, not system.adapter.S7.0). If you’re missing anything: F5 (webpage update) is king! Her you find two groups:
 
-* БД с 4 БД, которые мы настроили:
-    * DB20
-    * DB21
-    * DB22
-    * DB23
-* Информация с информацией о связи:
-    * Соединение: «истина», если S7 можно найти в сети
-    * pdu: PDU размера Snap7 подключен к S7 (обычно 240 для S7-300, 480 для S7-400)
-    * poll_time: время в миллисекундах, которое Snap7 берет на связь - должно быть меньше, чем задержка опроса, настроенная в «General» - «General» в конфигурации экземпляра адаптера.
+TR: * DBs with the 4 DBs we configured:
+TR:     * DB20
+TR:     * DB21
+TR:     * DB22
+TR:     * DB23
+TR: * Info with information regarding the connection:
+TR:     * Connection: “true” if the S7 can be found on the network
+TR:     * pdu: PDU size Snap7 is connected with to the S7 (typically 240 for S7-300, 480 for S7-400)
+TR:     * poll_time: time in milliseconds Snap7 takes for communication - should be lower than the poll delay configured under “General” – “General” in adapter instance configuration.
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_13.png)
 
- Мы настроили DB21 и DB23 как БД, отправляющие информацию в ioBroker, то есть, если вы открываете БД в разделе «Объекты», вы должны увидеть, что уже поступают значения, если в БД поступают данные из кода S7.
+TR:  We have configured DB21 and DB23 as DBs sending information to ioBroker, i.e. if you open the DBs under “Objects”, you should see values coming in already, give that the DBs are being supplied with data from the S7 code.
 
-## Мониторинг и эксплуатация в vis
-Запустите ioBroker.vis на вкладке «Экземпляры». Я рекомендую установить vis-hqwidgets. Давайте начнем с переключателя:
+TR: ## Monitoring and Operation in vis
+TR: Start ioBroker.vis from the tab “Instances”. I recommend to have the vis-hqwidgets installed. Let’s start with a switch:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_14.png)
 
-Перетащите виджет переключателя на свой вид, подключите его к идентификатору объекта переключателя в DB20, и все готово. Если вы сейчас используете коммутатор, вы обнаружите, что точка данных в «Объектах» - «s7.x» - «БД» - «DB20» будет переключаться, и S7 включит и выключит все, что когда-либо подключено к БД. Если вы выполните мониторинг БД на этапе 7 в режиме онлайн, вы увидите, что точка данных в БД изменится с «0» на «1» и т. Д. Бинарный статус работает точно так же: перетащите виджет в вид и подключите соответствующая точка данных от DB21 к нему. И то же самое снова для реальных ценностей:
+TR: Drag& drop a switch widget on your view, connect it to the Object ID of a switch in DB20 and you’re done. If you operate the switch now, you will find that the data point under “Objects” – “s7.x” – “DBs” – “DB20” will toggle and the S7 will turn on and off what ever is connected to the DB. If you monitor the DB in Step7 online, you’ll see that the data point in the DB will change from “0” to “1” etc. A binary status works exactly the same way: Drag& drop a widget in your view and connect the relevant data point from DB21 to it. And it is the same again for real values:
 
 ![](../../../en/adapterref/iobroker.s7/img/adapter_en_s7_15.png)
 
-Важно: пользователь отвечает за подключение правильных точек данных к виджетам. Вы можете подключить реальное значение к двоичному состоянию (например, лампочка), так что лампочка будет отображаться «вкл», как только действительное значение станет больше 1,0. Вот и все, ребята, довольно легко и прямо, а?
+TR: Important: The user is in charge of connecting the correct data points to the widgets. You can connect a real value to a binary status (e.g. light bulb), so the light bulb will show “on” once the real value is >1.0. That’s all, folks, pretty easy and straight forward, huh?
 
 ## Changelog
+### 1.3.0 (2021-06-17)
+* (bluefox) New configuration page on react 
+
+### 1.2.5 (2021-04-17)
+* (Apollon77) Fix pot crash case (Sentry IOBROKER-S7-16)
+
+### 1.2.4 (2021-02-22)
+* (Apollon77) Make sure data are of correct type (Sentry IOBROKER-S7-K)
+
+### 1.2.3 (2021-02-17)
+* (Apollon77) null values will no longer be tried to send but give error message (Sentry IOBROKER-S7-8)
+* (Apollon77) Prevent some more crash cases (IOBROKER-S7-1, IOBROKER-S7-9, IOBROKER-S7-E, IOBROKER-S7-F, IOBROKER-S7-G)
+
+### 1.2.2 (2021-01-26)
+* (Apollon77) Prevent warnings in js-controller 3.2
+
+### 1.2.1 (2021-01-25)
+* (Apollon77) fix info.connection state
+
+### 1.2.0 (2021-01-25)
+* (Apollon77) Prevent error case (Sentry IOBROKER-S7-4)
+* (Apollon77) js-controller 2.0 is now required at minimum
+
+### 1.1.10 (2021-01-24)
+* (smiling_Jack) Bugfix in the Admin
+
+### 1.1.9 (2020-08-02)
+* (Apollon77) Fix object access issue
+* (Apollon77) update node-snap7 library
+
+### 1.1.8 (2020-05-05)
+* (Steff42) Make sure objects ids/names are strings
+
+### 1.1.6 (2019.12.27)
+* (Apollon77) reconnection handling on timeouts optimized
+
 ### 1.1.4 (2018.07.10)
-* (Apollon77) Support for nodejs 10 on windows
+* (Apollon77) Support for nodejs 10 on Windows
 
 ### 1.1.3 (2018.01.19)
 * (bluefox) The time offset was added
@@ -324,7 +360,7 @@ END_DATA_BLOCK
 
 ### 0.1.8 (2015.08.10)
 * (smiling_Jack) Bugfix send info states
-* (smiling_Jack) Remove unneeded conole.log
+* (smiling_Jack) Remove unneeded console.log
 
 ### 0.1.7 (2015.08.06)
 * (smiling_Jack) Bugfix send to SPS
@@ -366,3 +402,28 @@ END_DATA_BLOCK
 
 ### 0.0.6
 * Bugfix start file
+
+## License
+The MIT License (MIT)
+
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>,
+
+Copyright (c) 2014-2016 smiling_Jack <steffen.schorling@googlemail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

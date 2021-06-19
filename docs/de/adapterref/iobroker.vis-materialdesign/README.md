@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vis-materialdesign/README.md
 title: TR: Material Design Widgets for ioBroker VIS
-hash: f44Q7Tu0clIY9cCO/GVWID/Sd08qjn6XttPaIURIs98=
+hash: jPr+vIPhalNR8InflyH1BkNwXPN8mMmNSD/DHAGqwGk=
 ---
 ![TR: stable version](http://iobroker.live/badges/vis-materialdesign.svg)
 ![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis-materialdesign.svg)
@@ -1182,7 +1182,7 @@ TR: <table> <thead> <tr> <th>Screenshot</th> <th>Setting</th> <th>Description</t
 TR: ### Data JSON Properties
 TR: JSON string must be an array of objects with the following properties:
 
-TR: <table> <thead> <tr> <th>Property</th> <th>Description</th> <th>Type</th> <th>Values</th> </tr> </thead> <tbody> <tr> <td>listType</td> <td>type of list <ul> <li>buttonToggleValueTrue: is only on if the value equals the condition 'on'</li> <li>buttonToggleValueFalse: is only off if the value equals the condition 'off'</li> </ul> </td> <td>string</td> <td>text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td> </tr> <tr> <td>objectId</td> <td>object id for button</td> <td>string</td> <td/> </tr> <tr> <td>usePercentOfRow</td> <td>item use x percent of row.</td> <td>number</td> <td>0 = auto</td> </tr> <tr> <td>buttonStateValue</td> <td>value for button state</td> <td>string</td> <td/> </tr> <tr> <td>buttonNavView</td> <td>view to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonLink</td> <td>url to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueTrue</td> <td>true value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueFalse</td> <td>false value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>readOnly</td> <td>button is read only</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>showValueLabel</td> <td>show value as text</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>valueAppendix</td> <td>append text to value</td> <td>string</td> <td/> </tr> <tr> <td>background</td> <td>background color</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>text</td> <td>text</td> <td>string</td> <td/> </tr> <tr> <td>subText</td> <td>second text</td> <td>string</td> <td/> </tr> <tr> <td>image</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageColor</td> <td>color of Material Design Icons</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>imageActive</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageActiveColor</td> <td>image path or name of Material Design Icons for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundColor</td> <td>background color of button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundActiveColor</td> <td>background color of button for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarColor</td> <td>color of status bar</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarText</td> <td>text of status bar</td> <td>string</td> <td/> </tr> <tr> <td>lockEnabled</td> <td>enable Locking</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>visibilityOid</td> <td>Object Id for visibility</td> <td>string</td> <td/> </tr> <tr> <td>visibilityCondition</td> <td>visibility condition</td> <td>string</td> <td>== | != | <= | >= | < | > | consist | not consist | exist | not exist</td> </tr> <tr> <td>visibilityConditionValue</td> <td>value for visibility condition</td> <td>string</td> <td/> </tr> </tbody> </table>
+TR: <table> <thead> <tr> <th>Property</th> <th>Description</th> <th>Type</th> <th>Values</th> </tr> </thead> <tbody> <tr> <td>listType</td> <td>type of list <ul> <li>buttonToggleValueTrue: is only on if the value equals the condition 'on'</li> <li>buttonToggleValueFalse: is only off if the value equals the condition 'off'</li> </ul> </td> <td>string</td> <td>text | buttonState | buttonToggle | buttonToggleValueTrue | buttonToggleValueFalse | buttonNav | buttonLink</td> </tr> <tr> <td>objectId</td> <td>object id for button</td> <td>string</td> <td/> </tr> <tr> <td>minWidth</td> <td>min width for item</td> <td>string</td> <td>30px | 60%</td> </tr> <tr> <td>usePercentOfRow</td> <td>item use x percent of row.</td> <td>number</td> <td>0 = auto</td> </tr> <tr> <td>buttonStateValue</td> <td>value for button state</td> <td>string</td> <td/> </tr> <tr> <td>buttonNavView</td> <td>view to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonLink</td> <td>url to navigate</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueTrue</td> <td>true value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>buttonToggleValueFalse</td> <td>false value for button toggle</td> <td>string</td> <td/> </tr> <tr> <td>readOnly</td> <td>button is read only</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>showValueLabel</td> <td>show value as text</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>valueAppendix</td> <td>append text to value</td> <td>string</td> <td/> </tr> <tr> <td>background</td> <td>background color</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>text</td> <td>text</td> <td>string</td> <td/> </tr> <tr> <td>subText</td> <td>second text</td> <td>string</td> <td/> </tr> <tr> <td>image</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageColor</td> <td>color of Material Design Icons</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>imageActive</td> <td>image path or name of Material Design Icons</td> <td>string</td> <td/> </tr> <tr> <td>imageActiveColor</td> <td>image path or name of Material Design Icons for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundColor</td> <td>background color of button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>buttonBackgroundActiveColor</td> <td>background color of button for active button</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarColor</td> <td>color of status bar</td> <td>string</td> <td>hex(#44739e), rgb(20, 50, 200), rgba(20, 50, 200, 0.5)</td> </tr> <tr> <td>statusBarText</td> <td>text of status bar</td> <td>string</td> <td/> </tr> <tr> <td>lockEnabled</td> <td>enable Locking</td> <td>boolean</td> <td>false | true</td> </tr> <tr> <td>visibilityOid</td> <td>Object Id for visibility</td> <td>string</td> <td/> </tr> <tr> <td>visibilityCondition</td> <td>visibility condition</td> <td>string</td> <td>== | != | <= | >= | < | > | consist | not consist | exist | not exist</td> </tr> <tr> <td>visibilityConditionValue</td> <td>value for visibility condition</td> <td>string</td> <td/> </tr> </tbody> </table>
 
 TR: <!-- omit in toc -->
 
@@ -4393,8 +4393,17 @@ TR: * [Material Design Icons](https://materialdesignicons.com/)
 
 <!-- omit in toc -->
 ### __WORK IN PROGRESS__
-* (Scrounger) Top App Bar Widget: option added to define navigation items per JSON String [Details see documentation!](#top-app-bar)
+* (Scrounger) Button Toggle Widgets: bug fix for state on runtime load
+* (Scrounger) Value Widget: bug fix for show unit only if result is of type number
+* (Scrounger) IconList Widget: option to set minimal width for single item added
+* (Scrounger) Top App Bar Widget: fixed bugs found by sentry
+* (Scrounger) bug fix for VIS Editor dev values
+
+<!-- omit in toc -->
+### 0.5.9 (2021-06-13)
+* (Scrounger) Top App Bar Widget: option added to define navigation items per JSON String [Details see documentation!](https://github.com/Scrounger/ioBroker.vis-materialdesign#top-app-bar)
 * (Scrounger) Top App Bar Widget: option added to define an id per item
+* (Scrounger) fixed bugs found by sentry
 
 <!-- omit in toc -->
 ### 0.5.8 (2021-06-09)
@@ -4426,32 +4435,6 @@ TR: * [Material Design Icons](https://materialdesignicons.com/)
 * (Scrounger) adapter settings bug fixes
 * (Scrounger) icon buttons: color bug fixes
 * (Scrounger) Fixing bugs found by sentry
-
-<!-- omit in toc -->
-### 0.5.4 (2021-04-18)
-* (Scrounger) HTML Widgets added - use Material Design Widgets in any html element
-* (Scrounger) Table: Control Elements removed, using new HTML Widgets -> breaking changes !!!
-* (Scrounger) list: using object id for json string added -> breaking changes !!!
-* (Scrounger) new Value Widget added
-* (Scrounger) Card layout bug fixes for HTML Card, IconList, List and Table Widget
-* (Scrounger) icon list: option for status bar text added
-* (Scrounger) icon list: status bar position bug fix
-* (Scrounger) icon list: read only option for buttons added
-* (Scrounger) dialog: option to set height in percent added
-* (Scrounger) json chart: option to override tooltip for every dataset added
-* (Scrounger) json chart: tooltip mode x / y added
-* (Scrounger) json chart: option to override data label added
-* (Scrounger) charts: legend distance to bottom option added
-* (Scrounger) button state: active background color option added
-* (Scrounger) buttons: vibrate on mobil devices bug fix
-* (Scrounger) progress: rotate option added
-* (Scrounger) list: background color option added
-* (Scrounger) progress circular: auto size option added
-* (Scrounger) VIS editor: html previews bug fixes
-* (Scrounger) input, autocomplete, select: autofocus option added
-* (Scrounger) Documentation revised
-* (Scrounger) materialdesignicons library updated to v5.9.55
-* (Scrounger) bug fixes
 
 <!-- omit in toc -->
 
