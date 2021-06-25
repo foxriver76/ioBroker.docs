@@ -2,30 +2,29 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.seq/README.md
-title: ioBroker.seq
-hash: GWOm6qik6DBmClBZTVf0rDvxim11t2phQTWTJ97SKFk=
+title: TR: ioBroker.seq
+hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 ---
-![Логотип](../../../en/adapterref/iobroker.seq/admin/seq.png)
+![TR: Logo](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
-![Количество установок (последнее)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
-![Количество установок (стабильно)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
-![Статус зависимости](https://img.shields.io/david/o0shojo0o/iobroker.seq.svg)
-![НПМ](https://nodei.co/npm/iobroker.seq.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
+![TR: Number of Installations (latest)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
+![TR: Number of Installations (stable)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
+![TR: NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
-# IoBroker.seq
-[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+TR: # ioBroker.seq
+TR: [![TR: dependencies Status](https://status.david-dm.org/gh/o0shojo0o/iobroker.seq.svg)](https://david-dm.org/o0shojo0o/iobroker.seq) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Адаптер Seq для ioBroker
-Этот адаптер позволяет вам поместить ваш логин ioBroker в систему [Seq](https://datalust.co/seq).
-Также можно применить фильтр к уровням журнала, а также к адаптерам.
+TR: ## Seq adapter for ioBroker
+TR: This adapter allows you to push your ioBroker log into the system of [TR: Seq](https://datalust.co/seq).
+It is also possible to apply a filter to the log levels and also to the adapters.
 
-## Конфигурация
-1. Создайте новый экземпляр адаптера.
-2. Введите URL / IP и порт экземпляра [Seq] (https://datalust.co/seq).
-3. Укажите, какие события журнала вы хотите отправить в [Seq] (https://datalust.co/seq).
-4. Сохраните настройки.
+TR: ## Configuration
+TR: 1. Create a new instance of the adapter
+TR: 2. Fill the URL/IP and port of the [Seq](https://datalust.co/seq) instance
+TR: 3. Specify which log events you want to push to [Seq](https://datalust.co/seq)
+TR: 4. Save the settings
 
 ## Changelog
 

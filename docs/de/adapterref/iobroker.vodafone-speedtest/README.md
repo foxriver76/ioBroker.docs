@@ -2,33 +2,41 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.vodafone-speedtest/README.md
-title: ioBroker.vodafone-speedtest
-hash: +IOdcWrUCNgyMOAXgoIEkc0/nKCJtzsE0iXB29hapt0=
+title: TR: ioBroker.vodafone-speedtest
+hash: fCrOkIaGmkqjssySHbDUn9kxnmER4ltSmW20HgcInJI=
 ---
-![Logo](../../../en/adapterref/iobroker.vodafone-speedtest/admin/vodafone-speedtest.png)
+![TR: Logo](../../../en/adapterref/iobroker.vodafone-speedtest/admin/vodafone-speedtest.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.vodafone-speedtest.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.vodafone-speedtest.svg)
-![Anzahl der Installationen (aktuell)](http://iobroker.live/badges/vodafone-speedtest-installed.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/vodafone-speedtest-stable.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/peterbaumert/iobroker.vodafone-speedtest.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/peterbaumert/ioBroker.vodafone-speedtest/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.vodafone-speedtest.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.vodafone-speedtest.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vodafone-speedtest.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/vodafone-speedtest-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/vodafone-speedtest-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/peterbaumert/iobroker.vodafone-speedtest.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/peterbaumert/ioBroker.vodafone-speedtest/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.vodafone-speedtest.png?downloads=true)
 
-# IoBroker.vodafone-speedtest
-** Dieser Adapter verwendet den Dienst [Sentry.io](https://sentry.io), um Ausnahmen und Codefehler sowie neue Geräteschemata automatisch an mich als Entwickler zu melden. ** Weitere Details siehe unten!
+TR: # ioBroker.vodafone-speedtest
+TR: **This adapter uses the service [TR: Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
-## Vodafone-Speedtest-Adapter für ioBroker
-Speedtest von Vodafone.de
+TR: ## vodafone-speedtest adapter for ioBroker
+TR: Speedtest of Vodafone.de
 
-Implementiert dieselbe Technik wie https://speedtest.vodafone.de
+TR: Implements same technique as https://speedtest.vodafone.de
 
-## Was ist Sentry.io und was wird den Servern dieses Unternehmens gemeldet?
-Sentry.io ist ein Dienst für Entwickler, um einen Überblick über Fehler in ihren Anwendungen zu erhalten. Und genau das ist in diesem Adapter implementiert.
+TR: ## What is Sentry.io and what is reported to the servers of that company?
+TR: Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
 
-Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehlermeldung, die auch im ioBroker-Protokoll angezeigt wird, an Sentry gesendet. Wenn Sie der iobroker GmbH erlaubt haben, Diagnosedaten zu sammeln, ist auch Ihre Installations-ID (dies ist nur eine eindeutige ID **ohne** zusätzliche Informationen über Sie, E-Mail, Name oder dergleichen) enthalten. Auf diese Weise kann Sentry Fehler gruppieren und anzeigen, wie viele eindeutige Benutzer von einem solchen Fehler betroffen sind. All dies hilft mir, fehlerfreie Adapter bereitzustellen, die im Grunde nie abstürzen.
+TR: When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
+
+TR: ## Disclaimer
+TR: Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affiliated with Vodafone GmbH, or any associated subsidiaries, logos or trademarks
 
 ## Changelog
+
+### 0.0.7 (2021-05-21)
+* Fixed some vulnerabilities in dev-dependencies
+* Fixed js-controller 3* issues
+* Fixed node 16 compatability
 
 ### 0.0.6 (2021-01-21)
 * Added Sentry.io Integration
@@ -54,7 +62,7 @@ Wenn der Adapter abstürzt oder ein anderer Codefehler auftritt, wird diese Fehl
 ## License
 MIT License
 
-Copyright (c) 2020 Peter Baumert <ioBroker.vodafone-speedtest@outlook.com>
+Copyright (c) 2021 Peter Baumert <ioBroker.vodafone-speedtest@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,30 +2,29 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.seq/README.md
-title: ioBroker.seq
-hash: GWOm6qik6DBmClBZTVf0rDvxim11t2phQTWTJ97SKFk=
+title: TR: ioBroker.seq
+hash: i9TsHUWk2z1BB53FMXnsOzRuZW7GtoP7TM6JcwiBYj8=
 ---
-![商标](../../../en/adapterref/iobroker.seq/admin/seq.png)
+![TR: Logo](../../../en/adapterref/iobroker.seq/admin/seq.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
-![资料下载](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
-![安装数量（最新）](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
-![安装数量（稳定）](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
-![依赖状态](https://img.shields.io/david/o0shojo0o/iobroker.seq.svg)
-![NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.seq.svg?dummy=unused)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.seq.svg?dummy=unused)
+![TR: Number of Installations (latest)](https://iobroker.live/badges/seq-installed.svg?dummy=0.2.7)
+![TR: Number of Installations (stable)](https://iobroker.live/badges/seq-stable.svg?dummy=0.2.7)
+![TR: NPM](https://nodei.co/npm/iobroker.seq.png?downloads=true)
 
-＃ioBroker.seq
-[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+TR: # ioBroker.seq
+TR: [![TR: dependencies Status](https://status.david-dm.org/gh/o0shojo0o/iobroker.seq.svg)](https://david-dm.org/o0shojo0o/iobroker.seq) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/seq/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## IoBroker的Seq适配器
-该适配器使您可以将ioBroker日志推送到[序号](https://datalust.co/seq)的系统中。
-也可以将过滤器应用于日志级别以及适配器。
+TR: ## Seq adapter for ioBroker
+TR: This adapter allows you to push your ioBroker log into the system of [TR: Seq](https://datalust.co/seq).
+It is also possible to apply a filter to the log levels and also to the adapters.
 
-＃＃ 配置
-1.创建适配器的新实例
-2.填写[Seq]（https://datalust.co/seq）实例的URL / IP和端口
-3.指定要推送到[Seq]（https://datalust.co/seq）的日志事件
-4.保存设置
+TR: ## Configuration
+TR: 1. Create a new instance of the adapter
+TR: 2. Fill the URL/IP and port of the [Seq](https://datalust.co/seq) instance
+TR: 3. Specify which log events you want to push to [Seq](https://datalust.co/seq)
+TR: 4. Save the settings
 
 ## Changelog
 

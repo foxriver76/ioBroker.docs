@@ -2,73 +2,69 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.kostal-piko-ba/README.md
-title: ioBroker.kostal-piko-ba
-hash: EIW18yaoylVnvsqYxbPVrnIhJgYn2pPq4A6ID4wbp+s=
+title: TR: ioBroker.kostal-piko-ba
+hash: 4lPRO5SCApjS96RwaVdZiEW+ETzQMYoGEcdbN0is2ho=
 ---
-![Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
+![TR: Logo](../../../en/adapterref/iobroker.kostal-piko-ba/admin/picoba.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/hombach/ioBroker.kostal-piko-ba.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/hombach/ioBroker.kostal-piko-ba/master.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.kostal-piko-ba.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.kostal-piko-ba.svg)
+![TR: Dependency Status](https://img.shields.io/david/hombach/ioBroker.kostal-piko-ba.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/hombach/ioBroker.kostal-piko-ba/badge.svg)
+![TR: Travis-CI](http://img.shields.io/travis/hombach/ioBroker.kostal-piko-ba/master.svg)
+![TR: Appveyor-CI](https://ci.appveyor.com/api/projects/status/github/hombach/ioBroker.kostal-piko-ba?branch=master&svg=true)
+![TR: NPM](https://nodei.co/npm/iobroker.kostal-piko-ba.png?downloads=true)
 
-# IoBroker.kostal-piko-ba
-![NPM-Version (stabil)](http://ioBroker.live/badges/kostal-piko-ba-stable.svg) ![Anzahl der Installationen (aktuell)](http://ioBroker.live/badges/kostal-piko-ba-installed.svg)
+TR: # ioBroker.kostal-piko-ba
+TR: ![TR: NPM version (stable)](http://ioBroker.live/badges/kostal-piko-ba-stable.svg) ![TR: Number of Installations (latest)](http://ioBroker.live/badges/kostal-piko-ba-installed.svg)
 
-![Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
+![TR: Node.js CI](https://github.com/hombach/ioBroker.kostal-piko-ba/workflows/Node.js%20CI/badge.svg)
 
-## Adapter zum Lesen von Kostal Piko BA-Daten für iOBroker
-Adapter zum Lesen von Kostal Piko BA-Daten. Der Adapter erstellt einige Status und aktualisiert sie nacheinander.
-Adapter funktioniert auch mit Kostal Piko 15 Wechselrichter.
-Es wird sehr geschätzt, wenn Sie die Funktionalität mit anderen Wechselrichtern überprüfen und mir bitte eine Nachricht senden.
+TR: ## Adapter for reading Kostal Piko BA data for iOBroker
+TR: Adapter for reading Kostal Piko BA data. Adapter creates some states and updates them sequentially.
+Adapter also working with Kostal Piko 15 inverter.
+It's greatly appreciated if you verify functionality with other inverters and please send me a note.
 
-## Die Einstellungen
-Um eine Verbindung zum Kostal Pico BA-Wechselrichter herzustellen, muss die IP-Adresse in der Konfiguration angegeben werden.
-Sie können auch die Aktualisierungshäufigkeiten von Live-, Tages- und Livetime-Daten bearbeiten.
+TR: ## Settings
+TR: To connect to the Kostal Pico BA inverter noting its IP-address into the config is mandatory.
+You could also edit the update frequencies of live, daily and livetime data.
 
-## Anmerkungen
-Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+TR: ## Notes
+TR: This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers. For more details and for informations on how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
-
+! Note that missing version entries are typically dependency updates for security.
+### 1.1.9 (13.06.2020)
+* (HombachC) bumped dependencies; fixed vulnerability
+### 1.1.7 (09.05.2021)
+* (HombachC) added tests for node.js 16; fixed vulnerability
+### 1.1.6 (02.03.2021)
+* (HombachC) bumped dependencies; changes for new year 2021
 ### 1.1.3 (23.11.2020)
 * (HombachC) added battery.Voltage; added additional error handler; bumped dependencies
-
-### 1.1.2 (26.10.2020)
-* (HombachC) bumped dependencies
-
 ### 1.1.1 (09.10.2020) stable
 * (HombachC) minor documentation tweaks; DC current accuracy changed to mA
-
 ### 1.1.0 (09.10.2020)
 * (tobstare) added DC1-3 Current, Voltage and Power
 * (HombachC) added battery.ChargeCycles
 * (HombachC) bumped dependencies; added battery.temperature
-
 ### 1.0.2 (23.09.2020) stable
 * (HombachC) public release for stable repo
-
 ### 0.8.0 (18.08.2020)
 * (HombachC) seperate editable poll timer for statistics data
-
 ### 0.7.4 (03.07.2020)
 * (HombachC) added sentry.io support
-
 ### 0.6.1 (28.06.2020)
 * (HombachC) poll of statistics data separated
-
 ### 0.5.1 (22.06.2020)
 * (HombachC) introduced editable poll interval 
-
 ### 0.1.0 (15.05.2020)
 * (HombachC) initial working release
 
 ## License
 MIT License
 
-Copyright (c) 2020 HombachC
+Copyright (c) 2020 - 2021 HombachC
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,57 +2,66 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.accuweather/README.md
-title: ioBroker.accuweather
-hash: Vm6u4S5Hm5i0K/bayhQgQbmkVZfQxch1DGJiUvq19jI=
+title: TR: ioBroker.accuweather
+hash: WdILwFFXh50ulU8fUrumN2VctPbMVRgQq67NIVy8DpY=
 ---
-![商标](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
+![TR: Logo](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.accuweather.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.accuweather.svg)
-![依赖状态](https://img.shields.io/david/algar42/iobroker.accuweather.svg)
-![已知漏洞](https://snyk.io/test/github/algar42/ioBroker.accuweather/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.accuweather.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/algar42/ioBroker.accuweather/master.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.accuweather.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.accuweather.svg)
+![TR: Dependency Status](https://img.shields.io/david/algar42/iobroker.accuweather.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/algar42/ioBroker.accuweather/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.accuweather.png?downloads=true)
+![TR: Travis-CI](http://img.shields.io/travis/algar42/ioBroker.accuweather/master.svg)
 
-＃ioBroker.accuweather
-## IoBroker的AccuWeather适配器
-使用AccuWeather API进行天气预报
+TR: # ioBroker.accuweather
+TR: ## accuweather adapter for ioBroker
+TR: Weather forecast using AccuWeather API.
 
-Adapter接收当前状况（每小时更新一次），5天每日预报（每天大约7am更新一次）和12小时预报（每6小时在12 am、6am、12pm和6pm更新一次）。
+TR: Adapter receives Current Conditions (updated every hour), 5 Days daily forecast (update once daily at approximately 7am), and 12 hours forecast (updated every six hours at 12am, 6am, 12pm and 6pm).
 
-＃＃ 入门
-###获取API密钥
-要获取API密钥，请在https://developer.accuweather.com/上注册并在\“我的应用\”菜单中创建应用。创建应用程序后，您将生成API密钥。
-对于免费使用，每天可以向API发出50个请求。
-需要注意的是，要使API正常工作，最好使用以下设置（请选择您所在的国家！）：![设定](../../../en/adapterref/iobroker.accuweather/admin/image.png)
+TR: ## Getting started
+TR: ### Get API Key
+TR: To get API Key, register on https://developer.accuweather.com/ and create application in \"My Apps\" menu. Once the application created, you will have API key generated.
+For free use it is possible to make 50 requests to API per day.
+It was noted that to get API working the following settings are preferred (please choose your country!): ![TR: settings](../../../en/adapterref/iobroker.accuweather/admin/image.png)
 
-###获取位置密钥
-为了获取位置键，请访问https://www.accuweather.com/并输入您的城市名称，或者尝试输入您的坐标（纬度，经度），例如在ioBroker设置中。
-您的位置密钥将是预测URL末尾的数字。
+TR: ### Get Location Key
+TR: In order to get location key, go to https://www.accuweather.com/ and enter your city name, or try to enter your coordinates (latitude, longitude) as you have them e.g. in ioBroker settings.
+Your location key wil be the number at the end of URL of forecast.
 
-###在Lovelace可视化中使用（从1.1.0版开始）
-“摘要”通道包含当前和每天的预测，以及类型检测器支持的状态/状态类型。
-可以使用新功能来在Lovelace UI中显示天气预报。
-为了更好地查看，创建了一个定制的lovelace卡-请参见https://github.com/algar42/IoB.lovelace.accuweather-card
+TR: ### Using in Lovelace visualization (starting version 1.1.0)
+TR: Summary channel contains current and by-day forecast with role/types of states supported by type-detector.
+New feature can be used in order to show weather forecast in Lovelace UI.
+For better view a custom lovelace card is created - see https://github.com/algar42/IoB.lovelace.accuweather-card
+
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
+TR: ## v1.1.6 (2021-05-05) Minor bug fixes to `Object.common` section
+TR: ### 1.1.5 (2021-01-25)
+TR: * (algar42) Resolve log Warning for js-controller 3.2
+
+TR: ### 1.1.4
+TR: * (HGlab01) small bugfix regarding setTimeout range
+
+TR: ### 1.1.3 (2020-03-04)
+TR: * (algar42) Minor updates for compact mode
+
+TR: ### 1.1.0 (2019-11-09)
+TR: * (algar42) Summary channel added to support type-detector and automatic weather device creation
+
+TR: ### 1.0.2 (2019-09-12)
+TR: * (algar42) Production Release
 
 ## Changelog
-
-### 1.1.4
-* (HGlab01) small bugfix regarding setTimeout range
-
-### 1.1.3
-* (algar42) Minor updates for compact mode
-
-### 1.1.0
-* (algar42) Summary channel added to support type-detector and automatic weather device creation
-
-### 1.0.2
-* (algar42) Production Release
+### 1.1.7 (2021-06-24)
+* (bluefox) Create device for device-detector
 
 ## License
 MIT License
 
-Copyright (c) 2020 algar42 <igor.aleschenkov@gmail.com>
+Copyright (c) 2021 algar42 <igor.aleschenkov@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

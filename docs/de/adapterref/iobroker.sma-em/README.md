@@ -2,71 +2,73 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.sma-em/README.md
-title: ioBroker.sma-em
-hash: vIxnJU5+4gRaAdEznofPvvebwkka4SysNVbqfTkSZAU=
+title: TR: ioBroker.sma-em
+hash: Vn5OSe2MGQA2G6eKIMgiKGqDXBCuHYPLzzaW6LRnY4w=
 ---
-![Logo](../../../en/adapterref/iobroker.sma-em/admin/sma-em.png)
+![TR: Logo](../../../en/adapterref/iobroker.sma-em/admin/sma-em.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/sma-em-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.sma-em.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.sma-em.svg)
-![Tests](https://travis-ci.org/CTJaeger/ioBroker.sma-em.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.sma-em.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/sma-em-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.sma-em.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.sma-em.svg)
+![TR: Tests](https://travis-ci.org/CTJaeger/ioBroker.sma-em.svg?branch=master)
+![TR: NPM](https://nodei.co/npm/iobroker.sma-em.png?downloads=true)
 
-# IoBroker.sma-em
-### Die Info
-Dieser Adapter liest Informationen von SMA Energy Meter und Sunny Home Manager 2.
-Es unterstützt das SMA-EMETER-Protokoll-2.
+TR: # ioBroker.sma-em
+TR: ### Info
+TR: This adapter reads information from SMA Energy Meter and Sunny Home Manager 2.
+It supports the SMA-EMETER-protocol-2.
 
-SMA Energy Meter und Sunny Home Manager 2 Multicast-Datagramme mit ihren Energiemessdaten werden jede Sekunde an das Netzwerk gesendet.
-Der SMA Energy Meter Adapter empfängt diese Multicast-Nachrichten und speichert sie als iobroker-Status.
-Eine einzelne Instanz des SMA Energy Meter Adapters erkennt alle SMA Energy Meter und Sunny Home Manager in allen verbundenen Netzwerken.
+TR: SMA Energy Meter and Sunny Home Manager 2 multicast datagrams with their energy measurement data to the network every second.
+The SMA Energy Meter Adapter receives these multicast messages and stores them as iobroker states.
+A single instance of the SMA Energy Meter Adapter detects all SMA Energy Meters and Sunny Home Managers in all connected networks.
 
-![Zustände](../../../en/adapterref/iobroker.sma-em/docs/en/img/overview.png)
+![TR: States](../../../en/adapterref/iobroker.sma-em/docs/en/img/overview.png)
 
-### Zustände im nicht erweiterten Modus
-- Momentanwerte des gesamten Wirkleistungsverbrauchs (Pregard) und der Wirkleistungseinspeisung (Psurplus)
-- Energiezählerwerte des gesamten Wirkleistungsverbrauchs (Pregardcounter) und der Wirkleistungseinspeisung (Psurpluscounter)
-- SMA Time Tick Zähler, Zeitstempel der zuletzt empfangenen Nachricht,
-- Seriennummer, SUSyID, Softwareversion von SMA Energy Meter und Sunny Home Manager
-- Detaillierte Werte für jede der einzelnen Phasen L1 / L2 / L3 (optional):
-  - Momentanwerte des Wirkleistungsverbrauchs (Pregard) und der Wirkleistungseinspeisung (Psurplus) pro Phase
-  - Energiezählerwerte des Wirkleistungsverbrauchs (Pregardcounter) und der Wirkleistungseinspeisung (Psurpluscounter) pro Phase
+TR: ### States in non-extended mode
+TR: - Instantaneous values of total active power consumption (pregard) and active power feed-in (psurplus)
+TR: - Energy meter values of total active power consumption (pregardcounter) and active power feed-in (psurpluscounter)
+TR: - SMA Time Tick counter, Timestamp of last Message received,
+TR: - Serial Number, SUSyID, Software Version of SMA Energy Meter and Sunny Home Manager
+TR: - Detailed values for each of the individual phases L1 / L2 / L3 (optional):
+TR:   - Instantaneous values of active power consumption (pregard) and active power feed-in (psurplus) per phase
+TR:   - Energy meter values of active power consumption (pregardcounter) and active power feed-in (psurpluscounter) per phase
 
-### Zustände im erweiterten Modus
-Zusätzlich zu den Zuständen im nicht erweiterten Modus stehen im erweiterten Modus die folgenden Werte zur Verfügung
+TR: ### States in extended mode
+TR: In addition to the states in non-extended mode, the following values are available in extended mode
 
-- Momentanwerte des gesamten Blindleistungsverbrauchs (qRegard) und der Blindleistungseinspeisung (qsurplus)
-- Energiezählerwerte des gesamten Blindleistungsverbrauchs (qRegardcounter) und der Blindleistungseinspeisung (qsurpluscounter)
-- Momentanwerte des gesamten scheinbaren Stromverbrauchs (sregard) und der scheinbaren Stromzufuhr (ssurplus)
-- Energiezählerwerte des gesamten scheinbaren Stromverbrauchs (sregardcounter) und der scheinbaren Stromzufuhr (ssurpluscounter)
-- Phosphi (Leistungsfaktor)
-- Netzfrequenz (nur mit Sunny Home Manager 2 verfügbar, SMA Energy Meter liefert derzeit keine Netzfrequenzwerte)
-- Detailliert für jede der einzelnen Phasen L1 / L2 / L3 (optional):
-  - Momentanwerte des Blind- und Scheinleistungsverbrauchs / Einspeisung pro Phase
-  - Energiezählerwerte des Blind- und Scheinleistungsverbrauchs / Einspeisung pro Phase
-  - Spannung und Stromstärke pro Phase
+TR: - Instantaneous values of total reactive power consumption (qregard) and reactive power feed-in (qsurplus)
+TR: - Energy meter values of total reactive power consumption (qregardcounter) and reactive power feed-in (qsurpluscounter)
+TR: - Instantaneous values of total apparent power consumption (sregard) and apparent power feed-in (ssurplus)
+TR: - Energy meter values of total apparent power consumption (sregardcounter) and apparent power feed-in (ssurpluscounter)
+TR: - cosphi (power factor)
+TR: - grid frequency (only available with Sunny Home Manager 2, SMA Energy Meter currently does not provide any grid frequency values)
+TR: - Detailed for each of the individual phases L1 / L2 / L3 (optional):
+TR:   - Instantaneous values of reactive and apparent power consumption/feed-in per phase
+TR:   - Energy meter values of reactive and apparent power consumption/feed-in per phase
+TR:   - Voltage and Amperage per phase
 
-### Einstellmöglichkeiten
-![die Einstellungen](../../../en/adapterref/iobroker.sma-em/docs/en/img/adminpage.png)
+TR: ### Configuration Options
+![TR: Settings](../../../en/adapterref/iobroker.sma-em/docs/en/img/adminpage.png)
 
-- Multicast-IP: Die Standardeinstellung ist 239.12.255.254.
-- Multicast-Port: Die Standardeinstellung für den UDP-Port ist 9522.
+TR: - Multicast IP: The default setting is 239.12.255.254.
+TR: - Multicast Port: The default setting for the UDP port is 9522.
 
-  (Beide sollten nicht geändert werden, da SMA-Geräte immer diese IP-Adresse und diesen Port verwenden.)
+TR:   (Both should not be changed, as SMA devices always use this IP address and port)
 
-- Details L1 - L3: Mit diesen Auswahloptionen können Details zu jeder Phase angezeigt werden.
-- Erweiterter Modus: Bietet detailliertere Informationen wie Blindleistung, Scheinleistung, Phosphi, Netzfrequenz, Spannung und Stromstärke
+TR: - Details L1 - L3: These selection options can be used to display details of each phase.
+TR: - Extended Mode: Provides more detailed information such as reactive power, apparent power, cosphi, grid frequency, voltage, amperage
 
-  (Konfigurieren Sie die Details L1-L3 und den erweiterten Modus nicht gleichzeitig, da dies das ioBroker-System stark belastet.)
+TR:   (Do not configure Details L1-L3 and Extended Mode simultaneously since this puts a high load on the ioBroker system)
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __WORK IN PROGRESS__ ->
-## Rechtliche Hinweise
-SMA und Sunny Home Manager sind eingetragene Marken der SMA Solar Technology AG <https://www.sma.de/en.html>
+TR: ### __WORK IN PROGRESS__ -->
+TR: ## Legal Notices
+TR: SMA and Sunny Home Manager are registered trademarks of SMA Solar Technology AG <https://www.sma.de/en.html>
 
-Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
+TR: All other trademarks are the property of their respective owners.
+
+TR: The authors are in no way endorsed by or affiliated with SMA Solar Technology AG, or any associated subsidiaries, logos or trademarks.
 
 ## Changelog
 ### 0.6.4 (2021-04-14)

@@ -2,33 +2,41 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vodafone-speedtest/README.md
-title: ioBroker.vodafone速度测试
-hash: +IOdcWrUCNgyMOAXgoIEkc0/nKCJtzsE0iXB29hapt0=
+title: TR: ioBroker.vodafone-speedtest
+hash: fCrOkIaGmkqjssySHbDUn9kxnmER4ltSmW20HgcInJI=
 ---
-![商标](../../../en/adapterref/iobroker.vodafone-speedtest/admin/vodafone-speedtest.png)
+![TR: Logo](../../../en/adapterref/iobroker.vodafone-speedtest/admin/vodafone-speedtest.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.vodafone-speedtest.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.vodafone-speedtest.svg)
-![安装数量（最新）](http://iobroker.live/badges/vodafone-speedtest-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/vodafone-speedtest-stable.svg)
-![依赖状态](https://img.shields.io/david/peterbaumert/iobroker.vodafone-speedtest.svg)
-![已知漏洞](https://snyk.io/test/github/peterbaumert/ioBroker.vodafone-speedtest/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.vodafone-speedtest.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.vodafone-speedtest.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vodafone-speedtest.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/vodafone-speedtest-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/vodafone-speedtest-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/peterbaumert/iobroker.vodafone-speedtest.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/peterbaumert/ioBroker.vodafone-speedtest/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.vodafone-speedtest.png?downloads=true)
 
-＃ioBroker.vodafone-speedtest
-**此适配器使用服务[哨兵](https://sentry.io)向开发人员自动向我报告异常和代码错误以及新设备架构。**更多详细信息，请参见下文！
+TR: # ioBroker.vodafone-speedtest
+TR: **This adapter uses the service [TR: Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
-##适用于ioBroker的vodafone-speedtest适配器
-Vodafone.de的测速
+TR: ## vodafone-speedtest adapter for ioBroker
+TR: Speedtest of Vodafone.de
 
-实施与https://speedtest.vodafone.de相同的技术
+TR: Implements same technique as https://speedtest.vodafone.de
 
-##什么是Sentry.io，什么报告给该公司的服务器？
-Sentry.io是一项服务，供开发人员从其应用程序中获取有关错误的概述。确切地说，这是在此适配器中实现的。
+TR: ## What is Sentry.io and what is reported to the servers of that company?
+TR: Sentry.io is a service for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
 
-当适配器崩溃或发生其他代码错误时，此错误消息（也出现在ioBroker日志中）将提交给Sentry。当您允许iobroker GmbH收集诊断数据时，还将包括您的安装ID（这是唯一的ID，**没有**有关您的任何其他信息，电子邮件，姓名等）。这使Sentry可以对错误进行分组，并显示有多少唯一用户受此错误影响。所有这些都帮助我提供了基本不会崩溃的无错误适配器。
+TR: When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to Sentry. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
+
+TR: ## Disclaimer
+TR: Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affiliated with Vodafone GmbH, or any associated subsidiaries, logos or trademarks
 
 ## Changelog
+
+### 0.0.7 (2021-05-21)
+* Fixed some vulnerabilities in dev-dependencies
+* Fixed js-controller 3* issues
+* Fixed node 16 compatability
 
 ### 0.0.6 (2021-01-21)
 * Added Sentry.io Integration
@@ -54,7 +62,7 @@ Sentry.io是一项服务，供开发人员从其应用程序中获取有关错�
 ## License
 MIT License
 
-Copyright (c) 2020 Peter Baumert <ioBroker.vodafone-speedtest@outlook.com>
+Copyright (c) 2021 Peter Baumert <ioBroker.vodafone-speedtest@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -7,7 +7,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.denon/README.md
 title: TR: ioBroker.denon
-hash: QJOQw2ySmAxZxcy7FlzxYF/KQ/SiBO4lyLxKnHMYyBE=
+hash: Lgps1TGVssycmZzRnz9NYrW48iy3XCnv0nz7IaZVV+M=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.denon/admin/denon.png)
 
@@ -20,6 +20,10 @@ TR: # ioBroker.denon
 ===========================
 
 ![TR: Build Status](https://github.com/foxriver76/ioBroker.denon/workflows/Test%20and%20Release/badge.svg)
+
+TR: ## Disclaimer
+TR: DENON and Marantz are trademarks of D&M Holdings Inc.
+The developers of this module are in no way endorsed by or affiliated with D&M Holdings Inc., or any associated subsidiaries, logos or trademarks.
 
 TR: ## Installation
 TR: You can either install the adapter via the ioBroker web interface or on your local machine via npm.

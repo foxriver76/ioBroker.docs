@@ -2,71 +2,73 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sma-em/README.md
-title: ioBroker.sma-em
-hash: vIxnJU5+4gRaAdEznofPvvebwkka4SysNVbqfTkSZAU=
+title: TR: ioBroker.sma-em
+hash: Vn5OSe2MGQA2G6eKIMgiKGqDXBCuHYPLzzaW6LRnY4w=
 ---
-![商标](../../../en/adapterref/iobroker.sma-em/admin/sma-em.png)
+![TR: Logo](../../../en/adapterref/iobroker.sma-em/admin/sma-em.png)
 
-![安装数量](http://iobroker.live/badges/sma-em-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.sma-em.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.sma-em.svg)
-![测验](https://travis-ci.org/CTJaeger/ioBroker.sma-em.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.sma-em.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/sma-em-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.sma-em.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.sma-em.svg)
+![TR: Tests](https://travis-ci.org/CTJaeger/ioBroker.sma-em.svg?branch=master)
+![TR: NPM](https://nodei.co/npm/iobroker.sma-em.png?downloads=true)
 
-＃ioBroker.sma-em
-###信息
-该适配器从SMA电能表和Sunny Home Manager 2读取信息。
-它支持SMA-EMETER-protocol-2。
+TR: # ioBroker.sma-em
+TR: ### Info
+TR: This adapter reads information from SMA Energy Meter and Sunny Home Manager 2.
+It supports the SMA-EMETER-protocol-2.
 
-SMA电能表和Sunny Home Manager 2每秒将其电能测量数据多播数据报到网络。
-SMA电能表适配器接收这些多播消息并将其存储为iobroker状态。
-SMA电表适配器的单个实例可检测所有连接网络中的所有SMA电表和Sunny Home Manager。
+TR: SMA Energy Meter and Sunny Home Manager 2 multicast datagrams with their energy measurement data to the network every second.
+The SMA Energy Meter Adapter receives these multicast messages and stores them as iobroker states.
+A single instance of the SMA Energy Meter Adapter detects all SMA Energy Meters and Sunny Home Managers in all connected networks.
 
-![状态](../../../en/adapterref/iobroker.sma-em/docs/en/img/overview.png)
+![TR: States](../../../en/adapterref/iobroker.sma-em/docs/en/img/overview.png)
 
-###处于非扩展模式
--总有功功率消耗（预充电）和有功功率馈入（剩余）的瞬时值
--总有功功率消耗（pregardcounter）和有功功率馈入（psurpluscounter）的电表值
--SMA Time Tick计数器，收到的最后一条消息的时间戳，
--序列号，SUSyID，SMA电表和Sunny Home Manager的软件版本
--L1 / L2 / L3各个相的详细值（可选）：
-  -每相有功功率（预充电）和有功功率馈入（剩余）的瞬时值
-  -每相的有功功率消耗量（pregardcounter）和有功功率馈入量（psurpluscounter）的电表值
+TR: ### States in non-extended mode
+TR: - Instantaneous values of total active power consumption (pregard) and active power feed-in (psurplus)
+TR: - Energy meter values of total active power consumption (pregardcounter) and active power feed-in (psurpluscounter)
+TR: - SMA Time Tick counter, Timestamp of last Message received,
+TR: - Serial Number, SUSyID, Software Version of SMA Energy Meter and Sunny Home Manager
+TR: - Detailed values for each of the individual phases L1 / L2 / L3 (optional):
+TR:   - Instantaneous values of active power consumption (pregard) and active power feed-in (psurplus) per phase
+TR:   - Energy meter values of active power consumption (pregardcounter) and active power feed-in (psurpluscounter) per phase
 
-###处于扩展模式
-除了非扩展模式下的状态外，以下值在扩展模式下可用
+TR: ### States in extended mode
+TR: In addition to the states in non-extended mode, the following values are available in extended mode
 
--总无功功率消耗（qregard）和无功功率馈入（qsurplus）的瞬时值
--总无功功率消耗（qregardcounter）和无功功率馈入（qsurpluscounter）的电表值
--总视在功率消耗（瞬时）和视在功率馈入（盈余）的瞬时值
--电能表的总视在功率消耗（sregardcounter）和视在功率馈入（s盈余计数器）
--cosphi（功率因数）
--电网频率（仅可用于Sunny Home Manager 2，SMA电表当前不提供任何电网频率值）
--详细介绍了L1 / L2 / L3的各个阶段（可选）：
-  -每相无功和视在功率消耗/馈入的瞬时值
-  -每相无功功率和视在功率消耗/馈电的电表值
-  -每相电压和安培数
+TR: - Instantaneous values of total reactive power consumption (qregard) and reactive power feed-in (qsurplus)
+TR: - Energy meter values of total reactive power consumption (qregardcounter) and reactive power feed-in (qsurpluscounter)
+TR: - Instantaneous values of total apparent power consumption (sregard) and apparent power feed-in (ssurplus)
+TR: - Energy meter values of total apparent power consumption (sregardcounter) and apparent power feed-in (ssurpluscounter)
+TR: - cosphi (power factor)
+TR: - grid frequency (only available with Sunny Home Manager 2, SMA Energy Meter currently does not provide any grid frequency values)
+TR: - Detailed for each of the individual phases L1 / L2 / L3 (optional):
+TR:   - Instantaneous values of reactive and apparent power consumption/feed-in per phase
+TR:   - Energy meter values of reactive and apparent power consumption/feed-in per phase
+TR:   - Voltage and Amperage per phase
 
-###配置选项
-![设定值](../../../en/adapterref/iobroker.sma-em/docs/en/img/adminpage.png)
+TR: ### Configuration Options
+![TR: Settings](../../../en/adapterref/iobroker.sma-em/docs/en/img/adminpage.png)
 
--组播IP：默认设置为239.12.255.254。
--组播端口：UDP端口的默认设置为9522。
+TR: - Multicast IP: The default setting is 239.12.255.254.
+TR: - Multicast Port: The default setting for the UDP port is 9522.
 
-  （两者均不应更改，因为SMA设备始终使用此IP地址和端口）
+TR:   (Both should not be changed, as SMA devices always use this IP address and port)
 
--详细信息L1-L3：这些选择选项可用于显示每个阶段的详细信息。
--扩展模式：提供更多详细信息，例如无功功率，视在功率，cosphi，电网频率，电压，安培数
+TR: - Details L1 - L3: These selection options can be used to display details of each phase.
+TR: - Extended Mode: Provides more detailed information such as reactive power, apparent power, cosphi, grid frequency, voltage, amperage
 
-  （请勿同时配置“ Details L1-L3”和“ Extended Mode”，因为这会给ioBroker系统带来很大的负担）
+TR:   (Do not configure Details L1-L3 and Extended Mode simultaneously since this puts a high load on the ioBroker system)
 
-<！-下一个版本的占位符（在该行的开头）：
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __正在进行的工程__->
-＃＃ 法律声明
-SMA和Sunny Home Manager是SMA Solar Technology AG <https://www.sma.de/en.html>的注册商标。
+TR: ### __WORK IN PROGRESS__ -->
+TR: ## Legal Notices
+TR: SMA and Sunny Home Manager are registered trademarks of SMA Solar Technology AG <https://www.sma.de/en.html>
 
-所有其他商标均为其各自所有者的财产。
+TR: All other trademarks are the property of their respective owners.
+
+TR: The authors are in no way endorsed by or affiliated with SMA Solar Technology AG, or any associated subsidiaries, logos or trademarks.
 
 ## Changelog
 ### 0.6.4 (2021-04-14)

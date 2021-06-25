@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ecovacs-deebot/README.md
 title: TR: Ecovacs Deebot adapter for ioBroker
-hash: FnMYOflQ5eNPmJub4vSXFG64MYs86SP/qderkgRQ7ME=
+hash: l8b096PyevCHB/rEOZ9SDhiJE7qhXMnfwljGlyPDQJc=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.ecovacs-deebot/admin/ecovacs-deebot.png)
 
@@ -22,8 +22,7 @@ TR: ## Features
 TR: Some noteworthy features are:
 
 TR: * Retrieve information (e.g. battery, cleaning log, consumable, cleaning and charging status)
-TR: * Send clean commands (e.g. auto, spot area, custom area)
-TR: * Send some other commands (e.g. play sound, reset consumables, move)
+TR: * Send clean commands (e.g. auto, spot area, custom area) and various other commands (e.g. play sound, reset consumables)
 TR: * Save the last run custom area and rerun the saved areas
 TR: * Adjustment of vacuum power (clean speed) and water level
 TR: * Retrieve information during the cleaning process (e.g. current position and area)
@@ -56,7 +55,7 @@ TR: * Deebot U2 series
 TR: * Deebot N3 MAX
 TR: * Deebot N7
 TR: * Deebot N8 series
-TR: * Deebot (OZMO) T8 series
+TR: * Deebot T8 series
 TR: * Deebot T9 series
 
 TR: The models listed are either already known to work or are technically similar to these models.
@@ -112,7 +111,7 @@ TR: I am in no way affiliated with ECOVACS.
 * Quite a lot of improvements for processing map data, spot areas and virtual boundaries
 * Some optimisations for js-controller 3.3
 * Improved support for N8 series
-* Initial support for T9/T9+
+* Initial support for T9 series
 * Some improvements and fixes
 
 ### 1.1.1

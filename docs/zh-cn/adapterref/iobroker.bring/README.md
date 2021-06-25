@@ -1,139 +1,168 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/bring-installed.svg
+BADGE-Stable version: http://iobroker.live/badges/bring-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.bring.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.bring.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.bring.png?downloads=true
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bring/README.md
-title: ioBroker.bring
-hash: n1lrpEniOSNdTJPhXYpr74N+pzHkxWVNnX3UPJa37bc=
+title: TR: ioBroker.bring
+hash: OZhjDNOBP7gPGWiHnvQq6ZDL5FVpF0lZ7JnqtpmifNM=
 ---
-![商标](../../../en/adapterref/iobroker.bring/admin/bring.png)
+![TR: Logo](../../../en/adapterref/iobroker.bring/admin/bring.png)
 
-![安装数量](http://iobroker.live/badges/bring-installed.svg)
-![稳定版](http://iobroker.live/badges/bring-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.bring.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.bring.svg)
-![环保管理员徽章](https://badges.greenkeeper.io/foxriver76/ioBroker.bring.svg)
-![NPM](https://nodei.co/npm/iobroker.bring.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/bring-installed.svg)
+![TR: Stable version](http://iobroker.live/badges/bring-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.bring.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.bring.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.bring.png?downloads=true)
 
-＃ioBroker.bring
+TR: # ioBroker.bring
 ===========================
 
-![建立状态](https://github.com/foxriver76/ioBroker.bring/workflows/Test%20and%20Release/badge.svg)
+![TR: Build Status](https://github.com/foxriver76/ioBroker.bring/workflows/Test%20and%20Release/badge.svg)
 
-＃＃ 状态
-有关创建状态的说明，请参见下文。
+TR: ## Disclaimer
+TR: The developers of this module are in no way endorsed by or affiliated with Bring! Labs AG, or any associated subsidiaries, logos or trademarks.
 
-###频道：信息
-*信息连接
+TR: ## States
+TR: For a description of the created states, see below.
 
-    |数据类型|权限|
+TR: ### Channel: info
+TR: * info.connection
+
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |布尔| R |
+| TR:     |boolean|R|
 
-   *只读的布尔指标。如果您的经纪人随身登录，则状态为true，否则为false。*
+TR:    *Read-only boolean indicator. If your broker is logged in on bring, the state is true otherwise false.*
 
-* info.user
+TR: * info.user
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | string | R |
+| TR:     |string|R|
 
-   *只读字符串。包含已登录用户的名称。*
+TR:    *Read only string. Contains the name of the logged-in user.*
 
-###购物清单
-对于每个购物清单，将创建具有以下状态的渠道：
+TR: ### Shopping lists
+TR: For every shopping list a channel with the following states will be created:
 
-* *list* .content / *list* .contentHtml / NoHead
+TR: **list*.content /* ist*.contentHtml/NoHead
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | string | R |
+| TR:     |string|R|
 
-*只读格式为列表或html表的json / html字符串。包含当前在您的购物清单上的商品。
-NoHead Html表是不带表头的*。
+TR: *Read only json/html string formatted as a list or html table. Contains the items which are currently on your shopping list.
+The NoHead Html tables are w/o table headers.*
 
-* *list* .recentContent / *list* .recentContentHtml / NoHead
+TR: **list*.recentContent /* ist*.recentContentHtml/NoHead
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | string | R |
+| TR:     |string|R|
 
-*只读格式为列表或html表的json / html字符串。包含最近在您的购物清单上的商品。
-NoHead Html表是不带表头的*。
+TR: *Read only json/html string formatted as a list or html table. Contains the items which were recently on your shopping list.
+The NoHead Html tables are w/o table headers.*
 
-* *list* .removeItem
+TR: * *list*.removeItem
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-*选择应从购物清单和近期内容清单中删除的项目。
-当Bring！确认命令时，将确认状态。 API。*
+TR: *Select an item which should be removed from the shopping list and recent content list.
+The state will be acknowledged when the command is acknowledged by the Bring! API.*
 
-* *list* .moveToRecentContent
+TR: * *list*.moveToRecentContent
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-*选择应移动或添加到最近内容列表的项目。
-当Bring！确认命令时，将确认状态。 API。*
+TR: *Select an item which should be moved or added to recent content list.
+The state will be acknowledged when the command is acknowledged by the Bring! API.*
 
-* *list* .saveItem
+TR: * *list*.saveItem
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |字符串| R / W |
+| TR:     |string|R/W|
 
-*选择应添加到购物清单中的商品。您还可以通过以下模式设置状态，从而指定项目的其他信息：*
+TR: *Select an item which should be added to the shopping list. You can also specify additional information of the item, by setting the state by the following schema:*
 
 ```Apple, 2.50 $, the green ones```
 
-*请注意，逗号后面的所有内容均描述了规范。
-当Bring！确认命令时，将确认状态。 API。*
+TR: *Note, that everything behind the comma describes the specification.
+The state will be acknowledged when the command is acknowledged by the Bring! API.*
 
-* *list* .users / *list* .usersHtml / NoHead
+TR: **list*.users /* ist*.usersHtml/NoHead
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | string | R |
+| TR:     |string|R|
 
-*只读格式为列表或html表的json / html字符串。包含属于购物清单的用户以及他们的电子邮件地址。
-NoHead Html表是不带表头的*。
+TR: *Read only json/html string formatted as a list or html table. Contains the users which are part of the shopping list, as well as their email address.
+The NoHead Html tables are w/o table headers.*
 
-* *列表* .count
+TR: * *list*.count
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | number | R |
+| TR:     |number|R|
 
-   *只读数字，代表列表中包含的项目数。*
+TR:    *Read only number, which represents the number of contained items of the list.*
 
-* *list* .messageTrigger
+TR: * *list*.messageTrigger
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    |按钮| R / W |
+| TR:     |button|R/W|
 
-*如果按此按钮，购物清单将发送到已配置的实例，例如G。推送，电报或/和电子邮件。*
+TR: *If you press this button, the shopping list will be sent to the configured instances, e. g. Pushover, Telegram or/and E-Mail.*
 
-* *list* .enumSentence
+TR: * *list*.enumSentence
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | string | R |
+| TR:     |string|R|
 
-*只读字符串，其中包含以可说形式列出的购物清单项目。
-可以使用e。 G。用于通过智能助手进行语音输出。*
+TR: *Read only string, which contains an enumeration of the shopping list items in a speakable form.
+This can be used e. g. for voice output via smart assistants.*
 
-* *列表*。翻译
+TR: * *list*.translation
 
-    |数据类型|权限|
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | string | R |
+| TR:     |string|R|
 
-    *只读json字符串，其中包含将瑞士项目名称翻译为列表语言的字典。*
+TR:     *Read only json string, which contains a dictionary to translate the swiss item names to the list language.*
 
 ## Changelog
+### 1.7.7 (2020-12-12)
+* (foxriver76) fix potential crash on `pollAllLists` function
+
+### 1.7.6 (2020-12-05)
+* (foxriver76) we now use a unique name for widget rendering function to avoid conflicts
+* (foxriver76) if we cannot render widget immediately we try again after one second (see #57)
+
+### 1.7.4 (2020-12-04)
+* (foxriver76) we now render the widget immediately
+
+### 1.7.3 (2020-10-26)
+* (foxriver76) bring module now returns real errors instead of strings, handle them correct
+
+### 1.7.2 (2020-04-23)
+* (foxriver76) fixed potential issue on rendering widget
+
+### 1.7.1 (2020-02-13)
+* (foxriver76) we are now using AES-256-CBC as encryption
+
+### 1.6.8 (2019-12-31)
+* (foxriver76) ensure compatibility with older browsers
+
 ### 1.6.6 (2019-11-21)
 * (foxriver76) improved error handling in widget
 
@@ -221,7 +250,7 @@ NoHead Html表是不带表头的*。
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2019-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

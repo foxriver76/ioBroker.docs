@@ -2,70 +2,75 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.myvbus/README.md
-title: ioBroker.myvbus
-hash: +KLCCglI0gxl8hiNQbW/4q2IuBRO9tBBwqoW6Vy+YX8=
+title: TR: ioBroker.myvbus
+hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
 ---
-# IoBroker.myvbus
-![Logo](../../../en/adapterref/iobroker.myvbus/admin/myvbus.png)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/myvbus-installed.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.myvbus.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/myvbus-stable.svg)
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.myvbus.svg)
+![TR: Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.myvbus.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)
+![TR: Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.myvbus/master.svg)
 
-![Anzahl der Installationen (spätestens)](http://iobroker.live/badges/myvbus-installed.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.myvbus.svg)
-![Anzahl der Installationen (stabil)](http://iobroker.live/badges/myvbus-stable.svg)
-![NPM-Version](https://img.shields.io/npm/v/iobroker.myvbus.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/iobroker-community-adapters/iobroker.myvbus.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.myvbus/master.svg)
+TR: # ioBroker.myvbus
+![TR: Logo](../../../en/adapterref/iobroker.myvbus/admin/myvbus.png)
 
-## IoBroker Adapter für Resol VBus
-Dieser Adapter verbindet ioBroker mit verschiedenen VBus-basierten Geräten über resol-vbus, eine JavaScript-Bibliothek zur Erfassung von RESOL VBus-Daten, die von Daniel Wippermann bereitgestellt wird.
+TR: ## ioBroker Adapter for Resol VBus
+TR: This adapter connects ioBroker to various VBus-based devices using resol-vbus, a JavaScript library for the acquisition of RESOL VBus data, provided by Daniel Wippermann.
 
-<https://github.com/danielwippermann/resol-vbus>
+TR: <https://github.com/danielwippermann/resol-vbus>
 
-<https://www.npmjs.com/package/resol-vbus>
+TR: <https://www.npmjs.com/package/resol-vbus>
 
-## Eigenschaften
-* Ermöglicht das Lesen der Messdaten von verschiedenen RESOL (R) VBus (R) -Geräten - vorzugsweise Solar- und Systemsteuerungen der DeltaSol (R) -Serie einschließlich eingebauter Wärmemengenmesser (HQM) - mit DL3- oder DL2-Datenloggern, KM2 Kommunikationsmodule, VBus / LAN-Schnittstellenadapter oder serielle / LAN-Gateways lokal über TCP / IP.
-* Der Gerätezugriff über den seriellen VBus / USB-Schnittstellenadapter oder über VBus.net (R) mit DLx / KMx wird ebenfalls unterstützt.
-* Verarbeitet Live-VBus-Datenströme und stellt sie als ioBroker-Status zur Verfügung.
-* Die Werte werden mit einer konfigurierbaren Zykluszeit aktualisiert.
-* Das Lesen oder Einstellen der VBus-Gerätekonfigurationsparameter wird nicht unterstützt. Hierfür sollten die von Resol bereitgestellten Tools verwendet werden, z. über VBus.net oder das Parametrierungstool RPT.
-* Das Lesen von DL3-Kanal 0 (Sensoren, die direkt an das DL3-Gerät angeschlossen sind) wird aufgrund von Einschränkungen der DL3-Schnittstelle nicht unterstützt.
+TR: ## Features
+TR: * Enables reading of the measurement data from various RESOL(R) VBus(R) devices - preferably solar and system controllers from the DeltaSol(R) series including built-in heat quantity meters (HQM) - using DL3 or DL2 data loggers, KM2 communication modules, VBus/LAN interface adapters or serial/LAN gateways locally via TCP/IP.
+TR: * Device access using the VBus/USB serial interface adapter or via VBus.net(R) using DLx/KMx is also supported.
+TR: * Processes live VBus data streams and makes them available as ioBroker states.
+TR: * Values are updated with a configurable cycle time.
+TR: * Reading or setting the VBus device configuration parameters is not supported. The tools provided by Resol should be used for this, e.g. via VBus.net or the parameterization tool RPT.
+TR: * Reading DL3 channel 0 (sensors directly connected to the DL3 device) is not supported due to limitations of the DL3 interface.
 
-## Konfigurationshinweise
-* Die Standardeinstellung für den Verbindungstyp ist VBus / LAN, muss jedoch auch für VBus / LAN explizit ausgewählt werden, da sonst keine Verbindung hergestellt wird.
-* Die korrekten Einstellungen für den direkten LAN-Zugriff für VBus / LAN, DL3, DL2, KM2 sind:
-  * Verbindungstyp: VBus / LAN oder KM2 oder DL2 oder DL3
-  * Verbindungskennung: IP-Adresse (z. B. 192.168.178.188) oder FullyQualifiedHostName (z. B. host1.example.com)
-  * VBus-Passwort: YourVBusPassword (Standard: vbus)
-  * Verbindungsport: Die Standardeinstellung 7053 sollte nicht geändert werden
-  * DL3-Kanal: Nur für DL3 relevant (Werte 1-6, Kanal 0 kann nicht ausgelesen werden)
-  * Aktualisierungsintervall: Zeit zwischen Aktualisierungen der Messwerte (Standard 30s)
-* Die korrekten Einstellungen für den DL3-, DL2- und KM2-Zugriff über VBus.net sind:
-  * Verbindungstyp: DL3 oder DL2 oder KM2
-  * Verbindungskennung: vbus.net (oder vbus.io) - beide ohne http:// und Via-Kennung!
-  * Verbindungsport: Die Standardeinstellung 7053 sollte nicht geändert werden
-  * VBus-Passwort: YourVBusPassword (Standard: vbus)
-  * DL3-Kanal: Nur für DL3 relevant (Werte: 1-6, Kanal 0 kann nicht ausgelesen werden)
-  * Über Kennung: YourViaIdentifier (z. B. d1234567890) - ohne http:// vor oder .vbus.io dahinter
-  * Aktualisierungsintervall: Zeit zwischen der Aktualisierung der Messwerte (Standard 30s)
+TR: ## Configuration hints
+TR: * The default setting for the connection type is VBus/LAN, but it must be explicitly selected even for VBus/LAN, otherwise no connection will be established.
+TR: * The correct settings for direct LAN access for VBus/LAN, DL3, DL2, KM2 are:
+TR:   * Connection type: VBus/LAN or KM2 or DL2 or DL3
+TR:   * Connection identifier: IP address (e.g. 192.168.178.188) or FullyQualifiedHostName (e.g. host1.example.com)
+TR:   * VBus password: YourVBusPassword (default: vbus)
+TR:   * Connection port: Default setting 7053 should not be changed
+TR:   * DL3 channel: Only relevant for DL3 (values 1-6, channel 0 can not be read out)
+TR:   * Update interval: Time between updates of the measured values (default 30s)
+TR: * The correct settings for the DL3, DL2, KM2 access via VBus.net are:
+TR:   * Connection type: DL3 or DL2 or KM2
+TR:   * Connection identifier: vbus.net (or vbus.io) - both without http:// and Via identifier!
+TR:   * Connection port: Default setting 7053 should not be changed
+TR:   * VBus password: YourVBusPassword (default: vbus)
+TR:   * DL3 channel: Only relevant for DL3 (values: 1-6, channel 0 cannot be read out)
+TR:   * Via identifier: YourViaIdentifier (e.g. d1234567890) - without http:// before or .vbus.io behind
+TR:   * Update interval: Time between the update of the measured values (default 30s)
 
-## Rechtliche Hinweise
-RESOL, VBus, VBus.net, DeltaSol und andere sind Marken oder eingetragene Marken der RESOL - Elektronische Regelungen GmbH <https://www.resol.de/en>
+TR: ## Legal Notices
+TR: RESOL, VBus, VBus.net, DeltaSol and others are trademarks or registered trademarks of RESOL - Elektronische Regelungen GmbH <https://www.resol.de/en>
 
-Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
+TR: All other trademarks are the property of their respective owners.
+The authors are in no way endorsed by or affiliated with RESOL GmbH, or any associated subsidiaries, logos or trademarks.
 
 ## Changelog
+### 0.1.1 (2021-05-18)
+* Fixes for supporting js-controller >=3.2.x
+
 
 ### 0.1.0
-* (grizzelbee) Fix: config page shows current settings now (not default anymore) **May raise the need to reenter the password!**
+* (grizzelbee) Fix: config page shows current settings now (not default anymore)
 * (grizzelbee) Fix: "Connected" state is updated correctly now if connection is disrupted.
 * (grizzelbee) New: Added Badge for latest(npm) version to readme
 * (grizzelbee) Fix: removed default password from config to ensure it's encrypted on first config
 * (grizzelbee) Fix: removed Force-ReInit
-* (grizzelbee) Fix: sensor maintenance indicators are working booleans now
-* (grizzelbee) New: added new activity indicator states for each relais.
-* (grizzelbee) New: testing configuration to avoid start with invalid config
+* (grizzelbee) Fix: sensor maintenance indicators are booleans now
+* (grizzelbee) New: added activity indicator states for relays
+* (pdbjjens) Fix: Prevent warnings regarding non-existent objects upon adapter instance creation and start-up with js-controller 3.2.x
+* (pdbjjens) Fix: updated dependencies and vulnerabilities
 
 ### 0.0.6
 * (pdbjjens) alpha 6 release updated dependencies
@@ -90,7 +95,7 @@ Alle anderen Marken sind Eigentum ihrer jeweiligen Inhaber.
 
 MIT License
 
-Copyright (c) 2020 Jens-Peter Jensen <jjensen@t-online.de>
+Copyright (c) 2021 Jens-Peter Jensen <jjensen@t-online.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

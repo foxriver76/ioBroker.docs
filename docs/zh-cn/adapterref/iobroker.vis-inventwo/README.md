@@ -2,325 +2,353 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis-inventwo/README.md
-title: ioBroker.vis-inventwo
-hash: x+BNm4J8571YbbEE8vai1GfImzPAJPNZES/K793B8+M=
+title: TR: ioBroker.vis-inventwo
+hash: 6p41iJSyC7wqdCokx+COKC/ej6I7a1Oj4YSuttaWvA8=
 ---
-![商标](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
+![TR: Logo](../../../en/adapterref/iobroker.vis-inventwo/admin/inventwo.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)
-![安装数量（稳定）](http://iobroker.live/badges/vis-inventwo-stable.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)
-![安装数量（最新）](http://iobroker.live/badges/vis-inventwo-installed.svg)
-![依赖状态](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)
-![已知漏洞](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
-![建置状态](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
-![执照](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
-![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
-![NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.vis-inventwo.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/vis-inventwo-stable.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vis-inventwo.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/vis-inventwo-installed.svg)
+![TR: Dependency Status](https://img.shields.io/david/inventwo/iobroker.vis-inventwo.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/inventwo/iobroker.vis-inventwo/badge.svg)
+![TR: Build status](https://ci.appveyor.com/api/projects/status/2hvs4fvfms7xhmnw?svg=true)
+![TR: License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)
+![TR: Paypal Donation](https://img.shields.io/badge/paypal-donate%20%7C%20spenden-green.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.vis-inventwo.png?downloads=true)
 
-＃ioBroker.vis-inventwo
-## Schalter窗口小部件ioBroker.vis适配器
-###### .. ab v 2.0.0
-<table><tr><td><center><b>普遍的</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td><td><center><b>多</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td><td><center><b>图像</b><br><img src="widgets/vis-inventwo/img/Image.png"></td><td><center><b>桌子</b><br><img src="widgets/vis-inventwo/img/Table.png"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>列表</b><br><img src="widgets/vis-inventwo/img/List.png"></td><td><center><b>选框</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td><td><center><b>单选按钮</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td><td><center><b>垂直滑块</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td></tr><tr><td colspan=4></td></tr><tr><td><center><b>水平滑块</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td><td><center><b>彩色滑块水平</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td><td><center><b>彩色滑块水平</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td><td><center><b>拨动开关</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td></tr></table>
+TR: # ioBroker.vis-inventwo
+TR: ## Schalter Widgets für den ioBroker.vis Adapter
+TR: ###### .. ab v 2.0.0
+TR: <table> <tr> <td><center><b>Universal</b><br><img src="widgets/vis-inventwo/img/Universal.gif"></td> <td><center><b>Multi</b><br><img src="widgets/vis-inventwo/img/Multi.gif"></td> <td><center><b>Image</b><br><img src="widgets/vis-inventwo/img/Image.png"></td> <td><center><b>Table</b><br><img src="widgets/vis-inventwo/img/Table.png"></td> </tr> <tr><td colspan=4></td></tr> <tr> <td><center><b>List</b><br><img src="widgets/vis-inventwo/img/List.png"></td> <td><center><b>Marquee</b><br><img src="widgets/vis-inventwo/img/Marquee.gif"></td> <td><center><b>Radio Button</b><br><img src="widgets/vis-inventwo/img/Radio.gif"></td> <td><center><b>Slider vertical</b><br><img src="widgets/vis-inventwo/img/Slider2.gif"></td> </tr> <tr><td colspan=4></td></tr> <tr> <td><center><b>Slider horizontal</b><br><img src="widgets/vis-inventwo/img/Slider1.gif"></td> <td><center><b>Colorslider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderHor.png"></td> <td><center><b>Colorslider horizontal</b><br><img src="widgets/vis-inventwo/img/ColorSliderVert.png"></td> <td><center><b>Toggle Switch</b><br><img src="widgets/vis-inventwo/img/Toggle.gif"></td> </tr> </table>
 
-###### .. v 1.3.8
-![贝斯皮尔](http://resources.inventwo.com/github/inventwo/Set.png)
+TR: ###### .. v 1.3.8
+![TR: Beispiel](http://resources.inventwo.com/github/inventwo/Set.png)
 
-米特·希尔夫（Mit Hilfe）Unserer Widgets。 Zur Zeit将在非适配器适配器中正常运行，并恢复图标。 Uhr und Wetter和Adaptern undMüssenggf。 zusätzlichinstalliert werden。
+TR: Mit Hilfe unserer Widgets lassen sich folgende Projekte verwirklichen. Zur Zeit befinden sich in unserem Adapter NUR die reinen Schaltflächen (siehe oben) und die Icons. Uhr und Wetter stammen aus anderen Adaptern und müssen ggf. zusätzlich installiert werden.
 
-![贝斯皮尔](http://resources.inventwo.com/github/inventwo/Preview.png)
+![TR: Beispiel](http://resources.inventwo.com/github/inventwo/Preview.png)
 
-![贝斯皮尔](http://resources.inventwo.com/github/inventwo/Preview2.png)
----
-
-##Unterstützung
-瀑布不夜城，阿尔弗雷德·尤德·斯彭德（Wer freuen unsüberjede Spende）。
-
-（使用Keiner Verbindung zum ioBroker的Dieser Linkführtzu unserem PayPal-Konto和Steht）
-
-[![Spende]（http://resources.inventwo.com/github/inventwo/spende.png）](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
-
+![TR: Beispiel](http://resources.inventwo.com/github/inventwo/Preview2.png)
 ---
 
-## 2.9.7
--错误修正
-
-## 2.9.6
--错误修正
-
-## 2.9.5
--错误修正
+TR: ## Unterstützung
+TR: Falls Dir unsere Arbeit gefällt und Du uns unterstützen möchtest, wir freuen uns über jede Spende.
 
-## 2.9.4
--错误修正
+TR: (Dieser Link führt zu unserem PayPal-Konto und steht in keiner Verbindung zum ioBroker)
 
-## 2.9.3
--弹出弹出窗口的提示：弹出窗口的提示和弹出按钮的提示弹出窗口的提示
--Zuständewurden bei在弹出式视窗中查看
+[![TR: Spende](http://resources.inventwo.com/github/inventwo/spende.png)](https://www.paypal.com/donate?hosted_button_id=7W6M3TFZ4W9LW)
 
-## 2.9.2
--问题和日期弹出弹出窗口。阿雄！ Der Datenpunkt muss erneutausgewähltwerden
+---
 
-## 2.9.1
--错误修正
+TR: ## 3.0.3
+TR: - Bugfix
 
-## 2.9.0
--Multi-Widget-Statuskönnenunabhängigvom Widget-Typ nach Datenpunkten oder Viewsprüfen
--Optionen zum automatischenSchließendes Popupshinzugefügt
-- Bug修复
+TR: ## 3.0.2
+TR: - Bugfix
 
-## 2.8.3
--错误修正
+TR: ## 3.0.1
+TR: - Bugfix
 
-## 2.8.2
--问题解决者Colorslider behoben：在Datenpunkt gesetzt中的“ Wert bei Freigabe aktualisieren”，“
+TR: ## 3.0.0
+```diff
+#### ACHTUNG ####
+Nach dem Update sind die Icons vom Universal- und Multiwidget
+nicht zu sehen, sind aber nicht weg! Damit diese wieder zu sehen sind müssen
+die Widgets einmal EINZELN im Editor angeklickt werden.
+```
 
-## 2.8.1
--Fehler behoben：DpÄnderungnicht彩色滑条RGB（WICHTIG：Datenpunktemüssenneuausgewähltwerden！）
+TR: - Beim Universal- und Multiwidget kann der Inhaltstyp geändert werden.
+TR:     - Inhaltstypen: Bild (Standard), Analoge Uhr, Digitale Uhr und HTML/Text
+TR:     - Analoge und digitale Uhr: Farbe des Ziffernblatts under Zeiger kann frei gewählt werden, Zeitzone kann geändert werden
+TR:     - Statt dem Icon kann ein eigener Text oder ein Datenpunktwert per Binding angezeigt werden
+TR: - Vergleichsoperatoren Größer-Gelich und Kleiner-Gleich
+TR: - PopUp kann per Datenpunk geöffnet werden
+TR: - Bugfix:
+TR:     - Colorslider unsichtbar wenn für CIE kein Wert vorhanden ist
+TR:     - Links funktionieren nicht im Popup
+TR:     - State Rückmeldedauer funktioniert nicht richtig
+
+TR: ## 2.9.7
+TR: - Bugfix
+
+TR: ## 2.9.6
+TR: - Bugfix
+
+TR: ## 2.9.5
+TR: - Bugfix
+
+TR: ## 2.9.4
+TR: - Bugfix
 
-## 2.8.0
--在通用选项和多小部件中查看弹出菜单选项
--错误修正
+TR: ## 2.9.3
+TR: - Fehler mit PopUp behoben: Klick zum schließen wurde direkt nach Öffnen registriert und Klick löste Buttons hinter dem PopUp aus
+TR: - Zustände wurden bei View in PopUp nicht richtig angezeigt
 
-## 2.7.11
--错误修正
+TR: ## 2.9.2
+TR: - Problem mit Datenpunkt zum Schließen des Popups behoben. ACHTUNG! Der Datenpunkt muss erneut ausgewählt werden
 
-## 2.7.10
--通用和多功能小工具的问题
--通用和多功能小工具的问题
+TR: ## 2.9.1
+TR: - Bugfix
 
-## 2.7.9
--图片和小工具hinzugefügt的选项
--Fehler von vorheriger版本behoben
+TR: ## 2.9.0
+TR: - Multi-Widget-Status können unabhängig vom Widget-Typ nach Datenpunkten oder Views prüfen
+TR: - Optionen zum automatischen Schließen des Popups hinzugefügt
+TR: - Bugfixes
 
-## 2.7.8
--问题麻省理工学院
--图像和小部件behoben的问题
+TR: ## 2.8.3
+TR: - Bugfix
 
-## 2.7.7
--问题之门
--问题麻省理工学院院长法布勒格勒·贝奥本
+TR: ## 2.8.2
+TR: - Problem mit Colorslider behoben: Wert wird nicht in Datenpunkt gesetzt, wenn "Wert bei Freigabe aktualisieren" aktiviert ist",
 
-## 2.7.6
--Navi-Widget behoben问题解答
--问题与解决方案
--问题麻痹单选按钮和小部件和日期更新Zahlen behobenn
+TR: ## 2.8.1
+TR: - Fehler behoben: Color Slider RGB aktualisiert bei Dp Änderung nicht (WICHTIG: Datenpunkte müssen neu ausgewählt werden!)
 
-## 2.7.5
--JSON Tabelle farbliche SchwellenwertefürZahlen
--Fehler beim Slider behoben wennungültigerWert im Datenpunkt steht
--Fehler behoben：Signalbilder wurden miteingefärbt
--Option um Bildfarbe zu invertiereneingefügt，um Farbfilter zu umgehen
--彩色滑块kann nun zwischen HEX，RGB和CIE unterscheiden
+TR: ## 2.8.0
+TR: - View in PopUp Option für Universal- und Multi-Widget hinzugefügt
+TR: - Bugfix
 
-## 2.7.4
--FehlendeÜbersetzungfürHover-Farbenhinzugefügt
+TR: ## 2.7.11
+TR: - Bugfix
 
-## 2.7.3
--费勒·贝姆（Fehler beim）
--Schatten und Rand HoverfürButtonshinzugefügt
+TR: ## 2.7.10
+TR: - Problem mit Bildern im Universal und Multi Widget behoben
+TR: - Problem mit Bildwechesl im Universal und Multi Widget behoben
 
-## 2.7.2
--Fehler在Radiobutton mit Bildfarbe behoben中
--费勒·贝霍本（Fehler behoben）：多贝特·克里金（Doppeltes klicken）北州立大学
--HovereffektfürButtons游戏
--问题解答
--滑块文本anhängenmöglich
+TR: ## 2.7.9
+TR: - Option für die Bildgröße für das Image-Widget hinzugefügt
+TR: - Fehler von vorheriger Version behoben
 
-## 2.7.1
--错误修正
+TR: ## 2.7.8
+TR: - Problem mit Textausrichtung behoben
+TR: - Problem mit Bildgröße im Image-Widget behoben
 
-## 2.7.0
--Neues小工具：Farbslider
--JSON Tabelle Spaltenformat布尔值和数字
--JSON Tabelle Kopfzeile kann fixiert werden
--JSON Tabelle Fehler beim sortieren behoben
--JSON Tabelle konfigurierbare Dummyzeile wenn JSON学习者
--费勒·贝霍本（Fehler behoben）
+TR: ## 2.7.7
+TR: - Problem mit der Bildgröße behoben
+TR: - Problem mit dem Farbregler behoben, dass der Wert beim loslassen nicht gespeichert wurde
 
-## 2.6.0
--通用和多小部件Vergleichsoperatoren gleich，größer，kleiner und nichthinzugefügt
--滑块最小/最大反转
--滑块湿ert beim loslassen setzen
--Widget um Wert zuerhöhenoder zu senken
--JSON Tabelle Fehler mit Datum behoben
+TR: ## 2.7.6
+TR: - Problem mit Symbolfarbe für Navi-Widget behoben
+TR: - Problem mit Hervorhebung auf Touch-Geräten behoben
+TR: - Problem mit Radiobutton-Widget und Datentyp Zahlen behobenn
 
-。 JSON Tabelle anzeige von Millisekundenmöglich
+TR: ## 2.7.5
+TR: - JSON Tabelle farbliche Schwellenwerte für Zahlen
+TR: - Fehler beim Slider behoben wenn ungültiger Wert im Datenpunkt steht
+TR: - Fehler behoben: Signalbilder wurden mit eingefärbt
+TR: - Option um Bildfarbe zu invertieren eingefügt, um Farbfilter zu umgehen
+TR: - Color Slider kann nun zwischen HEX, RGB und CIE unterscheiden
 
--JSON Tabelle Platzhalter和我们分享
--Klick sortiert werden的JSON Tabelle Spaltenkönnen
+TR: ## 2.7.4
+TR: - Fehlende Übersetzung für Hover-Farben hinzugefügt
 
-## 2.5.11
--错误修正
+TR: ## 2.7.3
+TR: - Fehler beim Multi-State und mehreren Zuständen behoben
+TR: - Schatten und Rand Hover für Buttons hinzugefügt
 
-## 2.5.10
--错误修正
+TR: ## 2.7.2
+TR: - Fehler in Radiobutton mit Bildfarbe behoben
+TR: - Fehler behoben: Doppeltes klicken bei State mit Verweildauer
+TR: - Hovereffekt für Buttons eingefügt
+TR: - Problem mit anzeigen des Sliderwertss behoben
+TR: - Slider Text anhängen möglich
 
-## 2.5.9
--Dur Prozess der Bildfarbfilterung wurdegeändert
--Die Bildfarbe kann jetzt ein Datenpunkt sein
+TR: ## 2.7.1
+TR: - Bugfix
 
-## 2.5.8
--错误修正
+TR: ## 2.7.0
+TR: - Neues Widget: Farbslider
+TR: - JSON Tabelle Spaltenformat boolean und number
+TR: - JSON Tabelle Kopfzeile kann fixiert werden
+TR: - JSON Tabelle Fehler beim sortieren behoben
+TR: - JSON Tabelle konfigurierbare Dummyzeile wenn JSON leer ist
+TR: - Fehler behoben
 
-## 2.5.7
--错误修正
+TR: ## 2.6.0
+TR: - Universal- & Multi-Widget Vergleichsoperatoren gleich, größer, kleiner und nicht hinzugefügt
+TR: - Slider Min/Max invertieren
+TR: - Slider Wert erst beim loslassen setzen
+TR: - Widget um Wert zu erhöhen oder zu senken
+TR: - JSON Tabelle Fehler mit Datum behoben
 
-## 2.5.6
--错误修正
+TR: . JSON Tabelle anzeige von Millisekunden möglich
 
-## 2.5.5
--错误修正
+TR: - JSON Tabelle Platzhalter wenn Eintrag leer ist
+TR: - JSON Tabelle Spalten können per Klick sortiert werden
 
-## 2.5.4
--错误修正（状态：多普尔森·森德·德·维尔特斯·贝触摸）
+TR: ## 2.5.11
+TR: - Bugfix
 
-## 2.5.3
--Grauer Kippschalterhinzugefügt
+TR: ## 2.5.10
+TR: - Bugfix
 
-## 2.5.2
--错误修正
+TR: ## 2.5.9
+TR: - Der Prozess der Bildfarbfilterung wurde geändert
+TR: - Die Bildfarbe kann jetzt ein Datenpunkt sein
 
-## 2.5.1
--错误修正
+TR: ## 2.5.8
+TR: - Bugfix
 
-## 2.5.0
--Kippschalterhinzugefügt
--错误修正
+TR: ## 2.5.7
+TR: - Bugfix
 
-## 2.4.3
--错误修正
+TR: ## 2.5.6
+TR: - Bugfix
 
-## 2.4.2
--错误修正
+TR: ## 2.5.5
+TR: - Bugfix
 
-## 2.4.1
--错误修正
+TR: ## 2.5.4
+TR: - Bugfix (State: doppeltes senden dese Wertes bei touch)
 
-## 2.4.0
--Randstil zur JSON-Tabellehinzugefügt
--FarbauswahöfürIcons zu allen小部件hinzugefügt
--Fehlerbehebung
+TR: ## 2.5.3
+TR: - Grauer Kippschalter hinzugefügt
 
-## 2.3.2
--Fehler bei der der mit dem Widget'在部件中查看'behoben
+TR: ## 2.5.2
+TR: - Bugfix
 
-## 2.3.1
--JSON Tabelle behoben中的Fehler
+TR: ## 2.5.1
+TR: - Bugfix
 
-## 2.3.0
--问题behoben，bei demSchaltflächenzweimal Werte senden
--Datum / Uhrzeit und Bildformat for Tabellenzellenhinzugefügt
--通用和多小部件属性werden beim Klicken auf Widget aktualisiert
+TR: ## 2.5.0
+TR: - Kippschalter hinzugefügt
+TR: - Bugfix
 
-## 2.2.3
--JSON Tabelle behoben中的Fehler
+TR: ## 2.4.3
+TR: - Bugfix
 
-## 2.2.2
--Fehler im Multi Widget behoben：Bilder und Text wechseln nicht bei Typ Navigation
+TR: ## 2.4.2
+TR: - Bugfix
 
-## 2.2.1
--JSON中的Fehler Tabelle behoben，wenn keingültigesJSON-Objekt vorhanden ist
--价值清单behoben中的费勒：Wert wird nicht aktualisiert
+TR: ## 2.4.1
+TR: - Bugfix
 
-## 2.2.0
--Datenpunktwerte werden jetzt bei allen Widgets in Editor angezeigt
--Neues小部件：Marquee（Laufschrift）
--通用和多州Verweildauerhinzugefügt
--列表小部件Abstand zwischen denEinträgenkann eingestell werden
+TR: ## 2.4.0
+TR: - Randstil zur JSON-Tabelle hinzugefügt
+TR: - Farbauswahö für Icons zu allen Widgets hinzugefügt
+TR: - Fehlerbehebung
 
-## 2.1.0
--VIS编辑器中的Datenpunktwerte werden！
+TR: ## 2.3.2
+TR: - Fehler bei der Navigation mit dem Widget 'View in Widget' behoben
 
-## 2.0.1
--Übersetzungsfehlerbehoben
--边境Farbe behoben
--Widget-Untertitel behoben
+TR: ## 2.3.1
+TR: - Fehler in JSON Tabelle behoben
 
-## 2.0.0
--开关，按钮，导航和背景小部件（显示控件）-> dem通用小部件
--多种小工具->通用小工具，日期从小到大，从小到大（War das hier auf mehrere Datenpunkte und Wertegeprüftwerden kann）
--图像小部件kann nun auf Datenpunktprüfen
--单选按钮hinzugefügt
--Wertelistehinzugefügt（Kann Liste aus einem Datenpunkt oder manuell eingetragenem Text erstellen）
+TR: ## 2.3.0
+TR: - Problem behoben, bei dem Schaltflächen zweimal Werte senden
+TR: - Datum / Uhrzeit und Bildformat für Tabellenzellen hinzugefügt
+TR: - Universal- und Multi-Widget-Attribute werden beim Klicken auf Widget aktualisiert
 
-## 1.3.8
--将滑块步进更改为小数
--解决了数值问题
+TR: ## 2.2.3
+TR: - Fehler in JSON Tabelle behoben
 
-### 1.3.7
--解决了触摸屏上导航的问题
+TR: ## 2.2.2
+TR: - Fehler im Multi Widget behoben: Bilder und Text wechseln nicht bei Typ Navigation
 
-### 1.3.6
--添加了用于导航的设置状态选项
--修复了没有配置的数据点的问题
+TR: ## 2.2.1
+TR: - Fehler in JSON Tabelle behoben, wenn kein gültiges JSON-Objekt vorhanden ist
+TR: - Fehler in Value-List behoben: Wert wird nicht aktualisiert
 
-### 1.3.5
--增加了表格的刷新率
+TR: ## 2.2.0
+TR: - Datenpunktwerte werden jetzt bei allen Widgets im Editor angezeigt
+TR: - Neues Widget: Marquee (Laufschrift)
+TR: - Universal und Multi State Verweildauer hinzugefügt
+TR: - List Widget Abstand zwischen den Einträgen kann eingestell werden
 
-### 1.3.4
--删除了图标和背景，更改了配置，修复了导航
+TR: ## 2.1.0
+TR: - Datenpunktwerte werden im VIS Editor angezeigt!
 
-### 1.3.3
--修复了背景小部件值选项
+TR: ## 2.0.1
+TR: - Übersetzungsfehler behoben
+TR: - Border Farbe behoben
+TR: - Widget-Untertitel behoben
 
-### 1.3.2
--错误修复
+TR: ## 2.0.0
+TR: - Switch, Button, Nav und Background Widget (sowie die kleinen Ausführungen) zu einem einzigen Widget zussammengeführt -> dem Universal Widget
+TR: - Multi Widget -> wie das Universal, nur dass hier auf mehrere Datenpunkte und Werte geprüft werden kann (Ähnlich der Signalbild Funktion)
+TR: - Image Widget kann nun auf Datenpunkt prüfen
+TR: - Radiobuttons hinzugefügt
+TR: - Werteliste hinzugefügt (Kann Liste aus einem Datenpunkt oder manuell eingetragenem Text erstellen)
 
-### 1.3.1
--更改了导航按钮的颜色行为
--添加了新图标
+TR: ## 1.3.8
+TR: - Changed slider step to decimal
+TR: - Fixed problem with numeric values
 
-### 1.3.0
--添加了JSON表
--增加了导航延迟
--按钮中的文本现在可以是HTML
--添加了新图标
+TR: ### 1.3.7
+TR: - Fixed problem with navigation on touchscreens
 
-### 1.2.3
--添加了导航活动颜色
--数值开关的固定状态颜色
+TR: ### 1.3.6
+TR: - Added set state option for navigation
+TR: - Fixed problem with datapoints without config
 
-## 1.2.2
--错误修复：滑块值，配置
+TR: ### 1.3.5
+TR: - Added refresh rate for table
 
-## 1.2.1
--固定的滑块小部件：分为两个小部件（水平和垂直）
+TR: ### 1.3.4
+TR: - Removed icons and backgrounds, changed config, Fixed navigation
 
-### 1.2.0
--添加了图像小部件
--添加了Slider来更改所有4个角的边界半径（如果此版本是您的更新，则需要单击vis-editor中的每个按钮以恢复默认角）
--添加了新图标
+TR: ### 1.3.3
+TR: - Fixed background widget value option
 
-### 1.1.1
--错误修复
+TR: ### 1.3.2
+TR: - Bug fix
 
-### 1.1.0
--添加了滑块小部件
--添加了镜像选项
--添加了新图标
--更改了按钮小部件以使用默认字体和文本选项
+TR: ### 1.3.1
+TR: - Changed navigation button color behaviour
+TR: - Added new icons
 
-### 1.0.0
--小部件背景和内容不透明度，可将开关从布尔值更改为值，将图标从白色更改为黑色，添加无缝背景
+TR: ### 1.3.0
+TR: - Added JSON table
+TR: - Added delay for navigations
+TR: - Text in buttons can now be HTML
+TR: - Added new icons
 
-### 0.1.2
-- Bug修复
+TR: ### 1.2.3
+TR: - Added Navigation active color
+TR: - Fixed state color for value switch
+
+TR: ## 1.2.2
+TR: - Bug Fix: slider value, config
+
+TR: ## 1.2.1
+TR: - Fixed Slider Widget: seperatet into two widgets (horizontal and vertical)
+
+TR: ### 1.2.0
+TR: - Added image widget
+TR: - Added Slider to change border radius for all 4 corners (If this version is an update for you, you need to click on each button in the vis-editor to get back the default corners)
+TR: - Added new icons
+
+TR: ### 1.1.1
+TR: - Bug fix
+
+TR: ### 1.1.0
+TR: - Added slider widget
+TR: - Added option to mirror image
+TR: - Added new icons
+TR: - Changed button widgets to use default font and text options
+
+TR: ### 1.0.0
+TR: - Widget background and content opacity, Switch can be changed from boolean to value, changed icons from white to black, added seamless backgrounds
+
+TR: ### 0.1.2
+TR: - Bug fixes
 
 ...
 
-### 0.1.1
-- Bug修复
+TR: ### 0.1.1
+TR: - Bug fixes
 
 ...
 
-### 0.1.0（Erstveröffentlichung）
--inventwo设计小部件
+TR: ### 0.1.0 (Erstveröffentlichung)
+TR: - inventwo Design Widgets
 
 ...
 
-### 0.0.1
--Idee ist geboren
+TR: ### 0.0.1
+TR: - Die Idee ist geboren
 
 ---
 
@@ -328,7 +356,7 @@ hash: x+BNm4J8571YbbEE8vai1GfImzPAJPNZES/K793B8+M=
 
 ## License
 
-Urheberrechte (c) 2020 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
+Urheberrechte (c) 2021 [jkvarel](https://github.com/jkvarel) und [skvarel](https://github.com/skvarel) von [inventwo](https://github.com/inventwo)
 
 
 MIT License (nur in englisch / englisch only)

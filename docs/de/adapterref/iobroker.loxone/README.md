@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.loxone/README.md
 title: TR: ioBroker.loxone
-hash: 8fE4m8tPLb1oVSWM01sOObUj31hSSnV2f20hSlYJKg8=
+hash: C2Xqp8eKQrRCqFb4ky9Vv6qaOfFs2bYJvkV5I2BAJdY=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.loxone/admin/loxone.png)
 
@@ -267,6 +267,18 @@ TR: -   `blue` (rw) blue value of the color picker
 TR: Setting one or more of the above states from ioBroker will only send a command to the Miniserver after about 100 ms.
 This is to prevent the color from changing multiple times for a single user input.
 
+TR: ### Daytimer / IRCDaytimer
+TR: Provided by timer/schedule.
+
+TR: -   `mode` (ro) current operating mode of the daytimer
+TR: -   `mode-text` (ro) current operating mode name of the daytimer
+TR: -   `override` (ro) the remaining time of the timer
+TR: -   `value` (ro) current value, `true` or `false` for digital and a value for analog
+TR: -   `value-formatted` (ro) current formatted value as text
+TR: -   `needsActivation` (ro) only available if the control needs to be activated
+TR: -   `resetActive` (ro) stays active as long as the reset input of the daytimer is active
+TR: -   `pulse` (wo) activates the new value if an entry needs activation
+
 TR: ### Dimmer
 TR: Provided by dimmers.
 
@@ -283,6 +295,28 @@ TR: Provided by EIB/KNX dimmers.
 TR: -   `position` (rw) current position for the dimmer
 TR: -   `on` (wo) writing any value to this state sets the dimmer to the last known position
 TR: -   `off` (wo) writing any value to this state disables the dimmer, sets position to 0 but remembers the last position
+
+TR: ### Fronius
+TR: Provided by energy monitor.
+
+TR: -   `prodCurr` (ro) current production power
+TR: -   `prodCurrDay` (ro) energy production all over the current day
+TR: -   `prodCurrMonth` (ro) energy production all over the current month
+TR: -   `prodCurrYear` (ro) energy production all over the current year
+TR: -   `prodTotal` (ro) energy production since setting up
+TR: -   `consCurr` (ro) current consumption power
+TR: -   `consCurrDay` (ro) energy consumed throughout the current day
+TR: -   `consTotal` (ro) energy consumed since setting up
+TR: -   `deliveryDay` (ro) unknown
+TR: -   `earningsDay` (ro) how much money was earned over the current by either consuming the produced power yourself instead of consuming it from the grid, or by exporting unused produced power to the grid
+TR: -   `earningsMonth` (ro) how much money was earned over the current month
+TR: -   `earningsYear` (ro) how much money was earned over the current year
+TR: -   `earningsTotal` (ro) how much money was earned since setting up
+TR: -   `gridCurr` (ro) current grid consumption/delivery power. If negative, power is being delivered to the grid.
+TR: -   `batteryCurr` (ro) current battery charging/usage power. If negative, the battery is charging.
+TR: -   `stateOfCharge` (ro) represents the charging state of the battery. 100 = fully charged.
+TR: -   `co2Factor` (ro) How much co2 does it take to produce one kWh, used to compute CO2 savings
+TR: -   `online` (ro) true: online, false: offline
 
 TR: ### Gate
 TR: Provided by gate controls.
@@ -302,6 +336,30 @@ TR: -   `open` (wo) opens all gates
 TR: -   `close` (wo) closes all gates
 TR: -   `stop` (wo) stops all gate motors
 
+TR: ### Hourcounter
+TR: Provided by
+
+TR: -   `total` (ro) total number of seconds the counter has been active so far
+TR: -   `remaining` (ro) how many seconds left until the next maintenance is required
+TR: -   `lastActivation` (ro) the timestamp when the counter was activated the last time
+TR: -   `overdue` (ro) `false` if not overdue, otherwise maintenance is required
+TR: -   `maintenanceInterval` (ro) seconds until the next maintenance
+TR: -   `active` (ro) whether or not the counter is currently active
+TR: -   `overdueSince` (ro) seconds since the maintainanceInterval was exceeded
+TR: -   `reset` (wo) will cause a reset of the following values
+TR:     -   remaining to maintenanceInterval
+TR:     -   overdue to 0
+TR:     -   overdueSince to 0
+TR: -   `resetAll` (wo) like `reset`, but also sets
+TR:     -   total to 0
+TR:     -   lastActivation to 0
+
+TR: ### InfoOnlyAnalog
+TR: Provided by virtual states as well as the Loxone Touch switch.
+
+TR: -   `value` (ro) the state value (number) of the control
+TR: -   `value-formatted` (ro) if configured, the formatted value of the state (using the "Unit" format from Loxone Config)
+
 TR: ### InfoOnlyDigital
 TR: Provided by virtual states as well as the Loxone Touch switch.
 
@@ -312,11 +370,11 @@ TR: -   `active-color` (ro) if configured, the color equivalent of the state
 
 ![TR: InfoOnlyDigital settings](../../../en/adapterref/iobroker.loxone/doc/loxone-config-info-only-digital.png)
 
-TR: ### InfoOnlyAnalog
-TR: Provided by virtual states as well as the Loxone Touch switch.
+TR: ### InfoOnlyText
+TR: Provided by virtual text states.
 
-TR: -   `value` (ro) the state value (number) of the control
-TR: -   `value-formatted` (ro) if configured, the formatted value of the state (using the "Unit" format from Loxone Config)
+TR: -   `text` (ro) the state value of the control
+TR: -   `text-formatted` (ro) if configured, the formatted value of the state
 
 TR: ### Intercom
 TR: Provided by door controllers.
@@ -429,6 +487,11 @@ TR: Provided by virtual push-button inputs.
 
 TR: -   `active` (rw) the current state of the pushbutton
 TR: -   `pulse` (wo) writing any value to this state will simulate the button being pushed only for a very short time
+
+TR: ### Radio
+TR: Provided by radio buttons (8x and 16x).
+
+TR: -   `activeOutput` (rw) ID of the currently active output or 0 if none is active ("All Off")
 
 TR: ### Slider
 TR: Provided by analog virtual inputs.
@@ -608,6 +671,17 @@ TR: Loxone and Miniserver are registered trademarks of Loxone Electronics GmbH.
     Placeholder for the next version (at the beginning of the line):
     ### **WORK IN PROGRESS**
 -->
+
+### 2.2.2 (2021-06-23)
+
+-   (UncleSamSwiss) Explicitly setting adapter tier to 2.
+-   (UncleSamSwiss) Added support for Daytimer (IOBROKER-LOXONE-1Z)
+-   (UncleSamSwiss) Added support for Radio (IOBROKER-LOXONE-21)
+-   (UncleSamSwiss) Added support for Fronius (IOBROKER-LOXONE-1Y)
+-   (UncleSamSwiss) Added support for IRCDaytimer (IOBROKER-LOXONE-27)
+-   (UncleSamSwiss) Added support for Hourcounter (IOBROKER-LOXONE-23)
+-   (UncleSamSwiss) Added support for InfoOnlyText (IOBROKER-LOXONE-29)
+-   (UncleSamSwiss) Fixed issues with Lumitech color pickers (#150)
 
 ### 2.2.1 (2021-05-18)
 

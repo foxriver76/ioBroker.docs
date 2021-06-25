@@ -1,139 +1,168 @@
 ---
+BADGE-Number of Installations: http://iobroker.live/badges/bring-installed.svg
+BADGE-Stable version: http://iobroker.live/badges/bring-stable.svg
+BADGE-NPM version: http://img.shields.io/npm/v/iobroker.bring.svg
+BADGE-Downloads: https://img.shields.io/npm/dm/iobroker.bring.svg
+BADGE-NPM: https://nodei.co/npm/iobroker.bring.png?downloads=true
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.bring/README.md
-title: ioBroker.bring
-hash: n1lrpEniOSNdTJPhXYpr74N+pzHkxWVNnX3UPJa37bc=
+title: TR: ioBroker.bring
+hash: OZhjDNOBP7gPGWiHnvQq6ZDL5FVpF0lZ7JnqtpmifNM=
 ---
-![логотип](../../../en/adapterref/iobroker.bring/admin/bring.png)
+![TR: Logo](../../../en/adapterref/iobroker.bring/admin/bring.png)
 
-![Количество установок](http://iobroker.live/badges/bring-installed.svg)
-![Стабильная версия](http://iobroker.live/badges/bring-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.bring.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.bring.svg)
-![Значок Greenkeeper](https://badges.greenkeeper.io/foxriver76/ioBroker.bring.svg)
-![NPM](https://nodei.co/npm/iobroker.bring.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/bring-installed.svg)
+![TR: Stable version](http://iobroker.live/badges/bring-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.bring.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.bring.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.bring.png?downloads=true)
 
-# IoBroker.bring
+TR: # ioBroker.bring
 ===========================
 
-![Статус сборки](https://github.com/foxriver76/ioBroker.bring/workflows/Test%20and%20Release/badge.svg)
+![TR: Build Status](https://github.com/foxriver76/ioBroker.bring/workflows/Test%20and%20Release/badge.svg)
 
-## Состояния
-Описание созданных состояний см. Ниже.
+TR: ## Disclaimer
+TR: The developers of this module are in no way endorsed by or affiliated with Bring! Labs AG, or any associated subsidiaries, logos or trademarks.
 
-### Канал: информация
-* info.connection
+TR: ## States
+TR: For a description of the created states, see below.
 
-    | Тип данных | Разрешение |
+TR: ### Channel: info
+TR: * info.connection
+
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Логическое | R |
+| TR:     |boolean|R|
 
-   *Только для чтения логический индикатор. Если ваш брокер вошел в систему на принести, состояние true, иначе false.*
+TR:    *Read-only boolean indicator. If your broker is logged in on bring, the state is true otherwise false.*
 
-* info.user
+TR: * info.user
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Строка | R |
+| TR:     |string|R|
 
-   *Только для чтения строки. Содержит имя вошедшего в систему пользователя.*
+TR:    *Read only string. Contains the name of the logged-in user.*
 
-### Списки покупок
-Для каждого списка покупок будет создан канал со следующими состояниями:
+TR: ### Shopping lists
+TR: For every shopping list a channel with the following states will be created:
 
-* *list* .content / *list* .contentHtml / NoHead
+TR: **list*.content /* ist*.contentHtml/NoHead
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Строка | R |
+| TR:     |string|R|
 
-*Только для чтения строки json / html, отформатированные в виде списка или HTML-таблицы. Содержит элементы, которые в настоящее время находятся в вашем списке покупок.
-Таблицы NoHead Html не содержат заголовков таблиц.*
+TR: *Read only json/html string formatted as a list or html table. Contains the items which are currently on your shopping list.
+The NoHead Html tables are w/o table headers.*
 
-* *list* .recentContent / *list* .recentContentHtml / NoHead
+TR: **list*.recentContent /* ist*.recentContentHtml/NoHead
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Строка | R |
+| TR:     |string|R|
 
-*Только для чтения строки json / html, отформатированные в виде списка или HTML-таблицы. Содержит элементы, которые недавно были в вашем списке покупок.
-Таблицы NoHead Html не содержат заголовков таблиц.*
+TR: *Read only json/html string formatted as a list or html table. Contains the items which were recently on your shopping list.
+The NoHead Html tables are w/o table headers.*
 
-* *список* .removeItem
+TR: * *list*.removeItem
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Строка | R / W |
+| TR:     |string|R/W|
 
-*Выберите элемент, который должен быть удален из списка покупок и списка недавнего контента.
-Состояние будет подтверждено, когда команда подтверждена командой Bring! API.*
+TR: *Select an item which should be removed from the shopping list and recent content list.
+The state will be acknowledged when the command is acknowledged by the Bring! API.*
 
-* *список* .moveToRecentContent
+TR: * *list*.moveToRecentContent
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Строка | R / W |
+| TR:     |string|R/W|
 
-*Выберите элемент, который следует переместить или добавить в список недавнего содержимого.
-Состояние будет подтверждено, когда команда подтверждена командой Bring! API.*
+TR: *Select an item which should be moved or added to recent content list.
+The state will be acknowledged when the command is acknowledged by the Bring! API.*
 
-* *список* .saveItem
+TR: * *list*.saveItem
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Строка | R / W |
+| TR:     |string|R/W|
 
-*Выберите предмет, который должен быть добавлен в список покупок. Вы также можете указать дополнительную информацию об элементе, установив состояние по следующей схеме:*
+TR: *Select an item which should be added to the shopping list. You can also specify additional information of the item, by setting the state by the following schema:*
 
 ```Apple, 2.50 $, the green ones```
 
-*Обратите внимание, что все, что за запятой, описывает спецификацию.
-Состояние будет подтверждено, когда команда подтверждена командой Bring! API.*
+TR: *Note, that everything behind the comma describes the specification.
+The state will be acknowledged when the command is acknowledged by the Bring! API.*
 
-* *list* .users / *list* .usersHtml / NoHead
+TR: **list*.users /* ist*.usersHtml/NoHead
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Строка | R |
+| TR:     |string|R|
 
-*Только для чтения строки json / html, отформатированные в виде списка или HTML-таблицы. Содержит пользователей, которые являются частью списка покупок, а также их адрес электронной почты.
-Таблицы NoHead Html не содержат заголовков таблиц.*
+TR: *Read only json/html string formatted as a list or html table. Contains the users which are part of the shopping list, as well as their email address.
+The NoHead Html tables are w/o table headers.*
 
-* *список* .count
+TR: * *list*.count
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Номер | R |
+| TR:     |number|R|
 
-   *Только для чтения число, которое представляет количество содержащихся элементов списка.*
+TR:    *Read only number, which represents the number of contained items of the list.*
 
-* *список* .messageTrigger
+TR: * *list*.messageTrigger
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Кнопка | R / W |
+| TR:     |button|R/W|
 
-*Если вы нажмете эту кнопку, список покупок будет отправлен в настроенные экземпляры, e. грамм. Pushover, Telegram или / и E-Mail.*
+TR: *If you press this button, the shopping list will be sent to the configured instances, e. g. Pushover, Telegram or/and E-Mail.*
 
-* *список* .enumSentence
+TR: * *list*.enumSentence
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Строка | R |
+| TR:     |string|R|
 
-*Только для чтения строка, которая содержит перечисление элементов списка покупок в удобной для восприятия форме.
-Это может быть использовано e. грамм. для вывода голоса через умных помощников.*
+TR: *Read only string, which contains an enumeration of the shopping list items in a speakable form.
+This can be used e. g. for voice output via smart assistants.*
 
-* *список* перевод
+TR: * *list*.translation
 
-    | Тип данных | Разрешение |
+| TR:     |Data type|Permission|
     |:---:|:---:|
-    | Строка | R |
+| TR:     |string|R|
 
-    *Только для чтения строка json, которая содержит словарь для перевода имен швейцарских предметов на язык списка.*
+TR:     *Read only json string, which contains a dictionary to translate the swiss item names to the list language.*
 
 ## Changelog
+### 1.7.7 (2020-12-12)
+* (foxriver76) fix potential crash on `pollAllLists` function
+
+### 1.7.6 (2020-12-05)
+* (foxriver76) we now use a unique name for widget rendering function to avoid conflicts
+* (foxriver76) if we cannot render widget immediately we try again after one second (see #57)
+
+### 1.7.4 (2020-12-04)
+* (foxriver76) we now render the widget immediately
+
+### 1.7.3 (2020-10-26)
+* (foxriver76) bring module now returns real errors instead of strings, handle them correct
+
+### 1.7.2 (2020-04-23)
+* (foxriver76) fixed potential issue on rendering widget
+
+### 1.7.1 (2020-02-13)
+* (foxriver76) we are now using AES-256-CBC as encryption
+
+### 1.6.8 (2019-12-31)
+* (foxriver76) ensure compatibility with older browsers
+
 ### 1.6.6 (2019-11-21)
 * (foxriver76) improved error handling in widget
 
@@ -221,7 +250,7 @@ hash: n1lrpEniOSNdTJPhXYpr74N+pzHkxWVNnX3UPJa37bc=
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2019-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

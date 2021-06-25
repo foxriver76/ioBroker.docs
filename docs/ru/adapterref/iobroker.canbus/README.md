@@ -2,96 +2,97 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.canbus/README.md
-title: ioBroker.canbus
-hash: BsHvCP3XTKPy/kU0CP3ByqkoVjiWxgvleJmi5vIW3nQ=
+title: TR: ioBroker.canbus
+hash: tMg9bs8laDd02JYcEJwNoU9LIeXIWbRTszVkW2f7KfE=
 ---
-# IoBroker.canbus
-![Логотип](../../../en/adapterref/iobroker.canbus/admin/canbus.png)
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.canbus.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.canbus.svg)
+![TR: Number of Installations (latest)](https://iobroker.live/badges/canbus-installed.svg)
+![TR: Number of Installations (stable)](https://iobroker.live/badges/canbus-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/crycode-de/iobroker.canbus.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.canbus.png?downloads=true)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.canbus.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.canbus.svg)
-![Количество установок (последнее)](https://iobroker.live/badges/canbus-installed.svg)
-![Количество установок (стабильно)](https://iobroker.live/badges/canbus-stable.svg)
-![Статус зависимости](https://img.shields.io/david/crycode-de/iobroker.canbus.svg)
-![НПМ](https://nodei.co/npm/iobroker.canbus.png?downloads=true)
+TR: # ioBroker.canbus
+![TR: Logo](../../../en/adapterref/iobroker.canbus/admin/canbus.png)
 
-[![Статус перевода] (https://weblate.iobroker.net/widgets/adapters/-/canbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/canbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Тесты: ** ![Тестирование и выпуск](https://github.com/crycode-de/ioBroker.canbus/workflows/Test%20and%20Release/badge.svg)
+TR: **Tests:** ![TR: Test and Release](https://github.com/crycode-de/ioBroker.canbus/workflows/Test%20and%20Release/badge.svg)
 
-## Адаптер CAN-шины для ioBroker
-Этот адаптер подключает ioBroker к сети контроллеров (шина CAN).
+TR: ## CAN bus adapter for ioBroker
+TR: This adapter connects ioBroker to a Controller Area Network (CAN bus).
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Функции
-* Получать и отправлять необработанные сообщения с использованием стандартных и расширенных фреймов.
-* Каждое сообщение может быть настроено для приема и / или отправки данных
-* Возможность автоматического добавления объектов для увиденных сообщений CAN, которые еще не настроены
-* Настройте парсеры для каждого сообщения для чтения / записи данных из / в буфер необработанных сообщений
-  * Числовые типы
-  * Логические значения, включая поддержку битовой маски
-  * Строки в разных кодировках символов
-  * Пользовательские скрипты для чтения / записи из / в буфер необработанных данных
-* Расширенная функция импорта / экспорта
-  * Импорт конфигураций сообщений для расширения существующей конфигурации
-  * Импорт предопределенных "хорошо известных" конфигураций из GitHub в интерфейсе администратора.
-  * Экспортируйте и импортируйте конфигурации сообщений в виде файлов `json` или` csv`
-* Дополнительная поддержка фиксированной длины данных (DLC)
-* Дополнительная поддержка флага RTR
-* Дополнительные необработанные состояния, содержащие необработанные объекты сообщений CAN
+TR: ## Features
+TR: * Receive and send raw messages using standard frames and extended frames
+TR: * Each message may be configured for receiving and/or sending data
+TR: * Ability to automatically add objects for seen CAN messages which are not already configured
+TR: * Configure parsers for each message to read/write data from/to the raw message buffer
+TR:   * Numeric types
+TR:   * Booleans including bitmask support
+TR:   * Strings in different character encodings
+TR:   * Custom scripts to read/write from/to the buffer of raw data
+TR: * Advanced import/export feature
+TR:   * Import message configurations to extends your existing configuration
+TR:   * Import predefined "well known" configurations from GitHub within the admin interface
+TR:   * Export and import your message configurations as `json` or `csv` files
+TR: * Optional support for fixed data lengths (DLC)
+TR: * Optional support for the RTR flag
+TR: * Optional raw states containing raw CAN message objects
+TR: * Optional automatically set a certain value in a given interval for each parser (usefull for polling data)
 
-## Требования
-* Операционная система Linux (из-за используемой библиотеки socketcan)
-* Оборудование CAN, которое поддерживается ядром и создает интерфейс, подобный `can0`
-* Некоторые знания о сообщениях, отправляемых на CAN-шину
+TR: ## Requirements
+TR: * Linux operating system (because of the used socketcan library)
+TR: * CAN Hardware which is supported by the kernel and creates an interface like `can0`
+TR: * Some knowledge about the messages send on you CAN bus
 
-## Парсеры
-Используя синтаксические анализаторы, вы можете читать или записывать данные в буфер сообщений CAN.
+TR: ## Parsers
+TR: Using parsers you are able to read data from or write data to the CAN message buffer.
 
-Существуют предопределенные парсеры для следующих типов данных.
-Кроме того, вы можете написать собственные сценарии для чтения / записи значений с помощью *настраиваемого парсера*
+TR: There are predefined parsers for the following data types.
+Additionally you may write you own scripts to read/write values with a *custom parser*.
 
-### Числовые типы в репрезентации *с прямым порядком байтов* и *с прямым порядком байтов*
-* Знаковые и беззнаковые 8-, 16- и 32-битные целые числа
-* 32-битное число с плавающей запятой
-* 64-битный двойной
+TR: ### Numeric types in *big-endian* and *little-endian* reperesentation
+TR: * Signed and unsigned 8, 16 and 32 bit integer
+TR: * 32 bit float
+TR: * 64 bit double
 
-### Логическое
-* 1 байт, включая поддержку битовой маски
+TR: ### Boolean
+TR: * 1 byte including bitmask support
 
-### Нить
-* Длина от 1 до 8 байт
-*Кодировка: * ascii *, * base64 *, * hex *, * latin1 *, * utf8 *, * utf16le*
+TR: ### String
+TR: * 1 to 8 byte length
+TR: * Encoding: *ascii*, *base64*, *hex*, *latin1*, *utf8*, *utf16le*
 
-### Обычай
-Для настраиваемого парсера вы должны предоставить собственный сценарий чтения и записи.
-Эти скрипты должны быть чистым javascript и запускаться в песочнице.
+TR: ### Custom
+TR: For a custom parser you have to provide you own read and write script.
+These scripts should be pure javascript and will run in a sandbox.
 
-В скриптах вы можете использовать следующие возможности:
+TR: In the scripts you are able to use the following features:
 
-* Большинство встроенных функций Node.js
-* `async` /` ожидание`
-* Функции журнала адаптера `log.warn ('something')`, `log.info ('something')`, `log.debug ('something')`
-* `getStateAsync ('id')` и `getObjectAsync ('id')`, где `id` - это полный идентификатор состояния / объекта
+TR: * Most of Node.js build in functions
+TR: * `async`/`await`
+TR: * Adapter log functions `log.warn('something')`, `log.info('something')`, `log.debug('something')`
+TR: * `getStateAsync('id')` and `getObjectAsync('id')` where `id` is the full ID of the state/object
 
-Ошибки в скриптах будут регистрироваться адаптером.
+TR: Errors in the scripts will be logged by the adapter.
 
-В обоих сценариях предварительно определены переменные `buffer` и `value`.
-`buffer` всегда содержит текущее содержимое сообщения CAN в виде буфера Node.js.
+TR: In both scripts the variables `buffer` and `value` are predefined.
+`buffer` always contains the current CAN message content as a Node.js Buffer.
 
-#### Пользовательский сценарий чтения
-В сценарии чтения вы должны прочитать `value` из переменной `buffer`.
+TR: #### Custom read script
+TR: In a read script you have to read the `value` from the `buffer` variable.
 
-В начале пользовательского сценария чтения `buffer` будут данными полученного / текущего сообщения CAN (как в состоянии `.json`).
-`value` будет `undefined` и должен быть установлен скриптом.
+TR: At the beginning of the custom read script, `buffer` will be the received/current CAN message data (like in the `.json` state).
+`value` will be `undefined` and should be set by the script.
 
-Содержимое переменной `value` в конце настраиваемого сценария чтения будет использоваться как новое значение для состояния.
-Если `value` равен `undefined`, он будет проигнорирован. Используя это, вы можете фильтровать сообщения в пользовательском сценарии чтения по частям данных.
+TR: The content of the `value` variable at the end of the custom read script will be used as new value for the state.
+If `value` is `undefined`, it will be ignored. Using this you are able to filter messages in the custom read script by data parts.
 
-##### Пример настраиваемого сценария чтения
-Проверьте первые три байта в полученном буфере на соответствие фиксированным значениям.
-При совпадении считайте 16-битовое целое число со знаком из байтов 3 и 4 буфера и разделите его на 10.
+TR: ##### Example for a custom read script
+TR: Check the first three bytes in the received buffer to match fixed values.
+If matched, read an 16 bit signed integer value from the buffer bytes 3 and 4 and divide it by 10.
 
 ```js
 if (buffer[0] === 0xC2 && buffer[1] === 0x10 && buffer[2] === 0x0F) {
@@ -99,36 +100,36 @@ if (buffer[0] === 0xC2 && buffer[1] === 0x10 && buffer[2] === 0x0F) {
 }
 ```
 
-Причина `value` устанавливается только при совпадении первых трех байтов, все остальные данные будут проигнорированы и не будут устанавливать новое значение для состояния.
+TR: Cause of `value` is only set when the first three bytes matched, all other data will be ignored and won't set a new value to the state.
 
-#### Пользовательский сценарий записи
-В сценарии записи вы должны изменить (или заменить) переменную `buffer`.
+TR: #### Custom write script
+TR: In a write script you have to modify (or replace) the `buffer` variable.
 
-В начале пользовательского сценария записи, `buffer` будет текущими данными сообщения CAN (как в состоянии `.json`).
-`value` устанавливается в значение состояния, которое должно быть записано в `buffer`.
+TR: At the beginning of the custom write script, `buffer` will be the current CAN message data (like in the `.json` state).
+`value` is set to the value of the state which should be written into the `buffer`.
 
-Содержимое переменной `buffer` в конце настраиваемого сценария записи будет использоваться в качестве новых данных для сообщения CAN.
+TR: The content of the `buffer` variable at the end of the custom write script will be used as new data for the CAN message.
 
-##### Пример настраиваемого сценария записи
-Подготовьте новый буфер с фиксированными значениями.
-Запишите значение состояния в буфер как 16-битное целое число со знаком, начиная с пятого байта в буфере.
+TR: ##### Example for a custom write script
+TR: Prepare a new buffer with fixed values.
+Write the state value into the buffer as a signed 16 bit integer, beginning at the fifth byte in the buffer.
 
 ```js
 buffer = Buffer.from([0x30, 0x00, 0xFA, 0x06, 0x7E, 0x00, 0x00]);
 buffer.writeInt16BE(value, 5);
 ```
 
-После этого новый `buffer` будет установлен как состояние `.json`.
-Если для сообщения включена опция *autosend* сообщение будет отправлено автоматически.
+TR: The new `buffer` will then be set as the `.json` state.
+If the *autosend* option is enabled for the message, the message will be automatically send.
 
-## Использование в скриптах
-Вы можете обрабатывать / изменять состояния `<messageId>.json` или `<messageId>.<parserId>` в своих сценариях.
+TR: ## Usage in scripts
+TR: You can handle/modify the `<messageId>.json` or `<messageId>.<parserId>` states in your scripts.
 
-Кроме того, вы можете использовать состояния `raw.received` и `raw.send`, если они включены в конфигурации адаптера.
-Они содержат строковые данные JSON данных сообщения и могут использоваться для обработки каждого полученного или отправленного сообщения независимо от настроенных сообщений.
-Записывая данные JSON в состояние `raw.send`, вы можете отправлять сообщения CAN, содержащие любые данные, которые вам нравятся.
+TR: Additionally you may use the `raw.received` and `raw.send` states, if you have them enabled in the adapter config.
+They hold the stringified JSON data of the message data and can be used to handle each received or send message independent from the configured messages.
+By writing JSON data to the `raw.send` state you are able to send CAN messages containing any data you like.
 
-### Пример объекта необработанного сообщения
+TR: ### Raw message object example
 ```js
 {
   "id": 42,
@@ -138,9 +139,21 @@ buffer.writeInt16BE(value, 5);
 }
 ```
 
-`ext` и `rtr` являются необязательными и по умолчанию равны `false`.
+TR: `ext` and `rtr` are optional and default to `false`.
 
 ## Changelog
+
+### 1.2.1 (2021-06-22)
+* (crycode-de) Added option to automatically set a certain value in a given interval for each parser
+* (crycode-de) Added checks for duplicate parser IDs
+* (VeSler) Russian translation updates
+* (crycode-de) Use inline sourcemaps for the adapter build files to make remote debugging work
+* (crycode-de) Updated dependencies
+
+### 1.1.4 (2021-04-30)
+* (crycode-de) Added license information to import of well-known configurations
+* (crycode-de) Fixed "Parser returned wrong data type undefined" log message
+* (crycode-de) Updated dependencies
 
 ### 1.1.3 (2021-04-12)
 * (crycode-de) Added definition of possible state values in admin

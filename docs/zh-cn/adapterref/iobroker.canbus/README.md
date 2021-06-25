@@ -2,96 +2,97 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.canbus/README.md
-title: ioBroker.canbus
-hash: BsHvCP3XTKPy/kU0CP3ByqkoVjiWxgvleJmi5vIW3nQ=
+title: TR: ioBroker.canbus
+hash: tMg9bs8laDd02JYcEJwNoU9LIeXIWbRTszVkW2f7KfE=
 ---
-![NPM版本](https://img.shields.io/npm/v/iobroker.canbus.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.canbus.svg)
-![安装数量（最新）](https://iobroker.live/badges/canbus-installed.svg)
-![安装数量（稳定）](https://iobroker.live/badges/canbus-stable.svg)
-![依赖状态](https://img.shields.io/david/crycode-de/iobroker.canbus.svg)
-![NPM](https://nodei.co/npm/iobroker.canbus.png?downloads=true)
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.canbus.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.canbus.svg)
+![TR: Number of Installations (latest)](https://iobroker.live/badges/canbus-installed.svg)
+![TR: Number of Installations (stable)](https://iobroker.live/badges/canbus-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/crycode-de/iobroker.canbus.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.canbus.png?downloads=true)
 
-＃ioBroker.canbus
-![商标](../../../en/adapterref/iobroker.canbus/admin/canbus.png)
+TR: # ioBroker.canbus
+![TR: Logo](../../../en/adapterref/iobroker.canbus/admin/canbus.png)
 
-[![翻译状态]（https://weblate.iobroker.net/widgets/adapters/-/canbus/svg-badge.svg）](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+[![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/canbus/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**测试：**![测试与发布](https://github.com/crycode-de/ioBroker.canbus/workflows/Test%20and%20Release/badge.svg)
+TR: **Tests:** ![TR: Test and Release](https://github.com/crycode-de/ioBroker.canbus/workflows/Test%20and%20Release/badge.svg)
 
-## IoBroker的CAN总线适配器
-该适配器将ioBroker连接到控制器局域网（CAN总线）。
+TR: ## CAN bus adapter for ioBroker
+TR: This adapter connects ioBroker to a Controller Area Network (CAN bus).
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-＃＃ 特征
-*使用标准框架和扩展框架接收和发送原始消息
-*每个消息都可以配置为接收和/或发送数据
-*能够为尚未配置的可见CAN消息自动添加对象
-*为每个消息配置解析器以从原始消息缓冲区读取数据/将数据写入原始消息缓冲区
-  *数值类型
-  *布尔值，包括位掩码支持
-  *不同字符编码的字符串
-  *自定义脚本以读取/写入原始数据的缓冲区
-*高级导入/导出功能
-  *导入消息配置以扩展现有配置
-  *在管理界面中从GitHub导入预定义的“知名”配置
-  *将消息配置导出和导入为json文件或csv文件
-*对固定数据长度（DLC）的可选支持
-*对RTR标志的可选支持
-*包含原始CAN消息对象的可选原始状态
+TR: ## Features
+TR: * Receive and send raw messages using standard frames and extended frames
+TR: * Each message may be configured for receiving and/or sending data
+TR: * Ability to automatically add objects for seen CAN messages which are not already configured
+TR: * Configure parsers for each message to read/write data from/to the raw message buffer
+TR:   * Numeric types
+TR:   * Booleans including bitmask support
+TR:   * Strings in different character encodings
+TR:   * Custom scripts to read/write from/to the buffer of raw data
+TR: * Advanced import/export feature
+TR:   * Import message configurations to extends your existing configuration
+TR:   * Import predefined "well known" configurations from GitHub within the admin interface
+TR:   * Export and import your message configurations as `json` or `csv` files
+TR: * Optional support for fixed data lengths (DLC)
+TR: * Optional support for the RTR flag
+TR: * Optional raw states containing raw CAN message objects
+TR: * Optional automatically set a certain value in a given interval for each parser (usefull for polling data)
 
-＃＃ 要求
-* Linux操作系统（由于使用了socketcan库）
-*内核支持的CAN硬件，它会创建一个类似于`can0`的接口
-*有关在您的CAN总线上发送的消息的一些知识
+TR: ## Requirements
+TR: * Linux operating system (because of the used socketcan library)
+TR: * CAN Hardware which is supported by the kernel and creates an interface like `can0`
+TR: * Some knowledge about the messages send on you CAN bus
 
-##解析器
-使用解析器，您可以从CAN消息缓冲区读取数据或将数据写入CAN消息缓冲区。
+TR: ## Parsers
+TR: Using parsers you are able to read data from or write data to the CAN message buffer.
 
-为以下数据类型提供了预定义的解析器。
-另外，您可以编写自己的脚本来使用* custom parser *读取/写入值。
+TR: There are predefined parsers for the following data types.
+Additionally you may write you own scripts to read/write values with a *custom parser*.
 
-＃big＃和* little-endian *表示形式中的数字类型
-*有符号和无符号8、16和32位整数
-* 32位浮点数
-* 64位双
+TR: ### Numeric types in *big-endian* and *little-endian* reperesentation
+TR: * Signed and unsigned 8, 16 and 32 bit integer
+TR: * 32 bit float
+TR: * 64 bit double
 
-###布尔值
-* 1个字节，包括位掩码支持
+TR: ### Boolean
+TR: * 1 byte including bitmask support
 
-＃＃＃ 细绳
-* 1至8字节长度
-*编码：* ascii *，* base64 *，* hex *，* latin1 *，* utf8 *，* utf16le *
+TR: ### String
+TR: * 1 to 8 byte length
+TR: * Encoding: *ascii*, *base64*, *hex*, *latin1*, *utf8*, *utf16le*
 
-＃＃＃ 风俗
-对于自定义解析器，您必须提供自己的读取和写入脚本。
-这些脚本应为纯JavaScript，并将在沙箱中运行。
+TR: ### Custom
+TR: For a custom parser you have to provide you own read and write script.
+These scripts should be pure javascript and will run in a sandbox.
 
-在脚本中，您可以使用以下功能：
+TR: In the scripts you are able to use the following features:
 
-*大多数Node.js内置函数
-*`async` /`await`
-*适配器日志函数`log.warn（'something'）`，`log.info（'something'）`，`log.debug（'something'）`
-*`getStateAsync（'id'）`和`getObjectAsync（'id'）`，其中`id`是状态/对象的完整ID
+TR: * Most of Node.js build in functions
+TR: * `async`/`await`
+TR: * Adapter log functions `log.warn('something')`, `log.info('something')`, `log.debug('something')`
+TR: * `getStateAsync('id')` and `getObjectAsync('id')` where `id` is the full ID of the state/object
 
-脚本中的错误将由适配器记录。
+TR: Errors in the scripts will be logged by the adapter.
 
-在这两个脚本中，变量`buffer`和`value`是预定义的。
-`buffer`始终包含当前的CAN消息内容作为Node.js缓冲区。
+TR: In both scripts the variables `buffer` and `value` are predefined.
+`buffer` always contains the current CAN message content as a Node.js Buffer.
 
-####自定义阅读脚本
-在读取脚本中，您必须从`buffer`变量中读取`value`。
+TR: #### Custom read script
+TR: In a read script you have to read the `value` from the `buffer` variable.
 
-在自定义读取脚本的开头，`buffer`将是接收到的/当前的CAN消息数据（类似于`.json`状态）。
-`value`将是`undefined`，应由脚本设置。
+TR: At the beginning of the custom read script, `buffer` will be the received/current CAN message data (like in the `.json` state).
+`value` will be `undefined` and should be set by the script.
 
-自定义读取脚本末尾的`value`变量的内容将用作状态的新值。
-如果`value`是`undefined`，它将被忽略。使用此功能，您可以按数据部分过滤自定义读取脚本中的消息。
+TR: The content of the `value` variable at the end of the custom read script will be used as new value for the state.
+If `value` is `undefined`, it will be ignored. Using this you are able to filter messages in the custom read script by data parts.
 
-#####自定义读取脚本的示例
-检查接收到的缓冲区中的前三个字节以匹配固定值。
-如果匹配，则从缓冲区字节3和4中读取一个16位带符号整数值，然后将其除以10。
+TR: ##### Example for a custom read script
+TR: Check the first three bytes in the received buffer to match fixed values.
+If matched, read an 16 bit signed integer value from the buffer bytes 3 and 4 and divide it by 10.
 
 ```js
 if (buffer[0] === 0xC2 && buffer[1] === 0x10 && buffer[2] === 0x0F) {
@@ -99,36 +100,36 @@ if (buffer[0] === 0xC2 && buffer[1] === 0x10 && buffer[2] === 0x0F) {
 }
 ```
 
-`value`的原因仅在前三个字节匹配时设置，所有其他数据将被忽略并且不会为该状态设置新值。
+TR: Cause of `value` is only set when the first three bytes matched, all other data will be ignored and won't set a new value to the state.
 
-####自定义写脚本
-在写脚本中，您必须修改（或替换）`buffer`变量。
+TR: #### Custom write script
+TR: In a write script you have to modify (or replace) the `buffer` variable.
 
-在自定义写入脚本的开头，`buffer`将是当前的CAN消息数据（类似于`.json`状态）。
-`value`设置为应写入`buffer`中的状态值。
+TR: At the beginning of the custom write script, `buffer` will be the current CAN message data (like in the `.json` state).
+`value` is set to the value of the state which should be written into the `buffer`.
 
-自定义写入脚本末尾的`buffer`变量的内容将用作CAN消息的新数据。
+TR: The content of the `buffer` variable at the end of the custom write script will be used as new data for the CAN message.
 
-#####自定义写脚本的示例
-准备一个具有固定值的新缓冲区。
-从缓冲区的第五个字节开始，将状态值作为一个带符号的16位整数写入缓冲区。
+TR: ##### Example for a custom write script
+TR: Prepare a new buffer with fixed values.
+Write the state value into the buffer as a signed 16 bit integer, beginning at the fifth byte in the buffer.
 
 ```js
 buffer = Buffer.from([0x30, 0x00, 0xFA, 0x06, 0x7E, 0x00, 0x00]);
 buffer.writeInt16BE(value, 5);
 ```
 
-然后将新的`buffer`设置为`.json`状态。
-如果为邮件启用了* autosend *选项，则该邮件将自动发送。
+TR: The new `buffer` will then be set as the `.json` state.
+If the *autosend* option is enabled for the message, the message will be automatically send.
 
-##脚本中的用法
-您可以处理/修改脚本中的`<messageId>.json`或`<messageId>.<parserId>`状态。
+TR: ## Usage in scripts
+TR: You can handle/modify the `<messageId>.json` or `<messageId>.<parserId>` states in your scripts.
 
-此外，如果在适配器配置中启用了状态，则可以使用`raw.received`和`raw.send`状态。
-它们保存消息数据的字符串化JSON数据，可用于独立于已配置的消息来处理每个接收或发送的消息。
-通过将JSON数据写入`raw.send`状态，您可以发送包含任何所需数据的CAN消息。
+TR: Additionally you may use the `raw.received` and `raw.send` states, if you have them enabled in the adapter config.
+They hold the stringified JSON data of the message data and can be used to handle each received or send message independent from the configured messages.
+By writing JSON data to the `raw.send` state you are able to send CAN messages containing any data you like.
 
-###原始消息对象示例
+TR: ### Raw message object example
 ```js
 {
   "id": 42,
@@ -138,9 +139,21 @@ buffer.writeInt16BE(value, 5);
 }
 ```
 
-`ext`和`rtr`是可选的，默认为`false`。
+TR: `ext` and `rtr` are optional and default to `false`.
 
 ## Changelog
+
+### 1.2.1 (2021-06-22)
+* (crycode-de) Added option to automatically set a certain value in a given interval for each parser
+* (crycode-de) Added checks for duplicate parser IDs
+* (VeSler) Russian translation updates
+* (crycode-de) Use inline sourcemaps for the adapter build files to make remote debugging work
+* (crycode-de) Updated dependencies
+
+### 1.1.4 (2021-04-30)
+* (crycode-de) Added license information to import of well-known configurations
+* (crycode-de) Fixed "Parser returned wrong data type undefined" log message
+* (crycode-de) Updated dependencies
 
 ### 1.1.3 (2021-04-12)
 * (crycode-de) Added definition of possible state values in admin
