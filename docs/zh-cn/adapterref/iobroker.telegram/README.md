@@ -2,38 +2,38 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.telegram/README.md
-title: ioBroker电报适配器
-hash: qnN6C3/RYS+HjTlA77HGatWAuS6cU9E3bsHJFQJCnmQ=
+title: TR: ioBroker telegram Adapter
+hash: UaRBWrjzUa4H5yQB5LQ/WEuTsWtm1xCLl/f16o0Mzxk=
 ---
-![商标](../../../en/adapterref/iobroker.telegram/admin/telegram.png)
+![TR: Logo](../../../en/adapterref/iobroker.telegram/admin/telegram.png)
 
-![安装数量](http://iobroker.live/badges/telegram-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.telegram.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.telegram.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.telegram.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.telegram.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/telegram-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.telegram.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.telegram.svg)
 
-＃ioBroker电报适配器
-##配置
-要求[@BotFather](https://telegram.me/botfather)创建新的漫游器```/newbot```。
+TR: # ioBroker telegram Adapter
+TR: ![TR: Test and Release](https://github.com/iobroker-community-adapters/iobroker.telegram/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/telegram/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-系统将要求您输入机器人的名称，然后输入用户名。
-之后，您将获得令牌。
+TR: ## Configuration
+TR: Ask [TR: @BotFather](https://telegram.me/botfather) to create new bot ```/newbot```.
 
-![屏幕截图](../../../en/adapterref/iobroker.telegram/img/chat.png)
+TR: You will be asked to enter name of the bot and then the username.
+After that, you will get the Token.
 
-您应该在配置对话框中设置通信密码。此后，启动适配器。
+![TR: Screenshot](../../../en/adapterref/iobroker.telegram/img/chat.png)
 
-要与您的机器人进行对话，您需要使用`/password phrase`对用户进行身份验证，其中**`phrase`**是您配置的密码。因此，在Telegram中与您生成的Bot进行新的对话，然后需要输入密码作为第一个命令。
+TR: You should set password for communication in configuration dialog. After this start the adapter.
 
-**注意：**您可以使用缩写`/p phrase`。
+TR: To start a conversation with your bot you need to authenticate user with `/password phrase`, where **`phrase`** is your configured password. So open a new conversation with your generated Bot in Telegram and then you need to enter the passwort as first command.
 
-要添加精美的头像图片，请在“ BotFather”聊天中输入`/setuserpic`并将其上载所需图片（512x512像素），例如[商标](img/logo.png)。
+TR: **Note:** you can use short form `/p phrase`.
 
-您可以通过messageBox`sendTo('telegram', 'Test message')`将消息发送给所有经过身份验证的用户，也可以将消息发送给特定的用户`sendTo('telegram', '@userName Test message')`。
-用户必须先经过身份验证。
+TR: To add nice avatar picture enter `/setuserpic` in **BotFather** chat and upload him desired picture (512x512 pixels), like this one [TR: logo](img/logo.png).
 
-您也可以通过这种方式指定用户：
+TR: You can send the message to all authenticated users over messageBox `sendTo('telegram', 'Test message')` or to specific user `sendTo('telegram', '@userName Test message')`.
+User must be authenticated before.
+
+TR: You can specify user in that way too:
 
 ```
 sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
@@ -41,12 +41,12 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
 });
 ```
 
-如果使用上面的示例，请注意，您必须将“ UserName”替换为您要向其发送消息的用户的名字或Public-Telegram-Username。 （取决于是否启用了适配器设置中的“存储用户名不是名字”设置）如果设置了该选项并且用户未在电报帐户中指定公共用户名，则适配器将继续使用的名字用户。请记住，如果用户稍后（在对您的机器人进行身份验证之后）设置了公共用户名，则下次用户向机器人发送消息时，保存的名字将被用户名替换。
+TR: If you use the example above be aware of that you have to replace 'UserName' with either the first name or the Public-Telegram-Username of the User you want to send the message to. (Depends on if the 'Store username not firstname' setting in the adapter settings is enabled or not) If the option is set and the user did not specify a public username in his telegram account, then the adapter will continue to use the firstname of the user. Keep in mind that if the user sets a public username later (after authenticating to your bot) the saved firstname will be replaced by the username the next time the user sends a message to the bot.
 
-可以指定多个收件人（只需用逗号分隔用户名）。
-例如：收件人：“ User1，User4，User5”
+TR: It is possible to specify more than one recipient (just separate the usernames by comma).
+For example: Recipient: "User1,User4,User5"
 
-您也可以通过状态发送消息，只需将状态*“ telegram.INSTANCE.communicate.response” *设置为值*“ @ userName测试消息” *或使用JSON对象即可：
+TR: You can send message over state too, just set state *"telegram.INSTANCE.communicate.response"* with value *"@userName Test message"* or with a JSON object:
 
 ```
 {
@@ -54,7 +54,7 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
 }
 ```
 
-JSON语法还允许从[电报机器人API](https://core.telegram.org/bots/api)添加选项，以及设置用户或chatId：
+TR: The JSON syntax also allows the adding options from the [TR: telegram bots API](https://core.telegram.org/bots/api), as well as setting the user or chatId:
 
 ```
 {
@@ -65,20 +65,20 @@ JSON语法还允许从[电报机器人API](https://core.telegram.org/bots/api)�
 }
 ```
 
-为了向群组发送消息，您必须邀请漫游器加入您希望漫游器加入的群组。
-通过为JSON消息有效负载提供`chat_id`，您实际上可以将消息发送到这些组。
+TR: In order to send messages to the groups, you have to invite the bot to the group you want the bot to post in.
+By providing the `chat_id` to the JSON message payload you can actually send messages to those groups.
 
-为了找出`chat_id`，您必须将适配器的日志级别设置为`debug`。
-然后，您可以仅在您希望机器人向其发送消息的组中对机器人进行ping操作。
-确保在消息前面放置一个`/`，以便机器人可以看到该消息（[如果漫游器隐私已打开](#How-to-receive-messages-in-group-chats-using-telegram-adapter)）。
-然后，iobroker日志将在日志中显示聊天ID。
+TR: In order to find out the `chat_id` you have to set the adapter's log level to `debug`.
+You can then just ping your bot in the groups you want the bot to send messages to.
+Make sure you put a `/` in front of the message in order for the bot to see the message ([TR: if the bot privacy is turned on](#How-to-receive-messages-in-group-chats-using-telegram-adapter)).
+The iobroker log will then show you the chat id in the logs.
 
-##用法
-您可以将电报与[text2command](https://github.com/ioBroker/ioBroker.text2command)适配器一起使用。有预定义的通信模式，您可以以文本形式命令您回家。
+TR: ## Usage
+TR: You can use telegram with [TR: text2command](https://github.com/ioBroker/ioBroker.text2command) adapter. There are predefined communication schema and you can command to you home in text form.
 
-要发送照片，只需发送文件的路径而不是文本或URL：`sendTo('telegram', 'absolute/path/file.png')`或`sendTo('telegram', 'https://telegram.org/img/t_logo.png')`§。
+TR: To send a photo, just send a path to file instead of text or URL: `sendTo('telegram', 'absolute/path/file.png')` or `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
 
-如何将网络摄像头的屏幕快照发送到电报的示例：
+TR: Example how to send a screenshot from web-cam to telegram:
 
 ```
 var request = require('request');
@@ -109,20 +109,20 @@ on("someState", function (obj) {
 });
 ```
 
-以下消息保留用于操作：
+TR: Following messages are reserved for actions:
 
--*键入*-对于短信，
--* upload_photo *-用于照片，
--* upload_video *-对于视频，
--* record_video *-对于视频，
--* record_audio *-用于音频，
--* upload_audio *-用于音频，
--* upload_document *-对于文档，
--* find_location *-用于位置数据
+TR: - *typing* - for text messages,
+TR: - *upload_photo* - for photos,
+TR: - *upload_video* - for videos,
+TR: - *record_video* - for videos,
+TR: - *record_audio* - for audio,
+TR: - *upload_audio* - for audio,
+TR: - *upload_document* - for documents,
+TR: - *find_location* - for location data
 
-在这种情况下，将发送动作命令。
+TR: In this case the action command will be sent.
 
-可以在[这里](https://core.telegram.org/bots/api)中找到电报API的描述，您可以使用此api中定义的所有选项，只需将其包含在send对象中即可。例如。：
+TR: The description for telegram API can be found [TR: here](https://core.telegram.org/bots/api) and you can use all options defined in this api, just by including that into send object. E.g.:
 
 ```
 sendTo('telegram.0', {
@@ -132,21 +132,21 @@ sendTo('telegram.0', {
 });
 ```
 
-**可能的选项**：
+TR: **Possible options**:
 
--* disable_notification *：静默发送消息。 iOS用户将不会收到通知，Android用户将不会收到通知。 （所有类型）
--* parse_mode *：如果希望Telegram应用在机器人的消息中显示粗体，斜体，固定宽度的文本或嵌入式URL，则发送Markdown或HTML。可能的值：“ Markdown”，“ MarkdownV2”，“ HTML”（消息）
--* disable_web_page_preview *：禁用此消息中链接的链接预览（消息）
--*标题*：用于文档，照片或视频的标题，0-200个字符（视频，音频，照片，文档）
--*持续时间*：以秒为单位发送视频或音频的持续时间（音频，视频）
--*表演者*：音频文件的表演者（音频）
--* title *：音频文件的轨道名称（音频）
--*宽度*：视频宽度（视频）
--*高度*：视频高度（视频）
+TR: - *disable_notification*: Sends the message silently. The iOS users will not receive a notification, Android users will receive a notification with no sound. (all types)
+TR: - *parse_mode*: Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. Possible values: "Markdown", "MarkdownV2", "HTML" (message)
+TR: - *disable_web_page_preview*: Disables link previews for links in this message (message)
+TR: - *caption*: Caption for the document, photo or video, 0-200 characters (video, audio, photo, document)
+TR: - *duration*: Duration of sent video or audio in seconds (audio, video)
+TR: - *performer*: Performer of the audio file (audio)
+TR: - *title*: Track name of the audio file (audio)
+TR: - *width*: Video width (video)
+TR: - *height*: Video height (video)
 
-适配器尝试检测消息的类型（照片，视频，音频，文档，标签，动作，位置）取决于消息中的文本（如果文本是现有文件的路径），它将根据类型发送。
+TR: Adapter tries to detect the type of message (photo, video, audio, document, sticker, action, location) depends on text in the message if the text is path to existing file, it will be sent as according type.
 
-将根据属性纬度检测位置：
+TR: Location will be detected on attribute latitude:
 
 ```
 sendTo('telegram.0', {
@@ -156,10 +156,10 @@ sendTo('telegram.0', {
 });
 ```
 
-###显式消息
-如果您想将数据发送为缓冲区，则可以定义其他消息类型。
+TR: ### Explicit types of messages
+TR: You have the possibility to define extra the type of the message in case you want to send the data as buffer.
 
-可以使用以下类型：*贴纸*，*视频*，*文档*，*音频*，*照片*。
+TR: Following types are possible: *sticker*, *video*, *document*, *audio*, *photo*.
 
 ```
 sendTo('telegram.0', {
@@ -168,8 +168,8 @@ sendTo('telegram.0', {
 });
 ```
 
-###键盘
-您可以在客户端中显示键盘** ReplyKeyboardMarkup **：
+TR: ### Keyboard
+TR: You can show keyboard **ReplyKeyboardMarkup** in the client:
 
 ```
 sendTo('telegram.0', {
@@ -185,9 +185,9 @@ sendTo('telegram.0', {
 });
 ```
 
-您可以阅读更多的[此处]（https://core.telegram.org/bots/api#replykeyboardmarkup）和[此处](https://core.telegram.org/bots#keyboards)。
+TR: You can read more [TR: here](https://core.telegram.org/bots/api#replykeyboardmarkup) and [here](https://core.telegram.org/bots#keyboards).
 
-您可以在客户端中显示键盘** InlineKeyboardMarkup **：
+TR: You can show keyboard **InlineKeyboardMarkup** in the client:
 
 ```
 sendTo('telegram', {
@@ -202,12 +202,12 @@ sendTo('telegram', {
 });
 ```
 
-您可以阅读更多的[此处]（https://core.telegram.org/bots/api#inlinekeyboardmarkup）和[此处](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating)。
+TR: You can read more [TR: here](https://core.telegram.org/bots/api#inlinekeyboardmarkup) and [here](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating).
 
-**注意：** *用户按下回叫按钮后，Telegram客户端将显示进度条，直到您调用answerCallbackQuery。因此，即使不需要向用户发送通知，也必须通过调用answerCallbackQuery做出反应（例如，不指定任何可选参数）。*
+TR: **NOTE:** *After the user presses a callback button, Telegram clients will display a progress bar until you call answerCallbackQuery. It is, therefore, necessary to react by calling answerCallbackQuery even if no notification to the user is needed (e.g., without specifying any of the optional parameters).*
 
-### AnswerCallbackQuery
-使用此方法可以将答案发送给从嵌入式键盘发送的回调查询。答案将作为通知显示在用户的聊天屏幕顶部或作为警报。成功后，将返回* True *。
+TR: ### answerCallbackQuery
+TR: Use this method to send answers to callback queries sent from inline keyboards. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, *True* is returned.
 
 ```
 if (command ==="1_2") {
@@ -221,16 +221,16 @@ if (command ==="1_2") {
 }
 ```
 
-您可以阅读更多的[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegrambotanswercallbackquerycallbackqueryid-text-showalert-options--promise)。
+TR: You can read more [TR: here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegrambotanswercallbackquerycallbackqueryid-text-showalert-options--promise).
 
-＃＃＃ 题
-您可以发送电文消息，下一个答案将在回调中返回。
-可以在配置中设置超时，默认情况下为60秒。
+TR: ### Question
+TR: You can send to telegram the message and the next answer will be returned in callback.
+Timeout can be set in configuration and by default is 60 seconds.
 
 ```
 sendTo('telegram.0', 'ask', {
     user: user, // optional
-    text: 'Aure you sure?',
+    text: 'Are you sure?',
     reply_markup: {
         inline_keyboard: [
             // two buttons could be on one line too, but here they are on different
@@ -243,16 +243,16 @@ sendTo('telegram.0', 'ask', {
 });
 ```
 
-##聊天ID
-从0.4.0版开始，您可以使用聊天ID将消息发送到聊天。
+TR: ## Chat ID
+TR: From version 0.4.0 you can use chat ID to send messages to chat.
 
-`sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123');`
+TR: `sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123');`
 
-##更新消息
-通过以下方法，您可以更改消息历史记录中的现有消息，而不是通过操作结果发送新消息。这对于使用*内置键盘*的带有回调查询的消息最有用，但也可以帮助减少与常规聊天机器人进行对话时的混乱情况。
+TR: ## Updating messages
+TR: The following methods allow you to change an existing message in the message history instead of sending a new one with a result of an action. This is most useful for messages with *inline keyboards* using callback queries, but can also help reduce clutter in conversations with regular chat bots.
 
-### EditMessageText
-使用此方法来编辑由机器人或通过机器人（对于嵌入式机器人）发送的文本。成功后，如果漫游器发送了已编辑的消息，则返回已编辑的消息，否则返回* True *。
+TR: ### editMessageText
+TR: Use this method to edit text sent by the bot or via the bot (for inline bots). On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
 
 ```
 if (command === "1_2") {
@@ -275,7 +275,7 @@ if (command === "1_2") {
 }
 ```
 
-*或最后一条消息的新文本：*
+TR: *or new text for last message:*
 
 ```
 if (command ==="1_2") {
@@ -292,10 +292,54 @@ if (command ==="1_2") {
 }
 ```
 
-您可以阅读更多的[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise)。
+TR: You can read more [TR: here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).
 
-### EditMessageReplyMarkup
-使用此方法仅编辑由漫游器或通过漫游器（对于内向漫游器）发送的邮件的答复标记。成功后，如果漫游器发送了已编辑的消息，则返回已编辑的消息，否则返回* True *。
+TR: ### editMessageCaption
+TR: Use this method to edit caption of the message sent by the bot or via the bot (for inline bots).
+On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
+
+```
+if (command === "1_2") {
+    sendTo('telegram', {
+        user, // optional
+        text: 'New caption',
+        editMessageCaption: {
+            options: {
+                chat_id: getState("telegram.0.communicate.requestChatId").val,
+                message_id: getState("telegram.0.communicate.requestMessageId").val
+            }
+        }
+    });
+}
+```
+
+TR: You can read more [TR: here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).
+
+TR: ### editMessageMedia
+TR: Use this method to edit picture of the message sent by the bot or via the bot (for inline bots).
+On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
+
+```
+if (command === "1_2") {
+    sendTo('telegram', {
+        user, // optional
+        text: 'picture.jpg',
+        editMessageMedia: {
+            options: {
+                chat_id: (await getStateAsync('telegram.0.communicate.botSendChatId')).val,
+                message_id: (await getStateAsync('telegram.0.communicate.botSendMessageId')).val
+            }
+        }
+    });
+}
+```
+
+TR: Supported are following media types: `photo`, `animation`, `audio`, `document`, `video`.
+
+TR: You can read more [TR: here](https://core.telegram.org/bots/api#editmessagemedia).
+
+TR: ### editMessageReplyMarkup
+TR: Use this method to edit only the reply markup of messages sent by the bot or via the bot (for inline bots). On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
 
 ```
 if (command === "1_2") {
@@ -318,14 +362,14 @@ if (command === "1_2") {
 }
 ```
 
-您可以阅读更多的[这里](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagereplymarkupreplymarkup-options--promise)。
+TR: You can read more [TR: here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagereplymarkupreplymarkup-options--promise).
 
-### DeleteMessage
-使用此方法可以删除一条消息，包括服务消息，但有以下限制：
+TR: ### deleteMessage
+TR: Use this method to delete a message, including service messages, with the following limitations:
 
--仅在少于48小时前发送过的邮件才能删除。
+TR: - A message can only be deleted if it was sent less than 48 hours ago.
 
-成功返回* True *。
+TR: Returns *True* on success.
 
 ```
 if (command === "delete") {
@@ -341,14 +385,14 @@ if (command === "delete") {
 }
 ```
 
-您可以阅读更多的[这里](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage)。
+TR: You can read more [TR: here](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage).
 
-##对用户回复/消息做出反应
-假设您仅使用不带* text2command *的JavaScript。如上所述，您已经使用* sendTo（）*向您的用户发送了一条消息/问题。用户通过按下按钮或编写消息来回复。您可以提取命令并向用户提供反馈，执行命令或在iobroker中切换状态。
+TR: ## Reacting to user replies / messages
+TR: Suppose you are using only JavaScript without *text2command*. You already sent a message/question to your user using *sendTo()* as described above. The user replies to that by pushing a button or writing a message. You can extract the command and give feedback to your user, execute commands or switch states in iobroker.
 
- -telegram.0是您要使用的iobroker Telegram实例
- -用户是向您发送消息的TelegramBot注册的用户
- -命令是您的TelegramBot收到的命令
+TR:  - telegram.0 is your iobroker Telegram instance you want to use
+TR:  - user is the user registered with you TelegramBot which sent the message
+TR:  - command is the command your TelegramBot received
 
 ```
 on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
@@ -369,50 +413,61 @@ on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
 
 ```
 
-##特殊命令
-### / state stateName-读取状态值
-如果现在使用ID，则可以请求state的值：
+TR: ## Special commands
+TR: ### /state stateName - read state value
+TR: You can request the value of state if you now the ID:
 
 ```
 /state system.adapter.admin.0.memHeapTotal
 > 56.45
 ```
 
-### / state stateName值-设置状态值
-如果现在使用ID，则可以设置状态值：
+TR: ### /state stateName value - set state value
+TR: You can set the value of state if you now the ID:
 
 ```
 /state hm-rpc.0.JEQ0ABCDE.3.STOP true
 > Done
 ```
 
-##轮询或服务器模式
-如果使用轮询模式，则默认情况下，适配器每300毫秒对电报服务器进行一次轮询以进行更新。它使用流量，并且消息可以延迟最多轮询间隔。轮询间隔可以在适配器配置中定义。
+TR: ## Polling or Server mode
+TR: If polling mode is used, the adapter polls by default every 300ms the telegram server for updates. It uses traffic and messages can be delayed for up to the polling interval. The polling interval can be defined in adapter configuration.
 
-要使用服务器模式，您的ioBroker实例必须可以通过互联网访问（例如，使用noip.com动态DNS服务）。
+TR: To use server mode you ioBroker instance must be reachable from internet (e.g. with `noip.com` dynamic DNS service).
 
-电报只能与HTTPS服务器一起使用，但是您可以使用“让我们加密”证书。
+TR: Telegram can work only with HTTPS servers, but you can use **let's encrypt** certificates.
 
-必须为服务器模式提供以下设置：
+TR: Following settings must be provided for server mode:
 
--URL-格式为https://yourdomain.com:8443。
--IP-IP地址，将绑定服务器。默认值为0.0.0.0。如果不确定，请不要更改它。
--端口-报文实际上仅支持443、80、88、8443端口，但是您可以通过路由器将端口转发给任何一个端口。
--公共证书-如果禁用“允许加密”，则为必需。
--私钥-必需，如果禁用“允许加密”。
--连锁证书（可选）
--让我们加密选项-设置“让我们加密”证书非常容易。请阅读[here]（https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates）。
+TR: - URL - in form https://yourdomain.com:8443.
+TR: - IP - Ip address, where the server will be bound. Default 0.0.0.0. Do not change it if you are not sure.
+TR: - Port - actually only 443, 80, 88, 8443 ports are supported by telegram, but you can forward ports to anyone through your router.
+TR: - Public certificate - required, if **let's encrypt** is disabled.
+TR: - Private key - required, if **let's encrypt** is disabled.
+TR: - Chain certificate (optional)
+TR: - Let's encrypt options - It is very easy to set up **let's encrypt** certificates. Please read [here](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates) about it.
 
-##通过电报电话
-借助[Callmebot](https://www.callmebot.com/)api，您可以拨打电报帐户，一些文本将通过TTS引擎读取。
+TR: ## Advanced security
+TR: The authentication of users could be disabled. So no one new can authenticate.
 
-要从javascript适配器执行此操作，只需调用：
+TR: To create a list of trusted users, first disable the option "Do not authenticate new users" and authenticate all users that should be in the trusted list by sending the `/password <PASSWORD>` message.
+
+TR: The users, that sent valid password will be stored in the trusted list.
+
+TR: After that teh option "Do not authenticate new users" could be activated and no new users can authenticate.
+
+TR: To use this option the option "Remember authenticated users" must be activated.
+
+TR: ## Calls via telegram
+TR: Thanks to [TR: callmebot](https://www.callmebot.com/) api, you can make a call to your telegram account and some text will be read via TTS engine.
+
+TR: To do that from javascript adapter just call:
 
 ```
 sendTo('telegram.0', 'call', 'Some text');
 ```
 
-要么
+TR: or
 
 ```
 sendTo('telegram.0', 'call', {
@@ -423,7 +478,7 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-要么
+TR: or
 
 ```
 sendTo('telegram.0', 'call', {
@@ -432,7 +487,7 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-要么
+TR: or
 
 ```
 sendTo('telegram.0', 'call', {
@@ -441,175 +496,175 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-语言的可能值：
+TR: Possible values for language:
 
--`ar-XA-Standard-A`-阿拉伯语（女声）
--`ar-XA-Standard-B`-阿拉伯语（男声）
--`ar-XA-Standard-C`-阿拉伯语（男性2种声音）
--`cs-CZ-Standard-A`-捷克（捷克共和国）（女声）
--`da-DK-Standard-A`-丹麦文（丹麦）（女声）
--`nl-NL-Standard-A`-荷兰语（荷兰）（如果系统语言为NL且未提供任何语言，则将使用女性声音）
--`nl-NL-Standard-B`-荷兰语（荷兰）（男声）
--`nl-NL-Standard-C`-荷兰语（荷兰）（男2种声音）
--`nl-NL-Standard-D`-荷兰语（荷兰）（女2种声音）
--`nl-NL-Standard-E`-荷兰语（荷兰）（女性3种声音）
--`en-AU-Standard-A`-英语（澳大利亚）（女声）
--`en-AU-Standard-B`-英语（澳大利亚）（男声）
--`en-AU-Standard-C`-英语（澳大利亚）（女性2种声音）
--`en-AU-Standard-D`-英语（澳大利亚）（男性2种声音）
--`en-IN-Standard-A`-英语（印度）（女声）
--`en-IN-Standard-B`-英语（印度）（男声）
--`en-IN-Standard-C`-英语（印度）（男性2种声音）
--`en-GB-Standard-A`-英语（英国）（如果系统语言为EN并且未提供任何语言，则将使用女性语音）
--`en-GB-Standard-B`-英语（英国）（男声）
--`en-GB-Standard-C`-英语（英国）（女性2种声音）
--`en-GB-Standard-D`-英语（英国）（男性2种声音）
--`en-US-Standard-B`-英语（美国）（男声）
--`en-US-Standard-C`-英语（美国）（女声）
--`en-US-Standard-D`-英语（美国）（男性2种声音）
--`en-US-Standard-E`-英语（美国）（女性2种声音）
--`fil-PH-Standard-A`-菲律宾语（菲律宾）（女声）
--`fi-FI-Standard-A`-芬兰语（芬兰）（女声）
--`fr-CA-Standard-A`-法语（加拿大）（女声）
--`fr-CA-Standard-B`-法语（加拿大）（男声）
--`fr-CA-Standard-C`-法语（加拿大）（女性2种声音）
--`fr-CA-Standard-D`-法语（加拿大）（男性2种声音）
--`fr-FR-Standard-A`-法语（法国）（如果系统语言为FR并且未提供任何语言，则将使用女性声音）
--`fr-FR-Standard-B`-法语（法国）（男声）
--`fr-FR-Standard-C`-法语（法国）（女性2种声音）
--`fr-FR-Standard-D`-法语（法国）（男性2种声音）
--`de-DE-Standard-A`-德语（德国）（如果系统语言为DE并且未提供语言，则将使用女性声音）
--`de-DE-Standard-B`-德语（德国）（男声）
--`el-GR-Standard-A`-希腊语（希腊）（女声）
--`hi-IN-Standard-A`-印地语（印度）（女声）
--`hi-IN-Standard-B`-印地语（印度）（男声）
--`hi-IN-Standard-C`-印地语（印度）（男性2种声音）
--`hu-HU-Standard-A`-匈牙利语（匈牙利）（女声）
--`id-ID-Standard-A`-印度尼西亚语（印度尼西亚）（女声）
--`id-ID-Standard-B`-印度尼西亚语（印度尼西亚）（男声）
--`id-ID-Standard-C`-印度尼西亚语（印度尼西亚）（男性2种声音）
--`it-IT-Standard-A`-意大利语（意大利）（如果系统语言为IT，且未提供任何语言，则使用女性声音）
--`it-IT-Standard-B`-意大利语（意大利）（女性2种声音）
--`it-IT-Standard-C`-意大利语（意大利）（男声）
--`it-IT-Standard-D`-意大利语（意大利）（男性2种声音）
--`ja-JP-Standard-A`-日语（日本）（女声）
--`ja-JP-Standard-B`-日语（日本）（女性2种声音）
--`ja-JP-Standard-C`-日语（日本）（男声）
--`ja-JP-Standard-D`-日语（日本）（男2种声音）
--`ko-KR-Standard-A`-韩国（韩国）（女声）
--`ko-KR-Standard-B`-韩国（韩国）（女2声音）
--`ko-KR-Standard-C`-韩文（韩国）（男声）
--`ko-KR-Standard-D`-韩文（韩国）（男2种声音）
--`cmn-CN-Standard-A`-国语（女声）
--`cmn-CN-Standard-B`-普通话（男声）
--`cmn-CN-Standard-C`-普通话（男2语音）
--`nb-NO-Standard-A`-挪威语（挪威语）（女声）
--`nb-NO-Standard-B`-挪威语（挪威语）（男声）
--`nb-NO-Standard-C`-挪威语（挪威语）（女2声音）
--`nb-NO-Standard-D`-挪威文（挪威）（男2种声音）
--`nb-no-Standard-E`-挪威语（挪威语）（女3声音）
--`pl-PL-Standard-A`-波兰语（波兰）（如果系统语言为PL而未提供任何语言，则将使用女性声音）
--`pl-PL-Standard-B`-波兰语（波兰）（男声）
--`pl-PL-Standard-C`-波兰语（波兰）（男2种声音）
--`pl-PL-Standard-D`-波兰语（波兰）（女性2种声音）
--`pl-PL-Standard-E`-波兰语（波兰）（女3声音）
--`pt-BR-Standard-A`-葡萄牙语（巴西）（如果系统语言为PT且未提供任何语言，则将使用女性语音）
--`pt-PT-Standard-A`-葡萄牙语（葡萄牙）（女声）
--`pt-PT-Standard-B`-葡萄牙语（葡萄牙）（男声）
--`pt-PT-Standard-C`-葡萄牙语（葡萄牙）（男性2种声音）
--`pt-PT-Standard-D`-葡萄牙语（葡萄牙）（女性2种声音）
--`ru-RU-Standard-A`-俄语（俄罗斯）（如果系统语言为RU并且未提供任何语言，则将使用女性声音）
--`ru-RU-Standard-B`-俄语（俄罗斯）（男声）
--`ru-RU-Standard-C`-俄语（俄罗斯）（女性2种声音）
--`ru-RU-Standard-D`-俄语（俄罗斯）（男性2种声音）
--`sk-SK-Standard-A`-斯洛伐克（斯洛伐克）（女声）
--`es-ES-Standard-A`-西班牙语（西班牙）（如果系统语言为ES，但未提供语言，则使用女性语音）
--`sv-SE-Standard-A`-瑞典语（瑞典）（女声）
--`tr-TR-Standard-A`-土耳其语（土耳其）（女声）
--`tr-TR-Standard-B`-土耳其语（土耳其）（男声）
--`tr-TR-Standard-C`-土耳其语（土耳其）（女性2种声音）
--`tr-TR-Standard-D`-土耳其语（土耳其）（女性3种声音）
--`tr-TR-Standard-E`-土耳其文（土耳其）（男性配音）
--`uk-UA-Standard-A`-乌克兰语（乌克兰）（女声）
--`vi-VN-Standard-A`-越南语（越南）（女声）
--`vi-VN-Standard-B`-越南文（越南）（男声）
--`vi-VN-Standard-C`-越南语（越南）（女2声音）
--`vi-VN-Standard-D`-越南文（越南）（男性2种声音）
+TR: - `ar-XA-Standard-A` - Arabic (Female voice)
+TR: - `ar-XA-Standard-B` - Arabic (Male voice)
+TR: - `ar-XA-Standard-C` - Arabic (Male 2 voice)
+TR: - `cs-CZ-Standard-A` - Czech (Czech Republic) (Female voice)
+TR: - `da-DK-Standard-A` - Danish (Denmark) (Female voice)
+TR: - `nl-NL-Standard-A` - Dutch (Netherlands) (Female voice - will be used if system language is NL and no language was provided)
+TR: - `nl-NL-Standard-B` - Dutch (Netherlands) (Male voice)
+TR: - `nl-NL-Standard-C` - Dutch (Netherlands) (Male 2 voice)
+TR: - `nl-NL-Standard-D` - Dutch (Netherlands) (Female 2 voice)
+TR: - `nl-NL-Standard-E` - Dutch (Netherlands) (Female 3 voice)
+TR: - `en-AU-Standard-A` - English (Australia) (Female voice)
+TR: - `en-AU-Standard-B` - English (Australia) (Male voice)
+TR: - `en-AU-Standard-C` - English (Australia) (Female 2 voice)
+TR: - `en-AU-Standard-D` - English (Australia) (Male 2 voice)
+TR: - `en-IN-Standard-A` - English (India) (Female voice)
+TR: - `en-IN-Standard-B` - English (India) (Male voice)
+TR: - `en-IN-Standard-C` - English (India) (Male 2 voice)
+TR: - `en-GB-Standard-A` - English (UK) (Female voice - will be used if system language is EN and no language was provided)
+TR: - `en-GB-Standard-B` - English (UK) (Male voice)
+TR: - `en-GB-Standard-C` - English (UK) (Female 2 voice)
+TR: - `en-GB-Standard-D` - English (UK) (Male 2 voice)
+TR: - `en-US-Standard-B` - English (US) (Male voice)
+TR: - `en-US-Standard-C` - English (US) (Female voice)
+TR: - `en-US-Standard-D` - English (US) (Male 2 voice)
+TR: - `en-US-Standard-E` - English (US) (Female 2 voice)
+TR: - `fil-PH-Standard-A` - Filipino (Philippines) (Female voice)
+TR: - `fi-FI-Standard-A` - Finnish (Finland) (Female voice)
+TR: - `fr-CA-Standard-A` - French (Canada) (Female voice)
+TR: - `fr-CA-Standard-B` - French (Canada) (Male voice)
+TR: - `fr-CA-Standard-C` - French (Canada) (Female 2 voice)
+TR: - `fr-CA-Standard-D` - French (Canada) (Male 2 voice)
+TR: - `fr-FR-Standard-A` - French (France) (Female voice - will be used if system language is FR and no language was provided)
+TR: - `fr-FR-Standard-B` - French (France) (Male voice)
+TR: - `fr-FR-Standard-C` - French (France) (Female 2 voice)
+TR: - `fr-FR-Standard-D` - French (France) (Male 2 voice)
+TR: - `de-DE-Standard-A` - German (Germany) (Female voice - will be used if system language is DE and no language was provided)
+TR: - `de-DE-Standard-B` - German (Germany) (Male voice)
+TR: - `el-GR-Standard-A` - Greek (Greece) (Female voice)
+TR: - `hi-IN-Standard-A` - Hindi (India) (Female voice)
+TR: - `hi-IN-Standard-B` - Hindi (India) (Male voice)
+TR: - `hi-IN-Standard-C` - Hindi (India) (Male 2 voice)
+TR: - `hu-HU-Standard-A` - Hungarian (Hungary) (Female voice)
+TR: - `id-ID-Standard-A` - Indonesian (Indonesia) (Female voice)
+TR: - `id-ID-Standard-B` - Indonesian (Indonesia) (Male voice)
+TR: - `id-ID-Standard-C` - Indonesian (Indonesia) (Male 2 voice)
+TR: - `it-IT-Standard-A` - Italian (Italy) (Female voice - will be used if system language is IT and no language was provided)
+TR: - `it-IT-Standard-B` - Italian (Italy) (Female 2 voice)
+TR: - `it-IT-Standard-C` - Italian (Italy) (Male voice)
+TR: - `it-IT-Standard-D` - Italian (Italy) (Male 2 voice)
+TR: - `ja-JP-Standard-A` - Japanese (Japan) (Female voice)
+TR: - `ja-JP-Standard-B` - Japanese (Japan) (Female 2 voice)
+TR: - `ja-JP-Standard-C` - Japanese (Japan) (Male voice)
+TR: - `ja-JP-Standard-D` - Japanese (Japan) (Male 2 voice)
+TR: - `ko-KR-Standard-A` - Korean (South Korea) (Female voice)
+TR: - `ko-KR-Standard-B` - Korean (South Korea) (Female 2 voice)
+TR: - `ko-KR-Standard-C` - Korean (South Korea) (Male voice)
+TR: - `ko-KR-Standard-D` - Korean (South Korea) (Male 2 voice)
+TR: - `cmn-CN-Standard-A` - Mandarin Chinese (Female voice)
+TR: - `cmn-CN-Standard-B` - Mandarin Chinese (Male voice)
+TR: - `cmn-CN-Standard-C` - Mandarin Chinese (Male 2 voice)
+TR: - `nb-NO-Standard-A` - Norwegian (Norway) (Female voice)
+TR: - `nb-NO-Standard-B` - Norwegian (Norway) (Male voice)
+TR: - `nb-NO-Standard-C` - Norwegian (Norway) (Female 2 voice)
+TR: - `nb-NO-Standard-D` - Norwegian (Norway) (Male 2 voice)
+TR: - `nb-no-Standard-E` - Norwegian (Norway) (Female 3 voice)
+TR: - `pl-PL-Standard-A` - Polish (Poland) (Female voice - will be used if system language is PL and no language was provided)
+TR: - `pl-PL-Standard-B` - Polish (Poland) (Male voice)
+TR: - `pl-PL-Standard-C` - Polish (Poland) (Male 2 voice)
+TR: - `pl-PL-Standard-D` - Polish (Poland) (Female 2 voice)
+TR: - `pl-PL-Standard-E` - Polish (Poland) (Female 3 voice)
+TR: - `pt-BR-Standard-A` - Portuguese (Brazil) (Female voice - will be used if system language is PT and no language was provided)
+TR: - `pt-PT-Standard-A` - Portuguese (Portugal) (Female voice)
+TR: - `pt-PT-Standard-B` - Portuguese (Portugal) (Male voice)
+TR: - `pt-PT-Standard-C` - Portuguese (Portugal) (Male 2 voice)
+TR: - `pt-PT-Standard-D` - Portuguese (Portugal) (Female 2 voice)
+TR: - `ru-RU-Standard-A` - Russian (Russia) (Female voice - will be used if system language is RU and no language was provided)
+TR: - `ru-RU-Standard-B` - Russian (Russia) (Male voice)
+TR: - `ru-RU-Standard-C` - Russian (Russia) (Female 2 voice)
+TR: - `ru-RU-Standard-D` - Russian (Russia) (Male 2 voice)
+TR: - `sk-SK-Standard-A` - Slovak (Slovakia) (Female voice)
+TR: - `es-ES-Standard-A` - Spanish (Spain) (Female voice - will be used if system language is ES and no language was provided)
+TR: - `sv-SE-Standard-A` - Swedish (Sweden) (Female voice)
+TR: - `tr-TR-Standard-A` - Turkish (Turkey) (Female voice)
+TR: - `tr-TR-Standard-B` - Turkish (Turkey) (Male voice)
+TR: - `tr-TR-Standard-C` - Turkish (Turkey) (Female 2 voice)
+TR: - `tr-TR-Standard-D` - Turkish (Turkey) (Female 3 voice)
+TR: - `tr-TR-Standard-E` - Turkish (Turkey) (Male voice)
+TR: - `uk-UA-Standard-A` - Ukrainian (Ukraine) (Female voice)
+TR: - `vi-VN-Standard-A` - Vietnamese (Vietnam) (Female voice)
+TR: - `vi-VN-Standard-B` - Vietnamese (Vietnam) (Male voice)
+TR: - `vi-VN-Standard-C` - Vietnamese (Vietnam) (Female 2 voice)
+TR: - `vi-VN-Standard-D` - Vietnamese (Vietnam) (Male 2 voice)
 
-去做：
+TR: TODO:
 
--场地
+TR: - venue
 
-##基于admin中的设置的自动嵌入式键盘（简易键盘）
-对于每种状态，可以启用其他设置：
+TR: ## Auto-Inline keyboard based on settings in admin (Easy-Keyboard)
+TR: For every state the additional settings could be enabled:
 
-![设定](../../../en/adapterref/iobroker.telegram/img/stateSettings.png)
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings.png)
 
-通过输入“ / cmds”，以下键盘将以电报形式显示：
+TR: By entering `/cmds` the following keyboard will be displayed in telegram:
 
-![设定](../../../en/adapterref/iobroker.telegram/img/stateSettings1.png)
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings1.png)
 
-在电报适配器的配置对话框中，“ / cmds”可以替换为任何文本（例如“？”）。
+TR: `/cmds` could be replaced by any text (e.g. "?") in the configuration dialog of telegram adapter.
 
-如果在电报适配器的配置对话框中启用了“在键盘命令中使用房间”选项，则在第一步中将显示房间列表。 ***尚未实现***
+TR: If **Use rooms in keyboard command** option is enabled in the configuration dialog of telegram adapter, so in the first step the room list will be shown. ***Not yet implemented***
 
-###状态下的设置
-首先必须启用配置。
+TR: ### Settings in the state
+TR: First the configuration must be enabled.
 
-####别名
-设备名称。如果为空，则名称将取自对象。
-通过输入“门灯”，以下菜单将显示为布尔状态。
-![设定](../../../en/adapterref/iobroker.telegram/img/stateSettings2.png)
+TR: #### Alias
+TR: Name of the device. If the name is empty, the name will be taken from object.
+By entering "Door lamp" following menu will be shown for boolean state.
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings2.png)
 
-您可以打开设备，关闭设备或请求状态。
-如果单击`Door lamp ?`，您将获得`Door lamp  => switched off`。
+TR: You can switch the device ON, turn the device OFF or request the state.
+If you Click `Door lamp ?`, you will get `Door lamp  => switched off`.
 
-＃＃＃ 只读
-如果激活，将不显示任何ON / OFF按钮，仅显示`Door lamp ?`。
+TR: ### Read only
+TR: If activated, ON/OFF buttons will be not shown, just a `Door lamp ?`.
 
-###报告更改
-如果设备的状态发生变化（例如有人物理地打开了灯），则新的状态将被传送到电报中。
-例如。 `Door lamp  => switched on`。
+TR: ### Report changes
+TR: If the status of device changed (e.g. someone turned the lamp on physically), the new status will be delivered to telegram.
+E.g. `Door lamp  => switched on`.
 
-###行中的按钮
-一台设备的行中必须显示多少个按钮。
-由于名字很长，最好只在行中显示2个（甚至只有一个）按钮。
+TR: ### Buttons in line
+TR: How many buttons must be shown in the line for one device.
+Because of the long name maybe it is better to show only 2 (or even just one) buttons in the line.
 
-![设定](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
-###只写
-如果激活，则不会显示状态查询（`Door lamp ?`）按钮。
-![设定](../../../en/adapterref/iobroker.telegram/img/stateSettings4.png)
+TR: ### Write only
+TR: If activated, the status query (`Door lamp ?`) button will be not shown.
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings4.png)
 
-### ON命令
-哪个文本将显示在`ON`按钮上。
-就像这里：![设定](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
+TR: ### ON Command
+TR: Which text will be shown on `ON` button.
+Like here: ![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
 
-将产生以下键盘：![设定](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
+TR: Will produce following keyboard: ![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
 
-### ON文字
-状态报告将显示哪些文本。
-例如。 `Door lamp => activated`如果设备的状态更改为true且“ ON Text”为`activated`
+TR: ### ON Text
+TR: The text, that will be shown by state report.
+E.g. `Door lamp => activated` if the state of the device changed to true and the **ON Text** is `activated`
 
-仅当“报告更改”被激活时，才会显示开/关文本。
+TR: The ON/OFF Texts will be shown only if **Report changes** is activated.
 
-### OFF命令
-与** ON命令**相同，但为OFF。
+TR: ### OFF Command
+TR: Same as **ON Command**, but for OFF.
 
-### OFF文字
-与** ON Text **相同，但为OFF。
-例如。 `Door lamp => deactivated`如果设备的状态更改为false且“关闭文本”为`deactivated`
+TR: ### OFF Text
+TR: Same as **ON Text**, but for OFF.
+E.g. `Door lamp => deactivated` if the state of the device changed to false and the **OFF Text** is `deactivated`
 
-###仅适用
-例如。对于按钮，它们没有关闭状态。在这种情况下，将不会显示“关闭”按钮。
+TR: ### Only true
+TR: E.g. for buttons, they have no OFF state. In this case the OFF button will be not shown.
 
-![设定](../../../en/adapterref/iobroker.telegram/img/stateSettings7.png)
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings7.png)
 
-##如何使用电报适配器在群聊中接收消息
-如果电报漫游器在私人聊天中接收到用户发送给该机器人的消息，但在群聊中未接收到用户发送的消息。
-在这种情况下，您必须与@botfather交谈并禁用隐私模式。
+TR: ## How to receive messages in group chats using telegram adapter
+TR: If telegram bot receives messages sent by user to the bot in private chats, but not receives messages sent by users in group chats.
+In this case you must talk to `@botfather` and disable the privacy mode.
 
-BotFather聊天：
+TR: BotFather chat:
 
 ```
 You: /setprivacy
@@ -629,27 +684,58 @@ You: Disable
 BotFather: Success! The new status is: DISABLED. /help
 ```
 
-##如何通过节点红色发送消息
-对于发送给所有用户的简单文本消息，只需将文本放入消息的有效负载中，然后将其发送到ioBroker状态*“ telegram.INSTANCE.communicate.response” *。
+TR: ## How to send messages via node-red
+TR: For simple text messages to all users, just put the text within the payload of the message and send it to the ioBroker state `telegram.INSTANCE.communicate.response`.
 
-如果要设置其他选项，请用JSON对象填充有效负载，例如：
+TR: If you want to set additional options, fill the payload with a JSON object, such as:
 
 ```
 msg.payload = {
-    /* text is the only mandatory field here */
+    // text is the only mandatory field here
     "text": "*bold _italic bold ~italic bold strikethrough~ __underline italic bold___ bold*",
-    /* optional chatId or user, the receipient of the message */
+    // optional chatId or user, the recipient of the message
     "chatId": "1234567890",
-    /* optional settings from the telegram bots API */
+    // optional settings from the telegram bots API
     "parse_mode": "MarkdownV2"
 }
 ```
 
-<！-下一个版本的占位符（在该行的开头）：
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __正在进行的工程__->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add tier for js-controller 3.3
+
+### 1.9.0 (2021-06-26)
+* (bluefox) Added the option to not authenticate the new users
+* (bluefox) Added the option to disable system messages for specific users
+
+### 1.8.3 (2021-06-26)
+* (Nahasapeemapetilon) corrected bug with many simultaneous requests 
+* (bluefox) formatting
+* (bluefox) implemented editMessageMedia and editMessageCaption
+* (bluefox) Encrypt token 
+* (bluefox) Corrected error with password
+* (bluefox) Corrected error with boolean easy controls
+
+### 1.8.2 (2021-05-28)
+* (Diginix) fixed data types
+
+### 1.8.1 (2021-04-20)
+* (bluefox) added the admin5 support
+
+### 1.8.0 (2021-02-22)
+* (Apollon77/Nahasapeemapetilon) catch several API error cases to hopefully get around  adapter crashes on network errors
+* (Nahasapeemapetilon) add support for media groups and multiple image qualities
+
+### 1.7.0 (2021-01-08)
+* (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
+
+### 1.6.2 (2020-12-27)
+* (fincha) Fixing error with keyboard
 
 ### 1.6.1 (2020-12-01)
 * (ChristianB86) Added option to set the amount of repeats for telegram call.
@@ -671,11 +757,11 @@ msg.payload = {
 * (bluefox) Added description of easy-keyboard
 
 ### 1.5.5 (2020-04-04)
-* (alutov) Fixed bug for telegram users with an empty user name
+* (alutov) Fixed bug for telegram users with an empty username
 * (Mark Rohrbacher) Allowed JSON objects in telegram.*.communicate.response 
 
 ### 1.5.4 (2020-03-11)
-* (bluefox) Improvement of callmebot
+* (bluefox) Improvement of `callmebot`
 
 ### 1.5.3 (2020-02-23)
 * (foxriver76) removed usage of adapter.objects
@@ -700,7 +786,7 @@ msg.payload = {
 * (BuZZy1337) Bugfix for not yet completely implemented feature
 
 ### 1.4.2 (2019-02-18)
-* (BuZZy1337) fix for recipients containing withespaces
+* (BuZZy1337) fix for recipients containing spaces
 * (BuZZy1337) change loglevel of "getMe" info-messages to debug
 * (bluefox) fix scroll in firefox
 
@@ -730,7 +816,7 @@ msg.payload = {
 
 ### 1.3.0 (2018-09-19)
 * (BuZZy1337) Added possibility to delete authenticated users in the Adapter-Config screen (via Messages tab)
-* (BuZZy1337) fixed a problem "building" the Blockly sendto block when no adapter instance exists.
+* (BuZZy1337) fixed a problem "building" the Blockly `sendto` block when no adapter instance exists.
 
 ### 1.2.7 (2018-08-29)
 * (BuZZy1337) Added "disable notification" checkbox to blockly block.
@@ -781,7 +867,7 @@ msg.payload = {
 * (Haba) Updating for Admin3
 
 ### 1.0.9 (2017-11-27)
-* (kirovilya) Allow send gif via sendDocument
+* (kirovilya) Allow the sending of GIF via sendDocument
 
 ### 1.0.8 (2017-10-03)
 * (Haba1234) initPolling() this is deprecated. -> startPolling()
@@ -827,7 +913,7 @@ msg.payload = {
 * (bluefox) add new states: requestChatId and requestUserId
 
 ### 0.4.0 (2016-07-21)
-* (bluefox) allow send messages to chats via chat-ID
+* (bluefox) allow sending of messages to chats via chat-ID
 * (bluefox) support of video(mp4), audio, document, location, sticker, action
 
 ### 0.3.0 (2016-05-31)
@@ -856,13 +942,13 @@ msg.payload = {
 * (bluefox) fix error with sendTo
 
 ### 0.0.1 (2016-02-13)
-* (bluefox) intial commit
+* (bluefox) initial commit
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

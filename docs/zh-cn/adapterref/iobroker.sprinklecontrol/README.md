@@ -10,7 +10,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sprinklecontrol/README.md
 title: TR: SprinkleControl
-hash: 6pP+yZF6JUi8qBr+zKOKElOrjqGJx1p0X2NRdkpobgc=
+hash: zYzTZ3/dX2jdrqbMzeM+/sc625qzpXC07eTKAWwSwJA=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.sprinklecontrol/img/sprinklecontrol.png)
 
@@ -111,7 +111,8 @@ TR:     - **Hint:** My pump delivers a maximum of 1800 l/h, and my lawn sprinkle
 
 TR:     > - **Danger:** This function should be used very sparingly, as only one irrigation circuit can water with an active booster at a time.
 
-- - -
+---
+---
 
 TR: #### Individual configuration of an irrigation circuit - PUMP SETTINGS
 - - -
@@ -206,6 +207,11 @@ TR: ## Adapter configuration - NOTIFICATIONS
 ![TR: screenshot7.jpg](../../../en/adapterref/iobroker.sprinklecontrol/img/screenshot7.jpg)
 
 TR: - Once the NOTIFICATIONS tab has been activated, you can choose your notification method and enter your details here.
+TR: - The following notification methods are supported:
+TR:   - E-mail
+TR:   - Pushover
+TR:   - Telegram
+TR:   - WhatsApp
 
 ---
 ---

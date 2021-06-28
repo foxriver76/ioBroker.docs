@@ -2,112 +2,113 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.mihome-vacuum/README.md
-title: ioBroker mihome-вакуумный адаптер
-hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
+title: TR: ioBroker mihome-vacuum adapter
+hash: aIfH+iYBWOkmIheZ73ZJw/HBNXL8KV9LqrdRJ5H/QBk=
 ---
-![Логотип](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
+![TR: Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
-![Пожертвование Paypal](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/mihome-vacuum-installed.svg)
-![Статус зависимости](https://img.shields.io/david/iobroker-community-adapters/iobroker.mihome-vacuum.svg)
-![Известные уязвимости](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.mihome-vacuum/badge.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/mihome-vacuum-stable.svg)
-![НПМ](https://nodei.co/npm/iobroker.mihome-vacuum.png?downloads=true)
+![TR: Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![TR: Number of Installations](http://iobroker.live/badges/mihome-vacuum-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
 
-# IoBroker mihome-вакуумный адаптер
-![Тестирование и выпуск](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg)
+TR: # ioBroker mihome-vacuum adapter
+TR: ![TR: Test and Release](https://github.com/iobroker-community-adapters/iobroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-[Deutsche beschreibung hier](README_de.md)
+[TR: Deutsche beschreibung hier](README_de.md)
 
-Этот адаптер позволяет управлять пылесосом Xiaomi.
+TR: This adapter allows you to control the Xiaomi vacuum cleaner.
 
-## Содержание
- - [Известные ошибки] (# известных_ошибок)
-    - [Ошибка при установке (холст)] (# error_at_installation)
-    - [Ошибка HTTP при получении токена cookie {}] (# http_error_when_getting_token_cookie {})
-- [Настройка] (# конфигурация)
-    - [Настроить адаптер] (# конфигурация адаптера)
-        - [Управление через Alexa] (# control-over-alexa)
-        - [Второй робот] (# второй робот)
-    - [Настроить Valetudo] (# valetudo-config)
-- [Функции] (# функций)
-    - [Команды S50] (# команды-of-s50)
-    - [Перейти] (# goto)
-- [Очистка зоны] (# очистка зоны)
-    - [комнаты] (# комнаты)
-    - [таймер] (# таймер)
-    - [Собственные команды] (# отправь свои собственные команды)
-    - [sendTo hook] (# send-custom-commands-with-sendto)
-- [виджет] (# виджет)
-- [ошибки] (# ошибок)
-- [Список изменений] (# список изменений)
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Поддерживаемые устройства и функции
-Очиститель не поддерживается? [Голосуйте здесь!](https://doodle.com/poll/8m8238ridkifua99?utm_source=poll&utm_medium=link)
+TR: ## Content
+TR:  - [Known Errors](#known_errors)
+TR:     - [Error at installation (canvas)](#error_at_installation)
+TR:     - [HTTP error when getting token cookie{}](#http_error_when_getting_token_cookie{})
+TR: - [Setup](#configuration)
+TR:     - [Configure Adapter](#adapter-configuration)
+TR:         - [Control via Alexa](#control-over-alexa)
+TR:         - [Second robot](#second-robot)
+TR:     - [Configure Valetudo](#valetudo-config)
+TR: - [Functions](#functions)
+TR:     - [S50 Commands](#commands-of-the-s50)
+TR:     	- [Go To](#goto)
+TR: 	- [zone Clean](#zoneclean)
+TR:     - [rooms](#rooms)
+TR:     - [timer](#timer)
+TR:     - [Own Commands](#send-your-own-commands)
+TR:     - [sendTo hook](#send-custom-commands-with-sendto)
+TR: - [widget](#widget)
+TR: - [bugs](#bugs)
+TR: - [Changelog](#changelog)
 
-| Устройство | Базовое управление | история | комнаты | карта |
+TR: ## Supported Devices and Features
+TR: Cleaner not supported? [TR: Vote Here!](https://doodle.com/poll/8m8238ridkifua99?utm_source=poll&utm_medium=link)
+
+| TR: | Device                | Basic Control             | history               | rooms               | map                 |
 |:------------------    |:-------------------:      |:-------------------:  |:-------------------:|:-------------------:|
-| viomi.vacuum.v6 | : heavy_check_mark: | : x: |: x: | : x: |
-| viomi.vacuum.v7 | : heavy_check_mark: | : x: |: x: | : x: |
-| viomi.vacuum.v8 | : heavy_check_mark: | : x: |: x: | : x: |
-| rockrobo.vacuum.v1 | : heavy_check_mark: | : Heavy_check_mark: |: x: |: Heavy_check_mark: |
-| roborock.vacuum.s4 | : heavy_check_mark: | : Heavy_check_mark: |: Heavy_check_mark: |: Heavy_check_mark: |
-| roborock.vacuum.s5 | : heavy_check_mark: | : Heavy_check_mark: |: Heavy_check_mark: |: Heavy_check_mark: |
-| roborock.vacuum.s5e | : heavy_check_mark: | : Heavy_check_mark: |: Heavy_check_mark: |: Heavy_check_mark: |
-| roborock.vacuum.m1s | : heavy_check_mark: | : Heavy_check_mark: |: Heavy_check_mark: |: Heavy_check_mark: |
-| roborock.vacuum.a10 | : heavy_check_mark: | : Heavy_check_mark: |: Heavy_check_mark: |: Heavy_check_mark: |
-| roborock.vacuum.a15 | : heavy_check_mark: | : Heavy_check_mark: |: Heavy_check_mark: |: Heavy_check_mark: |
+| TR: | viomi.vacuum.v6       | :heavy_check_mark:        | :x:                   |:x:                  | :x:                 |
+| TR: | viomi.vacuum.v7       | :heavy_check_mark:        | :x:                   |:x:                  | :x:                 |
+| TR: | viomi.vacuum.v8       | :heavy_check_mark:        | :x:                   |:x:                  | :x:                 |
+| TR: | rockrobo.vacuum.v1    | :heavy_check_mark:        | :heavy_check_mark:    |:x:                  |:heavy_check_mark:   |
+| TR: | roborock.vacuum.s4    | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
+| TR: | roborock.vacuum.s5    | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
+| TR: | roborock.vacuum.s5e   | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
+| TR: | roborock.vacuum.m1s   | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
+| TR: | roborock.vacuum.a10   | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
+| TR: | roborock.vacuum.a15   | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
 
-## Известные ошибки
-### Ошибка при установке
-если ваша установка выполняется по ошибке. Пакет холста не может быть установлен
+TR: ## Known Errors
+TR: ### Error at installation
+TR: if your installation runs in error. The canvas package could not be installed
 
-`` npm ERR! canvas@2.6.1 install: node-pre-gyp install --fallback-to-build npm ERR! Статус выхода 1 ''
+TR: ``npm ERR! canvas@2.6.1 install: node-pre-gyp install --fallback-to-build npm ERR! Exit status 1``
 
-Пожалуйста, установите холст и библиотеки вручную с помощью: `` sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev ''
+TR: Please install canvas and the libs manually with: `` sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev ``
 
-`` sudo npm установить холст --unsafe-perm = true ''
+TR: `` sudo npm install canvas --unsafe-perm=true ``
 
-### Ошибка HTTP при получении токена cookie {}
-иногда вы не можете подключиться к облаку xiaomi. Пожалуйста, откройте Browswer, перейдите в Mihome и войдите в систему. Введите код, который вы получили по почте. После этого соединение должно работать.
+TR: ###  HTTP error when getting token cookie{}
+TR: Sometimes you can't connect to the xiaomi cloud.
+Please open Browser, go to Mihome and login. Enter the code you received via mail. After that, the connection should work.
 
-## Конфигурация
-На данный момент поиск токена - самая большая проблема.
-Пожалуйста, следуйте инструкциям в ссылке:
+TR: ## Configuration
+TR: Currently, finding the token is the biggest problem.
+PLease follow the instruction in the Link:
 
-[Жетон турориал](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
+[TR: Token tutorial](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
 
-### Конфигурация адаптера
-- Для IP-адреса IP-адрес робота должен быть введен в формате «192.168.178.XX».
-- Порт робота по умолчанию установлен на «54321», это не должно быть изменено.
-- Собственный порт, следует менять только вторым роботом
-- Интервал запроса Время в мс, в течение которого извлекаются значения статуса робота (не должно быть <10000).
+TR: ### Adapter Configuration
+TR: - For IP address, the IP address of the robot must be entered in the format "192.168.178.XX"
+TR: - The port of the robot is set to "54321" by default, this should not be changed
+TR: - Own port, should only be changed with second robot
+TR: - Query Interval The time in ms in which the robot's status values are retrieved (should not be <10000)
 
-#### Контроль над Alexa
-В конфигурации активируется добавление состояния alexa, здесь устанавливается хак, дополнительное состояние «clean_home» это переключатель, который запускается с «true» присоски, а при «false» он идет домой, он автоматически становится интеллектуальным устройством в облаке Адаптер создан с названием «пылесос», который можно изменить в облачном адаптере.
+TR: #### Control over Alexa
+TR: In the config add alexa state is activated here is a hack is set an additional state "clean_home" it is a switch which starts at "true" the sucker and at "false" - it goes home, it becomes automatically a smart device in the cloud Adapter created with the name "vacuum cleaner", which can be changed in the cloud adapter.
 
-#### Возобновить приостановленную очистку зоны кнопкой запуска
-Если эта опция включена, пылесос возобновит очистку зоны при установке состояния «старт» в значение «истина», если она была приостановлена во время выполнения очистки зоны.
-Если этот параметр отключен, пылесос начнет новую «обычную очистку», когда вы отправите команду запуска, даже если она была приостановлена во время выполнения очистки зоны.
+TR: #### Resume paused zone-cleaning with start button
+TR: With this option enabled, the Vacuum will resume the zone-cleaning when setting the "start" state to true if it was paused during a running zone-clean.
+If this option is disabled, the vacuum will start a new "normal cleaning" when you send the start command, even if it was paused during a running zone-clean.
 
-- Экспериментально: с помощью флажка «Отправлять собственные команды» создаются объекты, с помощью которых вы можете отправлять и получать свои собственные команды роботу.
+TR: - Experimental: Using the checkbox "Send your own commands" objects are created, via which you can send and receive your own commands to the robot.
 
-#### Второй робот
-Если двумя роботами нужно управлять через ioBroker, необходимо создать два экземпляра. Второй робот должен изменить свой собственный порт (по умолчанию: 53421), чтобы у обоих роботов были разные порты.
+TR: #### Second robot
+TR: If two robots are to be controlled via ioBroker, two instances must be created. The second robot must change its own port (default: 53421) so that both robots have different ports.
 
-## Конфигурация карты
-Есть два способа получить карту. Первые получают карту из облака. Для этого вам необходимо войти в систему и выбрать нужного робота из списка.
+TR: ## Map Config
+TR: There are two ways to get the map. The first get the map from the cloud. Therefore you have to log in and select the right robot from the list
 
-Второй способ - карта от valetudo (только локальная связь). Для этого вам необходимо выполнить рутинг и установить valetudo на свое устройство. Vatudo вы можете использовать [Valetudo RE] (https://github.com/rand256/valetudo) или нормальный [Valetudo](https://github.com/Hypfer/Valetudo)
+TR: Second way is the map from valetudo (only local connection).
+Therefore you have to root and install valetudo to your device.
+You can use [TR: Valetudo RE](https://github.com/rand256/valetudo) or normal [Valetudo](https://github.com/Hypfer/Valetudo).
 
-![Конфиг](../../../en/adapterref/iobroker.mihome-vacuum/admin/valetudo_conf.png)
+![TR: Config](../../../en/adapterref/iobroker.mihome-vacuum/admin/valetudo_conf.png)
 
-- Чтобы использовать карту, вы должны выбрать valetudo или оригинальную карту в конфигурации
-- Интервал запроса должен быть больше 1000 мс, это интервал для обновления карты html
-- интервал карты должен быть более 5000 мс, этот интервал обновляет файл карты png (вы можете использовать это для Telegram, vis или что-то еще)
-- цвет там вы можете выбрать цвета для примера карты:
+TR: - To use the map you have to select valetudo or original map in the config
+TR: - request Interval must be more than 1000 ms this is the intervall for update the html map
+TR: - map intervall must be more than 5000 ms this intervall updates the png Map file (you can use this for Telegram or vis or anything else)
+TR: - color there you can select the colors for the map example:
 
 ```
 - #2211FF
@@ -116,114 +117,116 @@ hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
 - green
 ```
 
-- роботы там вы можете выбрать разных роботов или другую технику для карты
+TR: - robots there you can select differet robots or other vehicles for the map
 
-### Использование карты
-Карта хранится либо в формате base64-raw, либо в формате PNG.
+TR: ### Map Usage
+TR: The map is stored either as base64-raw or as PNG.
 
-Вы можете найти изображение карты в следующих точках данных:
+TR: You can find the map image in the following data points:
 
-- base64: `` mihome-vac.0.cleanmap.map64``
-- PNG: `` mihome-vac.0.cleanmap.mapURL``
+TR: - base64: ```mihome-vacuum.0.cleanmap.map64```
+TR: - PNG: ```mihome-vacuum.0.cleanmap.mapURL```
 
-Вы можете использовать оба изображения в качестве источника изображения в желаемой ВИС. В HTML-стиле вы можете использовать изображение следующим образом:
+TR: You can use both images as image source in the VIS you want. In HTML-style you can use the image in this way:
 
 ```<img src="mihome-vacuum.0.cleanmap.map64">```
 
-С помощью дополнительных тегов стиля вы можете изменять размер и / или форматировать стиль карты.
+TR: With additional style-tags you can resize and/or format the map style.
 
-Чтобы использовать карту в ```jarvis```, просто используйте одну из точек данных в качестве URL-адреса DisplayImage-Widget. Там вы можете изменить размер изображения или всего виджета. В случае адаптивного дизайна jarvis размер карты будет изменяться в зависимости от размера отображения.
+TR: To use the map in ```jarvis``` just use one of the data points as URL of the DisplayImage-Widget.
+There you can resize the image or the whole widget. In case of the responsive design of jarvis the Map will resize in case of the display size.
 
-Чтобы отобразить карту в ```ioBroker VIS```, вы можете использовать обычный виджет html, например:
+TR: To display the map in ```ioBroker VIS``` you can use a normal html Widget e.g:
 
 ```
 [{"tpl":"tplHtml","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","refreshInterval":"0","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"html":"{mihome-vacuum.0.map.map64}"},"style":{"left":"0","top":"0","width":"100%","height":"100%"},"widgetSet":"basic"}]
 ```
 
-Использование base64-map происходит быстрее и отображает положение робота поблизости в реальном времени.
+TR: The use of the base64-map is faster and will display the position of the robot nearby in realtime.
 
-## Функции
-### Команды S50 (второе поколение)
-Размер карты всегда составляет 52000 мм x 52000 мм, поэтому возможны значения от 0 до 51999 мм.
-К сожалению, положение и расположение карты невозможно запросить, это может измениться от всасывания до всасывания. За основу всегда берется последняя присоска, как и в приложении.
-Если робот захватывает только одну область и всегда строит карту одинаково, вы можете надежно отправить ее по местам или очистить область пылесосом.
+TR: ## Functions
+TR: ### Commands of the S50 (second generation)
+TR: The card size is always 52000mm x 52000mm thus values from 0 to 51999mm are possible.
+Unfortunately, the position and location of the card can not be queried, this can change from suction to suction. Used as a basis is always the last suction card, as well as in the app.
+If the robot only picks up one area and always builds the map the same way, you can reliably send it to places or have the area vacuumed.
 
-#### Перейти к
-Чтобы подвести пылесос к точке, объект goTo должен быть заполнен следующим образом:
+TR: #### GoTo
+TR: In order to drive the vacuum cleaner to a point, the "goTo" object must be filled as follows:
 
 ```
 xVal, yval
 ```
 
-Значения должны соответствовать указанной выше области и указывать координаты x и y на карте.
+TR: The values must satisfy the above scope and indicate the x and y coordinates on the map.
 
-Пример:
+TR: Example:
 
 ```
 24,850.26500
 ```
 
-#### ZoneClean
-Чтобы пропылесосить зону, ZoneClean необходимо заполнить следующим образом:
+TR: #### zoneClean
+TR: To vacuum a zone, ZoneClean must be filled as follows:
 
 ```
 [X1, y1, x2, x2, count]
 ```
 
-Где x и y - координаты прямоугольной области и «подсчитывают» операции очистки.
-Вы также можете позволить сосать сразу нескольким участкам:
+TR: Where x and y are the coordinates of the rectangular area and "count" the cleaning operations.
+You can also let several areas suck at once:
 
 ```
 [X1, y1, x2, x2, count], [x3, y3, x4, x4, count2]
 ```
 
-Пример:
+TR: Example:
 
 ```
 [24117,26005,25767,27205,1], [24320,24693,25970,25843,1]
 ```
 
-#### Номера
-новый пылесос с последним приложением Home поддерживает определение комнат, см. [видео](https://www.youtube.com/watch?v=vEiUZzoXfPg)
+TR: #### rooms
+TR: newer vacuum cleaner with the latest Home App supports the definition of rooms, see [TR: Video](https://www.youtube.com/watch?v=vEiUZzoXfPg)
 
-У каждой комнаты на текущей карте есть индекс, который затем назначается комнате из приложения. От робота мы получаем только карту с номером комнаты и индексом. Адаптер опрашивает эти комнаты каждый раз при запуске адаптера и создает канал для каждой комнаты, который затем знает текущий индекс комнаты. То же самое происходит вручную с кнопкой loadRooms. Затем этот канал можно назначить комнатам ioBroker. Если нажать кнопку roomClean, индекс карты определяется и отправляется роботу, чтобы он мог затем пропылесосить эту комнату. Перед этим мощность ВЕНТИЛЯТОРА устанавливается для всасывания в одном помещении. Если у вас еще нет возможности давать названия комнатам в приложении, есть также возможность создать такой канал вручную, указав индекс карты. Также возможно добавить координаты зоны вместо mapIndex.
-Если вы хотите очистить несколько комнат спонтанно, вы можете сделать это с помощью multiRoomClean, назначив комнаты ioBroker этой точке данных, а затем нажав кнопку.
+TR: Each room in the current map has an index, which is then assigned to the room from the app. From the robot we only get a mapping with room number and index. The adapter queries these rooms every time the adapter starts and creates a channel for each room, which then knows the current room index. The same happens manually with the button loadRooms. This channel can then be assigned to the ioBroker rooms. If the button roomClean is pressed, the index of the card is determined and sent to the robot, so that it can then vacuum this room. Before that the FAN power is set for single room suction. If you don't have the possibility to name the rooms in the app yet, there is also the possibility to create such a channel manually by specifying the map index. It is also possible to add zone coordinates instead of mapIndex.
+If you want to clean several rooms spontaneously, you can do this via multiRoomClean by assigning the ioBroker rooms to this data point and then pressing the button.
 
-#### Таймер
-Как только пылесос поддерживает функцию помещения (см. Выше), также можно создавать таймеры, которые затем запускают соответствующие каналы помещения или определяют их mapIndexes.
-Таймер может запускаться напрямую через комнаты и / или каналы комнаты.
-Сами таймеры создаются в области конфигурации, но затем становятся точкой данных. Там каждый таймер можно активировать / деактивировать или пропустить один раз. Также возможен прямой пуск. Преимущество таймеров ioBroker заключается в том, что их можно отображать и использовать в VIS, а также отключать робота от Интернета, поскольку таймеры приложения запускаются из Китая.
+TR: #### timer
+TR: As soon as the vacuum cleaner supports the room function (see above), it is also possible to create timers, which then trigger the corresponding room channels or determine their mapIndexes.
+The timer could trigger via rooms and/or room channels directly.
+The timers themselves are created via the config area, but then become a data point. There, each timer can be activated/deactivated or skipped once. A direct start is also possible. The advantage of the ioBroker timers is that they can be displayed and used in the VIS and you can disconnect the robot from the internet, because the timers of the app are triggered from China.
 
-### Отправляйте свои собственные команды
-ПРИМЕЧАНИЕ: эту функцию должны использовать только специалисты, так как присоска может быть повреждена неправильными командами.
+TR: ### Send your own commands
+TR: NOTE: This function should only be used by experts, as the sucker might be damaged by wrong commands
 
-Робот различает команды в методах (методах) и параметрах (params), которые служат для определения методов.
-Под объектом «mihome-Vacuum.X.control.X_send_command» вы можете отправлять роботу свои собственные команды.
-Структура объекта должна выглядеть следующим образом: метод; [параметры]
+TR: The robot distinguishes between the commands in methods (methods) and parameters (params) which serve to specify the methods.
+Under the object "mihome-vacuum.X.control.X_send_command" you can send your own commands to the robot.
+The object structure must look as follows: method; [params]
 
-Под объектом «mihome-vacuum.X.control.X_get_response» ответ вводится роботом после отправки. Если параметры были запрошены, они отображаются здесь в формате JSON. Если была отправлена только одна команда, робот отвечает только «0».
+TR: Under the object "mihome-vacuum.X.control.X_get_response", the response is entered by the robot after sending.
+If parameters were queried, they appear here in the JSON format. If only one command was sent, the robot responds only with "0".
 
-Поддерживаются следующие методы и параметры:
+TR: The following methods and parameters are supported:
 
-| метод | параметры | Beschreibung |
+| TR: | method          | params                                                              | Description                                                                                            |
 |-----------      |-------                                                              |-------------------                                                                                     |
-| get_timer | | Возвращает установленный таймер Установка времени всасывания BSp. 12 часов 30 через 5 дней |
-| set_timer | [[«TIME_IN_MS», [«30 12 * * 1,2,3,4,5», [«start_clean», «»]]]] | Включить / выключить таймер |
-| upd_timer | ["1481997713308", "вкл / выкл"] | |
-| | | Спасает времена "Не беспокоить" |
-| get_dnd_timer | | Удалить время "Не беспокоить" |
-| close_dnd_timer | | Установка "Не беспокоить" ч, мин, ч, мин |
-| set_dnd_timer | [22,0,8,0] | |
+| TR: | get_timer       |                                                                     | Returns the set timerSetting the suction times BSp. 12 o'clock 30 in 5 days                            |
+| TR: | set_timer       | [["TIME_IN_MS",["30 12 * * 1,2,3,4,5",["start_clean",""]]]]         | Enable / disable timer                                                                                 |
+| TR: | upd_timer       | ["1481997713308","on/off"]                                          |                                                                                                        |
+| TR: |                 |                                                                     | Rescues the times of the Do Not Disturb                                                                |
+| TR: | get_dnd_timer   |                                                                     | Delete DND times                                                                                       |
+| TR: | close_dnd_timer |                                                                     | DND Setting h, min, h, min                                                                             |
+| TR: | set_dnd_timer   | [22,0,8,0]                                                          |                                                                                                        |
 |                 |                                                                     |                                                                                                        |
-| app_rc_start | | Запустите Romote Control |
-| app_rc_end | | Завершить дистанционное управление |
+| TR: | app_rc_start    |                                                                     | Start Remote Control                                                                                   |
+| TR: | app_rc_end      |                                                                     | Finish Remote Control                                                                                  |
 
-| app_rc_move | [{"seqnum": '0-1000', "velocity": VALUE1, "omega": VALUE2, "duration": VALUE3}] | Двигаться. Порядковый номер должен быть непрерывным, VALUE1 (скорость) = -0,3-0,3, VALUE2 (вращение) = -3,1-3,1, VALUE3 (продолжительность)
+TR: | app_rc_move     |[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]| Move. Sequence number must be continuous, VALUE1 (speed) = -0.3-0.3, VALUE2 (rotation) = -3.1-3.1, VALUE3 (duration)
 
-дополнительные методы и параметры можно найти здесь ([Ссылка на сайт](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
+TR: more methods and parameters you can find here ([TR: Link](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
 
-### Отправка пользовательских команд с помощью sendTo
-Вы также можете отправлять эти настраиваемые команды с других адаптеров с помощью `sendTo`. Использование с `method_id` и `params`, как определено выше:
+TR: ### Send custom commands with sendTo
+TR: You can also send those custom commands from other adapters with `sendTo`. Usage with `method_id` and `params` as defined above:
 
 ```
 sendTo("mihome-vacuum.0", "sendCustomCommand",
@@ -232,9 +235,9 @@ sendTo("mihome-vacuum.0", "sendCustomCommand",
 );
 ```
 
-Объект `response` имеет два свойства: `error` и (если ошибок не было) `result`.
+TR: The `response` object has two properties: `error` and (if there was no error) `result`.
 
-Пара предопределенных команд также может быть запущена таким образом:
+TR: A couple of predefined commands can also be issued this way:
 
 ```
 sendTo("mihome-vacuum.0",
@@ -244,86 +247,104 @@ sendTo("mihome-vacuum.0",
 );
 ```
 
-Поддерживаемые команды:
+TR: The supported commands are:
 
-| Описание | `commandName` | Обязательные параметры | Замечания |
-| Начать процесс очистки | `startVacuuming` | - нет - | |
-| Остановить процесс очистки | `stopVacuuming` | - нет - | |
-| Приостановить процесс очистки | `pause` | - нет - | |
-| Очистить ожидающие вакансии | `clearQueue` | - нет - | |
-| Очистите небольшой участок вокруг робота | `cleanSpot` | - нет - | |
-| Вернитесь на базу | `charge` | - нет - | |
-| Скажите "Привет, я здесь!" | `findMe` | - нет - | |
-| Проверить состояние расходных материалов (щетки и т. Д.) | `getConsumableStatus` | - нет - | |
-| Сбросить статус расходных материалов (щетки и т. Д.) | `resetConsumables` | `consumable` | Строка: filter_work_time, filter_element_work_time, sensor_dirty_time, main_brush_work_time, side_brush_work_time |
-| Получите сводку всех предыдущих процессов очистки | `getCleaningSummary` | - нет - | |
-| Получите подробный отчет о предыдущем процессе очистки | `getCleaningRecord` | `recordId` | |
-| Получить карту | `getMap` | - нет - | Неизвестно, что делать с результатом |
-| Получить текущий статус робота | `getStatus` | - нет - | |
-| Получить серийный номер робота | `getSerialNumber` | - нет - | |
-| Получите подробную информацию об устройстве | `getDeviceDetails` | - нет - | |
-| Получить таймер *не беспокоить* | `getDNDTimer` | - нет - | |
-| Установить новый таймер *не беспокоить* | `setDNDTimer` | `startHour`, `startMinute`, `endHour`, `endMinute` | |
-| Удалите таймер *не беспокоить* | `deleteDNDTimer` | - нет - | |
-| Получить текущую скорость вентилятора | `getFanSpeed` | - нет - | |
-| Установите новую скорость вентилятора | `setFanSpeed` | `fanSpeed` | `fanSpeed` - это число от 1 до 100 |
-| Запустить функцию дистанционного управления | `startRemoteControl` | - нет - | |
-| Выполните команду перемещения для дистанционного управления | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Порядковый номер должен указываться последовательно, Продолжительность в мс |
-| Завершить функцию дистанционного управления | `stopRemoteControl` | - нет - | |
-| чистая комната / комнаты | `cleanRooms` | `rooms` | `rooms` - это строка, разделенная запятыми, с enum.rooms.XXX |
-| чистый сегмент | `cleanSegments` | `rooms` | `rooms` - это массив с mapIndex или строкой, разделенной запятыми с mapIndex |
-| чистая зона | `cleanZone` | `coordinates` | `coordinates` - это строка с координатами и количеством, см. [zoneClean](#zoneClean) |
-| чистая зона | `cleanZone` | `координаты` | `координаты` - это строка с координатами и количеством, см. [zoneClean] (# zoneClean) |
+| TR: | Description | `commandName` | Required params | Remarks |
+| TR: | Start the cleaning process | `startVacuuming` | - none - |  |
+| TR: | Stop the cleaning process | `stopVacuuming` | - none - |  |
+| TR: | Pause the cleaning process | `pause` | - none - |  |
+| TR: | Clear waiting jobs | `clearQueue` | - none - |  |
+| TR: | Clean a small area around the robot | `cleanSpot` | - none - |  |
+| TR: | Go back to the base | `charge` | - none - |  |
+| TR: | Say "Hi, I'm over here!" | `findMe` | - none - |  |
+| TR: | Check status of consumables (brush, etc.) | `getConsumableStatus` | - none - |  |
+| TR: | Reset status of consumables (brush, etc.) | `resetConsumables` | `consumable` | String: filter_work_time, filter_element_work_time, sensor_dirty_time, main_brush_work_time, side_brush_work_time |
+| TR: | Get a summary of all previous cleaning processes | `getCleaningSummary` | - none - |  |
+| TR: | Get a detailed summary of a previous cleaning process | `getCleaningRecord` | `recordId` |  |
+| TR: | Get a map | `getMap` | - none - | Unknown what to do with the result |
+| TR: | Get the current status of the robot | `getStatus` | - none - |  |
+| TR: | Retrieve the robot's serial number | `getSerialNumber` | - none - |  |
+| TR: | Get detailed device information | `getDeviceDetails` | - none - |  |
+| TR: | Retrieve the *do not disturb* timer | `getDNDTimer` | - none - |  |
+| TR: | Set a new *do not disturb* timer | `setDNDTimer` | `startHour`, `startMinute`, `endHour`, `endMinute` |  |
+| TR: | Delete the *do not disturb* timer | `deleteDNDTimer` | - none - |  |
+| TR: | Retrieve the current fan speed | `getFanSpeed` | - none - |  |
+| TR: | Set a new fan speed | `setFanSpeed` | `fanSpeed` | `fanSpeed` is a number between 1 and 100 |
+| TR: | Start the remote control function | `startRemoteControl` | - none - |  |
+| TR: | Issue a move command for remote control | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Sequence number must be sequentially, Duration is in ms |
+| TR: | End the remote control function | `stopRemoteControl` | - none - |  |
+| TR: | clean room/rooms | `cleanRooms` | `rooms` | `rooms` is a comma separated String with enum.rooms.XXX |
+| TR: | clean segment | `cleanSegments` | `rooms` | `rooms` is an Array with mapIndex or comma separated String with mapIndex |
+| TR: | clean zone | `cleanZone` | `coordinates` | `coordinates` ist a String with coordinates and count, see [TR: zoneClean](#zoneClean) |
+| TR: | clean zone | `cleanZone` | `coordinates` | `coordinates` ist a String with coordinates and count, see [zoneClean](#zoneClean) |
 
-## Виджет
-![Виджет](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
+TR: ## Widget
+![TR: Widget](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
 
-## Ошибки
-- случайные отключения, однако, это происходит не из-за адаптера, а в основном из-за его собственных сетей
-- Виджет в то время без функции
+TR: ## Bugs
+TR: - Occasional disconnections, however, this is not due to the adapter but mostly on its own networks
+TR: - Widget at the time without function
 
 ## Changelog
+
+### WORK_IN_PROGRESS__
+* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B)
+
+### 3.2.0 (02.06.2021)
+* (MeisterTR) release candidate
+* (MeisterTR) get consumable after reset
+
+### 3.1.10 (23.05.2021)
+* error fixed
+* add sentry
+
 ### 3.1.6 (05.05.2021)
 * minimize Disk write
 * minimized Messages 
 * changed warn Messages to debug
 * extend Debuglog to find error for e2 vacuum
 * added getStates when map is changed
+
 ### 3.1.5 (03.05.2021)
-* try fix map error
-* Map64 chnaged. now without img tags
-* add Multimap support (get romms and map when map is changed)
+* try to fix the map error
+* Map64 changed. now without img tags
+* add Multimap support (get rooms and map when map is changed)
 * select Multimaps
-* fix error eith zone coordinates
-* add Wifi
+* fix error with zone coordinates
+* add WiFi
 * fix connection Problems
 * fix Valetudo map
-* add Mopstate
+* add Mop state
 * fix some objects
 
 ### 3.1.1 (18.4.2021)
  * Full rewrite
  * Fix map bug with multiple vacuums
  * fix performance Problems
- * better conntection to vacuum
+ * better connection to vacuum
  * fix bug in ReloadMap button
  * Show Goto and Zone States ti find places
  * and many more...
+
 ### 2.2.5 (2021-04-02)
 * added S7 Support
 * bugfixes for S5 Max and others
+
 ### 2.2.4 (2020-09-15)
 * (dirkhe) add config for send Pause Before Home
+
 ### 2.2.3 (2020-08-20)
 * (dirkhe) room DP are not deleted, on map change 
+
 ### 2.2.0 (2020-08-13)
 * (MeisterTR) add test for Viomi and Dreame Api 
+
 ### 2.1.1 (2020-07-10)
 * (bluefox) Refactoring
 * (bluefox) Support of compact mode added
 
 ### 2.0.10 (2020-07-05)
-* try to starting of cleaning 3 times, if robot not answers and some fixes
+* try to start the cleaning 3 times, if robot not answers and some fixes
 
 ### 2.0.9 (2020-03-05)
 * (dirkhe) add state info for room channels and change queue info from number to JSON
@@ -335,7 +356,7 @@ sendTo("mihome-vacuum.0",
 * (dirkhe) add Resuming after pause for rooms
 
 ### 2.0.6 (2020-02-17)
-* (MeisterTR) add roooms for s50 with map (cloud or Valetudo needed)
+* (MeisterTR) add rooms for s50 with map (cloud or Valetudo needed)
 
 ### 2.0.4 (2020-02-13)
 * (MeisterTR) add cloud login to get token
@@ -346,7 +367,7 @@ sendTo("mihome-vacuum.0",
 ### 1.10.5 (2020-02-11)
 * send Ping only if not connected, otherwise get_status
 * set button states to true, if clicked
-* move Timermanager and roomManager to own libs
+* move timer manager and room manager to own libs
 
 ### 1.10.4 (2020-02-06)
 * (MeiserTR) add valetudo map support for gen3 and gen2 2XXX
@@ -364,11 +385,11 @@ sendTo("mihome-vacuum.0",
 * (JoJ123) Added fan speed for MOP (S50+).
 
 ### 1.1.5 (2018-09-02)
-* (BuZZy1337) Added description for Status 16 and 17 (goTo and zonecleaning).
-* (BuZZy1337) Added setting for automatic resume of paused zonecleaning.
+* (BuZZy1337) Added description for Status 16 and 17 (goTo and zone cleaning).
+* (BuZZy1337) Added setting for automatic resume of paused zone cleaning.
 
 ### 1.1.4 (2018-08-24)
-* (BuZZy1337) Added possibility to resume a paused zoneclean (State: mihome-vacuum.X.control.resumeZoneClean)
+* (BuZZy1337) Added possibility to resume a paused zone clean (State: mihome-vacuum.X.control.resumeZoneClean)
 
 ### 1.1.3 (2018-07-11)
 * (BuZZy1337) fixed zoneCleanup state not working (vacuum was only leaving the dock, saying "Finished ZoneCleanup", and returned immediately back to the dock)
@@ -377,7 +398,7 @@ sendTo("mihome-vacuum.0",
 * (BuZZy1337) fixed detection of new Firmware / Second generation Vacuum
 
 ### 1.1.1 (2018-04-17)
-* (MeisterTR) error catched , added states for new fw
+* (MeisterTR) error caught , added states for new fw
 
 ### 1.1.0 (2018-04-10)
 * (mswiege) Finished the widget
@@ -404,7 +425,7 @@ sendTo("mihome-vacuum.0",
 * (MeisterTR) add option for crate switch for Alexa control
 
 ### 0.5.5 (2017-06-30)
-* (MeisterTR) add states, fetures, fix communication errors
+* (MeisterTR) add states, features, fix communication errors
 
 ### 0.3.2 (2017-06-07)
 * (MeisterTR) fix no communication after softwareupdate(Vers. 3.3.9)

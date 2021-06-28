@@ -2,112 +2,113 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.mihome-vacuum/README.md
-title: ioBroker mihome-真空适配器
-hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
+title: TR: ioBroker mihome-vacuum adapter
+hash: aIfH+iYBWOkmIheZ73ZJw/HBNXL8KV9LqrdRJ5H/QBk=
 ---
-![商标](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
+![TR: Logo](../../../en/adapterref/iobroker.mihome-vacuum/admin/mihome-vacuum.png)
 
-![贝宝捐赠](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
-![安装数量（最新）](http://iobroker.live/badges/mihome-vacuum-installed.svg)
-![依赖状态](https://img.shields.io/david/iobroker-community-adapters/iobroker.mihome-vacuum.svg)
-![已知漏洞](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.mihome-vacuum/badge.svg)
-![安装数量（稳定）](http://iobroker.live/badges/mihome-vacuum-stable.svg)
-![NPM](https://nodei.co/npm/iobroker.mihome-vacuum.png?downloads=true)
+![TR: Paypal Donation](https://img.shields.io/badge/paypal-donate%20|%20spenden-blue.svg)
+![TR: Number of Installations](http://iobroker.live/badges/mihome-vacuum-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.mihome-vacuum.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.mihome-vacuum.svg)
 
-＃ioBroker mihome-vacuum适配器
-![测试与发布](https://github.com/iobroker-community-adapters/ioBroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg)
+TR: # ioBroker mihome-vacuum adapter
+TR: ![TR: Test and Release](https://github.com/iobroker-community-adapters/iobroker.mihome-vacuum/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/mihome-vacuum/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-[德意志银行](README_de.md)
+[TR: Deutsche beschreibung hier](README_de.md)
 
-该适配器可让您控制小米吸尘器。
+TR: This adapter allows you to control the Xiaomi vacuum cleaner.
 
-＃＃ 内容
- -[已知错误]（＃known_errors）
-    -[安装时出错（画布）]（＃error_at_installation）
-    -[获取令牌cookie时出现HTTP错误{}]（＃http_error_when_getting_token_cookie {}）
--[设置]（＃configuration）
-    -[配置适配器]（＃adapter-configuration）
-        -[通过Alexa控制]（＃control-over-alexa）
-        -[第二机器人]（＃second-robot）
-    -[配置Valetudo]（＃valetudo-config）
--[功能]（＃functions）
-    -[S50命令]（＃s-s-s50）
-    -[转到]（＃goto）
--[区域清洁]（＃zoneclean）
-    -[房间]（＃rooms）
-    -[定时器]（＃timer）
-    -[个人命令]（＃send-your-own-commands）
-    -[sendTo挂钩]（＃send-custom-commands-with-sendto）
--[小工具]（＃widget）
--[错误]（＃bugs）
--[变更日志]（＃changelog）
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-##支持的设备和功能
-不支持清洁剂？ [在这里投票！](https://doodle.com/poll/8m8238ridkifua99?utm_source=poll&utm_medium=link)
+TR: ## Content
+TR:  - [Known Errors](#known_errors)
+TR:     - [Error at installation (canvas)](#error_at_installation)
+TR:     - [HTTP error when getting token cookie{}](#http_error_when_getting_token_cookie{})
+TR: - [Setup](#configuration)
+TR:     - [Configure Adapter](#adapter-configuration)
+TR:         - [Control via Alexa](#control-over-alexa)
+TR:         - [Second robot](#second-robot)
+TR:     - [Configure Valetudo](#valetudo-config)
+TR: - [Functions](#functions)
+TR:     - [S50 Commands](#commands-of-the-s50)
+TR:     	- [Go To](#goto)
+TR: 	- [zone Clean](#zoneclean)
+TR:     - [rooms](#rooms)
+TR:     - [timer](#timer)
+TR:     - [Own Commands](#send-your-own-commands)
+TR:     - [sendTo hook](#send-custom-commands-with-sendto)
+TR: - [widget](#widget)
+TR: - [bugs](#bugs)
+TR: - [Changelog](#changelog)
 
-|设备|基本控制|历史|房间|地图|
+TR: ## Supported Devices and Features
+TR: Cleaner not supported? [TR: Vote Here!](https://doodle.com/poll/8m8238ridkifua99?utm_source=poll&utm_medium=link)
+
+| TR: | Device                | Basic Control             | history               | rooms               | map                 |
 |:------------------    |:-------------------:      |:-------------------:  |:-------------------:|:-------------------:|
-| viomi.vacuum.v6 | ：heavy_check_mark：| ：x：|：x：| ：x：|
-| viomi.vacuum.v7 | ：heavy_check_mark：| ：x：|：x：| ：x：|
-| viomi.vacuum.v8 | ：heavy_check_mark：| ：x：|：x：| ：x：|
-| rockrobo.vacuum.v1 | ：heavy_check_mark：| ：heavy_check_mark：|：x：|：heavy_check_mark：|
-| roborock.vacuum.s4 | ：heavy_check_mark：| ：heavy_check_mark：|：heavy_check_mark：|：heavy_check_mark：|
-| roborock.vacuum.s5 | ：heavy_check_mark：| ：heavy_check_mark：|：heavy_check_mark：|：heavy_check_mark：|
-| roborock.vacuum.s5e | ：heavy_check_mark：| ：heavy_check_mark：|：heavy_check_mark：|：heavy_check_mark：|
-| roborock.vacuum.m1s | ：heavy_check_mark：| ：heavy_check_mark：|：heavy_check_mark：|：heavy_check_mark：|
-| roborock.vacuum.a10 | ：heavy_check_mark：| ：heavy_check_mark：|：heavy_check_mark：|：heavy_check_mark：|
-| roborock.vacuum.a15 | ：heavy_check_mark：| ：heavy_check_mark：|：heavy_check_mark：|：heavy_check_mark：|
+| TR: | viomi.vacuum.v6       | :heavy_check_mark:        | :x:                   |:x:                  | :x:                 |
+| TR: | viomi.vacuum.v7       | :heavy_check_mark:        | :x:                   |:x:                  | :x:                 |
+| TR: | viomi.vacuum.v8       | :heavy_check_mark:        | :x:                   |:x:                  | :x:                 |
+| TR: | rockrobo.vacuum.v1    | :heavy_check_mark:        | :heavy_check_mark:    |:x:                  |:heavy_check_mark:   |
+| TR: | roborock.vacuum.s4    | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
+| TR: | roborock.vacuum.s5    | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
+| TR: | roborock.vacuum.s5e   | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
+| TR: | roborock.vacuum.m1s   | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
+| TR: | roborock.vacuum.a10   | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
+| TR: | roborock.vacuum.a15   | :heavy_check_mark:        | :heavy_check_mark:    |:heavy_check_mark:   |:heavy_check_mark:   |
 
-##已知错误
-###安装错误
-如果您的安装运行错误。画布包无法安装
+TR: ## Known Errors
+TR: ### Error at installation
+TR: if your installation runs in error. The canvas package could not be installed
 
-``npm ERR！ canvas@2.6.1安装：node-pre-gyp install --fallback-to-build npm ERR！退出状态1``
+TR: ``npm ERR! canvas@2.6.1 install: node-pre-gyp install --fallback-to-build npm ERR! Exit status 1``
 
-请使用以下命令手动安装canvas和libs：``sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev''
+TR: Please install canvas and the libs manually with: `` sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev ``
 
-``sudo npm install canvas --unsafe-perm = true''
+TR: `` sudo npm install canvas --unsafe-perm=true ``
 
-###获取令牌Cookie时出现HTTP错误{}
-有时您无法连接到小米云。请打开浏览器，转到Mihome并登录。输入您通过邮件收到的验证码。在那之后，连接应该工作了。
+TR: ###  HTTP error when getting token cookie{}
+TR: Sometimes you can't connect to the xiaomi cloud.
+Please open Browser, go to Mihome and login. Enter the code you received via mail. After that, the connection should work.
 
-＃＃ 配置
-当前，找到令牌是最大的问题。
-请按照链接中的说明进行操作：
+TR: ## Configuration
+TR: Currently, finding the token is the biggest problem.
+PLease follow the instruction in the Link:
 
-[代币turorial](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
+[TR: Token tutorial](https://www.smarthomeassistent.de/token-auslesen-roborock-s6-roborock-s5-xiaomi-mi-robot-xiaowa/).
 
-###适配器配置
--对于IP地址，必须以“ 192.168.178.XX”格式输入机器人的IP地址。
--机器人的端口默认设置为“ 54321”，请勿更改
--自己的端口，只能由第二个机器人更改
--查询间隔检索机器人状态值的时间（以毫秒为单位）（不应小于10000）
+TR: ### Adapter Configuration
+TR: - For IP address, the IP address of the robot must be entered in the format "192.168.178.XX"
+TR: - The port of the robot is set to "54321" by default, this should not be changed
+TR: - Own port, should only be changed with second robot
+TR: - Query Interval The time in ms in which the robot's status values are retrieved (should not be <10000)
 
-####对Alexa的控制
-在配置中，添加alexa状态在此处被激活，一个hack被设置为附加状态“ clean_home”，这是一个从“ true”开始，到“ false”的开关，它返回首页，它自动成为云中的智能设备创建的适配器名称为“真空吸尘器”，可以在云适配器中进行更改。
+TR: #### Control over Alexa
+TR: In the config add alexa state is activated here is a hack is set an additional state "clean_home" it is a switch which starts at "true" the sucker and at "false" - it goes home, it becomes automatically a smart device in the cloud Adapter created with the name "vacuum cleaner", which can be changed in the cloud adapter.
 
-####使用开始按钮恢复暂停的区域清洁
-启用此选项后，如果在运行区域清洁期间暂停了“启动”状态，则Vacuum将恢复区域清洁。
-如果禁用此选项，则在发送启动命令时，真空吸尘器将开始新的“常规清洁”，即使在运行区域清洁期间暂停了真空吸尘器。
+TR: #### Resume paused zone-cleaning with start button
+TR: With this option enabled, the Vacuum will resume the zone-cleaning when setting the "start" state to true if it was paused during a running zone-clean.
+If this option is disabled, the vacuum will start a new "normal cleaning" when you send the start command, even if it was paused during a running zone-clean.
 
--实验性：使用复选框“发送自己的命令”创建对象，通过这些对象，您可以向机器人发送和接收自己的命令。
+TR: - Experimental: Using the checkbox "Send your own commands" objects are created, via which you can send and receive your own commands to the robot.
 
-####第二个机器人
-如果要通过ioBroker控制两个机械手，则必须创建两个实例。第二个机械手必须更改其自己的端口（默认值：53421），以便两个机械手都具有不同的端口。
+TR: #### Second robot
+TR: If two robots are to be controlled via ioBroker, two instances must be created. The second robot must change its own port (default: 53421) so that both robots have different ports.
 
-##地图配置
-有两种获取地图的方法。首先从云端获取地图。因此，您必须登录并从列表中选择合适的机器人
+TR: ## Map Config
+TR: There are two ways to get the map. The first get the map from the cloud. Therefore you have to log in and select the right robot from the list
 
-第二种方式是来自valetudo的地图（仅本地连接）。因此，您必须root并将valetudo安装到您的设备。 Vatudo可以使用[Valetudo RE]（https://github.com/rand256/valetudo）或普通的[Valetudo](https://github.com/Hypfer/Valetudo)
+TR: Second way is the map from valetudo (only local connection).
+Therefore you have to root and install valetudo to your device.
+You can use [TR: Valetudo RE](https://github.com/rand256/valetudo) or normal [Valetudo](https://github.com/Hypfer/Valetudo).
 
-![设定档](../../../en/adapterref/iobroker.mihome-vacuum/admin/valetudo_conf.png)
+![TR: Config](../../../en/adapterref/iobroker.mihome-vacuum/admin/valetudo_conf.png)
 
--要使用地图，您必须在配置中选择valetudo或原始地图
--请求间隔必须大于1000毫秒，这是更新html映射的间隔
--地图间隔必须超过5000毫秒，此间隔会更新png地图文件（您可以将其用于Telegram，Vis或其他任何东西）
--颜色在那里，您可以为地图示例选择颜色：
+TR: - To use the map you have to select valetudo or original map in the config
+TR: - request Interval must be more than 1000 ms this is the intervall for update the html map
+TR: - map intervall must be more than 5000 ms this intervall updates the png Map file (you can use this for Telegram or vis or anything else)
+TR: - color there you can select the colors for the map example:
 
 ```
 - #2211FF
@@ -116,114 +117,116 @@ hash: U/aoXXnLeLYe5euziTFca/0uZlariNMUGCbRI8MYwV0=
 - green
 ```
 
--那里的机器人，您可以为地图选择其他机器人或其他车辆
+TR: - robots there you can select differet robots or other vehicles for the map
 
-###地图用法
-映射存储为base64-raw或PNG。
+TR: ### Map Usage
+TR: The map is stored either as base64-raw or as PNG.
 
-您可以在以下数据点中找到地图图像：
+TR: You can find the map image in the following data points:
 
--base64：```mihome-vacuum.0.cleanmap.map64`''
--PNG：```mihome-vacuum.0.cleanmap.mapURL```
+TR: - base64: ```mihome-vacuum.0.cleanmap.map64```
+TR: - PNG: ```mihome-vacuum.0.cleanmap.mapURL```
 
-您可以在所需的VIS中将这两个图像都用作图像源。在HTML样式中，您可以通过以下方式使用图片：
+TR: You can use both images as image source in the VIS you want. In HTML-style you can use the image in this way:
 
 ```<img src="mihome-vacuum.0.cleanmap.map64">```
 
-使用其他样式标签，您可以调整地图样式的大小和/或设置其格式。
+TR: With additional style-tags you can resize and/or format the map style.
 
-要在```jarvis```中使用该映射，只需使用数据点之一作为DisplayImage-Widget的URL。在那里您可以调整图像或整个窗口小部件的大小。如果使用jarvis的响应式设计，则根据显示尺寸调整地图的大小。
+TR: To use the map in ```jarvis``` just use one of the data points as URL of the DisplayImage-Widget.
+There you can resize the image or the whole widget. In case of the responsive design of jarvis the Map will resize in case of the display size.
 
-要在```ioBroker VIS```中显示地图，您可以使用普通的html窗口小部件，例如：
+TR: To display the map in ```ioBroker VIS``` you can use a normal html Widget e.g:
 
 ```
 [{"tpl":"tplHtml","data":{"g_fixed":false,"g_visibility":false,"g_css_font_text":false,"g_css_background":false,"g_css_shadow_padding":false,"g_css_border":false,"g_gestures":false,"g_signals":false,"g_last_change":false,"visibility-cond":"==","visibility-val":1,"visibility-groups-action":"hide","refreshInterval":"0","signals-cond-0":"==","signals-val-0":true,"signals-icon-0":"/vis/signals/lowbattery.png","signals-icon-size-0":0,"signals-blink-0":false,"signals-horz-0":0,"signals-vert-0":0,"signals-hide-edit-0":false,"signals-cond-1":"==","signals-val-1":true,"signals-icon-1":"/vis/signals/lowbattery.png","signals-icon-size-1":0,"signals-blink-1":false,"signals-horz-1":0,"signals-vert-1":0,"signals-hide-edit-1":false,"signals-cond-2":"==","signals-val-2":true,"signals-icon-2":"/vis/signals/lowbattery.png","signals-icon-size-2":0,"signals-blink-2":false,"signals-horz-2":0,"signals-vert-2":0,"signals-hide-edit-2":false,"lc-type":"last-change","lc-is-interval":true,"lc-is-moment":false,"lc-format":"","lc-position-vert":"top","lc-position-horz":"right","lc-offset-vert":0,"lc-offset-horz":0,"lc-font-size":"12px","lc-font-family":"","lc-font-style":"","lc-bkg-color":"","lc-color":"","lc-border-width":"0","lc-border-style":"","lc-border-color":"","lc-border-radius":10,"lc-zindex":0,"html":"{mihome-vacuum.0.map.map64}"},"style":{"left":"0","top":"0","width":"100%","height":"100%"},"widgetSet":"basic"}]
 ```
 
-使用base64-map的速度更快，并且可以实时显示附近机器人的位置。
+TR: The use of the base64-map is faster and will display the position of the robot nearby in realtime.
 
-＃＃ 职能
-S50的命令（第二代）
-卡的尺寸始终为52000mm x 52000mm，因此可以设置从0到51999mm的值。
-不幸的是，无法查询卡的位置和位置，这可以随吸力的变化而变化。永远是最后一张吸卡以及在应用程序中用作基础。
-如果机器人仅拾取一个区域并始终以相同的方式构建地图，则可以可靠地将其发送到地点或对该区域进行清理。
+TR: ## Functions
+TR: ### Commands of the S50 (second generation)
+TR: The card size is always 52000mm x 52000mm thus values from 0 to 51999mm are possible.
+Unfortunately, the position and location of the card can not be queried, this can change from suction to suction. Used as a basis is always the last suction card, as well as in the app.
+If the robot only picks up one area and always builds the map the same way, you can reliably send it to places or have the area vacuumed.
 
-＃＃＃＃ 去
-为了将真空吸尘器驱动到一个点，必须按以下方式填充“ goTo”对象：
+TR: #### GoTo
+TR: In order to drive the vacuum cleaner to a point, the "goTo" object must be filled as follows:
 
 ```
 xVal, yval
 ```
 
-值必须满足上述范围并在地图上指示x和y坐标。
+TR: The values must satisfy the above scope and indicate the x and y coordinates on the map.
 
-例子：
+TR: Example:
 
 ```
 24,850.26500
 ```
 
-#### ZoneClean
-要清理区域，必须按以下方式填充ZoneClean：
+TR: #### zoneClean
+TR: To vacuum a zone, ZoneClean must be filled as follows:
 
 ```
 [X1, y1, x2, x2, count]
 ```
 
-其中x和y是矩形区域的坐标，并“计数”清洁操作。
-您还可以一次吸收多个区域：
+TR: Where x and y are the coordinates of the rectangular area and "count" the cleaning operations.
+You can also let several areas suck at once:
 
 ```
 [X1, y1, x2, x2, count], [x3, y3, x4, x4, count2]
 ```
 
-例子：
+TR: Example:
 
 ```
 [24117,26005,25767,27205,1], [24320,24693,25970,25843,1]
 ```
 
-####房间
-具有最新Home App的较新的吸尘器支持房间的定义，请参阅[视频](https://www.youtube.com/watch?v=vEiUZzoXfPg)
+TR: #### rooms
+TR: newer vacuum cleaner with the latest Home App supports the definition of rooms, see [TR: Video](https://www.youtube.com/watch?v=vEiUZzoXfPg)
 
-当前地图中的每个房间都有一个索引，然后从应用程序将其分配给该房间。从机器人中，我们仅获得带有房间号和索引的映射。适配器每次启动时都会查询这些房间，并为每个房间创建一个通道，然后知道当前房间索引。使用按钮loadRooms手动进行相同的操作。然后可以将此频道分配给ioBroker房间。如果按下了按钮roomClean，则确定卡的索引并将其发送到机械手，以便随后可以清洁该空间。在此之前，将FAN电源设置为单室抽吸。如果您尚无法在应用程序中命名房间，则还可以通过指定地图索引来手动创建此类通道。也可以添加区域坐标而不是mapIndex。
-如果要自发清洁多个房间，可以通过将ioBroker房间分配给该数据点，然后按按钮，通过multiRoomClean进行操作。
+TR: Each room in the current map has an index, which is then assigned to the room from the app. From the robot we only get a mapping with room number and index. The adapter queries these rooms every time the adapter starts and creates a channel for each room, which then knows the current room index. The same happens manually with the button loadRooms. This channel can then be assigned to the ioBroker rooms. If the button roomClean is pressed, the index of the card is determined and sent to the robot, so that it can then vacuum this room. Before that the FAN power is set for single room suction. If you don't have the possibility to name the rooms in the app yet, there is also the possibility to create such a channel manually by specifying the map index. It is also possible to add zone coordinates instead of mapIndex.
+If you want to clean several rooms spontaneously, you can do this via multiRoomClean by assigning the ioBroker rooms to this data point and then pressing the button.
 
-####计时器
-吸尘器一旦支持房间功能（见上文），就可以创建计时器，然后触发相应的房间通道或确定其mapIndexes。
-计时器可以直接通过房间和/或房间通道触发。
-计时器本身是通过config区域创建的，但随后成为数据点。在那里，每个计时器都可以被激活/关闭或跳过一次。也可以直接启动。 ioBroker计时器的优点是可以在VIS中显示和使用它们，并且您可以使机器人与互联网断开连接，因为该应用程序的计时器是从中国触发的。
+TR: #### timer
+TR: As soon as the vacuum cleaner supports the room function (see above), it is also possible to create timers, which then trigger the corresponding room channels or determine their mapIndexes.
+The timer could trigger via rooms and/or room channels directly.
+The timers themselves are created via the config area, but then become a data point. There, each timer can be activated/deactivated or skipped once. A direct start is also possible. The advantage of the ioBroker timers is that they can be displayed and used in the VIS and you can disconnect the robot from the internet, because the timers of the app are triggered from China.
 
-###发送您自己的命令
-注意：此功能只能由专家使用，因为错误的命令可能会损坏吸盘
+TR: ### Send your own commands
+TR: NOTE: This function should only be used by experts, as the sucker might be damaged by wrong commands
 
-机器人区分方法（方法）中的命令和用于指定方法的参数（参数）。
-在对象“ mihome-vacuum.X.control.X_send_command”下，您可以将自己的命令发送给机械手。
-对象结构必须如下所示： [参数]
+TR: The robot distinguishes between the commands in methods (methods) and parameters (params) which serve to specify the methods.
+Under the object "mihome-vacuum.X.control.X_send_command" you can send your own commands to the robot.
+The object structure must look as follows: method; [params]
 
-发送后，机械手在对象“ mihome-vacuum.X.control.X_get_response”下输入响应。如果查询了参数，它们将以JSON格式显示在此处。如果仅发送了一个命令，则机器人仅响应“ 0”。
+TR: Under the object "mihome-vacuum.X.control.X_get_response", the response is entered by the robot after sending.
+If parameters were queried, they appear here in the JSON format. If only one command was sent, the robot responds only with "0".
 
-支持以下方法和参数：
+TR: The following methods and parameters are supported:
 
-|方法参数| Beschreibung |
+| TR: | method          | params                                                              | Description                                                                                            |
 |-----------      |-------                                                              |-------------------                                                                                     |
-| get_timer | |返回设置的计时器设置吸气时间BSp。 5天12时30分|
-| set_timer | [[“” TIME_IN_MS“，[” 30 12 * * 1,2,3,4,5“，[” start_clean“，”“]]]] | | [启用/禁用计时器 |
-| upd_timer | [“ 1481997713308”，“打开/关闭”] | |
-| | |拯救“请勿打扰”的时代 |
-| get_dnd_timer | |删除免打扰时间|
-| close_dnd_timer | | DND设置h，min，h，min |
-| set_dnd_timer | [22,0,8,0] | |
+| TR: | get_timer       |                                                                     | Returns the set timerSetting the suction times BSp. 12 o'clock 30 in 5 days                            |
+| TR: | set_timer       | [["TIME_IN_MS",["30 12 * * 1,2,3,4,5",["start_clean",""]]]]         | Enable / disable timer                                                                                 |
+| TR: | upd_timer       | ["1481997713308","on/off"]                                          |                                                                                                        |
+| TR: |                 |                                                                     | Rescues the times of the Do Not Disturb                                                                |
+| TR: | get_dnd_timer   |                                                                     | Delete DND times                                                                                       |
+| TR: | close_dnd_timer |                                                                     | DND Setting h, min, h, min                                                                             |
+| TR: | set_dnd_timer   | [22,0,8,0]                                                          |                                                                                                        |
 |                 |                                                                     |                                                                                                        |
-| app_rc_start | |启动远程控制|
-| app_rc_end | |完成遥控器|
+| TR: | app_rc_start    |                                                                     | Start Remote Control                                                                                   |
+| TR: | app_rc_end      |                                                                     | Finish Remote Control                                                                                  |
 
-| app_rc_move | [{“ seqnum”：'0-1000'，“ velocity”：VALUE1，“ omega”：VALUE2，“ duration”：VALUE3}]] |移动。序列号必须是连续的，VALUE1（速度）= -0.3-0.3，VALUE2（旋转）= -3.1-3.1，VALUE3（持续时间）
+TR: | app_rc_move     |[{"seqnum":'0-1000',"velocity":VALUE1,"omega":VALUE2,"duration":VALUE3}]| Move. Sequence number must be continuous, VALUE1 (speed) = -0.3-0.3, VALUE2 (rotation) = -3.1-3.1, VALUE3 (duration)
 
-您可以在此处找到更多方法和参数（[关联](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)）。
+TR: more methods and parameters you can find here ([TR: Link](https://github.com/MeisterTR/XiaomiRobotVacuumProtocol)).
 
-###使用sendTo发送自定义命令
-您也可以使用`sendTo`从其他适配器发送那些自定义命令。与上面定义的`method_id`和`params`结合使用：
+TR: ### Send custom commands with sendTo
+TR: You can also send those custom commands from other adapters with `sendTo`. Usage with `method_id` and `params` as defined above:
 
 ```
 sendTo("mihome-vacuum.0", "sendCustomCommand",
@@ -232,9 +235,9 @@ sendTo("mihome-vacuum.0", "sendCustomCommand",
 );
 ```
 
-`response`对象具有两个属性：`error`和（如果没有错误）`result`。
+TR: The `response` object has two properties: `error` and (if there was no error) `result`.
 
-也可以通过这种方式发出几个预定义的命令：
+TR: A couple of predefined commands can also be issued this way:
 
 ```
 sendTo("mihome-vacuum.0",
@@ -244,86 +247,104 @@ sendTo("mihome-vacuum.0",
 );
 ```
 
-支持的命令是：
+TR: The supported commands are:
 
-|描述`commandName`|必填参数|备注|
-|开始清洁过程| `startVacuuming`| -无-| |
-|停止清洁过程| `stopVacuuming`| -无-| |
-|暂停清洁过程| `pause`| -无-| |
-|清除等待的工作| `clearQueue`| -无-| |
-|清洁机器人周围的一小块区域| `cleanSpot`| -无-| |
-|回到基地| `charge`| -无-| |
-|说“嗨，我在这里！” | `findMe`| -无-| |
-|检查耗材的状态（刷子等）| `getConsumableStatus`| -无-| |
-|重置耗材（刷子等）的状态| `resetConsumables`| `consumable`|字符串：filter_work_time，filter_element_work_time，sensor_dirty_time，main_brush_work_time，side_brush_work_time |
-|获取以前所有清洁过程的摘要| `getCleaningSummary`| -无-| |
-|获取先前清洁过程的详细摘要| `getCleaningRecord`| `recordId`| |
-|获取地图| `getMap`| -无-|未知如何处理结果|
-|获取机器人的当前状态| `getStatus`| -无-| |
-|检索机器人的序列号| `getSerialNumber`| -无-| |
-|获取详细的设备信息| `getDeviceDetails`| -无-| |
-|检索“请勿打扰”计时器| `getDNDTimer`| -无-| |
-|设置新的“请勿打扰”计时器| `setDNDTimer`| `startHour`，`startMinute`，`endHour`，`endMinute`| |
-|删除“请勿打扰”计时器| `deleteDNDTimer`| -无-| |
-|检索当前风扇速度| `getFanSpeed`| -无-| |
-|设置新风扇速度| `setFanSpeed`| `fanSpeed`| `fanSpeed`是1到100之间的数字|
-|启动遥控器功能| `startRemoteControl`| -无-| |
-|发出用于远程控制的移动命令`move`| `velocity`，`angularVelocity`，`duration`，`sequenceNumber`|序列号必须按顺序排列，持续时间以ms为单位|
-|结束遥控器功能| `stopRemoteControl`| -无-| |
-|无尘室| `cleanRooms`| `rooms`| `rooms`是逗号分隔的字符串，带有enum.rooms.XXX |
-|清洁段| `cleanSegments`| `rooms`| `rooms`是具有mapIndex或逗号分隔的String与mapIndex |的字符串的数组。 |
-|清洁区| `cleanZone`| `coordinates`| `coordinates`是一个具有坐标和计数的字符串，请参见[zoneClean](#zoneClean)|
-|清洁区| `cleanZone` | `坐标`| `coordinates` ist一个带有坐标和计数的字符串，请参见[zoneClean]（＃zoneClean）|
+| TR: | Description | `commandName` | Required params | Remarks |
+| TR: | Start the cleaning process | `startVacuuming` | - none - |  |
+| TR: | Stop the cleaning process | `stopVacuuming` | - none - |  |
+| TR: | Pause the cleaning process | `pause` | - none - |  |
+| TR: | Clear waiting jobs | `clearQueue` | - none - |  |
+| TR: | Clean a small area around the robot | `cleanSpot` | - none - |  |
+| TR: | Go back to the base | `charge` | - none - |  |
+| TR: | Say "Hi, I'm over here!" | `findMe` | - none - |  |
+| TR: | Check status of consumables (brush, etc.) | `getConsumableStatus` | - none - |  |
+| TR: | Reset status of consumables (brush, etc.) | `resetConsumables` | `consumable` | String: filter_work_time, filter_element_work_time, sensor_dirty_time, main_brush_work_time, side_brush_work_time |
+| TR: | Get a summary of all previous cleaning processes | `getCleaningSummary` | - none - |  |
+| TR: | Get a detailed summary of a previous cleaning process | `getCleaningRecord` | `recordId` |  |
+| TR: | Get a map | `getMap` | - none - | Unknown what to do with the result |
+| TR: | Get the current status of the robot | `getStatus` | - none - |  |
+| TR: | Retrieve the robot's serial number | `getSerialNumber` | - none - |  |
+| TR: | Get detailed device information | `getDeviceDetails` | - none - |  |
+| TR: | Retrieve the *do not disturb* timer | `getDNDTimer` | - none - |  |
+| TR: | Set a new *do not disturb* timer | `setDNDTimer` | `startHour`, `startMinute`, `endHour`, `endMinute` |  |
+| TR: | Delete the *do not disturb* timer | `deleteDNDTimer` | - none - |  |
+| TR: | Retrieve the current fan speed | `getFanSpeed` | - none - |  |
+| TR: | Set a new fan speed | `setFanSpeed` | `fanSpeed` | `fanSpeed` is a number between 1 and 100 |
+| TR: | Start the remote control function | `startRemoteControl` | - none - |  |
+| TR: | Issue a move command for remote control | `move` | `velocity`, `angularVelocity`, `duration`, `sequenceNumber` | Sequence number must be sequentially, Duration is in ms |
+| TR: | End the remote control function | `stopRemoteControl` | - none - |  |
+| TR: | clean room/rooms | `cleanRooms` | `rooms` | `rooms` is a comma separated String with enum.rooms.XXX |
+| TR: | clean segment | `cleanSegments` | `rooms` | `rooms` is an Array with mapIndex or comma separated String with mapIndex |
+| TR: | clean zone | `cleanZone` | `coordinates` | `coordinates` ist a String with coordinates and count, see [TR: zoneClean](#zoneClean) |
+| TR: | clean zone | `cleanZone` | `coordinates` | `coordinates` ist a String with coordinates and count, see [zoneClean](#zoneClean) |
 
-##小部件
-![小部件](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
+TR: ## Widget
+![TR: Widget](../../../en/adapterref/iobroker.mihome-vacuum/widgets/mihome-vacuum/img/previewControl.png)
 
-##错误
--偶尔断开连接，但这不是由于适配器引起的，而是主要在其自身的网络上
--当时没有功能的小部件
+TR: ## Bugs
+TR: - Occasional disconnections, however, this is not due to the adapter but mostly on its own networks
+TR: - Widget at the time without function
 
 ## Changelog
+
+### WORK_IN_PROGRESS__
+* (Apollon77) Adjust several crash cases (IOBROKER-MIHOME-VACUUM-K, IOBROKER-MIHOME-VACUUM-J, IOBROKER-MIHOME-VACUUM-F, IOBROKER-MIHOME-VACUUM-7, IOBROKER-MIHOME-VACUUM-A, IOBROKER-MIHOME-VACUUM-4, IOBROKER-MIHOME-VACUUM-G, IOBROKER-MIHOME-VACUUM-C, IOBROKER-MIHOME-VACUUM-B)
+
+### 3.2.0 (02.06.2021)
+* (MeisterTR) release candidate
+* (MeisterTR) get consumable after reset
+
+### 3.1.10 (23.05.2021)
+* error fixed
+* add sentry
+
 ### 3.1.6 (05.05.2021)
 * minimize Disk write
 * minimized Messages 
 * changed warn Messages to debug
 * extend Debuglog to find error for e2 vacuum
 * added getStates when map is changed
+
 ### 3.1.5 (03.05.2021)
-* try fix map error
-* Map64 chnaged. now without img tags
-* add Multimap support (get romms and map when map is changed)
+* try to fix the map error
+* Map64 changed. now without img tags
+* add Multimap support (get rooms and map when map is changed)
 * select Multimaps
-* fix error eith zone coordinates
-* add Wifi
+* fix error with zone coordinates
+* add WiFi
 * fix connection Problems
 * fix Valetudo map
-* add Mopstate
+* add Mop state
 * fix some objects
 
 ### 3.1.1 (18.4.2021)
  * Full rewrite
  * Fix map bug with multiple vacuums
  * fix performance Problems
- * better conntection to vacuum
+ * better connection to vacuum
  * fix bug in ReloadMap button
  * Show Goto and Zone States ti find places
  * and many more...
+
 ### 2.2.5 (2021-04-02)
 * added S7 Support
 * bugfixes for S5 Max and others
+
 ### 2.2.4 (2020-09-15)
 * (dirkhe) add config for send Pause Before Home
+
 ### 2.2.3 (2020-08-20)
 * (dirkhe) room DP are not deleted, on map change 
+
 ### 2.2.0 (2020-08-13)
 * (MeisterTR) add test for Viomi and Dreame Api 
+
 ### 2.1.1 (2020-07-10)
 * (bluefox) Refactoring
 * (bluefox) Support of compact mode added
 
 ### 2.0.10 (2020-07-05)
-* try to starting of cleaning 3 times, if robot not answers and some fixes
+* try to start the cleaning 3 times, if robot not answers and some fixes
 
 ### 2.0.9 (2020-03-05)
 * (dirkhe) add state info for room channels and change queue info from number to JSON
@@ -335,7 +356,7 @@ sendTo("mihome-vacuum.0",
 * (dirkhe) add Resuming after pause for rooms
 
 ### 2.0.6 (2020-02-17)
-* (MeisterTR) add roooms for s50 with map (cloud or Valetudo needed)
+* (MeisterTR) add rooms for s50 with map (cloud or Valetudo needed)
 
 ### 2.0.4 (2020-02-13)
 * (MeisterTR) add cloud login to get token
@@ -346,7 +367,7 @@ sendTo("mihome-vacuum.0",
 ### 1.10.5 (2020-02-11)
 * send Ping only if not connected, otherwise get_status
 * set button states to true, if clicked
-* move Timermanager and roomManager to own libs
+* move timer manager and room manager to own libs
 
 ### 1.10.4 (2020-02-06)
 * (MeiserTR) add valetudo map support for gen3 and gen2 2XXX
@@ -364,11 +385,11 @@ sendTo("mihome-vacuum.0",
 * (JoJ123) Added fan speed for MOP (S50+).
 
 ### 1.1.5 (2018-09-02)
-* (BuZZy1337) Added description for Status 16 and 17 (goTo and zonecleaning).
-* (BuZZy1337) Added setting for automatic resume of paused zonecleaning.
+* (BuZZy1337) Added description for Status 16 and 17 (goTo and zone cleaning).
+* (BuZZy1337) Added setting for automatic resume of paused zone cleaning.
 
 ### 1.1.4 (2018-08-24)
-* (BuZZy1337) Added possibility to resume a paused zoneclean (State: mihome-vacuum.X.control.resumeZoneClean)
+* (BuZZy1337) Added possibility to resume a paused zone clean (State: mihome-vacuum.X.control.resumeZoneClean)
 
 ### 1.1.3 (2018-07-11)
 * (BuZZy1337) fixed zoneCleanup state not working (vacuum was only leaving the dock, saying "Finished ZoneCleanup", and returned immediately back to the dock)
@@ -377,7 +398,7 @@ sendTo("mihome-vacuum.0",
 * (BuZZy1337) fixed detection of new Firmware / Second generation Vacuum
 
 ### 1.1.1 (2018-04-17)
-* (MeisterTR) error catched , added states for new fw
+* (MeisterTR) error caught , added states for new fw
 
 ### 1.1.0 (2018-04-10)
 * (mswiege) Finished the widget
@@ -404,7 +425,7 @@ sendTo("mihome-vacuum.0",
 * (MeisterTR) add option for crate switch for Alexa control
 
 ### 0.5.5 (2017-06-30)
-* (MeisterTR) add states, fetures, fix communication errors
+* (MeisterTR) add states, features, fix communication errors
 
 ### 0.3.2 (2017-06-07)
 * (MeisterTR) fix no communication after softwareupdate(Vers. 3.3.9)

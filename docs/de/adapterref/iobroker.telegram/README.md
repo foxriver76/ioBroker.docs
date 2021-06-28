@@ -2,38 +2,38 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.telegram/README.md
-title: ioBroker Telegrammadapter
-hash: qnN6C3/RYS+HjTlA77HGatWAuS6cU9E3bsHJFQJCnmQ=
+title: TR: ioBroker telegram Adapter
+hash: UaRBWrjzUa4H5yQB5LQ/WEuTsWtm1xCLl/f16o0Mzxk=
 ---
-![Logo](../../../en/adapterref/iobroker.telegram/admin/telegram.png)
+![TR: Logo](../../../en/adapterref/iobroker.telegram/admin/telegram.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/telegram-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.telegram.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.telegram.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.telegram.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.telegram.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/telegram-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.telegram.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.telegram.svg)
 
-# IoBroker Telegrammadapter
-## Aufbau
-Bitten Sie [@ BotFather](https://telegram.me/botfather), einen neuen Bot ```/newbot``` zu erstellen.
+TR: # ioBroker telegram Adapter
+TR: ![TR: Test and Release](https://github.com/iobroker-community-adapters/iobroker.telegram/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/telegram/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Sie werden aufgefordert, den Namen des Bots und dann den Benutzernamen einzugeben.
-Danach erhalten Sie das Token.
+TR: ## Configuration
+TR: Ask [TR: @BotFather](https://telegram.me/botfather) to create new bot ```/newbot```.
 
-![Bildschirmfoto](../../../en/adapterref/iobroker.telegram/img/chat.png)
+TR: You will be asked to enter name of the bot and then the username.
+After that, you will get the Token.
 
-Sie sollten das Passwort für die Kommunikation im Konfigurationsdialog festlegen. Danach starten Sie den Adapter.
+![TR: Screenshot](../../../en/adapterref/iobroker.telegram/img/chat.png)
 
-Um ein Gespräch mit Ihrem Bot zu beginnen, müssen Sie den Benutzer mit `/password phrase` authentifizieren, wobei **`phrase`** Ihr konfiguriertes Passwort ist. Öffnen Sie also eine neue Konversation mit Ihrem generierten Bot in Telegram und geben Sie das Passwort als ersten Befehl ein.
+TR: You should set password for communication in configuration dialog. After this start the adapter.
 
-** Hinweis: ** Sie können die Kurzform `/p phrase` verwenden.
+TR: To start a conversation with your bot you need to authenticate user with `/password phrase`, where **`phrase`** is your configured password. So open a new conversation with your generated Bot in Telegram and then you need to enter the passwort as first command.
 
-Um ein schönes Avatar-Bild hinzuzufügen, geben Sie `/setuserpic` in **BotFather** Chat ein und laden Sie das gewünschte Bild (512x512 Pixel) hoch, wie dieses [Logo](img/logo.png).
+TR: **Note:** you can use short form `/p phrase`.
 
-Sie können die Nachricht an alle authentifizierten Benutzer über messageBox `sendTo('telegram', 'Test message')` oder an einen bestimmten Benutzer `sendTo('telegram', '@userName Test message')` senden.
-Der Benutzer muss zuvor authentifiziert sein.
+TR: To add nice avatar picture enter `/setuserpic` in **BotFather** chat and upload him desired picture (512x512 pixels), like this one [TR: logo](img/logo.png).
 
-Sie können den Benutzer auch folgendermaßen angeben:
+TR: You can send the message to all authenticated users over messageBox `sendTo('telegram', 'Test message')` or to specific user `sendTo('telegram', '@userName Test message')`.
+User must be authenticated before.
+
+TR: You can specify user in that way too:
 
 ```
 sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
@@ -41,12 +41,12 @@ sendTo('telegram', {user: 'UserName', text: 'Test message'}, function (res) {
 });
 ```
 
-Wenn Sie das obige Beispiel verwenden, beachten Sie, dass Sie 'Benutzername' entweder durch den Vornamen oder den öffentlichen Telegramm-Benutzernamen des Benutzers ersetzen müssen, an den Sie die Nachricht senden möchten. (Hängt davon ab, ob die Einstellung "Benutzername nicht Vorname speichern" in den Adaptereinstellungen aktiviert ist oder nicht.) Wenn die Option aktiviert ist und der Benutzer in seinem Telegrammkonto keinen öffentlichen Benutzernamen angegeben hat, verwendet der Adapter weiterhin den Vornamen von der Nutzer. Beachten Sie, dass, wenn der Benutzer später (nach der Authentifizierung bei Ihrem Bot) einen öffentlichen Benutzernamen festlegt, der gespeicherte Vorname beim nächsten Senden einer Nachricht an den Bot durch den Benutzernamen ersetzt wird.
+TR: If you use the example above be aware of that you have to replace 'UserName' with either the first name or the Public-Telegram-Username of the User you want to send the message to. (Depends on if the 'Store username not firstname' setting in the adapter settings is enabled or not) If the option is set and the user did not specify a public username in his telegram account, then the adapter will continue to use the firstname of the user. Keep in mind that if the user sets a public username later (after authenticating to your bot) the saved firstname will be replaced by the username the next time the user sends a message to the bot.
 
-Es ist möglich, mehr als einen Empfänger anzugeben (trennen Sie einfach die Benutzernamen durch Komma).
-Zum Beispiel: Empfänger: "Benutzer1, Benutzer4, Benutzer5"
+TR: It is possible to specify more than one recipient (just separate the usernames by comma).
+For example: Recipient: "User1,User4,User5"
 
-Sie können eine Nachricht auch über den Status senden. Setzen Sie einfach den Status *"telegram.INSTANCE.communicate.response"* mit dem Wert *"@ userName Test message"* oder mit einem JSON-Objekt:
+TR: You can send message over state too, just set state *"telegram.INSTANCE.communicate.response"* with value *"@userName Test message"* or with a JSON object:
 
 ```
 {
@@ -54,7 +54,7 @@ Sie können eine Nachricht auch über den Status senden. Setzen Sie einfach den 
 }
 ```
 
-Die JSON-Syntax ermöglicht auch das Hinzufügen von Optionen aus den [Telegramm-Bots-API](https://core.telegram.org/bots/api) sowie das Festlegen des Benutzers oder der Chat-ID:
+TR: The JSON syntax also allows the adding options from the [TR: telegram bots API](https://core.telegram.org/bots/api), as well as setting the user or chatId:
 
 ```
 {
@@ -65,20 +65,20 @@ Die JSON-Syntax ermöglicht auch das Hinzufügen von Optionen aus den [Telegramm
 }
 ```
 
-Um Nachrichten an Gruppen zu senden, müssen Sie den Bot zu der Gruppe einladen, in der der Bot posten soll.
-Durch Bereitstellen der `chat_id` für die JSON-Nachrichtennutzdaten können Sie tatsächlich Nachrichten an diese Gruppen senden.
+TR: In order to send messages to the groups, you have to invite the bot to the group you want the bot to post in.
+By providing the `chat_id` to the JSON message payload you can actually send messages to those groups.
 
-Um die `chat_id` herauszufinden, müssen Sie die Protokollstufe des Adapters auf `debug` setzen.
-Sie können Ihren Bot dann einfach in den Gruppen anpingen, an die der Bot Nachrichten senden soll.
-Stellen Sie sicher, dass Sie einen `/` vor die Nachricht setzen, damit der Bot die Nachricht sehen kann ([wenn der Bot-Datenschutz aktiviert ist](#How-to-receive-messages-in-group-chats-using-telegram-adapter)).
-Das iobroker-Protokoll zeigt Ihnen dann die Chat-ID in den Protokollen an.
+TR: In order to find out the `chat_id` you have to set the adapter's log level to `debug`.
+You can then just ping your bot in the groups you want the bot to send messages to.
+Make sure you put a `/` in front of the message in order for the bot to see the message ([TR: if the bot privacy is turned on](#How-to-receive-messages-in-group-chats-using-telegram-adapter)).
+The iobroker log will then show you the chat id in the logs.
 
-## Verwendung
-Sie können das Telegramm mit dem Adapter [text2command](https://github.com/ioBroker/ioBroker.text2command) verwenden. Es gibt vordefinierte Kommunikationsschemata und Sie können in Textform zu Ihnen nach Hause befehlen.
+TR: ## Usage
+TR: You can use telegram with [TR: text2command](https://github.com/ioBroker/ioBroker.text2command) adapter. There are predefined communication schema and you can command to you home in text form.
 
-Um ein Foto zu senden, senden Sie einfach einen Pfad zur Datei anstelle von Text oder URL: `sendTo('telegram', 'absolute/path/file.png')` oder `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
+TR: To send a photo, just send a path to file instead of text or URL: `sendTo('telegram', 'absolute/path/file.png')` or `sendTo('telegram', 'https://telegram.org/img/t_logo.png')`.
 
-Beispiel für das Senden eines Screenshots von der Web-Cam zum Telegramm:
+TR: Example how to send a screenshot from web-cam to telegram:
 
 ```
 var request = require('request');
@@ -109,20 +109,20 @@ on("someState", function (obj) {
 });
 ```
 
-Folgende Nachrichten sind für Aktionen reserviert:
+TR: Following messages are reserved for actions:
 
-- *tippen* - für Textnachrichten,
-- *upload_photo* - für Fotos,
-- *upload_video* - für Videos,
-- *record_video* - für Videos,
-- *record_audio* - für Audio,
-- *upload_audio* - für Audio,
-- *upload_document* - für Dokumente,
-- *find_location* - für Standortdaten
+TR: - *typing* - for text messages,
+TR: - *upload_photo* - for photos,
+TR: - *upload_video* - for videos,
+TR: - *record_video* - for videos,
+TR: - *record_audio* - for audio,
+TR: - *upload_audio* - for audio,
+TR: - *upload_document* - for documents,
+TR: - *find_location* - for location data
 
-In diesem Fall wird der Aktionsbefehl gesendet.
+TR: In this case the action command will be sent.
 
-Die Beschreibung für die Telegramm-API finden Sie in [Hier](https://core.telegram.org/bots/api). Sie können alle in dieser API definierten Optionen verwenden, indem Sie diese einfach in das Sendeobjekt aufnehmen. Z.B.:
+TR: The description for telegram API can be found [TR: here](https://core.telegram.org/bots/api) and you can use all options defined in this api, just by including that into send object. E.g.:
 
 ```
 sendTo('telegram.0', {
@@ -132,21 +132,21 @@ sendTo('telegram.0', {
 });
 ```
 
-**Möglichkeiten**:
+TR: **Possible options**:
 
-- *disable_notification* Sendet die Nachricht still. iOS-Benutzer erhalten keine Benachrichtigung, Android-Benutzer erhalten eine Benachrichtigung ohne Ton. (alle Arten)
-- *parse_mode* Markdown oder HTML senden, wenn Telegramm-Apps fett, kursiv, Text mit fester Breite oder Inline-URLs in der Nachricht Ihres Bots anzeigen sollen. Mögliche Werte: "Markdown", "MarkdownV2", "HTML" (Nachricht)
-- *disable_web_page_preview* Deaktiviert die Linkvorschau für Links in dieser Nachricht (Nachricht)
-- *Bildunterschrift* Bildunterschrift für das Dokument, Foto oder Video, 0-200 Zeichen (Video, Audio, Foto, Dokument)
-- *Dauer* Dauer des gesendeten Videos oder Audios in Sekunden (Audio, Video)
-- *Darsteller* Darsteller der Audiodatei (Audio)
-- *title* Titelname der Audiodatei (Audio)
-- *width* Videobreite (Video)
-- *Höhe* Videohöhe (Video)
+TR: - *disable_notification*: Sends the message silently. The iOS users will not receive a notification, Android users will receive a notification with no sound. (all types)
+TR: - *parse_mode*: Send Markdown or HTML, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. Possible values: "Markdown", "MarkdownV2", "HTML" (message)
+TR: - *disable_web_page_preview*: Disables link previews for links in this message (message)
+TR: - *caption*: Caption for the document, photo or video, 0-200 characters (video, audio, photo, document)
+TR: - *duration*: Duration of sent video or audio in seconds (audio, video)
+TR: - *performer*: Performer of the audio file (audio)
+TR: - *title*: Track name of the audio file (audio)
+TR: - *width*: Video width (video)
+TR: - *height*: Video height (video)
 
-Der Adapter versucht, den Nachrichtentyp (Foto, Video, Audio, Dokument, Aufkleber, Aktion, Speicherort) zu ermitteln. Dies hängt vom Text in der Nachricht ab. Wenn der Text der Pfad zu einer vorhandenen Datei ist, wird er als entsprechender Typ gesendet.
+TR: Adapter tries to detect the type of message (photo, video, audio, document, sticker, action, location) depends on text in the message if the text is path to existing file, it will be sent as according type.
 
-Der Standort wird anhand des Attributspielraums ermittelt:
+TR: Location will be detected on attribute latitude:
 
 ```
 sendTo('telegram.0', {
@@ -156,10 +156,10 @@ sendTo('telegram.0', {
 });
 ```
 
-### Explizite Nachrichtentypen
-Sie haben die Möglichkeit, den Nachrichtentyp zusätzlich zu definieren, falls Sie die Daten als Puffer senden möchten.
+TR: ### Explicit types of messages
+TR: You have the possibility to define extra the type of the message in case you want to send the data as buffer.
 
-Folgende Typen sind möglich: *Aufkleber* *Video* *Dokument* *Audio* *Foto*
+TR: Following types are possible: *sticker*, *video*, *document*, *audio*, *photo*.
 
 ```
 sendTo('telegram.0', {
@@ -168,8 +168,8 @@ sendTo('telegram.0', {
 });
 ```
 
-### Tastatur
-Sie können die Tastatur **ReplyKeyboardMarkup** im Client anzeigen:
+TR: ### Keyboard
+TR: You can show keyboard **ReplyKeyboardMarkup** in the client:
 
 ```
 sendTo('telegram.0', {
@@ -185,9 +185,9 @@ sendTo('telegram.0', {
 });
 ```
 
-Sie können mehr lesen [hier] (https://core.telegram.org/bots/api#replykeyboardmarkup) und [hier](https://core.telegram.org/bots#keyboards).
+TR: You can read more [TR: here](https://core.telegram.org/bots/api#replykeyboardmarkup) and [here](https://core.telegram.org/bots#keyboards).
 
-Sie können die Tastatur **InlineKeyboardMarkup** im Client anzeigen:
+TR: You can show keyboard **InlineKeyboardMarkup** in the client:
 
 ```
 sendTo('telegram', {
@@ -202,12 +202,12 @@ sendTo('telegram', {
 });
 ```
 
-Sie können mehr lesen [hier] (https://core.telegram.org/bots/api#inlinekeyboardmarkup) und [hier](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating).
+TR: You can read more [TR: here](https://core.telegram.org/bots/api#inlinekeyboardmarkup) and [here](https://core.telegram.org/bots#inline-keyboards-and-on-the-fly-updating).
 
-** HINWEIS: ** *Nachdem der Benutzer eine Rückruftaste gedrückt hat, zeigen Telegrammclients einen Fortschrittsbalken an, bis Sie answerCallbackQuery aufrufen. Es ist daher erforderlich, durch Aufrufen von answerCallbackQuery zu reagieren, auch wenn keine Benachrichtigung des Benutzers erforderlich ist (z. B. ohne Angabe eines der optionalen Parameter).*
+TR: **NOTE:** *After the user presses a callback button, Telegram clients will display a progress bar until you call answerCallbackQuery. It is, therefore, necessary to react by calling answerCallbackQuery even if no notification to the user is needed (e.g., without specifying any of the optional parameters).*
 
-### AnswerCallbackQuery
-Verwenden Sie diese Methode, um Antworten auf Rückrufanfragen zu senden, die von Inline-Tastaturen gesendet werden. Die Antwort wird dem Benutzer als Benachrichtigung oben auf dem Chat-Bildschirm oder als Warnung angezeigt. Bei Erfolg wird *True* zurückgegeben.
+TR: ### answerCallbackQuery
+TR: Use this method to send answers to callback queries sent from inline keyboards. The answer will be displayed to the user as a notification at the top of the chat screen or as an alert. On success, *True* is returned.
 
 ```
 if (command ==="1_2") {
@@ -221,16 +221,16 @@ if (command ==="1_2") {
 }
 ```
 
-Sie können mehr lesen [Hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegrambotanswercallbackquerycallbackqueryid-text-showalert-options--promise).
+TR: You can read more [TR: here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegrambotanswercallbackquerycallbackqueryid-text-showalert-options--promise).
 
-### Frage
-Sie können die Nachricht per Telegramm senden und die nächste Antwort wird im Rückruf zurückgegeben.
-Das Zeitlimit kann in der Konfiguration festgelegt werden und beträgt standardmäßig 60 Sekunden.
+TR: ### Question
+TR: You can send to telegram the message and the next answer will be returned in callback.
+Timeout can be set in configuration and by default is 60 seconds.
 
 ```
 sendTo('telegram.0', 'ask', {
     user: user, // optional
-    text: 'Aure you sure?',
+    text: 'Are you sure?',
     reply_markup: {
         inline_keyboard: [
             // two buttons could be on one line too, but here they are on different
@@ -243,16 +243,16 @@ sendTo('telegram.0', 'ask', {
 });
 ```
 
-## Chat ID
-Ab Version 0.4.0 können Sie die Chat-ID verwenden, um Nachrichten an den Chat zu senden.
+TR: ## Chat ID
+TR: From version 0.4.0 you can use chat ID to send messages to chat.
 
-`sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123');`
+TR: `sendTo('telegram.0', {text: 'Message to chat', chatId: 'SOME-CHAT-ID-123');`
 
-## Nachrichten aktualisieren
-Mit den folgenden Methoden können Sie eine vorhandene Nachricht im Nachrichtenverlauf ändern, anstatt eine neue Nachricht mit dem Ergebnis einer Aktion zu senden. Dies ist am nützlichsten für Nachrichten mit *Inline-Tastaturen* die Rückrufabfragen verwenden, kann aber auch dazu beitragen, die Unordnung in Gesprächen mit regulären Chat-Bots zu verringern.
+TR: ## Updating messages
+TR: The following methods allow you to change an existing message in the message history instead of sending a new one with a result of an action. This is most useful for messages with *inline keyboards* using callback queries, but can also help reduce clutter in conversations with regular chat bots.
 
-### EditMessageText
-Verwenden Sie diese Methode, um vom Bot oder über den Bot gesendeten Text zu bearbeiten (für Inline-Bots). Bei Erfolg wird die bearbeitete Nachricht zurückgegeben, wenn der Bot eine bearbeitete Nachricht sendet, andernfalls wird *True* zurückgegeben.
+TR: ### editMessageText
+TR: Use this method to edit text sent by the bot or via the bot (for inline bots). On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
 
 ```
 if (command === "1_2") {
@@ -275,7 +275,7 @@ if (command === "1_2") {
 }
 ```
 
-*oder neuer Text für die letzte Nachricht:*
+TR: *or new text for last message:*
 
 ```
 if (command ==="1_2") {
@@ -292,10 +292,54 @@ if (command ==="1_2") {
 }
 ```
 
-Sie können mehr lesen [Hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).
+TR: You can read more [TR: here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).
 
-### EditMessageReplyMarkup
-Verwenden Sie diese Methode, um nur das Antwort-Markup von Nachrichten zu bearbeiten, die vom Bot oder über den Bot gesendet wurden (für Inline-Bots). Bei Erfolg wird die bearbeitete Nachricht zurückgegeben, wenn der Bot eine bearbeitete Nachricht sendet, andernfalls wird *True* zurückgegeben.
+TR: ### editMessageCaption
+TR: Use this method to edit caption of the message sent by the bot or via the bot (for inline bots).
+On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
+
+```
+if (command === "1_2") {
+    sendTo('telegram', {
+        user, // optional
+        text: 'New caption',
+        editMessageCaption: {
+            options: {
+                chat_id: getState("telegram.0.communicate.requestChatId").val,
+                message_id: getState("telegram.0.communicate.requestMessageId").val
+            }
+        }
+    });
+}
+```
+
+TR: You can read more [TR: here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagetexttext-options--promise).
+
+TR: ### editMessageMedia
+TR: Use this method to edit picture of the message sent by the bot or via the bot (for inline bots).
+On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
+
+```
+if (command === "1_2") {
+    sendTo('telegram', {
+        user, // optional
+        text: 'picture.jpg',
+        editMessageMedia: {
+            options: {
+                chat_id: (await getStateAsync('telegram.0.communicate.botSendChatId')).val,
+                message_id: (await getStateAsync('telegram.0.communicate.botSendMessageId')).val
+            }
+        }
+    });
+}
+```
+
+TR: Supported are following media types: `photo`, `animation`, `audio`, `document`, `video`.
+
+TR: You can read more [TR: here](https://core.telegram.org/bots/api#editmessagemedia).
+
+TR: ### editMessageReplyMarkup
+TR: Use this method to edit only the reply markup of messages sent by the bot or via the bot (for inline bots). On success, if edited message is sent by the bot, the edited Message is returned, otherwise *True* is returned.
 
 ```
 if (command === "1_2") {
@@ -318,14 +362,14 @@ if (command === "1_2") {
 }
 ```
 
-Sie können mehr lesen [Hier](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagereplymarkupreplymarkup-options--promise).
+TR: You can read more [TR: here](https://github.com/yagop/node-telegram-bot-api/blob/release/doc/api.md#telegramboteditmessagereplymarkupreplymarkup-options--promise).
 
-### Nachricht löschen
-Verwenden Sie diese Methode, um eine Nachricht, einschließlich Dienstnachrichten, mit den folgenden Einschränkungen zu löschen:
+TR: ### deleteMessage
+TR: Use this method to delete a message, including service messages, with the following limitations:
 
-- Eine Nachricht kann nur gelöscht werden, wenn sie vor weniger als 48 Stunden gesendet wurde.
+TR: - A message can only be deleted if it was sent less than 48 hours ago.
 
-Gibt bei Erfolg *True* zurück.
+TR: Returns *True* on success.
 
 ```
 if (command === "delete") {
@@ -341,14 +385,14 @@ if (command === "delete") {
 }
 ```
 
-Sie können mehr lesen [Hier](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage).
+TR: You can read more [TR: here](https://github.com/yagop/node-telegram-bot-api/blob/master/doc/api.md#TelegramBot+deleteMessage).
 
-## Auf Benutzerantworten / -nachrichten reagieren
-Angenommen, Sie verwenden nur JavaScript ohne *text2command* Sie haben Ihrem Benutzer bereits eine Nachricht / Frage mit *sendTo ()* gesendet, wie oben beschrieben. Der Benutzer antwortet darauf, indem er eine Taste drückt oder eine Nachricht schreibt. Sie können den Befehl extrahieren und Ihrem Benutzer Feedback geben, Befehle ausführen oder den Status in iobroker wechseln.
+TR: ## Reacting to user replies / messages
+TR: Suppose you are using only JavaScript without *text2command*. You already sent a message/question to your user using *sendTo()* as described above. The user replies to that by pushing a button or writing a message. You can extract the command and give feedback to your user, execute commands or switch states in iobroker.
 
- - telegram.0 ist Ihre iobroker Telegram-Instanz, die Sie verwenden möchten
- - Benutzer ist der bei Ihnen registrierte Benutzer TelegramBot, der die Nachricht gesendet hat
- - Befehl ist der Befehl, den Ihr TelegramBot erhalten hat
+TR:  - telegram.0 is your iobroker Telegram instance you want to use
+TR:  - user is the user registered with you TelegramBot which sent the message
+TR:  - command is the command your TelegramBot received
 
 ```
 on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
@@ -369,50 +413,61 @@ on({id: 'telegram.0.communicate.request', change: 'any'}, function (obj) {
 
 ```
 
-## Sonderbefehle
-### / state stateName - Statuswert lesen
-Sie können den Wert des Status anfordern, wenn Sie jetzt die ID:
+TR: ## Special commands
+TR: ### /state stateName - read state value
+TR: You can request the value of state if you now the ID:
 
 ```
 /state system.adapter.admin.0.memHeapTotal
 > 56.45
 ```
 
-### / state stateName value - Statuswert festlegen
-Sie können den Wert des Status festlegen, wenn Sie jetzt die ID:
+TR: ### /state stateName value - set state value
+TR: You can set the value of state if you now the ID:
 
 ```
 /state hm-rpc.0.JEQ0ABCDE.3.STOP true
 > Done
 ```
 
-## Abruf- oder Servermodus
-Wenn der Abfragemodus verwendet wird, fragt der Adapter standardmäßig alle 300 ms den Telegrammserver nach Updates ab. Es verwendet Datenverkehr und Nachrichten können bis zum Abfrageintervall verzögert werden. Das Abfrageintervall kann in der Adapterkonfiguration definiert werden.
+TR: ## Polling or Server mode
+TR: If polling mode is used, the adapter polls by default every 300ms the telegram server for updates. It uses traffic and messages can be delayed for up to the polling interval. The polling interval can be defined in adapter configuration.
 
-Um den Servermodus verwenden zu können, muss Ihre ioBroker-Instanz über das Internet erreichbar sein (z. B. mit dem dynamischen DNS-Dienst noip.com).
+TR: To use server mode you ioBroker instance must be reachable from internet (e.g. with `noip.com` dynamic DNS service).
 
-Telegramm kann nur mit HTTPS-Servern funktionieren, Sie können jedoch Zertifikate verwenden.
+TR: Telegram can work only with HTTPS servers, but you can use **let's encrypt** certificates.
 
-Für den Servermodus müssen folgende Einstellungen vorgenommen werden:
+TR: Following settings must be provided for server mode:
 
-- URL - in der Form https://yourdomain.com:8443.
-- IP - IP-Adresse, an die der Server gebunden wird. Standard 0.0.0.0. Ändern Sie es nicht, wenn Sie sich nicht sicher sind.
-- Port - Eigentlich werden nur 443, 80, 88, 8443 Ports per Telegramm unterstützt, aber Sie können Ports über Ihren Router an jeden weiterleiten.
-- Öffentliches Zertifikat - erforderlich, wenn **Verschlüsseln** deaktiviert ist.
-- Privater Schlüssel - erforderlich, wenn **Verschlüsseln** deaktiviert ist.
-- Kettenzertifikat (optional)
-- Optionen verschlüsseln - Es ist sehr einfach, Zertifikate einzurichten. Bitte lesen Sie [hier] (https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates) darüber.
+TR: - URL - in form https://yourdomain.com:8443.
+TR: - IP - Ip address, where the server will be bound. Default 0.0.0.0. Do not change it if you are not sure.
+TR: - Port - actually only 443, 80, 88, 8443 ports are supported by telegram, but you can forward ports to anyone through your router.
+TR: - Public certificate - required, if **let's encrypt** is disabled.
+TR: - Private key - required, if **let's encrypt** is disabled.
+TR: - Chain certificate (optional)
+TR: - Let's encrypt options - It is very easy to set up **let's encrypt** certificates. Please read [here](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates) about it.
 
-## Anrufe per Telegramm
-Dank [Callmebot](https://www.callmebot.com/) api können Sie Ihr Telegrammkonto anrufen und einige Texte werden über die TTS-Engine gelesen.
+TR: ## Advanced security
+TR: The authentication of users could be disabled. So no one new can authenticate.
 
-Um dies vom Javascript-Adapter aus zu tun, rufen Sie einfach an:
+TR: To create a list of trusted users, first disable the option "Do not authenticate new users" and authenticate all users that should be in the trusted list by sending the `/password <PASSWORD>` message.
+
+TR: The users, that sent valid password will be stored in the trusted list.
+
+TR: After that teh option "Do not authenticate new users" could be activated and no new users can authenticate.
+
+TR: To use this option the option "Remember authenticated users" must be activated.
+
+TR: ## Calls via telegram
+TR: Thanks to [TR: callmebot](https://www.callmebot.com/) api, you can make a call to your telegram account and some text will be read via TTS engine.
+
+TR: To do that from javascript adapter just call:
 
 ```
 sendTo('telegram.0', 'call', 'Some text');
 ```
 
-oder
+TR: or
 
 ```
 sendTo('telegram.0', 'call', {
@@ -423,7 +478,7 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-oder
+TR: or
 
 ```
 sendTo('telegram.0', 'call', {
@@ -432,7 +487,7 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-oder
+TR: or
 
 ```
 sendTo('telegram.0', 'call', {
@@ -441,175 +496,175 @@ sendTo('telegram.0', 'call', {
 });
 ```
 
-Mögliche Werte für die Sprache:
+TR: Possible values for language:
 
-- `ar-XA-Standard-A` - Arabisch (weibliche Stimme)
-- `ar-XA-Standard-B` - Arabisch (männliche Stimme)
-- `ar-XA-Standard-C` - Arabisch (männlich 2 Stimme)
-- `cs-CZ-Standard-A` - Tschechisch (Tschechische Republik) (Frauenstimme)
-- `da-DK-Standard-A` - Dänisch (Dänemark) (Frauenstimme)
-- `nl-NL-Standard-A` - Niederländisch (Niederlande) (weibliche Stimme - wird verwendet, wenn die Systemsprache NL ist und keine Sprache angegeben wurde)
-- `nl-NL-Standard-B` - Niederländisch (Niederlande) (männliche Stimme)
-- `nl-NL-Standard-C` - Niederländisch (Niederlande) (männlich 2 Stimmen)
-- `nl-NL-Standard-D` - Niederländisch (Niederlande) (weibliche 2 Stimme)
-- `nl-NL-Standard-E` - Niederländisch (Niederlande) (3 Frauen)
-- `en-AU-Standard-A` - Englisch (Australien) (weibliche Stimme)
-- `en-AU-Standard-B` - Englisch (Australien) (männliche Stimme)
-- `en-AU-Standard-C` - Englisch (Australien) (weibliche 2 Stimme)
-- `en-AU-Standard-D` - Englisch (Australien) (männlich 2 Stimme)
-- `en-IN-Standard-A` - Englisch (Indien) (weibliche Stimme)
-- `en-IN-Standard-B` - Englisch (Indien) (männliche Stimme)
-- `en-IN-Standard-C` - Englisch (Indien) (männlich 2 Stimme)
-- `en-GB-Standard-A` - Englisch (UK) (weibliche Stimme - wird verwendet, wenn die Systemsprache EN ist und keine Sprache angegeben wurde)
-- `en-GB-Standard-B` - Englisch (UK) (männliche Stimme)
-- `en-GB-Standard-C` - Englisch (UK) (weibliche 2 Stimme)
-- `en-GB-Standard-D` - Englisch (UK) (männlich 2 Stimme)
-- `en-US-Standard-B` - Englisch (US) (männliche Stimme)
-- `en-US-Standard-C` - Englisch (US) (weibliche Stimme)
-- `en-US-Standard-D` - Englisch (US) (männlich 2 Stimme)
-- `en-US-Standard-E` - Englisch (US) (weibliche 2 Stimme)
-- `fil-PH-Standard-A` - Philippinisch (Philippinen) (weibliche Stimme)
-- `fi-FI-Standard-A` - Finnisch (Finnland) (Frauenstimme)
-- `fr-CA-Standard-A` - Französisch (Kanada) (weibliche Stimme)
-- `fr-CA-Standard-B` - Französisch (Kanada) (männliche Stimme)
-- `fr-CA-Standard-C` - Französisch (Kanada) (weibliche 2 Stimme)
-- `fr-CA-Standard-D` - Französisch (Kanada) (männlich 2 Stimme)
-- `fr-FR-Standard-A` - Französisch (Frankreich) (weibliche Stimme - wird verwendet, wenn die Systemsprache FR ist und keine Sprache angegeben wurde)
-- `fr-FR-Standard-B` - Französisch (Frankreich) (Männerstimme)
-- `fr-FR-Standard-C` - Französisch (Frankreich) (weibliche 2 Stimme)
-- `fr-FR-Standard-D` - Französisch (Frankreich) (männlich 2 Stimme)
-- `de-DE-Standard-A` - Deutsch (Deutschland) (Frauenstimme - wird verwendet, wenn die Systemsprache DE ist und keine Sprache angegeben wurde)
-- `de-DE-Standard-B` - Deutsch (Deutschland) (Männerstimme)
-- `el-GR-Standard-A` - Griechisch (Griechenland) (Frauenstimme)
-- `hi-IN-Standard-A` - Hindi (Indien) (weibliche Stimme)
-- `hi-IN-Standard-B` - Hindi (Indien) (männliche Stimme)
-- `hi-IN-Standard-C` - Hindi (Indien) (männlich 2 Stimme)
-- `hu-HU-Standard-A` - Ungarisch (Ungarn) (Frauenstimme)
-- `id-ID-Standard-A` - Indonesisch (Indonesien) (weibliche Stimme)
-- `id-ID-Standard-B` - Indonesisch (Indonesien) (männliche Stimme)
-- `id-ID-Standard-C` - Indonesisch (Indonesien) (männlich 2 Stimme)
-- `it-IT-Standard-A` - Italienisch (Italien) (weibliche Stimme - wird verwendet, wenn die Systemsprache IT ist und keine Sprache angegeben wurde)
-- `it-IT-Standard-B` - Italienisch (Italien) (weibliche 2 Stimme)
-- `it-IT-Standard-C` - Italienisch (Italien) (Männerstimme)
-- `it-IT-Standard-D` - Italienisch (Italien) (männlich 2 Stimmen)
-- `ja-JP-Standard-A` - Japanisch (Japan) (weibliche Stimme)
-- `ja-JP-Standard-B` - Japanisch (Japan) (weibliche 2 Stimme)
-- `ja-JP-Standard-C` - Japanisch (Japan) (männliche Stimme)
-- `ja-JP-Standard-D` - Japanisch (Japan) (männlich 2 Stimme)
-- `ko-KR-Standard-A` - Koreanisch (Südkorea) (Frauenstimme)
-- `ko-KR-Standard-B` - Koreanisch (Südkorea) (2 Frauen)
-- `ko-KR-Standard-C` - Koreanisch (Südkorea) (Männerstimme)
-- `ko-KR-Standard-D` - Koreanisch (Südkorea) (männliche 2 Stimme)
-- `cmn-CN-Standard-A` - Mandarin-Chinesisch (weibliche Stimme)
-- `cmn-CN-Standard-B` - Mandarin-Chinesisch (männliche Stimme)
-- `cmn-CN-Standard-C` - Mandarin-Chinesisch (männlich 2 Stimmen)
-- `nb-NO-Standard-A` - Norwegisch (Norwegen) (weibliche Stimme)
-- `nb-NO-Standard-B` - Norwegisch (Norwegen) (männliche Stimme)
-- `nb-NO-Standard-C` - Norwegisch (Norwegen) (2 Frauen)
-- `nb-NO-Standard-D` - Norwegisch (Norwegen) (männlich 2 Stimme)
-- `nb-no-Standard-E` - Norwegisch (Norwegen) (weibliche 3 Stimme)
-- `pl-PL-Standard-A` - Polnisch (Polen) (weibliche Stimme - wird verwendet, wenn die Systemsprache PL ist und keine Sprache angegeben wurde)
-- `pl-PL-Standard-B` - Polnisch (Polen) (Männerstimme)
-- `pl-PL-Standard-C` - Polnisch (Polen) (männlich 2 Stimme)
-- `pl-PL-Standard-D` - Polnisch (Polen) (weibliche 2 Stimme)
-- `pl-PL-Standard-E` - Polnisch (Polen) (3 Frauen)
-- `pt-BR-Standard-A` - Portugiesisch (Brasilien) (weibliche Stimme - wird verwendet, wenn die Systemsprache PT ist und keine Sprache angegeben wurde)
-- `pt-PT-Standard-A` - Portugiesisch (Portugal) (weibliche Stimme)
-- `pt-PT-Standard-B` - Portugiesisch (Portugal) (männliche Stimme)
-- `pt-PT-Standard-C` - Portugiesisch (Portugal) (männlich 2 Stimme)
-- `pt-PT-Standard-D` - Portugiesisch (Portugal) (2 Frauen)
-- `ru-RU-Standard-A` - Russisch (Russland) (weibliche Stimme - wird verwendet, wenn die Systemsprache RU ist und keine Sprache angegeben wurde)
-- `ru-RU-Standard-B` - Russisch (Russland) (Männerstimme)
-- `ru-RU-Standard-C` - Russisch (Russland) (weibliche 2 Stimme)
-- `ru-RU-Standard-D` - Russisch (Russland) (männlich 2 Stimme)
-- `sk-SK-Standard-A` - Slowakisch (Slowakei) (Frauenstimme)
-- `es-ES-Standard-A` - Spanisch (Spanien) (weibliche Stimme - wird verwendet, wenn die Systemsprache ES ist und keine Sprache angegeben wurde)
-- `sv-SE-Standard-A` - Schwedisch (Schweden) (Frauenstimme)
-- `tr-TR-Standard-A` - Türkisch (Türkei) (Frauenstimme)
-- `tr-TR-Standard-B` - Türkisch (Türkei) (Männerstimme)
-- `tr-TR-Standard-C` - Türkisch (Türkei) (weibliche 2 Stimme)
-- `tr-TR-Standard-D` - Türkisch (Türkei) (3 Frauen)
-- `tr-TR-Standard-E` - Türkisch (Türkei) (Männerstimme)
-- `uk-UA-Standard-A` - Ukrainisch (Ukraine) (weibliche Stimme)
-- `vi-VN-Standard-A` - Vietnamesisch (Vietnam) (weibliche Stimme)
-- `vi-VN-Standard-B` - Vietnamesisch (Vietnam) (männliche Stimme)
-- `vi-VN-Standard-C` - Vietnamesisch (Vietnam) (2 Frauen)
-- `vi-VN-Standard-D` - Vietnamesisch (Vietnam) (männliche 2 Stimme)
+TR: - `ar-XA-Standard-A` - Arabic (Female voice)
+TR: - `ar-XA-Standard-B` - Arabic (Male voice)
+TR: - `ar-XA-Standard-C` - Arabic (Male 2 voice)
+TR: - `cs-CZ-Standard-A` - Czech (Czech Republic) (Female voice)
+TR: - `da-DK-Standard-A` - Danish (Denmark) (Female voice)
+TR: - `nl-NL-Standard-A` - Dutch (Netherlands) (Female voice - will be used if system language is NL and no language was provided)
+TR: - `nl-NL-Standard-B` - Dutch (Netherlands) (Male voice)
+TR: - `nl-NL-Standard-C` - Dutch (Netherlands) (Male 2 voice)
+TR: - `nl-NL-Standard-D` - Dutch (Netherlands) (Female 2 voice)
+TR: - `nl-NL-Standard-E` - Dutch (Netherlands) (Female 3 voice)
+TR: - `en-AU-Standard-A` - English (Australia) (Female voice)
+TR: - `en-AU-Standard-B` - English (Australia) (Male voice)
+TR: - `en-AU-Standard-C` - English (Australia) (Female 2 voice)
+TR: - `en-AU-Standard-D` - English (Australia) (Male 2 voice)
+TR: - `en-IN-Standard-A` - English (India) (Female voice)
+TR: - `en-IN-Standard-B` - English (India) (Male voice)
+TR: - `en-IN-Standard-C` - English (India) (Male 2 voice)
+TR: - `en-GB-Standard-A` - English (UK) (Female voice - will be used if system language is EN and no language was provided)
+TR: - `en-GB-Standard-B` - English (UK) (Male voice)
+TR: - `en-GB-Standard-C` - English (UK) (Female 2 voice)
+TR: - `en-GB-Standard-D` - English (UK) (Male 2 voice)
+TR: - `en-US-Standard-B` - English (US) (Male voice)
+TR: - `en-US-Standard-C` - English (US) (Female voice)
+TR: - `en-US-Standard-D` - English (US) (Male 2 voice)
+TR: - `en-US-Standard-E` - English (US) (Female 2 voice)
+TR: - `fil-PH-Standard-A` - Filipino (Philippines) (Female voice)
+TR: - `fi-FI-Standard-A` - Finnish (Finland) (Female voice)
+TR: - `fr-CA-Standard-A` - French (Canada) (Female voice)
+TR: - `fr-CA-Standard-B` - French (Canada) (Male voice)
+TR: - `fr-CA-Standard-C` - French (Canada) (Female 2 voice)
+TR: - `fr-CA-Standard-D` - French (Canada) (Male 2 voice)
+TR: - `fr-FR-Standard-A` - French (France) (Female voice - will be used if system language is FR and no language was provided)
+TR: - `fr-FR-Standard-B` - French (France) (Male voice)
+TR: - `fr-FR-Standard-C` - French (France) (Female 2 voice)
+TR: - `fr-FR-Standard-D` - French (France) (Male 2 voice)
+TR: - `de-DE-Standard-A` - German (Germany) (Female voice - will be used if system language is DE and no language was provided)
+TR: - `de-DE-Standard-B` - German (Germany) (Male voice)
+TR: - `el-GR-Standard-A` - Greek (Greece) (Female voice)
+TR: - `hi-IN-Standard-A` - Hindi (India) (Female voice)
+TR: - `hi-IN-Standard-B` - Hindi (India) (Male voice)
+TR: - `hi-IN-Standard-C` - Hindi (India) (Male 2 voice)
+TR: - `hu-HU-Standard-A` - Hungarian (Hungary) (Female voice)
+TR: - `id-ID-Standard-A` - Indonesian (Indonesia) (Female voice)
+TR: - `id-ID-Standard-B` - Indonesian (Indonesia) (Male voice)
+TR: - `id-ID-Standard-C` - Indonesian (Indonesia) (Male 2 voice)
+TR: - `it-IT-Standard-A` - Italian (Italy) (Female voice - will be used if system language is IT and no language was provided)
+TR: - `it-IT-Standard-B` - Italian (Italy) (Female 2 voice)
+TR: - `it-IT-Standard-C` - Italian (Italy) (Male voice)
+TR: - `it-IT-Standard-D` - Italian (Italy) (Male 2 voice)
+TR: - `ja-JP-Standard-A` - Japanese (Japan) (Female voice)
+TR: - `ja-JP-Standard-B` - Japanese (Japan) (Female 2 voice)
+TR: - `ja-JP-Standard-C` - Japanese (Japan) (Male voice)
+TR: - `ja-JP-Standard-D` - Japanese (Japan) (Male 2 voice)
+TR: - `ko-KR-Standard-A` - Korean (South Korea) (Female voice)
+TR: - `ko-KR-Standard-B` - Korean (South Korea) (Female 2 voice)
+TR: - `ko-KR-Standard-C` - Korean (South Korea) (Male voice)
+TR: - `ko-KR-Standard-D` - Korean (South Korea) (Male 2 voice)
+TR: - `cmn-CN-Standard-A` - Mandarin Chinese (Female voice)
+TR: - `cmn-CN-Standard-B` - Mandarin Chinese (Male voice)
+TR: - `cmn-CN-Standard-C` - Mandarin Chinese (Male 2 voice)
+TR: - `nb-NO-Standard-A` - Norwegian (Norway) (Female voice)
+TR: - `nb-NO-Standard-B` - Norwegian (Norway) (Male voice)
+TR: - `nb-NO-Standard-C` - Norwegian (Norway) (Female 2 voice)
+TR: - `nb-NO-Standard-D` - Norwegian (Norway) (Male 2 voice)
+TR: - `nb-no-Standard-E` - Norwegian (Norway) (Female 3 voice)
+TR: - `pl-PL-Standard-A` - Polish (Poland) (Female voice - will be used if system language is PL and no language was provided)
+TR: - `pl-PL-Standard-B` - Polish (Poland) (Male voice)
+TR: - `pl-PL-Standard-C` - Polish (Poland) (Male 2 voice)
+TR: - `pl-PL-Standard-D` - Polish (Poland) (Female 2 voice)
+TR: - `pl-PL-Standard-E` - Polish (Poland) (Female 3 voice)
+TR: - `pt-BR-Standard-A` - Portuguese (Brazil) (Female voice - will be used if system language is PT and no language was provided)
+TR: - `pt-PT-Standard-A` - Portuguese (Portugal) (Female voice)
+TR: - `pt-PT-Standard-B` - Portuguese (Portugal) (Male voice)
+TR: - `pt-PT-Standard-C` - Portuguese (Portugal) (Male 2 voice)
+TR: - `pt-PT-Standard-D` - Portuguese (Portugal) (Female 2 voice)
+TR: - `ru-RU-Standard-A` - Russian (Russia) (Female voice - will be used if system language is RU and no language was provided)
+TR: - `ru-RU-Standard-B` - Russian (Russia) (Male voice)
+TR: - `ru-RU-Standard-C` - Russian (Russia) (Female 2 voice)
+TR: - `ru-RU-Standard-D` - Russian (Russia) (Male 2 voice)
+TR: - `sk-SK-Standard-A` - Slovak (Slovakia) (Female voice)
+TR: - `es-ES-Standard-A` - Spanish (Spain) (Female voice - will be used if system language is ES and no language was provided)
+TR: - `sv-SE-Standard-A` - Swedish (Sweden) (Female voice)
+TR: - `tr-TR-Standard-A` - Turkish (Turkey) (Female voice)
+TR: - `tr-TR-Standard-B` - Turkish (Turkey) (Male voice)
+TR: - `tr-TR-Standard-C` - Turkish (Turkey) (Female 2 voice)
+TR: - `tr-TR-Standard-D` - Turkish (Turkey) (Female 3 voice)
+TR: - `tr-TR-Standard-E` - Turkish (Turkey) (Male voice)
+TR: - `uk-UA-Standard-A` - Ukrainian (Ukraine) (Female voice)
+TR: - `vi-VN-Standard-A` - Vietnamese (Vietnam) (Female voice)
+TR: - `vi-VN-Standard-B` - Vietnamese (Vietnam) (Male voice)
+TR: - `vi-VN-Standard-C` - Vietnamese (Vietnam) (Female 2 voice)
+TR: - `vi-VN-Standard-D` - Vietnamese (Vietnam) (Male 2 voice)
 
-MACHEN:
+TR: TODO:
 
-- Veranstaltungsort
+TR: - venue
 
-## Auto-Inline-Tastatur basierend auf den Einstellungen in admin (Easy-Keyboard)
-Für jeden Zustand können die zusätzlichen Einstellungen aktiviert werden:
+TR: ## Auto-Inline keyboard based on settings in admin (Easy-Keyboard)
+TR: For every state the additional settings could be enabled:
 
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings.png)
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings.png)
 
-Durch Eingabe von "/ cmds" wird die folgende Tastatur im Telegramm angezeigt:
+TR: By entering `/cmds` the following keyboard will be displayed in telegram:
 
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings1.png)
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings1.png)
 
-"/ cmds" kann durch einen beliebigen Text (z. B. "?") im Konfigurationsdialog des Telegrammadapters ersetzt werden.
+TR: `/cmds` could be replaced by any text (e.g. "?") in the configuration dialog of telegram adapter.
 
-Wenn die Option **Räume in Tastatur verwenden** im Konfigurationsdialog des Telegrammadapters aktiviert ist, wird im ersten Schritt die Raumliste angezeigt. ***Noch nicht implementiert***
+TR: If **Use rooms in keyboard command** option is enabled in the configuration dialog of telegram adapter, so in the first step the room list will be shown. ***Not yet implemented***
 
-### Einstellungen im Zustand
-Zunächst muss die Konfiguration aktiviert werden.
+TR: ### Settings in the state
+TR: First the configuration must be enabled.
 
-#### Alias
-Name des Geräts. Wenn leer, wird der Name vom Objekt übernommen.
-Durch Eingabe von "Türleuchte" wird das folgende Menü für den Booleschen Zustand angezeigt.
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings2.png)
+TR: #### Alias
+TR: Name of the device. If the name is empty, the name will be taken from object.
+By entering "Door lamp" following menu will be shown for boolean state.
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings2.png)
 
-Sie können das Gerät einschalten, das Gerät ausschalten oder den Status anfordern.
-Wenn Sie auf `Door lamp ?` klicken, erhalten Sie `Door lamp  => switched off`.
+TR: You can switch the device ON, turn the device OFF or request the state.
+If you Click `Door lamp ?`, you will get `Door lamp  => switched off`.
 
-### Schreibgeschützt
-Wenn aktiviert, werden keine EIN / AUS-Tasten angezeigt, nur ein `Door lamp ?`.
+TR: ### Read only
+TR: If activated, ON/OFF buttons will be not shown, just a `Door lamp ?`.
 
-### Änderungen melden
-Wenn sich der Status des Geräts ändert (z. B. wenn jemand die Lampe physisch eingeschaltet hat), wird der neue Status an das Telegramm gesendet.
-Z.B. `Door lamp  => switched on`.
+TR: ### Report changes
+TR: If the status of device changed (e.g. someone turned the lamp on physically), the new status will be delivered to telegram.
+E.g. `Door lamp  => switched on`.
 
-### Schaltflächen in der Linie
-Wie viele Schaltflächen müssen in der Zeile für ein Gerät angezeigt werden?
-Aufgrund des langen Namens ist es vielleicht besser, nur 2 (oder sogar nur eine) Schaltflächen in der Zeile anzuzeigen.
+TR: ### Buttons in line
+TR: How many buttons must be shown in the line for one device.
+Because of the long name maybe it is better to show only 2 (or even just one) buttons in the line.
 
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings3.png)
 
-### Nur schreiben
-Wenn aktiviert, wird die Schaltfläche Statusabfrage (`Door lamp ?`) nicht angezeigt.
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings4.png)
+TR: ### Write only
+TR: If activated, the status query (`Door lamp ?`) button will be not shown.
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings4.png)
 
-### Auf Befehl
-Welcher Text wird auf der Schaltfläche `ON` angezeigt?
-Wie hier: ![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
+TR: ### ON Command
+TR: Which text will be shown on `ON` button.
+Like here: ![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings5.png)
 
-Erzeugt folgende Tastatur: ![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
+TR: Will produce following keyboard: ![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings6.png)
 
-### ON Text
-Welcher Text wird im Statusbericht angezeigt?
-Z.B. `Door lamp => activated` wenn sich der Status des Geräts in true geändert hat und der **ON-Text** `activated` ist
+TR: ### ON Text
+TR: The text, that will be shown by state report.
+E.g. `Door lamp => activated` if the state of the device changed to true and the **ON Text** is `activated`
 
-Die EIN / AUS-Texte werden nur angezeigt, wenn **Änderungen melden** aktiviert ist.
+TR: The ON/OFF Texts will be shown only if **Report changes** is activated.
 
-### OFF Befehl
-Wie **EIN-Befehl** jedoch für AUS.
+TR: ### OFF Command
+TR: Same as **ON Command**, but for OFF.
 
-### OFF Text
-Wie **ON Text** jedoch für OFF.
-Z.B. `Door lamp => deactivated` wenn sich der Status des Geräts in false geändert hat und der **OFF-Text** `deactivated` ist
+TR: ### OFF Text
+TR: Same as **ON Text**, but for OFF.
+E.g. `Door lamp => deactivated` if the state of the device changed to false and the **OFF Text** is `deactivated`
 
-### Nur wahr
-Z.B. Für Tasten haben sie keinen AUS-Status. In diesem Fall wird keine AUS-Taste angezeigt.
+TR: ### Only true
+TR: E.g. for buttons, they have no OFF state. In this case the OFF button will be not shown.
 
-![die Einstellungen](../../../en/adapterref/iobroker.telegram/img/stateSettings7.png)
+![TR: settings](../../../en/adapterref/iobroker.telegram/img/stateSettings7.png)
 
-## So empfangen Sie Nachrichten in Gruppenchats mit dem Telegrammadapter
-Wenn der Telegrammbot Nachrichten empfängt, die vom Benutzer in privaten Chats an den Bot gesendet wurden, aber keine Nachrichten, die von Benutzern in Gruppenchats gesendet wurden.
-In diesem Fall müssen Sie mit @botfather sprechen und den Datenschutzmodus deaktivieren.
+TR: ## How to receive messages in group chats using telegram adapter
+TR: If telegram bot receives messages sent by user to the bot in private chats, but not receives messages sent by users in group chats.
+In this case you must talk to `@botfather` and disable the privacy mode.
 
-BotFather Chat:
+TR: BotFather chat:
 
 ```
 You: /setprivacy
@@ -629,27 +684,58 @@ You: Disable
 BotFather: Success! The new status is: DISABLED. /help
 ```
 
-## So senden Sie Nachrichten über Node-Red
-Für einfache Textnachrichten an alle Benutzer fügen Sie den Text einfach in die Nutzdaten der Nachricht ein und senden Sie ihn an den ioBroker-Status *"telegram.INSTANCE.communicate.response"*
+TR: ## How to send messages via node-red
+TR: For simple text messages to all users, just put the text within the payload of the message and send it to the ioBroker state `telegram.INSTANCE.communicate.response`.
 
-Wenn Sie zusätzliche Optionen festlegen möchten, füllen Sie die Nutzdaten mit einem JSON-Objekt, z.
+TR: If you want to set additional options, fill the payload with a JSON object, such as:
 
 ```
 msg.payload = {
-    /* text is the only mandatory field here */
+    // text is the only mandatory field here
     "text": "*bold _italic bold ~italic bold strikethrough~ __underline italic bold___ bold*",
-    /* optional chatId or user, the receipient of the message */
+    // optional chatId or user, the recipient of the message
     "chatId": "1234567890",
-    /* optional settings from the telegram bots API */
+    // optional settings from the telegram bots API
     "parse_mode": "MarkdownV2"
 }
 ```
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __WORK IN PROGRESS__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Add tier for js-controller 3.3
+
+### 1.9.0 (2021-06-26)
+* (bluefox) Added the option to not authenticate the new users
+* (bluefox) Added the option to disable system messages for specific users
+
+### 1.8.3 (2021-06-26)
+* (Nahasapeemapetilon) corrected bug with many simultaneous requests 
+* (bluefox) formatting
+* (bluefox) implemented editMessageMedia and editMessageCaption
+* (bluefox) Encrypt token 
+* (bluefox) Corrected error with password
+* (bluefox) Corrected error with boolean easy controls
+
+### 1.8.2 (2021-05-28)
+* (Diginix) fixed data types
+
+### 1.8.1 (2021-04-20)
+* (bluefox) added the admin5 support
+
+### 1.8.0 (2021-02-22)
+* (Apollon77/Nahasapeemapetilon) catch several API error cases to hopefully get around  adapter crashes on network errors
+* (Nahasapeemapetilon) add support for media groups and multiple image qualities
+
+### 1.7.0 (2021-01-08)
+* (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
+
+### 1.6.2 (2020-12-27)
+* (fincha) Fixing error with keyboard
 
 ### 1.6.1 (2020-12-01)
 * (ChristianB86) Added option to set the amount of repeats for telegram call.
@@ -671,11 +757,11 @@ msg.payload = {
 * (bluefox) Added description of easy-keyboard
 
 ### 1.5.5 (2020-04-04)
-* (alutov) Fixed bug for telegram users with an empty user name
+* (alutov) Fixed bug for telegram users with an empty username
 * (Mark Rohrbacher) Allowed JSON objects in telegram.*.communicate.response 
 
 ### 1.5.4 (2020-03-11)
-* (bluefox) Improvement of callmebot
+* (bluefox) Improvement of `callmebot`
 
 ### 1.5.3 (2020-02-23)
 * (foxriver76) removed usage of adapter.objects
@@ -700,7 +786,7 @@ msg.payload = {
 * (BuZZy1337) Bugfix for not yet completely implemented feature
 
 ### 1.4.2 (2019-02-18)
-* (BuZZy1337) fix for recipients containing withespaces
+* (BuZZy1337) fix for recipients containing spaces
 * (BuZZy1337) change loglevel of "getMe" info-messages to debug
 * (bluefox) fix scroll in firefox
 
@@ -730,7 +816,7 @@ msg.payload = {
 
 ### 1.3.0 (2018-09-19)
 * (BuZZy1337) Added possibility to delete authenticated users in the Adapter-Config screen (via Messages tab)
-* (BuZZy1337) fixed a problem "building" the Blockly sendto block when no adapter instance exists.
+* (BuZZy1337) fixed a problem "building" the Blockly `sendto` block when no adapter instance exists.
 
 ### 1.2.7 (2018-08-29)
 * (BuZZy1337) Added "disable notification" checkbox to blockly block.
@@ -781,7 +867,7 @@ msg.payload = {
 * (Haba) Updating for Admin3
 
 ### 1.0.9 (2017-11-27)
-* (kirovilya) Allow send gif via sendDocument
+* (kirovilya) Allow the sending of GIF via sendDocument
 
 ### 1.0.8 (2017-10-03)
 * (Haba1234) initPolling() this is deprecated. -> startPolling()
@@ -827,7 +913,7 @@ msg.payload = {
 * (bluefox) add new states: requestChatId and requestUserId
 
 ### 0.4.0 (2016-07-21)
-* (bluefox) allow send messages to chats via chat-ID
+* (bluefox) allow sending of messages to chats via chat-ID
 * (bluefox) support of video(mp4), audio, document, location, sticker, action
 
 ### 0.3.0 (2016-05-31)
@@ -856,13 +942,13 @@ msg.payload = {
 * (bluefox) fix error with sendTo
 
 ### 0.0.1 (2016-02-13)
-* (bluefox) intial commit
+* (bluefox) initial commit
 
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2016-2020, bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
