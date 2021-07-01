@@ -2,23 +2,23 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.vodafone-speedtest/README.md
-title: TR: ioBroker.vodafone-speedtest
-hash: fCrOkIaGmkqjssySHbDUn9kxnmER4ltSmW20HgcInJI=
+title: TR: ioBroker.vofo-speedtest
+hash: 2OWK9bGidtbE4CoRu0md2lqebVJMbzOBGqPSf3kx2Iw=
 ---
-![TR: Logo](../../../en/adapterref/iobroker.vodafone-speedtest/admin/vodafone-speedtest.png)
+![TR: Logo](../../../en/adapterref/iobroker.vodafone-speedtest/admin/vofo-speedtest.png)
 
-![TR: NPM version](http://img.shields.io/npm/v/iobroker.vodafone-speedtest.svg)
-![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vodafone-speedtest.svg)
-![TR: Number of Installations (latest)](http://iobroker.live/badges/vodafone-speedtest-installed.svg)
-![TR: Number of Installations (stable)](http://iobroker.live/badges/vodafone-speedtest-stable.svg)
-![TR: Dependency Status](https://img.shields.io/david/peterbaumert/iobroker.vodafone-speedtest.svg)
-![TR: Known Vulnerabilities](https://snyk.io/test/github/peterbaumert/ioBroker.vodafone-speedtest/badge.svg)
-![TR: NPM](https://nodei.co/npm/iobroker.vodafone-speedtest.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.vofo-speedtest.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.vofo-speedtest.svg)
+![TR: Number of Installations (latest)](http://iobroker.live/badges/vofo-speedtest-installed.svg)
+![TR: Number of Installations (stable)](http://iobroker.live/badges/vofo-speedtest-stable.svg)
+![TR: Dependency Status](https://img.shields.io/david/peterbaumert/iobroker.vofo-speedtest.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/peterbaumert/ioBroker.vofo-speedtest/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.vofo-speedtest.png?downloads=true)
 
-TR: # ioBroker.vodafone-speedtest
+TR: # ioBroker.vofo-speedtest
 TR: **This adapter uses the service [TR: Sentry.io](https://sentry.io) to automatically report exceptions and code errors and new device schemas to me as the developer.** More details see below!
 
-TR: ## vodafone-speedtest adapter for ioBroker
+TR: ## vofo-speedtest adapter for ioBroker
 TR: Speedtest of Vodafone.de
 
 TR: Implements same technique as https://speedtest.vodafone.de
@@ -62,7 +62,7 @@ TR: Vodafone is a trademark of Vodafone GmbH. I am in no way endorsed by or affi
 ## License
 MIT License
 
-Copyright (c) 2021 Peter Baumert <ioBroker.vodafone-speedtest@outlook.com>
+Copyright (c) 2021 Peter Baumert <ioBroker.vofo-speedtest@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

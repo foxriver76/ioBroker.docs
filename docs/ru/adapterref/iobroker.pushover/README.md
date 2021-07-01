@@ -2,31 +2,32 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.pushover/README.md
-title: Адаптер ioBroker pushover
-hash: c5Imzg+xdaAI5z1XO+xdJJq9QlsjoXmHDkHiUVJ6Vlo=
+title: TR: ioBroker pushover Adapter
+hash: 8uVUvVWDJ0tLUQJQXXAaaPEfh0TOt1FQ6IXV3kwF0lY=
 ---
-![Логотип](../../../en/adapterref/iobroker.pushover/admin/pushover.png)
+![TR: Logo](../../../en/adapterref/iobroker.pushover/admin/pushover.png)
 
-![Количество установок](http://iobroker.live/badges/pushover-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.pushover.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.pushover.svg)
-![НПМ](https://nodei.co/npm/iobroker.pushover.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/pushover-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.pushover.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.pushover.svg)
 
-# IoBroker pushover Adapter
-Отправляйте пустые уведомления от ioBroker.
+TR: # ioBroker pushover Adapter
+TR: ![TR: Test and Release](https://github.com/ioBroker/iobroker.pushover/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/pushover/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует библиотеки Sentry, чтобы автоматически сообщать мне как разработчику об исключениях и ошибках кода. ** Подробнее см. Ниже!
+TR: Send pushover notifications from ioBroker.
 
-## Конфигурация
-В первую очередь требуется аккаунт на пустяке.
-![Конфигурация Pushover](../../../en/adapterref/iobroker.pushover/img/Screen0.png)
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-![Токен API](../../../en/adapterref/iobroker.pushover/img/Screen1.png)
+TR: ## Configuration
+TR: First it is required an account on pushover.
+![TR: Pushover configuration](../../../en/adapterref/iobroker.pushover/img/Screen0.png)
 
-![Групповой токен](../../../en/adapterref/iobroker.pushover/img/Screen3.png)
+![TR: API Token](../../../en/adapterref/iobroker.pushover/img/Screen1.png)
 
-## Применение
-Чтобы отправить уведомление из ScriptEngine, просто напишите:
+![TR: Group Token](../../../en/adapterref/iobroker.pushover/img/Screen3.png)
+
+TR: ## Usage
+TR: To send notification from ScriptEngine just write:
 
 ```
 // send notification to all instances of pushover adapter
@@ -48,14 +49,16 @@ sendTo("pushover", {
                           //    1 to display as high-priority and bypass the user's quiet hours, or
                           //    2 to also require confirmation from the user
    token: 'API/KEY token' // optional
-                          // add other than configurated token to the call
+                          // add other than configured token to the call
    url,                   // optional  - a supplementary URL to show with your message
    url_title,             // optional  - a title for your supplementary URL, otherwise just the URL is shown
    device,                // optional  - your user's device name to send the message directly to that device, rather than all of the user's devices
    timestamp              // optional  - a Unix timestamp of your message's date and time to display to the user, rather than the time your message is received by our API
-   html                   // optional  - 1 to enable parsing of HTML formating for bold, italic, underlined and font color
+   html                   // optional  - 1 to enable parsing of HTML formatting for bold, italic, underlined and font color
    monospace              // optional  - 1 to display the message in monospace font
                           //    either html or monospace is allowed
+   file:                  '/opt/picture.png', // optional - attachment
+   file:                  { name: '/opt/picture.png', data: fs.readFileSync('/opt/picture.png') }, // optional - attachment
 });
 
 // Example for HTML format in the message
@@ -72,16 +75,40 @@ sendTo("pushover", {
 
 ```
 
-## Что такое Sentry и что передается на серверы?
-Sentry.io - это способ для разработчиков получить обзор ошибок в своих приложениях. Именно это и реализовано в этом адаптере.
+TR: ## Glances
+TR: With Pushover's Glances, you can push small bits of data directly to a constantly-updated screen, referred to as a widget, such as a complication on your smartwatch or a widget on your phone's lock screen.
 
-Когда адаптер выходит из строя или возникает другая ошибка кода, это сообщение об ошибке, которое также появляется в журнале ioBroker, отправляется на наш собственный сервер Sentry, расположенный в Германии. Когда вы разрешили iobroker GmbH собирать диагностические данные, включается также ваш установочный идентификатор (это просто уникальный идентификатор **без** дополнительной информации о вас, электронной почты, имени и т. Д.). Это позволяет Sentry группировать ошибки и показывать, сколько уникальных пользователей затронуты такой ошибкой. Все это помогает мне предоставлять безошибочные адаптеры, которые практически никогда не дают сбоев.
+```
+sendTo("pushover", "glances", {
+   message:  'Test text',    // mandatory - (100 characters) - the main line of data, used on most screens
+   title:    'SweetHome',    // optional  - (100 characters) - a description of the data being shown, such as "Widgets Sold"
+   token:    'API/KEY token' // optional  - add other than configured token to the call
+   subtext:  'Second line',  // optional  - (100 characters) - a second line of data
+   count:    3,              // optional  - (integer, may be negative) - shown on smaller screens; useful for simple counts
+   percent:   90,            // optional  - (integer 0 through 100, inclusive) - shown on some screens as a progress bar/circle
+   device:   'DEVICE_NAME',  // optional  - a user's device name to restrict messages to the widget on that device, otherwise leave blank to send messages to all available widgets of that user
+});
+```
 
-<! - Заполнитель для следующей версии (в начале строки):
+TR: You can use blockly with name `glances` to send a message from `blockly`.
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+TR: ## What is Sentry and what is reported to the servers?
+TR: Sentry.io is a way for developers to get an overview about errors from their applications. And exactly this is implemented in this adapter.
+
+TR: When the adapter crashes or an other Code error happens, this error message that also appears in the ioBroker log is submitted to our own Sentry server hosted in germany. When you allowed iobroker GmbH to collect diagnostic data then also your installation ID (this is just a unique ID **without** any additional infos about you, email, name or such) is included. This allows Sentry to group errors and show how many unique users are affected by such an error. All of this helps me to provide error free adapters that basically never crashs.
+
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 2.0.5 (2021-06-29)
+* (bluefox) Corrected error with token
+
+### 2.0.4 (2021-06-28)
+* (dipts) Blockly input value for attachments
+* (bluefox) implemented the "glances"
+
 ### 2.0.3 (2020-09-25)
 * (klein0r) Removed spaces in the admin config dropdown
 
@@ -143,7 +170,7 @@ Sentry.io - это способ для разработчиков получит
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2014-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

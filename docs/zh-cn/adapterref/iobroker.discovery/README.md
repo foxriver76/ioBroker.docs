@@ -2,143 +2,155 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.discovery/README.md
-title: ioBroker发现适配器
-hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
+title: TR: ioBroker Discover Adapter
+hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 ---
-![标识](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
+![TR: Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
-![安装数量](http://iobroker.live/badges/discovery-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.discovery.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.discovery.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.discovery.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.discovery.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/discovery-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.discovery.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.discovery.svg)
 
-＃ioBroker发现适配器
-**使用所有已知方法检测设备。**
+TR: # ioBroker Discover Adapter
+TR: ![TR: Test and Release](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Detect devices with all known methods.**
 
-这是特殊的适配器，试图查找主机可以访问的所有可能的设备。
-到目前为止，它可以通过ping，UPnP（串行计划）进行检测。
+TR: This is special adapters, that tries to find all possible devices, that can be reachable from host.
+Just now it can detect via ping, UPnP (serial planned).
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-##实际支持
-###自动发现
--Beckhoff PLC
--博世智能家居
--Bose Soundtouch
--Broadlink
--Chromecast
--大金气候控制
--deConz
--天龙/马兰士
--门鸟
--巴士
--钥匙
--能源经理（E.ON / Solarwatt）
--enet（Jung）
--爱普生Stylus PX830
--Fakeroku（和声）
--FHEM
--消防电视
--Fritzdect
--Fronius
--G-Homa插头
--和谐
--Heos
--家庭助理
--Homematic CCU（hm-rpc，hm-rega）
--飞行员
--HP-lio
--飞利浦HUE
--Plex
--InfluxDB
--KLF-200
--KNX（实际上已禁用）
--科迪
--Landroid
--LGTV
--轻巧
--Loxone
--狼疮
-- 最大限度！立方体
--McLighting
--MegaD
--Miele
--Miele云服务
--小米家居Smarthome
--Mikrotik
--MiLight桥（v6）
--MPD
--音乐广播
--myDlink
--Mysensors USB /串行（9600、38400、57600、115200）
--纳米叶灯板/帆布
--网络工具
--Nuki2
--坚果
--安桥
--OpenHAB
--平
--Plex
--Proxmox
--RFLink（序列号57600baud）
--三星电视
--Smappee
--Solarlog
--索南
--索诺斯（Sonos）
--Stiebel-Eltron / Tecalor ISG（加号）
--SQL（MySQL，MSSQL，PostgreSQL）
--挤压盒
--SqueezeboxRPC
--Synology
--TR-064
--Trådfri
--UPnP
--Wifilight
--雅马哈
--Yeelight
--Z-wave USB（已通过Aeon Labs测试）
+TR: ## Actually supported
+TR: ### Automatically Discovered
+TR: - Beckhoff PLC
+TR: - Bosch Smart Home
+TR: - Bose Soundtouch
+TR: - Broadlink
+TR: - BSBLan
+TR: - Chromecast
+TR: - Daikin climate control
+TR: - deConz
+TR: - Denon /Marantz
+TR: - DoorBird
+TR: - ebus
+TR: - ekey
+TR: - energymanager (E.ON/Solarwatt)
+TR: - enet (Jung)
+TR: - Epson Stylus PX830
+TR: - Fakeroku (harmony)
+TR: - FHEM
+TR: - FireTV
+TR: - Fritzdect
+TR: - Fronius
+TR: - G-Homa plugs
+TR: - Harmony
+TR: - Heos
+TR: - Home Assistant
+TR: - Homematic CCU (hm-rpc, hm-rega)
+TR: - Homepilot
+TR: - HP-lio
+TR: - Philips HUE
+TR: - Plex
+TR: - InfluxDB
+TR: - KLF-200
+TR: - KNX (disabled actually)
+TR: - Kodi
+TR: - Landroid
+TR: - LGTV
+TR: - Lightify
+TR: - Loxone
+TR: - Lupusec
+TR: - MAX! Cube
+TR: - McLighting
+TR: - MegaD
+TR: - Miele
+TR: - Miele Cloud Service
+TR: - Mi Home Smarthome
+TR: - Mikrotik
+TR: - MiLight bridge (v6)
+TR: - Mpd
+TR: - Musiccast
+TR: - myDlink
+TR: - Mysensors USB/Serial (9600, 38400, 57600, 115200)
+TR: - nanoleaf Light Panels / Canvas
+TR: - Net Tools
+TR: - Nuki2
+TR: - Nut
+TR: - Onkyo
+TR: - OpenHAB
+TR: - Ping
+TR: - Plex
+TR: - Proxmox
+TR: - RFLink (Serial 57600baud)
+TR: - SamsungTV
+TR: - Smappee
+TR: - Solarlog
+TR: - Sonnen
+TR: - Sonos
+TR: - Stiebel-Eltron/Tecalor ISG (plus)
+TR: - SQL (MySQL, MSSQL, PostgreSQL)
+TR: - Squeezebox
+TR: - SqueezeboxRPC
+TR: - Synology
+TR: - TR-064
+TR: - Trådfri
+TR: - UPnP
+TR: - ValloxMV
+TR: - Wifilight
+TR: - Yamaha
+TR: - Yeelight
+TR: - Z-wave USB (Tested with Aeon Labs)
 
-###作为附加适配器提供
-- 云
--历史记录（如果未找到SQL或InfluxDB）
--物联网
--flot（存在历史记录适配器时提供）
--JavaScript
--信息
--可见
--网页
+TR: ### Offered as additional adapters
+TR: - Cloud
+TR: - History (if no SQL or InfluxDB found)
+TR: - IoT
+TR: - flot (offered when a History-Adapter is present)
+TR: - JavaScript
+TR: - Info
+TR: - Vis
+TR: - Web
 
-##如果适配器找不到IP ...
-适配器对当前主机的IP（x.y.z.1..255）的网络执行ping操作。另外，UPnP和mDNS用于检测IP。
+TR: ## If the adapter can not find IPs ...
+TR: The adapter pings the network of the IP of the current host (x.y.z.1..255). Additionally UPnP and mDNS is used to detect IPs.
 
-如果未找到所有IP，请检查iobroker用户是否可以执行/ bin / ping。罐执行`sudo setcap cap_net_raw+p /bin/ping`以添加缺少的功能/权限。
+TR: If not all IPs are found then please check that the iobroker user can execute /bin/ping. Pot execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilities/permissions.
 
-＃＃ 去做
--artnet？ （蓝狐）
--B-Control-Em？ （蓝狐）
--cul / maxcul（Bluefox）
--Foobar200（安装程序）
--fritzbox（ruhr70）
--km200（弗兰克·乔克）
--megaesp（ausHaus）
--modbus（蓝狐）
--mqtt / mqtt-client（Bluefox）
--owfs（Bluefox）
--rpi2（如果ioBroker在Raspberry上运行）
--rwe-smarthome（PArns）
--s7（Bluefox）
--智能电表（Apollon77）
--统一（jens-maus）
--狼（微笑杰克）
--xs1（frankjoke）
+TR: ## Todo
+TR: - artnet? (Bluefox)
+TR: - B-Control-Em? (Bluefox)
+TR: - cul / maxcul (Bluefox)
+TR: - Foobar200 (Instalator)
+TR: - fritzbox (ruhr70)
+TR: - km200 (frankjoke)
+TR: - megaesp (ausHaus)
+TR: - modbus (Bluefox)
+TR: - mqtt/mqtt-client (Bluefox)
+TR: - owfs (Bluefox)
+TR: - rpi2 (if ioBroker runs on Raspberry)
+TR: - rwe-smarthome (PArns)
+TR: - s7 (Bluefox)
+TR: - smartmeter (Apollon77)
+TR: - unifi (jens-maus)
+TR: - wolf (smiling-jack)
+TR: - xs1 (frankjoke)
 
-<！-下一个版本的占位符（在该行的开头）：
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __正在进行的工程__->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### 2.7.0 (2021-07-01)
+* (hacki11) Add discovery for BSBLan and ValloxMV
+* (Apollon77) Optimize for js-controller 3.3
+
+### 2.6.3 (2021-05-03)
+* (bluefox) Added support of Admin5 
+
+### 2.6.2 (2021-04-13)
+* (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
+* (Apollon77) Fix crash case in ping logic (Sentry IOBROKER-DISCOVERY-2Y)
+* (Apollon77) Fix crash case in hf-lpb100 logic (Sentry IOBROKER-DISCOVERY-34)
 
 ### 2.6.1 (2021-02-28)
 * (JeyCee) added iot and net-tools
@@ -303,7 +315,7 @@ hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

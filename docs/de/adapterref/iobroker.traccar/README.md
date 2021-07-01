@@ -2,31 +2,30 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.traccar/README.md
-title: ioBroker.traccar
-hash: OFm1lXncX7HqJZ8Rc8bK6eA7dMOP9KvSDX7+HQY1cXU=
+title: TR: ioBroker.traccar
+hash: 78YzG+cU28r2SmJ9qs6AdOooe7i8tqc/IJn76EYcDIs=
 ---
-![Logo](../../../en/adapterref/iobroker.traccar/admin/traccar.png)
+![TR: Logo](../../../en/adapterref/iobroker.traccar/admin/traccar.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
-![Downloads](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)
-![Anzahl der Installationen (spätestens)](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
-![Anzahl der Installationen (stabil)](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
-![Abhängigkeitsstatus](https://img.shields.io/david/o0shojo0o/iobroker.traccar.svg?dummy=unused)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/o0shojo0o/ioBroker.traccar/badge.svg?dummy=unused)
-![NPM](https://nodei.co/npm/iobroker.traccar.png?downloads=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.traccar.svg?dummy=unused)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.traccar.svg?dummy=unused)
+![TR: Number of Installations (latest)](https://iobroker.live/badges/traccar-installed.svg?dummy=unused)
+![TR: Number of Installations (stable)](https://iobroker.live/badges/traccar-stable.svg?dummy=unused)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/o0shojo0o/ioBroker.traccar/badge.svg?dummy=unused)
+![TR: NPM](https://nodei.co/npm/iobroker.traccar.png?downloads=true)
 
-# IoBroker.traccar
-[![Übersetzungsstatus] (https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+TR: # ioBroker.traccar
+TR: [![TR: Dependency Status](https://status.david-dm.org/gh/o0shojo0o/iobroker.traccar.svg?dummy=unused)](https://david-dm.org/o0shojo0o/iobroker.traccar) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/traccar/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Traccar-Adapter für ioBroker
-Dieser Adapter importiert in Echtzeit die Position und die erweiterten Daten aus [Traccar](https://www.traccar.org) und stellt sie in ioBroker zur Verfügung.
+TR: ## Traccar adapter for ioBroker
+TR: This adapter imports in real time the position and the extended data from [TR: Traccar](https://www.traccar.org) and makes them available in ioBroker.
 
-## Aufbau
-1. Erstellen Sie eine neue Instanz des Adapters
-2. Geben Sie die URL / IP und den Port vom Traccar-Server ein
-3. Konfigurieren Sie Benutzername und Passwort
-4. Speichern Sie die Einstellungen
-5. Viel Spaß :)
+TR: ## Configuration
+TR: 1. Create a new instance of the adapter
+TR: 2. Fill the URL/IP and port from Traccar server
+TR: 3. Configur username and password
+TR: 4. Save the settings
+TR: 5. Have fun :)
 
 ## Changelog
 
@@ -38,6 +37,11 @@ Dieser Adapter importiert in Echtzeit die Position und die erweiterten Daten aus
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### 0.0.9 (2021-05-19)
+
+-   (o0shojo0o) prevent unnecessary process attributes from being interrupted
+-   (o0shojo0o) optimization of the link between device and incoming message
 
 ### 0.0.8 (2021-04-30)
 

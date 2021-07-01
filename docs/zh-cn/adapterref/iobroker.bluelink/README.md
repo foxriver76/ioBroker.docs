@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.bluelink/README.md
 title: TR: ioBroker.bluelink
-hash: GkcfybNy6TMH1f8iji8UmNgkzStEcjmXEdx+vBTAMB0=
+hash: h86j1Q50oSwUfp9KVkLzHZfJkatM95ozIakZr30kQ9I=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.bluelink/admin/bluelink.png)
 
@@ -19,6 +19,8 @@ TR: **Tests:** ![TR: Test and Release](https://github.com/Newan/ioBroker.bluelin
 
 TR: ## bluelink adapter for ioBroker
 TR: Adapter to control Hyundai or Kia vehicle
+
+TR: Discussion: https://forum.iobroker.net/topic/43592/adapter-hyundai-bluelink-oder-kia-uvo
 
 TR: ## Donation
 [![TR: ](https://www.paypalobjects.com/de_DE/DE/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L55UBQJKJEUJL)

@@ -2,143 +2,155 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.discovery/README.md
-title: ioBroker Discover Adapter
-hash: cSp632WFSVsYiDyNAPd4gSLbTsUOjf5nEERQyCe6Ngc=
+title: TR: ioBroker Discover Adapter
+hash: RdRGHBIkYaCIaGJ7onXI7yxUdEBVYhhNzPC8GMrMFtQ=
 ---
-![Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
+![TR: Logo](../../../en/adapterref/iobroker.discovery/admin/discovery.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/discovery-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.discovery.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.discovery.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.discovery.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.discovery.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/discovery-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.discovery.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.discovery.svg)
 
-# IoBroker Discover Adapter
-** Geräte mit allen bekannten Methoden erkennen. **
+TR: # ioBroker Discover Adapter
+TR: ![TR: Test and Release](https://github.com/ioBroker/iobroker.discovery/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/discovery/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget) **Detect devices with all known methods.**
 
-Dies sind spezielle Adapter, die versuchen, alle möglichen Geräte zu finden, die vom Host aus erreichbar sind.
-Gerade jetzt kann es über Ping UPnP (seriell geplant) erkennen.
+TR: This is special adapters, that tries to find all possible devices, that can be reachable from host.
+Just now it can detect via ping, UPnP (serial planned).
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Wird tatsächlich unterstützt
-### Automatisch erkannt
-- Beckhoff PLC
-- Bosch Smart Home
-- Bose Soundtouch
-- Broadlink
-- Chromecast
-- Daikin Klimatisierung
-- deConz
-- Denon / Marantz
-- DoorBird
-- ebus
-- ekey
-- Energiemanager (E.ON / Solarwatt)
-- enet (Jung)
-- Epson Stylus PX830
-- Fakeroku (Harmonie)
-- FHEM
-- FireTV
-- Fritzdect
-- Fronius
-- G-Homa-Stecker
-- Harmonie
-- Heos
-- Heimassistent
-- Homematische CCU (hm-rpc, hm-rega)
-- Homepilot
-- HP-Lio
-- Philips HUE
-- Plex
-- InfluxDB
-- KLF-200
-- KNX (tatsächlich deaktiviert)
-- Kodi
-- Landroid
-- LGTV
-- Beleuchten
-- Loxone
-- Lupusec
-- MAX! Würfel
-- McLighting
-- MegaD
-- Miele
-- Miele Cloud Service
-- Mi Home Smarthome
-- Mikrotik
-- MiLight-Brücke (v6)
-- Mpd
-- Musiksendung
-- myDlink
-- Mysensoren USB / Seriell (9600, 38400, 57600, 115200)
-- Nanoleaf Light Panels / Canvas
-- Net Tools
-- Nuki2
-- Nuss
-- Onkyo
-- OpenHAB
-- Ping
-- Plex
-- Proxmox
-- RFLink (Serial 57600baud)
-- SamsungTV
-- Smappee
-- Solarlog
-- Sonnen
-- Sonos
-- Stiebel-Eltron / Tecalor ISG (plus)
-- SQL (MySQL, MSSQL, PostgreSQL)
-- Squeezebox
-- SqueezeboxRPC
-- Synologie
-- TR-064
-- Trådfri
-- UPnP
-- Wifilight
-- Yamaha
-- Yeelight
-- Z-Wave USB (getestet mit Aeon Labs)
+TR: ## Actually supported
+TR: ### Automatically Discovered
+TR: - Beckhoff PLC
+TR: - Bosch Smart Home
+TR: - Bose Soundtouch
+TR: - Broadlink
+TR: - BSBLan
+TR: - Chromecast
+TR: - Daikin climate control
+TR: - deConz
+TR: - Denon /Marantz
+TR: - DoorBird
+TR: - ebus
+TR: - ekey
+TR: - energymanager (E.ON/Solarwatt)
+TR: - enet (Jung)
+TR: - Epson Stylus PX830
+TR: - Fakeroku (harmony)
+TR: - FHEM
+TR: - FireTV
+TR: - Fritzdect
+TR: - Fronius
+TR: - G-Homa plugs
+TR: - Harmony
+TR: - Heos
+TR: - Home Assistant
+TR: - Homematic CCU (hm-rpc, hm-rega)
+TR: - Homepilot
+TR: - HP-lio
+TR: - Philips HUE
+TR: - Plex
+TR: - InfluxDB
+TR: - KLF-200
+TR: - KNX (disabled actually)
+TR: - Kodi
+TR: - Landroid
+TR: - LGTV
+TR: - Lightify
+TR: - Loxone
+TR: - Lupusec
+TR: - MAX! Cube
+TR: - McLighting
+TR: - MegaD
+TR: - Miele
+TR: - Miele Cloud Service
+TR: - Mi Home Smarthome
+TR: - Mikrotik
+TR: - MiLight bridge (v6)
+TR: - Mpd
+TR: - Musiccast
+TR: - myDlink
+TR: - Mysensors USB/Serial (9600, 38400, 57600, 115200)
+TR: - nanoleaf Light Panels / Canvas
+TR: - Net Tools
+TR: - Nuki2
+TR: - Nut
+TR: - Onkyo
+TR: - OpenHAB
+TR: - Ping
+TR: - Plex
+TR: - Proxmox
+TR: - RFLink (Serial 57600baud)
+TR: - SamsungTV
+TR: - Smappee
+TR: - Solarlog
+TR: - Sonnen
+TR: - Sonos
+TR: - Stiebel-Eltron/Tecalor ISG (plus)
+TR: - SQL (MySQL, MSSQL, PostgreSQL)
+TR: - Squeezebox
+TR: - SqueezeboxRPC
+TR: - Synology
+TR: - TR-064
+TR: - Trådfri
+TR: - UPnP
+TR: - ValloxMV
+TR: - Wifilight
+TR: - Yamaha
+TR: - Yeelight
+TR: - Z-wave USB (Tested with Aeon Labs)
 
-### Wird als zusätzliche Adapter angeboten
-- Wolke
-- Verlauf (wenn kein SQL oder InfluxDB gefunden wurde)
-- IoT
-- Flot (wird angeboten, wenn ein History-Adapter vorhanden ist)
-- JavaScript
-- Die Info
-- Vis
-- Netz
+TR: ### Offered as additional adapters
+TR: - Cloud
+TR: - History (if no SQL or InfluxDB found)
+TR: - IoT
+TR: - flot (offered when a History-Adapter is present)
+TR: - JavaScript
+TR: - Info
+TR: - Vis
+TR: - Web
 
-## Wenn der Adapter keine IPs finden kann ...
-Der Adapter pingt das Netzwerk der IP des aktuellen Hosts an (x.y.z.1..255). Zusätzlich werden UPnP und mDNS verwendet, um IPs zu erkennen.
+TR: ## If the adapter can not find IPs ...
+TR: The adapter pings the network of the IP of the current host (x.y.z.1..255). Additionally UPnP and mDNS is used to detect IPs.
 
-Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Benutzer / bin / ping ausführen kann. Pot führen Sie `sudo setcap cap_net_raw+p /bin/ping` aus, um fehlende Funktionen / Berechtigungen hinzuzufügen.
+TR: If not all IPs are found then please check that the iobroker user can execute /bin/ping. Pot execute `sudo setcap cap_net_raw+p /bin/ping` to add missing capabilities/permissions.
 
-## Machen
-- Artnet? (Blauer Fuchs)
-- B-Control-Em? (Blauer Fuchs)
-- cul / maxcul (Bluefox)
-- Foobar200 (Instalator)
-- Fritzbox (ruhr70)
-- km200 (Frankjoke)
-- Megaesp (ausHaus)
-- Modbus (Bluefox)
-- mqtt / mqtt-client (Bluefox)
-- owfs (Bluefox)
-- rpi2 (wenn ioBroker auf Raspberry läuft)
-- rwe-smarthome (PArns)
-- s7 (Bluefox)
-- Smartmeter (Apollon77)
-- unifi (jens-maus)
-- Wolf (lächelnder Wagenheber)
-- xs1 (Frankjoke)
+TR: ## Todo
+TR: - artnet? (Bluefox)
+TR: - B-Control-Em? (Bluefox)
+TR: - cul / maxcul (Bluefox)
+TR: - Foobar200 (Instalator)
+TR: - fritzbox (ruhr70)
+TR: - km200 (frankjoke)
+TR: - megaesp (ausHaus)
+TR: - modbus (Bluefox)
+TR: - mqtt/mqtt-client (Bluefox)
+TR: - owfs (Bluefox)
+TR: - rpi2 (if ioBroker runs on Raspberry)
+TR: - rwe-smarthome (PArns)
+TR: - s7 (Bluefox)
+TR: - smartmeter (Apollon77)
+TR: - unifi (jens-maus)
+TR: - wolf (smiling-jack)
+TR: - xs1 (frankjoke)
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __WORK IN PROGRESS__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### 2.7.0 (2021-07-01)
+* (hacki11) Add discovery for BSBLan and ValloxMV
+* (Apollon77) Optimize for js-controller 3.3
+
+### 2.6.3 (2021-05-03)
+* (bluefox) Added support of Admin5 
+
+### 2.6.2 (2021-04-13)
+* (Apollon77) Fix crash case in mihome discovery (Sentry IOBROKER-DISCOVERY-30)
+* (Apollon77) Fix crash case in ping logic (Sentry IOBROKER-DISCOVERY-2Y)
+* (Apollon77) Fix crash case in hf-lpb100 logic (Sentry IOBROKER-DISCOVERY-34)
 
 ### 2.6.1 (2021-02-28)
 * (JeyCee) added iot and net-tools
@@ -303,7 +315,7 @@ Wenn nicht alle IPs gefunden werden, überprüfen Sie bitte, ob der iobroker-Ben
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

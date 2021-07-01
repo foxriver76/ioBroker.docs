@@ -3,19 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.devices/README.md
 title: TR: ioBroker.devices
-hash: efdaBj7R5bRViyZzeYNECStL/IJPpxighScsPt2Qm7M=
+hash: EKlEeUDulaPAGqvzFy8sBCGa2rBx+SZkDyo4Rz9FSRo=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.devices/admin/devices.png)
 
+![TR: Number of Installations](http://iobroker.live/badges/devices-stable.svg)
 ![TR: NPM version](http://img.shields.io/npm/v/iobroker.devices.svg)
 ![TR: Downloads](https://img.shields.io/npm/dm/iobroker.devices.svg)
-![TR: Dependency Status](https://img.shields.io/david/ioBroker/iobroker.devices.svg)
-![TR: Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.devices/badge.svg)
-![TR: NPM](https://nodei.co/npm/iobroker.devices.png?downloads=true)
-![TR: Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.devices/master.svg)
-![TR: AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.devices?branch=master&svg=true)
 
 TR: # ioBroker.devices
+TR: ![TR: Test and Release](https://github.com/ioBroker/iobroker.devices/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/devices/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 TR: ## devices adapter for ioBroker
 TR: Manage and create devices for using it in other adapters like material, iot,...
 
@@ -23,7 +21,7 @@ TR: **Important: enable tab in admin, like log and scripts**
 
 ![TR: Screen](../../../en/adapterref/iobroker.devices/img/screen.png)
 
-TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.**
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 TR: ## ToDo
 TR: - add descriptions for states
@@ -33,6 +31,15 @@ TR: <!-- Placeholder for the next version (at the beginning of the line):
 TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 1.0.7 (2021-06-30)
+* (bluefox) Corrected creation the folders
+
+### 1.0.6 (2021-06-27)
+* (bluefox) Implemented the filters
+
+### 1.0.5 (2021-06-26)
+* (bluefox) Implemented the edit of `states` parameter
+
 ### 1.0.4 (2021-06-08)
 * (bluefox) Fixed some GUI errors
 

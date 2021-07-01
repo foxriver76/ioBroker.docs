@@ -2,45 +2,45 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.lovelace/README.md
-title: ioBroker.lovelace
-hash: FOpGMM+D05q9oz7BUxwiyH8xTi4YKqbiRxE8w9KqhiU=
+title: TR: ioBroker.lovelace
+hash: Vsarg6AJFBh+tqIfiMJeA5EbUjdOYQHNNYLyi3W0cW8=
 ---
-![Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
+![TR: Logo](../../../en/adapterref/iobroker.lovelace/admin/lovelace.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.lovelace.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.lovelace.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/ioBroker/iobroker.lovelace.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/ioBroker/ioBroker.lovelace/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.lovelace.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.lovelace/master.svg)
-![AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.lovelace?branch=master&svg=true)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.lovelace.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.lovelace.svg)
+![TR: Dependency Status](https://img.shields.io/david/ioBroker/iobroker.lovelace.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.lovelace/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.lovelace.png?downloads=true)
+![TR: Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.lovelace/master.svg)
+![TR: AppVeyor](https://ci.appveyor.com/api/projects/status/github/ioBroker/ioBroker.lovelace?branch=master&svg=true)
 
-# IoBroker.lovelace
-## Lovelace Adapter für ioBroker
-Mit diesem Adapter können Sie eine Visualisierung für ioBroker mit der Home Assistant Lovelace-Benutzeroberfläche erstellen.
+TR: # ioBroker.lovelace
+TR: ## lovelace adapter for ioBroker
+TR: With this adapter you can build visualization for ioBroker with Home Assistant Lovelace UI.
 
-[Deutsche Dokumentation](docs/de/README.md)
+[TR: Deutsche Dokumentation](docs/de/README.md)
 
-## Aufbau
-Es gibt zwei Möglichkeiten, wie die Entitäten konfiguriert werden könnten:
+TR: ## Configuration
+TR: There are two arts how the entities could be configured:
 
-- Auto
-- Handbuch
+TR: - auto
+TR: - manual
 
-### Auto
-Im Auto-Modus wird der gleiche Vorgang wie bei `google home` oder `material adapter` angewendet.
+TR: ### Auto
+TR: In auto mode the similar process will be applied like for `google home` or `material adapter`.
 
-*** Es werden nur Objekte und Kanäle erkannt, für die Kategorien `function`und `room` definiert sind ***
+TR: ***Only objects and channel will be detected that have `function`and `room` categories defined***
 
-Sie können Anzeigenamen definieren, die in Entitäten verwendet werden.
+TR: You can define friendly names and this will be used in entities.
 
-### Handbuch
-Die Objekte können manuell im Objektbaum wie SQL oder Histroy definiert werden. Der Entitätstyp muss angegeben werden und optional der Name des Objekts.
-Mit dieser Methode konnten nur einfache Entitäten wie input_number, input_text oder input_boolean erstellt werden. Es darf nicht mehr als einen Status oder ein Attribut haben.
+TR: ### Manual
+TR: The objects can be defined manually in object tree like sql or histroy. The type of entity must be provided and optionally the name of object.
+With this method only simple entities, like input_number, input_text or input_boolean could be created. It may not have more than one state or attribute.
 
-## Panels
-### Alarmzentrale
-ioBroker unterstützt ein solches Gerät noch nicht, kann aber simuliert werden. Wenn Sie ein solches Skript erstellen:
+TR: ## Panels
+TR: ### Alarm panel
+TR: ioBroker does not support such a device yet, but it can be simulated. If you create such a script:
 
 ```
 createState(
@@ -75,12 +75,12 @@ createState(
 );
 ```
 
-oder Sie verwenden einfach `lovelace.X.control.alarm (entity_id = alarm_control_panel.defaultAlarm)` dafür.
+TR: or you just use `lovelace.X.control.alarm (entity_id = alarm_control_panel.defaultAlarm)` for it.
 
-### Zahleneingabe
-Dies kann manuell erfolgen, wenn der Entitätstyp input_number im benutzerdefinierten Dialogfeld ausgewählt ist.
-Dieser Typ erforderte `min` und `max` Werte in `common` und optionale `step` könnten hinzugefügt werden.
-Wenn Sie die Aufwärts- und Abwärtspfeile sehen möchten, sollten Sie in benutzerdefinierten `mode` auf 'Nummer' setzen:
+TR: ### Number input
+TR: This can be done manually if input_number entity type in custom dialog is selected.
+This type required `min` and `max` values in `common` and optional `step` could be added.
+If you want to see the up and down arrows, you should set in custom `mode` to 'number':
 
 ```
 common: {
@@ -95,9 +95,9 @@ common: {
 }
 ```
 
-### Eingang auswählen
-Dies kann manuell erfolgen, wenn der Entitätstyp input_select im benutzerdefinierten Dialogfeld ausgewählt ist.
-Die Liste der Optionen, aus denen Sie auswählen können, sollte im Standardobjekt commom.states enthalten sein:
+TR: ### Select input
+TR: This can be done manually if input_select entity type in custom dialog is selected.
+The list of options to select from should be provide in standard commom.states object:
 
 ```
 "common": {
@@ -116,10 +116,10 @@ Die Liste der Optionen, aus denen Sie auswählen können, sollte im Standardobje
     }
 ```
 
-Mit anderen Worten, in sollte auch in IoB eingegeben werden.
+TR: in other words in should also be input select in IoB.
 
-### Timer
-Der Timer kann mit folgendem Skript simuliert werden:
+TR: ### Timer
+TR: Timer could be simulated by following script:
 
 ```
 createState(
@@ -202,17 +202,17 @@ createState(
 );
 ```
 
-### Wetter
-Getestet mit yr und daswetter. Für eines oder mehrere der folgenden Objekte müssen `Function=Weather` und `Room=Any` festgelegt sein, damit sie in der Konfiguration verfügbar sind:
+TR: ### Weather
+TR: Tested with yr and daswetter. One or more of following objects must have `Function=Weather` and `Room=Any` set to be available in configuration:
 
-- daswetter.0.NextDays.Location_1
-- yr.0.forecast
+TR: - daswetter.0.NextDays.Location_1
+TR: - yr.0.forecast
 
-Getestet mit dem AccuWeather-Treiber v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
-Benutzerdefinierte Lovelace-Karte zur Unterstützung der Wetterprognose erstellt - https://github.com/algar42/IoB.lovelace.accuweather-card
+TR: Tested with AccuWeather driver v1.1.0 https://github.com/iobroker-community-adapters/ioBroker.accuweather.
+Custom Lovelace card created in support of accuweather forecast - https://github.com/algar42/IoB.lovelace.accuweather-card
 
-### Einkaufsliste
-Einkaufsliste schreibt die Werte in Form:
+TR: ### Shopping list
+TR: Shopping list writes the values in form:
 
 ```
 [
@@ -221,10 +221,10 @@ Einkaufsliste schreibt die Werte in Form:
 ]
 ```
 
-in `lovelace.X.control.shopping_list` Zustand.
+TR: into `lovelace.X.control.shopping_list` state.
 
-### Karte
-Die Objekte müssen wie folgt aussehen:
+TR: ### Map
+TR: The objects must look like this one:
 
 ```
 createState('location', '39.5681295;2.6432632', false, {
@@ -237,7 +237,7 @@ createState('location', '39.5681295;2.6432632', false, {
 });
 ```
 
-oder diese beiden Objekte:
+TR: or this two objects:
 
 ```
 createState('location.longitude', 2.6432632, false, {
@@ -258,9 +258,9 @@ createState('location.latitude', 39.5681295, false, {
 });
 ```
 
-### Bildentität
-Sie können ein statisches Bild dafür verwenden oder einen beliebigen Status verwenden, der eine URL als Status liefert.
-Z.B.:
+TR: ### Picture entity
+TR: You can use static picture for it or use any state that delivers URL as state.
+E.g.:
 
 ```
 {
@@ -277,51 +277,51 @@ Z.B.:
 }
 ```
 
-oder setzen Sie den Entitätstyp einfach manuell auf `camera` und schreiben Sie eine URL hinein.
+TR: or just set manually the entity type to `camera` and write URL into it.
 
-### Werkzeugleiste verstecken
-Um die Symbolleiste auszublenden, können Sie das Kontrollkästchen im ioBroker-Konfigurationsdialog auf der Registerkarte Themen aktivieren.
-Um es anzuzeigen, können Sie es im Dialogfeld wieder deaktivieren oder einfach die URL mit dem Parameter `?toolbar=true` aufrufen.
+TR: ### Hide toolbar
+TR: To hide toolbar you can set the checkbox in the ioBroker configuration dialog on the Themes tab.
+To show it, you can disable it in the dialog again or just call the URL with `?toolbar=true` parameter.
 
-### Abschrift
-Sie können Bindungen in Abschriften wie in [iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects) verwenden.
+TR: ### Markdown
+TR: You can use bindings in markdown like in [TR: iobroker.vis](https://github.com/ioBroker/ioBroker.vis#bindings-of-objects).
 
-Z.B. Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` erzeugt Text `Admin adapter is alive` im Markdown-Bereich.
+TR: E.g. Text `Admin adapter is {a:system.adapter.admin.0.alive;a === true || a === 'true' ? ' ' : 'not '} *alive*.` will produce text `Admin adapter is alive` in markdown panel.
 
-## Benutzerdefinierte Karten
-### Hochladen von benutzerdefinierten Karten
-Um die benutzerdefinierte Karte hochzuladen, schreiben Sie Folgendes:
+TR: ## Custom cards
+TR: ### Upload of custom cards
+TR: To upload the custom card write following:
 
 ```iobroker file write PATH_TO_FILE\bignumber-card.js /lovelace.0/cards/```
 
-Nach dem Neustart des Lovelace-Adapters werden automatisch alle Dateien aus dem Verzeichnis `cards` aufgenommen.
+TR: After restart of lovelace adapter it will include all files from the `cards` directory automatically.
 
-Folgende benutzerdefinierte Karten konnten erfolgreich getestet werden:
+TR: Following custom cards could be tested successfully:
 
-- bignumber-card: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
-- einfacher Thermostat: https://github.com/nervetattoo/simple-thermostat/releases (nehmen Sie die neueste Version)
-- Thermostat: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (beide Dateien .js und .lib.js sind erforderlich)
+TR: - bignumber-card: https://github.com/custom-cards/bignumber-card/blob/master/bignumber-card.js
+TR: - simple-thermostat: https://github.com/nervetattoo/simple-thermostat/releases (take the latest release)
+TR: - thermostat: https://github.com/ciotlosm/custom-lovelace/tree/master/thermostat-card (both files .js and .lib.js are required)
 
-Ich fand diesen Link https://github.com/jimz011/homeassistant als interessante Ressource für benutzerdefinierte Karten.
+TR: I found this link https://github.com/jimz011/homeassistant as an interesting resource for custom cards.
 
-Oft werden die benutzerdefinierten Karten als Quellen auf Github gespeichert und müssen vor der Verwendung kompiliert werden.
-Sie sollten das Menü `Releases` auf github überprüfen und versuchen, dort kompilierte Dateien zu finden.
-Wie dieser: [https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (Suchen Sie nach der Datei `mini-graph-card-bundle.js`)
+TR: Often the custom cards are stored on github as sources and must be compiled before use.
+You should check the `Releases` menu on github and try to find compiled files there.
+Like this one: [TR: https://github.com/kalkih/mini-graph-card/releases](https://github.com/kalkih/mini-graph-card/releases) (Look for the file `mini-graph-card-bundle.js`)
 
-## Eigene Bilder
-Die benutzerdefinierten Bilder (z. B. für den Hintergrund) können über denselben Konfigurationsdialog wie die benutzerdefinierten Karten geladen werden. Und benutze es so:
+TR: ## Own images
+TR: The custom images (e.g. for background) could be loaded via the same configuration dialog like the custom cards. And use it like this:
 
-`background: center / cover no-repeat url("/cards/background.jpg") fixed`
+TR: `background: center / cover no-repeat url("/cards/background.jpg") fixed`
 
-oder
+TR: or
 
-`background: center / cover no-repeat url("/local/custom_ui/background.jpg") fixed`
+TR: `background: center / cover no-repeat url("/local/custom_ui/background.jpg") fixed`
 
-in der Lovelace-Konfigurationsdatei. Lesen Sie mehr über den Hintergrund in der Liebe [Hier](https://www.home-assistant.io/lovelace/views/#background).
+TR: in lovelace configuration file. Read more about background in lovelace [TR: here](https://www.home-assistant.io/lovelace/views/#background).
 
-## Themen
-Die Themen können im Konfigurationsdialog von ioBroker definiert werden.
-Fügen Sie etwas ein wie:
+TR: ## Themes
+TR: The themes can be defined in configuration dialog of ioBroker.
+Paste something like:
 
 ```
 midnight:
@@ -391,29 +391,29 @@ midnight:
   google-green-500: '#39E949'
 ```
 
-entnommen aus [Hier](https://community.home-assistant.io/t/midnight-theme/28598/2).
+TR: taken from [TR: here](https://community.home-assistant.io/t/midnight-theme/28598/2).
 
-## Symbole
-Verwenden Sie Symbole in Form von `mdi:NAME` wie 'mdi: play-network'. Namen können hier abgerufen werden: https://materialdesignicons.com/
+TR: ## Icons
+TR: Use icons in form `mdi:NAME`, like 'mdi:play-network'. Names can be taken from here: https://materialdesignicons.com/
 
-## Benachrichtigungen
-Sie können Benachrichtigungen über die Funktion `sendTo` oder durch Schreiben des Status in `lovelace.X.notifications.add` hinzufügen:
+TR: ## Notifications
+TR: You can add notifications via `sendTo` functionality or by writing the state into `lovelace.X.notifications.add`:
 
 ```
 sendTo('lovelace.0', 'send', {message: 'Message text', title: 'Title'}); // full version
 sendTo('lovelace.0', 'send', 'Message text'); // short version
 ```
 
-oder
+TR: or
 
 ```
 setState('lovelace.0.notifications.add', '{"message": "Message text", "title": "Title"}'); // full version
 setState('lovelace.0.notifications.add', 'Message text'); // short version
 ```
 
-## Stimmenkontrolle
-Alle Befehle von der Weboberfläche werden mit `ack=false` in den Status lovelace.X.conversation geschrieben.
-Sie können ein Skript schreiben, das auf Anfrage reagiert und antwortet:
+TR: ## Voice control
+TR: All commands from web interface will be written into lovelace.X.conversation state with `ack=false`.
+You can write a script that will react on request and will answer:
 
 ```
 on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
@@ -426,58 +426,75 @@ on({id: 'lovelace.0.conversation', ack: false, change: 'any'}, obj => {
 });
 ```
 
-## Fehlerbehebung
-Wenn Sie den YAML-Code durcheinander gebracht haben und eine leere Seite sehen, aber immer noch das Hauptmenü haben, können Sie den Bearbeitungsmodus (falls nicht bereits aktiviert) über das Menü aktivieren und dann das Menü erneut öffnen, um auf den "RAW Yaml Editor" zuzugreifen, in dem Sie sich befinden Sehen Sie sich den vollständigen YAML-Code an und können Sie ihn bereinigen.
-Wenn dies nicht hilft, können Sie die Objekt-Lovelace. *. -Konfiguration im Raw-Editor in ioBroker öffnen und dort nachsehen.
-Sie können dieses Objekt auch aus einer Sicherung wiederherstellen. Es enthält die vollständige Konfiguration Ihrer Visualisierung.
+TR: ## Trouble Shooting
+TR: If you messed up the YAML Code and see a blank page but still have the top menu, you can enable edit mode (if not already enabled) from the menu and then open the menu again to access the "RAW Yaml Editor" in which you see the complete YAML code and can clean it up.
+If that does not help, you can open the object lovelace.*.configuration in raw-editor in ioBroker and have a look there.
+You can also restore that object from a backup. It contains the complete configuration of your visualization.
 
-## Originalquellen für Liebesspiel
-Verwendete Quellen finden Sie hier https://github.com/GermanBluefox/home-assistant-polymer.
+TR: ## Original sources for lovelace
+TR: Used sources are here https://github.com/GermanBluefox/home-assistant-polymer .
 
-## Machen
-Die Sicherheit muss vom aktuellen Benutzer und nicht vom Standardbenutzer übernommen werden
+TR: ## Todo
+TR: Security must be taken from current user and not from default_user
 
-## Entwicklung
-### Ausführung
-Verwendete Version von home-assistant-frontend@20201021.4
+TR: ## Development
+TR: ### Version
+TR: Used version of home-assistant-frontend@20201021.4
 
-### Wie erstelle ich die neue Lovelace-Version?
-Zunächst muss das eigentliche https://github.com/home-assistant/frontend (Entwicklungszweig) ** manuell ** in https://github.com/GermanBluefox/home-assistant-polymer.git (*) zusammengeführt werden ** iob *** Zweig!).
+TR: ### How to build the new Lovelace version
+TR: First of all the actual https://github.com/home-assistant/frontend (dev branch) must be **manually** merged into https://github.com/GermanBluefox/home-assistant-polymer.git (***iob*** branch!).
 
-Alle Änderungen für ioBroker sind mit dem Kommentar `// IoB` gekennzeichnet.
-Vorerst (20201021.4) wurden folgende Dateien geändert:
+TR: All changes for ioBroker are marked with comment `// IoB`.
+For now (20201021.4) following files were modified:
 
-- `.gitignore` - füge` .idea` ignorieren hinzu
-- `build-scripts / gulp / app.js` - Neue gulp-Aufgabe hinzufügen
-- `build-scripts / gulp / webpack.js` - Neue gulp-Aufgabe hinzufügen
-- `src / data / lovelace.ts` - Option zum Ausblenden der Symbolleiste hinzufügen
-- `src / dialogs / more-info / ha-more-info-dialog.ts` - Entitätseinstellungsschaltfläche entfernen und Wetterstatus & Verlauf entfernen
-- `src / entrypoints / core.ts` - geänderter Authentifizierungsprozess
-- `src / layouts / home-Assistant-main.ts` - App-Seitenleiste entfernen
-- `src / panel / lovelace / hui-root.ts` - Benachrichtigungen und Sprachsteuerung hinzugefügt
-- `src / util / documentation-url.ts` - für den Link zur iobroker-Hilfe anstelle von homeassistant.
-- `src / dialogs / more-info / controls / more-info-weather.ts` - Unterstützung hinzufügen, um das Wettersymbol von der URL anzuzeigen.
-- `src / data / weather.ts` - Unterstützung für die Anzeige des Wettersymbols über die URL hinzufügen.
-- `src / panel / lovelace / maps / hui-weather-Forecast-card.ts` - Unterstützung für die Anzeige des Wettersymbols über die URL hinzufügen.
-- `src / panel / lovelace / entity-rows / hui-weather-entity-row.ts` - Unterstützung hinzufügen, um das Wettersymbol von der URL mit auth anzuzeigen.
+TR: - `build-scripts/gulp/app.js` - Add new gulp task
+TR: - `build-scripts/gulp/webpack.js` - Add new gulp task
+TR: - `src/data/lovelace.ts` - add hide toolbar option
+TR: - `src/data/weather.ts` - add support to display weather icon from url.
+TR: - `src/dialogs/more-info/ha-more-info-dialog.ts` - remove entity settings button and remove weather state & history
+TR: - `src/dialogs/more-info/controls/more-info-climate.ts` - print mode name for unsupported modes
+TR: - `src/dialogs/more-info/controls/more-info-weather.ts` - add support to display weather icon from url.
+TR: - `src/entrypoints/core.ts` - modified authentication process
+TR: - `src/layouts/home-assistant-main.ts` - remove app sidebar
+TR: - `src/panels/lovelace/cards/hui-weather-forecast-card.ts` - add support to display weather icon from url.
+TR: - `src/panels/lovelace/entity-rows/hui-weather-entity-row.ts` - add support to display weather icon from url with auth.
+TR: - `src/panels/lovelace/hui-root.ts` - added notifications and voice control
+TR: - `src/util/documentation-url.ts` - for link to iobroker help instead of homeassistant.
+TR: - `.gitignore` - add `.idea` ignore
+TR: - `package.json` - remove husky commit hook
 
-Nach dem Auschecken geänderte Version im Ordner `./build`. Dann.
+TR: After that checkout modified version in `./build` folder. Then.
 
-1. Gehen Sie zum Verzeichnis ./build.
-2. `git clone https:// github.com / GermanBluefox / home-assistent-polymer.git` es ist eine Abzweigung von https://github.com/home-assistant/frontend.git, aber einige Dinge wurden geändert ( siehe die Dateiliste früher).
-3. "CD Home-Assistant-Polymer"
-4. `git checkout master`
-5. `npm install`
-6. `gulp build-app` für die Veröffentlichung oder` gulp Develop-iob` für die Debugging-Version. Um das Web nach Änderungen zu erstellen, können Sie "webpack-dev-app" für eine schnellere Erstellung aufrufen. Sie müssen jedoch trotzdem "build-app" aufrufen, nachdem die Version einsatzbereit ist.
-7. Kopieren Sie alle Dateien von `. / Build / home-Assistant-Polymer / hass_frontend` in`. / Hass_frontend` in diesem Repo
-8. Starten Sie die Aufgabe "Schlucken umbenennen".
+TR: 1. go to ./build directory.
+TR: 2. `git clone https://github.com/GermanBluefox/home-assistant-polymer.git` it is a fork of https://github.com/home-assistant/frontend.git, but some things are modified (see the file list earlier).
+TR: 3. `cd home-assistant-polymer`
+TR: 4. `git checkout master`
+TR: 5. `npm install`
+TR: 6. `gulp build-app` for release or `gulp develop-iob` for the debugging version. To build web after changes you can call `webpack-dev-app` for faster build, but you need to call `build-app` anyway after the version is ready for use.
+TR: 7. copy all files from `./build/home-assistant-polymer/hass_frontend` into `./hass_frontend` in this repo
+TR: 8. Start `gulp rename` task.
 
 ## Changelog
 
 <!--
 	PLACEHOLDER for next version:
-	## __WORK IN PROGRESS__
+	### **WORK IN PROGRESS**
 -->
+### 2.0.0 (2021-06-17)
+* (Garfonso) Changed: !Breaking! Battery warning is now binary_sensor instead of sensor (now ui sets icon and  translates ok)
+* (Garfonso) Fixed:   !Breaking! entity_id conflict for low_bat / humidity when part of another device
+* (Garfonso) Updated frontend to 20210603.0 (changed light entity to not convert color anymore)
+* (Garfonso) Changed: increased file size limit to 5 MB during upload in config.
+* (Garfonso) Added: Support for input_datetime
+* (Garfonso) Added: Support for manual complex light entities
+* (Garfonso) Added: Support for images from base64 data in iobroker states 
+* (Garfonso) Added: Support for additional alarm states.
+* (Garfonso) Added: Parameter to only enter code when disarming alarm
+* (Garfonso) Added: Support for admin 5 (jsonCustom)
+* (Garfonso) Added: Support for airCondition / rework thermostat
+* (Garfonso) Added: manual entities can be more complex now (needs documentation)
+* (Garfonso) Added: darkMode control
+
 ### 1.5.0 (2021-02-15)
 * (Garfonso) Changed: defaultTheme and control.theme were in conflict. Now control.theme is set when selecting a new default theme.
 * (Garfonso) Added: control.themeDark to control devices in dark mode, too.
@@ -498,16 +515,6 @@ Nach dem Auschecken geänderte Version im Ordner `./build`. Dann.
 
 ### 1.4.1 (2021-01-08)
 * (bluefox) Support of new Let's Encrypt (only with js-controller 3.2.x)
-
-### 1.3.6 (2021-01-08)
-* (Garfonso) Fixed: do not ignore devices deleted from iot / without smartName
-* (Garfosno) Added: Support location devices with one GPS state in string form
-* (Garfonso) Added: Support for log service, logs frontend errors in server log
-* (Garfonso) Added: Support for service calls with multiple ids, i.e. header switch of elements card
-* (Garfonso) Fixed: unique check for manual entities only checked instance 0. Made them a bit more userfriendly, too.
-* (Garfonso) Added: Possibility to select theme during runtime / select default dark theme
-* (Garfonso) Fixed: hideToolbar did hide tab bar, too
-* (Garfonso) Added: Support for iobroker_say service call (allows tts in mini-mediaplayer card using platform iobroker)
 
 ## License
 

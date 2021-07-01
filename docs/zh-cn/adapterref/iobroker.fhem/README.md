@@ -2,56 +2,104 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.fhem/README.md
-title: ioBroker.fhem
-hash: OTu+lFTj7lttlyJ7nwZz62mxUIImTL766Zs6iY46Sx0=
+title: TR: ioBroker.fhem
+hash: bffB6fPUVd7gXMnqL4+H/0xbklbZRyDpdCutMtV09j0=
 ---
-![商标](../../../en/adapterref/iobroker.fhem/admin/fhem.png)
+![TR: Logo](../../../en/adapterref/iobroker.fhem/admin/fhem.png)
 
-![安装数量](http://iobroker.live/badges/fhem-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.fhem.svg)
-![下载](https://img.shields.io/npm/dm/iobroker.fhem.svg)
-![NPM](https://nodei.co/npm/iobroker.fhem.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/fhem-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.fhem.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.fhem.svg)
 
-＃ioBroker.fhem
-此适配器允许将FHEM连接到ioBroker。
+TR: # ioBroker.fhem
+TR: ![TR: Test and Release](https://github.com/iobroker-community-adapters/ioBroker.fhem/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/fhem/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-要启用连接，必须在FHEM中启用telnet。要启用它（默认启用），请检查fhen.cfg中的以下设置：
+TR: This adapter allows to connect FHEM to ioBroker.
+
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
+TR: To enable the connection the telnet must be enabled in FHEM. To enable it (enabled by default) check following settings in fhen.cfg:
 
 ```define telnetPort telnet 7072 global```
 
-应该使用完全相同的端口和FHEM主机的IP地址（或者如果FHEM和ioBroker在同一台PC上运行，则为localhost）来设置适配器。
+TR: Exactly same port and the IP address of FHEM host (or localhost if FHEM and ioBroker run on same PC) should be used for settings of adapter.
 
-ioBroker在启动时发送“jsonlist2”命令以从列表中获取所有“读数”。
+TR: ioBroker sends at the start "jsonlist2" command to get all "Readings" from the list.
 
-##支持的设备
-通常，所有设备都受支持。但其中一些更好地整合。
+TR: ## Supported devices
+TR: Normally all devices are supported. But some of them are better integrated.
 
-特别是通过控制状态出现问题。
-因为没有明确的属性结构，ioBroker会尝试猜测可以使用哪个“PossibleSets”字段。
-实际上只支持以下属性：
+TR: The problems appears especially by controlling of the states.
+Because there is no clear attributes structure ioBroker tries to guess which "PossibleSets" fields can be used.
+Actually only following attributes are supported:
 
- -  RGB：如果RGB存在于* PossibleSets *和* Readings *中，它将合并为一个可以读写的状态。像``＃234567```这样的值会自动转换为```234567```。
- - 关闭状态：如果* **和**关**存在* PossibleSets *和**状态** * Readings *中，它将合并为名称**状态**下的开启状态。它可以用true和false控制，命令将改为```set DEVICE on```和```set DEVICE off```。
+TR: - RGB: If RGB exists in *PossibleSets* and in *Readings* it will be combined into one state that can be read and written. Values like ```#234567``` will be automatically converted to ```234567```.
+TR: - on off state: If **on** and **off** exist in *PossibleSets* and **state** in *Readings*, it will be combined into on state under name **state**. It can be controlled with true and false and commands will be changed to ```set DEVICE on``` and ```set DEVICE off```.
 
-##功能和用法
-*如果FHEM中存在“ioBroker”房间，则只会同步此对象
-*同步后，FHEM未使用的对象将被自动删除。
-* TYPE，NAME，PORT，manufacturername，modelid，swversion等内部组件将被同步（role = value.xxx）
-*房间，别名，禁用，评论等属性将同步，并且可以在ioBroker中编辑属性。 （角色= state.xxx）
-*在同步期间设置角色和其他
-  *任何PossibleSets的读数xxx都将设置为role = state.xxx
-  *没有PossibleSets的读数xxx将设置为role = value.xxx
-  *带有PossibleSets“noArg”的读数xxx将设置为role = button.xxx
-  *带有PossibleSets“slider”的读数xxx将设置为role = level.xxx，min = slider（min），max = slider（max）
-  *读数“desired-temp”将设置为role = level.temperature，min = 5，max = 35，unit =°C。
-  *读数“pct，brightness，dim”将设置为role = level.dimmer，min = 0，max = 100，unit =％
-  *读数“Volume，volume，GroupVolume”将设置为role = level.volume，min = 0，max = 100，unit =％
-  *读数“GroupVolume”将设置为role = level.volume.group，min = 0，max = 100，unit =％
-* Smart Adapter for Cloud Adapter将自动设置别名或名称（仅限fhem.0和具有role = level.temperature，level.dim，level.volume的对象）
+TR: ## Features and Usage
+TR: * If room "ioBroker" exist in FHEM, only this objects will be synchronized
+TR: * After synchronization FHEM unused Objects will be automatically deleted.
+TR: * Internals like TYPE, NAME, PORT, manufacturername, modelid, swversion will be synchronized (role=value.xxx)
+TR: * Attributes like room, alias, disable, comment will be synchronized and it is possible to edit Attributes in ioBroker. (role=state.xxx)
+TR: * Set role and other during synchronization
+TR:   * Readings xxx with any PossibleSets will be set role=state.xxx
+TR:   * Readings xxx without PossibleSets will be set role=value.xxx
+TR:   * Readings xxx with PossibleSets "noArg" will be set role=button.xxx
+TR:   * Readings xxx with PossibleSets "slider" will be set role=level.xxx, min=slider(min), max=slider(max)
+TR:   * Readings "desired-temp" will be set role=level.temperature, min=5, max=35, unit=°C .
+TR:   * Readings "pct, brightness,dim" will be set role=level.dimmer, min=0, max=100, unit=%
+TR:   * Readings "Volume, volume, GroupVolume" will be set role=level.volume, min=0, max=100, unit=%
+TR:   * Readings "GroupVolume" will be set role=level.volume.group, min=0, max=100, unit=%
+TR: * SmartName for Cloud Adapter will be set automatically with alias or name (only fhem.0 and objects with role = level.temperature, level.dim, level.volume)
 
 ## Changelog
+
+### 1.6.1 (2021-06-30)
+* (LausiD) fix use Controller 3.3.x
+* (Apollon77) js-controller 3.3 optimizations
+* (Apollon77) Add Sentry crash reporting
+
+### 1.6.0 (2021-04-09)
+* (LausiD) Several fixes and changes
+
+### 1.5.3 (2020-06-30)
+* (LausiD) Several fixes
+
+### 1.5.2 (2020-05-15)
+* (Apollon77) Fix wrong method calls
+
+### 1.5.0 (2020-05-08)
+* (LausiD) Several fixes and changes
+
+### 1.4.3 (2020-03-21)
+* (LausiD) fix compact mode
+
+### 1.4.2 (2020-01-10)
+* (bluefox) Running timers will be stopped by unload
+
+### 1.4.1 (2019-12-12)
+* (LausiD) Several fixes and changes
+
+### 1.4.0 (2019-10-22)
+* (LausiD) Optimized adapter
+
+### 1.3.0 (2019-07-14)
+* (bluefox) Compact mode was added
+
+### 1.2.2 (2019-06-12)
+* (LausiD) Several fixes and changes
+
+### 1.2.1 (2019-03-28)
+* (LausiD) Several fixes and changes
+
+### 1.2.0 (2019-02-16)
+* (LausiD) Sync readingsGroup, set states ioBroker from FHEM, add different sensors
+
+### 1.1.1 (2018-11-08)
+* (LausiD) add debug mode
+
 ### 1.1.0 (2018-10-22)
-* (LausiD) Big changes
+* (LausiD) Sync objects from ioBroker to FHEM is possible
 
 ### 1.0.0 (2018-10-15)
 * (LausiD) Min/max were defined as number
@@ -97,7 +145,7 @@ ioBroker在启动时发送“jsonlist2”命令以从列表中获取所有“读
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2016-2018 bluefox <dogafox@gmail.com>
+Copyright (c) 2016-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
