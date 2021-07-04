@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.ebus/README.md
 title: TR: ioBroker.ebus
-hash: MFk/Bv62pf+xKrCvXgg4OCQhaAz9GoW7WtIQ2vuasA8=
+hash: hwnSvGdtB2ANX+jFQ3fI09f8e+vlELKqck7xjXfp8Mg=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.ebus/admin/ebus.png)
 
@@ -36,6 +36,10 @@ TR: current supported ebusd-version: 3.3
 
 TR: ## known issues
 TR: * please create issues at [github](https://github.com/rg-engineering/ioBroker.ebus/issues) if you find bugs or whish new features
+
+TR: ## 2.2.7 (2021-07-03)
+TR: * (René) dependencies updated
+TR: * (René) see issue #48: bug fix for wrong data type logs
 
 TR: ## 2.2.5 (2021-03-21)
 TR: * (René) dependencies updated

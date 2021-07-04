@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.accuweather/README.md
 title: TR: ioBroker.accuweather
-hash: WdILwFFXh50ulU8fUrumN2VctPbMVRgQq67NIVy8DpY=
+hash: On/fFF4r+ZCWa0rqet1IurukKyyXPW/+FChGXPNRW7k=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.accuweather/admin/accuweather.png)
 
@@ -37,26 +37,33 @@ For better view a custom lovelace card is created - see https://github.com/algar
 
 TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-TR: ### __WORK IN PROGRESS__ -->
-TR: ## v1.1.6 (2021-05-05) Minor bug fixes to `Object.common` section
-TR: ### 1.1.5 (2021-01-25)
-TR: * (algar42) Resolve log Warning for js-controller 3.2
-
-TR: ### 1.1.4
-TR: * (HGlab01) small bugfix regarding setTimeout range
-
-TR: ### 1.1.3 (2020-03-04)
-TR: * (algar42) Minor updates for compact mode
-
-TR: ### 1.1.0 (2019-11-09)
-TR: * (algar42) Summary channel added to support type-detector and automatic weather device creation
-
-TR: ### 1.0.2 (2019-09-12)
-TR: * (algar42) Production Release
+TR: ### **WORK IN PROGRESS** -->
+TR: ### **WORK IN PROGRESS** *
 
 ## Changelog
+### 1.2.0 (2021-07-03)
+* (Garfonso) adjust roles to properly detect weather forecast in Summary folder. (Summary objects need to be deleted and adapter restarted after that)
+
 ### 1.1.7 (2021-06-24)
-* (bluefox) Create device for device-detector
+* (bluefox) Create device for device-detector 
+
+### v1.1.6 (2021-05-05)
+Minor bug fixes to `Object.common` section
+
+### 1.1.5 (2021-01-25)
+* (algar42) Resolve log Warning for js-controller 3.2
+
+### 1.1.4
+* (HGlab01) small bugfix regarding setTimeout range
+
+### 1.1.3 (2020-03-04)
+* (algar42) Minor updates for compact mode
+
+### 1.1.0 (2019-11-09)
+* (algar42) Summary channel added to support type-detector and automatic weather device creation
+
+### 1.0.2 (2019-09-12)
+* (algar42) Production Release
 
 ## License
 MIT License

@@ -2,61 +2,61 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.web/README.md
-title: ioBroker.web
-hash: cmyhSPUcwEz1iT5OdupfqQ7rtrelYjXPf5Mm/RTK5A0=
+title: TR: ioBroker.web
+hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
 ---
-![Logo](../../../en/adapterref/iobroker.web/admin/web.png)
+![TR: Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/web-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.web.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.web.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.web.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/web-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.web.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
 
-# IoBroker.web
-Webserver auf der Basis von Node.js und Express zum Lesen der Dateien aus ioBroker DB
+TR: # ioBroker.web
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+TR: Web server on the base of Node.js and express to read the files from ioBroker DB
 
-## Optimieren von Web-Sockets
-Auf einigen Web-Sockets-Clients gibt es Leistungsprobleme bei der Kommunikation.
-Manchmal ist dieses Problem auf einen Fallback der Socket.io-Kommunikation bei einem langen Abfragemechanismus zurückzuführen.
-Sie können die Option *Web-Sockets erzwingen* so einstellen, dass nur der Transport von Web-Sockets erzwungen wird.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Verschlüsseln wir Zertifikate
-Lesen Sie [Hier](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+TR: ## Tuning Web-Sockets
+TR: On some web-sockets clients there is performance problem with communication.
+Sometimes this problem is due to fallback of socket.io communication on long polling mechanism.
+You can set option *Force Web-Sockets* to force using only web-sockets transport.
 
-## Erweiterungen
-Der Webtreiber unterstützt Erweiterungen. Die Erweiterung ist URL-Handler, der aufgerufen wird, wenn eine solche URL-Anforderung angezeigt wird.
-Die Erweiterungen sehen aus wie der normale Adapter, haben jedoch keinen laufenden Prozess und werden vom Webserver aufgerufen.
+TR: ## Let's Encrypt Certificates
+TR: Read [TR: here](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
-Z.B. Der Benutzer kann einen speziellen Proxy-Adapter aktivieren und andere Geräte (wie Webcams) auf demselben Webserver erreichen.
-Es ist erforderlich, dass alle Dienste unter einem Webserver verfügbar sind.
+TR: ## Extensions
+TR: Web driver supports extensions. The extension is URL handler, that will be called if such URL request appears.
+The extensions look like the normal adapter, but they have no running process and will be called by web server.
 
-## Brute-Force-Schutz
-Wenn die Authentifizierung aktiviert ist und der Benutzer innerhalb einer Minute ein fünfmal ungültiges Kennwort eingibt, muss er mindestens eine Minute bis zum nächsten Versuch warten.
-Nach dem 15. Fehlversuch muss der Benutzer 1 Stunde warten.
+TR: E.g. the user can activate special proxy adapter and reach other devices (like webcams) in the same web server.
+It is required to let all services be available under one web server.
 
-## Option "Angemeldet bleiben"
-Wenn diese Option ausgewählt ist, bleibt der Benutzer einen Monat lang angemeldet.
-Wenn nicht, bleibt der Benutzer für das konfigurierte "Anmeldezeitlimit" angemeldet.
+TR: ## Brute-force protection
+TR: If authentication is enabled and the user enters 5 times invalid password during one minute, he must wait at least one minute till next attempt.
+After 15th wrong attempt the user must wait 1 hour.
 
-## Zugriffsstatuswerte
-Sie können über die HTTP-Abrufanforderung auf die normalen und binären Statuswerte zugreifen.
+TR: ## "Stay logged in" option
+TR: If this options is selected the user stays logged in for one month.
+If not, the user will stay logged in for the configured "login timeout".
+
+TR: ## Access state's values
+TR: You can access the normal and binary state values via the HTTP get request.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-oder
+TR: or
 
 ```
 http://IP:8082/state/javascript.picture.png =>
 [IMAGE]
 ```
 
-Das Bild muss wie folgt in den Javascript-Adapter geschrieben werden:
+TR: The image must be written in the javascript adapter like:
 
 ```
 createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
@@ -64,15 +64,25 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 });
 ```
 
-## Option "Basisauthentifizierung"
-Ermöglicht die Anmeldung über die Standardauthentifizierung durch Senden von `401` Nicht autorisiert mit einem `WWW-Authenticate`-Header.
-Dies kann für Anwendungen wie *FullyBrowser* verwendet werden. Wenn Sie einmal die falschen Anmeldeinformationen eingeben, werden Sie zur Anmeldeseite weitergeleitet.
+TR: ## "Basic Authentication" option
+TR: Allows Login via Basic Authentication by sending `401` Unauthorized with a `WWW-Authenticate` header.
+This can be used for applications like *FullyBrowser*. When entering the wrong credentials once, you will be redirected to the Login Page.
 
-<! - Platzhalter für die nächste Version (am Zeilenanfang):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __WORK IN PROGRESS__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### 3.4.4 (2021-07-04)
+* (Apollon77) Fix missing www files
+
+### 3.4.3 (2021-07-01)
+* (Apollon77) Add tier for js-controller 3.3
+
+### 3.4.2 (2021-07-01)
+* (bluefox) Update GUI
+
 ### 3.4.1 (2021-04-30)
 * (bluefox) Added support of admin5
 

@@ -2,61 +2,61 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.web/README.md
-title: ioBroker.web
-hash: cmyhSPUcwEz1iT5OdupfqQ7rtrelYjXPf5Mm/RTK5A0=
+title: TR: ioBroker.web
+hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
 ---
-![Логотип](../../../en/adapterref/iobroker.web/admin/web.png)
+![TR: Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
-![Количество установок](http://iobroker.live/badges/web-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.web.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.web.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.web.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.web.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/web-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.web.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
 
-# IoBroker.web
-Веб-сервер на базе Node.js и экспресс для чтения файлов из БД ioBroker
+TR: # ioBroker.web
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: Web server on the base of Node.js and express to read the files from ioBroker DB
 
-## Настройка веб-сокетов
-На некоторых клиентах веб-сокетов возникает проблема с производительностью связи.
-Иногда эта проблема возникает из-за отката связи socket.io с механизмом длительного опроса.
-Вы можете установить опцию *Force Web-Sockets* чтобы принудительно использовать только транспорт веб-сокетов.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Let's Encrypt Certificates
-Прочтите [здесь](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+TR: ## Tuning Web-Sockets
+TR: On some web-sockets clients there is performance problem with communication.
+Sometimes this problem is due to fallback of socket.io communication on long polling mechanism.
+You can set option *Force Web-Sockets* to force using only web-sockets transport.
 
-## Расширения
-Веб-драйвер поддерживает расширения. Расширение - это обработчик URL-адресов, который будет вызываться при появлении такого URL-запроса.
-Расширения выглядят как обычный адаптер, но у них нет запущенного процесса, и они будут вызываться веб-сервером.
+TR: ## Let's Encrypt Certificates
+TR: Read [TR: here](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
-Например. пользователь может активировать специальный прокси-адаптер и подключаться к другим устройствам (например, веб-камерам) на том же веб-сервере.
-Требуется, чтобы все сервисы были доступны на одном веб-сервере.
+TR: ## Extensions
+TR: Web driver supports extensions. The extension is URL handler, that will be called if such URL request appears.
+The extensions look like the normal adapter, but they have no running process and will be called by web server.
 
-## Защита от перебора
-Если аутентификация включена и пользователь 5 раз вводит неверный пароль в течение одной минуты, он должен подождать не менее одной минуты до следующей попытки.
-После 15-й неправильной попытки пользователь должен подождать 1 час.
+TR: E.g. the user can activate special proxy adapter and reach other devices (like webcams) in the same web server.
+It is required to let all services be available under one web server.
 
-## Опция «Оставаться в системе»
-Если выбрана эта опция, пользователь остается в системе в течение одного месяца.
-В противном случае пользователь останется в системе в течение настроенного «тайм-аута входа».
+TR: ## Brute-force protection
+TR: If authentication is enabled and the user enters 5 times invalid password during one minute, he must wait at least one minute till next attempt.
+After 15th wrong attempt the user must wait 1 hour.
 
-## Доступ к значениям состояния
-Вы можете получить доступ к значениям нормального и двоичного состояния через HTTP-запрос на получение.
+TR: ## "Stay logged in" option
+TR: If this options is selected the user stays logged in for one month.
+If not, the user will stay logged in for the configured "login timeout".
+
+TR: ## Access state's values
+TR: You can access the normal and binary state values via the HTTP get request.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-или же
+TR: or
 
 ```
 http://IP:8082/state/javascript.picture.png =>
 [IMAGE]
 ```
 
-Изображение должно быть записано в адаптере javascript, например:
+TR: The image must be written in the javascript adapter like:
 
 ```
 createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
@@ -64,15 +64,25 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 });
 ```
 
-## Параметр «Обычная проверка подлинности»
-Разрешает вход через базовую аутентификацию, отправляя `401` Неавторизованный с заголовком `WWW-Authenticate`.
-Это можно использовать для таких приложений, как *FullyBrowser* При однократном вводе неправильных учетных данных вы будете перенаправлены на страницу входа.
+TR: ## "Basic Authentication" option
+TR: Allows Login via Basic Authentication by sending `401` Unauthorized with a `WWW-Authenticate` header.
+This can be used for applications like *FullyBrowser*. When entering the wrong credentials once, you will be redirected to the Login Page.
 
-<! - Заполнитель для следующей версии (в начале строки):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### 3.4.4 (2021-07-04)
+* (Apollon77) Fix missing www files
+
+### 3.4.3 (2021-07-01)
+* (Apollon77) Add tier for js-controller 3.3
+
+### 3.4.2 (2021-07-01)
+* (bluefox) Update GUI
+
 ### 3.4.1 (2021-04-30)
 * (bluefox) Added support of admin5
 

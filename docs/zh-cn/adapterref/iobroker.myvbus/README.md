@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.myvbus/README.md
 title: TR: ioBroker.myvbus
-hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
+hash: 6kKllJqqY6mebKgEc/lPReCJxOPTFTpcWPfDSiCXAfY=
 ---
 ![TR: Number of Installations (latest)](http://iobroker.live/badges/myvbus-installed.svg)
 ![TR: Downloads](https://img.shields.io/npm/dm/iobroker.myvbus.svg)
@@ -12,10 +12,11 @@ hash: vrblLAmPDLheq6IrG8M5j1mev6UNtfmV+UTYNM4yR74=
 ![TR: Dependency Status](https://img.shields.io/david/iobroker-community-adapters/iobroker.myvbus.svg)
 ![TR: Known Vulnerabilities](https://snyk.io/test/github/iobroker-community-adapters/ioBroker.myvbus/badge.svg)
 ![TR: NPM](https://nodei.co/npm/iobroker.myvbus.png?downloads=true)
-![TR: Travis-CI](http://img.shields.io/travis/iobroker-community-adapters/ioBroker.myvbus/master.svg)
 
 TR: # ioBroker.myvbus
 ![TR: Logo](../../../en/adapterref/iobroker.myvbus/admin/myvbus.png)
+
+TR: **Tests:** ![TR: Test and Release](https://github.com/iobroker-community-adapters/iobroker.myvbus/workflows/Test%20and%20Release/badge.svg)
 
 TR: ## ioBroker Adapter for Resol VBus
 TR: This adapter connects ioBroker to various VBus-based devices using resol-vbus, a JavaScript library for the acquisition of RESOL VBus data, provided by Daniel Wippermann.
@@ -57,9 +58,11 @@ TR: All other trademarks are the property of their respective owners.
 The authors are in no way endorsed by or affiliated with RESOL GmbH, or any associated subsidiaries, logos or trademarks.
 
 ## Changelog
+### 0.2.0 (2021-06-25)
+* Dropped node.js 10 support, added node.js 14 and 16 support
+
 ### 0.1.1 (2021-05-18)
 * Fixes for supporting js-controller >=3.2.x
-
 
 ### 0.1.0
 * (grizzelbee) Fix: config page shows current settings now (not default anymore)

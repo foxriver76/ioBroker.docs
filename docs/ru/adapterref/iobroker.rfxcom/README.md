@@ -3,16 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rfxcom/README.md
 title: TR: ioBroker.rfxcom
-hash: g+sM+YoZCIEaWawTkGsM2PvA9rS3y5erN1M1+/+W3iQ=
+hash: sHn5GJunDJU2gCzbWU1P920vRVUfOaaV3gTF/zyrpN4=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.rfxcom/admin/rfxcom.png)
 
+![TR: Number of Installations](http://iobroker.live/badges/rfxcom-stable.svg)
 ![TR: NPM version](http://img.shields.io/npm/v/iobroker.rfxcom.svg)
 ![TR: Downloads](https://img.shields.io/npm/dm/iobroker.rfxcom.svg)
-![TR: Tests](https://travis-ci.org/ioBroker/ioBroker.rfxcom.svg?branch=master)
-![TR: NPM](https://nodei.co/npm/iobroker.rfxcom.png?downloads=true)
 
 TR: # ioBroker.rfxcom
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.rfxcom/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/rfxcom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 TR: This adapter communicates with [TR: rfxcom](http://www.rfxcom.com).
 Used for receiving the data from weather sensors and wireless power switches.
 
@@ -54,7 +55,7 @@ TR: ### __WORK IN PROGRESS__ -->
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2017-2020, Bluefox<dogafox@gmail.com>
+Copyright (c) 2017-2021, Bluefox<dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

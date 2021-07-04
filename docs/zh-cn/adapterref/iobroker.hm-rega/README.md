@@ -113,6 +113,9 @@ CCU和信息文件夹包含网关的基本信息。
 	### __WORK IN PROGRESS__
 -->
 
+### 3.0.29 (2021-07-01)
+* (foxriver76) fixed bug on ALARM datapoint creation
+
 ### 3.0.28 (2021-06-30)
 * (foxriver76) improve creation of ALARM dps even if no states provided by `getDatapoints` (fixes #168)
 

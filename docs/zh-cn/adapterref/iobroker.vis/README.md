@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.vis/README.md
 title: TR: Visualisation
-hash: Sw/yjJuk/qGdIt7UG6e5P16JYqG9InI+CFfibXx1cZs=
+hash: KHzz5K4cmU2+0wZDuIMwQ6k8XSX96vzulY7MCQdq4vo=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.vis/admin/vis.png)
 
@@ -34,10 +34,10 @@ Patten has following format:
 
 TR: Following operations are supported:
 
-TR: - `\*` - multiplying. Argument must be in brackets, like "*(4)". In this sample we multiplying value with 4.
+TR: - `\*` - multiplying. Argument must be in brackets, like "*(4)". In this sample we multiply value with 4.
 TR: - `\+` - add. Argument must be in brackets, like "+(4.5)". In this sample we add to value 4.5.
 TR: - `\-` - subtract. Argument must be in brackets, like "-(-674.5)". In this sample we subtract from value -674.5.
-TR: - `/` - dividing. Argument must be in brackets, like "/(0.5)". In this sample we dividing value by 0.5.
+TR: - `/` - dividing. Argument must be in brackets, like "/(0.5)". In this sample we divide value by 0.5.
 TR: - `%` - modulo. Argument must be in brackets, like "%(5)". In this sample we take modulo of 5.
 TR: - `round` - round the value.
 TR: - `round(N)` - round the value with N places after point, e.g. 34.678;round(1) => 34.7
@@ -134,7 +134,7 @@ TR: Every widget has a field `filter`. If you set it to some value, e.g. `light`
 TR: ## Control interface
 TR: Vis creates 3 variables:
 
-TR: - `control.instance` - Here the browser instance should be written or FFFFFFFF if every browser must be controlled.
+TR: - `control.instance` - Here the browser instance should be written or `FFFFFFFF` if every browser must be controlled.
 TR: - `control.data`     - Parameter for command. See specific command description.
 TR: - `control.command`  - Command name. Write this variable triggers the command. That means before command will be written the "instance" and "data" must be prepared with data.
 
@@ -167,7 +167,7 @@ TR: - `control.instance`: browser instance and `ack=true`
 TR: - `control.data`: project and view name in form `project/view`, e.g. `main/view` (and `ack=true`)
 TR: - `control.command`: `changedView` and `ack=true`
 
-TR: You can write the JSON-string or Object into control.command as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case the instance and data will be taken from JSON object.
+TR: You can write the JSON-string or Object into `control.command` as `{instance: 'AABBCCDD', command: 'cmd', data: 'ddd'}`. In this case the instance and data will be taken from JSON object.
 
 TR: Example for javascript adapter:
 
@@ -181,7 +181,7 @@ TR: You can define for every view the desired resolution (Menu=>Tools=>Resolutio
 TR: Additionally, you can define if this view must be used as default for this resolution.
 
 TR: So every time the `index.html` (without `#viewName`) is called, the best suitable for this resolution view will be opened.
-If only one view has *"Default"* flag, so this view will be opened independently from screen resolution or orientation.
+If only one view has *"Default"* flag, so this view will be opened independently of screen resolution or orientation.
 
 TR: E.g. you can create two views "Landscape-Mobile" and "Portrait-Mobile" and these two views will be switched automatically when you change the orientation or screen size.
 
@@ -207,7 +207,11 @@ TR: <!-- Placeholder for the next version (at the beginning of the line):
 TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
-### __WORK IN PROGRESS__
+### 1.4.1 (2021-07-03)
+* (bluefox) Added possibility to check license offline (only special once)
+
+### 1.4.0 (2021-07-01)
+* (bluefox) Changed path for check of certificates 
 * (thost96) fixes for issues found by adapter-checker
 
 ### 1.3.10 (2021-05-25)
@@ -221,7 +225,7 @@ TR: ### __WORK IN PROGRESS__ -->
 ### 1.3.8 (2021-03-03)
 * (bluefox) fix play sounds on iOS Safari an android
 * (Scrounger) visEditInspect: format dimension added
-* (foxriver76) Replace travis and appveyor by the github actions
+* (foxriver76) Replace travis and appveyor by the GitHub actions
 * (Excodibur) Allow resources to be loaded as blob
 * (Excodibur ) Allow resources to be loaded as blob
 
@@ -312,7 +316,7 @@ TR: ### __WORK IN PROGRESS__ -->
 ### 1.1.3 (2018-04-12)
 * (bluefox) ignore click by scrolling on touch devices
 * (bluefox) remove wrong state vis.0.command
-* (bluefox) fix error with jplot
+* (bluefox) fix error with jPlot
 * (bluefox) better widget behaviour in edit Mode (basic, jqui)
 * Fix config dialog
 
@@ -327,7 +331,7 @@ TR: ### __WORK IN PROGRESS__ -->
 * (bluefox) The problem with view change on the touch devices fixed
 
 ### 1.0.5 (2017-11-19)
-* (bluefox) show number of datapoints in every project
+* (bluefox) show number of data points in every project
 
 ### 1.0.4 (2017-10-22)
 * (bluefox) Add autocomplete for view CSS options
@@ -342,7 +346,7 @@ TR: ### __WORK IN PROGRESS__ -->
 * (bluefox) fix fonts
 
 ### 0.15.7 (2017-10-01)
-* (bluefox) allow update of images without additional query (but it works only in spome very specific cases)
+* (bluefox) allow update of images without additional query (but it works only in some very specific cases)
 * (bluefox) zoom of iframes
 
 ### 0.15.5 (2017-07-24)
@@ -360,7 +364,7 @@ TR: ### __WORK IN PROGRESS__ -->
 
 ### 0.15.1 (2017-06-30)
 * (bluefox) Fix error with context menu
-* (bluefox) Allow add class to view
+* (bluefox) Allow adding of class to view
 
 ### 0.15.0 (2017-05-25)
 * (bluefox) fix copy of grouped widgets
@@ -374,7 +378,7 @@ TR: ### __WORK IN PROGRESS__ -->
 * (apollon77) fix jqui-dialog for auto-open
 
 ### 0.14.3 (2017-05-11)
-* (bluefox) fix export/import of groupped widgets
+* (bluefox) fix export/import of grouped widgets
 
 ### 0.14.2 (2017-04-29)
 * (bluefox) Fix install error
@@ -433,7 +437,7 @@ TR: ### __WORK IN PROGRESS__ -->
 
 ### 0.10.13 (2016-09-23)
 * (bluefox) fixed errors for iPad 1
-* (bluefox) start wokring on relative positions
+* (bluefox) start working on relative positions
 
 ### 0.10.12 (2016-09-16)
 * (bluefox) group specific visibility of widgets and views
@@ -448,9 +452,9 @@ TR: ### __WORK IN PROGRESS__ -->
 
 ### 0.10.9 (2016-09-04)
 * (bluefox) support of web-sockets force
-* (bluefox) destory unused views after 30 seconds
+* (bluefox) destroy unused views after 30 seconds
 * (bluefox) do not show middle leading lines if top and bottom are shown
-* (bluefox) let timestamp and lastchange to show time as interval
+* (bluefox) let timestamp and last-change to show time as interval
 
 ### 0.10.7 (2016-07-09)
 * (bluefox) add settings to reload vis
@@ -459,7 +463,7 @@ TR: ### __WORK IN PROGRESS__ -->
 * (bluefox) export/import
 * (bluefox) add global script
 * (bluefox) add 'not exist'/'not consist'/'exist' to signal and visibility
-* (bluefox) fix oids in editor
+* (bluefox) fix OIDs in editor
 
 ### 0.10.5 (2016-06-15)
 * (bluefox) fix select ID dialog

@@ -2,61 +2,61 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.web/README.md
-title: ioBroker.web
-hash: cmyhSPUcwEz1iT5OdupfqQ7rtrelYjXPf5Mm/RTK5A0=
+title: TR: ioBroker.web
+hash: O/9g9KEHoarO9stxwgzMohQQNlrQowOwH4pnbPJLC+8=
 ---
-![商标](../../../en/adapterref/iobroker.web/admin/web.png)
+![TR: Logo](../../../en/adapterref/iobroker.web/admin/web.png)
 
-![安装数量](http://iobroker.live/badges/web-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.web.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.web.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.web.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.web.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/web-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.web.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.web.svg)
 
-＃ioBroker.web
-基于Node.js的Web服务器，并表示可以从ioBroker DB中读取文件
+TR: # ioBroker.web
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.web/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/web/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: Web server on the base of Node.js and express to read the files from ioBroker DB
 
-##调整Web套接字
-在某些网络套接字客户端上，通信存在性能问题。
-有时，此问题是由于长轮询机制上的socket.io通信回退所致。
-您可以设置选项* Force Web-Sockets *强制仅使用Web套接字传输。
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-##让我们加密证书
-阅读[这里](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
+TR: ## Tuning Web-Sockets
+TR: On some web-sockets clients there is performance problem with communication.
+Sometimes this problem is due to fallback of socket.io communication on long polling mechanism.
+You can set option *Force Web-Sockets* to force using only web-sockets transport.
 
-##扩展
-Web驱动程序支持扩展。扩展名是URL处理程序，如果出现此类URL请求，则将调用该处理程序。
-这些扩展看起来像普通的适配器，但是它们没有正在运行的进程，将由Web服务器调用。
+TR: ## Let's Encrypt Certificates
+TR: Read [TR: here](https://github.com/ioBroker/ioBroker.admin#lets-encrypt-certificates)
 
-例如。用户可以激活特殊的代理适配器并访问同一Web服务器中的其他设备（例如网络摄像头）。
-必须让所有服务在一台Web服务器下可用。
+TR: ## Extensions
+TR: Web driver supports extensions. The extension is URL handler, that will be called if such URL request appears.
+The extensions look like the normal adapter, but they have no running process and will be called by web server.
 
-##暴力保护
-如果启用了身份验证，并且用户在一分钟内输入了5次无效密码，则他必须至少等待一分钟才能进行下一次尝试。
-第15次错误尝试后，用户必须等待1个小时。
+TR: E.g. the user can activate special proxy adapter and reach other devices (like webcams) in the same web server.
+It is required to let all services be available under one web server.
 
-##“保持登录状态”选项
-如果选择此选项，则用户将保持登录状态一个月。
-否则，用户将保持登录状态，以进行配置的“登录超时”。
+TR: ## Brute-force protection
+TR: If authentication is enabled and the user enters 5 times invalid password during one minute, he must wait at least one minute till next attempt.
+After 15th wrong attempt the user must wait 1 hour.
 
-##访问状态的值
-您可以通过HTTP get请求访问常规状态值和二进制状态值。
+TR: ## "Stay logged in" option
+TR: If this options is selected the user stays logged in for one month.
+If not, the user will stay logged in for the configured "login timeout".
+
+TR: ## Access state's values
+TR: You can access the normal and binary state values via the HTTP get request.
 
 ```
 http://IP:8082/state/system.adapter.web.0.alive =>
 {"val":true,"ack":true,"ts":1606831924559,"q":0,"from":"system.adapter.web.0","lc":1606777539894}
 ```
 
-或者
+TR: or
 
 ```
 http://IP:8082/state/javascript.picture.png =>
 [IMAGE]
 ```
 
-该图像必须使用如下所示的javascript适配器编写：
+TR: The image must be written in the javascript adapter like:
 
 ```
 createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
@@ -64,15 +64,25 @@ createState('javascript.0.picture.png', {type: 'file', name: 'Picture'}, () => {
 });
 ```
 
-##“基本身份验证”选项
-通过发送未经授权的`WWW-Authenticate`标头允许`401`来允许通过基本身份验证登录。
-可以用于* FullyBrowser *之类的应用程序。一旦输入了错误的凭据，您将被重定向到登录页面。
+TR: ## "Basic Authentication" option
+TR: Allows Login via Basic Authentication by sending `401` Unauthorized with a `WWW-Authenticate` header.
+This can be used for applications like *FullyBrowser*. When entering the wrong credentials once, you will be redirected to the Login Page.
 
-<！-下一个版本的占位符（在该行的开头）：
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __正在进行的工程__->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### 3.4.4 (2021-07-04)
+* (Apollon77) Fix missing www files
+
+### 3.4.3 (2021-07-01)
+* (Apollon77) Add tier for js-controller 3.3
+
+### 3.4.2 (2021-07-01)
+* (bluefox) Update GUI
+
 ### 3.4.1 (2021-04-30)
 * (bluefox) Added support of admin5
 
