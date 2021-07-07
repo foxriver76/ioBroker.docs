@@ -2,108 +2,114 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.digitalstrom/README.md
-title: ioBroker.digitalstrom
-hash: p3HyAOTEgD43/+O9f2a5qnG8WoGMEn0a6EZf18OuRfg=
+title: TR: ioBroker.digitalstrom
+hash: cNs8XHtgs1+t802nrEwCdwbP4GpUvVOV2MllPa4n1PI=
 ---
-![Логотип](../../../en/adapterref/iobroker.digitalstrom/admin/digitalstrom.png)
+![TR: Logo](../../../en/adapterref/iobroker.digitalstrom/admin/digitalstrom.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.digitalstrom.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.digitalstrom.svg)
-![Количество установок (последнее)](http://iobroker.live/badges/digitalstrom-installed.svg)
-![Количество установок (стабильно)](http://iobroker.live/badges/digitalstrom-stable.svg)
-![Статус зависимости](https://img.shields.io/david/Apollon77/iobroker.digitalstrom.svg)
-![Известные уязвимости](https://snyk.io/test/github/Apollon77/ioBroker.digitalstrom/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.digitalstrom.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/Apollon77/ioBroker.digitalstrom/master.svg)
+![TR: Number of Installations](http://iobroker.live/badges/digitalstrom-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.digitalstrom.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.digitalstrom.svg)
 
-# IoBroker.digitalstrom
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: # ioBroker.digitalstrom
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.digitalstrom/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/digitalstrom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Адаптер Digitalstrom для ioBroker
-Поддержка устройств Digitalstrom через DSS
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Установка
-Установите адаптер через интерфейс администратора как обычно.
+TR: ## Digitalstrom adapter for ioBroker
+TR: Support for Digitalstrom devices via DSS
 
-Как только адаптер будет официально выпущен, он будет в репозитории, и его будет просто выбирать.
+TR: ## Installation
+TR: Please install the adapter via Admin UI as usual.
 
-На этапе тестирования или для тестирования более новых версий (см. Соответствующие темы форума) вы также можете установить адаптер непосредственно из GitHub, используя https://github.com/ioBroker/ioBroker.digitalstrom в качестве URL-адреса. Для этого используйте параметр «Выборочная установка» администратора.
+TR: As soon as the adapter is officially released he will be in the repo and simply selectable.
 
-## Применение
-После установки адаптера и создания экземпляра появится диалоговое окно администратора.
-Прежде всего вам нужно ввести свой IP-адрес / имя хоста DSS. Затем вы можете выбрать, создали ли вы уже вручную токен приложения в веб-интерфейсе DSS или нет.
-Если у вас нет токена приложения, просто введите свое имя пользователя и пароль, чтобы получить токен приложения автоматически.
+TR: During test phase, or for testing of newer versions (see relevant forum threads) you can also install the adapter directly from GitHub using https://github.com/ioBroker/ioBroker.digitalstrom as URL. Please use the Admin "Custom Install" option for this.
 
-В дополнение к настройкам аутентификации (см. Выше) вы можете изменить следующие настройки по своему усмотрению:
+TR: ## Usage
+TR: After installing the adapter and creating an instance the admin dialog will appear.
+First of all you need to enter your DSS IP/Hostname. Then you can choose if you already have manually created an App Token in the DSS Web-Interface or not.
+If you do not have an App-Token simply enter your Username and Password to retrieve an App Token automatically.
 
-* **Интервал опроса данных** это интервал, в течение которого данные «Energy Meter» запрашиваются у ваших устройств DSM. По умолчанию 60-е годы. Вы можете установить 0, если не хотите опрашивать данные Engerymeter.
-* **Использовать предустановленные значения сцены** система Digitalstrom на самом деле не предназначена для того, чтобы реальные выходные значения устройств были доступны все время, и больше всего работает со сценами. Для Light и Shader / Blinds некоторые выходные значения определены для многих доступных сцен. Адаптер знает их, и когда этот параметр активен, адаптер попытается найти эти значения при запуске сцены и напрямую установить эти значения в состояния. Реальные значения запрашиваются с задержкой. Этот метод может выдавать неверные значения при установке / использовании локальных приоритетов!
-* **Активно запрашивать выходные значения устройства** адаптер инициализирует все выходные значения устройства при запуске, а также после сцен, которые являются эффективными для устройства. Есть задержки, но на самом деле все эти сообщения будут проходить по шине Digitalstrom. Если для вас это проблематично, вы можете попробовать отключить эту функцию.
+TR: Additionally to the Authentication settings (see above) you can edit the following settings to your needs:
 
-После предоставления токена приложения и сохранения настроек адаптер автоматически перезапустится.
+TR: * **Data Polling Interval**: This is the interval the "Energy Meter" data are requested from your DSM devices. Default 60s. You can set 0 if you do not want to poll the Engerymeter data.
+TR: * **Use Scene Preset Values**: The Digitalstrom system is not really designed to have the real output values of the devices available all the time and works most with Scenes. For Light and Shader/Blinds some output values are defined for many of the available Scenes. The adapter knows them and when this setting is active the adapter will try to lookup these values when a scene gets triggered and set those values to the states directly. The real values are requested with a delay. This method might deliver wrong values when local priorities are set/used!
+TR: * **Request Device Output values actively**: The adapter initializes all device output values on start and also after scenes that are effective for a device. There are delay but in fact all those messages will go over the Digitalstrom bus. If this is problematic for you you can try to deactivate this feature.
 
-Когда данные верны, адаптер считывает структуру квартиры и устройств и создает их как объекты ioBroker. Это может занять некоторое время (в зависимости от количества устройств и этажей / зон / групп и производительности вашей системы несколько секунд). Пожалуйста, проявите терпение. И я действительно так имею в виду ... Здесь легко добраться до нескольких тысяч объектов! Дайте время адаптеру пожалуйста!
+TR: After providing an App token and saving the settings the adapter will restart automatically.
 
-После этого адаптер подписывается на несколько событий DSS, чтобы получать уведомления о действиях в системе.
+TR: When data are correct the adapter read out the apartment and devices structure and create them as ioBroker Objects. This can take some time (depending on the number of devices and floors/zones/groups and the performance of your system several seconds). Please be patient. And I really mean it that way ... Several thousand objects are easy to reach here! Give the adapter time please!
 
-Индикатор состояния адаптера станет зеленым, и вы увидите «Подписан на состояния ...» в виде информационного журнала. После этого все готово, и вы можете, например:
+TR: After this the adapter subscribes to several DSS Events to get notified about actions in the system.
 
-* установка / отмена сцен для квартиры, зон, групп или устройств
-* читать состояние и значения датчиков; для зон также можно нажимать значения датчиков
-* см. значения для двоичных входов, датчиков, кнопок и выходов
+TR: The adapter status light will get green and you will see "Subscribed to states ..." as info log. After this everything is ready and you can e.g.:
 
-## Состояние и структура объекта
-Адаптер предоставляет две структуры данных. Структура квартиры с этажами, зонами (комнатами) и группами, а также структура цепей / dSM и подключенных устройств с их подробными данными.
+TR: * set/undo scenes for apartment, zones, groups or devices
+TR: * read state and sensor values; for zones it is also possible to push sensor values
+TR: * see the values for Binary inputs, Sensors, Buttons and Outputs
 
-В структуры включены несколько «типов» данных:
+TR: ## State and Object structure
+TR: The adapter provides two data structures. The Apartment structure with Floors, Zones (Rooms) and Groups and additionally the structure of Circuits/dSMs and the connected devices with their detail data.
 
-* Сцены: сцены реализованы как переключатели. Установка значения tro "true" отправит команду "callScene" для этой сцены. Значение «false» отправит команду «undoScene» для этой сцены - сервер DSS должен решить, является ли «отменить» допустимой командой! Когда callScene или undoScene запускается как событие от сервера DSS, для соответствующей сцены устанавливается значение «true» или «false» с ack = true.
-* Состояния: состояния из системы и состояния, определенные пользователем через надстройку, отображаются и доступны только для чтения
-* Значения датчиков обновляются при срабатывании события, а также могут частично изменяться ставки - изменения отправляются на сервер "pushSensorValue", и это зависит от сервера, если значение принято! В основном это касается значений температуры или влажности.
+TR: In the structures several "types" of data are included:
+
+TR: * Scenes: Scenes are implemented as switches. Setting the value tro "true" will send a "callScene" command for this scene. A value of "false" will send an "undoScene" command for this scene - it is up the the DSS server to decide if "undo" is a valid command! When a callScene or undoScene is triggered as event from the DSS server the relevant scene is set to "true" or "false" with ack=true
+TR: * States: States from the system and user defined states via the addon are shown and are read only
+TR: * Sensor values are updated when triggered by an event and can partially also bet changed - changes are send a "pushSensorValue" to the server and it is up to the server if the value is accepted! This is mainly relevant for Temperature or Humidity values
 
 *
 
-### Объект и состояния квартиры
-![Квартирные объекты](../../../en/adapterref/iobroker.digitalstrom/img/dss-apartment.png)
+TR: ### Apartment object and states
+![TR: Apartment Objects](../../../en/adapterref/iobroker.digitalstrom/img/dss-apartment.png)
 
-Для Квартиры создается структура с «полом». «Зона» со следующими подконструкциями внутри нее:
+TR: For the Apartment a structure with "floor"."zone" is created with the following substructures inside this:
 
-* для каждой группы устройств создается подпапка, включающая доступные групповые сцены
-* сцены для этой зоны
-* состояния для этой зоны
-* значения датчиков для этой зоны
+TR: * per device group a sub folder is created including the available group scenes
+TR: * scenes for this zone
+TR: * states for this zone
+TR: * sensor values for this zone
 
-На уровне квартиры доступны все группы устройств со сценами.
+TR: On Apartment level all device groups are available with it's scenes.
 
-На уровне квартиры также включены датчики (также наружные значения), состояния и состояния пользователя.
+TR: On Apartment level also Sensors (also outdoor values), States and user states are included.
 
-### Устройства, объекты и состояния
-![Объекты устройств](../../../en/adapterref/iobroker.digitalstrom/img/dss-devices.png)
+TR: ### Devices objects and states
+![TR: Devices Objects](../../../en/adapterref/iobroker.digitalstrom/img/dss-devices.png)
 
-Устройства структурированы с помощью "circuit / dSM". "DeviceID", а внутренняя подструктура включает:
+TR: The devices are structured with "circuit/dSM"."deviceID" and the subsctructure inside includes:
 
-* Сцены устройства будут запускаться только для этого устройства
-* Датчики устройства, когда сообщается из системы. Значения могут быть пустыми
-* Выходные значения (например, состояние / яркость для источников света и положение / угол для штор / жалюзи) расположены непосредственно под устройством. Только светильники и шторы / жалюзи пока будут иметь определенную функциональность.
-* Кнопки и двоичные входы также будут представлены состояниями и доступны только для чтения
+TR: * Device Scenes, will be triggered for this device only
+TR: * Device Sensors, when reported from the system. So values might be empty
+TR: * Output values (e.g. state/brightness for Lights and position/angle for Shades/Blinds) are located directly below the device. Only Lights and Shades/Blinds will have a defined functionality for now.
+TR: * Buttons and Binary Inputs will also be represented by states and are read only
 
-## Известные проблемы / Эффекты проектирования системы
-* Система DSS в основном работает с использованием сцен, а не с помощью реальных значений устройства, а также получение реальных значений происходит очень медленно, потому что их нужно получать через шину.
-* Значения могут быть пустыми, если они не были сообщены системой
-* Бинарные входы были реализованы "слепыми", правильно знаю, потому что у меня нет таких устройств. Так что я рад получить несколько логов / отчетов с устройствами двоичного ввода :-)
-* Значимое чтение и запись выходного значения реализовано только для световых (желтый) и затененных / слепых (серый) устройств.
-* У меня пока не было возможности проверить, как система ведет себя с vDC. Поэтому мне нужны журналы и подробности, чтобы добавить это
-* Вентиляция и управление температурой / устройства также не полностью реализованы ... что здесь имеет смысл?
+TR: ## Known Issues / System design effects
+TR: * The DSS system mainly works using scenes and not via real device values and also getting the real values is very slow because needs to be fetched via the bus.
+TR: * Values might be empty when they were not reported by the system
+TR: * Binary inputs were implemented "Blind" right know because I do not have such a devices. So I'm happy to get some logs/reports with binary input devices :-)
+TR: * Meaningful output value reading and writing is only implemented for Ligh (Yellow) and Shade/Blind (Gray) devices.
+TR: * I had no chance so far checking how the system behaves with vDCs. So I need logs and details here to add it
+TR: * Ventilation and Temperature management/devices are also not fully implemented ... what makes sense here?
 
-## Как сообщить о проблемах и запросах функций
-Пожалуйста, используйте для этого GitHub issues.
+TR: ## How to report issues and feature requests
+TR: Please use GitHub issues for this.
 
-Лучше всего установить адаптер в режим журнала отладки (Экземпляры -> Экспертный режим -> Уровень журнала столбцов). Затем получите файл журнала с диска (подкаталог "log" в установочном каталоге ioBroker, а не из Admin, потому что Admin сокращает строки). Если вам не нравится предоставлять его в выпуске GitHub, вы также можете отправить его мне по электронной почте (iobroker@fischer-ka.de). Добавьте ссылку на соответствующую проблему GitHub И также опишите, что я вижу в журнале и в какое время.
+TR: Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
 
 ### __WORK IN PROGRESS__
+* (Apollon77) Optimize for js-controller 3.3
+* (Apollon77) Optimize get/set Value handling for new devices
+
+### 2.2.0 (2021-04-16)
+* (Apollon77) Add support for integrated (IC) devices (SW, GE, GR)
+
+### 2.1.0 (2021-04-13)
 * (Apollon77) prevent crashes (Sentry IOBROKER-DIGITALSTROM-5)
+* (Apollon77) Fix EnergyMeterValue
+* (Apollon77) further optimizations and adding new outout channel types
 
 ### 2.0.5 (2020-03-14)
 * (Apollon77) BREAKING: binaryInput are now numbers intead of booleans because it can have values other then true/false
@@ -200,7 +206,7 @@ hash: p3HyAOTEgD43/+O9f2a5qnG8WoGMEn0a6EZf18OuRfg=
 ## License
 MIT License
 
-Copyright (c) 2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2020-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

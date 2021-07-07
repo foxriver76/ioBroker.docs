@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.meteoalarm/README.md
 title: TR: ioBroker.meteoalarm
-hash: WTSAKgVijJSIgYS1KHyy/KSxzMFRzASqr8S3BdDDI+A=
+hash: pR3ExXYvFbo7WZLJsJaV+Mu9UHOusC1bRA/UV484FtE=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -15,36 +15,18 @@ hash: WTSAKgVijJSIgYS1KHyy/KSxzMFRzASqr8S3BdDDI+A=
 TR: # ioBroker.meteoalarm
 TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-TR: meteoalarm Adapter for ioBroker ------------------------------------------------------------------------------ This adapter is pulling weather alarms from meteoalarm.eu, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
+TR: meteoalarm Adapter for ioBroker ------------------------------------------------------------------------------
+
+TR: ## !!!! The new version 2.0.0 which can handle the new website is currently in testing and available in the latest/beta channel
+TR: This adapter is pulling weather alarms from https://meteoalarm.org, which includes wind, snow, rain, high and low temperature,etc. This information is available in local language and for detailed regions.
+
+TR: Disclaimer: Time delays between this website and the www.meteoalarm.org website are possible, for the most up to date information about alert levels as published by the participating National Meteorological Services please use https://www.meteoalarm.org.
 
 TR: ## How to use it
-TR: There are two options how you can get the link to retrieve the meteoalarm information.
+TR: Choose your country, and afterwards the region you want the warnings for. If you are unsure what your region name is, please go to https://meteoalarm.org and try to find it on the map.
 
-TR: Option 1: Choose your country, then press "load region", and then choose the region. The xml is then filled automatically. Just press save and you are ready.
-
-TR: Option 2: Go to http://meteoalarm.eu and choose your region. Then go to the RSS symbol on the top right side, do a right click and copy the link. This is the link which you please add to the setup of the adapter.
-
-![TR: Logo](../../../en/adapterref/iobroker.meteoalarm/screenshot.png)
-
-TR: ## Available fields
-| TR: |Field Name|Description|
-|:---:|:---:|
-| TR: |Last Update|Date when the adapter received data the last time|
-| TR: |Link|Link to the RSS Feed|
-| TR: |Location|Alarm Location|
-| TR: |Publication Date|Publication Date of the alarm according to the website|
-| TR: |HTMLToday|HTML Widget that displays Alarms for today|
-| TR: |Weather Map Country|HTML Link to Weather Map of the Alarm Country|
-| TR: |Today/Tomorrow|These datapoints are available for today and tomorrow:|
-| TR: |   Text|Alarm Text in country specific language|
-| TR: |   From|Alarm starting date|
-| TR: |   To|Alarm ending date|
-| TR: |   Type|Type of Alarm as number|
-| TR: |   TypeText|Type of Alarm as text|
-| TR: |   Level|Level of Alarm as number|
-| TR: |   LevelText|Level of Alarm as text|
-| TR: |   Color|Alarm color for widgets|
-| TR: |   Icon|Alarm type icon|
+TR: ## Add it to your vis
+TR: The easiest way to add it to your vis is by using the widget basic - string, and there choosing the datapoint htmlToday. This gives you a predesigned HTML widget, which you can adjust in the setup.
 
 TR: ## Alarm Types
 | TR: |Alarm Type|Description|
@@ -70,6 +52,8 @@ TR: "Define Warning colors": Ability to define the colors for the various alarm 
 
 TR: "Use white icons": Use white icons instead of black ones
 
+TR: "Icons": Define the size of the icon in the HTML widget
+
 TR: "No symbols in widget": Don't use the symbol in the HTML widget. You can still access it in the objects. This is usefill if you want to show the icon seperatly from the widget - e.g. in a bigger size.
 
 TR: ## Alarm Levels
@@ -82,40 +66,45 @@ TR: ## Alarm Levels
 
 TR: ## Supported countries
 TR: * Austria
-TR: * Croatia
-TR: * Czech Republic
-TR: * Finnland
 TR: * Germany
+TR: * Belgium
+TR: * BosniaHerzegovina
+TR: * Croatia
+TR: * Cyprus
+TR: * Czech Republic
+TR: * Denmark
+TR: * Estonia
+TR: * Finland
+TR: * France
 TR: * Greece
 TR: * Hungary
-TR: * Ireland
+TR: * Iceland
 TR: * Israel
 TR: * Italy
 TR: * Latvia
 TR: * Lithuania
 TR: * Luxembourg
 TR: * Malta
-TR: * Moldova
-TR: * Montenegro
 TR: * Netherlands
 TR: * Norway
 TR: * Poland
 TR: * Romania
 TR: * Serbia
 TR: * Slovakia
+TR: * Slovenia
 TR: * Spain
-TR: * Switzerland
 TR: * Sweden
+TR: * UK
 
 TR: If you don't find your country, please create an issue on github, and I will be happy to add it
 
 TR: ## Not possible countries
-TR: * France (no rss feed available)
-TR: * Portugal (no splitting possible)
-TR: * Slovenia (no rss feed available)
+TR: * Switzerland (geocode file from meteoalarm.org is probably incorrect)
+TR: * Portugal (geocode file from meteoalarm.org is probably incorrect)
+TR: * Bulgaria (geocode file from meteoalarm.org is probably incorrect)
 
-TR: ## Features to implement
-TR: * Handle multiple alarms on one day
+TR: ## 2.0.0 (2021-06-20)
+TR: * (jack-blackson) Switch to Meteoalarm.org, complete rebuild
 
 TR: ## 1.2.1 (2021-06-05)
 TR: * (jack-blackson) Bugfix to handle incorrect XML (if country instead of region is used)

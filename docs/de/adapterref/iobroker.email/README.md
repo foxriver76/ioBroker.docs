@@ -2,29 +2,30 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.email/README.md
-title: ioBroker E-Mail
-hash: toVqq++uwVaVbxSeS8PlFQ/2PCwgh6XNZ/6O0xhptzM=
+title: TR: ioBroker email
+hash: mGpv2SOd2J5VYHrF3xxx5reEDja3CX4LhnpHoG0jI7w=
 ---
-![Logo](../../../en/adapterref/iobroker.email/admin/email.png)
+![TR: Logo](../../../en/adapterref/iobroker.email/admin/email.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/email-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.email.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.email.svg)
-![NPM](https://nodei.co/npm/iobroker.email.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/email-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.email.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.email.svg)
 
-# IoBroker E-Mail
-Senden Sie E-Mails von ioBroker.
+TR: # ioBroker email
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.email/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/email/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Der Adapter verwendet [Nodemailer](https://github.com/nodemailer/nodemailer), um die Funktionalität bereitzustellen.
+TR: Send emails from ioBroker.
 
-** Dieser Adapter benötigt NodeJS 6.x oder höher !! **
+TR: The adapter uses [TR: nodemailer](https://github.com/nodemailer/nodemailer) to provide the functionality.
 
-** Dieser Adapter verwendet Sentry-Bibliotheken, um Ausnahmen und Codefehler automatisch an die Entwickler zu melden. ** Weitere Details und Informationen zum Deaktivieren der Fehlerberichterstattung finden Sie unter [Sentry-Plugin-Dokumentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry Reporting wird ab js-controller 3.0 verwendet.
+TR: **This Adapter requires nodejs 6.x or higher!!**
 
-Um Google Mail verwenden zu können, müssen Sie möglicherweise "Weniger sichere Apps zulassen" in Ihrem Google Mail-Konto konfigurieren, es sei denn, Sie verwenden 2FA. In diesem Fall müssten Sie ein anwendungsspezifisches Kennwort erstellen. Möglicherweise müssen Sie Ihr Konto auch mit "Zugriff auf Ihr Google-Konto zulassen" entsperren, um SMTP verwenden zu können.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-## Verwendung
-Um eine E-Mail von ScriptEngine zu senden, schreiben Sie einfach:
+TR: To use Gmail you may need to configure "Allow Less Secure Apps" in your Gmail account unless you are using 2FA in which case you would have to create an Application Specific password. You also may need to unlock your account with "Allow access to your Google account" to use SMTP.
+
+TR: ## Usage
+TR: To send email from ScriptEngine just write:
 
 ```
 // send email to all instances of email adapter
@@ -62,49 +63,56 @@ sendTo("email", {
 });
 ```
 
-Verwenden Sie die Funktion **adapter.sendTo** um E-Mails von einem anderen Adapter zu senden.
+TR: To send email from other adapter use **adapter.sendTo** function.
 
-## Unterstützte Dienste
-- 1und1
-- AOL
-- DebugMail.io
-- DynectEmail
-- FastMail
-- GandiMail
-- Google Mail
-- Los Papa
-- GodaddyAsia
-- GodaddyEurope
-- hot.ee
-- Heisse Mail
-- iCloud
-- ith
-- mail.ee
-- Mail.ru
-- Mailgun
-- Mailjet
-- Mandrill
-- Naver
-- Büro 365
-- OpenMailBox
-- Poststempel
-- QQ
-- QQex
-- SendCloud
-- SendGrid
-- SES
-- SES-US-EAST-1
-- SES-US-WEST-2
-- SES-EU-WEST-1
-- Sparkpost
-- Yahoo
-- Yandex
-- Zoho
-- Benutzerspezifisch (Server, Port und Sicherheit manuell definiert)
+TR: ## Supported services
+TR: - 1und1
+TR: - AOL
+TR: - DebugMail.io
+TR: - DynectEmail
+TR: - FastMail
+TR: - GandiMail
+TR: - Gmail
+TR: - Godaddy
+TR: - GodaddyAsia
+TR: - GodaddyEurope
+TR: - hot.ee
+TR: - Hotmail
+TR: - iCloud
+TR: - ith
+TR: - mail.ee
+TR: - Mail.ru
+TR: - Mailgun
+TR: - Mailjet
+TR: - Mandrill
+TR: - Naver
+TR: - Office365
+TR: - OpenMailBox
+TR: - Postmark
+TR: - QQ
+TR: - QQex
+TR: - SendCloud
+TR: - SendGrid
+TR: - SES
+TR: - SES-US-EAST-1
+TR: - SES-US-WEST-2
+TR: - SES-EU-WEST-1
+TR: - Sparkpost
+TR: - Yahoo
+TR: - Yandex
+TR: - Zoho
+TR: - User specific (Server, port and security defined manually)
 
-Für andere Dienste siehe Dokumentation von **Nodemailer** `§§LLLLL_0§§`
+TR: For other services see documentation of **Nodemailer**: `§§LLLLL_0§§`
 
 ## Changelog
+
+### 1.0.10 (2021-07-06)
+* (Apollon77) Optimize for js-controller 3.3
+
+### 1.0.9 (2021-02-22)
+* (Apollon77) Call message callback always with error or without
+
 ### 1.0.7 (2020-06-11)
 * (Apollon77) Make sure adapter is not crashing on stop in some edge cases
 * (Apollon77) Add Sentry for crash reporting with js-controller >=3.x
@@ -158,7 +166,7 @@ Für andere Dienste siehe Dokumentation von **Nodemailer** `§§LLLLL_0§§`
 
 The MIT License (MIT)
 
-Copyright (c) 2014-2020 bluefox
+Copyright (c) 2014-2021 bluefox
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

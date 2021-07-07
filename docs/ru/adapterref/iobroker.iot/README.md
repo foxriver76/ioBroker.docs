@@ -3,16 +3,17 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.iot/README.md
 title: TR: ioBroker IoT Adapter
-hash: RPZLbAhefWe0dN9Y6h+0qu9Ba1TiO9thmROCEbuQWGw=
+hash: p7+y58cPamys/HPMVn50ltJt7Mtgyizqs0PzeBOubhI=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.iot/admin/iot.png)
 
 ![TR: Number of Installations](http://iobroker.live/badges/iot-stable.svg)
 ![TR: NPM version](http://img.shields.io/npm/v/iobroker.iot.svg)
 ![TR: Downloads](https://img.shields.io/npm/dm/iobroker.iot.svg)
-![TR: NPM](https://nodei.co/npm/iobroker.iot.png?downloads=true)
 
 TR: # ioBroker IoT Adapter
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.iot/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/iot/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
 TR: This adapter is ONLY for communication with Amazon Alexa, Google Home and Nightscout.
 It is not for remote access to your ioBroker instance. Use ioBroker.cloud adapter for that.
 

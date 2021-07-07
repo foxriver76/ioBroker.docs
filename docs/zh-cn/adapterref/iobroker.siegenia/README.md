@@ -2,44 +2,50 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.siegenia/README.md
-title: iobroker.siegenia
-hash: 4S3fJKuQab8SA1AlpY1Ei5iRwPQxcS6KkamGo62zAro=
+title: TR: ioBroker.siegenia
+hash: rHbPlGxnGQWGgWc6lrO0q1AyYILl0gKk7ZcQ7fSvqw4=
 ---
-![NPM版本](http://img.shields.io/npm/v/iobroker.siegenia.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.siegenia.svg)
-![依赖状态](https://img.shields.io/david/Apollon77/iobroker.siegenia.svg)
-![已知漏洞](https://snyk.io/test/github/Apollon77/ioBroker.siegenia/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.siegenia.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/Apollon77/ioBroker.siegenia/master.svg)
+![TR: Number of Installations](http://iobroker.live/badges/siegenia-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.siegenia.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.siegenia.svg)
 
-＃ioBroker.siegenia
-<img src="./admin/siegenia_logo.jpg"/>
+TR: # ioBroker.siegenia
+TR: <img src="./admin/siegenia_logo.jpg"/>
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: ![TR: Test and Release](https://github.com/Apollon77/ioBroker.siegenia/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/siegenia/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-此适配器为Siegenia气候和空气控制设备（https://www.siegenia.com）提供ioBroker支持。
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-适配器需要最低Nodejs8.x。
+TR: This adapter provides ioBroker support for Siegenia Climate and Air control Devices (https://www.siegenia.com).
 
-##功能集
-此适配器支持所有当前设备：
+TR: The adapter requires minimum Nodejs 8.x.
 
-* AEROPAC
-* AEROMAT VT
-*驾驶axxent DK / MH
-* SENSOAIR
-*航空氛围
-* MHS系列
-*空气管
-*通用模块
+TR: ## Featureset
+TR: All current devices are support by this adapter:
 
-该适配器能够自动检测与ioBroker在同一网络中的Siegenia设备，并将其列在管理界面中。检测后，您只需要更正用户名和密码即可。但是，您也可以手动输入IP和登录数据。
+TR: * AEROPAC
+TR: * AEROMAT VT
+TR: * DRIVE axxent DK/MH
+TR: * SENSOAIR
+TR: * AEROVITAL ambience
+TR: * MHS Family
+TR: * AEROTUBE
+TR: * Universal Module
 
-被检测设备的所有可用数据字段均以对象显示，并提供当前数据和/或允许更改数据。
+TR: The adapter is capable to automatically detect the Siegenia devices in the same network as ioBroker and will list them in it's Admin interface. You only need to correct the user and password after the detection. But you can also enter IPs and login data manually.
 
-适配器显示了计时器和其他更复杂的数据，但只能通过Siegenia App进行更改。
+TR: All available data fields of the detected device are shown in objects and provide current data and/or allow data to be changed.
+
+TR: Timers and other more complex data are shown by the adapter, but can be changed only through the Siegenia App.
 
 ## Changelog
+
+### 1.1.1 (2021-07-06)
+* (thost96/Apollon77) Optimize for js-controller 3.3
+
+### 1.1.0 (2021-01-22)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-SIEGENIA-1)
+* (Apollon77) js-controller 2.0 is now required at least
 
 ### 1.0.1 (2020-12-24)
 * (Apollon77) update dependencies
@@ -51,7 +57,7 @@ hash: 4S3fJKuQab8SA1AlpY1Ei5iRwPQxcS6KkamGo62zAro=
 ## License
 MIT License
 
-Copyright (c) 2019 Apollon77
+Copyright (c) 2019-2021 Apollon77 iobroker@fischer-ka.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -2,65 +2,70 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.nanoleaf-lightpanels/README.md
-title: ioBroker.nanoleaf-lightpanels Адаптер
-hash: i+JgMJTd6a/CI3m4/mF4qoaX3UiBMFfPXnNlDbV8XDo=
+title: TR: ioBroker.nanoleaf-lightpanels Adapter
+hash: EYavG70Hk24uclNC64ybkY58+MhOFmOsttwlvkDW74Q=
 ---
-![Логотип](../../../en/adapterref/iobroker.nanoleaf-lightpanels/admin/nanoleaf-lightpanels.png)
+![TR: Logo](../../../en/adapterref/iobroker.nanoleaf-lightpanels/admin/nanoleaf-lightpanels.png)
 
-![Версия NPM](https://img.shields.io/npm/v/iobroker.nanoleaf-lightpanels.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.nanoleaf-lightpanels.svg)
-![Статус сборки Трэвис](https://travis-ci.org/daniel-2k/ioBroker.nanoleaf-lightpanels.svg?branch=master)
-![Статус сборки Appveyor](https://ci.appveyor.com/api/projects/status/29fjgn8ww5w96etq/branch/master?svg=true)
-![НПМ](https://nodei.co/npm/iobroker.nanoleaf-lightpanels.png?downloads=true)
+![TR: NPM version](https://img.shields.io/npm/v/iobroker.nanoleaf-lightpanels.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.nanoleaf-lightpanels.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.nanoleaf-lightpanels.png?downloads=true)
 
-# IoBroker.nanoleaf-lightpanels Адаптер
+TR: # ioBroker.nanoleaf-lightpanels Adapter
 =================
 
-Это адаптер ioBroker для управления световыми панелями nanoleaf (ранее nanoleaf Aurora) или холстом и формами nanoleaf через OpenAPI nanoleaf.
+[![TR: Test and Release](https://github.com/daniel-2k/ioBroker.nanoleaf-lightpanels/actions/workflows/test-and-release.yml/badge.svg?branch=master)](https://github.com/daniel-2k/ioBroker.nanoleaf-lightpanels/actions/workflows/test-and-release.yml)
 
-## Подключение к световым панелям / контроллеру холста nanoleaf:
-1. В настройках адаптера вы должны указать IP-адрес или имя хоста и порт контроллера nanoleaf. Вы можете использовать функцию поиска, чтобы обнаружить все устройства nanoleaf в вашей сети.
-2. OpenAPI nanoleaf нуждается в токене авторизации для предоставления доступа к OpenAPI. Если он у вас уже есть, вы можете ввести здесь токен и пропустить следующий шаг.
-3. Если у вас нет токена авторизации, вам необходимо запросить его у nanoleaf OpenAPI.
+TR: This is an ioBroker Adapter to control the nanoleaf Light Panels (formerly nanoleaf Aurora) or nanoleaf Canvas and Shapes through the nanoleaf OpenAPI.
 
-Для этого установите контроллер nanoleaf в режим сопряжения, нажав и удерживая кнопку питания на устройстве в течение 5-7 секунд, пока светодиоды не начнут попеременно мигать.
-Затем нажмите кнопку «Получить токен авторизации» в течение 30 секунд (режим сопряжения прекращается через 30 секунд). Адаптер должен работать! В случае успеха токен авторизации должен быть виден в поле «Токен аутентификации». Если произошла ошибка, вы получите всплывающее окно с сообщением об ошибке (подробности вы можете увидеть в журнале).
+TR: ## Connection to the nanoleaf Light Panels/Canvas Controller:
+TR: 1. In the adapter settings you have to set the IP address or hostname and port of the nanoleaf Controller. You can use the search function to discover all nanoleaf devices in your network.
+TR: 2. The nanoleaf OpenAPI needs an authorization token to grant access to the OpenAPI. If you have already one, you can enter the token here and skip the next step.
+TR: 3. If you don't have an authorization token, you need to request it from the nanoleaf OpenAPI.
 
-4. Сохраните настройки.
-5. Удачи!
+TR: To do this, set the nanoleaf Controller into pairing mode by pressing and holding the power button at the device for 5-7 seconds until the LEDs flash alternately.
+Then click on the button 'Obtain authorization token' within 30 seconds (pairing mode stops after 30 seconds). The adapter must be running! If it was successful, the authorization token should be seen in the field 'Authentication token'. If an error occurred you get a pop up with the error message (details you can see in the log).
 
-### Прямое обновление статуса через отправленные сервером события (SSE)
-Поскольку версия прошивки световых панелей> 3.1.0 и версия прошивки Canvas> 1.1.0 Server Sent Events (SSE), можно использовать для прямого обновления статуса. Для устройств Canvas и Shapes поддерживаются события касания.
+TR: 4. Save the settings.
+TR: 5. Have fun!
 
-_Обратите внимание: _ чтобы определить, живо ли устройство nanoleaf, уведомления SSDP отправлялись с устройства nanoleaf каждые 60 секунд. Убедитесь, что вы можете получать многоадресные сообщения UDP на порт 1900 (проверьте брандмауэр и маршрутизацию). В противном случае вы получите сообщение об ошибке в адаптере, что соединение было потеряно. Если у вас возникли проблемы с сохранением активности, установите правильный интерфейс адаптера в настройках администратора для адаптера nanoleaf.
-Для поиска устройств убедитесь, что вы можете получать трафик на UDP-порт 5000.
-Я заметил, что некоторые устройства nanoleaf внезапно перестают отправлять сообщения уведомления SSDP, поэтому соединение больше не будет обнаруживаться. Это проблема самого устройства nanoleaf. Люди, у которых есть эта проблема, могут включить использование механизма опроса keep alive вместо уведомлений SSDP в дополнительных настройках адаптера.
+TR: ### Direct Status update via Server Sent Events (SSE)
+TR: Since Light Panels firmware version > 3.1.0 and Canvas firmware version > 1.1.0 Server Sent Events (SSE) can be used for direct status updates. For Canvas and Shapes devices touch events are supported.
 
-Настройка интервала опроса обновления статуса влияет только на устройства с более ранними версиями прошивки, где опрос используется для обновления статуса или если функция SSE отключена в дополнительных настройках адаптера.
+TR: _Please note:_ to detect if nanoleaf device is still alive, SSDP notify messages were sent from nanoleaf device every 60 seconds. Please ensure you can receive UDP multicast messages on port 1900 (check firewall and routing). Otherwise you will get error messages in the adapter that connection was lost. If you have problems with keep alive, please set the correct adapter interface in admin settings for the nanoleaf adapter.
+For searching devices please ensure you can receive traffic on UDP port 5000.
+I noticed that some nanoleaf devices suddenly stop sending the SSDP notify messages so connection will not be detected anymore. This is an issue with the nanoleaf device itself. People how have this problem can enable the usage of the keep alive polling mechanism instead of SSDP notify messages in the additional adapter settings.
 
-## Алекса
-Вы можете управлять световыми панелями / холстом nanoleaf с помощью Alexa через ioBroker (облачный адаптер).
-Поддержка включения / выключения, яркости, цвета и цветовой температуры.
-Вы должны настроить точки данных
+TR: The setting for the status update polling interval only affects devices with lower firmware versions where polling is used for status updates or if the SSE function is disabled in the additional adapter settings.
 
-* состояние (для включения / выключения)
-* оттенок (для цвета)
-* насыщенность (для цвета)
-* яркость (для цвета)
-* colorTemp (для цветовой температуры)
+TR: ## Alexa
+TR: You can control the nanoleaf Light Panels/Canvas with Alexa via ioBroker (Cloud-Adapter).
+Power on/off, brightness, color and color temperature is supported.
+You have to set up the data points
 
-в облачном адаптере под тем же смарт-именем.
+TR: * state (for power on/off)
+TR: * hue (for color)
+TR: * saturation (for color)
+TR: * brightness (for color)
+TR: * colorTemp (for color temperature)
 
-## IoBroker Визуализация
-Световыми панелями / холстом nanoleaf можно управлять в ioBroker Visualization с помощью основных виджетов, таких как «радиокнопки включения / выключения» или ползунков для управления состоянием питания, яркостью, оттенком, насыщенностью и цветовой температурой.
+TR: in Cloud adapter under the same smartname.
 
-Для эффектов вы можете использовать виджет «Выбрать список значений», чтобы использовать его как раскрывающийся список, а затем сопоставить состояние списка эффектов со значением и свойством текста виджета (тип: "{nanoleaf-lightpanels.0.LightPanels.effectsList}" -> фигурные скобки важны!)
+TR: ## ioBroker Visualization
+TR: The nanoleaf Light Panels/Canvas can be controlled in ioBroker Visualization by using basic widgets as "Radiobuttons on/off" or sliders for controlling the power sate, the brightness, hue, saturation and color temperature states.
 
-Чтобы контролировать и визуализировать цвет, вам необходимо установить виджеты стиля палитры цветов. Вы можете сопоставить идентификатор RGB с состоянием colorRGB или также использовать три состояния HSV.
+TR: For effects you can use the "Select ValueList" widget to use it as a drop down list and then map the effectsList state to the value and text property of the widget (type: "{nanoleaf-lightpanels.0.LightPanels.effectsList}" -> the curly braces are important!)
 
-Вы можете использовать демонстрационный проект nanoleaf vis, который находится в подпапке / vis на github.
+TR: To control and visualize the color you have to install the color picker style Widgets. You can map the RGB ID to the colorRGB state or use the three HSV states as well.
+
+TR: You can use the nanoleaf vis demo project found in the /vis subfolder on github.
 
 ## Changelog
+
+### 1.2.1 (2021-06-20)
+* (daniel_2k) fixed: get a new authorization token is not possible when the current token is already invalid
+* (daniel_2k) fixed: device search in admin settings fixed
+* (daniel_2k) changed: obtaining an authorization token is also possible when field is already filled
 
 ### 1.2.0 (2021-01-03)
 * (daniel_2k) new: possibility to use polling for keep alive detection instead of SSDP notify messages (for nanoleaf devices which stop sending SSDP notify packages)

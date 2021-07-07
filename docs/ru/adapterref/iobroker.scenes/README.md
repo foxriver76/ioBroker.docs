@@ -2,31 +2,32 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.scenes/README.md
-title: Адаптер сцен ioBroker
-hash: twASJxCRZq+yqe5SjyTCaHNRF2nZdHP/VeGPh8flq/k=
+title: TR: ioBroker scenes adapter
+hash: rjPLw23kWM4giMXmlsiE83vZjEa6NJvzdOUuByzxe0Y=
 ---
-![Логотип](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
+![TR: Logo](../../../en/adapterref/iobroker.scenes/admin/scenes.png)
 
-![Количество установок](http://iobroker.live/badges/scenes-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.scenes.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.scenes.svg)
-![NPM](https://nodei.co/npm/iobroker.scenes.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/scenes-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.scenes.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.scenes.svg)
 
-Адаптер сцен # ioBroker
-_scenes Adapter_ может создавать сцены и выполнять их в среде ioBroker.
+TR: # ioBroker scenes adapter
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.scenes/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/scenes/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: _scenes Adapter_ can create scenes and execute them in ioBroker environment.
 
-Этот адаптер может создавать три типа сцен:
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-- **сцены**
-- **группы**
-- **виртуальные группы**
+TR: This adapter can create three types of scenes:
 
-## Сцены
-** Сцены **будут созданы, если не используется настройка «установить на ложь».
-Каждую сцену можно настроить индивидуально, поэтому вы можете иметь** сцены **и** группы **в одном экземпляре адаптера.
-** сцена** - это просто список идентификаторов состояний и значений, которые эти состояния должны иметь при активации сцены. Например. мы создали на сцене "_scene.allLightInBath_":
+TR: - **scenes**
+TR: - **groups**
+TR: - **virtual groups**
+
+TR: ## Scenes
+TR: **Scenes** will be created if setting "set on false" are not used.
+Every scene can be configured individually, so you can have **scenes** and **groups** in one instance of adapter.
+The **scene** is just list of states id and values, that these states must have by activation of the scene. E.g. we have created on the scene "_scene.allLightInBath_":
 
 ```
   scene.allLightInBath
@@ -34,9 +35,11 @@ _scenes Adapter_ может создавать сцены и выполнять 
   +- hm-rpc.0.TOP_LIGHT.STATE     - true
 ```
 
-Чтобы активировать сцену, мы должны установить для _scene.allLightInBath_ значение true (например, через скрипт или vis). Тогда оба состояния будут установлены на желаемые значения, на **true** Значение _scene.allLightInBath_ тоже будет **true** Если мы вручную переключим верхний свет, значение _scene.allLightInBath_ станет **false** И снова к **true** если мы включим свет вручную.
+TR: To activate the scene we must set "_scene.allLightInBath_" to true (e.g. over script or vis). Then both states will be set to desired values, to **true**.
+The value of _scene.allLightInBath_ will be **true** too. If we manually switch of the top light the value of the _scene.allLightInBath_ will go to **false**.
+And again to **true** if we will switch manually the light on.
 
-Добавим в **сцену** веер:
+TR: Let's add to the **scene** the fan:
 
 ```
   scene.allLightInBath
@@ -46,12 +49,12 @@ _scenes Adapter_ может создавать сцены и выполнять 
   |- hm-rpc.0.FAN.STATE          - false (delay 60000ms)
 ```
 
-В этом случае вентилятор будет включен при активации **сцены** и выключится через одну минуту.
-После выключения вентилятора значение _scene.allLightInBath_ станет **false** потому что не все состояния равны желаемым значениям.
-Состояния с опозданием в расчетах не участвуют.
+TR: In this case the fan will be switched on ba activation of the **scene** and will be switched off in one minute.
+After the fan will be switched off the value of _scene.allLightInBath_ will go to **false**, because not all states are equal to desired values.
+States with delay are not participate in calculations.
 
-Вы можете протестировать сцену с помощью кнопки «play».
-Кроме того, вы можете напрямую связать эту **сцену** с другим идентификатором сцены. Например. если у вас есть датчик на двери, вы можете выбрать его как триггер:
+TR: You can test the scene with a "play" button.
+Additionally, you can link this **scene** direct with other scene ID. E.g. if you have a sensor on the door you can select it as a trigger:
 
 ```
   trigger
@@ -60,11 +63,11 @@ _scenes Adapter_ может создавать сцены и выполнять 
     value:     true
 ```
 
-И каждый раз, когда вы открываете дверь в ванной, включается свет с вентилятором.
+TR: And every time you will open the door in the bath all lights with fan will be switched on.
 
-## Группы
-** Группы ** похожи на виртуальные каналы. Вы можете создать с помощью ** групп ** виртуальное устройство из нескольких исполнительных механизмов и управлять ими вместе, как одним устройством.
-Модифицируем наш образец подсветкой ванны.
+TR: ## Groups
+TR: **Groups** are like virtual channels. You can create with the help of **groups** virtual device from several actuators and control them together, like one device.
+Let's modify our sample with the bath's lights.
 
 ```
   scene.allLightInBath             "set on true"    "set on false"
@@ -72,7 +75,7 @@ _scenes Adapter_ может создавать сцены и выполнять 
   +- hm-rpc.0.TOP_LIGHT.STATE     - true             false
 ```
 
-Если вы свяжете эту **группу** с датчиком двери, например:
+TR: If you link this **group** with the door sensor like:
 
 ```
   trigger on true
@@ -86,20 +89,21 @@ _scenes Adapter_ может создавать сцены и выполнять 
     value:     false
 ```
 
-Каждый раз, когда вы открываете дверь, в ванной будет включаться свет. Значение _scene.allLightInBath_ станет **true** Если вы закроете дверь, свет погаснет, а значение _scene.allLightInBath_ станет **false**
+TR: Every time you will open the door all lights in a bath will be switched on. The value of the _scene.allLightInBath_ will go to **true**.
+If you close the door the lights will be switched off, and the value of _scene.allLightInBath_ will go to **false**.
 
-Это бесполезно, но как пример хорош.
+TR: It is useless, but it is good as an example.
 
-Если вы вручную включите один свет, значение _scene.allLightInBath_ станет **неопределенным**
+TR: If you will manually switch on one light, the value of the _scene.allLightInBath_ will go to **uncertain**.
 
-Задержки можно использовать и в **группе** но состояния с задержкой не участвуют в расчетах текущего значения **группы**
+TR: Delays can be used in the **group** too, but the states with delay are not participate in calculations of the current value of **group**.
 
-## Виртуальные группы
-** Виртуальные группы ** похожи на виртуальные каналы и группы, но могут иметь любые значения: числа, строки и т. Д.
-Вы можете создать виртуальную группу для управления всеми ставнями в гостиной. При записи 40% в виртуальную группу все ставни будут установлены на 40%.
+TR: ## Virtual groups
+TR: **Virtual groups** are like virtual channels and like groups, but can have any kind of values: numbers, strings and so on.
+You can create virtual group to control all shutters in living room. By writing 40% into virtual group all shutters will be set to 40%.
 
-## Сохранить текущие состояния как сцену
-Чтобы сохранить текущие состояния в какой-либо сцене, вы можете отправить сообщение адаптеру:
+TR: ## Save actual states as scene
+TR: To save actual states in some scene you can send a message to the adapter:
 
 ```
 sendTo(
@@ -113,13 +117,26 @@ sendTo(
 );
 ```
 
-Адаптер прочитает все фактические значения идентификаторов, определенных в этой сцене, и сохранит их как настроенные.
+TR: The adapter will read all actual values for IDs defined in this scene and save it as configured ones.
 
-<! - Заполнитель для следующей версии (в начале строки):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### __WORK IN PROGRESS__
+* (Apollon77) Handle case where states are not set but used as value (Sentry IOBROKER-SCENES-13)
+
+### 2.3.6 (2021-01-22)
+* (Apollon77) Check state id before getting value (Sentry IOBROKER-SCENES-F)
+
+### 2.3.5 (2021-01-22)
+* (Apollon77) Add error logging if invalid ids are configured for scenes (Sentry IOBROKER-SCENES-Y)
+
+### 2.3.4 (2021-01-16)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-SCENES-X, IOBROKER-SCENES-V)
+
 ### 2.3.3 (2020-12-06)
 * (bluefox) Implemented drag&drop for the reorder of scenes in folders
 * (bluefox) Implemented Easy mode
@@ -229,7 +246,7 @@ sendTo(
 
 The MIT License (MIT)
 
-Copyright (c) 2015-2020, Bluefox (dogafox@gmail.com)
+Copyright (c) 2015-2021, Bluefox (dogafox@gmail.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

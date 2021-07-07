@@ -2,45 +2,50 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.siegenia/README.md
-title: ioBroker.siegenia
-hash: 4S3fJKuQab8SA1AlpY1Ei5iRwPQxcS6KkamGo62zAro=
+title: TR: ioBroker.siegenia
+hash: rHbPlGxnGQWGgWc6lrO0q1AyYILl0gKk7ZcQ7fSvqw4=
 ---
-# IoBroker.siegenia
+![TR: Number of Installations](http://iobroker.live/badges/siegenia-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.siegenia.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.siegenia.svg)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.siegenia.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.siegenia.svg)
-![Статус зависимости](https://img.shields.io/david/Apollon77/iobroker.siegenia.svg)
-![Известные уязвимости](https://snyk.io/test/github/Apollon77/ioBroker.siegenia/badge.svg)
-![НПМ](https://nodei.co/npm/iobroker.siegenia.png?downloads=true)
-![Трэвис-Си](http://img.shields.io/travis/Apollon77/ioBroker.siegenia/master.svg)
+TR: # ioBroker.siegenia
+TR: <img src="./admin/siegenia_logo.jpg"/>
 
-<img src="./admin/siegenia_logo.jpg"/>
+TR: ![TR: Test and Release](https://github.com/Apollon77/ioBroker.siegenia/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/siegenia/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-Этот адаптер обеспечивает поддержку ioBroker для устройств управления климатом и воздухом Siegenia (https://www.siegenia.com).
+TR: This adapter provides ioBroker support for Siegenia Climate and Air control Devices (https://www.siegenia.com).
 
-Для адаптера требуется минимум Nodejs 8.x.
+TR: The adapter requires minimum Nodejs 8.x.
 
-## Набор функций
-Этот адаптер поддерживает все текущие устройства:
+TR: ## Featureset
+TR: All current devices are support by this adapter:
 
-* АЭРОПАК
-* АЭРОМАТ ВТ
-* ПРИВОД axxent DK / MH
-* SENSOAIR
-* AEROVITAL атмосфера
-* Семья MHS
-* АЭРОТУБА
-* Универсальный модуль
+TR: * AEROPAC
+TR: * AEROMAT VT
+TR: * DRIVE axxent DK/MH
+TR: * SENSOAIR
+TR: * AEROVITAL ambience
+TR: * MHS Family
+TR: * AEROTUBE
+TR: * Universal Module
 
-Адаптер способен автоматически обнаруживать устройства Siegenia в той же сети, что и ioBroker, и выводит их список в своем интерфейсе администратора. Вам нужно только исправить пользователя и пароль после обнаружения. Но вы также можете ввести IP-адреса и данные для входа вручную.
+TR: The adapter is capable to automatically detect the Siegenia devices in the same network as ioBroker and will list them in it's Admin interface. You only need to correct the user and password after the detection. But you can also enter IPs and login data manually.
 
-Все доступные поля данных обнаруженного устройства отображаются в объектах и предоставляют текущие данные и / или позволяют изменять данные.
+TR: All available data fields of the detected device are shown in objects and provide current data and/or allow data to be changed.
 
-Таймеры и другие более сложные данные отображаются адаптером, но их можно изменить только через приложение Siegenia.
+TR: Timers and other more complex data are shown by the adapter, but can be changed only through the Siegenia App.
 
 ## Changelog
+
+### 1.1.1 (2021-07-06)
+* (thost96/Apollon77) Optimize for js-controller 3.3
+
+### 1.1.0 (2021-01-22)
+* (Apollon77) Prevent crash case (Sentry IOBROKER-SIEGENIA-1)
+* (Apollon77) js-controller 2.0 is now required at least
 
 ### 1.0.1 (2020-12-24)
 * (Apollon77) update dependencies
@@ -52,7 +57,7 @@ hash: 4S3fJKuQab8SA1AlpY1Ei5iRwPQxcS6KkamGo62zAro=
 ## License
 MIT License
 
-Copyright (c) 2019 Apollon77
+Copyright (c) 2019-2021 Apollon77 iobroker@fischer-ka.de
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

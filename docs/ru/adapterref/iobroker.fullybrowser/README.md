@@ -2,69 +2,59 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.fullybrowser/README.md
-title: ioBroker.fullybrowser
-hash: Nn/bwU4XpkZRblqnE/mWtJmqwuB2cy2UOK5wp0oEm4I=
+title: TR: ioBroker.fullybrowser
+hash: ECD123bEy/KhBj8XVmBQn3J6yXBMvFPc/mRZSQbmi7Y=
 ---
-![логотип](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
+![TR: Logo](../../../en/adapterref/iobroker.fullybrowser/admin/fully.png)
 
-![Количество установок](http://iobroker.live/badges/fullybrowser-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.fullybrowser.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.fullybrowser.svg)
-![тесты](https://travis-ci.org/arteck/iobroker.fullybrowser.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.fullybrowser.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/fullybrowser-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.fullybrowser.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.fullybrowser.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.fullybrowser.png?downloads=true)
 
-# IoBroker.fullybrowser
+TR: # ioBroker.fullybrowser
 =================
 
-полностью браузерный адаптер для ioBroker ---------------------------------------------- --------------------------------
+TR: fullyBrowser Adapter for ioBroker ------------------------------------------------------------------------------
 
-Этот адаптер управляет вашими [Полностью киоск браузера](https://www.ozerov.de/fully-kiosk-browser) (требуется лицензия Plus). Он предоставляет вам множество возможностей для управления планшетом с помощью ioBroker, например, включение / выключение дисплея, запуск любого приложения для планшета, запуск заставки и т. Д. Кроме того, он предоставляет различную информацию в таких состояниях, как уровень заряда батареи вашего планшета и т. Д. . которые вы можете использовать, например для визуализации.
-Небольшая выдержка из опций команды:
+TR: This adapter manages your [TR: Fully Kiosk Browser](https://www.fully-kiosk.com) (a Plus License is required). It provides you with a bunch of possibilites to control your tablet through ioBroker, like turning the display on/off, launch any tablet app, launch the screensaver etc. Also, it provides various information in states, like battery level of your tablet, etc. which you can use e.g. for Visualization.
+A small excerpt just of the command options:
 
-![möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
+![TR: möglichkeiten](https://github.com/arteck/iobroker.fullyBrowser/blob/master/doku/auszug.png)
 
-<b>NodeJs &gt;&gt; 8.xx</b>
+TR: <b>NodeJs >> 8.x.x </b>
 
 ## Changelog
+
+### 2.0.9 (2021-05-30)
+* (arteck)  lastInfoUpdate is now correct
+
+### 2.0.6 (2021-03-18)
+* (arteck) timeout new defined
+
+### 2.0.4 (2021-01-20)
+* (arteck) new js-controller upd
+
+### 2.0.2 (2020-12-28)
+* (arteck) little update
+
+### 2.0.1 (2020-08-19)
+* (arteck) refactoring
+* (arteck) settings update interval switch so sec
+
+### 1.0.4 (2020-08-06)
+* (arteck) volume set
+
 ### 1.0.3 (2020-02-16)
 * (arteck) support compact mode
-
 
 ### 1.0.1 (2019-06-20)
 * (arteck) encodeURL
 
-### 1.0.0 (2019-05-22)
-* (arteck) stable
-
-### 0.0.17 (2019-05-01)
-* (arteck) add queue
-
-### 0.0.16 (2019-02-28)
-* (arteck) fix url send
-
-### 0.0.13 (2019-02-09)
-* (arteck) support for compact-mode added
-
-### 0.0.12 (2019-01-04)
-
-### 0.0.11 (2019-01-01)
-* (arteck) exception handling
-
-
-### 0.0.8 (2018-12-22)
-* (arteck) psw field crypted
-*          clear added
- 
-### 0.0.7 (2018-12-16)
-* (arteck) bug 'no config' corr
-
-### 0.0.6 (2018-12-10)
-* (arteck) first free test version
-
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Arthur Rupp <arteck@outlook.com>
+Copyright (c) 2018-2021 Arthur Rupp <arteck@outlook.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

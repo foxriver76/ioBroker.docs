@@ -2,108 +2,114 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.digitalstrom/README.md
-title: ioBroker.digitalstrom
-hash: p3HyAOTEgD43/+O9f2a5qnG8WoGMEn0a6EZf18OuRfg=
+title: TR: ioBroker.digitalstrom
+hash: cNs8XHtgs1+t802nrEwCdwbP4GpUvVOV2MllPa4n1PI=
 ---
-![商标](../../../en/adapterref/iobroker.digitalstrom/admin/digitalstrom.png)
+![TR: Logo](../../../en/adapterref/iobroker.digitalstrom/admin/digitalstrom.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.digitalstrom.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.digitalstrom.svg)
-![安装数量（最新）](http://iobroker.live/badges/digitalstrom-installed.svg)
-![安装数量（稳定）](http://iobroker.live/badges/digitalstrom-stable.svg)
-![依赖状态](https://img.shields.io/david/Apollon77/iobroker.digitalstrom.svg)
-![已知漏洞](https://snyk.io/test/github/Apollon77/ioBroker.digitalstrom/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.digitalstrom.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/Apollon77/ioBroker.digitalstrom/master.svg)
+![TR: Number of Installations](http://iobroker.live/badges/digitalstrom-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.digitalstrom.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.digitalstrom.svg)
 
-＃ioBroker.digitalstrom
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: # ioBroker.digitalstrom
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.digitalstrom/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/digitalstrom/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-##用于ioBroker的Digitalstrom适配器
-通过DSS支持Digitalstrom设备
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-##安装
-请照常通过Admin UI安装适配器。
+TR: ## Digitalstrom adapter for ioBroker
+TR: Support for Digitalstrom devices via DSS
 
-适配器正式发布后，他将进入回购协议中，只需选择即可。
+TR: ## Installation
+TR: Please install the adapter via Admin UI as usual.
 
-在测试阶段，或用于测试较新版本（请参阅相关论坛主题），您也可以使用https://github.com/ioBroker/ioBroker.digitalstrom作为URL直接从GitHub安装适配器。请为此使用“自定义安装”管理员选项。
+TR: As soon as the adapter is officially released he will be in the repo and simply selectable.
 
-##用法
-安装适配器并创建实例后，将显示管理对话框。
-首先，您需要输入您的DSS IP /主机名。然后，您可以选择是否已经在DSS Web接口中手动创建了应用令牌。
-如果您没有应用令牌，只需输入您的用户名和密码即可自动检索应用令牌。
+TR: During test phase, or for testing of newer versions (see relevant forum threads) you can also install the adapter directly from GitHub using https://github.com/ioBroker/ioBroker.digitalstrom as URL. Please use the Admin "Custom Install" option for this.
 
-除了身份验证设置（见上文）之外，您还可以根据需要编辑以下设置：
+TR: ## Usage
+TR: After installing the adapter and creating an instance the admin dialog will appear.
+First of all you need to enter your DSS IP/Hostname. Then you can choose if you already have manually created an App Token in the DSS Web-Interface or not.
+If you do not have an App-Token simply enter your Username and Password to retrieve an App Token automatically.
 
-* **数据轮询间隔**：这是从DSM设备请求“电表”数据的间隔。默认值60s。如果您不想轮询Engerymeter数据，则可以设置0。
-* **使用场景预设值**：Digitalstrom系统并不是真正设计为始终具有可用设备的实际输出值，并且大多数情况下都适用于场景。对于“ Light”和“ Shader / Blinds”，为许多可用场景定义了一些输出值。适配器知道它们，并且当激活此设置时，适配器将尝试在触发场景时查找这些值，并将这些值直接设置为状态。实际值需要延迟。设置/使用本地优先级时，此方法可能会传递错误的值！
-* **主动请求设备输出值**：适配器在开始时以及对设备有效的场景之后初始化所有设备输出值。有延迟，但实际上所有这些消息都将通过Digitalstrom总线传递。如果这对您有问题，您可以尝试停用此功能。
+TR: Additionally to the Authentication settings (see above) you can edit the following settings to your needs:
 
-提供应用令牌并保存设置后，适配器将自动重启。
+TR: * **Data Polling Interval**: This is the interval the "Energy Meter" data are requested from your DSM devices. Default 60s. You can set 0 if you do not want to poll the Engerymeter data.
+TR: * **Use Scene Preset Values**: The Digitalstrom system is not really designed to have the real output values of the devices available all the time and works most with Scenes. For Light and Shader/Blinds some output values are defined for many of the available Scenes. The adapter knows them and when this setting is active the adapter will try to lookup these values when a scene gets triggered and set those values to the states directly. The real values are requested with a delay. This method might deliver wrong values when local priorities are set/used!
+TR: * **Request Device Output values actively**: The adapter initializes all device output values on start and also after scenes that are effective for a device. There are delay but in fact all those messages will go over the Digitalstrom bus. If this is problematic for you you can try to deactivate this feature.
 
-当数据正确时，适配器将读取单元和设备结构，并将其创建为ioBroker对象。这可能需要一些时间（取决于设备和楼层/区域/组的数量以及系统的性能几秒钟）。请耐心等待。我真的是那样说的...这里很容易达到数千个物体！请给适配器时间！
+TR: After providing an App token and saving the settings the adapter will restart automatically.
 
-此后，适配器将订阅多个DSS事件，以获取有关系统中操作的通知。
+TR: When data are correct the adapter read out the apartment and devices structure and create them as ioBroker Objects. This can take some time (depending on the number of devices and floors/zones/groups and the performance of your system several seconds). Please be patient. And I really mean it that way ... Several thousand objects are easy to reach here! Give the adapter time please!
 
-适配器状态指示灯将变为绿色，并且您将在信息日志中看到“已订阅状态...”。此后，一切都准备就绪，您可以例如：
+TR: After this the adapter subscribes to several DSS Events to get notified about actions in the system.
 
-*设置/撤消公寓，区域，团体或设备的场景
-*读取状态和传感器值；对于区域，也可以推送传感器值
-*请参阅二进制输入，传感器，按钮和输出的值
+TR: The adapter status light will get green and you will see "Subscribed to states ..." as info log. After this everything is ready and you can e.g.:
 
-##状态和对象结构
-适配器提供两种数据结构。带有楼层，区域（房间）和组的公寓结构，以及电路/ dSM和连接设备的结构及其详细数据。
+TR: * set/undo scenes for apartment, zones, groups or devices
+TR: * read state and sensor values; for zones it is also possible to push sensor values
+TR: * see the values for Binary inputs, Sensors, Buttons and Outputs
 
-在结构中，包括几种数据“类型”：
+TR: ## State and Object structure
+TR: The adapter provides two data structures. The Apartment structure with Floors, Zones (Rooms) and Groups and additionally the structure of Circuits/dSMs and the connected devices with their detail data.
 
-*场景：场景被实现为开关。将值tro设置为“ true”将为此场景发送一个“ callScene”命令。值为“ false”将为此场景发送一个“ undoScene”命令-由DSS服务器决定“ undo”是否为有效命令！当从DSS服务器触发callScene或undoScene作为事件时，相关场景将设置为“ true”或“ false”，且ack = true
-*状态：显示系统状态和用户通过插件定义的状态，它们是只读的
-*传感器值在由事件触发时会更新，并且也可以部分更改（下注）-更改将向服务器发送“ pushSensorValue”，并且该值取决于服务器！这主要与温度或湿度值有关
+TR: In the structures several "types" of data are included:
+
+TR: * Scenes: Scenes are implemented as switches. Setting the value tro "true" will send a "callScene" command for this scene. A value of "false" will send an "undoScene" command for this scene - it is up the the DSS server to decide if "undo" is a valid command! When a callScene or undoScene is triggered as event from the DSS server the relevant scene is set to "true" or "false" with ack=true
+TR: * States: States from the system and user defined states via the addon are shown and are read only
+TR: * Sensor values are updated when triggered by an event and can partially also bet changed - changes are send a "pushSensorValue" to the server and it is up to the server if the value is accepted! This is mainly relevant for Temperature or Humidity values
 
 *
 
-###公寓对象和状态
-![公寓物件](../../../en/adapterref/iobroker.digitalstrom/img/dss-apartment.png)
+TR: ### Apartment object and states
+![TR: Apartment Objects](../../../en/adapterref/iobroker.digitalstrom/img/dss-apartment.png)
 
-对于“公寓”，将创建一个带有“ floor”。“ zone”的结构，其中包含以下子结构：
+TR: For the Apartment a structure with "floor"."zone" is created with the following substructures inside this:
 
-*为每个设备组创建一个子文件夹，其中包括可用的组场景
-*该区域的场景
-*此区域的状态
-*该区域的传感器值
+TR: * per device group a sub folder is created including the available group scenes
+TR: * scenes for this zone
+TR: * states for this zone
+TR: * sensor values for this zone
 
-在“公寓”级别，所有设备组都可用于其场景。
+TR: On Apartment level all device groups are available with it's scenes.
 
-在公寓级别，还包括传感器（以及室外值），状态和用户状态。
+TR: On Apartment level also Sensors (also outdoor values), States and user states are included.
 
-###设备对象和状态
-![设备对象](../../../en/adapterref/iobroker.digitalstrom/img/dss-devices.png)
+TR: ### Devices objects and states
+![TR: Devices Objects](../../../en/adapterref/iobroker.digitalstrom/img/dss-devices.png)
 
-设备由“ circuit / dSM”。“ deviceID”构成，内部的子结构包括：
+TR: The devices are structured with "circuit/dSM"."deviceID" and the subsctructure inside includes:
 
-*设备场景，仅会为此设备触发
-*设备传感器，从系统报告时。因此值可能为空
-*输出值（例如，灯光的状态/亮度和阴影/阴影的位置/角度）位于设备正下方。目前只有灯光和阴影/盲区具有定义的功能。
-*按钮和二进制输入也将由状态表示，并且是只读的
+TR: * Device Scenes, will be triggered for this device only
+TR: * Device Sensors, when reported from the system. So values might be empty
+TR: * Output values (e.g. state/brightness for Lights and position/angle for Shades/Blinds) are located directly below the device. Only Lights and Shades/Blinds will have a defined functionality for now.
+TR: * Buttons and Binary Inputs will also be represented by states and are read only
 
-##已知问题/系统设计效果
-* DSS系统主要使用场景而不是通过真实的设备值工作，并且获取真实值的速度非常慢，因为需要通过总线来获取。
-*当系统未报告值时，它们可能为空
-*二进制输入实现为“盲”，因为我没有这样的设备。因此，我很高兴获得一些使用二进制输入设备的日志/报告：-)
-*仅对Ligh（黄色）和Shade / Blind（灰色）设备实现有意义的输出值读取和写入。
-*到目前为止，我没有机会检查系统在vDC上的行为。所以我需要在这里添加日志和详细信息
-*通风和温度管理/设备也未完全实施...在这里有意义吗？
+TR: ## Known Issues / System design effects
+TR: * The DSS system mainly works using scenes and not via real device values and also getting the real values is very slow because needs to be fetched via the bus.
+TR: * Values might be empty when they were not reported by the system
+TR: * Binary inputs were implemented "Blind" right know because I do not have such a devices. So I'm happy to get some logs/reports with binary input devices :-)
+TR: * Meaningful output value reading and writing is only implemented for Ligh (Yellow) and Shade/Blind (Gray) devices.
+TR: * I had no chance so far checking how the system behaves with vDCs. So I need logs and details here to add it
+TR: * Ventilation and Temperature management/devices are also not fully implemented ... what makes sense here?
 
-##如何报告问题和功能请求
-请为此使用GitHub问题。
+TR: ## How to report issues and feature requests
+TR: Please use GitHub issues for this.
 
-最好是将适配器设置为“调试日志”模式（“实例”->“专家模式”->“列日志级别”）。然后，请从磁盘中获取日志文件（ioBroker安装目录中的子目录“ log”，而不是Admin，因为Admin会打断行）。如果您不喜欢在GitHub问题中提供它，也可以通过电子邮件（iobroker@fischer-ka.de）将其发送给我。请添加对相关GitHub问题的引用，并描述我在日志中什么时候看到的内容。
+TR: Best is to set the adapter to Debug log mode (Instances -> Expert mode -> Column Log level). Then please get the logfile from disk (subdirectory "log" in ioBroker installation directory and not from Admin because Admin cuts the lines). If you do not like providing it in GitHub issue you can also send it to me via email (iobroker@fischer-ka.de). Please add a reference to the relevant GitHub issue AND also describe what I see in the log at which time.
 
 ## Changelog
 
 ### __WORK IN PROGRESS__
+* (Apollon77) Optimize for js-controller 3.3
+* (Apollon77) Optimize get/set Value handling for new devices
+
+### 2.2.0 (2021-04-16)
+* (Apollon77) Add support for integrated (IC) devices (SW, GE, GR)
+
+### 2.1.0 (2021-04-13)
 * (Apollon77) prevent crashes (Sentry IOBROKER-DIGITALSTROM-5)
+* (Apollon77) Fix EnergyMeterValue
+* (Apollon77) further optimizations and adding new outout channel types
 
 ### 2.0.5 (2020-03-14)
 * (Apollon77) BREAKING: binaryInput are now numbers intead of booleans because it can have values other then true/false
@@ -200,7 +206,7 @@ hash: p3HyAOTEgD43/+O9f2a5qnG8WoGMEn0a6EZf18OuRfg=
 ## License
 MIT License
 
-Copyright (c) 2020 Apollon77 <iobroker@fischer-ka.de>
+Copyright (c) 2020-2021 Apollon77 <iobroker@fischer-ka.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
