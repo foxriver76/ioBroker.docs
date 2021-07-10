@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sma-em/README.md
 title: TR: ioBroker.sma-em
-hash: Vn5OSe2MGQA2G6eKIMgiKGqDXBCuHYPLzzaW6LRnY4w=
+hash: sHkyL4gjIdsp0it4l9mTtPAqsVo9KKLkpK19bf/DJ+Y=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.sma-em/admin/sma-em.png)
 
@@ -15,8 +15,8 @@ hash: Vn5OSe2MGQA2G6eKIMgiKGqDXBCuHYPLzzaW6LRnY4w=
 
 TR: # ioBroker.sma-em
 TR: ### Info
-TR: This adapter reads information from SMA Energy Meter and Sunny Home Manager 2.
-It supports the SMA-EMETER-protocol-2.
+TR: This adapter reads information from SMA Energy Meter (EMETER-20) and Sunny Home Manager 2 (HM-20).
+It supports the SMA-EMETER-protocol-2. Thus also compatible energy meters from other manufacturers will work.
 
 TR: SMA Energy Meter and Sunny Home Manager 2 multicast datagrams with their energy measurement data to the network every second.
 The SMA Energy Meter Adapter receives these multicast messages and stores them as iobroker states.

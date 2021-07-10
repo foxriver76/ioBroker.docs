@@ -2,131 +2,163 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.tino/README.md
-title: ioBroker.tino
-hash: 5EyTLSIHjhIfH6MS/cb+yVrDxgGfH0Kijr4bXEZyRNk=
+title: TR: ioBroker.tino
+hash: z+wiZ/y+sdVnU+uJ+GMOYAsNHn8nfPUr4zCLYb0CAA4=
 ---
-![Logo](../../../en/adapterref/iobroker.tino/admin/tino.png)
+![TR: Logo](../../../en/adapterref/iobroker.tino/admin/tino.png)
 
-![NPM-Version](http://img.shields.io/npm/v/iobroker.tino.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.tino.svg)
-![Abhängigkeitsstatus](https://img.shields.io/david/bowao/iobroker.tino.svg)
-![Bekannte Sicherheitslücken](https://snyk.io/test/github/bowao/ioBroker.tino/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.tino.png?downloads=true)
-![Travis-CI](http://img.shields.io/travis/bowao/ioBroker.tino/master.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.tino.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.tino.svg)
+![TR: Dependency Status](https://img.shields.io/david/bowao/iobroker.tino.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/bowao/ioBroker.tino/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.tino.png?downloads=true)
+![TR: Travis-CI](https://img.shields.io/travis/com/bowao/ioBroker.tino/master)
 
-# IoBroker.tino
-## TiNo Adapter für ioBroker
-(Deutsche Version siehe unten)
+TR: # ioBroker.tino
+TR: ## TiNo adapter for ioBroker
+TR: (German version see below)
 
-Liest drahtlose Sensordaten, die über TiNo Protocol Version 1.01 und TiNo Protocol Version 2.0 empfangen wurden.
-Die entsprechende Protokollversion wird anhand der empfangenen Daten automatisch erkannt.
+TR: Read wireless sensordata received via TiNo Protocol Version 1.01 and TiNo Protocol Version 2.2.
+The corresponding protocol version is automatically detected on the basis of the received data.
 
-Der drahtlose Transceiver und Empfänger TiNo wurden von nurazur entwickelt.
+TR: The wireless transceiver and receiver TiNo were developed by nurazur.
 
-Projektseite: https://nurazur.wordpress.com/
+TR: Project-page: https://nurazur.wordpress.com/
 
-Github: https://github.com/nurazur/TiNo
+TR: Github: https://github.com/nurazur/TiNo
 
-"** TI ** ny ** NO ** de": Batteriebetriebener drahtloser Sensor oder drahtloser Akteur. Ziel des Projekts ist die Entwicklung kleiner, kostengünstiger batteriebetriebener Funksensoren. Die Sensoren kommunizieren mit Gateways wie ein Himbeer-Pi. Die Ziele sind:
+TR: "**TI**ny **NO**de": battery powered wireless sensor or wireless actor. Target of the project is the development of small size , cost effective battery powered wireless sensors. The sensors communicate with gateways, like a raspberry pi. The targets are:
 
-* günstig (Stückliste unter 5 Euro)
-* sehr klein (Streichholzschachtel)
-* Ultra niedriger Schlafstrom
-* Lange Akkulaufzeit: 5 Jahre und mehr bei einer CR2032-Zelle
-* große Reichweite (was auch immer das bedeutet :-), aber es ist wirklich lang)
-* einfach aufzubauen
-* Kommunikationssicherheit
-* Plug & Play-Firmware
+TR: * low cost (BOM under 5 Euro)
+TR: * very small size (matchbox)
+TR: * ultra low sleep current
+TR: * long battery life time: 5 years and more on a CR2032 cell
+TR: * long range (what ever this means :-), but its realy long)
+TR: * simple to build up
+TR: * communication security
+TR: * Plug&Play Firmware
 
-Sensoren können fast alle sein, wie Temperatur, relative Luftfeuchtigkeit, Luftdruck, Höhenmesser, Lichtintensität, UV-Index, Bewegungsmelder, Reed-Schalter usw.
+TR: Sensors can be almost any, like temperature, relative humidity, air pressure, altitude meter, light intensity, UV Index, movement detectors, Reed switches, etc.
 
-In der Adapterkonfiguration kann die serielle Schnittstelle und die zugehörige Baudrate eingestellt werden.
-Wenn der Lernmodus aktiviert wurde, werden die Sensoren automatisch mit ihrer Node-ID und allen erkannten Datenpunkten nach dem ersten Nachrichtenempfang erstellt.
-Der Lernmodus endet automatisch nach 10 Minuten und kann unter "info" über den Datenpunkt "learningMode" für weitere 10 Minuten wieder aktiviert werden.
-Die zugehörigen Offset-Datenpunkte werden unter "config" angelegt, damit die Sensorwerte bei Bedarf korrigiert werden können.
-Die berechneten Datenpunkte Feuchte absolut und Taupunkt werden unter "berechnet" erstellt, jedoch nur, wenn der Sensor die Werte Temperatur und relative Feuchte liefert.
+TR: In the adapter configuration, the serial interface and the associated baud rate can be set.
+When the learning mode has been activated, the sensors are automatically created with their node-id and all recognized data points after the first message reception.
+The learning mode ends automatically after 10 minutes and can be reactivated for another 10 minutes under "info" via datapoint "learningMode".
+The associated offset data points are created under "config", so that the sensor values can be corrected if necessary.
+The calculated data points humidity absolute and dew point are created under "calculated", but only if the sensor supplies the values temperature and relative humidity.
 
-Für das Empfängerprotokoll Version 1.01 würden folgende Datenpunkte angelegt:
+TR: The following data points would be created for receiver protocol Version 1.01:
 
-* NodeId
-* RSSI
-* Batteriespannung
-* Nachrichtenzähler
-* Temperatur
-* Feuchtigkeit
-* Heartbeat (nur in Protokollversion 1.01)
-* Unterbrechen Sie 1, 2 und 3
-* Frequenzfehleranzeige (nur in Protokollversion 1.01)
-* RFM69-Temperatur (nur in Protokollversion 1.01)
-* Bitfehler
+TR: * NodeId
+TR: * RSSI
+TR: * Battery voltage
+TR: * Message Counter
+TR: * Temperature
+TR: * Humidity
+TR: * Heartbeat (Only in Protocol Version 1.01)
+TR: * Interupt 1, 2 and 3
+TR: * Frequency error indicator (Only in Protocol Version 1.01)
+TR: * RFM69 Temperature (Only in Protocol Version 1.01)
+TR: * Bit errors
 
-Zusätzlich werden folgende Datenpunkte für das Empfängerprotokoll Version 2.0 angelegt (falls vorhanden).
+TR: In addition, the following data points are created for the receiver protocol version 2.2 (if available).
 
-* Unterbrechen Sie 4 bis 8
-* synchronisiert
-* Anzeige der Verbindungsqualität
-* Frequenzversatz
-* Abstand (nur bei installiertem Abstandssensor)
-* Höhe (nur bei installiertem Höhensensor)
-* Luftdruck (nur bei installiertem Luftdrucksensor)
-* Kontakt (Nur mit Reedkontakt installiert)
+TR: * Interrupt 4 to 8
+TR: * synchronized
+TR: * Link quality Indicator
+TR: * Frequency offset
+TR: * Distance (Only with distance sensor installed)
+TR: * Height (Only with height sensor installed)
+TR: * Air pressure (Only with air pressure sensor installed)
+TR: * Contact (Only with reed contact installed)
+TR: * Temperature 1
+TR: * Temperature 2
 
 -------------------------------------------------------------------------------------------
 
-## TiNo Adapter für ioBroker
-Einlesen der TiNo Version 1.01 und TiNo Version 2.0 empfangenen Funksensordaten.
-Die entsprechende Protokoll-Version wird automatisch anhand der empfangenen Daten erkannt.
+TR: ## TiNo adapter für ioBroker
+TR: Einlesen der vom TiNo Version 1.01 und TiNo Version 2.2 empfangenen Funksensordaten.
+Die entsprechende Protokoll-Version wird automatisch anhand der empfangen Daten erkannt.
 
-Der Funksender und -empfänger TiNo wurden von nurazur entwickelt.
+TR: Der Funksender und -empfänger TiNo wurden von nurazur entwickelt.
 
-Projekt-Seite: https://nurazur.wordpress.com/
+TR: Projekt-Seite: https://nurazur.wordpress.com/
 
-Github: https://github.com/nurazur/TiNo
+TR: Github: https://github.com/nurazur/TiNo
 
-"** TI ** ny ** NO ** de": Batteriebetriebener Funksensor oder Funk-Aktor. Target this projects is the development of the funk sensors mit dem Raspberry Pi kommunizieren. Die Entwicklung hat zum Ziel:
+TR: "**TI**ny **NO**de" : Batteriebetriebener Funksensor oder Funk-Aktor. Ziel dieses Projekts ist die Entwicklung schnurloser Funk Sensoren, die über Batterien versorgt werden und z.B. mit dem Raspberry Pi kommunizieren. Die Entwicklung hat zum Ziel:
 
-* minimale Kosten (Stückkosten unter 5 EUR)
-* minimale Grösse (Streichholzschachtel)
-* minimaler Stromverbrauch
-* maximale Batterielebensdauer (5 Jahre oder mehr)
-* maximale Reichweite
-* maximal einfach nachzubauen
-* Plug & Play-Firmware
+TR: * minimale Kosten (Stückkosten unter 5 EUR)
+TR: * minimale Grösse (Streichholzschachtel)
+TR: * minimaler Stromverbrauch
+TR: * maximale Batterielebensdauer (5 Jahre oder mehr)
+TR: * maximale Reichweite
+TR: * maximal einfach nachzubauen
+TR: * Plug&Play Firmware
 
-Als Sensor kann man so ziemlich alles verwenden, ob Temperatur, Luftfeuchtigkeit, Luftdruck, Höhenmesser, Lichtintensität, UV-Index, Anwesenheitssensoren, Magnetschalter, Erschütterungs-Sensoren, Feuchtigkeitsmesser usw auch im Prinzip alle Arten von Sensoren.
+TR: Als Sensor kann man so ziemlich alles verwenden, ob Temperatur, Luftfeuchtigkeit, Luftdruck, Höhenmesser, Lichtintensität, UV Index, Anwesenheitssensoren, Magnetschalter, Erschütterungs-Sensoren, Feuchtigkeitsmesser usw also im Prinzip alle Arten von Sensoren.
 
-In der Adapterkonfiguration können Sie die serielle Schnittstelle und die zugehörige Baudrate einstellen.
-Wenn der Anlermodus aktiviert wird, werden die Sensoren nach dem ersten Nachrichten-Empfang automatisch mit ihrer Node-Id und allen erkannten Datenpunkten angelegt.
+TR: In der Adapter Konfiguration lässt sich die Serielle Schnittstelle und die zugehörige Baudrate einstellen.
+Wenn der Anlermodus aktiviert ist, werden die Sensoren nach dem ersten Nachrichten-Empfang automatisch mit ihrer Node-Id und allen erkannten Datenpunkten angelegt.
 Der Anlernmodus wird nach 10min. automatisch beendet und kann unter "info" über den Datenpunkt "learningMode" für weitere 10min. erneut aktiviert werden.
-Unter "config" werden die zugehörigen Offset-Datenpunkte erstellt, damit die Sensorwerte bei Bedarf korrigiert werden können.
-Unter "berechnet" werden die errechneten Datenpunkte absolut und taupunktmäßig angelegt, jedoch nur, wenn der Sensor die Werte Temperatur und relative Feuchte liefert.
+Unter "config" werden die zugehörigen offset Datenpunkte erstellt, damit die Sensorwerte bei Bedarf korrigiert werden können.
+Unter "calculated" werden die erechneten Datenpunkte Feuchte absolut und Taupunkt angelegt, jedoch nur wenn der Sensor die Werte Temperatur und relative Feuchte liefert.
 
-Folgende Datenpunkte werden für das Empfänger-Protokoll Version 1.01 angelegt:
+TR: Folgende Datenpunkte werden für das Empfänger-Protokoll Version 1.01 angelegt:
 
-* NodeId
-* Signalstärke (RSSI)
-* Batteriespannung
-* Nachrichtenzähler
-* Temperatur
-* Feuchte
-* Heartbeat (Nur in Protokoll Version 1.01)
-* Unterbricht 1 bis 3
-* Frequenzfehler Indikator (Nur in Protokoll Version 1.01)
-* RFM69 Temperatur (Nur in Protokoll Version 1.01)
-* Bitfehler
+TR: * NodeId
+TR: * Signalstärke (RSSI)
+TR: * Batteriespannung
+TR: * Nachrichtenzähler
+TR: * Temperatur
+TR: * Feuchte
+TR: * Heartbeat (Nur in Protokoll Version 1.01)
+TR: * Interrupts 1 bis 3
+TR: * Frequenzfehler Indikator (Nur in Protokoll Version 1.01)
+TR: * RFM69 Temperatur (Nur in Protokoll Version 1.01)
+TR: * Bitfehler
 
-Zusätzlich werden für das Empfänger-Protokoll Version 2.0 folgende Datenpunkte angelegt (wenn vorhanden).
+TR: zusätzlich werden für das Empfänger-Protokoll Version 2.2 folgende Datenpunkte angelegt (wenn vorhanden).
 
-* Unterbrechen Sie 4 bis 8
-* Synchronisation
-* Kanalgüte
-* Frequenzversatz
-* Distance (Nur bei installiertem Entfernungssensor)
-* Höhe (Nur bei installiertem Höhensensor)
-* Luftdruck (Nur bei installiertem Luftdrucksensor)
-* Reed-Kontakt (Nur bei installiertem Reed-Kontakt)
+TR: * Interrupt 4 bis 8
+TR: * Synchronisation
+TR: * Kanalgüte
+TR: * Frequenzversatz
+TR: * Entfernung (Nur bei installiertem Entfernungssensor)
+TR: * Höhe (Nur bei installiertem Höhensensor)
+TR: * Luftdruck (Nur bei installiertem Luftdrucksensor)
+TR: * Reed-Kontakt (Nur bei installiertem Reed-Kontakt)
+TR: * Temperatur 1
+TR: * Temperatur 2
 
 ## Changelog
+### 1.1.0
+- Add TiNo Protocol V2.2 support
+- (Add Datapoints temperature 1 and Temperatur 2)
+- (max value of data point temperature increased to 600)
+- Add connectionType and dataSource in io-package.json
+- Add testing for Node.js 16
+
+### 1.0.3
+- Displays the interrupt value only for short time
+
+### 1.0.2
+- (AndrObe) Fix for negative temperature values
+- (bowao) Update devDependencies
+
+### 1.0.1
+- fix bug in interrupt detection for protocol V2
+
+### 1.0.0
+- Update dependencies
+- BREAKING CHANGE: Drop node 8 support, requires node 10 or above
+- BREAKING CHANGE: js-controller v2.4.0 or above required
+
+### 0.1.3
+- Update travis.yml, License, Readme
+
+### 0.1.2
+- (bowao) learningMode set to true if not defined
+
 ### 0.1.1
 - (bowao) New learning mode with 10min. auto-timeout
 
@@ -155,7 +187,7 @@ Zusätzlich werden für das Empfänger-Protokoll Version 2.0 folgende Datenpunkt
 ## License
 MIT License
 
-Copyright (c) 2019 bowao
+Copyright (c) 2021 bowao <cryolab@web.de>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -3,7 +3,7 @@ translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.meteoalarm/README.md
 title: TR: ioBroker.meteoalarm
-hash: pR3ExXYvFbo7WZLJsJaV+Mu9UHOusC1bRA/UV484FtE=
+hash: /0XsFtPpaSdNPnI6JYhKKO07s7LilG2Z501Y/fGyVNo=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.meteoalarm/admin/meteoalarm.png)
 
@@ -103,7 +103,12 @@ TR: * Switzerland (geocode file from meteoalarm.org is probably incorrect)
 TR: * Portugal (geocode file from meteoalarm.org is probably incorrect)
 TR: * Bulgaria (geocode file from meteoalarm.org is probably incorrect)
 
-TR: ## 2.0.0 (2021-06-20)
+TR: ## 2.0.1 (2021-07-08)
+TR: * (jack-blackson) Changed Alarm Folder Name to Alarm_X
+TR: * (jack-blackson) Define in setup which Alarms you want to see
+TR: * (jack-blackson) Sort Alarms by effective date
+
+TR: ## 2.0.0 (2021-07-06)
 TR: * (jack-blackson) Switch to Meteoalarm.org, complete rebuild
 
 TR: ## 1.2.1 (2021-06-05)
