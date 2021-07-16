@@ -2,27 +2,31 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.ping/README.md
-title: Адаптер PING
-hash: GdWVwWTl7oGrOnfAZSsq98vq6ttnGHj4BDlk0yANw4U=
+title: TR: PING Adapter
+hash: +5lYN9qiDWSBQAH4sB07H5AywY1QfrPZQ7Td3Xynt1I=
 ---
-![Логотип](../../../en/adapterref/iobroker.ping/admin/ping.png)
+![TR: Logo](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
-![Количество установок](http://iobroker.live/badges/ping-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.ping.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.ping.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.ping.svg?branch=master)
-![НПМ](https://nodei.co/npm/iobroker.ping.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/ping-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.ping.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.ping.svg)
 
-# Адаптер PING
-## Пингует настроенные IP-адреса.
-Пингует указанные IP-адреса через определенный интервал и отслеживает результаты.
+TR: # PING Adapter
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: ## Pings configured IP addresses.
+TR: Pings specified IP addresses in defined interval and monitors the results.
 
-## Известные вопросы
-* если невозможно проверить связь с вашим клиентом linux, проверьте, правильно ли установлен iputils-ping на клиенте
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
+TR: ## Known Issues
+TR: * if its not possible to ping your linux client, check if `iputils-ping` is correct installed on client
 
 ## Changelog
+
+### 1.5.0 (2021-07-14)
+* js-controller 2.0 required at least
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.4.12 (2020-09-18)
 * (Apollon77) Prevent crash case when no devices are defined (Sentry IOBROKER-PING-R)

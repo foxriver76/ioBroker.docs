@@ -2,29 +2,45 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.maxcube/README.md
-title: ioBroker.maxcube
-hash: QHOIZ10wpa1+8vkJ/NuVAfODNeN1o6wQrzoHrHMwPkE=
+title: TR: ioBroker.maxcube
+hash: MpkrEy9ZuJa1izqwLyLwRZ+vzSRMcw2ofpiX+aml4wU=
 ---
-![Logo](../../../en/adapterref/iobroker.maxcube/admin/maxcube.png)
+![TR: Logo](../../../en/adapterref/iobroker.maxcube/admin/maxcube.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/maxcube-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.maxcube.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.maxcube.svg)
-![Tests](https://travis-ci.org/ioBroker/ioBroker.maxcube.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.maxcube.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/maxcube-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.maxcube.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.maxcube.svg)
 
-# IoBroker.maxcube ===================================
-ioBroker-Adapter zur Steuerung von Max! via Cube
+TR: # ioBroker.maxcube
+==================================
 
-## Unterstützte Geräte
-- Thermostat
-- Tür- / Fenstersensor
-- Druckknopf (nur Batteriestatus)
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.maxcube/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/maxcube/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Verwendungszweck
-Vor dem Einsatz müssen Sie zuerst alle Geräte an MAX anschließen! Würfel über MAX! Firmware.
+TR: ioBroker adapter to control Max! via Cube
+
+TR: ## Supported devices
+TR: - Thermostat
+TR: - Door/window sensor
+TR: - Push button (only battery status)
+
+TR: ## Usage
+TR: Before using you must first connect all devices to MAX! Cube via MAX! Firmware.
 
 ## Changelog
+
+### 1.0.4 (2021-07-15)
+* (thost96/Apollon77) optimize for js-controller 3.3
+
+### 1.0.3 (2021-04-10)
+* (thost96) fixed state has no existing object for info.serial_number
+
+### 1.0.3 (2021-04-11)
+* (thost96) Prevent js-controller 3.2 warnings
+
+### 1.0.2 (2020-07-28)
+* (Apollon77) Update dependencies
+* (Apollon77) make compatible with js-controller 3
+
 ### 1.0.1 (2018-07-06)
 * (stabilostick) initialization of working state
 * (stabilostick) setpoint rounding to 0.5
@@ -46,4 +62,4 @@ Vor dem Einsatz müssen Sie zuerst alle Geräte an MAX anschließen! Würfel üb
 
 ## License
 
-MIT Copyright (c) 2017-2018 bluefox
+MIT Copyright (c) 2017-2021 bluefox

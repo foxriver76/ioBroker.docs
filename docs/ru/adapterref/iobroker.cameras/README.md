@@ -2,24 +2,24 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.cameras/README.md
-title: ioBroker.cameras
-hash: S2DXJveAgZbhf55Ekua2qiIe7Z08WoOTSOJhirISeaA=
+title: TR: ioBroker.cameras
+hash: md4NOTpy9bBQKDCixUgrVhRjR4M6ZCwAR29la883rHo=
 ---
-![логотип](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
+![TR: Logo](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
-![Версия NPM](http://img.shields.io/npm/v/iobroker.cameras.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.cameras.svg)
-![Статус зависимости](https://img.shields.io/david/ioBroker/iobroker.cameras.svg)
-![Известные уязвимости](https://snyk.io/test/github/ioBroker/ioBroker.cameras/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.cameras.png?downloads=true)
-![Трэвис-CI](http://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.cameras.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.cameras.svg)
+![TR: Dependency Status](https://img.shields.io/david/ioBroker/iobroker.cameras.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.cameras/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.cameras.png?downloads=true)
+![TR: Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)
 
-# IoBroker.cameras
-## Адаптер IP-камеры для ioBroker
-Вы можете интегрировать свои веб- / IP-камеры в визуализацию и другие визуализации.
-Если вы настроите камеру с именем `cam1`, она будет доступна на веб-сервере в разделе `http(s)://iobroker-IP:8082/cameras.0/cam1`.
+TR: # ioBroker.cameras
+TR: ## IP-Cameras adapter for ioBroker
+TR: You can integrate you web/ip cameras into vis and other visualisations.
+If you configure a camera with name `cam1` it will be available on web server under `http(s)://iobroker-IP:8082/cameras.0/cam1`.
 
-Кроме того, изображение может быть запрошено через сообщение:
+TR: Additionally, you the image could be requested via message:
 
 ```
 sendTo('cameras.0', 'image', {
@@ -33,19 +33,22 @@ sendTo('cameras.0', 'image', {
 });
 ```
 
-Результат всегда в формате `jpg`.
+TR: The result is always in `jpg` format.
 
-Поддерживаемые камеры:
+TR: Supported cameras:
 
-### URL-изображение Это обычный URL-запрос, все параметры которого указаны в URL. Как `http://mycam/snapshot.jpg`
-### URL изображения с базовой аутентификацией
-Это URL-запрос для изображения, где все параметры указаны в URL-адресе, но вы можете предоставить учетные данные для базовой аутентификации. Как `http://mycam/snapshot.jpg`
+TR: ### URL image This is normal URL request, where all parameters are in URL. Like `http://mycam/snapshot.jpg`
+TR: ### URL image with basic authentication
+TR: This is URL request for image, where all parameters are in URL, but you can provide the credentials for basic authentication. Like `http://mycam/snapshot.jpg`
 
-<! - Заполнитель для следующей версии (в начале строки):
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __РАБОТА В ПРОЦЕССЕ__ ->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 0.1.4 (2021-07-13)
+* (bluefox) Add role for states
+
 ### 0.1.3 (2020-08-08)
 * (Hirsch-DE) Parameters were applied
 
@@ -61,7 +64,7 @@ sendTo('cameras.0', 'image', {
 ## License
 MIT License
 
-Copyright (c) 2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

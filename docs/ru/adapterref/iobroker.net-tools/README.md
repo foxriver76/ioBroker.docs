@@ -2,58 +2,67 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.net-tools/README.md
-title: Сетевые инструменты
-hash: E5GWcV7mbsnibvXXMxSgaDtZNq6oW3S9WM/TvOcvBxU=
+title: TR: Net Tools
+hash: bxjSmJf72AXeKIg4SIx7hCk4hhVjPTSRo5U6FBK2BLE=
 ---
-![Логотип](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
+![TR: Logo](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
-![Количество установок](http://iobroker.live/badges/net-tools-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.net-tools.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.net-tools.svg)
-![Тесты](https://travis-ci.org/jey-cee/ioBroker.net-tools.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.net-tools.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/net-tools-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.net-tools.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.net-tools.svg)
+![TR: Tests](https://travis-ci.org/jey-cee/ioBroker.net-tools.svg?branch=master)
+![TR: NPM](https://nodei.co/npm/iobroker.net-tools.png?downloads=true)
 
-# Сетевые инструменты
-| [Спонсоры](https://github.com/iobroker-community-adapters/ioBroker.net-tools/blob/master/SPONSORS.md) | |
+TR: # Net Tools
+| [TR: Sponsors](https://github.com/iobroker-community-adapters/ioBroker.net-tools/blob/master/SPONSORS.md) | |
 |---|---|
-| [![Пожертвовать] (https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
-| [! [Пожертвовать] (https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)] (https://www.paypal.com/cgi-bin/ webscr? cmd = _s-xclick &amp; hosted_button_id = 95YZN2LR59Q64 &amp; source = url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
+| TR: | [![TR: Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
+| TR: | [![Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
 
-### Обнаружение устройств в сети
-Установите для объекта обнаружения значение true, чтобы обнаруживать устройства в вашей сети, этот процесс занимает некоторое время.
-Эта функция предоставляется адаптером обнаружения, что означает, что обнаружение будет установлено, если оно не установлено, и его необходимо запустить.
+TR: ### Discover devices on the network
+TR: Set discover object to true to discover devices on your network, this process takes while.
+This feature is provided by discovery adapter, which means discovery will be installed if is not and it has to run.
 
-Примечание: эта функция ограничена подсетью хоста ioBroker.
+TR: Remark: This feature is limited to the subnet of the ioBroker host.
 
-### Pings настроили IP-адреса
-Пингует указанные IP-адреса через определенный интервал и отслеживает результаты. (жив, об / с, время)
+TR: ### Pings configured IP addresses
+TR: Pings specified IP addresses in defined interval and monitors the results. (alive, rps, time)
 
-### Wake On LAN
-Установите для объекта wol значение true, и на ваше устройство будут отправлены 3 пакета WOL с периодом времени 750 мсек.
+TR: ### Wake-on-LAN
+TR: Set the wol object to true and 3 WOL packages are sent, with a pause of 750ms, to your device.
 
-### Сканирование портов
-Установите для сканирования значение true, при этом будут сканироваться все открытые порты в диапазоне 0-65535. Этот процесс требует времени.
-Результат будет записан в порты объекта.
-
----
-
-## Для разработчиков
-#### Получить Mac для определенного устройства
-`sendToAsync('net-tools.X, 'getMac', 'IP ADDRESS')`
-
-Примечание: эта функция ограничена подсетью хоста ioBroker.
-
-#### Пинг определенного IP-адреса
-`sendToAsync('net-tools.X, 'ping', 'IP ADDRESS')`
-
-#### Wake On LAN
-`sendToAsync('net-tools.x', 'wake', 'MAC ADDRESS')`
+TR: ### Port scan
+TR: Set scan to true, this will scan for all open ports in a range of 0-65535. This process takes a while.
+The result will be written to object ports.
 
 ---
 
-** Этот адаптер использует библиотеки Sentry для автоматического сообщения разработчикам об исключениях и ошибках кода. ** Дополнительные сведения и информацию о том, как отключить отчет об ошибках, см. В [Документация по Sentry-Plugin](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Сторожевые отчеты используются начиная с js-controller 3.0.
+TR: ## For Developers
+TR: #### Get mac for specific device
+TR: `sendToAsync('net-tools.X, 'getMac', 'IP ADDRESS')`
+
+TR: Remark: This feature is limited to the subnet of the ioBroker host.
+
+TR: #### Ping specific IP address
+TR: `sendToAsync('net-tools.X, 'ping', 'IP ADDRESS')`
+
+TR: #### Wake-on-LAN
+TR: `sendToAsync('net-tools.x', 'wake', 'MAC ADDRESS')`
+
+---
+
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+
+### 0.1.5
+* changes on testing
+
+### 0.1.4
+* fixes for js-controller 3.3
+
+### 0.1.3
+* fixes for js-controller 3.3
 
 ### 0.1.2
 * added device discovery to configuration page

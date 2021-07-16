@@ -6,309 +6,355 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sonnen.png?downloads=true
 translatedFrom: de
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonnen/README.md
-title: 声纳适配器
-hash: sji7Vk7L1ru2xOORB4OM6cKSlk2BrONMW9eFqpQMHLs=
+title: TR: sonnen Adapter
+hash: 1eF8G6QCUKew7oY3I/Hk9qzWpaGFV7TjijufbaqKVNs=
 ---
-![商标](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
+![TR: Logo](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
 
-＃Sonnen适配器
-sonnen适配器可将sonnenBatterie集成到ioBroker中。
+TR: # sonnen Adapter
+TR: Der sonnen Adapter ermöglicht die Einbindung einer sonnenBatterie in den ioBroker.
 
-##概述
-### Sonnen电池
-借助sonnenBatterie，来自太阳能系统的自生能量可以存储起来供个人使用，并在需要时准确使用。这样就可以使自己独立于匿名的能源公司，并成为一个自给自足的电力生产商。借助集成的能源管理器，智能高科技蓄电系统可确保为家庭提供尽可能最佳的电力。
-这不仅价格便宜，而且环保！ sonnenBatterie有多种灵活的存储型号。
+TR: ## Überblick
+TR: ### sonnenBatterie
+TR: Mit der sonnenBatterie kann selbst erzeugte Energie aus der Solaranlage für den Eigenbedarf gespeichert werden und genau dann genutzt werden, wenn sie gerade benötigt wird. Dadurch ist es möglich sich von anonymen Energiekonzernen unabhängig zu machen und selbst zum autarken Stromproduzenten zu werden. Der intelligente High-Tech-Stromspeicher sorgt dank des integrierten Energiemanagers dafür, dass der Haushalt bestmöglich mit eigenem Strom versorgt wird.
+Dies ist nicht nur kostengünstig, sondern auch umweltfreundlich! Die sonnenBatterie gibt es in verschiedenen und flexiblen Speichermodellen.
 
-### Sonnen适配器
-Sonnen适配器可以监视和控制网络中的SonnenBatterie。借助发现适配器（TODO：链接），可以在网络中自动找到sonnenBatterien。<br/>适配器以对象的形式创建用于监视和控制sonnenBatterie的状态。大多数状态仅用于监视电池，而可以通过描述某些状态来另外控制电池。
+TR: ### sonnen Adapter
+TR: Der sonnen Adapter kann eine sonnenBatterie im Netzwerk überwachen und steuern. Mithilfe des Discovery Adapters (TODO: Link) können sonnenBatterien im Netzwerk automatisch gefunden werden.
+<br/> Der Adapter legt States zur Überwachung und Steuerung der sonnenBatterie in Form von Objekten an. Ein Großteil der States dient lediglich zur Überwachung der Batterie, während durch das beschreiben einiger States die Batterie zusätzlich gesteuert werden kann.
 
-##安装前的要求
-使用ioBroker操作sonnenBatterie的前提是电池已由电工成功安装。电池还必须与ioBroker位于同一网络中。
+TR: ## Voraussetzungen vor der Installation
+TR: Voraussetzungen für den Betrieb einer sonnenBatterie mit dem ioBroker, ist die erfolgreiche Einrichtung der Batterie durch einen Elektriker. Ebenfalls muss sich die Batterie im gleichen Netzwerk wie der ioBroker befinden.
 
-###安装
-适配器的实例是通过ioBroker管理界面安装的。有关必要安装步骤的详细说明，请参见此处（TODO：LINK）。<br/><br/>完成适配器实例的安装后，配置窗口将自动打开。
+TR: ### Installation
+TR: Eine Instanz des Adapters wird über die ioBroker Admin-Oberfläche installiert.
+Die ausführliche Anleitung für die dazu notwendigen Installatonschritte kann hier (TODO:LINK) nachgelesen werden.
+<br/><br/> Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ein Konfigurationsfenster.
 
-##配置
-###“主要设置”窗口
-![主要设定](../../../de/adapterref/iobroker.sonnen/media/mainSettings.png "主要设定")
+TR: ## Konfiguration
+TR: ### Fenster "Haupteinstellungen"
+![TR: Main Settings](../../../de/adapterref/iobroker.sonnen/media/mainSettings.png "TR: Haupteinstellungen")
 
-|领域描述 |
+| TR: | Feld         | Beschreibung |
 |:-------------|:-------------|
-| IP地址|所需sonnenBatterie的IP地址应在此处输入。 |
+| TR: |IP-Adresse    |Hier soll die IP-Adresse der gewünschten sonnenBatterie angegeben werden.|
 
-|领域描述 |
+| TR: | Feld         | Beschreibung |
 |:-------------|:-------------|
-| Auth-Token |应该在此处输入Auth-Token，可以在sonnen Web界面的“软件集成”下找到它。如果没有输入Auth-Token，则使用非官方的API，可以随时将其关闭。 |
+| TR: |Auth-Token    |Hier soll der Auth-Token eingegeben werden, welcher im sonnen Webinterface unter "Software Integration" zu finden ist. Wird kein Auth-Token eingegeben, wird die inoffizielle API genutzt, welche jederzeit abgeschaltet werden kann.|
 
-###“高级设置”窗口
-![高级设置](../../../de/adapterref/iobroker.sonnen/media/advancedSettings.png "高级设置")
+TR: ### Fenster "Erweiterte Einstellungen"
+![TR: Advanced Settings](../../../de/adapterref/iobroker.sonnen/media/advancedSettings.png "TR: Erweiterte Einstellungen")
 
-|领域描述 |
+| TR: | Feld         | Beschreibung |
 |:-------------|:-------------|
-|查询间隔|可以在此处设置替代值（以毫秒为单位）。在此间隔中更新sonnenBatterie的状态。 |
+| TR: |Abfrageintervall|Hier kann ein alternativer Wert in Millisekunden gesetzt werden. In diesem Intervall werden die States der sonnenBatterie aktualisiert.|
 
-完成配置后，使用`SPEICHERN UND SCHLIEßEN`退出配置对话框。
-这将导致适配器重新启动。
+TR: Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN` verlassen.
+Dadurch efolgt im Anschluß ein Neustart des Adapters.
 
-##个实例
-适配器的安装已在`Objekte`节中创建了Sonnen适配器的活动实例。<br/><br/> ![实例](../../../de/adapterref/iobroker.sonnen/media/instance.png "实例") <span style="color:grey">*一审*</span>
+TR: ## Instanzen
+TR: Die Installation des Adapters hat im Bereich `Objekte` eine aktive Instanz des sonnen Adapters angelegt.
+<br/><br/> ![TR: Instanz](../../../de/adapterref/iobroker.sonnen/media/instance.png "TR: Instanz") <span style="color:grey">*Erste Instanz*</span>
 
-可以在ioBroker服务器上创建多个sonnen Adapter实例。相反，sonnenBatterie也可以与多个ioBroker服务器一起运行。如果一个ioBroker服务器要控制多个设备，则应为每个电池创建一个实例。<br/><br/>实例的状态字段的颜色指示适配器是激活的还是连接到电池的。如果鼠标指针指向该符号，则会显示更多详细信息。
+TR: Auf einem ioBroker Server können mehrere sonnen Adapter Instanzen angelegt werden. Umgekehrt kann eine sonnenBatterie auch mit mehreren ioBroker Servern betrieben werden. Sollen mehrere Geräte von einem ioBroker Server gesteuert werden, sollte je Batterie eine Instanz angelegt werden.
+<br/><br/> Ob der Adapter aktiviert oder mit der Batterie verbunden ist, wird mit der Farbe des Status-Feldes der Instanz verdeutlicht. Zeigt der Mauszeiger auf das Symbol, werden weitere Detailinformationen dargestellt.
 
-##适配器的对象
-在`Objekte`部分中，树状结构中列出了集线器中适配器识别的所有设备和活动。另外，还提供关于与集线器的通信是否顺利进行的信息。
+TR: ## Objekte des Adapters
+TR: Im Bereich `Objekte` werden in einer Baumstruktur alle vom Adapter im Hub erkannten Geräte und Aktivitäten aufgelistet. Zusätzlich wird auch noch darüber informiert, ob die Kommunikation mit dem Hub reibungslos erfolgt.
 
-![对象](../../../de/adapterref/iobroker.sonnen/media/objects.png "太阳物体") <span style="color:grey">*</span> Sonnen<span style="color:grey">适配器的对象*</span>
+TR: ![TR: Objekte](../../../de/adapterref/iobroker.sonnen/media/objects.png "TR: sonnen Objekte") <span style="color:grey">*Objekte des sonnen Adapters*</span>
 
-在下文中，对象分为状态和按钮。由于有两种不同的API取决于电池，因此仅创建相应电池支持的状态。
-列出了每个数据点及其关联的数据类型及其授权。
-可以读取（R）和写入（W）授权。每个数据点至少可以读取（R），而其他数据点也可以写入。要搜索特定的数据点，我们建议使用组合键“ CTRL + F”。
+TR: Nachfolgend werden die Objekte in States und Buttons unterteilt. Da es zwei unterschiedliche APIs je nach Batterie gibt, werden nur die States angelegt, die von der jeweiligen Batterie unterstützt werden.
+Jeder Datenpunkt ist mit seinem zugehörigen Datentyp sowie seinen Berechtigungen aufgehführt.
+Berechtigungen können lesend (R) sowie schreibend (W) sein. Jeder Datenpunkt kann mindestens gelesen (R) werden, während andere ebenfalls beschrieben werden können. Zur Suche nach einem bestimmten Datenpunkt empfiehlt sich die Suche mittels der Tastenkombination "STRG + F".
 
-＃＃＃ 状态
-####频道：信息
-*信息连接
+TR: ### States
+TR: Hinweis: Die States der Legacy API (Port 3480) sind derzeit nicht dokumentiert
 
-    |数据类型|授权|
+TR: #### Channel: info
+TR: * info.connection
+
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |布尔值| R |
+| TR:     |boolean|R|
 
-   *仅可读的布尔值，如果在ioBroker和电池之间建立了连接，则为true。
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, wenn die Verbindung zwischen ioBroker und Batterie hergestellt ist.*
 
-* info.lastSync
+TR: * info.lastSync
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |时间戳记| R |
+| TR:     |timestamp|R|
 
-   *只读时间戳记，每次更新数据时都会更新。
+TR:    *Nur lesbarer Zeitstempel, der bei jeder Aktualisierung der Daten, aktualisiert wird.*
 
-*信息配置
+TR: * info.configuration
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |字符串| R |
+| TR:     |string|R|
 
-   *唯一可读的JSON字符串，带有sonnenBatterie的配置信息。
+TR:    *Nur lesbarer JSON String, mit Konfigurationsinformationen der sonnenBatterie.*
 
-* info.powerMeter
+TR: * info.powerMeter
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |字符串| R |
+| TR:     |string|R|
 
-   *唯一可读的JSON字符串，带有sonnenBatterie的当前测量信息。
+TR:    *Nur lesbarer JSON String, mit Strommessungsinformationen der sonnenBatterie.*
 
-*信息逆变器
+TR: * info.inverter
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |字符串| R |
+| TR:     |string|R|
 
-   *仅可读的JSON字符串，带有来自sonnenBatterie的逆变器信息。
+TR:    *Nur lesbarer JSON String, mit Wechselrichter Informationen der sonnenBatterie.*
 
-####频道：状态
-* status.consumption
+TR: #### Channel: status
+TR: * status.consumption
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R |
+| TR:     |number|R|
 
-   *仅可读数字值，其中包含以瓦特为单位的房屋电流消耗。
+TR:    *Nur lesbarer number Wert, welcher den aktuellen Verbrauch des Hauses in Watt beinhaltet.*
 
-* status.production
+TR: * status.production
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R |
+| TR:     |number|R|
 
-   *仅可读的数字值，它指示光伏系统当前正在产生多少瓦特。
+TR:    *Nur lesbarer number Wert, welcher angibt, wie viel Watt derzeit von der PV-Anlage produziert werden.*
 
-* status.pacTotal
+TR: * status.pacTotal
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R |
+| TR:     |number|R|
 
-*可读的数值，表示变频器的交流电源。
-如果该值大于0，则电池将放电；如果该值小于0，则电池将被充电。
+TR: *Nur lesbarer number Wert, welcher die Wechselrichter AC-Leistung angibt.
+Wenn der Wert größer als 0 ist wird die Batterie entladen, bei einem Wert kleiner 0, geladen.*
 
-* status.relativeSoc
+TR: * status.relativeSoc
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R |
+| TR:     |number|R|
 
-   *仅可读数字值，代表当前电池的电量。
+TR:    *Nur lesbarer number Wert, welcher den aktuellen Batterieladestand repräsentiert.*
 
-* status.userSoc
+TR: * status.userSoc
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R |
+| TR:     |number|R|
 
-   *仅可读数字值，代表当前电池的电量。
+TR:    *Nur lesbarer number Wert, welcher den aktuellen Batterieladestand repräsentiert.*
 
-* status.acFrequency
+TR: * status.acFrequency
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R |
+| TR:     |number|R|
 
-   *仅可读的数字值，代表以赫兹为单位的交流频率。
+TR:    *Nur lesbarer number Wert, welcher die AC Frequenz in Hertz repräsentiert.*
 
-* status.acVoltage
+TR: * status.acVoltage
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R |
+| TR:     |number|R|
 
-   *仅可读的数字值，代表变频器的当前AC（交流）电压。
+TR:    *Nur lesbarer number Wert, welcher die aktuelle AC (Wechselstrom) Stromspannung des Wechselrichters darstellt.*
 
-* status.batteryVoltage
+TR: * status.batteryVoltage
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R |
+| TR:     |number|R|
 
-   *仅可读数字值，代表电池的当前DC（直流）电压。
+TR:    *Nur lesbarer number Wert, welcher die derzeitige DC (Gleichstrom) Stromspannung der Batterie darstellt.*
 
-* status.systemTime
+TR: * status.systemTime
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |日期| R |
+| TR:     |date|R|
 
-   *只读的ISO日期，代表电池的系统时间。
+TR:    *Nur lesbares ISO Datum, welches die Systemzeit der Batterie repräsentiert.*
 
-* status.system已安装
+TR: * status.systemInstalled
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |布尔值| R |
+| TR:     |boolean|R|
 
-   *仅可读的布尔值，如果正确安装了系统，则为true。
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, wenn das System korrekt installiert ist.*
 
-* status.batteryCharging
+TR: * status.batteryCharging
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |布尔值| R |
+| TR:     |boolean|R|
 
-   *仅可读的布尔值。如果sonnenBatterie当前正在充电，则为真。
+TR:    *Nur lesbarer boolscher Wert. Dieser ist true, wenn die sonnenBatterie derzeit geladen wird.*
 
-* status.flowConsumptionBattery
+TR: * status.flowConsumptionBattery
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |布尔值| R |
+| TR:     |boolean|R|
 
-   *仅可读的布尔值。如果电池当前正在放电，则为真。
+TR:    *Nur lesbarer boolscher Wert. Dieser ist True, wenn die Batterie derzeit entladen wird.*
 
-* status.flowConsumptionGrid
+TR: * status.flowConsumptionGrid
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |布尔值| R |
+| TR:     |boolean|R|
 
-   *仅可读的布尔值，如果当前正在从网格中获取电源，则为true。
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, wenn derzeit Strom vom Netz bezogen wird.*
 
-* status.flowConsumptionProduction
+TR: * status.flowConsumptionProduction
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |布尔值| R |
+| TR:     |boolean|R|
 
-   *仅可读的布尔值。如果当前光伏系统直接消耗电力，这是正确的。
+TR:    *Nur lesbarer boolscher Wert. Dieser ist true, wenn derzeit Strom direkt von der PV-Anlage verbraucht wird.*
 
-* status.flowGridBattery
+TR: * status.flowGridBattery
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |布尔值| R |
+| TR:     |boolean|R|
 
-   *只读布尔型指示器，如果电池当前正在由市电充电，则为true。
+TR:    *Nur lesbarer boolscher Indikator, welcher true ist, wenn die Batterie derzeit durch das Netz geladen wird.*
 
-* status.flowProductionBattery
+TR: * status.flowProductionBattery
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |布尔值| R |
+| TR:     |boolean|R|
 
-   *仅可读的布尔值，如果当前正在由PV系统直接为电池充电，则为true。
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, wenn die Batterie derzeit direkt durch die PV-Anlage geladen wird.*
 
-* status.flowProductionGrid
+TR: * status.flowProductionGrid
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |布尔值| R |
+| TR:     |boolean|R|
 
-   *仅可读的布尔值，如果当前将发电量馈入电网，则为true。
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, wenn der erzeugte Strom derzeit in das Netz eingespeist wird.*
 
-* status.gridFeedIn
+TR: * status.gridFeedIn
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R |
+| TR:     |number|R|
 
-*只读数字值，代表当前正在馈入或从电网抽取的电量（瓦）。
-如果该值为正，则表示当前正在将电网馈入电网；如果为负，则表示正在从电网中汲取电量。
+TR: *Nur lesbarer number Wert, welcher die Menge an Strom in Watt repräsentiert, die derzeit in das Netz eingespeist oder bezogen wird.
+Wenn der Wert positiv ist, wird derzeit in das Netz eingespeist, wenn dieser negativ ist, wird die Menge an Strom vom Netz bezogen.*
 
-* status.onlineStatus
+TR: * status.onlineStatus
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |布尔值| R |
+| TR:     |boolean|R|
 
-   *仅可读的布尔值（为true），sonnenBatterie在线。
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, die sonnenBatterie online ist.*
 
-####频道：控制
-*控制费
+TR: #### Channel: control
+TR: * control.charge
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R / W |
+| TR:     |number|R/W|
 
-   *数字值，可指定以瓦特为单位的电池最大放电量。
+TR:    *Number Wert, welcher es ermöglicht die maximale Entladung der Batterie in Watt festzulegen.*
 
-*注意：如果设置了无效值，则无论如何都会被确认。确认（确认）该值仅表示该命令已发送到电池。
+TR: *Hinweis: Wenn ein ungültiger Wert gesetzt wird, wird dieser trotzdem bestätigt. Die Bestätigung (Acknowledge) des Wertes bedeutet lediglich, dass das Kommando an die Batterie übertragen wurde.*
 
-*设定值的相应值会一直保留，直到电池收到新的充电或放电值为止。
-如果VPP处于活动状态，则该请求将被拒绝。
+TR: *Der entsprechende Wert des Sollwerts wird beibehalten, bis die Batterie einen neuen Lade- oder Entladewert erhält.
+Wenn VPP aktiv ist, wird die Anfrage abgelehnt.*
 
-   *示例：*
+TR:    *Example:*
 
 ```javascript
 setState('sonnen.0.control.charge', 1250); // Die Batterie wird mit maximal 1250 Watt geladen
 ```
 
-*控制放电
+TR: * control.discharge
 
-    |数据类型|授权|
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    |号| R / W |
+| TR:     |number|R/W|
 
-   *数字值，可让您指定电池的最大电量（瓦）。
+TR:    *Number Wert, welcher es ermöglicht die maximale Ladung der Batterie in Watt festzulegen.*
 
-*注意：如果设置了无效值，则无论如何都会被确认。确认（确认）该值仅表示该命令已发送到电池。
+TR: *Hinweis: Wenn ein ungültiger Wert gesetzt wird, wird dieser trotzdem bestätigt. Die Bestätigung (Acknowledge) des Wertes bedeutet lediglich, dass das Kommando an die Batterie übertragen wurde.*
 
-*设定值的相应值会一直保留，直到电池收到新的充电或放电值为止。
-如果VPP处于活动状态，则该请求将被拒绝。
+TR: *Der entsprechende Wert des Sollwerts wird beibehalten, bis die Batterie einen neuen Lade- oder Entladewert erhält.
+Wenn VPP aktiv ist, wird die Anfrage abgelehnt.*
 
-   *示例：*
+TR:    *Example:*
 
 ```javascript
 setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1250 Watt entladen
 ```
 
-####通道：功率计
-此频道有两个子频道，例如`4_1`和`4_2`，其中一个代表消费，另一个代表生产。
+TR: #### Channel: powermeter
+TR: Dieser Kanal hat zwei Unterkanäle, z.B. `4_1` und `4_2`, wobei einer den Konsum und der andere die Produktion repräsentiert.
 
-这两个通道具有相同的状态。所有状态均为写保护，类型为`number`。
+TR: Die beiden Kanäle haben die identischen Zustände. Alle Zustände sind schreibgeschützt und vom Typ `number`.
 
-###通道：逆变器
-该通道由`number`类型的写保护状态组成，这些状态提供有关太阳能电池逆变器的信息。
+TR: ### Channel: inverter
+TR: Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Informationen über den Wechselrichter der sonnenBatterie liefern.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### __WORK IN PROGRESS__
+* (foxriver76) we now also support the legacy api (port 3480)
+
+### 1.8.6 (2021-07-04)
+* (foxriver76) widget: we removed debug logging and unnecessary template functions
+* (foxriver76) widget: we now cache the jquery selectors to improve the performance
+
+### 1.8.5 (2021-07-02)
+* (foxriver76) widget: stroke width can now be configured
+
+### 1.8.4 (2021-07-01)
+* (foxriver76) widget: we made ID names more adapter specific to avoid getting wrong translations
+
+### 1.8.3 (2021-07-01)
+* (foxriver76) widget: we now allow defining the used adapter instance
+
+### 1.8.2 (2021-06-30)
+* (foxriver76) widget: css classes now have adapter specific names to avoid conflicts
+
+### 1.8.1 (2021-06-30)
+* (foxriver76) widget now has flow directions
+
+### 1.8.0 (2021-06-30)
+* (foxriver76) added widget
+
+### 1.7.3 (2021-05-01)
+* (foxriver76) we now update objects if attributes are updated, but preserve common.name attribute
+
+### 1.7.2 (2021-04-30)
+* (foxriver76) we fixed some type issues (fixes #58)
+
+### 1.7.1 (2021-03-19)
+* (foxriver76) do not log warnings on inverter endpoint if battery does not support it (closes #55)
+
 ### 1.7.0 (2020-11-12)
 * (foxriver76) new channels for powermeter and inverter
 
@@ -386,7 +432,7 @@ setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

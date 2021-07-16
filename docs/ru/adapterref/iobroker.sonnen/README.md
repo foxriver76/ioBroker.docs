@@ -6,309 +6,355 @@ BADGE-NPM: https://nodei.co/npm/iobroker.sonnen.png?downloads=true
 translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonnen/README.md
-title: адаптер sonnen
-hash: sji7Vk7L1ru2xOORB4OM6cKSlk2BrONMW9eFqpQMHLs=
+title: TR: sonnen Adapter
+hash: 1eF8G6QCUKew7oY3I/Hk9qzWpaGFV7TjijufbaqKVNs=
 ---
-![логотип](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
+![TR: Logo](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
 
-# Sonnen адаптер
-Адаптер sonnen позволяет интегрировать sonnenBatterie в ioBroker.
+TR: # sonnen Adapter
+TR: Der sonnen Adapter ermöglicht die Einbindung einer sonnenBatterie in den ioBroker.
 
-## Обзор
-### SonnenBatterie
-С sonnenBatterie энергия, генерируемая солнечной системой, может храниться для личного использования и использоваться именно тогда, когда это необходимо. Это дает возможность стать независимым от анонимных энергетических компаний и стать самодостаточным производителем электроэнергии. Благодаря встроенному энергоменеджеру интеллектуальная высокотехнологичная система хранения электроэнергии гарантирует, что домашнее хозяйство будет снабжаться собственной электроэнергией наилучшим образом.
-Это не только недорого, но и экологически безопасно! SonnenBatterie доступен в различных и гибких моделях хранения.
+TR: ## Überblick
+TR: ### sonnenBatterie
+TR: Mit der sonnenBatterie kann selbst erzeugte Energie aus der Solaranlage für den Eigenbedarf gespeichert werden und genau dann genutzt werden, wenn sie gerade benötigt wird. Dadurch ist es möglich sich von anonymen Energiekonzernen unabhängig zu machen und selbst zum autarken Stromproduzenten zu werden. Der intelligente High-Tech-Stromspeicher sorgt dank des integrierten Energiemanagers dafür, dass der Haushalt bestmöglich mit eigenem Strom versorgt wird.
+Dies ist nicht nur kostengünstig, sondern auch umweltfreundlich! Die sonnenBatterie gibt es in verschiedenen und flexiblen Speichermodellen.
 
-### Адаптер sonnen
-Адаптер sonnen может контролировать и управлять sonnenBatterie в сети. С помощью адаптера Discovery (TODO: Link) sonnenBatterien можно автоматически найти в сети.<br/> Адаптер создает состояния для мониторинга и управления sonnenBatterie в виде объектов. Большинство состояний используются только для контроля заряда батареи, в то время как батареей можно дополнительно управлять, описывая некоторые состояния.
+TR: ### sonnen Adapter
+TR: Der sonnen Adapter kann eine sonnenBatterie im Netzwerk überwachen und steuern. Mithilfe des Discovery Adapters (TODO: Link) können sonnenBatterien im Netzwerk automatisch gefunden werden.
+<br/> Der Adapter legt States zur Überwachung und Steuerung der sonnenBatterie in Form von Objekten an. Ein Großteil der States dient lediglich zur Überwachung der Batterie, während durch das beschreiben einiger States die Batterie zusätzlich gesteuert werden kann.
 
-## Требования перед установкой
-Необходимым условием для работы sonnenBatterie с ioBroker является успешная установка аккумулятора электриком. Аккумулятор также должен быть в той же сети, что и ioBroker.
+TR: ## Voraussetzungen vor der Installation
+TR: Voraussetzungen für den Betrieb einer sonnenBatterie mit dem ioBroker, ist die erfolgreiche Einrichtung der Batterie durch einen Elektriker. Ebenfalls muss sich die Batterie im gleichen Netzwerk wie der ioBroker befinden.
 
-### Установка
-Экземпляр адаптера устанавливается через интерфейс администратора ioBroker. Подробные инструкции по необходимым этапам установки можно найти здесь (TODO: LINK).<br/><br/> После завершения установки экземпляра адаптера автоматически открывается окно конфигурации.
+TR: ### Installation
+TR: Eine Instanz des Adapters wird über die ioBroker Admin-Oberfläche installiert.
+Die ausführliche Anleitung für die dazu notwendigen Installatonschritte kann hier (TODO:LINK) nachgelesen werden.
+<br/><br/> Nach Abschluss der Installation einer Adapterinstanz öffnet sich automatisch ein Konfigurationsfenster.
 
-## Конфигурация
-### Окно «Основные настройки»
-![Основные настройки](../../../de/adapterref/iobroker.sonnen/media/mainSettings.png "Основные настройки")
+TR: ## Konfiguration
+TR: ### Fenster "Haupteinstellungen"
+![TR: Main Settings](../../../de/adapterref/iobroker.sonnen/media/mainSettings.png "TR: Haupteinstellungen")
 
-| Поле | Описание |
+| TR: | Feld         | Beschreibung |
 |:-------------|:-------------|
-| IP-адрес | Здесь необходимо ввести IP-адрес желаемого sonnenBatterie. |
+| TR: |IP-Adresse    |Hier soll die IP-Adresse der gewünschten sonnenBatterie angegeben werden.|
 
-| Поле | Описание |
+| TR: | Feld         | Beschreibung |
 |:-------------|:-------------|
-| Auth-Token | Здесь необходимо ввести Auth-Token, который можно найти в веб-интерфейсе sonnen в разделе «Интеграция программного обеспечения». Если Auth-Token не введен, используется неофициальный API, который можно отключить в любое время. |
+| TR: |Auth-Token    |Hier soll der Auth-Token eingegeben werden, welcher im sonnen Webinterface unter "Software Integration" zu finden ist. Wird kein Auth-Token eingegeben, wird die inoffizielle API genutzt, welche jederzeit abgeschaltet werden kann.|
 
-### Окно «Дополнительные настройки»
-![Расширенные настройки](../../../de/adapterref/iobroker.sonnen/media/advancedSettings.png "Расширенные настройки")
+TR: ### Fenster "Erweiterte Einstellungen"
+![TR: Advanced Settings](../../../de/adapterref/iobroker.sonnen/media/advancedSettings.png "TR: Erweiterte Einstellungen")
 
-| Поле | Описание |
+| TR: | Feld         | Beschreibung |
 |:-------------|:-------------|
-| Интервал запроса | Здесь можно установить альтернативное значение в миллисекундах. Состояния sonnenBatterie обновляются в этом интервале. |
+| TR: |Abfrageintervall|Hier kann ein alternativer Wert in Millisekunden gesetzt werden. In diesem Intervall werden die States der sonnenBatterie aktualisiert.|
 
-После завершения настройки диалоговое окно конфигурации закрывается с `SPEICHERN UND SCHLIEßEN`.
-Это приводит к перезапуску адаптера.
+TR: Nach Abschluss der Konfiguration wird der Konfigurationsdialog mit `SPEICHERN UND SCHLIEßEN` verlassen.
+Dadurch efolgt im Anschluß ein Neustart des Adapters.
 
-## Экземпляров
-При установке адаптера был создан активный экземпляр адаптера sonnen в разделе `Objekte`.<br/><br/> ![Пример](../../../de/adapterref/iobroker.sonnen/media/instance.png "Пример") <span style="color:grey">* Первая инстанция *</span>
+TR: ## Instanzen
+TR: Die Installation des Adapters hat im Bereich `Objekte` eine aktive Instanz des sonnen Adapters angelegt.
+<br/><br/> ![TR: Instanz](../../../de/adapterref/iobroker.sonnen/media/instance.png "TR: Instanz") <span style="color:grey">*Erste Instanz*</span>
 
-На сервере ioBroker можно создать несколько экземпляров sonnen Adapter. И наоборот, sonnenBatterie также может работать с несколькими серверами ioBroker. Если несколько устройств должны управляться одним сервером ioBroker, необходимо создать экземпляр для каждой батареи.<br/><br/> Активирован ли адаптер или подключен ли он к аккумулятору, отображается цветом поля состояния экземпляра. Если указатель мыши указывает на символ, отображается более подробная информация.
+TR: Auf einem ioBroker Server können mehrere sonnen Adapter Instanzen angelegt werden. Umgekehrt kann eine sonnenBatterie auch mit mehreren ioBroker Servern betrieben werden. Sollen mehrere Geräte von einem ioBroker Server gesteuert werden, sollte je Batterie eine Instanz angelegt werden.
+<br/><br/> Ob der Adapter aktiviert oder mit der Batterie verbunden ist, wird mit der Farbe des Status-Feldes der Instanz verdeutlicht. Zeigt der Mauszeiger auf das Symbol, werden weitere Detailinformationen dargestellt.
 
-## Объекты адаптера
-В разделе `Objekte` все устройства и действия, распознаваемые адаптером в концентраторе, перечислены в древовидной структуре. Кроме того, также сообщается, работает ли связь с хабом.
+TR: ## Objekte des Adapters
+TR: Im Bereich `Objekte` werden in einer Baumstruktur alle vom Adapter im Hub erkannten Geräte und Aktivitäten aufgelistet. Zusätzlich wird auch noch darüber informiert, ob die Kommunikation mit dem Hub reibungslos erfolgt.
 
-![Объекты](../../../de/adapterref/iobroker.sonnen/media/objects.png "солнечные объекты") <span style="color:grey">* Объекты</span> соннен- <span style="color:grey">адаптера *</span>
+TR: ![TR: Objekte](../../../de/adapterref/iobroker.sonnen/media/objects.png "TR: sonnen Objekte") <span style="color:grey">*Objekte des sonnen Adapters*</span>
 
-Далее объекты делятся на состояния и кнопки. Поскольку существует два разных API в зависимости от батареи, создаются только те состояния, которые поддерживаются соответствующей батареей.
-Каждая точка данных перечислена с соответствующим типом данных и полномочиями.
-Авторизации можно читать (R) и писать (W). Каждая точка данных может быть как минимум прочитана (R), а другие также могут быть записаны. Для поиска определенной точки данных мы рекомендуем использовать для поиска комбинацию клавиш «CTRL + F».
+TR: Nachfolgend werden die Objekte in States und Buttons unterteilt. Da es zwei unterschiedliche APIs je nach Batterie gibt, werden nur die States angelegt, die von der jeweiligen Batterie unterstützt werden.
+Jeder Datenpunkt ist mit seinem zugehörigen Datentyp sowie seinen Berechtigungen aufgehführt.
+Berechtigungen können lesend (R) sowie schreibend (W) sein. Jeder Datenpunkt kann mindestens gelesen (R) werden, während andere ebenfalls beschrieben werden können. Zur Suche nach einem bestimmten Datenpunkt empfiehlt sich die Suche mittels der Tastenkombination "STRG + F".
 
-### Состояния
-#### Канал: информация
-* info.connection
+TR: ### States
+TR: Hinweis: Die States der Legacy API (Port 3480) sind derzeit nicht dokumentiert
 
-    | Тип данных | авторизация |
+TR: #### Channel: info
+TR: * info.connection
+
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Только читаемое логическое значение, которое истинно, если соединение между ioBroker и аккумулятором установлено.*
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, wenn die Verbindung zwischen ioBroker und Batterie hergestellt ist.*
 
-* info.lastSync
+TR: * info.lastSync
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | отметка времени | R |
+| TR:     |timestamp|R|
 
-   *Временная метка только для чтения, которая обновляется каждый раз при обновлении данных.*
+TR:    *Nur lesbarer Zeitstempel, der bei jeder Aktualisierung der Daten, aktualisiert wird.*
 
-* info.configuration
+TR: * info.configuration
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | строка | R |
+| TR:     |string|R|
 
-   *Только читаемая строка JSON с информацией о конфигурации sonnenBatterie.*
+TR:    *Nur lesbarer JSON String, mit Konfigurationsinformationen der sonnenBatterie.*
 
-* info.powerMeter
+TR: * info.powerMeter
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | строка | R |
+| TR:     |string|R|
 
-   *Только читаемая строка JSON с текущей информацией об измерениях sonnenBatterie.*
+TR:    *Nur lesbarer JSON String, mit Strommessungsinformationen der sonnenBatterie.*
 
-* info.inverter
+TR: * info.inverter
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | строка | R |
+| TR:     |string|R|
 
-   *Только читаемая строка JSON с инверторной информацией от sonnenBatterie.*
+TR:    *Nur lesbarer JSON String, mit Wechselrichter Informationen der sonnenBatterie.*
 
-#### Канал: статус
-* статус. потребление
+TR: #### Channel: status
+TR: * status.consumption
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R |
+| TR:     |number|R|
 
-   * Читаемое числовое значение, которое содержит текущее потребление дома в ваттах.
+TR:    *Nur lesbarer number Wert, welcher den aktuellen Verbrauch des Hauses in Watt beinhaltet.*
 
-* status.production
+TR: * status.production
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R |
+| TR:     |number|R|
 
-   *Только читаемое числовое значение, которое указывает, сколько ватт в настоящее время вырабатывается фотоэлектрической системой.*
+TR:    *Nur lesbarer number Wert, welcher angibt, wie viel Watt derzeit von der PV-Anlage produziert werden.*
 
-* status.pacTotal
+TR: * status.pacTotal
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R |
+| TR:     |number|R|
 
-*Только читаемое числовое значение, которое указывает мощность переменного тока инвертора.
-Если значение больше 0, батарея разряжена, если значение меньше 0, она заряжена.*
+TR: *Nur lesbarer number Wert, welcher die Wechselrichter AC-Leistung angibt.
+Wenn der Wert größer als 0 ist wird die Batterie entladen, bei einem Wert kleiner 0, geladen.*
 
-* status.relativeSoc
+TR: * status.relativeSoc
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R |
+| TR:     |number|R|
 
-   *Только читаемое числовое значение, которое представляет текущий уровень заряда аккумулятора.*
+TR:    *Nur lesbarer number Wert, welcher den aktuellen Batterieladestand repräsentiert.*
 
-* status.userSoc
+TR: * status.userSoc
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R |
+| TR:     |number|R|
 
-   *Только читаемое числовое значение, которое представляет текущий уровень заряда аккумулятора.*
+TR:    *Nur lesbarer number Wert, welcher den aktuellen Batterieladestand repräsentiert.*
 
-* status.acFrequency
+TR: * status.acFrequency
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R |
+| TR:     |number|R|
 
-   *Только читаемое числовое значение, которое представляет частоту переменного тока в герцах.*
+TR:    *Nur lesbarer number Wert, welcher die AC Frequenz in Hertz repräsentiert.*
 
-* status.acVoltage
+TR: * status.acVoltage
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R |
+| TR:     |number|R|
 
-   *Только читаемое числовое значение, которое представляет текущее напряжение переменного тока (переменного тока) инвертора.*
+TR:    *Nur lesbarer number Wert, welcher die aktuelle AC (Wechselstrom) Stromspannung des Wechselrichters darstellt.*
 
-* status.batteryVoltage
+TR: * status.batteryVoltage
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R |
+| TR:     |number|R|
 
-   *Только читаемое числовое значение, которое представляет текущее постоянное напряжение батареи.*
+TR:    *Nur lesbarer number Wert, welcher die derzeitige DC (Gleichstrom) Stromspannung der Batterie darstellt.*
 
-* status.systemTime
+TR: * status.systemTime
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | дата | R |
+| TR:     |date|R|
 
-   *Дата ISO только для чтения, которая представляет собой системное время аккумулятора.*
+TR:    *Nur lesbares ISO Datum, welches die Systemzeit der Batterie repräsentiert.*
 
-* status.systemInstalled
+TR: * status.systemInstalled
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Только читаемое логическое значение, которое истинно, если система правильно установлена.*
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, wenn das System korrekt installiert ist.*
 
-* status.batteryCharging
+TR: * status.batteryCharging
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Только читаемое логическое значение. Это верно, если sonnenBatterie в настоящее время заряжается.*
+TR:    *Nur lesbarer boolscher Wert. Dieser ist true, wenn die sonnenBatterie derzeit geladen wird.*
 
-* status.flowConsumingBattery
+TR: * status.flowConsumptionBattery
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Только читаемое логическое значение. Это верно, если батарея в данный момент разряжается.*
+TR:    *Nur lesbarer boolscher Wert. Dieser ist True, wenn die Batterie derzeit entladen wird.*
 
-* status.flowConsumingGrid
+TR: * status.flowConsumptionGrid
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Только читаемое логическое значение, которое истинно, если питание в настоящее время потребляется из сети.*
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, wenn derzeit Strom vom Netz bezogen wird.*
 
-* status.flowConsumingProduction
+TR: * status.flowConsumptionProduction
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Только читаемое логическое значение. Это верно, если электричество в настоящее время потребляется непосредственно фотоэлектрической системой.*
+TR:    *Nur lesbarer boolscher Wert. Dieser ist true, wenn derzeit Strom direkt von der PV-Anlage verbraucht wird.*
 
-* status.flowGridBattery
+TR: * status.flowGridBattery
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Логический индикатор только для чтения, который верен, если аккумулятор в настоящее время заряжается от сети.*
+TR:    *Nur lesbarer boolscher Indikator, welcher true ist, wenn die Batterie derzeit durch das Netz geladen wird.*
 
-* status.flowProductionBattery
+TR: * status.flowProductionBattery
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Только читаемое логическое значение, которое истинно, если аккумулятор в настоящее время заряжается напрямую от фотоэлектрической системы.*
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, wenn die Batterie derzeit direkt durch die PV-Anlage geladen wird.*
 
-* status.flowProductionGrid
+TR: * status.flowProductionGrid
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Только читаемое логическое значение, которое истинно, если произведенная электроэнергия в настоящее время подается в сеть.*
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, wenn der erzeugte Strom derzeit in das Netz eingespeist wird.*
 
-* status.gridFeedIn
+TR: * status.gridFeedIn
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R |
+| TR:     |number|R|
 
-*Только для чтения числовое значение, которое представляет количество электроэнергии в ваттах, которая в настоящее время подается в сеть или потребляется.
-Если значение положительное, сеть в настоящее время подается в сеть; если отрицательное, количество электроэнергии забирается из сети.*
+TR: *Nur lesbarer number Wert, welcher die Menge an Strom in Watt repräsentiert, die derzeit in das Netz eingespeist oder bezogen wird.
+Wenn der Wert positiv ist, wird derzeit in das Netz eingespeist, wenn dieser negativ ist, wird die Menge an Strom vom Netz bezogen.*
 
-* status.onlineStatus
+TR: * status.onlineStatus
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | логическое | R |
+| TR:     |boolean|R|
 
-   *Только читаемое логическое значение, которое истинно, sonnenBatterie находится в сети.*
+TR:    *Nur lesbarer boolscher Wert, welcher true ist, die sonnenBatterie online ist.*
 
-#### Канал: контроль
-* control.charge
+TR: #### Channel: control
+TR: * control.charge
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-   *Числовое значение, позволяющее указать максимальный разряд батареи в ваттах.*
+TR:    *Number Wert, welcher es ermöglicht die maximale Entladung der Batterie in Watt festzulegen.*
 
-*Примечание: если установлено недопустимое значение, оно все равно будет подтверждено. Подтверждение (подтверждение) значения означает только то, что команда была передана на аккумулятор.*
+TR: *Hinweis: Wenn ein ungültiger Wert gesetzt wird, wird dieser trotzdem bestätigt. Die Bestätigung (Acknowledge) des Wertes bedeutet lediglich, dass das Kommando an die Batterie übertragen wurde.*
 
-*Соответствующее значение уставки сохраняется до тех пор, пока аккумулятор не получит новое значение заряда или разряда.
-Если VPP активен, запрос будет отклонен.*
+TR: *Der entsprechende Wert des Sollwerts wird beibehalten, bis die Batterie einen neuen Lade- oder Entladewert erhält.
+Wenn VPP aktiv ist, wird die Anfrage abgelehnt.*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
 setState('sonnen.0.control.charge', 1250); // Die Batterie wird mit maximal 1250 Watt geladen
 ```
 
-* контроль. разряд
+TR: * control.discharge
 
-    | Тип данных | авторизация |
+| TR:     |Datentyp|Berechtigung|
     |:---:|:---:|
-    | номер | R / W |
+| TR:     |number|R/W|
 
-   *Числовое значение, позволяющее указать максимальный заряд аккумулятора в ваттах.*
+TR:    *Number Wert, welcher es ermöglicht die maximale Ladung der Batterie in Watt festzulegen.*
 
-*Примечание: если установлено недопустимое значение, оно все равно будет подтверждено. Подтверждение (подтверждение) значения означает только то, что команда была передана на аккумулятор.*
+TR: *Hinweis: Wenn ein ungültiger Wert gesetzt wird, wird dieser trotzdem bestätigt. Die Bestätigung (Acknowledge) des Wertes bedeutet lediglich, dass das Kommando an die Batterie übertragen wurde.*
 
-*Соответствующее значение уставки сохраняется до тех пор, пока аккумулятор не получит новое значение заряда или разряда.
-Если VPP активен, запрос будет отклонен.*
+TR: *Der entsprechende Wert des Sollwerts wird beibehalten, bis die Batterie einen neuen Lade- oder Entladewert erhält.
+Wenn VPP aktiv ist, wird die Anfrage abgelehnt.*
 
-   *Пример:*
+TR:    *Example:*
 
 ```javascript
 setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1250 Watt entladen
 ```
 
-#### Канал: измеритель мощности
-Этот канал имеет два подканала, например `4_1` и `4_2`, где один представляет потребление, а другой представляет производство.
+TR: #### Channel: powermeter
+TR: Dieser Kanal hat zwei Unterkanäle, z.B. `4_1` und `4_2`, wobei einer den Konsum und der andere die Produktion repräsentiert.
 
-Два канала имеют одинаковый статус. Все состояния защищены от записи и имеют тип `number`.
+TR: Die beiden Kanäle haben die identischen Zustände. Alle Zustände sind schreibgeschützt und vom Typ `number`.
 
-### Канал: инвертор
-Канал состоит из защищенных от записи состояний типа `number`, которые предоставляют информацию об инверторе солнечной батареи.
+TR: ### Channel: inverter
+TR: Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die Informationen über den Wechselrichter der sonnenBatterie liefern.
 
 ## Changelog
+<!--
+	Placeholder for the next version (at the beginning of the line):
+	### __WORK IN PROGRESS__
+-->
+
+### __WORK IN PROGRESS__
+* (foxriver76) we now also support the legacy api (port 3480)
+
+### 1.8.6 (2021-07-04)
+* (foxriver76) widget: we removed debug logging and unnecessary template functions
+* (foxriver76) widget: we now cache the jquery selectors to improve the performance
+
+### 1.8.5 (2021-07-02)
+* (foxriver76) widget: stroke width can now be configured
+
+### 1.8.4 (2021-07-01)
+* (foxriver76) widget: we made ID names more adapter specific to avoid getting wrong translations
+
+### 1.8.3 (2021-07-01)
+* (foxriver76) widget: we now allow defining the used adapter instance
+
+### 1.8.2 (2021-06-30)
+* (foxriver76) widget: css classes now have adapter specific names to avoid conflicts
+
+### 1.8.1 (2021-06-30)
+* (foxriver76) widget now has flow directions
+
+### 1.8.0 (2021-06-30)
+* (foxriver76) added widget
+
+### 1.7.3 (2021-05-01)
+* (foxriver76) we now update objects if attributes are updated, but preserve common.name attribute
+
+### 1.7.2 (2021-04-30)
+* (foxriver76) we fixed some type issues (fixes #58)
+
+### 1.7.1 (2021-03-19)
+* (foxriver76) do not log warnings on inverter endpoint if battery does not support it (closes #55)
+
 ### 1.7.0 (2020-11-12)
 * (foxriver76) new channels for powermeter and inverter
 
@@ -386,7 +432,7 @@ setState('sonnen.0.control.discharge', 1250); // Die Batterie wird maximal mit 1
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2018-2020 Moritz Heusinger <moritz.heusinger@gmail.com>
+Copyright (c) 2018-2021 Moritz Heusinger <moritz.heusinger@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

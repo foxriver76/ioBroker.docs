@@ -2,27 +2,31 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.ping/README.md
-title: PING适配器
-hash: GdWVwWTl7oGrOnfAZSsq98vq6ttnGHj4BDlk0yANw4U=
+title: TR: PING Adapter
+hash: +5lYN9qiDWSBQAH4sB07H5AywY1QfrPZQ7Td3Xynt1I=
 ---
-![商标](../../../en/adapterref/iobroker.ping/admin/ping.png)
+![TR: Logo](../../../en/adapterref/iobroker.ping/admin/ping.png)
 
-![安装数量](http://iobroker.live/badges/ping-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.ping.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.ping.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.ping.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.ping.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/ping-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.ping.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.ping.svg)
 
-＃PING适配器
-## Ping配置的IP地址。
-以定义的间隔Ping指定的IP地址并监视结果。
+TR: # PING Adapter
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.ping/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/ping/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: ## Pings configured IP addresses.
+TR: Pings specified IP addresses in defined interval and monitors the results.
 
-＃＃ 已知的问题
-*如果无法ping您的Linux客户端，请检查客户端上是否正确安装了iputils-ping
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
+TR: ## Known Issues
+TR: * if its not possible to ping your linux client, check if `iputils-ping` is correct installed on client
 
 ## Changelog
+
+### 1.5.0 (2021-07-14)
+* js-controller 2.0 required at least
+* (Apollon77) optimize for js-controller 3.3
 
 ### 1.4.12 (2020-09-18)
 * (Apollon77) Prevent crash case when no devices are defined (Sentry IOBROKER-PING-R)

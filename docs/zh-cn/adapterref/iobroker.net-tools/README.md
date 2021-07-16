@@ -2,58 +2,67 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.net-tools/README.md
-title: 网络工具
-hash: E5GWcV7mbsnibvXXMxSgaDtZNq6oW3S9WM/TvOcvBxU=
+title: TR: Net Tools
+hash: bxjSmJf72AXeKIg4SIx7hCk4hhVjPTSRo5U6FBK2BLE=
 ---
-![标识](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
+![TR: Logo](../../../en/adapterref/iobroker.net-tools/admin/net-tools.png)
 
-![安装数量](http://iobroker.live/badges/net-tools-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.net-tools.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.net-tools.svg)
-![测验](https://travis-ci.org/jey-cee/ioBroker.net-tools.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.net-tools.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/net-tools-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.net-tools.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.net-tools.svg)
+![TR: Tests](https://travis-ci.org/jey-cee/ioBroker.net-tools.svg?branch=master)
+![TR: NPM](https://nodei.co/npm/iobroker.net-tools.png?downloads=true)
 
-＃网络工具
-| [赞助商](https://github.com/iobroker-community-adapters/ioBroker.net-tools/blob/master/SPONSORS.md) | |
+TR: # Net Tools
+| [TR: Sponsors](https://github.com/iobroker-community-adapters/ioBroker.net-tools/blob/master/SPONSORS.md) | |
 |---|---|
-| [![捐赠]（https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png）](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)| | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
-| [！[捐赠]（https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png）]（https://www.paypal.com/cgi-bin/ webscr？cmd = _s-xclick＆hosted_button_id = 95YZN2LR59Q64＆source = url）| <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
+| TR: | [![TR: Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
+| TR: | [![Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url) | <a href="https://discord.gg/33w6jUh"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2"></a> |
 
-###发现网络上的设备
-将发现对象设置为true以发现网络上的设备，此过程需要一段时间。
-发现适配器提供了此功能，这意味着如果未安装发现，则发现安装必须运行。
+TR: ### Discover devices on the network
+TR: Set discover object to true to discover devices on your network, this process takes while.
+This feature is provided by discovery adapter, which means discovery will be installed if is not and it has to run.
 
-备注：此功能仅限于ioBroker主机的子网。
+TR: Remark: This feature is limited to the subnet of the ioBroker host.
 
-### Ping配置的IP地址
-以定义的间隔Ping指定的IP地址并监视结果。 （活动，RPS，时间）
+TR: ### Pings configured IP addresses
+TR: Pings specified IP addresses in defined interval and monitors the results. (alive, rps, time)
 
-###局域网唤醒
-将wol对象设置为true，然后将3个WOL包以750ms的时间发送到您的设备。
+TR: ### Wake-on-LAN
+TR: Set the wol object to true and 3 WOL packages are sent, with a pause of 750ms, to your device.
 
-###端口扫描
-将scan设置为true，这将扫描0-65535范围内的所有打开的端口。此过程需要一段时间。
-结果将被写入对象端口。
-
----
-
-##对于开发人员
-####获取特定设备的Mac
-`sendToAsync('net-tools.X, 'getMac', 'IP ADDRESS')`
-
-备注：此功能仅限于ioBroker主机的子网。
-
-#### Ping特定IP地址
-`sendToAsync('net-tools.X, 'ping', 'IP ADDRESS')`
-
-####局域网唤醒
-`sendToAsync('net-tools.x', 'wake', 'MAC ADDRESS')`
+TR: ### Port scan
+TR: Set scan to true, this will scan for all open ports in a range of 0-65535. This process takes a while.
+The result will be written to object ports.
 
 ---
 
-**此适配器使用Sentry库自动向开发人员报告异常和代码错误。**有关更多详细信息以及如何禁用错误报告的信息，请参见[哨兵插件文档](https://github.com/ioBroker/plugin-sentry#plugin-sentry)！ Sentry报告从js-controller 3.0开始使用。
+TR: ## For Developers
+TR: #### Get mac for specific device
+TR: `sendToAsync('net-tools.X, 'getMac', 'IP ADDRESS')`
+
+TR: Remark: This feature is limited to the subnet of the ioBroker host.
+
+TR: #### Ping specific IP address
+TR: `sendToAsync('net-tools.X, 'ping', 'IP ADDRESS')`
+
+TR: #### Wake-on-LAN
+TR: `sendToAsync('net-tools.x', 'wake', 'MAC ADDRESS')`
+
+---
+
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
 ## Changelog
+
+### 0.1.5
+* changes on testing
+
+### 0.1.4
+* fixes for js-controller 3.3
+
+### 0.1.3
+* fixes for js-controller 3.3
 
 ### 0.1.2
 * added device discovery to configuration page

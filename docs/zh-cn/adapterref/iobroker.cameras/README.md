@@ -2,24 +2,24 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.cameras/README.md
-title: ioBroker.cameras
-hash: S2DXJveAgZbhf55Ekua2qiIe7Z08WoOTSOJhirISeaA=
+title: TR: ioBroker.cameras
+hash: md4NOTpy9bBQKDCixUgrVhRjR4M6ZCwAR29la883rHo=
 ---
-![商标](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
+![TR: Logo](../../../en/adapterref/iobroker.cameras/admin/cameras.png)
 
-![NPM版本](http://img.shields.io/npm/v/iobroker.cameras.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.cameras.svg)
-![依赖状态](https://img.shields.io/david/ioBroker/iobroker.cameras.svg)
-![已知漏洞](https://snyk.io/test/github/ioBroker/ioBroker.cameras/badge.svg)
-![NPM](https://nodei.co/npm/iobroker.cameras.png?downloads=true)
-![特拉维斯](http://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.cameras.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.cameras.svg)
+![TR: Dependency Status](https://img.shields.io/david/ioBroker/iobroker.cameras.svg)
+![TR: Known Vulnerabilities](https://snyk.io/test/github/ioBroker/ioBroker.cameras/badge.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.cameras.png?downloads=true)
+![TR: Travis-CI](http://img.shields.io/travis/ioBroker/ioBroker.cameras/master.svg)
 
-＃ioBroker.cameras
-## IoBroker的IP摄像机适配器
-您可以将Web / ip摄像机集成到vis和其他可视化中。
-如果您将摄像机配置为名称`cam1`，它将在Web服务器上的`http(s)://iobroker-IP:8082/cameras.0/cam1`下可用。
+TR: # ioBroker.cameras
+TR: ## IP-Cameras adapter for ioBroker
+TR: You can integrate you web/ip cameras into vis and other visualisations.
+If you configure a camera with name `cam1` it will be available on web server under `http(s)://iobroker-IP:8082/cameras.0/cam1`.
 
-另外，可以通过以下消息请求图像：
+TR: Additionally, you the image could be requested via message:
 
 ```
 sendTo('cameras.0', 'image', {
@@ -33,19 +33,22 @@ sendTo('cameras.0', 'image', {
 });
 ```
 
-结果始终为`jpg`格式。
+TR: The result is always in `jpg` format.
 
-支持的相机：
+TR: Supported cameras:
 
-### URL图像这是正常的URL请求，其中所有参数都在URL中。就像`http://mycam/snapshot.jpg`
-###具有基本身份验证的URL图像
-这是图像的URL请求，其中所有参数都在URL中，但是您可以提供用于基本身份验证的凭据。就像`http://mycam/snapshot.jpg`
+TR: ### URL image This is normal URL request, where all parameters are in URL. Like `http://mycam/snapshot.jpg`
+TR: ### URL image with basic authentication
+TR: This is URL request for image, where all parameters are in URL, but you can provide the credentials for basic authentication. Like `http://mycam/snapshot.jpg`
 
-<！-下一个版本的占位符（在该行的开头）：
+TR: <!-- Placeholder for the next version (at the beginning of the line):
 
-### __进展中__->
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 0.1.4 (2021-07-13)
+* (bluefox) Add role for states
+
 ### 0.1.3 (2020-08-08)
 * (Hirsch-DE) Parameters were applied
 
@@ -61,7 +64,7 @@ sendTo('cameras.0', 'image', {
 ## License
 MIT License
 
-Copyright (c) 2020 bluefox <dogafox@gmail.com>
+Copyright (c) 2020-2021 bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

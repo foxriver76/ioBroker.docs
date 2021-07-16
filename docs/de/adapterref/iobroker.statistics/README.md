@@ -3,17 +3,19 @@ translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.statistics/README.md
 title: TR: ioBroker.statistics
-hash: AuaRcz6l0S7OYjP7Y0x2/PW7EwSI1OhFRue1IYG3Nj4=
+hash: 50F3oa1dUN0ZXS5QMiPgTULKjXr2Y6gjxR/q4zvXj1k=
 ---
 ![TR: Logo](../../../en/adapterref/iobroker.statistics/admin/statistics.png)
 
 ![TR: Number of Installations](http://iobroker.live/badges/statistics-stable.svg)
 ![TR: NPM version](http://img.shields.io/npm/v/iobroker.statistics.svg)
 ![TR: Downloads](https://img.shields.io/npm/dm/iobroker.statistics.svg)
-![TR: Build Status](https://travis-ci.org/iobroker-community-adapters/ioBroker.statistics.svg?branch=master)
-![TR: NPM](https://nodei.co/npm/iobroker.statistics.png?downloads=true)
 
 TR: # ioBroker.statistics
+TR: ![TR: Test and Release](https://github.com/iobroker-community-adapters/ioBroker.statistics/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/statistics/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
+
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
+
 TR: ## Description
 TR: This adapter will make the configuration of statistics easier.
 
@@ -51,6 +53,8 @@ TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
 ### __WORK IN PROGRESS__
+* (Apollon77) prepare for js-controller 3.3
+* (Apollon77) make sure all tasks are processed to prevent missing objects
 * (bluefox) added the support of Admin5 
 
 ### 1.0.4
