@@ -2,116 +2,131 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.sonoff/README.md
-title: ioBroker Sonoff
-hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
+title: TR: ioBroker Sonoff
+hash: VDlcSKuA7whtiJQgKK9PL2zdKYwGkNcFtmHhOcwoe9c=
 ---
-![商标](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
+![TR: Logo](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
-![安装数量](http://iobroker.live/badges/sonoff-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.sonoff.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.sonoff.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.sonoff.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/sonoff-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.sonoff.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
 
-＃ioBroker Sonoff
-##用法
-该适配器通过MQTT与具有Tasmota固件的Sonoff设备或ESP设备通信。
+TR: # ioBroker Sonoff
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-预期以下主题：
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
--`tele / DeviceNAME / STATE`
--`tele / DeviceNAME / SENSOR`
--`tele / DeviceNAME / INFOx`
--`tele / DeviceNAME / ENERGY`
--`cmnd / DeviceNAME / POWERx`
--`stat / DeviceNAME / POWERx`
--`/ DeviceNAME / BM280 / Temperature`
--`/ DeviceNAME / BM280 / Humidity`
--`/ DeviceNAME / BM280 / Temperatur`
--`/ DeviceNAME / BM280 / Feuchtigkeit`
--`/ DeviceNAME / BM280 / Vcc`
--`/ DeviceNAME / BM280 / VCC`
--`/ DeviceNAME / BM280 / Laufzeit`
--`/ DeviceNAME / BM280 / RSSI`
--`/ DeviceNAME / BM280 / POWER`
--`/ DeviceNAME / BM280 / POWER1`
--`/ DeviceNAME / BM280 / POWER2`
--`/ DeviceNAME / BM280 / POWER3`
--`/ DeviceNAME / BM280 / POWER4`
--`/ DeviceNAME / BM280 / Switch1`
--`/ DeviceNAME / BM280 / Switch2`
--`/ DeviceNAME / BM280 / Total`
--`/ DeviceNAME / BM280 / Today`
--`/ DeviceNAME / BM280 / heute`
--`/ DeviceNAME / BM280 /昨天`
--`/ DeviceNAME / BM280 / gestern`
--`/ DeviceNAME / BM280 / Faktor`
--`/ DeviceNAME / BM280 / Factor`
--`/ DeviceNAME / BM280 / Power`
--`/ DeviceNAME / BM280 / Leistung`
--`/ DeviceNAME / BM280 / Voltage`
--`/ DeviceNAME / BM280 / Spannung`
--`/ DeviceNAME / BM280 / Current`
--`/ DeviceNAME / BM280 / Strom`
--`/ DeviceNAME / BM280 / Punkt`
--`/ DeviceNAME / BM280 / Counter1`
--`/ DeviceNAME / BM280 / Counter2`
--`/ DeviceNAME / BM280 / Counter3`
--`/ DeviceNAME / BM280 / Counter4`
--`/ DeviceNAME / BM280 / Pressure`
--`/ DeviceNAME / BM280 / SeaPressure`
--`/ DeviceNAME / BM280 / Druck`
--`/ DeviceNAME / BM280 / Approx。海拔
--`/ DeviceNAME / BM280 / Module`
--`/ DeviceNAME / BM280 / Version`
--`/ DeviceNAME / BM280 / Hostname`
--`/ DeviceNAME / BM280 / IPAddress`
--`/ DeviceNAME / BM280 / IPaddress`
--`/ DeviceNAME / BM280 / RestartReason`
--`/ DeviceNAME / BM280 / CarbonDioxide`
--`/ DeviceNAME / DHT11 / Illuminance`
--`/ DeviceNAME / SonoffSC / Light`
--`/ DeviceNAME / SonoffSC / Noise`
--`/ DeviceNAME / SonoffSC / AirQuality`
--`/ DeviceNAME / SDS0X1 / PM2.5`
--`/ DeviceNAME / SDS0X1 / PM10`
--`/ DeviceNAME / SDS0X1 / UvLevel`
--`/ DeviceNAME / SDS0X1 / Latitude`
--`/ DeviceNAME / SDS0X1 / Longitude`
--`/ DeviceNAME / SR04 / Distance`
+TR: ## Usage
+TR: This adapter communicates with Sonoff devices with Tasmota firmware or ESP devices via MQTT.
 
-**注意**：该列表可以轻松扩展。请将未知状态的`Pull Requests`或*调试数据*发送给开发人员（通过发出）。
+TR: Following topics are expected:
 
-##自动创建对象
-在Web配置中，您可以确定哪些MQTT报文创建不在默认数据点中的新对象
+TR: - `tele/DeviceNAME/STATE`
+TR: - `tele/DeviceNAME/SENSOR`
+TR: - `tele/DeviceNAME/INFOx`
+TR: - `tele/DeviceNAME/ENERGY`
+TR: - `cmnd/DeviceNAME/POWERx`
+TR: - `stat/DeviceNAME/POWERx`
+TR: - `/DeviceNAME/BM280/Temperature`
+TR: - `/DeviceNAME/BM280/Humidity`
+TR: - `/DeviceNAME/BM280/Temperatur`
+TR: - `/DeviceNAME/BM280/Feuchtigkeit`
+TR: - `/DeviceNAME/BM280/Vcc`
+TR: - `/DeviceNAME/BM280/VCC`
+TR: - `/DeviceNAME/BM280/Laufzeit`
+TR: - `/DeviceNAME/BM280/RSSI`
+TR: - `/DeviceNAME/BM280/POWER`
+TR: - `/DeviceNAME/BM280/POWER1`
+TR: - `/DeviceNAME/BM280/POWER2`
+TR: - `/DeviceNAME/BM280/POWER3`
+TR: - `/DeviceNAME/BM280/POWER4`
+TR: - `/DeviceNAME/BM280/Switch1`
+TR: - `/DeviceNAME/BM280/Switch2`
+TR: - `/DeviceNAME/BM280/Total`
+TR: - `/DeviceNAME/BM280/Today`
+TR: - `/DeviceNAME/BM280/heute`
+TR: - `/DeviceNAME/BM280/Yesterday`
+TR: - `/DeviceNAME/BM280/gestern`
+TR: - `/DeviceNAME/BM280/Faktor`
+TR: - `/DeviceNAME/BM280/Factor`
+TR: - `/DeviceNAME/BM280/Power`
+TR: - `/DeviceNAME/BM280/Leistung`
+TR: - `/DeviceNAME/BM280/Voltage`
+TR: - `/DeviceNAME/BM280/Spannung`
+TR: - `/DeviceNAME/BM280/Current`
+TR: - `/DeviceNAME/BM280/Strom`
+TR: - `/DeviceNAME/BM280/Punkt`
+TR: - `/DeviceNAME/BM280/Counter1`
+TR: - `/DeviceNAME/BM280/Counter2`
+TR: - `/DeviceNAME/BM280/Counter3`
+TR: - `/DeviceNAME/BM280/Counter4`
+TR: - `/DeviceNAME/BM280/Pressure`
+TR: - `/DeviceNAME/BM280/SeaPressure`
+TR: - `/DeviceNAME/BM280/Druck`
+TR: - `/DeviceNAME/BM280/Approx. Altitude`
+TR: - `/DeviceNAME/BM280/Module`
+TR: - `/DeviceNAME/BM280/Version`
+TR: - `/DeviceNAME/BM280/Hostname`
+TR: - `/DeviceNAME/BM280/IPAddress`
+TR: - `/DeviceNAME/BM280/IPaddress`
+TR: - `/DeviceNAME/BM280/RestartReason`
+TR: - `/DeviceNAME/BM280/CarbonDioxide`
+TR: - `/DeviceNAME/DHT11/Illuminance`
+TR: - `/DeviceNAME/SonoffSC/Light`
+TR: - `/DeviceNAME/SonoffSC/Noise`
+TR: - `/DeviceNAME/SonoffSC/AirQuality`
+TR: - `/DeviceNAME/SDS0X1/PM2.5`
+TR: - `/DeviceNAME/SDS0X1/PM10`
+TR: - `/DeviceNAME/SDS0X1/UvLevel`
+TR: - `/DeviceNAME/SDS0X1/Latitude`
+TR: - `/DeviceNAME/SDS0X1/Longitude`
+TR: - `/DeviceNAME/SR04/Distance`
 
-*`TELE_SENSOR`从`tele / xxx / SENSOR`电报创建对象
-*`TELE_STATE`通过`tele / xxx / STATE`电报创建对象
-* STAT_RESULT从stat / xxx / RESULT电报创建对象
+TR: **Note**: The list could be easily extended. Please send `Pull Requests` or *debug data* for unknown states to developer (via issue).
 
-通常，TELE_SENSOR对于大多数用户来说就足够了。
+TR: ## Auto-creation of objects
+TR: In the web config you can determine which MQTT telegrams create the new objects not in default data points:
 
-*`Create object tree`创建对象为树结构
+TR: * `TELE_SENSOR` - creates objects from `tele/xxx/SENSOR` telegrams
+TR: * `TELE_STATE` - creates objects from `tele/xxx/STATE` telegrams
+TR: * `STAT_RESULT` - creates objects from `stat/xxx/RESULT` telegrams
 
-**警告！**此选项会弄乱您的sonoff对象树！您必须重做所有存储设置...
-将对象结构存储为JSON文件，以便您可以重新创建旧结构。
-最好是停止适配器，删除sonoff下的所有对象，然后重新启动适配器。
+TR: Usually TELE_SENSOR should be sufficient for most users.
 
-## LED控制器的标志
-仅当设备具有以下状态之一时，才会创建模式状态：
+TR: * `Create object tree` creates objects as tree structure
 
--红色，绿色，蓝色，WW，CW，颜色，RGB_POWER，WW_POWER，CW_POWER，色相，饱和度
+TR: **Warning!** This option will mess up your sonoff object tree! You have to redo all the settings for storage...
+Store the object structure as JSON file, so you can recreate your old structure.
+Best is to stop the adapter, delete all objects under sonoff and start the adapter again.
 
-状态：
+TR: ## Flags for LED controllers
+TR: The mode states will be created only if device has one of the states:
 
-*`modeLedExor`-白色LED和彩色LED的exor =>如果打开白色LED，关闭彩色LED，反之亦然（默认为true）
-*`modeReadColors`-允许从MQTT读取颜色（默认为false）
+TR: - `Red`, `Green`, `Blue`, `WW`, `CW`, `Color`, `RGB_POWER`, `WW_POWER`, `CW_POWER`, `Hue`, `Saturation`
+
+TR: States:
+
+TR: * `modeLedExor` - exor for white LEDs and color LEDs => if the white LEDs are switched on, color LEDs are switched off and vice versa (default true)
+TR: * `modeReadColors` - allow for color read from MQTT (default false)
+
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 2.4.3 (2021-07-18)
+* (bluefox) Better type detection for non-described states
 
-### __WORK IN PRGRESS__
-* (anwa) add several datapoints
-* (anwa) Fix tranlation for 'ignorePings'
+### 2.4.2 (2021-07-17)
+* (bluefox) Optimize for js-controller 3.3
+
+### 2.4.1 (2021-07-17)
+* (Apollon77/bluefox) Optimize for js-controller 3.3
+* (Apollon77) Add Sentry for error reporting with js-controller 3.x+
+
+### 2.4.0 (2021-02-04)
+* (anwa) add several data points
+* (anwa) Fix translation for 'ignorePings'
 * (anwa) Fix wrong unit for humidity
 * (anwa) Config option to create a complete object tree instead of a flat structure
 * (anwa) Change Action type to string
@@ -130,7 +145,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 * (bluefox) Correct processing of `{temp: nan}`
 
 ### 2.2.3 (2019-01-10)
-* (simatec) Support for comapct mode
+* (simatec) Support for compact mode
 
 ### 2.2.2 (2018-06-22)
 * (bluefox) Configuration was fixed
@@ -139,7 +154,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 * (bluefox) '-' in names was allowed again
 
 ### 2.2.0 (2018-05-22)
-* (gemu2015) auto generate objects, support for arrays (channel), ledcontrollers improved
+* (gemu2015) auto generate objects, support for arrays (channel), led-controllers improved
 
 ### 2.1.3 (2018-05-08)
 * (bluefox) Added HC-SR04 Ultrasonic Sensor
@@ -178,7 +193,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 
 ### 1.0.0 (2017-11-27)
 * (AlZiBa) typo @ alive
-* (AlZiBa) add Todays power consumption for Sonoff POW
+* (AlZiBa) add Today's power consumption for Sonoff POW
 * (AlZiBa) unit of power consumption is kWh
 
 ### 0.3.3 (2017-11-03)
@@ -203,7 +218,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2019, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

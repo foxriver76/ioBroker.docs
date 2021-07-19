@@ -2,111 +2,112 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.rpi2/README.md
-title: без заголовка
-hash: LuTrQrlZ5YW5/rS6OYyVphiuYRKeh2CH3Y22fvNr/zQ=
+title: TR: no title
+hash: R9fOiJyoT2DZytnnC+cE6C+nwMWndONVOBFvcpla20A=
 ---
-![Логотип](../../../en/adapterref/iobroker.rpi2/admin/rpi.png) Адаптер ioBroker RPI-Monitor
+![TR: Number of Installations](http://iobroker.live/badges/rpi2-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.rpi2.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
 
-![Количество установок](http://iobroker.live/badges/rpi2-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.rpi2.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
-![НПМ](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)
+TR: ![TR: Logo](../../../en/adapterref/iobroker.rpi2/admin/rpi.png) ioBroker RPI-Monitor Adapter
 
 ==============
 
-Реализация RPI-Monitor для интеграции в ioBroker. Это та же реализация, что и для iobroker.rpi, но с GPIO.
+[![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/rpi2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-## Важная информация
-Работает только с node> = 0.12
+TR: RPI-Monitor implementation for integration into ioBroker. It is the same implementation as for iobroker.rpi, but with GPIOs.
 
-** ioBroker требуются особые разрешения для управления GPIO. ** В большинстве дистрибутивов Linux это может быть достигнуто путем добавления пользователя ioBroker в группу `gpio` (рекомендуется) или запуска ioBroker под `root` (менее безопасно).
+TR: ## Important Information
+TR: Works only with node >= 0.12
 
-## Установка
-После установки вам необходимо настроить все необходимые модули через страницу администрирования.
+TR: **ioBroker needs special permissions to control GPIOs.** On most Linux distributions this can be achieved by adding the ioBroker user to the `gpio` group (recommended) or running ioBroker under `root` (less secure).
 
-После запуска iobroker.rpi все выбранные модули генерируют дерево объектов в ioBroker в пределах rpi. <instance>. <modulename>, например. rpi.0.cpu
+TR: ## Installation
+TR: After installation you have to configure all required modules via administration page.
 
-Убедитесь, что установлены python и build-essential:
+TR: After start of iobroker.rpi, all selected modules generates an object tree in ioBroker within rpi.<instance>.<modulename> e.g. rpi.0.cpu
+
+TR: Be sure, that python and build-essential are installed:
 
 ```
 sudo apt-get update
 sudo apt-get install -y build-essential python
 ```
 
-После выбора доступны следующие объекты:
+TR: Following Objects are available after selection:
 
-#### **ПРОЦЕССОР**
-- cpu_frequency
-- load1
-- load5
-- load15
+TR: #### **CPU**
+TR: - cpu_frequency
+TR: - load1
+TR: - load5
+TR: - load15
 
-#### **Малина (требуется vcgencmd)**
-- cpu_voltage
-- mem_arm
-- mem_gpu
+TR: #### **Raspberry (vcgencmd is required)**
+TR: - cpu_voltage
+TR: - mem_arm
+TR: - mem_gpu
 
-#### **Объем памяти**
-- memory_available
-- memory_free
-- memory_total
+TR: #### **Memory**
+TR: - memory_available
+TR: - memory_free
+TR: - memory_total
 
-#### **Сеть (eth0)**
-- net_received
-- net_send
+TR: #### **Network (eth0)**
+TR: - net_received
+TR: - net_send
 
-#### **SD Card**
-- sdcard_boot_total
-- sdcard_boot_used
-- sdcard_root_total
-- sdcard_root_used
+TR: #### **SDCard**
+TR: - sdcard_boot_total
+TR: - sdcard_boot_used
+TR: - sdcard_root_total
+TR: - sdcard_root_used
 
-#### **Обмен**
-- swap_total
-- swap_used
+TR: #### **Swap**
+TR: - swap_total
+TR: - swap_used
 
-#### **Температура**
-- soc_temp
+TR: #### **Temperature**
+TR: - soc_temp
 
-#### **Время работы**
-- время безотказной работы
+TR: #### **Uptime**
+TR: - uptime
 
-#### **WLAN**
-- wifi_received
-- wifi_send
+TR: #### **WLAN**
+TR: - wifi_received
+TR: - wifi_send
 
-## Конфигурация
-На странице конфигурации вы можете выбрать следующие модули:
+TR: ## Configuration
+TR: On configuration page you can select following modules:
 
-- ПРОЦЕССОР
-- Малина
-- Объем памяти
-- Сеть
-- SD Card
-- Обмен
-- температура
-- Время работы
-- WLAN
+TR: - CPU
+TR: - Raspberry
+TR: - Memory
+TR: - Network
+TR: - SDCard
+TR: - Swap
+TR: - Temperature
+TR: - Uptime
+TR: - WLAN
 
-## Файлы журнала / Настройки конфигурации
-## Особенности
-## Делать
-## Протестированное оборудование
- - Odroid C1
- - Raspberry Pi 1
+TR: ## Logfiles / Configuration Settings
+TR: ## Features
+TR: ## Todo
+TR: ## Tested Hardware
+TR:  - Odroid C1
+TR:  - Raspberry Pi 1
 
-## GPIO
-Вы также можете читать и управлять GPIO.
-Все, что вам нужно сделать, это настроить в настройках параметры GPIO (дополнительная вкладка).
+TR: ## GPIOs
+TR: You can read and control GPIOs too.
+All what you need to do is to configure in the settings the GPIOs options (additional tab).
 
-![GPIO](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
+![TR: GPIOs](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
 
-После включения некоторых портов в дереве объектов появляются следующие состояния:
+TR: After some ports are enabled following states appear in the object tree:
 
-- rpi.0.gpio.PORT.state
+TR: - rpi.0.gpio.PORT.state
 
-Нумерация портов - BCM (контакты BroadComm на кристалле). Вы можете получить перечисление с помощью ```gpio readall```.
-Например, PI2:
+TR: The numeration of ports is BCM (BroadComm pins on chip). You can get the enumeration with ```gpio readall```.
+For instance PI2:
 
 ```
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
@@ -137,12 +138,21 @@ sudo apt-get install -y build-essential python
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
 ```
 
-## Датчики DHTxx / AM23xx
-Вы можете считывать данные с датчиков температуры / влажности DHT11, DHT22 и AM2302.
+TR: ## DHTxx/AM23xx Sensors
+TR: You can read from DHT11, DHT22 and AM2302 temperature/humidity sensors.
 
-Подключите такой датчик к контакту GPIO, как описано на странице пакета [узел-dht-сенсор](https://www.npmjs.com/package/node-dht-sensor). Несколько датчиков могут быть подключены к *нескольким* контактам (это *не* шинная система), как обсуждалось.
+TR: Connect such a sensor to a GPIO pin as described on the [TR: node-dht-sensor](https://www.npmjs.com/package/node-dht-sensor) package page. Multiple sensors can be connected to *multiple* pins (this is *not* a bus system) as discussed.
 
 ## Changelog
+
+### 1.3.1 (2021-07-16)
+* (Apollon77) Prevent js-controller 3.3 warnings
+
+### 1.3.0 (2021-07-16)
+* (asgothian) Fix to get CPU frequencies also on Raspi 4
+* (raintor) Add support for DHTxx/AM23xx Sensors
+* (raintor) Configure internal Pull UP/Down Resistor
+* (raintor) Add port 'label'/'friendly name' to GPIO config
 
 ### 1.2.0 (2020-01-17)
 - (janfromberlin) GPIO configuration as output with defined initial value
@@ -196,6 +206,6 @@ sudo apt-get install -y build-essential python
 
 ## License
 
-Copyright (c) 2015-2020 husky-koglhof <husky.koglhof@icloud.com>
+Copyright (c) 2015-2021 husky-koglhof <husky.koglhof@icloud.com>
 
 MIT License

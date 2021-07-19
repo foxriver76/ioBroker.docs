@@ -7,7 +7,7 @@ translatedFrom: de
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonnen/README.md
 title: TR: sonnen Adapter
-hash: 1eF8G6QCUKew7oY3I/Hk9qzWpaGFV7TjijufbaqKVNs=
+hash: ErqgSDbG/EFc2HU7jcVSTbfxu/0Mq0tfC1sN9jh+tiY=
 ---
 ![TR: Logo](../../../de/adapterref/iobroker.sonnen/media/sonnen.png)
 
@@ -70,7 +70,7 @@ Jeder Datenpunkt ist mit seinem zugehörigen Datentyp sowie seinen Berechtigunge
 Berechtigungen können lesend (R) sowie schreibend (W) sein. Jeder Datenpunkt kann mindestens gelesen (R) werden, während andere ebenfalls beschrieben werden können. Zur Suche nach einem bestimmten Datenpunkt empfiehlt sich die Suche mittels der Tastenkombination "STRG + F".
 
 TR: ### States
-TR: Hinweis: Die States der Legacy API (Port 3480) sind derzeit nicht dokumentiert
+TR: Hinweis: Die States der Legacy API (Port 3480) und der alten API (Port 7979) sind derzeit nicht oder nur partiell dokumentiert
 
 TR: #### Channel: info
 TR: * info.connection
@@ -321,8 +321,21 @@ TR: Der Kanal besteht aus schreibgeschützten Zuständen vom Typ `number`, die I
 	### __WORK IN PROGRESS__
 -->
 
-### __WORK IN PROGRESS__
-* (foxriver76) we now also support the legacy api (port 3480)
+### 1.9.4 (2021-07-17)
+* (foxriver76) widget: make the svg smaller by using a flexbox to center the svg correctly inside the div
+
+### 1.9.3 (2021-07-16)
+* (foxriver76) also poll the configuration instead of updating it only once at start (closes #70)
+
+### 1.9.2 (2021-07-16)
+* (foxriver76) fix for legacy API
+
+### 1.9.1 (2021-07-16)
+* (foxriver76) use legacy API if old API is not completely implemented
+
+### 1.9.0 (2021-07-16)
+* (foxriver76) we now also support the legacy API (port 3480)
+* (foxriver76) switch from intervals to timeouts to avoid overlapping poll runs
 
 ### 1.8.6 (2021-07-04)
 * (foxriver76) widget: we removed debug logging and unnecessary template functions

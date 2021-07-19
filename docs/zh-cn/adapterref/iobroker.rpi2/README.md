@@ -2,111 +2,112 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.rpi2/README.md
-title: 无题
-hash: LuTrQrlZ5YW5/rS6OYyVphiuYRKeh2CH3Y22fvNr/zQ=
+title: TR: no title
+hash: R9fOiJyoT2DZytnnC+cE6C+nwMWndONVOBFvcpla20A=
 ---
-![商标](../../../en/adapterref/iobroker.rpi2/admin/rpi.png)ioBroker RPI监视器适配器
+![TR: Number of Installations](http://iobroker.live/badges/rpi2-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.rpi2.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
 
-![安装数量](http://iobroker.live/badges/rpi2-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.rpi2.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.rpi2.svg)
-![NPM](https://nodei.co/npm/iobroker.rpi2.png?downloads=true)
+TR: ![TR: Logo](../../../en/adapterref/iobroker.rpi2/admin/rpi.png) ioBroker RPI-Monitor Adapter
 
 ==============
 
-用于集成到ioBroker中的RPI-Monitor实现。与iobroker.rpi的实现相同，但具有GPIO。
+[![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/rpi2/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-##重要信息
-仅适用于节点> = 0.12
+TR: RPI-Monitor implementation for integration into ioBroker. It is the same implementation as for iobroker.rpi, but with GPIOs.
 
-** ioBroker需要特殊权限才能控制GPIO。**在大多数Linux发行版中，可以通过将ioBroker用户添加到`gpio`组（推荐）或在`root`下运行ioBroker（不太安全）来实现。
+TR: ## Important Information
+TR: Works only with node >= 0.12
 
-##安装
-安装后，您必须通过管理页面配置所有必需的模块。
+TR: **ioBroker needs special permissions to control GPIOs.** On most Linux distributions this can be achieved by adding the ioBroker user to the `gpio` group (recommended) or running ioBroker under `root` (less secure).
 
-在启动iobroker.rpi之后，所有选定的模块都会在ioBroker中的rpi中生成一个对象树。<instance>。<modulename>例如rpi.0.cpu
+TR: ## Installation
+TR: After installation you have to configure all required modules via administration page.
 
-确保已安装python和build-essential：
+TR: After start of iobroker.rpi, all selected modules generates an object tree in ioBroker within rpi.<instance>.<modulename> e.g. rpi.0.cpu
+
+TR: Be sure, that python and build-essential are installed:
 
 ```
 sudo apt-get update
 sudo apt-get install -y build-essential python
 ```
 
-选择后可以使用以下对象：
+TR: Following Objects are available after selection:
 
-＃＃＃＃ **中央处理器**
--cpu_frequency
--负载1
--负载5
--负载15
+TR: #### **CPU**
+TR: - cpu_frequency
+TR: - load1
+TR: - load5
+TR: - load15
 
-#### ** Raspberry（需要vcgencmd）**
--cpu_voltage
--mem_arm
--mem_gpu
+TR: #### **Raspberry (vcgencmd is required)**
+TR: - cpu_voltage
+TR: - mem_arm
+TR: - mem_gpu
 
-#### **内存**
--memory_available
--memory_free
--memory_total
+TR: #### **Memory**
+TR: - memory_available
+TR: - memory_free
+TR: - memory_total
 
-#### **网络（eth0）**
--net_received
--net_send
+TR: #### **Network (eth0)**
+TR: - net_received
+TR: - net_send
 
-＃＃＃＃ **SD卡**
--sdcard_boot_total
--sdcard_boot_used
--sdcard_root_total
--sdcard_root_used
+TR: #### **SDCard**
+TR: - sdcard_boot_total
+TR: - sdcard_boot_used
+TR: - sdcard_root_total
+TR: - sdcard_root_used
 
-#### **交换**
--swap_total
--swap_used
+TR: #### **Swap**
+TR: - swap_total
+TR: - swap_used
 
-#### **温度**
--soc_temp
+TR: #### **Temperature**
+TR: - soc_temp
 
-#### **正常运行时间**
--正常运行时间
+TR: #### **Uptime**
+TR: - uptime
 
-#### **WLAN**
--wifi_received
--wifi_send
+TR: #### **WLAN**
+TR: - wifi_received
+TR: - wifi_send
 
-##配置
-在配置页面上，您可以选择以下模块：
+TR: ## Configuration
+TR: On configuration page you can select following modules:
 
-- 中央处理器
-- 覆盆子
--记忆
--网络
-- SD卡
--交换
--温度
--正常运行时间
--无线局域网
+TR: - CPU
+TR: - Raspberry
+TR: - Memory
+TR: - Network
+TR: - SDCard
+TR: - Swap
+TR: - Temperature
+TR: - Uptime
+TR: - WLAN
 
-##日志文件/配置设置
-＃＃ 特征
-＃＃ 去做
-##经过测试的硬件
- -Odroid C1
- -树莓派1
+TR: ## Logfiles / Configuration Settings
+TR: ## Features
+TR: ## Todo
+TR: ## Tested Hardware
+TR:  - Odroid C1
+TR:  - Raspberry Pi 1
 
-## GPIO
-您也可以读取和控制GPIO。
-您需要做的就是在设置中配置GPIO选项（附加选项卡）。
+TR: ## GPIOs
+TR: You can read and control GPIOs too.
+All what you need to do is to configure in the settings the GPIOs options (additional tab).
 
-![通用输入输出](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
+![TR: GPIOs](../../../en/adapterref/iobroker.rpi2/img/pi3_gpio.png)
 
-启用某些端口后，对象树中会显示以下状态：
+TR: After some ports are enabled following states appear in the object tree:
 
--rpi.0.gpio.PORT.state
+TR: - rpi.0.gpio.PORT.state
 
-端口的数量为BCM（片上BroadComm引脚）。您可以使用```gpio readall```获得枚举。
-例如PI2：
+TR: The numeration of ports is BCM (BroadComm pins on chip). You can get the enumeration with ```gpio readall```.
+For instance PI2:
 
 ```
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
@@ -137,12 +138,21 @@ sudo apt-get install -y build-essential python
 +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
 ```
 
-## DHTxx / AM23xx传感器
-您可以从DHT11，DHT22和AM2302温度/湿度传感器中读取。
+TR: ## DHTxx/AM23xx Sensors
+TR: You can read from DHT11, DHT22 and AM2302 temperature/humidity sensors.
 
-如[节点DHT传感器](https://www.npmjs.com/package/node-dht-sensor)封装页面中所述，将这种传感器连接到GPIO引脚。可以将多个传感器连接到*多个*引脚（这不是*总线系统），如前所述。
+TR: Connect such a sensor to a GPIO pin as described on the [TR: node-dht-sensor](https://www.npmjs.com/package/node-dht-sensor) package page. Multiple sensors can be connected to *multiple* pins (this is *not* a bus system) as discussed.
 
 ## Changelog
+
+### 1.3.1 (2021-07-16)
+* (Apollon77) Prevent js-controller 3.3 warnings
+
+### 1.3.0 (2021-07-16)
+* (asgothian) Fix to get CPU frequencies also on Raspi 4
+* (raintor) Add support for DHTxx/AM23xx Sensors
+* (raintor) Configure internal Pull UP/Down Resistor
+* (raintor) Add port 'label'/'friendly name' to GPIO config
 
 ### 1.2.0 (2020-01-17)
 - (janfromberlin) GPIO configuration as output with defined initial value
@@ -196,6 +206,6 @@ sudo apt-get install -y build-essential python
 
 ## License
 
-Copyright (c) 2015-2020 husky-koglhof <husky.koglhof@icloud.com>
+Copyright (c) 2015-2021 husky-koglhof <husky.koglhof@icloud.com>
 
 MIT License

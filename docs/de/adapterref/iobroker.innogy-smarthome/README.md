@@ -2,20 +2,22 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.innogy-smarthome/README.md
-title: ioBroker.Innogy-SmartHome
-hash: Rs8xNlbQlKEQTU86OLLUr0tNLzzFSJ/b4bsgMbaLt/o=
+title: TR: ioBroker.Innogy-SmartHome
+hash: DH6N8vNW5jb3ueTxzS9i6bNH+vSpkHlgKEiaMW3gVkg=
 ---
-![Logo](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
+![TR: Logo](../../../en/adapterref/iobroker.innogy-smarthome/admin/innogy-smarthome.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/innogy-smarthome-stable.svg)
-![Bauen](https://travis-ci.org/PArns/ioBroker.innogy-smarthome.svg?branch=master)
+![TR: Number of Installations](http://iobroker.live/badges/innogy-smarthome-stable.svg)
+![TR: Build](https://travis-ci.org/PArns/ioBroker.innogy-smarthome.svg?branch=master)
 
-# IoBroker.Innogy-SmartHome
-Mit diesem Adapter werden die Innogy-Smarthome-Geräte mit ioBroker verbunden. Sie können mehr über Innogy [Hier](https://www.innogy.com) lesen.
+TR: # ioBroker.Innogy-SmartHome
+TR: This adapter is used to connect the Innogy smarthome devices to ioBroker. You can read more about Innogy [TR: here](https://www.innogy.com).
 
-### Benötigt Knoten> 8.x.
-## STELLENANGEBOTE!
-Da dieses Projekt in meiner Freizeit entwickelt wird, suche ich aktiv nach Hilfe, um diese Bibliothek zu pflegen und zu erweitern! Wenn Sie bereit sind zu helfen, schreiben Sie mir eine Nachricht!
+TR: ###Requires Node > 8.x
+TR: Please note: For the Authentication process Port 300 is needed to be available om the host. Please check that nothing else is using it (e.g. Grafana)
+
+TR: ## HELP WANTED!
+TR: As this project is developed during my spare time, I*m actively looking for help to maintain and extend this lib! If you're willing to help, drop me a line!
 
 ## Changelog
 

@@ -2,252 +2,253 @@
 translatedFrom: en
 translatedWarning: Wenn Sie dieses Dokument bearbeiten möchten, löschen Sie bitte das Feld "translationsFrom". Andernfalls wird dieses Dokument automatisch erneut übersetzt
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/de/adapterref/iobroker.roomba/README.md
-title: ioBroker.roomba
-hash: PloH4aMgi5KrKN3YSTHxs1DcmVcx7d6tkETE/7jJ/Kg=
+title: TR: ioBroker.roomba
+hash: aTbrR6flAU9zIqlLYe+UDfALfaeI/rLZi8tOPuCxpmc=
 ---
-![Logo](../../../en/adapterref/iobroker.roomba/admin/roomba.png)
+![TR: Logo](../../../en/adapterref/iobroker.roomba/admin/roomba.png)
 
-![Anzahl der Installationen](http://iobroker.live/badges/roomba-installed.svg)
-![Stabile Version](http://iobroker.live/badges/roomba-stable.svg)
-![NPM-Version](http://img.shields.io/npm/v/iobroker.roomba.svg)
-![Commits seit der letzten Veröffentlichung](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.roomba/latest.svg)
-![Downloads](https://img.shields.io/npm/dm/iobroker.roomba.svg)
-![NPM](https://nodei.co/npm/iobroker.roomba.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/roomba-installed.svg)
+![TR: Stable Version](http://iobroker.live/badges/roomba-stable.svg)
+![TR: NPM Version](http://img.shields.io/npm/v/iobroker.roomba.svg)
+![TR: Commits since last release](https://img.shields.io/github/commits-since/iobroker-community-adapters/ioBroker.roomba/latest.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.roomba.svg)
+![TR: NPM](https://nodei.co/npm/iobroker.roomba.png?downloads=true)
 
-# IoBroker.roomba Verbinden Sie Ihren iRobot Roomba mit ioBroker.
-Basierend auf der dorita980-Bibliothek https://github.com/koalazak/dorita980#readme
+TR: # ioBroker.roomba Connect your iRobot Roomba to ioBroker.
+TR: Based on the dorita980 library https://github.com/koalazak/dorita980#readme
 
-[![Travis CI] (https://travis-ci.com/iobroker-community-adapters/ioBroker.roomba.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.roomba)
+[![TR: Travis CI](https://travis-ci.com/iobroker-community-adapters/ioBroker.roomba.svg?branch=master)](https://travis-ci.com/iobroker-community-adapters/ioBroker.roomba)
 
-**Inhaltsverzeichnis**
+TR: **Table of contents**
 
-1. [Funktionen] (# Funktionen)
-2. [Installation] (# Installation)
-3. [Setup-Anweisungen] (# Setup-Anweisungen)
-4. [Unterstützte Roombas / Firmware-Versionen] (# Supported-Roombas - Firmware-Versionen)
-5. [Kanäle & Zustände] (# Kanäle - Zustände)
-6. [Beschreibung der Einstellungen (unvollständig)] (# Beschreibung der Einstellungen unvollständig)
-7. [Smart Home / Alexa-Integration mit ioBroker.javascript] (# smart-home - alexa-Integration mit iobrokerjavascript)
-8. [Changelog] (# changelog)
-9. [Credits] (# Credits)
-10. [Lizenz] (# Lizenz)
+TR: 1. [Features](#features)
+TR: 2. [Installation](#installation)
+TR: 3. [Setup instructions](#setup-instructions)
+TR: 4. [Supported Roomba's / Firmware versions](#supported-roombas--firmware-versions)
+TR: 5. [Channels & States](#channels--states)
+TR: 6. [Description of Preferences (incomplete)](#description-of-preferences-incomplete)
+TR: 7. [Smart Home / Alexa integration using ioBroker.javascript](#smart-home--alexa-integration-using-iobrokerjavascript)
+TR: 8. [Changelog](#changelog)
+TR: 9. [Credits](#credits)
+TR: 10. [Licence](#license)
 
-## Eigenschaften
-Die folgenden Funktionen werden mit diesem Adapter geliefert:
+TR: ## Features
+TR: The following features come with this adapter:
 
-- __Senden Sie Befehle__ (`Start`,` Stop`, `Resume`,` Pause`, `Dock`) an Ihren Roomba
-- Abrufen von __Gerätezuständen__, z. B. Batterie, angedockter, voller / eingelegter Behälter (vollständige Liste siehe [Kanäle & Zustände] (# Kanäle - Zustände))
-- Rufen Sie die Gerätekonfiguration ab, z. B. Einstellungen, Netzwerk- oder Zeitplaneinstellungen (eine vollständige Liste finden Sie unter [Kanäle und Status] (# Kanäle - Status)).
-- Abrufen von Gerätestatistiken, z. B. Gesamtmissionen, Stunden an der Dockingstation usw. (eine vollständige Liste finden Sie unter [Kanäle und Bundesstaaten] (# Kanäle - Bundesstaaten).)
-- Rufen Sie Informationen zu __current mission__ (wenn Ihr Roomba bereinigt wird) ab, z. B. Start- und Endzeit, Gesamtlaufzeit, gereinigte Quadratmeter usw. (nur bei unterstützten Roombas siehe [Unterstützte Roombas / Firmware-Versionen] (# unterstützte Roombas) --firmware-Versionen))
-- __Zeichnen Sie die Karte basierend auf den empfangenen Missionsdaten__ (nur auf unterstützten Roombas)
-- __Web Interface__, das den Status und die Karte der aktuellen sowie der vorherigen / archivierten Missionen anzeigt:
+TR: - __Send commands__ (`start`, `stop`, `resume`, `pause`, `dock`) to your Roomba
+TR: - Retrieve __device states__, such as battery, docked, full / inserted bin (see [Channels & States](#channels--states) for full list)
+TR: - Retrieve __device configuration__, such as preferences, network or schedule settings (see [Channels & States](#channels--states) for full list)
+TR: - Retrieve __device statistics__, such as total missions, hours on docking station, etc. (see [Channels & States](#channels--states) for full list)
+TR: - Retrieve information about __current mission__ (when your Roomba is cleaning), such as start and end time, total runtime, sqm cleaned, etc. (only on supported Roomba\'s see [Supported Roomba's / Firmware versions](#supported-roombas--firmware-versions))
+TR: - __Draw map based on the mission data__ received (only on supported Roomba\'s)
+TR: - __Web Interface__ that shows the status and map of the current as well as previous / archived missions:
 
-  ![Roomba-Schnittstelle](../../../en/adapterref/iobroker.roomba/img/roomba.interface.png)
+  ![TR: Roomba Interface](../../../en/adapterref/iobroker.roomba/img/roomba.interface.png)
 
-## Installation
-ioBroker.roomba benötigt [Segeltuch](https://www.npmjs.com/package/canvas), um Karten der Roomba-Missionen zu zeichnen. ioBroker versucht, diese Abhängigkeit mit der Installation von ioBroker.roomba zu installieren.
+TR: ## Installation
+TR: ioBroker.roomba needs [TR: canvas](https://www.npmjs.com/package/canvas) in order to draw maps of the Roomba missions. ioBroker will try to install this dependency with ioBroker.roomba installation.
 
-Allerdings müssen Sie wahrscheinlich die Paketabhängigkeiten von canvas (und canvas selbst) mit dem folgenden Befehl installieren:
+TR: Though, you probably have to install package dependencies of canvas (and canvas itself) with the following command:
 
-### Linux
+TR: ### Linux
 ```
 sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
 ```
 
-Führen Sie außerdem den folgenden Befehl __ im Verzeichnis ioBroker.roomba__ aus (`/opt/iobroker/node_modules/iobroker.roomba`):
+TR: Furthermore, run the following command __in the ioBroker.roomba directory__ (`/opt/iobroker/node_modules/iobroker.roomba`):
 
 ```
 sudo npm install canvas --unsafe-perm=true
 ```
 
-### Windows
-1. Stellen Sie sicher, dass Sie `node-gyp` über installiert haben
+TR: ### Windows
+TR: 1. Make sure you have `node-gyp` installed via
 
 ```
 npm install -g node-gyp
 ```
 
-2. Stellen Sie sicher, dass Sie Build Essentials über installiert haben
+TR: 2. Make sure you have build essentials installed via
 
 ```
 npm install --global --production windows-build-tools
 ```
 
-3. Laden Sie GTK 2 (für [Win32] (http://ftp.gnome.org/pub/GNOME/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.10-20120208_win32.zip) oder [Win64] (http://ftp.gnome.org/pub/GNOME/binaries/win64/gtk+/2.22/gtk+-bundle_2.22.1-20101229_win64.zip)) und entpacken Sie es (z. B. nach `C: \ path \ to \ GTK2`)
-4. Führen Sie aus
+TR: 3. Download GTK 2 (for [Win32](http://ftp.gnome.org/pub/GNOME/binaries/win32/gtk+/2.24/gtk+-bundle_2.24.10-20120208_win32.zip) or [Win64](http://ftp.gnome.org/pub/GNOME/binaries/win64/gtk+/2.22/gtk+-bundle_2.22.1-20101229_win64.zip)) and unzip it (e.g. to `C:\path\to\GTK2`)
+TR: 4. Run
 
 ```
 node-gyp rebuild --GTK_Root=C:\path\to\GTK2
 ```
 
-5. Installieren Sie die Zeichenfläche im Ordner iobroker.roomba
+TR: 5. Install canvas from within the iobroker.roomba folder
 
 ```
 cd C:\path\to\iobroker\node_modules\iobroker.roomba
 npm install canvas
 ```
 
-Weitere Informationen finden Sie unter https://github.com/Automattic/node-canvas/wiki/Installation:-Windows.
+TR: For details, see https://github.com/Automattic/node-canvas/wiki/Installation:-Windows.
 
-## Setup-Anweisungen
-### Automatisierte Einrichtung
-So richten Sie ioBroker.roomba automatisch ein, indem Sie den Anweisungen im Admin-Bereich von ioBroker.roomba folgen.
+TR: ## Setup instructions
+TR: ### Automated setup
+TR: To automatically setup ioBroker.roomba following the instructions in the admin panel of ioBroker.roomba.
 
-** ACHTUNG **: Die Anmeldeinformationen für die Authentifizierung stimmen nicht mit denen überein, die Sie in der Smartphone-App verwenden!
+TR: **ATTENTION**: The authentication credentials are not the same as you are using in the smartphone app!
 
-1. Stellen Sie sicher, dass der Adapter ioBroker.roomba gestartet ist.
-2. Stellen Sie sicher, dass sich Ihr Roboter auf der Home Base befindet und eingeschaltet ist (grüne Lichter leuchten).
-3. Halten Sie dann die HOME-Taste Ihres Roboters gedrückt, bis eine Reihe von Tönen abgespielt wird (ca. 2 Sekunden).
-4. Lassen Sie die Taste los und Ihr Roboter blinkt WIFI-Licht.
-5. Kommen Sie dann hierher zurück und drücken Sie die Taste, um IP und Anmeldeinformationen abzurufen.
+TR: 1. Make sure the ioBroker.roomba adapter is started.
+TR: 2. Make sure your robot is on the Home Base and powered on (green lights on).
+TR: 3. Then press and hold the HOME button on your robot until it plays a series of tones (about 2 seconds).
+TR: 4. Release the button and your robot will flash WIFI light.
+TR: 5. Then come back here press the button to retrieve IP and credentials.
 
-Wenn der automatisierte Prozess das Abrufen Ihrer Anmeldeinformationen fehlschlägt, verwenden Sie bitte die manuelle Einrichtung.
+TR: If the automated process fails retrieving your credentials, please use the manual setup.
 
-### Manuelle Einrichtung
-Informationen zur manuellen Einrichtung finden Sie unter https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password.
+TR: ### Manual setup
+TR: For manual setup see https://github.com/koalazak/dorita980#how-to-get-your-usernameblid-and-password.
 
-## Unterstützte Roomba / Firmware-Versionen
-### Unterstützte Firmware-Versionen
-| Software-Version | Firmware Info | Unterstützt |
+TR: ## Supported Roomba's / Firmware versions
+TR: ### Supported Firmware versions
+| TR: | Software-Version | Firmware Info | Supported |
 | ---------------- | ------------- | --------- |
-| v1.4 | [Versionshinweise](https://homesupport.irobot.com/app/answers/detail/a_id/19549#rn_PageTitle) | ![# c5f015] (https://placehold.it/15/c5f015/000000?text=+) ** unterstützt (! [# c5f015](https://placehold.it/15/c5f015/000000?text=+) inkl. Karte) ** |
-| v3.2.xx | [Versionshinweise](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | ![# c5f015] (https://placehold.it/15/c5f015/000000?text=+) **unterstützt** (! [# f03c15 ](https://placehold.it/15/f03c15/000000?text=+) KEINE Karte) |
-| v3.2.xx | [Versionshinweise] (https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | ! [# c5f015] (https://placehold.it/15/c5f015/000000?text=+) **unterstützt** (! [# f03c15] (https://placehold.it/15/f03c15/000000? text = +) NO map) |
+| TR: | v1.4 | [TR: Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/19549#rn_PageTitle) | ![TR: #c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported (![#c5f015](https://placehold.it/15/c5f015/000000?text=+) incl. map)** |
+| TR: | v3.2.xx | [TR: Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle)  | ![TR: #c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) NO map) |
+| TR: | v3.2.xx | [Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle)  | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) NO map) |
 
-### Unterstützte Roombas
-| Serie | Modelle _ (unvollständig) _ | Software-Version | Firmware Info | Unterstützt |
+TR: ### Supported Roomba's
+| TR: | Serie | Models _(incomplete)_ | Software-Version | Firmware Info | Supported |
 | ----- | --------------------- | ---------------- | ------------- | --------- |
-| Roomba® 6xx | 605, 606, 612, 616, 671, 676, 680, 696 | v3.2.40 | [Versionshinweise](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | (höchstwahrscheinlich) |
-| Roomba® 7xx | 774, 785, | - | | ![# f03c15](https://placehold.it/15/f03c15/000000?text=+) _Model bietet keine Wifi-Konnektivität, daher keine Unterstützung_ |
-| Roomba® 8xx | 880, 886, 891, 896 | - | [Versionshinweise](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | (höchstwahrscheinlich) |
-| Roomba® 8xx | [895] ((https://forum.iobroker.net/post/245274)) | v3.2.10 / 40/69 | [Versionshinweise](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | ![# c5f015] (https://placehold.it/15/c5f015/000000?text=+) **unterstützt** (! [# f03c15 ](https://placehold.it/15/f03c15/000000?text=+) KEINE Karte) |
-| Roomba® 9xx | 965, 981 | - | [Versionshinweise](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle) | (höchstwahrscheinlich) |
-| Roomba® 9xx | [960] (https://forum.iobroker.net/user/jb_sullivan), [966] (https://forum.iobroker.net/user/thomaslpz), 980 | v2.4.6-3 | [Versionshinweise](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle) | ![# c5f015](https://placehold.it/15/c5f015/000000?text=+) **unterstützt (inkl. Karte)** |
-| Roomba® i | [i7 (7150)] (https://forum.iobroker.net/post/240589), i7 + (7550) | v1.4 | [Versionshinweise](https://homesupport.irobot.com/app/answers/detail/a_id/19549#rn_PageTitle) | ![# c5f015](https://placehold.it/15/c5f015/000000?text=+) **unterstützt (inkl. Karte)** |
-| Roomba® e5 | [e5] (https://forum.iobroker.net/topic/7657/irobot-roomba-adapter/158) | v3.4.42 | [Versionshinweise](https://homesupport.irobot.com/app/answers/detail/a_id/6345#rn_PageTitle) | ![# c5f015] (https://placehold.it/15/c5f015/000000?text=+) **unterstützt** (! [# f03c15 ](https://placehold.it/15/f03c15/000000?text=+) KEINE Karte) |
-| Roomba® s | [S9 +] (https://github.com/Zefau/ioBroker.roomba/issues/34) | v3.2.4 | [Versionshinweise](https://homesupport.irobot.com/app/answers/detail/a_id/26887/kw/s9%2B#rn_PageTitle) | ![# c5f015](https://placehold.it/15/c5f015/000000?text=+) **unterstützt (inkl. Karte)** |
-| Roomba® s | [S9 +] (https://github.com/Zefau/ioBroker.roomba/issues/34) | v3.2.4 | [Versionshinweise] (https://homesupport.irobot.com/app/answers/detail/a_id/26887/kw/s9%2B#rn_PageTitle) | ! [# c5f015] (https://placehold.it/15/c5f015/000000?text=+) **unterstützt (inkl. Karte)** |
+| TR: | Roomba® 6xx | 605, 606, 612, 616, 671, 676, 680, 696 | v3.2.40 | [TR: Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle)  | (most likely) |
+| TR: | Roomba® 6xx | [TR: 692](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues/28) | v3.5.62 | [Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | ![TR: #c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) NO map) |
+| TR: | Roomba® 7xx | 774, 785, | - | | ![TR: #f03c15](https://placehold.it/15/f03c15/000000?text=+) _Model does not offer Wifi connectivity, thus no support_ |
+| TR: | Roomba® 8xx | 880, 886, 891, 896 | - | [TR: Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | (most likely) |
+| TR: | Roomba® 8xx | [TR: 895]((https://forum.iobroker.net/post/245274)) | v3.2.10 / 40 / 69 | [Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/541#rn_PageTitle) | ![TR: #c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) NO map) |
+| TR: | Roomba® 9xx | 965, 981 | - | [TR: Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle) | (most likely) |
+| TR: | Roomba® 9xx | [TR: 960](https://forum.iobroker.net/user/jb_sullivan), [966](https://forum.iobroker.net/user/thomaslpz), 980 | v2.4.6-3 | [Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/529#rn_PageTitle) | ![TR: #c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported (incl. map)** |
+| TR: | Roomba® i | [TR: i7 (7150)](https://forum.iobroker.net/post/240589), i7+ (7550) | v1.4 | [Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/19549#rn_PageTitle) | ![TR: #c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported (incl. map)** |
+| TR: | Roomba® e5 | [TR: e5](https://forum.iobroker.net/topic/7657/irobot-roomba-adapter/158) | v3.4.42 | [Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/6345#rn_PageTitle) | ![TR: #c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported** (![#f03c15](https://placehold.it/15/f03c15/000000?text=+) NO map) |
+| TR: | Roomba® s | [TR: S9+](https://github.com/Zefau/ioBroker.roomba/issues/34) | v3.2.4 | [Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/26887/kw/s9%2B#rn_PageTitle) | ![TR: #c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported (incl. map)** |
+| TR: | Roomba® s | [S9+](https://github.com/Zefau/ioBroker.roomba/issues/34) | v3.2.4 | [Release Notes](https://homesupport.irobot.com/app/answers/detail/a_id/26887/kw/s9%2B#rn_PageTitle) | ![#c5f015](https://placehold.it/15/c5f015/000000?text=+) **supported (incl. map)** |
 
-Bitte helfen Sie uns bezüglich der unterstützten Geräte und lassen Sie mich [über ein Problem wissen](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues), ob Ihr Roomba-Modell unterstützt wird!
+TR: Please help us regarding the supported devices and let me [TR: know via an issue](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues), whether your Roomba model is supported!
 
-## Kanäle & Staaten
-Nach erfolgreicher Einrichtung werden die folgenden Kanäle und Zustände erstellt:
+TR: ## Channels & States
+TR: After sucessful setup the following channels and states will be created:
 
-| Kanal | Ordner | Staat | Beschreibung |
+| TR: | Channel | Folder | State | Description |
 | ------- | ------ | ----- | ----------- |
-| Reinigung | - | - | Befehle und Informationen zum Reinigungsprozess |
-| Reinigung | letzte | - | Letzte an den Roboter gesendete Befehle |
-| Reinigung | letzte | Befehl | Letzter Befehl an Roboter gesendet |
-| Reinigung | letzte | Zeitstempel | Timestamp letzter Befehl wurde gesendet |
-| Reinigung | letzte | datetime | DateTime letzter Befehl wurde gesendet |
-| Reinigung | letzte | Initiator | Initiator des letzten Befehls |
-| Reinigung | letzte | Zyklus | Zyklus |
-| Reinigung | letzte | Phase | Phase |
-| Reinigung | letzte | Fehler | Zeigt einen Fehler während der letzten Mission an |
-| Reinigung | Zeitplan | - | Zeitplaninformationen |
-| Reinigung | Zeitplan | Zyklus | Fahrplan (Sonntag bis Samstag) |
-| Reinigung | Zeitplan | Stunden | Stunde zum Starten des Zyklus (Sonntag bis Samstag) |
-| Reinigung | Zeitplan | Minuten | Minute zum Starten des Zyklus (Sonntag bis Samstag) |
-| Reinigung | - | Dock | Senden Sie den Roboter an die Dockingstation |
-| Reinigung | - | Pause | Unterbrechen Sie den aktuellen Reinigungsvorgang |
-| Reinigung | - | Lebenslauf | Setzen Sie den aktuellen Reinigungsprozess fort |
-| Reinigung | - | start | Reinigungsvorgang starten |
-| Reinigung | - | stop | Stoppen Sie den aktuellen Reinigungsprozess |
-| Gerät | - | - | Geräteinformationen |
-| Gerät | Netzwerk | - | Netzwerkinformationen |
-| Gerät | Netzwerk | dhcp | Geben Sie an, ob DHCP aktiviert ist |
-| Gerät | Netzwerk | Router | Mac-Adresse des Routers |
-| Gerät | Netzwerk | ip | IP-Adresse |
-| Gerät | Netzwerk | Subnetz | Subnetzadresse |
-| Gerät | Netzwerk | Gateway | Gateway-Adresse |
-| Gerät | Netzwerk | dns1 | Primäre DNS-Adresse |
-| Gerät | Netzwerk | dns2 | Sekundäre DNS-Adresse |
-| Gerät | Präferenzen | - | Einstellungen festlegen |
-| Gerät | Präferenzen | binPause | **UNBEKANNT** |
-| Gerät | Präferenzen | TeppichBoostAuto | Automatisch: Roomba erhöht automatisch seine Vakuumleistung, um Teppiche gründlich zu reinigen. |
-| Gerät | Präferenzen | TeppichBoostHigh | Leistungsmodus: Roomba erhöht immer sein Vakuum, um die Reinigungsleistung auf allen Bodenflächen zu maximieren. |
-| Gerät | Präferenzen | ecoCharge | **UNBEKANNT** |
-| Gerät | Präferenzen | noAutoPasses | Ein Pass: Roomba deckt alle Bereiche mit einem einzigen Reinigungspass ab. |
-| Gerät | Präferenzen | noPP | **UNBEKANNT** |
-| Gerät | Präferenzen | openOnly | **UNBEKANNT** |
-| Gerät | Präferenzen | schedHold | **UNBEKANNT** |
-| Gerät | Präferenzen | twoPass | Roomba wird ein zweites Mal alle Bereiche abdecken. Dies kann in Häusern mit Haustieren oder bei gelegentlichen Tiefenreinigungen hilfreich sein. |
-| Gerät | versionen | - | Versionsinformationen |
-| Gerät | versionen | hardwareRev | Hardware-Revision |
-| Gerät | versionen | Batterietyp | Batterietyp |
-| Gerät | versionen | soundVer | **UNBEKANNT** |
-| Gerät | versionen | uiSwVer | **UNBEKANNT** |
-| Gerät | versionen | navSwVer | **UNBEKANNT** |
-| Gerät | versionen | wifiSwVer | **UNBEKANNT** |
-| Gerät | versionen | MobilitätVer | **UNBEKANNT** |
-| Gerät | versionen | bootloaderVer | Bootloader Version |
-| Gerät | versionen | umiVer | **UNBEKANNT** |
-| Gerät | versionen | softwareVer | Softwareversion |
-| Gerät | - | \ _rawData | Rohe Präferenzdaten als json |
-| Gerät | - | mac | Mac-Adresse des Roboters |
-| Gerät | - | Name | Name des Roboters |
-| Gerät | - | Typ | Robotertyp |
-| Staaten | - | - | Statusinformationen |
-| Staaten | - | \ _connected | Verbindungsstatus |
-| Staaten | - | Batterie | Batteriestand des Roboters |
-| Staaten | - | binFull | Geben Sie an, ob der Bin-Status voll ist |
-| Staaten | - | binInserted | Geben Sie an, ob bin eingefügt ist |
-| Staaten | - | angedockt | Geben Sie an, ob der Roboter angedockt ist |
-| Staaten | - | Signal | Signalstärke |
-| Staaten | - | Status | Aktueller Status des Roboters |
-| Statistik | - | - | Statistische Informationen |
-| Statistik | Missionen | - | Missionsstatistik |
-| Statistik | Missionen | fehlgeschlagen | Anzahl fehlgeschlagener Reinigungsjobs |
-| Statistik | Missionen | erfolgreich sein | Anzahl erfolgreicher Reinigungsarbeiten |
-| Statistik | Missionen | gesamt | Anzahl der Reinigungsarbeiten |
-| Statistik | Zeit | - | Zeitstatistik |
-| Statistik | Zeit | avgMin | **UNBEKANNT** |
-| Statistik | Zeit | hOnDock | **UNBEKANNT** |
-| Statistik | Zeit | nVerfügbar | **UNBEKANNT** |
-| Statistik | Zeit | estCap | **UNBEKANNT** |
-| Statistik | Zeit | nLithChrg | **UNBEKANNT** |
-| Statistik | Zeit | nNimhChrg | **UNBEKANNT** |
-| Statistik | Zeit | nDocks | **UNBEKANNT** |
-| - | - | refreshedDateTime | DatumZeit der letzten Aktualisierung |
-| - | - | refreshedTimestamp | Zeitstempel des letzten Updates |
+| TR: | cleaning | - | - | Commands and information regarding cleaning process |
+| TR: | cleaning | last | - | Last commands sent to robot |
+| TR: | cleaning | last | command | Last command sent to robot |
+| TR: | cleaning | last | timestamp | Timestamp last command was sent |
+| TR: | cleaning | last | datetime | DateTime last command was sent |
+| TR: | cleaning | last | initiator | Initiator of last command |
+| TR: | cleaning | last | cycle | Cycle |
+| TR: | cleaning | last | phase | Phase |
+| TR: | cleaning | last | error | Indicates an error during last mission |
+| TR: | cleaning | schedule | - | Schedule information |
+| TR: | cleaning | schedule | cycle | Schedule cycle (Sunday to Saturday) |
+| TR: | cleaning | schedule | hours | Hour to start cycle (Sunday to Saturday) |
+| TR: | cleaning | schedule | minutes | Minute to start cycle (Sunday to Saturday) |
+| TR: | cleaning | - | dock | Send the robot to the docking station |
+| TR: | cleaning | - | pause | Pause the current cleaning process |
+| TR: | cleaning | - | resume | Resume the current cleaning process |
+| TR: | cleaning | - | start | Start a cleaning process |
+| TR: | cleaning | - | stop | Stop the current cleaning process |
+| TR: | device | - | - | Device information |
+| TR: | device | network | - | Network information |
+| TR: | device | network | dhcp | State whether DHCP is activated |
+| TR: | device | network | router | Mac address of router |
+| TR: | device | network | ip | IP address |
+| TR: | device | network | subnet | Subnet adress |
+| TR: | device | network | gateway | Gateway address |
+| TR: | device | network | dns1 | Primary DNS address |
+| TR: | device | network | dns2 | Secondary DNS address |
+| TR: | device | preferences | - | Set preferences |
+| TR: | device | preferences | binPause | **UNKNOWN** |
+| TR: | device | preferences | carpetBoostAuto | Automatic: Roomba will automatically boost its vacuum power to deep clean carpets. |
+| TR: | device | preferences | carpetBoostHigh |Performance Mode: Roomba will always boost its vacuum to maximise cleaning performance on all floor surfaces. |
+| TR: | device | preferences | ecoCharge | **UNKNOWN** |
+| TR: | device | preferences | noAutoPasses | One Pass: Roomba will cover all areas with a single cleaning pass. |
+| TR: | device | preferences | noPP | **UNKNOWN** |
+| TR: | device | preferences | openOnly | **UNKNOWN** |
+| TR: | device | preferences | schedHold | **UNKNOWN** |
+| TR: | device | preferences | twoPass | Roomba will cover all areas a second time. This may be helpful in homes with pets or for occasional deep cleaning. |
+| TR: | device | versions | - | Version information |
+| TR: | device | versions | hardwareRev | Hardware Revision |
+| TR: | device | versions | batteryType | Battery Type |
+| TR: | device | versions | soundVer | **UNKNOWN** |
+| TR: | device | versions | uiSwVer | **UNKNOWN** |
+| TR: | device | versions | navSwVer | **UNKNOWN** |
+| TR: | device | versions | wifiSwVer | **UNKNOWN** |
+| TR: | device | versions | mobilityVer | **UNKNOWN** |
+| TR: | device | versions | bootloaderVer | Bootloader Version |
+| TR: | device | versions | umiVer | **UNKNOWN** |
+| TR: | device | versions | softwareVer | Software Version |
+| TR: | device | - | \_rawData | Raw preferences data as json |
+| TR: | device | - | mac | Mac address of the robot |
+| TR: | device | - | name | Name of the robot |
+| TR: | device | - | type | Type of the robot |
+| TR: | states | - | - | Status information |
+| TR: | states | - | \_connected | Connection state |
+| TR: | states | - | battery | Battery level of the robot |
+| TR: | states | - | binFull | State whether bin status is full |
+| TR: | states | - | binInserted | State whether bin is inserted |
+| TR: | states | - | docked | State whether robot is docked |
+| TR: | states | - | signal | Signal strength |
+| TR: | states | - | status | Current status of the robot |
+| TR: | statistics | - | - | Statistic Information |
+| TR: | statistics | missions | - | Mission Statistics |
+| TR: | statistics | missions | failed | Number of failed cleaning jobs |
+| TR: | statistics | missions | succeed | Number of successful cleaning jobs |
+| TR: | statistics | missions | total | Number of cleaning jobs |
+| TR: | statistics | time | - | Time Statistics |
+| TR: | statistics | time | avgMin | **UNKNOWN** |
+| TR: | statistics | time | hOnDock | **UNKNOWN** |
+| TR: | statistics | time | nAvail | **UNKNOWN** |
+| TR: | statistics | time | estCap | **UNKNOWN** |
+| TR: | statistics | time | nLithChrg | **UNKNOWN** |
+| TR: | statistics | time | nNimhChrg | **UNKNOWN** |
+| TR: | statistics | time | nDocks | **UNKNOWN** |
+| TR: | - | - | refreshedDateTime | DateTime of last update |
+| TR: | - | - | refreshedTimestamp | Timestamp of last update |
 
-## Beschreibung der Einstellungen _ (unvollständig) _
-Die folgenden Nutzdaten werden beim Aufrufen von ```getPreferences()``` empfangen (siehe https://github.com/koalazak/dorita980#getpreferences):
+TR: ## Description of Preferences _(incomplete)_
+TR: The following payload will be received when calling ```getPreferences()``` (see https://github.com/koalazak/dorita980#getpreferences):
 
-| Objekt | Index | Geben Sie | ein Beschreibung | ioBroker State |
+| TR: | Object | Index | Type | Description | ioBroker State |
 | ------ | ----- | ---- | ----------- | -------------- |
-| netinfo | - | Objekt | Netzwerkinformationen der Roomba-Verbindung | - |
-| netinfo | .dhcp | boolean | Geben Sie an, ob DHCP aktiviert ist device.network.dhcp |
-| netinfo | .addr | ip | IP-Adresse | device.network.ip |
-| netinfo | .mask | ip | Subnetzadresse | device.network.subnet |
-| netinfo | .gw | ip | Gateway-Adresse | device.network.gateway |
-| netinfo | .dns1 | ip | Primäre DNS-Adresse | device.network.dns1 |
-| netinfo | .dns2 | ip | Sekundäre DNS-Adresse | device.network.dns2 |
-| netinfo | .bssid | mac | Mac-Adresse des Routers | device.network.router |
-| netinfo | .sec | Ganzzahl | Unbekannt | _ (nicht zugeordnet) _ |
-| wifistat | - | Objekt | Unbekannt | - |
-| wifistat | .wifi | Ganzzahl | Unbekannt | _ (nicht zugeordnet) _ |
-| wifistat | .uap | boolean | Unbekannt | _ (nicht zugeordnet) _ |
-| wifistat | .cloud | Ganzzahl | Unbekannt | _ (nicht zugeordnet) _ |
-| wlcfg | - | Objekt | Unbekannt | - |
-| wlcfg | .sec | Ganzzahl | Unbekannt | _ (nicht zugeordnet) _ |
-| wlcfg | .ssid | Zeichenfolge | Unbekannt | _ (nicht zugeordnet) _ |
-| mac | - | mac | Mac-Adresse von Roomba | - |
-| Land | - | Zeichenfolge | Unbekannt | - |
-| cloudEnv | - | Zeichenfolge | Unbekannt | - |
-| svcEndpoints | .svcDeplId | Zeichenfolge | Unbekannt | - |
-| mapUploadAllowed | - | boolean | Unbekannt | - |
-| localtimeoffset | - | Ganzzahl | Unbekannt | - |
+| TR: | netinfo | - | object | Network Information of the Roomba connection | - |
+| TR: | netinfo | .dhcp | boolean | State whether DHCP is activated | device.network.dhcp |
+| TR: | netinfo | .addr | ip | IP address | device.network.ip |
+| TR: | netinfo | .mask | ip | Subnet adress | device.network.subnet |
+| TR: | netinfo | .gw | ip | Gateway address | device.network.gateway |
+| TR: | netinfo | .dns1 | ip | Primary DNS address | device.network.dns1 |
+| TR: | netinfo | .dns2 | ip | Secondary DNS address | device.network.dns2 |
+| TR: | netinfo | .bssid | mac | Mac address of router | device.network.router |
+| TR: | netinfo | .sec | integer | Unknown | _(not mapped)_ |
+| TR: | wifistat | - | object | Unknown | - |
+| TR: | wifistat | .wifi | integer | Unknown | _(not mapped)_ |
+| TR: | wifistat | .uap | boolean | Unknown | _(not mapped)_ |
+| TR: | wifistat | .cloud | integer | Unknown | _(not mapped)_ |
+| TR: | wlcfg | - | object | Unknown | - |
+| TR: | wlcfg | .sec | integer | Unknown | _(not mapped)_ |
+| TR: | wlcfg | .ssid | string | Unknown | _(not mapped)_ |
+| TR: | mac | - | mac | Mac address of Roomba | - |
+| TR: | country | - | string | Unknown | - |
+| TR: | cloudEnv | - | string | Unknown | - |
+| TR: | svcEndpoints | .svcDeplId | string | Unknown | - |
+| TR: | mapUploadAllowed | - | boolean | Unknown | - |
+| TR: | localtimeoffset | - | integer | Unknown | - |
 | ... | - | ... | ... | - |
 
-Bitte helfen Sie uns bei der Beschreibung der Einstellungen. Wenn Sie die Bedeutung der in der Tabelle als unbekannt angegebenen Einstellungen kennen, lassen Sie mich [kennen ihre Bedeutung über ein Problem](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues)!
+TR: Please help us regarding the description of the preferences. If you know the meaning of preferences stated as unknown in the table, let me [TR: know their meaning via an issue](https://github.com/iobroker-community-adapters/ioBroker.roomba/issues)!
 
-## Smart Home / Alexa-Integration mit ioBroker.javascript
-### Karte per Telegramm senden, wenn die Mission beendet ist
-Dazu muss der ioBroker-Adapter ioBroker.telegram installiert sein (https://github.com/ioBroker/ioBroker.telegram).
+TR: ## Smart Home / Alexa integration using ioBroker.javascript
+TR: ### Send Map via Telegram when mission is finished
+TR: This requires the ioBroker adapter ioBroker.telegram to be installed (https://github.com/ioBroker/ioBroker.telegram).
 
-Erstellen Sie ein Skript im Ordner "common" von ioBroker.javascript und fügen Sie den folgenden Listener hinzu:
+TR: Create a script in the "common" folder of ioBroker.javascript and add the following listener to it:
 
 ```javascript
 var _fs = require('fs');
@@ -303,18 +304,22 @@ on({id: ns + '.missions.current.ended', change: 'any'}, function(obj)
 });
 ```
 
-_2019-05-04 Fehler behoben, der das Senden der Karte verhinderte_
+TR: _2019-05-04 fixed error that prevented sending the map_
 
-Sie können die Variable ```message``` für jede Benachrichtigung bearbeiten, die Sie mit der Karte erhalten möchten. Sie können ```%name-of-state%``` verwenden, um den Wert eines Status innerhalb des ioBroker.roomba-Objektbaums abzurufen.
+TR: You may edit the variable ```message``` to any notification you would like to receive with the map. You may use ```%name-of-state%``` to retrieve the value of a state within the ioBroker.roomba object tree.
 
-## Credits
-### Inoffizielle API
-Dank [@koalazak] (https://github.com/koalazak) für die [inoffizielle iRobot Roomba 980 node.js-Bibliothek (SDK)](https://github.com/koalazak/dorita980#readme).
+TR: ## Credits
+TR: ### unofficial API
+TR: Thanks to [TR: @koalazak](https://github.com/koalazak) for the [unofficial iRobot Roomba 980 node.js library (SDK)](https://github.com/koalazak/dorita980#readme).
 
-### Symbole
-Von <a href="https://www.flaticon.com/authors/iconnice" title="Iconnice">Iconnice</a> von <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> <a href="https://www.flaticon.com/authors/iconnice" title="Iconnice">erstellte</a> <a href="https://www.flaticon.com/" title="Flaticon">Symbole werden</a> von <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a> lizenziert </div>
+TR: ### Icons
+TR: Icons made by <a href="https://www.flaticon.com/authors/iconnice" title="Iconnice">Iconnice</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
 ## Changelog
+
+### ___WORK IN PROGRESS__
+* (Apollon77) Adjust some types to prevent js-controller 3.3 warnings
+* (thost96) fix hanging state loading in frontend
 
 ### 1.1.1 (2020-02-16)
 - (Zefau) moved development to Community Repository

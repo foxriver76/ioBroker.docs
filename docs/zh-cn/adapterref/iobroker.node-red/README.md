@@ -2,34 +2,66 @@
 translatedFrom: en
 translatedWarning: 如果您想编辑此文档，请删除“translatedFrom”字段，否则此文档将再次自动翻译
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/zh-cn/adapterref/iobroker.node-red/README.md
-title: ioBroker节点红色适配器
-hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
+title: TR: ioBroker node-red Adapter
+hash: AgNQnwTJCNBC0dL0nEBTbA7tSwart/TPIlH6540t8Oc=
 ---
-![商标](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
+![TR: Logo](../../../en/adapterref/iobroker.node-red/admin/node-red.png)
 
-![安装数量](http://iobroker.live/badges/node-red-stable.svg)
-![NPM版本](http://img.shields.io/npm/v/iobroker.node-red.svg)
-![资料下载](https://img.shields.io/npm/dm/iobroker.node-red.svg)
-![测验](https://travis-ci.org/ioBroker/ioBroker.node-red.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.node-red.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/node-red-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.node-red.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.node-red.svg)
 
-＃ioBroker节点红色适配器
-启动节点红色实例并与其进行通信。
+TR: # ioBroker node-red Adapter
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.node-red/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/node-red/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-该适配器使用https://github.com/node-red/node-red中的node-red服务器
+TR: Starts node-red instance and communicates with it.
 
-**注意：**如果在ioBroker节点的“选择ID”对话框中找不到某些变量，请重新启动node-red实例。通过重新启动，将创建新的对象列表。
+TR: This adapter uses the node-red server from https://github.com/node-red/node-red
 
-**升级至1.17.2：**如果您已使用Node-Red身份验证：请在升级后再次在ioBroker的Node-Red实例设置中设置密码！否则，升级后您将无法再登录Node-Red。
+TR: **Note:** If in select ID dialog of the ioBroker node you cannot find some variable, restart node-red instance. By restarting the new list of objects will be created.
 
-##设置
--安全模式-流程将不会启动，您可以编辑流程以解决某些过载问题。
+TR: **Upgrade to 1.17.2:** If you already used Node-Red authentication: Please set your password in the Node-Red instance settings in ioBroker again after the upgrade! Otherwise you cannot login to Node-Red any longer after the upgrade.
 
-<！-下一个版本的占位符（在该行的开头）：
+TR: ## Settings
+TR: - Safe mode - Flows will not be started and you can edit the flows to fix some overload problem.
 
-### __进展中__->
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+
+### 2.4.0 (2021-07-16)
+* (Apollon77) update to node-red 1.3.5
+* (Apollon77) Optimize for js-controller 3.3
+* (Apollon77) Add option to override the default ack flag in the message for OutNode
+
+### 2.3.0 (2021-04-17)
+* (Apollon77) BREAKING update from node-red-contrib-aggregator: topic is NOT converted to lowercase anymore!
+* (Apollon77) update to node-red 1.3.2
+* (Apollon77) Add done calls to OutNode
+
+### 2.2.0 (2021-03-07)
+* (Apollon77/mickym2) Correct readonly flags. IMPORTANT: Notw Readonly works as it should be. If you worked around the issue before please adjust your nodes!
+* (Apollon77) Fix using wildcards inside the id
+* (Apollon77) Update value on out node trigger 
+* (Apollon77) Update to node-red 1.2.9
+* (Apollon77) Add triggering in Nodes when delayed initialization on start
+* (Apollon77) Fix list node to support all object types
+
+### 2.1.0 (2021-02-04)
+* (Apollon77) Try to fix the MaxSubscribes error when having many nodes
+* (Apollon77) Update to node-red 1.2.8
+
+### 2.0.4 (2021-01-20)
+* (withstu) Fixed node-red modules installation
+
+### 2.0.3 (2020-12-27)
+* (Apollon77) make sure empty state values do not crash list node
+
+### 2.0.2 (2020-12-07)
+* (jwiesel) Updated settings.js, node-red and dependencies to latest version.
+
 ### 2.0.1 (2020-08-08)
 * (jwiesel) Updated settings.js, node-red and dependencies to latest version.
 
@@ -253,7 +285,7 @@ hash: x/QTu0owyv92klKSi7Cn7RXGk5HnDi5EUbAB8ZYEVKE=
 
 ## License
 
-Copyright 2014-2020 bluefox <dogafox@gmail.com>.
+Copyright 2014-2021 bluefox <dogafox@gmail.com>.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

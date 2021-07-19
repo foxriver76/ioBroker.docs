@@ -2,116 +2,131 @@
 translatedFrom: en
 translatedWarning: Если вы хотите отредактировать этот документ, удалите поле «translationFrom», в противном случае этот документ будет снова автоматически переведен
 editLink: https://github.com/ioBroker/ioBroker.docs/edit/master/docs/ru/adapterref/iobroker.sonoff/README.md
-title: ioBroker Sonoff
-hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
+title: TR: ioBroker Sonoff
+hash: VDlcSKuA7whtiJQgKK9PL2zdKYwGkNcFtmHhOcwoe9c=
 ---
-![Логотип](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
+![TR: Logo](../../../en/adapterref/iobroker.sonoff/admin/sonoff.png)
 
-![Количество установок](http://iobroker.live/badges/sonoff-stable.svg)
-![Версия NPM](http://img.shields.io/npm/v/iobroker.sonoff.svg)
-![Загрузки](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
-![Тесты](https://travis-ci.org/ioBroker/ioBroker.sonoff.svg?branch=master)
-![NPM](https://nodei.co/npm/iobroker.sonoff.png?downloads=true)
+![TR: Number of Installations](http://iobroker.live/badges/sonoff-stable.svg)
+![TR: NPM version](http://img.shields.io/npm/v/iobroker.sonoff.svg)
+![TR: Downloads](https://img.shields.io/npm/dm/iobroker.sonoff.svg)
 
-# IoBroker Sonoff
-## Применение
-Этот адаптер связывается с устройствами Sonoff с прошивкой Tasmota или устройствами ESP через MQTT.
+TR: # ioBroker Sonoff
+TR: ![TR: Test and Release](https://github.com/ioBroker/ioBroker.sonoff/workflows/Test%20and%20Release/badge.svg) [![TR: Translation status](https://weblate.iobroker.net/widgets/adapters/-/sonoff/svg-badge.svg)](https://weblate.iobroker.net/engage/adapters/?utm_source=widget)
 
-Ожидаются следующие темы:
+TR: **This adapter uses Sentry libraries to automatically report exceptions and code errors to the developers.** For more details and for information how to disable the error reporting see [TR: Sentry-Plugin Documentation](https://github.com/ioBroker/plugin-sentry#plugin-sentry)! Sentry reporting is used starting with js-controller 3.0.
 
-- `tele / DeviceNAME / STATE`
-- `теле / ИМЯ устройства / ДАТЧИК`
-- `tele / DeviceNAME / INFOx`
-- `tele / DeviceNAME / ENERGY`
-- `cmnd / DeviceNAME / POWERx`
-- `stat / DeviceNAME / POWERx`
-- `/ ИМЯ устройства / BM280 / Температура`
-- `/ ИМЯ устройства / BM280 / Влажность`
-- `/ DeviceNAME / BM280 / Temperatur`
-- `/ DeviceNAME / BM280 / Feuchtigkeit`
-- `/ ИМЯ устройства / BM280 / Vcc`
-- `/ ИМЯ устройства / BM280 / VCC`
-- `/ ИМЯ устройства / BM280 / Laufzeit`
-- `/ ИМЯ устройства / BM280 / RSSI`
-- `/ ИМЯ устройства / BM280 / ПИТАНИЕ`
-- `/ ИМЯ устройства / BM280 / POWER1`
-- `/ ИМЯ устройства / BM280 / POWER2`
-- `/ ИМЯ устройства / BM280 / POWER3`
-- `/ ИМЯ устройства / BM280 / POWER4`
-- `/ DeviceNAME / BM280 / Switch1`
-- `/ ИМЯ устройства / BM280 / Switch2`
-- `/ ИМЯ устройства / BM280 / Всего`
-- `/ ИМЯ устройства / BM280 / Сегодня`
-- `/ ИМЯ устройства / BM280 / heute`
-- `/ DeviceNAME / BM280 / Yesterday`
-- `/ DeviceNAME / BM280 / gestern`
-- `/ DeviceNAME / BM280 / Faktor`
-- `/ DeviceNAME / BM280 / Factor`
-- `/ DeviceNAME / BM280 / Power`
-- `/ DeviceNAME / BM280 / Leistung`
-- `/ DeviceNAME / BM280 / Voltage`
-- `/ ИМЯ устройства / BM280 / Spannung`
-- `/ DeviceNAME / BM280 / Current`
-- `/ DeviceNAME / BM280 / Strom`
-- `/ DeviceNAME / BM280 / Punkt`
-- `/ DeviceNAME / BM280 / Counter1`
-- `/ DeviceNAME / BM280 / Counter2`
-- `/ DeviceNAME / BM280 / Counter3`
-- `/ DeviceNAME / BM280 / Counter4`
-- `/ ИМЯ устройства / BM280 / Давление`
-- `/ DeviceNAME / BM280 / SeaPressure`
-- `/ DeviceNAME / BM280 / Druck`
-- `/ ИМЯ устройства / BM280 / Прибл. Высота`
-- `/ DeviceNAME / BM280 / Module`
-- `/ ИМЯ устройства / BM280 / Версия`
-- `/ ИМЯ устройства / BM280 / Имя хоста`
-- `/ ИМЯ устройства / BM280 / IP-адрес`
-- `/ DeviceNAME / BM280 / IPaddress`
-- `/ ИМЯ устройства / BM280 / RestartReason`
-- `/ DeviceNAME / BM280 / CarbonDioxide`
-- `/ DeviceNAME / DHT11 / Illuminance`
-- `/ ИМЯ устройства / SonoffSC / Light`
-- `/ DeviceNAME / SonoffSC / Noise`
-- `/ ИМЯ устройства / SonoffSC / AirQuality`
-- `/ ИМЯ устройства / SDS0X1 / PM2.5`
-- `/ ИМЯ устройства / SDS0X1 / PM10`
-- `/ ИМЯ устройства / SDS0X1 / UvLevel`
-- `/ DeviceNAME / SDS0X1 / Latitude`
-- `/ ИМЯ устройства / SDS0X1 / Долгота`
-- `/ DeviceNAME / SR04 / Distance`
+TR: ## Usage
+TR: This adapter communicates with Sonoff devices with Tasmota firmware or ESP devices via MQTT.
 
-** Примечание **: список можно легко расширить. Отправьте разработчику `Pull Requests` или *данные отладки* для неизвестных состояний (через проблему).
+TR: Following topics are expected:
 
-## Автоматическое создание объектов
-В веб-конфигурации вы можете определить, какие телеграммы MQTT создают новые объекты не в точках данных по умолчанию.
+TR: - `tele/DeviceNAME/STATE`
+TR: - `tele/DeviceNAME/SENSOR`
+TR: - `tele/DeviceNAME/INFOx`
+TR: - `tele/DeviceNAME/ENERGY`
+TR: - `cmnd/DeviceNAME/POWERx`
+TR: - `stat/DeviceNAME/POWERx`
+TR: - `/DeviceNAME/BM280/Temperature`
+TR: - `/DeviceNAME/BM280/Humidity`
+TR: - `/DeviceNAME/BM280/Temperatur`
+TR: - `/DeviceNAME/BM280/Feuchtigkeit`
+TR: - `/DeviceNAME/BM280/Vcc`
+TR: - `/DeviceNAME/BM280/VCC`
+TR: - `/DeviceNAME/BM280/Laufzeit`
+TR: - `/DeviceNAME/BM280/RSSI`
+TR: - `/DeviceNAME/BM280/POWER`
+TR: - `/DeviceNAME/BM280/POWER1`
+TR: - `/DeviceNAME/BM280/POWER2`
+TR: - `/DeviceNAME/BM280/POWER3`
+TR: - `/DeviceNAME/BM280/POWER4`
+TR: - `/DeviceNAME/BM280/Switch1`
+TR: - `/DeviceNAME/BM280/Switch2`
+TR: - `/DeviceNAME/BM280/Total`
+TR: - `/DeviceNAME/BM280/Today`
+TR: - `/DeviceNAME/BM280/heute`
+TR: - `/DeviceNAME/BM280/Yesterday`
+TR: - `/DeviceNAME/BM280/gestern`
+TR: - `/DeviceNAME/BM280/Faktor`
+TR: - `/DeviceNAME/BM280/Factor`
+TR: - `/DeviceNAME/BM280/Power`
+TR: - `/DeviceNAME/BM280/Leistung`
+TR: - `/DeviceNAME/BM280/Voltage`
+TR: - `/DeviceNAME/BM280/Spannung`
+TR: - `/DeviceNAME/BM280/Current`
+TR: - `/DeviceNAME/BM280/Strom`
+TR: - `/DeviceNAME/BM280/Punkt`
+TR: - `/DeviceNAME/BM280/Counter1`
+TR: - `/DeviceNAME/BM280/Counter2`
+TR: - `/DeviceNAME/BM280/Counter3`
+TR: - `/DeviceNAME/BM280/Counter4`
+TR: - `/DeviceNAME/BM280/Pressure`
+TR: - `/DeviceNAME/BM280/SeaPressure`
+TR: - `/DeviceNAME/BM280/Druck`
+TR: - `/DeviceNAME/BM280/Approx. Altitude`
+TR: - `/DeviceNAME/BM280/Module`
+TR: - `/DeviceNAME/BM280/Version`
+TR: - `/DeviceNAME/BM280/Hostname`
+TR: - `/DeviceNAME/BM280/IPAddress`
+TR: - `/DeviceNAME/BM280/IPaddress`
+TR: - `/DeviceNAME/BM280/RestartReason`
+TR: - `/DeviceNAME/BM280/CarbonDioxide`
+TR: - `/DeviceNAME/DHT11/Illuminance`
+TR: - `/DeviceNAME/SonoffSC/Light`
+TR: - `/DeviceNAME/SonoffSC/Noise`
+TR: - `/DeviceNAME/SonoffSC/AirQuality`
+TR: - `/DeviceNAME/SDS0X1/PM2.5`
+TR: - `/DeviceNAME/SDS0X1/PM10`
+TR: - `/DeviceNAME/SDS0X1/UvLevel`
+TR: - `/DeviceNAME/SDS0X1/Latitude`
+TR: - `/DeviceNAME/SDS0X1/Longitude`
+TR: - `/DeviceNAME/SR04/Distance`
 
-* TELE_SENSOR создает объекты из телеграмм tele / xxx / SENSOR
-* TELE_STATE создает объекты из телеграмм tele / xxx / STATE
-* STAT_RESULT создает объекты из телеграмм stat / xxx / RESULT
+TR: **Note**: The list could be easily extended. Please send `Pull Requests` or *debug data* for unknown states to developer (via issue).
 
-Обычно для большинства пользователей достаточно TELE_SENSOR.
+TR: ## Auto-creation of objects
+TR: In the web config you can determine which MQTT telegrams create the new objects not in default data points:
 
-* `Create object tree` создает объекты как древовидную структуру
+TR: * `TELE_SENSOR` - creates objects from `tele/xxx/SENSOR` telegrams
+TR: * `TELE_STATE` - creates objects from `tele/xxx/STATE` telegrams
+TR: * `STAT_RESULT` - creates objects from `stat/xxx/RESULT` telegrams
 
-** Предупреждение! ** Эта опция испортит ваше дерево объектов sonoff! Приходится переделывать все настройки для хранения ...
-Сохраните структуру объекта как файл JSON, чтобы вы могли воссоздать свою старую структуру.
-Лучше всего остановить адаптер, удалить все объекты в sonoff и снова запустить адаптер.
+TR: Usually TELE_SENSOR should be sufficient for most users.
 
-## Флаги для светодиодных контроллеров
-Состояния режима будут созданы только в том случае, если устройство находится в одном из состояний:
+TR: * `Create object tree` creates objects as tree structure
 
-- Red, Green, Blue, WW, CW, Color, RGB_POWER, WW_POWER, CW_POWER, Hue, Насыщенность.
+TR: **Warning!** This option will mess up your sonoff object tree! You have to redo all the settings for storage...
+Store the object structure as JSON file, so you can recreate your old structure.
+Best is to stop the adapter, delete all objects under sonoff and start the adapter again.
 
-Состояния:
+TR: ## Flags for LED controllers
+TR: The mode states will be created only if device has one of the states:
 
-* `modeLedExor` - exor для белых светодиодов и цветных светодиодов => если белые светодиоды включены, цветные светодиоды выключены и наоборот (по умолчанию true)
-* `modeReadColors` - разрешить чтение цвета из MQTT (по умолчанию false)
+TR: - `Red`, `Green`, `Blue`, `WW`, `CW`, `Color`, `RGB_POWER`, `WW_POWER`, `CW_POWER`, `Hue`, `Saturation`
+
+TR: States:
+
+TR: * `modeLedExor` - exor for white LEDs and color LEDs => if the white LEDs are switched on, color LEDs are switched off and vice versa (default true)
+TR: * `modeReadColors` - allow for color read from MQTT (default false)
+
+TR: <!-- Placeholder for the next version (at the beginning of the line):
+
+TR: ### __WORK IN PROGRESS__ -->
 
 ## Changelog
+### 2.4.3 (2021-07-18)
+* (bluefox) Better type detection for non-described states
 
-### __WORK IN PRGRESS__
-* (anwa) add several datapoints
-* (anwa) Fix tranlation for 'ignorePings'
+### 2.4.2 (2021-07-17)
+* (bluefox) Optimize for js-controller 3.3
+
+### 2.4.1 (2021-07-17)
+* (Apollon77/bluefox) Optimize for js-controller 3.3
+* (Apollon77) Add Sentry for error reporting with js-controller 3.x+
+
+### 2.4.0 (2021-02-04)
+* (anwa) add several data points
+* (anwa) Fix translation for 'ignorePings'
 * (anwa) Fix wrong unit for humidity
 * (anwa) Config option to create a complete object tree instead of a flat structure
 * (anwa) Change Action type to string
@@ -130,7 +145,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 * (bluefox) Correct processing of `{temp: nan}`
 
 ### 2.2.3 (2019-01-10)
-* (simatec) Support for comapct mode
+* (simatec) Support for compact mode
 
 ### 2.2.2 (2018-06-22)
 * (bluefox) Configuration was fixed
@@ -139,7 +154,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 * (bluefox) '-' in names was allowed again
 
 ### 2.2.0 (2018-05-22)
-* (gemu2015) auto generate objects, support for arrays (channel), ledcontrollers improved
+* (gemu2015) auto generate objects, support for arrays (channel), led-controllers improved
 
 ### 2.1.3 (2018-05-08)
 * (bluefox) Added HC-SR04 Ultrasonic Sensor
@@ -178,7 +193,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 
 ### 1.0.0 (2017-11-27)
 * (AlZiBa) typo @ alive
-* (AlZiBa) add Todays power consumption for Sonoff POW
+* (AlZiBa) add Today's power consumption for Sonoff POW
 * (AlZiBa) unit of power consumption is kWh
 
 ### 0.3.3 (2017-11-03)
@@ -203,7 +218,7 @@ hash: 3sJtUS1rjlgVC9EW6ImdUqJPd9fS0yVC1S2ABMdysCw=
 
 The MIT License (MIT)
 
-Copyright (c) 2017-2019, bluefox <dogafox@gmail.com>
+Copyright (c) 2017-2021, bluefox <dogafox@gmail.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
